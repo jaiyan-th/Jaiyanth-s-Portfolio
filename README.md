@@ -42,22 +42,22 @@
 
 ```mermaid
 graph TD
-    subgraph Client-Side (React App)
-        UI[Glassmorphic UI Elements]
-        CP[Command Palette Ctrl+K]
-        Chat[Interactive Chat Widget]
-        CF[Contact Form Gateway]
+    subgraph ClientSide ["Client-Side (React App)"]
+        UI["Glassmorphic UI Elements"]
+        CP["Command Palette (Ctrl+K)"]
+        Chat["Interactive Chat Widget"]
+        CF["Contact Form Gateway"]
     end
 
-    subgraph Server-Side (Express Backend)
-        ApiChat[/api/chat Endpoint]
-        ApiContact[/api/contact Endpoint]
-        Middleware[Vite Dev Middleware / Static SPA Server]
+    subgraph ServerSide ["Server-Side (Express Backend)"]
+        ApiChat["/api/chat Endpoint"]
+        ApiContact["/api/contact Endpoint"]
+        Middleware["Vite Dev Middleware / Static SPA Server"]
     end
 
-    subgraph External integrations
-        Gemini[Google Gemini 3.5 Flash]
-        Nodemailer[Gmail SMTP Node]
+    subgraph External ["External Integrations"]
+        Gemini["Google Gemini 3.5 Flash"]
+        Nodemailer["Gmail SMTP Node"]
     end
 
     Chat -->|Send Message Payload| ApiChat
