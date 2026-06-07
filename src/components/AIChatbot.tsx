@@ -132,17 +132,19 @@ export const AIChatbot = () => {
         <AnimatePresence>
           {!isOpen && (
             <motion.button
+              drag
+              dragMomentum={false}
               initial={{ scale: 0, rotate: -45 }}
               animate={{ scale: 1, rotate: 0 }}
               exit={{ scale: 0, rotate: 45 }}
               onClick={() => setIsOpen(true)}
-              className="relative w-14 h-14 rounded-full bg-neon-purple text-black flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-105 shadow-[0_0_25px_rgba(188,19,254,0.45)] group overflow-hidden border border-neon-purple/50"
-              title="Launch AI Companion"
+              className="relative w-11 h-11 rounded-full bg-neon-purple text-black flex items-center justify-center cursor-grab active:cursor-grabbing transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(188,19,254,0.4)] group overflow-hidden border border-neon-purple/50 select-none touch-none"
+              title="Launch AI Companion (Draggable)"
             >
-              <div className="absolute inset-0 bg-gradient-to-tr from-neon-cyan to-neon-purple opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <Bot className="w-6 h-6 z-10 text-white font-bold animate-pulse" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-neon-cyan to-neon-purple opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <Bot className="w-5 h-5 z-10 text-white font-bold animate-pulse pointer-events-none" />
               {/* Spinning subtle outer ring */}
-              <div className="absolute inset-1 rounded-full border border-dashed border-white/20 animate-spin-slow group-hover:border-white/55 transition-colors" />
+              <div className="absolute inset-0.5 rounded-full border border-dashed border-white/20 animate-spin-slow group-hover:border-white/55 transition-colors pointer-events-none" />
             </motion.button>
           )}
         </AnimatePresence>

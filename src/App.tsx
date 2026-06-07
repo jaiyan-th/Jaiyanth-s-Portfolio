@@ -191,13 +191,13 @@ export default function App() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
-          className="fixed top-6 right-6 z-[1001] w-11 h-11 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl flex items-center justify-center text-white hover:bg-neon-cyan hover:text-black hover:border-neon-cyan transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.05)] cursor-pointer"
+          className="fixed top-6 right-6 z-[1001] w-9.5 h-9.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl flex items-center justify-center text-white hover:bg-neon-cyan hover:text-black hover:border-neon-cyan transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.05)] cursor-pointer"
           title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
         >
           {theme === 'dark' ? (
-            <Sun className="w-5 h-5" />
+            <Sun className="w-4 h-4" />
           ) : (
-            <Moon className="w-5 h-5" />
+            <Moon className="w-4 h-4" />
           )}
         </motion.button>
 
