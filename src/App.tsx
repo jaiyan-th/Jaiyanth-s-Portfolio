@@ -1,5 +1,5 @@
 import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Hero } from './sections/Hero';
 import { About } from './sections/About';
 import { Skills } from './sections/Skills';
@@ -8,7 +8,7 @@ import { Internship } from './sections/Internship';
 import { Education } from './sections/Education';
 import { Certifications } from './sections/Certifications';
 import { Contact } from './sections/Contact';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Sun, Moon } from 'lucide-react';
 import { AIChatbot } from './components/AIChatbot';
 import { CommandPalette } from './components/CommandPalette';
 
@@ -126,6 +126,27 @@ const Navbar = ({ scrollY }: { scrollY: any }) => {
 export default function App() {
   const { scrollY } = useScroll();
 
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    if (typeof window !== 'undefined') {
+      return (localStorage.getItem('theme') as 'dark' | 'light') || 'dark';
+    }
+    return 'dark';
+  });
+
+  useEffect(() => {
+    const root = window.document.body;
+    if (theme === 'light') {
+      root.classList.add('light');
+    } else {
+      root.classList.remove('light');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  };
+
   const scrollToTopOpacity = useTransform(scrollY, [200, 500], [0, 1]);
   const scrollToTopScale = useTransform(scrollY, [200, 500], [0.8, 1]);
   const pointerEventsProps = useTransform(scrollToTopOpacity, (v) => v > 0.5 ? 'auto' : 'none');
@@ -154,6 +175,22 @@ export default function App() {
         <Education />
         <Certifications />
         <Contact />
+
+        {/* Floating Theme Toggle Button */}
+        <motion.button
+          onClick={toggleTheme}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+          className="fixed top-6 right-6 z-[1001] w-11 h-11 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl flex items-center justify-center text-white hover:bg-neon-cyan hover:text-black hover:border-neon-cyan transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.05)] cursor-pointer"
+          title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
+        >
+          {theme === 'dark' ? (
+            <Sun className="w-5 h-5" />
+          ) : (
+            <Moon className="w-5 h-5" />
+          )}
+        </motion.button>
 
         {/* Advanced Developer & AI Widgets */}
         <AIChatbot />
