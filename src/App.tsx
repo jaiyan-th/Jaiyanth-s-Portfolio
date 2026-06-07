@@ -12,14 +12,17 @@ import { Menu, X, ChevronDown, Sun, Moon } from 'lucide-react';
 import { AIChatbot } from './components/AIChatbot';
 import { CommandPalette } from './components/CommandPalette';
 
-const Navbar = ({ scrollY }: { scrollY: any }) => {
+const Navbar = ({ scrollY, theme }: { scrollY: any; theme: 'dark' | 'light' }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Smooth fluid transitions
   const backgroundColor = useTransform(
     scrollY,
     [0, 100],
-    ['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.9)']
+    [
+      theme === 'light' ? 'rgba(246, 248, 250, 0)' : 'rgba(0, 0, 0, 0)',
+      theme === 'light' ? 'rgba(246, 248, 250, 0.92)' : 'rgba(0, 0, 0, 0.9)'
+    ]
   );
   
   const padding = useTransform(
@@ -37,13 +40,19 @@ const Navbar = ({ scrollY }: { scrollY: any }) => {
   const borderOpacity = useTransform(
     scrollY,
     [0, 100],
-    ['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 0.1)']
+    [
+      theme === 'light' ? 'rgba(0, 0, 0, 0)' : 'rgba(255, 255, 255, 0)',
+      theme === 'light' ? 'rgba(0, 0, 0, 0.08)' : 'rgba(255, 255, 255, 0.1)'
+    ]
   );
 
   const shadowOpacity = useTransform(
     scrollY,
     [0, 100],
-    ['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.5)']
+    [
+      theme === 'light' ? 'rgba(0, 0, 0, 0)' : 'rgba(0, 0, 0, 0)',
+      theme === 'light' ? 'rgba(0, 0, 0, 0.04)' : 'rgba(0, 0, 0, 0.5)'
+    ]
   );
 
   const borderBottom = useTransform(borderOpacity, (v) => `1px solid ${v}`);
@@ -160,7 +169,7 @@ export default function App() {
         transition={{ duration: 1 }}
         className="relative"
       >
-        <Navbar scrollY={scrollY} />
+        <Navbar scrollY={scrollY} theme={theme} />
         
         {/* Background Layers */}
         <div className="mesh-gradient" />
