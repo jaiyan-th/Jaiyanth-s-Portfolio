@@ -1,0 +1,8 @@
+{
+  "name": "Jaiyanth B - AI Portfolio",
+  "description": "A futuristic, immersive AI-themed digital portfolio experience for Jaiyanth B, featuring advanced glassmorphism, interactive storytelling, and high-end animations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
