@@ -77,7 +77,7 @@ export const GlassCard = ({ children, className = "", tilt = true }: GlassCardPr
       {/* Futuristic Grid Substratum */}
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none" 
         style={{ 
-          backgroundImage: `linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(to right, var(--grid-color) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px)`,
           backgroundSize: '24px 24px'
         }} 
       />

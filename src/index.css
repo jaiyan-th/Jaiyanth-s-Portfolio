@@ -39,6 +39,7 @@
   --scrollbar-track: #0a0a0a;
   --scrollbar-thumb: #222;
   --scrollbar-thumb-hover: #333;
+  --grid-color: rgba(255, 255, 255, 0.6);
 }
 
 body.light {
@@ -54,6 +55,7 @@ body.light {
   --mesh-color-1: hsla(210, 20%, 98%, 1);
   --mesh-color-2: hsla(190, 80%, 80%, 0.22);
   --mesh-color-3: hsla(270, 80%, 80%, 0.18);
+  --grid-color: rgba(0, 0, 0, 0.4);
   --spotlight-color: rgba(0, 242, 255, 0.08);
   --nav-bg-start: rgba(246, 248, 250, 0);
   --nav-bg-end: rgba(246, 248, 250, 0.92);
@@ -443,5 +445,15 @@ body.light {
   .font-outline-2 {
     -webkit-text-stroke: 1px rgba(18, 18, 18, 0.25) !important;
   }
+}
+
+/* Name Gradient Styles */
+.name-gradient {
+  background-image: linear-gradient(to right, #00f2ff, #ffffff, #bc13fe);
+}
+
+body.light .name-gradient {
+  background-image: linear-gradient(to right, #008fa0, #121212, #9c00e0) !important;
+  filter: none !important;
 }
 

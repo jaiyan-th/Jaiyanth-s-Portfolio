@@ -43,7 +43,7 @@ export const Hero = () => {
           <div className="space-y-1.5">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none text-white">
               Hi, I'm <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-white to-neon-purple leading-tight inline-block filter drop-shadow-[0_0_15px_rgba(0,242,255,0.1)]">
+              <span className="name-gradient text-transparent bg-clip-text leading-tight inline-block filter drop-shadow-[0_0_15px_rgba(0,242,255,0.1)]">
                 {PORTFOLIO_DATA.name.split(' ')[0]}
               </span>
             </h1>
