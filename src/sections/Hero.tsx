@@ -31,7 +31,7 @@ export const Hero = () => {
         ))}
       </div>
 
-      <div className="max-w-4xl w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center z-10 relative">
+      <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center z-10 relative">
         
         {/* Left Side: Dynamic Intro */}
         <motion.div

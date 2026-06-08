@@ -60,7 +60,7 @@ export const Skills = () => {
       <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[400px] h-[400px] border border-white/[0.02] rounded-full pointer-events-none z-0" />
       <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[600px] h-[600px] border border-white/[0.01] rounded-full pointer-events-none z-0" />
 
-      <div className="max-w-4xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto w-full relative z-10">
         
         {/* Header */}
         <div className="mb-12 space-y-3">

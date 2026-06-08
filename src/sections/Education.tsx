@@ -6,7 +6,7 @@ import { GraduationCap } from 'lucide-react';
 export const Education = () => {
   return (
     <section id="education" className="relative min-h-screen flex flex-col justify-center py-24 px-6 overflow-hidden bg-white/[0.002]">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto w-full">
         <div className="space-y-12">
           
           {/* Header */}

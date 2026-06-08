@@ -6,7 +6,7 @@ import { Award, ExternalLink } from 'lucide-react';
 export const Certifications = () => {
   return (
     <section id="certifications" className="relative min-h-screen flex flex-col justify-center py-24 px-6 bg-white/[0.005]">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto w-full">
         <div className="space-y-12">
           
           {/* Header */}
