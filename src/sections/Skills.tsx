@@ -55,7 +55,7 @@ const SkillCategory = ({ title, skills, delay = 0 }: { title: string, skills: st
 
 export const Skills = () => {
   return (
-    <section id="skills" className="relative min-h-screen flex flex-col justify-center py-24 px-6 overflow-hidden bg-white/[0.005]">
+    <section id="skills" className="relative py-20 md:py-28 px-6 overflow-hidden bg-white/[0.005]">
       {/* Subtle modern circular visual matrix */}
       <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[400px] h-[400px] border border-white/[0.02] rounded-full pointer-events-none z-0" />
       <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[600px] h-[600px] border border-white/[0.01] rounded-full pointer-events-none z-0" />

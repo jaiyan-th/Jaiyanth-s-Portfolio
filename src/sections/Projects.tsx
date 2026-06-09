@@ -26,7 +26,7 @@ export const Projects = () => {
   }, [activeTab, searchQuery]);
 
   return (
-    <section id="projects" className="relative min-h-screen flex flex-col justify-center py-24 px-6 overflow-hidden bg-black/40">
+    <section id="projects" className="relative py-20 md:py-28 px-6 overflow-hidden bg-black/40">
       <div className="max-w-6xl mx-auto space-y-10">
         
         {/* Header content and search / filters bar */}

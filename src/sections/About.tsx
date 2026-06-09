@@ -33,7 +33,7 @@ const Counter = ({ value, suffix }: { value: number, suffix: string }) => {
 
 export const About = () => {
   return (
-    <section id="about" className="relative min-h-screen flex flex-col justify-center py-24 px-6 bg-white/[0.002]">
+    <section id="about" className="relative py-20 md:py-28 px-6 bg-white/[0.002]">
       <div className="max-w-6xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           

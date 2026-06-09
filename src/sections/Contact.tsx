@@ -47,7 +47,7 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative min-h-screen flex flex-col justify-center py-24 px-6 bg-white/[0.001]">
+    <section id="contact" className="relative py-20 md:py-28 px-6 bg-white/[0.001]">
       <div className="max-w-6xl mx-auto w-full">
         
         {/* Header */}
