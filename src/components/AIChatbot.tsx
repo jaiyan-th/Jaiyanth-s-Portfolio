@@ -212,11 +212,11 @@ What specific details or project metrics can I retrieve for you?`;
                 setIsOpen(true);
                 setIsMinimized(false);
               }}
-              className="w-14 h-14 rounded-full bg-neon-purple text-white flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:rotate-6 shadow-[0_0_20px_rgba(188,19,254,0.4)] group overflow-hidden border border-neon-purple/50 select-none"
+              className="w-11 h-11 rounded-full bg-neon-purple text-white flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:rotate-6 shadow-[0_0_20px_rgba(188,19,254,0.4)] group overflow-hidden border border-neon-purple/50 select-none"
               title="Launch AI Companion"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-neon-cyan to-neon-purple opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <MessageCircle className="w-6 h-6 z-10 text-white pointer-events-none" />
+              <MessageCircle className="w-5 h-5 z-10 text-white pointer-events-none" />
             </motion.button>
           )}
         </AnimatePresence>
