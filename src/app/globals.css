@@ -1,0 +1,363 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   JB PORTFOLIO — SIGNAL / SYSTEM / STORY
+   Brand tokens: dark-first editorial palette + light theme
+   ============================================================ */
+
+@theme inline {
+  --color-background: var(--canvas);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+
+  --color-canvas: var(--canvas);
+  --color-elevated: var(--elevated);
+  --color-surface: var(--surface);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-warm: var(--accent-warm);
+
+  --color-card: var(--surface);
+  --color-card-foreground: var(--text-primary);
+  --color-popover: var(--elevated);
+  --color-popover-foreground: var(--text-primary);
+  --color-primary: var(--accent);
+  --color-primary-foreground: var(--canvas);
+  --color-secondary: var(--elevated);
+  --color-secondary-foreground: var(--text-primary);
+  --color-muted: var(--elevated);
+  --color-muted-foreground: var(--text-secondary);
+  --color-accent-foreground: var(--canvas);
+  --color-destructive: var(--accent-warm);
+  --color-destructive-foreground: #ffffff;
+  --color-border: var(--line);
+  --color-input: var(--line);
+  --color-ring: var(--accent);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 22px;
+}
+
+/* DARK THEME — default */
+:root,
+.dark {
+  --canvas: #090b0a;
+  --elevated: #101310;
+  --surface: #171a17;
+  --text-primary: #f3f2ea;
+  --text-secondary: #9c9f98;
+  --line: rgba(243, 242, 234, 0.13);
+  --accent: #b7ff4a;
+  --accent-2: #6f7cff;
+  --accent-warm: #ff8a68;
+
+  --grid-line: rgba(243, 242, 234, 0.04);
+  --node-glow: rgba(183, 255, 74, 0.16);
+  --halo: rgba(111, 124, 255, 0.18);
+
+  color-scheme: dark;
+}
+
+/* LIGHT THEME */
+.light {
+  --canvas: #f1efe8;
+  --elevated: #f9f8f3;
+  --surface: #e5e2d8;
+  --text-primary: #10110f;
+  --text-secondary: #63655f;
+  --line: rgba(16, 17, 15, 0.14);
+  --accent: #92d92f;
+  --accent-2: #4d62e8;
+  --accent-warm: #d8654a;
+
+  --grid-line: rgba(16, 17, 15, 0.05);
+  --node-glow: rgba(146, 217, 47, 0.18);
+  --halo: rgba(77, 98, 232, 0.14);
+
+  color-scheme: light;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--canvas);
+    color: var(--text-primary);
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+    overflow-x: hidden;
+    transition: background-color 600ms cubic-bezier(0.16, 1, 0.3, 1),
+      color 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--canvas);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Hide default cursor on fine-pointer devices where custom cursor is active */
+  @media (pointer: fine) {
+    body.cursor-ready,
+    body.cursor-ready * {
+      cursor: none !important;
+    }
+  }
+}
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================ */
+@layer utilities {
+  .font-display {
+    font-family: var(--font-sans), system-ui, sans-serif;
+    letter-spacing: -0.035em;
+    line-height: 0.92;
+  }
+  .font-serif-editorial {
+    font-family: var(--font-serif), Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+  .font-mono-label {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .text-hero {
+    font-size: clamp(64px, 9vw, 138px);
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+  }
+  .text-hero-mobile {
+    font-size: clamp(52px, 17vw, 88px);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+  .text-section {
+    font-size: clamp(44px, 5.5vw, 80px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+  .text-project {
+    font-size: clamp(34px, 4vw, 58px);
+    line-height: 1;
+    letter-spacing: -0.035em;
+  }
+  .text-statement {
+    font-size: clamp(28px, 3.8vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+  .text-body {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Mask reveal — used by motion word/line reveals */
+  .mask-line {
+    overflow: hidden;
+    display: block;
+  }
+  .mask-line > * {
+    display: block;
+  }
+
+  /* Editorial label chip */
+  .label-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    background: transparent;
+    transition: border-color 240ms ease, color 240ms ease;
+  }
+  .label-chip .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--node-glow);
+  }
+
+  /* Hairline divider */
+  .hairline {
+    height: 1px;
+    background: var(--line);
+    width: 100%;
+  }
+
+  /* Grid background */
+  .bg-grid {
+    background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    background-position: -1px -1px;
+  }
+
+  /* Container */
+  .container-editorial {
+    width: 92vw;
+    max-width: 1320px;
+    margin-inline: auto;
+  }
+
+  /* Section rhythm */
+  .section-spacing {
+    padding-top: clamp(68px, 9vw, 112px);
+    padding-bottom: clamp(68px, 9vw, 112px);
+  }
+
+  /* Glass surface */
+  .glass {
+    background: color-mix(in oklab, var(--elevated) 78%, transparent);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+  }
+
+  /* Magnetic button base */
+  .btn-magnetic {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border-radius: 999px;
+    padding: 14px 24px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 320ms ease, color 320ms ease, border-color 320ms ease;
+    will-change: transform;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--canvas);
+  }
+  .btn-ghost {
+    border: 1px solid var(--line);
+    color: var(--text-primary);
+    background: transparent;
+  }
+
+  /* Hide scrollbars on horizontal scrollers */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Snap container for mobile skills */
+  .snap-x-card {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .snap-x-card > * {
+    scroll-snap-align: start;
+  }
+
+  /* Slow rotation utility */
+  @keyframes spin-slow {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .animate-spin-slow {
+    animation: spin-slow 24s linear infinite;
+  }
+
+  /* Subtle pulse for live indicators */
+  @keyframes pulse-dot {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.55;
+      transform: scale(0.86);
+    }
+  }
+  .animate-pulse-dot {
+    animation: pulse-dot 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  body.cursor-ready,
+  body.cursor-ready * {
+    cursor: auto !important;
+  }
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 999px;
+  border: 2px solid var(--canvas);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
