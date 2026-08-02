@@ -49,14 +49,14 @@
 }
 
 /* DARK THEME — default
-   Deep navy canvas with the blue palette accents.
-   Accent: cornflower blue · Secondary: medium sky blue · Warm: soft amber
+   Pure black canvas so the blue palette accents pop with maximum contrast.
+   Accent: cornflower blue · Secondary: sky blue · Warm: soft amber
 */
 :root,
 .dark {
-  --canvas: #0a1422;
-  --elevated: #0f1b2d;
-  --surface: #16243b;
+  --canvas: #000000;
+  --elevated: #0a0a0a;
+  --surface: #141414;
   --text-primary: #f0f4fa;
   --text-secondary: #8b9bb5;
   --line: rgba(240, 244, 250, 0.13);
@@ -65,8 +65,8 @@
   --accent-warm: #e89b7c;
 
   --grid-line: rgba(240, 244, 250, 0.04);
-  --node-glow: rgba(131, 176, 225, 0.18);
-  --halo: rgba(174, 203, 235, 0.18);
+  --node-glow: rgba(131, 176, 225, 0.22);
+  --halo: rgba(174, 203, 235, 0.22);
 
   color-scheme: dark;
 }
