@@ -88,10 +88,7 @@ export function Footer() {
                       </a>
                     </li>
                     <li className="text-body text-secondary">
-                      LinkedIn{" "}
-                      <span className="ml-1 font-mono-label !text-[9px]" style={{ color: "var(--accent-warm)" }}>
-                        pending
-                      </span>
+                      LinkedIn
                     </li>
                   </ul>
                 </div>

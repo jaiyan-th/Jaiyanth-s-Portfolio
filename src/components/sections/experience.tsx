@@ -21,24 +21,36 @@ export function Experience() {
           supporting="Real engineering work — prototypes that had to run, with the debugging and testing discipline that implies."
         />
 
+        {/* Two-column: role (left, 5 col) + workflow pipeline (right, 7 col) */}
         <div className="mt-16 grid gap-12 md:grid-cols-12 md:gap-16">
-          {/* Left: role + reflection */}
+          {/* Left: role + reflection card */}
           <div className="md:col-span-5">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: DURATION.reveal, ease: EASE.primary }}
-              className="flex flex-col gap-6"
+              className="flex h-full flex-col gap-5 border border-line p-7"
             >
-              <span className="font-mono-label text-secondary">
-                {EXPERIENCE.period}
-              </span>
-              <h3 className="font-display text-[clamp(28px,3.6vw,46px)] leading-tight tracking-tight text-balance">
+              <div className="flex items-center justify-between">
+                <span className="font-mono-label text-secondary">
+                  {EXPERIENCE.period}
+                </span>
+                <span
+                  className="rounded-full px-3 py-1 font-mono-label !text-[9.5px]"
+                  style={{
+                    background: "color-mix(in oklab, var(--accent) 16%, transparent)",
+                    color: "var(--accent)",
+                  }}
+                >
+                  Completed
+                </span>
+              </div>
+              <h3 className="font-display text-[clamp(26px,3.2vw,40px)] leading-tight tracking-tight text-balance">
                 {EXPERIENCE.role}
               </h3>
-              <p className="text-body text-secondary">
-                <span className="text-foreground">{EXPERIENCE.organisation}</span>
+              <p className="text-[15px] text-foreground">
+                {EXPERIENCE.organisation}
               </p>
               <p className="text-body text-secondary text-pretty">
                 {EXPERIENCE.reflection}
@@ -46,9 +58,23 @@ export function Experience() {
             </motion.div>
           </div>
 
-          {/* Right: workflow pipeline */}
+          {/* Right: workflow pipeline inside a bordered card */}
           <div className="md:col-span-7">
-            <PipelineStages work={EXPERIENCE.work} />
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ delay: 0.1, duration: DURATION.reveal, ease: EASE.primary }}
+              className="border border-line p-7 h-full"
+            >
+              <div className="flex items-center justify-between pb-5 mb-2 border-b border-line">
+                <span className="font-mono-label text-secondary">Workflow pipeline</span>
+                <span className="font-mono-label text-secondary">
+                  {String(EXPERIENCE.work.length).padStart(2, "0")} stages
+                </span>
+              </div>
+              <PipelineStages work={EXPERIENCE.work} />
+            </motion.div>
           </div>
         </div>
       </div>
@@ -62,7 +88,7 @@ function PipelineStages({ work }: { work: string[] }) {
       {/* Vertical line */}
       <span
         aria-hidden
-        className="absolute left-[7px] top-2 bottom-2 w-px"
+        className="absolute left-[7px] top-3 bottom-3 w-px"
         style={{ background: "var(--line)" }}
       />
       {work.map((item, i) => (
@@ -72,15 +98,15 @@ function PipelineStages({ work }: { work: string[] }) {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{
-            delay: i * 0.06,
+            delay: i * 0.05,
             duration: DURATION.reveal,
             ease: EASE.primary,
           }}
-          className="relative flex items-start gap-6 py-4 pl-8"
+          className="relative flex items-center gap-5 py-2.5 pl-8"
         >
           <span
             aria-hidden
-            className="absolute left-0 top-5 grid h-3.5 w-3.5 place-items-center rounded-full"
+            className="absolute left-0 top-1/2 -translate-y-1/2 grid h-3.5 w-3.5 place-items-center rounded-full"
             style={{
               background: "var(--elevated)",
               border: "2px solid var(--accent)",
@@ -98,12 +124,10 @@ function PipelineStages({ work }: { work: string[] }) {
               }}
             />
           </span>
-          <div className="flex w-full items-center justify-between gap-4">
-            <span className="text-body text-foreground">{item}</span>
-            <span className="font-mono-label text-secondary">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-          </div>
+          <span className="flex-1 text-[15px] text-foreground">{item}</span>
+          <span className="font-mono-label text-secondary">
+            {String(i + 1).padStart(2, "0")}
+          </span>
         </motion.li>
       ))}
     </ol>

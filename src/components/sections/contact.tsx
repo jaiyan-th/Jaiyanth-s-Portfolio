@@ -68,14 +68,6 @@ export function Contact() {
                   ) : (
                     <span className="text-[15px] text-secondary">
                       {link.value}
-                      {link.pending && (
-                        <span
-                          className="ml-2 font-mono-label !text-[9px]"
-                          style={{ color: "var(--accent-warm)" }}
-                        >
-                          pending
-                        </span>
-                      )}
                     </span>
                   )}
                 </li>
@@ -115,48 +107,59 @@ function ContactForm({
   }, [success]);
 
   return (
-    <div className="border border-line p-6 md:p-8">
-      <AnimatePresence mode="wait">
-        {success ? (
-          <motion.div
-            key="success"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: DURATION.reveal, ease: EASE.primary }}
-            className="flex flex-col items-start gap-5 py-10"
-            role="status"
-            aria-live="polite"
-          >
-            <span
-              className="grid h-12 w-12 place-items-center rounded-full"
-              style={{
-                background: "color-mix(in oklab, var(--accent) 16%, transparent)",
-                color: "var(--accent)",
-              }}
+    <div className="border border-line">
+      <div className="flex items-center justify-between border-b border-line px-6 py-4">
+        <div className="flex items-center gap-2.5">
+          <span
+            className="h-1.5 w-1.5 rounded-full animate-pulse-dot"
+            style={{ background: "var(--accent)" }}
+          />
+          <span className="font-mono-label text-secondary">Secure form</span>
+        </div>
+        <span className="font-mono-label text-secondary">Honeypot · Rate-limited</span>
+      </div>
+      <div className="p-6 md:p-8">
+        <AnimatePresence mode="wait">
+          {success ? (
+            <motion.div
+              key="success"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: DURATION.reveal, ease: EASE.primary }}
+              className="flex flex-col items-start gap-5 py-10"
+              role="status"
+              aria-live="polite"
             >
-              <Check className="h-5 w-5" aria-hidden />
-            </span>
-            <h3 className="font-display text-[28px] leading-tight tracking-tight">
-              Message received.
-            </h3>
-            <p className="max-w-md text-body text-secondary text-pretty">
-              {state.status === "success" ? state.message : ""}
-            </p>
-            <button
-              type="button"
-              onClick={() => window.location.reload()}
-              className="btn-magnetic btn-ghost"
-            >
-              Send another
-            </button>
-          </motion.div>
-        ) : (
-          <motion.form
-            key="form"
-            ref={formRef}
-            action={action}
-            noValidate
+              <span
+                className="grid h-12 w-12 place-items-center rounded-full"
+                style={{
+                  background: "color-mix(in oklab, var(--accent) 16%, transparent)",
+                  color: "var(--accent)",
+                }}
+              >
+                <Check className="h-5 w-5" aria-hidden />
+              </span>
+              <h3 className="font-display text-[28px] leading-tight tracking-tight">
+                Message received.
+              </h3>
+              <p className="max-w-md text-body text-secondary text-pretty">
+                {state.status === "success" ? state.message : ""}
+              </p>
+              <button
+                type="button"
+                onClick={() => window.location.reload()}
+                className="btn-magnetic btn-ghost"
+              >
+                Send another
+              </button>
+            </motion.div>
+          ) : (
+            <motion.form
+              key="form"
+              ref={formRef}
+              action={action}
+              noValidate
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="flex flex-col gap-5"
@@ -218,7 +221,7 @@ function ContactForm({
 
             <div className="flex items-center justify-between gap-4 pt-2">
               <p className="font-mono-label text-secondary">
-                Protected · honeypot + rate-limited
+                Reply within a few days
               </p>
               <Magnetic strength={0.18}>
                 <SubmitButton />
@@ -227,6 +230,7 @@ function ContactForm({
           </motion.form>
         )}
       </AnimatePresence>
+      </div>
     </div>
   );
 }
