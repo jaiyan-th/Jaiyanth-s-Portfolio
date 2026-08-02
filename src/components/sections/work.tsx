@@ -27,10 +27,8 @@ export function Work() {
 
   const closeDialog = React.useCallback(() => {
     setDialogSlug(null);
-    // If we're on a project route, navigate back to /#work
     if (pathname?.startsWith("/projects/")) {
       window.history.pushState({}, "", "/#work");
-      // Dispatch popstate so usePathname re-syncs
       window.dispatchEvent(new PopStateEvent("popstate"));
     }
   }, [pathname]);
@@ -54,13 +52,13 @@ export function Work() {
           supporting="Each one is a real artifact — built, debugged, and documented. Tap a project for the full case study."
         />
 
-        <div className="mt-16 flex flex-col gap-24 md:gap-32">
+        {/* Two-column rows, alternating sides per project */}
+        <div className="mt-16 flex flex-col gap-20 md:gap-28">
           {PROJECTS.map((project, i) => (
             <ProjectRow
               key={project.slug}
               project={project}
-              reversed={project.layout === "reversed"}
-              cinematic={project.layout === "cinematic"}
+              reversed={i % 2 === 1}
               index={i}
               onOpen={() => openDialog(project.slug)}
             />
@@ -76,39 +74,26 @@ export function Work() {
 function ProjectRow({
   project,
   reversed,
-  cinematic,
   index,
   onOpen,
 }: {
   project: (typeof PROJECTS)[number];
   reversed: boolean;
-  cinematic: boolean;
   index: number;
   onOpen: () => void;
 }) {
-  const visualCol = cinematic
-    ? "lg:col-span-12"
-    : reversed
-      ? "lg:col-span-5 lg:col-start-8"
-      : "lg:col-span-7";
-  const contentCol = cinematic
-    ? "lg:col-span-12"
-    : reversed
-      ? "lg:col-span-5 lg:col-start-1 lg:row-start-1"
-      : "lg:col-span-5";
-
   return (
     <motion.article
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: DURATION.reveal, ease: EASE.primary }}
-      className="grid gap-8 lg:grid-cols-12 lg:gap-12"
+      className="grid gap-8 lg:grid-cols-2 lg:gap-16"
     >
-      {/* Visual */}
-      <div className={visualCol}>
+      {/* Visual column — order-2 when reversed (text on left, visual on right) */}
+      <div className={`flex items-center ${reversed ? "lg:order-2" : "lg:order-1"}`}>
         <div
-          className="group relative aspect-[4/3] w-full overflow-hidden border border-line bg-grid"
+          className="group relative aspect-square w-full overflow-hidden border border-line bg-grid"
           data-cursor="open"
           onClick={onOpen}
           onKeyDown={(e) => {
@@ -136,65 +121,74 @@ function ProjectRow({
         </div>
       </div>
 
-      {/* Content */}
-      <div className={`${contentCol} flex flex-col gap-5 ${cinematic ? "lg:flex-row lg:items-end lg:gap-16" : ""}`}>
-        <div className="flex flex-col gap-5">
-          <div className="flex items-center gap-4">
-            <span className="font-mono-label text-secondary">
-              {project.number} / Selected Work
-            </span>
-            <span className="h-px w-12 bg-line" />
-            <span className="font-mono-label text-secondary">{project.category}</span>
-          </div>
-          <h3 className="font-display text-project text-balance">
-            {project.title}
-          </h3>
-          <p className="text-body text-secondary text-pretty">{project.summary}</p>
-          <p className="text-[14px] text-foreground text-pretty">
-            <span className="font-mono-label text-secondary">Engineering focus · </span>
-            {project.engineeringFocus}
-          </p>
+      {/* Content column — order-1 when reversed (text on left) */}
+      <div
+        className={`flex flex-col justify-center gap-6 ${
+          reversed ? "lg:order-1" : "lg:order-2"
+        }`}
+      >
+        {/* Top metadata line: number / Selected Work ── category */}
+        <div className="flex items-center gap-4">
+          <span className="font-mono-label text-secondary">
+            {project.number} / Selected Work
+          </span>
+          <span className="h-px w-12 bg-line" />
+          <span className="font-mono-label text-secondary">{project.category}</span>
         </div>
 
-        <div className={`${cinematic ? "lg:flex-1" : ""} flex flex-col gap-5`}>
-          <div>
-            <span className="font-mono-label text-secondary">Stack</span>
-            <ul className="mt-3 flex flex-wrap gap-2">
-              {project.stack.map((s) => (
-                <li
-                  key={s}
-                  className="rounded-full border border-line px-3 py-1 text-[12px]"
-                >
-                  {s}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href={`/projects/${project.slug}`}
-              onClick={(e) => {
-                // JS-enabled: open dialog instead of full navigation
-                e.preventDefault();
-                onOpen();
-              }}
-              data-cursor="view"
-              className="btn-magnetic btn-primary !py-2.5 !px-5 !text-[13px]"
-            >
-              View case study
-              <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
-            </Link>
-            <a
-              href={project.repository}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="code"
-              className="btn-magnetic btn-ghost !py-2.5 !px-5 !text-[13px]"
-            >
-              Repository
-              <ExternalLink className="h-3.5 w-3.5" aria-hidden />
-            </a>
-          </div>
+        {/* Title */}
+        <h3 className="font-display text-project text-balance">
+          {project.title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-body text-secondary text-pretty">{project.summary}</p>
+
+        {/* Engineering focus */}
+        <p className="text-[14px] text-foreground text-pretty">
+          <span className="font-mono-label text-secondary">Engineering focus · </span>
+          {project.engineeringFocus}
+        </p>
+
+        {/* Stack */}
+        <div>
+          <span className="font-mono-label text-secondary">Stack</span>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {project.stack.map((s) => (
+              <li
+                key={s}
+                className="rounded-full border border-line px-3 py-1 text-[12px]"
+              >
+                {s}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* CTA buttons */}
+        <div className="flex flex-wrap gap-3 pt-2">
+          <Link
+            href={`/projects/${project.slug}`}
+            onClick={(e) => {
+              e.preventDefault();
+              onOpen();
+            }}
+            data-cursor="view"
+            className="btn-magnetic btn-primary !py-2.5 !px-5 !text-[13px]"
+          >
+            View case study
+            <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+          </Link>
+          <a
+            href={project.repository}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor="code"
+            className="btn-magnetic btn-ghost !py-2.5 !px-5 !text-[13px]"
+          >
+            Repository
+            <ExternalLink className="h-3.5 w-3.5" aria-hidden />
+          </a>
         </div>
       </div>
     </motion.article>
