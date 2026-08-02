@@ -110,7 +110,12 @@ test.describe("Theme", () => {
     const toggle = page.getByRole("button", { name: /switch to .* theme/i });
     const beforeClass = await page.evaluate(() => document.documentElement.className);
     await toggle.click();
-    await page.waitForTimeout(500);
+    // Wait for the className to actually change (React state update + DOM apply)
+    await page.waitForFunction(
+      (before) => document.documentElement.className !== before,
+      beforeClass,
+      { timeout: 5000 }
+    );
     const afterClass = await page.evaluate(() => document.documentElement.className);
     expect(afterClass).not.toBe(beforeClass);
 

@@ -1,7 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowUpRight, Check, Loader2, AlertCircle } from "lucide-react";
 import { IDENTITY, CONTACT_LINKS } from "@/data/portfolio";
@@ -11,7 +12,7 @@ import { SectionHeader } from "@/components/ui/masked-heading";
 import { Magnetic } from "@/components/effects/magnetic";
 
 export function Contact() {
-  const [state, formAction] = useFormState(submitContact, { status: "idle" });
+  const [state, formAction] = useActionState(submitContact, { status: "idle" });
 
   return (
     <section

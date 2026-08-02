@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useAnimate, useInView, stagger } from "motion/react";
 import { SKILL_GROUPS } from "@/data/portfolio";
 import { EASE, DURATION } from "@/lib/motion";
 import { SectionHeader } from "@/components/ui/masked-heading";
@@ -10,8 +10,29 @@ export function Skills() {
   const [active, setActive] = React.useState<string>(SKILL_GROUPS[0]!.id);
   const activeGroup = SKILL_GROUPS.find((g) => g.id === active)!;
 
+  // ── Skills timeline animation ──────────────────────────────────
+  //   .tick   → y: -6      (50 ms each, 10 ms stagger)
+  //   .ticker → rotate: 360 (1920 ms)
+  // Both start simultaneously when the section enters the viewport.
+  // Runs once per page load. Skipped for prefers-reduced-motion.
+  const [scope, animate] = useAnimate<HTMLElement>();
+  const isInView = useInView(scope, { once: true, margin: "-80px" });
+
+  React.useEffect(() => {
+    if (!isInView) return;
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    )
+      return;
+    // '<' position → both animations start at the same time
+    animate(".tick", { y: -6 }, { duration: 0.05, delay: stagger(0.01) });
+    animate(".ticker", { rotate: 360 }, { duration: 1.92, ease: "linear" });
+  }, [isInView, animate]);
+
   return (
     <section
+      ref={scope}
       id="skills"
       aria-labelledby="skills-heading"
       className="relative section-spacing border-t border-line"
@@ -179,7 +200,7 @@ function ConstellationView({
               className="flex flex-col items-center gap-1"
             >
               <span
-                className="grid h-16 w-16 place-items-center rounded-full text-[10px] font-semibold"
+                className="ticker grid h-16 w-16 place-items-center rounded-full text-[10px] font-semibold"
                 style={{
                   background: "var(--accent)",
                   color: "var(--canvas)",
@@ -227,7 +248,7 @@ function ConstellationView({
                   className="flex flex-col items-center gap-1.5"
                 >
                   <span
-                    className="grid h-10 w-10 place-items-center rounded-full border text-[10px] font-mono-label transition-all duration-300"
+                    className="tick grid h-10 w-10 place-items-center rounded-full border text-[10px] font-mono-label transition-all duration-300"
                     style={{
                       background: isActive
                         ? "var(--surface)"
