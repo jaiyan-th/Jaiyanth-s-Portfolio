@@ -315,6 +315,14 @@
     animation: spin-slow 24s linear infinite;
   }
 
+  /* Skills wheel — GPU-friendly rotation container.
+     transform-origin is set here AND via inline style so it is always
+     applied, even before Motion hydrates. */
+  .ticker {
+    transform-origin: center center;
+    backface-visibility: hidden;
+  }
+
   /* Subtle pulse for live indicators */
   @keyframes pulse-dot {
     0%, 100% {
