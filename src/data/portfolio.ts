@@ -305,6 +305,45 @@ export const RESEARCH: ResearchPaper = {
   ],
 };
 
+// Supplementary research context — does not modify the paper itself.
+// Used only for the expanded Research section layout.
+export const RESEARCH_CONTEXT = {
+  highlights: [
+    {
+      index: "01",
+      title: "Multimodal signal capture",
+      description:
+        "Image-recognition input layer extracts visual wellness indicators from user-uploaded images, normalised for downstream reasoning.",
+    },
+    {
+      index: "02",
+      title: "Structured conversational triage",
+      description:
+        "A conversational-AI layer asks targeted follow-up questions, reducing ambiguity before any recommendation is surfaced.",
+    },
+    {
+      index: "03",
+      title: "Explainable preventive routing",
+      description:
+        "Outputs are traceable to the captured signals and dialogue, producing clinician-friendly summaries rather than opaque scores.",
+    },
+  ],
+  methodology: [
+    "Literature review of preventive-AI frameworks",
+    "Architecture design for multimodal intake",
+    "Image-recognition model selection and evaluation",
+    "Conversational flow design with safety constraints",
+    "Explainability layer for clinician review",
+    "Co-authoring and technical presentation",
+  ],
+  outcomes: [
+    "Co-authored framework accepted at ICETSIS 2026",
+    "Architecture integrating image + conversational AI",
+    "Explainability-first design for preventive healthcare",
+    "Clinician-friendly summary format",
+  ],
+} as const;
+
 export const CONTACT_LINKS: ContactLink[] = [
   { label: "Email", value: IDENTITY.email, href: `mailto:${IDENTITY.email}` },
   { label: "GitHub", value: "github.com/jaiyanth-b", href: IDENTITY.github, pending: IDENTITY.githubPending },
