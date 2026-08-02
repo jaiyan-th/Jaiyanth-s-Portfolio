@@ -1,15 +1,24 @@
 "use client";
 
 import * as React from "react";
-import { motion } from "motion/react";
-import { FileText, MapPin, Calendar, Building2, Quote } from "lucide-react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { FileText, MapPin, Calendar, Building2, Quote, Sparkles } from "lucide-react";
 import { RESEARCH } from "@/data/portfolio";
 import { EASE, DURATION } from "@/lib/motion";
 import { SectionHeader } from "@/components/ui/masked-heading";
 
 export function Research() {
+  const sectionRef = React.useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  // Subtle parallax on the diagram
+  const diagramY = useTransform(scrollYProgress, [0, 1], [40, -40]);
+
   return (
     <section
+      ref={sectionRef}
       id="research"
       aria-labelledby="research-heading"
       className="relative section-spacing border-t border-line overflow-hidden"
@@ -20,7 +29,7 @@ export function Research() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(60% 50% at 30% 50%, var(--node-glow) 0%, transparent 70%)",
+            "radial-gradient(50% 40% at 70% 50%, var(--node-glow) 0%, transparent 70%)",
         }}
       />
 
@@ -29,33 +38,37 @@ export function Research() {
           index="05"
           label="IEEE Research"
           title="A preventive-healthcare AI framework."
-          supporting="Co-authored research integrating image recognition and conversational AI — accepted at ICETSIS 2026."
+          supporting="Co-authored research integrating image recognition and conversational AI, accepted at ICETSIS 2026."
         />
 
-        {/* Layout: paper card (left, 5 col) + framework diagram (right, 7 col) */}
-        <div className="mt-16 grid gap-10 md:grid-cols-12 md:gap-12">
+        {/* Three-zone layout: paper card (4 col) + framework diagram (8 col) */}
+        <div className="mt-16 grid gap-8 lg:grid-cols-12 lg:gap-10">
           {/* Left: paper card */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: DURATION.reveal, ease: EASE.primary }}
-            className="md:col-span-5"
+            className="lg:col-span-4"
           >
             <PaperCard />
           </motion.div>
 
-          {/* Right: interactive framework diagram */}
+          {/* Right: framework diagram — wider, more prominent */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            style={{ y: diagramY }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ delay: 0.12, duration: DURATION.reveal, ease: EASE.primary }}
-            className="md:col-span-7"
+            className="lg:col-span-8"
           >
             <FrameworkDiagram />
           </motion.div>
         </div>
+
+        {/* Bottom: key contributions strip */}
+        <KeyContributions />
       </div>
     </section>
   );
@@ -63,26 +76,31 @@ export function Research() {
 
 function PaperCard() {
   return (
-    <div className="relative flex h-full flex-col border border-line overflow-hidden">
-      {/* Top accent bar */}
+    <div className="relative flex h-full flex-col border border-line overflow-hidden bg-elevated/40">
+      {/* Top gradient accent bar */}
       <div
         aria-hidden
-        className="h-1 w-full"
+        className="h-0.5 w-full"
         style={{
-          background: "linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-warm))",
+          background:
+            "linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-warm))",
         }}
       />
 
       {/* Header */}
-      <div className="flex items-center justify-between border-b border-line px-6 py-4">
-        <div className="flex items-center gap-2.5">
-          <FileText className="h-4 w-4" style={{ color: "var(--accent)" }} aria-hidden />
+      <div className="flex items-center justify-between border-b border-line px-5 py-3.5">
+        <div className="flex items-center gap-2">
+          <FileText
+            className="h-3.5 w-3.5"
+            style={{ color: "var(--accent)" }}
+            aria-hidden
+          />
           <span className="font-mono-label text-secondary">Paper</span>
         </div>
         <span
-          className="rounded-full px-3 py-1 font-mono-label !text-[9.5px]"
+          className="rounded-full px-2.5 py-0.5 font-mono-label !text-[9px]"
           style={{
-            background: "color-mix(in oklab, var(--accent) 16%, transparent)",
+            background: "color-mix(in oklab, var(--accent) 14%, transparent)",
             color: "var(--accent)",
             border: "1px solid color-mix(in oklab, var(--accent) 30%, transparent)",
           }}
@@ -92,56 +110,43 @@ function PaperCard() {
       </div>
 
       {/* Body */}
-      <div className="flex flex-col gap-6 p-6 flex-1">
+      <div className="flex flex-1 flex-col gap-5 p-5">
         {/* Title */}
-        <h3 className="font-display text-[clamp(20px,2.4vw,28px)] leading-snug tracking-tight text-balance">
+        <h3 className="font-display text-[clamp(17px,1.8vw,21px)] leading-snug tracking-tight text-balance">
           {RESEARCH.title}
         </h3>
 
         {/* Quote */}
         <blockquote
-          className="relative pl-5 py-1 text-[13.5px] text-secondary text-pretty italic"
+          className="relative pl-4 text-[12.5px] text-secondary text-pretty italic leading-relaxed"
           style={{ borderLeft: "2px solid var(--accent)" }}
         >
-          <Quote
-            className="absolute -left-0.5 -top-1 h-3 w-3 opacity-40"
-            style={{ color: "var(--accent)" }}
-            aria-hidden
-          />
-          An AI Intelligence Wellness Framework integrating image recognition and
-          conversational AI for preventive healthcare.
+          {RESEARCH.abstract}
         </blockquote>
 
-        {/* Metadata grid */}
-        <dl className="grid grid-cols-2 gap-x-4 gap-y-4">
+        {/* Metadata */}
+        <dl className="grid grid-cols-2 gap-x-3 gap-y-3 pt-1">
           <MetaItem icon={Building2} label="Venue" value={RESEARCH.venue} />
           <MetaItem icon={MapPin} label="Location" value={RESEARCH.location} />
           <MetaItem icon={Calendar} label="Date" value={RESEARCH.date} />
           <MetaItem icon={Building2} label="Organiser" value={RESEARCH.organiser} />
         </dl>
 
-        {/* Abstract */}
-        <div>
-          <span className="font-mono-label text-secondary">Abstract</span>
-          <p className="mt-2 text-[13.5px] text-secondary text-pretty leading-relaxed">
-            {RESEARCH.abstract}
-          </p>
-        </div>
-
         {/* Concept tags */}
         <div className="mt-auto pt-4 border-t border-line">
           <span className="font-mono-label text-secondary">Core concepts</span>
-          <ul className="mt-3 flex flex-wrap gap-2">
+          <ul className="mt-2.5 flex flex-wrap gap-1.5">
             {RESEARCH.concepts.map((c, i) => (
               <motion.li
                 key={c}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.3 + i * 0.06, duration: 0.4, ease: EASE.primary }}
-                className="rounded-full border border-line px-3 py-1 text-[12px]"
+                transition={{ delay: 0.3 + i * 0.05, duration: 0.4, ease: EASE.primary }}
+                className="rounded-full border px-2.5 py-0.5 text-[11px]"
                 style={{
-                  borderColor: "color-mix(in oklab, var(--accent) 30%, var(--line))",
+                  borderColor: "color-mix(in oklab, var(--accent) 25%, var(--line))",
+                  color: "var(--text-primary)",
                 }}
               >
                 {c}
@@ -164,70 +169,91 @@ function MetaItem({
   value: string;
 }) {
   return (
-    <div className="flex flex-col gap-1.5">
-      <dt className="flex items-center gap-1.5 font-mono-label text-secondary">
-        <Icon className="h-3 w-3" aria-hidden />
+    <div className="flex flex-col gap-1">
+      <dt className="flex items-center gap-1 font-mono-label text-secondary !text-[9px]">
+        <Icon className="h-2.5 w-2.5" aria-hidden />
         {label}
       </dt>
-      <dd className="text-[13.5px] text-foreground">{value}</dd>
+      <dd className="text-[12.5px] text-foreground leading-tight">{value}</dd>
     </div>
   );
 }
 
 function FrameworkDiagram() {
   return (
-    <div className="relative h-full min-h-[460px] border border-line bg-grid overflow-hidden">
-      {/* Coordinate labels — static */}
+    <div className="relative h-full min-h-[480px] border border-line bg-grid overflow-hidden">
+      {/* Header bar */}
+      <div className="absolute left-0 right-0 top-0 z-10 flex items-center justify-between border-b border-line px-5 py-3.5 bg-elevated/60 backdrop-blur-sm">
+        <div className="flex items-center gap-2">
+          <Sparkles
+            className="h-3.5 w-3.5"
+            style={{ color: "var(--accent)" }}
+            aria-hidden
+          />
+          <span className="font-mono-label text-secondary">Framework architecture</span>
+        </div>
+        <span className="font-mono-label text-secondary !text-[9px]">
+          IMAGE · CONVERSATIONAL · PREVENTIVE
+        </span>
+      </div>
+
+      {/* Coordinate labels */}
       <span
         aria-hidden
-        className="absolute left-4 top-4 font-mono-label !text-[8px] text-secondary opacity-60"
+        className="absolute left-4 bottom-4 font-mono-label !text-[8px] text-secondary opacity-50 z-10"
       >
-        FRAMEWORK.MAP / 03
+        FIG.01 / WELLNESS.MAP
       </span>
       <span
         aria-hidden
-        className="absolute bottom-4 right-4 font-mono-label !text-[8px] text-secondary opacity-60"
+        className="absolute right-4 bottom-4 font-mono-label !text-[8px] text-secondary opacity-50 z-10"
       >
-        PREVENTIVE.HEALTH / IEEE
+        ICETSIS / 2026
       </span>
 
       <svg
-        viewBox="0 0 600 480"
+        viewBox="0 0 800 500"
         className="absolute inset-0 h-full w-full"
+        preserveAspectRatio="xMidYMid meet"
         role="img"
-        aria-label="AI wellness framework: image-recognition input → conversational-AI layer → preventive-health output, connected through a wellness core with animated data flow"
+        aria-label="AI wellness framework: image-recognition input and conversational-AI layer feed into a wellness core, which outputs to preventive health"
       >
         <defs>
-          <radialGradient id="r-core" cx="50%" cy="50%" r="50%">
+          <radialGradient id="r-core-glow" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.5" />
             <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
           </radialGradient>
-          <linearGradient id="r-flow" x1="0%" y1="0%" x2="100%" y2="0%">
+          <linearGradient id="r-flow-a" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="var(--accent-2)" stopOpacity="0" />
+            <stop offset="50%" stopColor="var(--accent-2)" stopOpacity="1" />
+            <stop offset="100%" stopColor="var(--accent-2)" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient id="r-flow-b" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="var(--accent)" stopOpacity="0" />
-            <stop offset="50%" stopColor="var(--accent)" stopOpacity="0.9" />
+            <stop offset="50%" stopColor="var(--accent)" stopOpacity="1" />
             <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
           </linearGradient>
-          <linearGradient id="r-flow-2" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="var(--accent-2)" stopOpacity="0" />
-            <stop offset="50%" stopColor="var(--accent-2)" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="var(--accent-2)" stopOpacity="0" />
+          <linearGradient id="r-flow-c" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="var(--accent-warm)" stopOpacity="0" />
+            <stop offset="50%" stopColor="var(--accent-warm)" stopOpacity="1" />
+            <stop offset="100%" stopColor="var(--accent-warm)" stopOpacity="0" />
           </linearGradient>
         </defs>
 
-        {/* Outer orbital rings — static */}
-        <circle cx="300" cy="240" r="180" fill="none" stroke="var(--line)" strokeWidth="0.8" strokeDasharray="2 4" opacity="0.3" />
-        <circle cx="300" cy="240" r="140" fill="none" stroke="var(--line)" strokeWidth="0.6" strokeDasharray="1 3" opacity="0.25" />
+        {/* Outer orbital rings — static, decorative */}
+        <circle cx="400" cy="270" r="200" fill="none" stroke="var(--line)" strokeWidth="0.6" strokeDasharray="2 5" opacity="0.3" />
+        <circle cx="400" cy="270" r="155" fill="none" stroke="var(--line)" strokeWidth="0.5" strokeDasharray="1 4" opacity="0.25" />
 
         {/* Compass ticks around outer ring */}
-        {Array.from({ length: 36 }).map((_, i) => {
-          const angle = (i / 36) * Math.PI * 2;
-          const isMajor = i % 9 === 0;
-          const inner = isMajor ? 174 : 177;
-          const outer = 182;
-          const x1 = 300 + Math.cos(angle) * inner;
-          const y1 = 240 + Math.sin(angle) * inner;
-          const x2 = 300 + Math.cos(angle) * outer;
-          const y2 = 240 + Math.sin(angle) * outer;
+        {Array.from({ length: 48 }).map((_, i) => {
+          const angle = (i / 48) * Math.PI * 2;
+          const isMajor = i % 12 === 0;
+          const inner = isMajor ? 193 : 197;
+          const outer = 205;
+          const x1 = 400 + Math.cos(angle) * inner;
+          const y1 = 270 + Math.sin(angle) * inner;
+          const x2 = 400 + Math.cos(angle) * outer;
+          const y2 = 270 + Math.sin(angle) * outer;
           return (
             <line
               key={i}
@@ -236,40 +262,43 @@ function FrameworkDiagram() {
               x2={x2}
               y2={y2}
               stroke="var(--accent)"
-              strokeWidth={isMajor ? "1" : "0.5"}
-              opacity={isMajor ? 0.5 : 0.25}
+              strokeWidth={isMajor ? "1.2" : "0.5"}
+              opacity={isMajor ? 0.6 : 0.25}
             />
           );
         })}
 
-        {/* Wellness core */}
-        <g transform="translate(300,240)">
-          <circle r="90" fill="url(#r-core)" />
+        {/* ════════ WELLNESS CORE ════════ */}
+        <g transform="translate(400,270)">
+          {/* Glow halo */}
+          <circle r="100" fill="url(#r-core-glow)" />
+
           {/* Outer rotating ring */}
-          <motion.circle
-            r="72"
-            fill="none"
-            stroke="var(--accent)"
-            strokeWidth="1.5"
-            strokeDasharray="8 8"
+          <motion.g
             animate={{ rotate: 360 }}
+            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+            style={{ transformOrigin: "0px 0px" }}
+          >
+            <circle r="80" fill="none" stroke="var(--accent)" strokeWidth="1.5" strokeDasharray="10 6" />
+            {/* Orbiting dot on outer ring */}
+            <circle cx="80" cy="0" r="3" fill="var(--accent)" />
+          </motion.g>
+
+          {/* Inner counter-rotating ring */}
+          <motion.g
+            animate={{ rotate: -360 }}
             transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
             style={{ transformOrigin: "0px 0px" }}
-          />
-          {/* Inner counter-rotating ring */}
-          <motion.circle
-            r="56"
-            fill="none"
-            stroke="var(--accent-2)"
-            strokeWidth="1"
-            strokeDasharray="4 4"
-            animate={{ rotate: -360 }}
-            transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-            style={{ transformOrigin: "0px 0px" }}
-          />
-          {/* Static inner circle */}
-          <circle r="40" fill="none" stroke="var(--line)" strokeWidth="1" />
-          <circle r="40" fill="var(--canvas)" opacity="0.4" />
+          >
+            <circle r="62" fill="none" stroke="var(--accent-2)" strokeWidth="1" strokeDasharray="4 4" />
+            {/* Orbiting dot on inner ring */}
+            <circle cx="0" cy="-62" r="2.5" fill="var(--accent-2)" />
+          </motion.g>
+
+          {/* Static inner circle with background fill for text legibility */}
+          <circle r="46" fill="var(--canvas)" opacity="0.85" />
+          <circle r="46" fill="none" stroke="var(--line)" strokeWidth="1" />
+
           {/* Center text */}
           <text
             textAnchor="middle"
@@ -291,45 +320,49 @@ function FrameworkDiagram() {
           >
             CORE
           </text>
+
           {/* Pulsing center dot */}
           <motion.circle
             r="3"
             fill="var(--accent)"
-            animate={{ scale: [1, 1.6, 1], opacity: [1, 0.4, 1] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            animate={{ scale: [1, 1.8, 1], opacity: [1, 0.4, 1] }}
+            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
           />
         </g>
 
-        {/* Three pillars */}
-        <FrameworkPillar
-          x={100}
-          y={110}
+        {/* ════════ PILLARS ════════ */}
+        <Pillar
+          x={140}
+          y={120}
           label="IMAGE RECOGNITION"
           sublabel="Input layer"
           color="var(--accent-2)"
           delay={0.3}
+          flowId="flow-a"
         />
-        <FrameworkPillar
-          x={500}
-          y={110}
+        <Pillar
+          x={660}
+          y={120}
           label="CONVERSATIONAL AI"
           sublabel="Interaction layer"
           color="var(--accent)"
           delay={0.5}
+          flowId="flow-b"
         />
-        <FrameworkPillar
-          x={300}
-          y={410}
+        <Pillar
+          x={400}
+          y={440}
           label="PREVENTIVE HEALTH"
           sublabel="Output layer"
           color="var(--accent-warm)"
           delay={0.7}
+          flowId="flow-c"
+          isOutput
         />
 
-        {/* Data flow paths — animated beams */}
-        {/* Image Recognition → Wellness Core */}
+        {/* ════════ STATIC CONNECTION PATHS ════════ */}
         <motion.path
-          d="M 140 130 Q 200 170 240 210"
+          d="M 200 140 Q 280 180 340 230"
           fill="none"
           stroke="var(--line)"
           strokeWidth="1"
@@ -339,18 +372,7 @@ function FrameworkDiagram() {
           transition={{ duration: 1, delay: 0.9, ease: EASE.primary }}
         />
         <motion.path
-          d="M 140 130 Q 200 170 240 210"
-          fill="none"
-          stroke="url(#r-flow-2)"
-          strokeWidth="2"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: [0, 1], opacity: [0, 1, 0] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
-        />
-
-        {/* Conversational AI → Wellness Core */}
-        <motion.path
-          d="M 460 130 Q 400 170 360 210"
+          d="M 600 140 Q 520 180 460 230"
           fill="none"
           stroke="var(--line)"
           strokeWidth="1"
@@ -360,18 +382,7 @@ function FrameworkDiagram() {
           transition={{ duration: 1, delay: 1.0, ease: EASE.primary }}
         />
         <motion.path
-          d="M 460 130 Q 400 170 360 210"
-          fill="none"
-          stroke="url(#r-flow)"
-          strokeWidth="2"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: [0, 1], opacity: [0, 1, 0] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 1.6 }}
-        />
-
-        {/* Wellness Core → Preventive Health */}
-        <motion.path
-          d="M 300 310 L 300 370"
+          d="M 400 340 L 400 400"
           fill="none"
           stroke="var(--line)"
           strokeWidth="1"
@@ -381,47 +392,100 @@ function FrameworkDiagram() {
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 1.1, ease: EASE.primary }}
         />
+
+        {/* ════════ ANIMATED DATA FLOW BEAMS ════════ */}
+        {/* Image Recognition → Core */}
         <motion.path
-          d="M 300 310 L 300 370"
+          d="M 200 140 Q 280 180 340 230"
           fill="none"
-          stroke="url(#r-flow)"
-          strokeWidth="2"
+          stroke="url(#r-flow-a)"
+          strokeWidth="2.5"
           initial={{ pathLength: 0, opacity: 0 }}
           animate={{ pathLength: [0, 1], opacity: [0, 1, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 2.0 }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+        />
+        {/* Conversational AI → Core */}
+        <motion.path
+          d="M 600 140 Q 520 180 460 230"
+          fill="none"
+          stroke="url(#r-flow-b)"
+          strokeWidth="2.5"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: [0, 1], opacity: [0, 1, 0] }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut", delay: 1.8 }}
+        />
+        {/* Core → Preventive Health */}
+        <motion.path
+          d="M 400 340 L 400 400"
+          fill="none"
+          stroke="url(#r-flow-c)"
+          strokeWidth="2.5"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: [0, 1], opacity: [0, 1, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: 2.4 }}
+        />
+
+        {/* ════════ DATA PACKETS — small dots traveling along paths ════════ */}
+        <motion.circle
+          r="3"
+          fill="var(--accent-2)"
+          animate={{
+            cx: [200, 280, 340],
+            cy: [140, 180, 230],
+          }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+        />
+        <motion.circle
+          r="3"
+          fill="var(--accent)"
+          animate={{
+            cx: [600, 520, 460],
+            cy: [140, 180, 230],
+          }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut", delay: 1.8 }}
+        />
+        <motion.circle
+          r="3"
+          fill="var(--accent-warm)"
+          animate={{
+            cx: [400, 400],
+            cy: [340, 400],
+          }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: 2.4 }}
         />
 
         {/* Flow direction arrows */}
         <motion.polygon
-          points="238,208 244,212 240,216"
+          points="338,228 346,232 340,238"
           fill="var(--accent-2)"
           animate={{ opacity: [0.4, 1, 0.4] }}
-          transition={{ duration: 2.5, repeat: Infinity, delay: 1.4 }}
+          transition={{ duration: 2.4, repeat: Infinity, delay: 1.5 }}
         />
         <motion.polygon
-          points="362,208 356,212 360,216"
+          points="462,228 454,232 460,238"
           fill="var(--accent)"
           animate={{ opacity: [0.4, 1, 0.4] }}
-          transition={{ duration: 2.5, repeat: Infinity, delay: 1.8 }}
+          transition={{ duration: 2.4, repeat: Infinity, delay: 2.1 }}
         />
         <motion.polygon
-          points="296,368 300,376 304,368"
-          fill="var(--accent)"
+          points="396,398 400,406 404,398"
+          fill="var(--accent-warm)"
           animate={{ opacity: [0.4, 1, 0.4] }}
-          transition={{ duration: 2, repeat: Infinity, delay: 2.2 }}
+          transition={{ duration: 1.8, repeat: Infinity, delay: 2.7 }}
         />
       </svg>
     </div>
   );
 }
 
-function FrameworkPillar({
+function Pillar({
   x,
   y,
   label,
   sublabel,
   color,
   delay,
+  isOutput = false,
 }: {
   x: number;
   y: number;
@@ -429,42 +493,48 @@ function FrameworkPillar({
   sublabel: string;
   color: string;
   delay: number;
+  flowId?: string;
+  isOutput?: boolean;
 }) {
   return (
     <g transform={`translate(${x},${y})`}>
       {/* Glow behind pillar */}
-      <circle r="40" fill={color} opacity="0.08" />
+      <circle r="45" fill={color} opacity="0.1" />
+
       {/* Pillar box */}
       <motion.rect
-        x="-75"
-        y="-28"
-        width="150"
-        height="56"
-        rx="4"
+        x="-85"
+        y="-30"
+        width="170"
+        height="60"
+        rx="6"
         fill="var(--elevated)"
         stroke={color}
-        strokeWidth="1.2"
-        initial={{ opacity: 0, y: -10 }}
+        strokeWidth="1.5"
+        initial={{ opacity: 0, y: -12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay, ease: EASE.primary }}
       />
-      {/* Corner accent */}
+
+      {/* Left accent stripe */}
       <motion.rect
-        x="-75"
-        y="-28"
-        width="6"
-        height="56"
+        x="-85"
+        y="-30"
+        width="5"
+        height="60"
+        rx="2"
         fill={color}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.4, delay: delay + 0.3 }}
       />
-      {/* Status dot */}
+
+      {/* Status dot — pulsing */}
       <motion.circle
-        cx="60"
-        cy="-18"
+        cx="68"
+        cy="-20"
         r="3"
         fill={color}
         initial={{ scale: 0 }}
@@ -480,12 +550,27 @@ function FrameworkPillar({
           repeatCount="indefinite"
         />
       </motion.circle>
+
+      {/* Output arrow indicator */}
+      {isOutput && (
+        <motion.path
+          d="M 0 -32 L -5 -38 L 5 -38 Z"
+          fill={color}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 0.6 }}
+          viewport={{ once: true }}
+          transition={{ delay: delay + 0.4 }}
+        />
+      )}
+
+      {/* Label */}
       <text
         textAnchor="middle"
-        dy="-2"
+        dy="-3"
         fontFamily="var(--font-mono)"
-        fontSize="10"
+        fontSize="11"
         letterSpacing="1.5"
+        fontWeight="500"
         fill="var(--text-primary)"
       >
         {label}
@@ -494,12 +579,77 @@ function FrameworkPillar({
         textAnchor="middle"
         dy="14"
         fontFamily="var(--font-mono)"
-        fontSize="8"
+        fontSize="8.5"
         letterSpacing="1.5"
         fill="var(--text-secondary)"
       >
         {sublabel}
       </text>
     </g>
+  );
+}
+
+function KeyContributions() {
+  const contributions = [
+    {
+      title: "Image Recognition",
+      description:
+        "Visual input layer that surfaces early wellness signals from image data.",
+      icon: Sparkles,
+    },
+    {
+      title: "Conversational AI",
+      description:
+        "Structured follow-up questions that guide users toward appropriate care.",
+      icon: FileText,
+    },
+    {
+      title: "Preventive Healthcare",
+      description:
+        "Clinician-friendly summaries that route users to timely intervention.",
+      icon: Building2,
+    },
+  ];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ delay: 0.3, duration: DURATION.reveal, ease: EASE.primary }}
+      className="mt-10 grid gap-4 sm:grid-cols-3"
+    >
+      {contributions.map((c, i) => (
+        <motion.div
+          key={c.title}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 + i * 0.1, duration: 0.5, ease: EASE.primary }}
+          className="border border-line p-5 flex flex-col gap-2"
+        >
+          <div className="flex items-center gap-2.5">
+            <span
+              className="grid h-7 w-7 place-items-center rounded-full"
+              style={{
+                background: "color-mix(in oklab, var(--accent) 14%, transparent)",
+                color: "var(--accent)",
+              }}
+            >
+              <c.icon className="h-3.5 w-3.5" aria-hidden />
+            </span>
+            <span className="font-mono-label text-secondary !text-[9px]">
+              0{i + 1}
+            </span>
+          </div>
+          <h4 className="text-[15px] font-medium tracking-tight text-foreground">
+            {c.title}
+          </h4>
+          <p className="text-[13px] text-secondary text-pretty leading-snug">
+            {c.description}
+          </p>
+        </motion.div>
+      ))}
+    </motion.div>
   );
 }
