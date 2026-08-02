@@ -95,10 +95,9 @@ export function WellnessVisual() {
   return (
     <div
       ref={containerRef}
-      className="relative h-full min-h-[280px] border border-line bg-grid overflow-hidden"
+      className="relative h-full min-h-[420px] border border-line bg-grid overflow-hidden"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{ maxHeight: 320 }}
     >
       {/* Header bar */}
       <div className="absolute left-0 right-0 top-0 z-10 flex items-center justify-between border-b border-line px-5 py-3.5 bg-elevated/60 backdrop-blur-sm">
