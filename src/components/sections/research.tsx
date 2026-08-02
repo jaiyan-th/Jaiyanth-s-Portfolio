@@ -250,10 +250,10 @@ function FrameworkDiagram() {
           const isMajor = i % 12 === 0;
           const inner = isMajor ? 193 : 197;
           const outer = 205;
-          const x1 = 400 + Math.cos(angle) * inner;
-          const y1 = 270 + Math.sin(angle) * inner;
-          const x2 = 400 + Math.cos(angle) * outer;
-          const y2 = 270 + Math.sin(angle) * outer;
+          const x1 = Number((400 + Math.cos(angle) * inner).toFixed(4));
+          const y1 = Number((270 + Math.sin(angle) * inner).toFixed(4));
+          const x2 = Number((400 + Math.cos(angle) * outer).toFixed(4));
+          const y2 = Number((270 + Math.sin(angle) * outer).toFixed(4));
           return (
             <line
               key={i}

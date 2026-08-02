@@ -179,8 +179,8 @@ function ConstellationView({
     const angle = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;
     const r = 38;
     return {
-      x: 50 + Math.cos(angle) * r,
-      y: 50 + Math.sin(angle) * r,
+      x: Number((50 + Math.cos(angle) * r).toFixed(4)),
+      y: Number((50 + Math.sin(angle) * r).toFixed(4)),
       // Angle for label rotation (degrees)
       labelAngle: (i / nodes.length) * 360 - 90,
     };
@@ -271,10 +271,10 @@ function ConstellationView({
                 const rad = (tick.angle * Math.PI) / 180;
                 const inner = tick.isMajor ? 43 : 44.5;
                 const outer = 46.5;
-                const x1 = 50 + Math.cos(rad) * inner;
-                const y1 = 50 + Math.sin(rad) * inner;
-                const x2 = 50 + Math.cos(rad) * outer;
-                const y2 = 50 + Math.sin(rad) * outer;
+                const x1 = Number((50 + Math.cos(rad) * inner).toFixed(4));
+                const y1 = Number((50 + Math.sin(rad) * inner).toFixed(4));
+                const x2 = Number((50 + Math.cos(rad) * outer).toFixed(4));
+                const y2 = Number((50 + Math.sin(rad) * outer).toFixed(4));
                 return (
                   <line
                     key={i}
