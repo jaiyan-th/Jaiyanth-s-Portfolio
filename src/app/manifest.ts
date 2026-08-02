@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: `${IDENTITY.name} — ${IDENTITY.role}. ${IDENTITY.education}.`,
     start_url: "/",
     display: "standalone",
-    background_color: "#090B0A",
-    theme_color: "#090B0A",
+    background_color: "#0A1422",
+    theme_color: "#0A1422",
     icons: [
       {
         src: "/icon.svg",

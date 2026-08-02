@@ -20,16 +20,16 @@ const CONNECT_DISTANCE = 1.4;
 function getColors(theme: "dark" | "light") {
   return theme === "light"
     ? {
-        accent: new THREE.Color("#92d92f"),
-        accent2: new THREE.Color("#4d62e8"),
-        warm: new THREE.Color("#d8654a"),
-        line: new THREE.Color("#10110f"),
+        accent: new THREE.Color("#71a5de"),
+        accent2: new THREE.Color("#83b0e1"),
+        warm: new THREE.Color("#d97757"),
+        line: new THREE.Color("#1f2937"),
       }
     : {
-        accent: new THREE.Color("#b7ff4a"),
-        accent2: new THREE.Color("#6f7cff"),
-        warm: new THREE.Color("#ff8a68"),
-        line: new THREE.Color("#f3f2ea"),
+        accent: new THREE.Color("#83b0e1"),
+        accent2: new THREE.Color("#aecbeb"),
+        warm: new THREE.Color("#e89b7c"),
+        line: new THREE.Color("#f0f4fa"),
       };
 }
 
