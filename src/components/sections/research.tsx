@@ -6,7 +6,7 @@ import { FileText, MapPin, Calendar, Building2, Sparkles, GitBranch, Target } fr
 import { RESEARCH, RESEARCH_CONTEXT } from "@/data/portfolio";
 import { EASE, DURATION } from "@/lib/motion";
 import { SectionHeader } from "@/components/ui/masked-heading";
-import { ArchitectureDiagram } from "@/components/projects/architecture-diagram";
+import { WellnessVisual } from "@/components/projects/wellness-visual";
 
 export function Research() {
   const sectionRef = React.useRef<HTMLElement>(null);
@@ -41,7 +41,7 @@ export function Research() {
           supporting="Co-authored research integrating image recognition and conversational AI, accepted at ICETSIS 2026."
         />
 
-        {/* Top row: paper card (4 col) + architecture diagram (8 col) — larger diagram */}
+        {/* Top row: paper card (4 col) + wellness particle visual (8 col) */}
         <div className="mt-16 grid gap-8 lg:grid-cols-12 lg:gap-10">
           {/* Left: paper card — content unchanged */}
           <motion.div
@@ -54,7 +54,7 @@ export function Research() {
             <PaperCard />
           </motion.div>
 
-          {/* Right: NEW architecture diagram — larger, with all 8 animation requirements */}
+          {/* Right: wellness particle visual (replaces architecture diagram) */}
           <motion.div
             style={{ y: diagramY }}
             initial={{ opacity: 0, y: 30 }}
@@ -63,7 +63,7 @@ export function Research() {
             transition={{ delay: 0.12, duration: DURATION.reveal, ease: EASE.primary }}
             className="lg:col-span-8"
           >
-            <ArchitectureDiagram />
+            <WellnessVisual />
           </motion.div>
         </div>
 
