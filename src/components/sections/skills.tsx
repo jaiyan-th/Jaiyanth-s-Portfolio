@@ -108,14 +108,8 @@ function ConstellationView({
   const nodes = SKILL_GROUPS;
 
   // ── Animation setup ───────────────────────────────────────────
-  // scope   → ref attached to the .ticker element (the rotating wheel)
-  // animate → scoped animate() from useAnimate, only affects .ticker's subtree
   const [scope, animate] = useAnimate<HTMLDivElement>();
 
-  // Rotation motion values
-  //   targetRotation  → updated instantly by scroll
-  //   smoothRotation  → spring that follows targetRotation with inertia,
-  //                     giving the wheel momentum that settles smoothly
   const targetRotation = useMotionValue(0);
   const smoothRotation = useSpring(targetRotation, {
     stiffness: 60,
@@ -123,14 +117,9 @@ function ConstellationView({
     mass: 0.6,
   });
 
-  // Track when the section first enters the viewport (one-shot)
   const isInView = useInView(scope, { once: true, margin: "-80px" });
 
   // ── Entry animation (one-shot) ────────────────────────────────
-  // createTimeline()
-  //   .add('.tick', { y: '-=6', duration: 50 }, stagger(10))
-  //   .add('.ticker', { rotate: 360, duration: 1920 }, '<');
-  // Both animations start at the same time. Runs once on first viewport entry.
   React.useEffect(() => {
     if (!isInView) return;
     const reduce =
@@ -138,7 +127,6 @@ function ConstellationView({
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) return;
 
-    // '<' position → both animations start simultaneously
     animate(".tick", { y: -6 }, { duration: 0.05, delay: stagger(0.01) });
     const controls = motionAnimate(targetRotation, 360, {
       duration: 1.92,
@@ -148,12 +136,6 @@ function ConstellationView({
   }, [isInView, animate, targetRotation]);
 
   // ── Scroll-driven rotation ────────────────────────────────────
-  // 0.2 deg per 1px scroll.
-  //   Scroll down → clockwise (positive delta → positive rotation)
-  //   Scroll up   → anticlockwise (negative delta → negative rotation)
-  // Only updates while the section is in the viewport.
-  // Inertia is provided by useSpring on smoothRotation — the wheel
-  // continues briefly after scrolling stops, then settles.
   React.useEffect(() => {
     const reduce =
       typeof window !== "undefined" &&
@@ -166,12 +148,10 @@ function ConstellationView({
     let lastScrollY = window.scrollY;
     let inView = false;
 
-    // Track visibility — only update rotation while the section is on screen
     const io = new IntersectionObserver(
       (entries) => {
         inView = entries[0]?.isIntersecting ?? false;
         if (inView) {
-          // Reset scroll baseline when entering to avoid a rotation jump
           lastScrollY = window.scrollY;
         }
       },
@@ -194,24 +174,81 @@ function ConstellationView({
     };
   }, [scope, targetRotation]);
 
-  // Arrange 7 nodes around a circle
+  // Arrange 7 nodes around a circle — slightly tighter radius
   const positions = nodes.map((_, i) => {
     const angle = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;
     const r = 38;
     return {
       x: 50 + Math.cos(angle) * r,
       y: 50 + Math.sin(angle) * r,
+      // Angle for label rotation (degrees)
+      labelAngle: (i / nodes.length) * 360 - 90,
     };
   });
 
+  // Tick marks around the perimeter (compass-like)
+  const compassTicks = Array.from({ length: 48 }, (_, i) => {
+    const angle = (i / 48) * 360;
+    const isMajor = i % 6 === 0;
+    return { angle, isMajor };
+  });
+
   return (
-    <div className="grid gap-8 lg:grid-cols-12">
-      {/* Constellation board — the bordered container (does NOT rotate) */}
-      <div className="lg:col-span-7">
-        <div className="relative aspect-square w-full border border-line bg-grid">
-          {/* .ticker — the rotating wheel container.
-              All children (SVG lines, center node, skill nodes with labels)
-              rotate together so labels remain visually aligned with the wheel. */}
+    <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
+      {/* ── Rotating wheel — compact 5-column slot ─────────────── */}
+      <div className="lg:col-span-5">
+        <div className="relative aspect-square w-full border border-line bg-grid overflow-hidden">
+          {/* Static decorative layer: orbital arcs (do NOT rotate) */}
+          <svg
+            aria-hidden
+            className="absolute inset-0 h-full w-full"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+          >
+            {/* Outer orbital ring — dashed */}
+            <circle
+              cx="50"
+              cy="50"
+              r="46"
+              fill="none"
+              stroke="var(--line)"
+              strokeWidth="0.15"
+              strokeDasharray="0.8 1.2"
+              opacity="0.6"
+            />
+            {/* Middle orbital ring */}
+            <circle
+              cx="50"
+              cy="50"
+              r="38"
+              fill="none"
+              stroke="var(--line)"
+              strokeWidth="0.12"
+              strokeDasharray="0.4 0.8"
+              opacity="0.4"
+            />
+            {/* Inner orbital ring */}
+            <circle
+              cx="50"
+              cy="50"
+              r="22"
+              fill="none"
+              stroke="var(--line)"
+              strokeWidth="0.12"
+              strokeDasharray="0.3 0.6"
+              opacity="0.3"
+            />
+            {/* Soft halo behind center */}
+            <circle
+              cx="50"
+              cy="50"
+              r="14"
+              fill="var(--node-glow)"
+              opacity="0.7"
+            />
+          </svg>
+
+          {/* .ticker — the rotating wheel container */}
           <motion.div
             ref={scope}
             className="ticker absolute inset-0"
@@ -223,7 +260,37 @@ function ConstellationView({
               willChange: "transform",
             }}
           >
-            {/* Connection lines */}
+            {/* Compass tick marks (rotate with wheel) */}
+            <svg
+              aria-hidden
+              className="absolute inset-0 h-full w-full"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+            >
+              {compassTicks.map((tick, i) => {
+                const rad = (tick.angle * Math.PI) / 180;
+                const inner = tick.isMajor ? 43 : 44.5;
+                const outer = 46.5;
+                const x1 = 50 + Math.cos(rad) * inner;
+                const y1 = 50 + Math.sin(rad) * inner;
+                const x2 = 50 + Math.cos(rad) * outer;
+                const y2 = 50 + Math.sin(rad) * outer;
+                return (
+                  <line
+                    key={i}
+                    x1={x1}
+                    y1={y1}
+                    x2={x2}
+                    y2={y2}
+                    stroke="var(--accent)"
+                    strokeWidth={tick.isMajor ? "0.3" : "0.15"}
+                    opacity={tick.isMajor ? 0.5 : 0.25}
+                  />
+                );
+              })}
+            </svg>
+
+            {/* Connection lines + orbital polygon */}
             <svg
               aria-hidden
               className="absolute inset-0 h-full w-full"
@@ -253,25 +320,20 @@ function ConstellationView({
                   />
                 );
               })}
-              {/* Lines between adjacent nodes */}
-              {positions.map((p, i) => {
-                const next = positions[(i + 1) % positions.length]!;
-                return (
-                  <line
-                    key={`adj-${i}`}
-                    x1={p.x}
-                    y1={p.y}
-                    x2={next.x}
-                    y2={next.y}
-                    stroke="var(--line)"
-                    strokeWidth="0.15"
-                    strokeDasharray="0.4 0.6"
-                  />
-                );
-              })}
+              {/* Polygon connecting all nodes */}
+              <motion.polygon
+                points={positions.map((p) => `${p.x},${p.y}`).join(" ")}
+                fill="none"
+                stroke="var(--line)"
+                strokeWidth="0.15"
+                strokeDasharray="0.4 0.6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.5 }}
+                transition={{ delay: 0.8, duration: 0.8 }}
+              />
             </svg>
 
-            {/* Center node */}
+            {/* Center node — glowing hub */}
             <div
               className="absolute -translate-x-1/2 -translate-y-1/2"
               style={{ left: "50%", top: "50%" }}
@@ -283,16 +345,25 @@ function ConstellationView({
                 transition={{ duration: 0.4, ease: EASE.primary }}
                 className="flex flex-col items-center gap-1"
               >
+                {/* Pulsing glow ring */}
                 <span
-                  className="grid h-16 w-16 place-items-center rounded-full text-[10px] font-semibold"
+                  aria-hidden
+                  className="absolute h-20 w-20 rounded-full animate-pulse-dot"
+                  style={{
+                    background: "radial-gradient(circle, var(--node-glow) 0%, transparent 70%)",
+                  }}
+                />
+                <span
+                  className="relative grid h-14 w-14 place-items-center rounded-full text-[11px] font-semibold"
                   style={{
                     background: "var(--accent)",
                     color: "var(--canvas)",
+                    boxShadow: "0 0 24px var(--node-glow), 0 0 8px var(--accent)",
                   }}
                 >
                   {activeGroup.index}
                 </span>
-                <span className="font-mono-label text-secondary">
+                <span className="relative font-mono-label text-secondary">
                   {activeGroup.label}
                 </span>
               </motion.div>
@@ -326,25 +397,28 @@ function ConstellationView({
                 >
                   <motion.div
                     animate={{
-                      scale: isActive ? 1.08 : 1,
+                      scale: isActive ? 1.15 : 1,
                     }}
                     transition={{ duration: 0.3, ease: EASE.primary }}
                     className="flex flex-col items-center gap-1.5"
                   >
                     <span
-                      className="tick grid h-10 w-10 place-items-center rounded-full border text-[10px] font-mono-label transition-colors duration-300"
+                      className="tick grid h-9 w-9 place-items-center rounded-full border text-[9.5px] font-mono-label transition-colors duration-300"
                       style={{
                         background: isActive
-                          ? "var(--surface)"
-                          : "color-mix(in oklab, var(--elevated) 80%, transparent)",
+                          ? "var(--accent)"
+                          : "color-mix(in oklab, var(--elevated) 90%, transparent)",
                         borderColor: isActive ? "var(--accent)" : "var(--line)",
-                        color: isActive ? "var(--accent)" : "var(--text-secondary)",
+                        color: isActive ? "var(--canvas)" : "var(--text-secondary)",
+                        boxShadow: isActive
+                          ? "0 0 16px var(--node-glow)"
+                          : "none",
                       }}
                     >
                       {node.index}
                     </span>
                     <span
-                      className={`text-[11px] tracking-tight transition-colors ${
+                      className={`text-[10px] tracking-tight transition-colors whitespace-nowrap ${
                         isActive ? "text-foreground" : "text-secondary"
                       }`}
                     >
@@ -355,16 +429,31 @@ function ConstellationView({
               );
             })}
           </motion.div>
+
+          {/* Compass marker — static, bottom-left corner */}
+          <span
+            aria-hidden
+            className="absolute bottom-3 left-3 font-mono-label !text-[8px] text-secondary opacity-60"
+          >
+            N
+          </span>
+          {/* Coordinate label — static, top-right corner */}
+          <span
+            aria-hidden
+            className="absolute right-3 top-3 font-mono-label !text-[8px] text-secondary opacity-60"
+          >
+            SKILL.MAP / 07
+          </span>
         </div>
       </div>
 
-      {/* Panel — NOT rotated */}
-      <div className="lg:col-span-5">
+      {/* ── Skill details card — expanded 7-column slot ────────── */}
+      <div className="lg:col-span-7">
         <div
           id={`skill-panel-${activeGroup.id}`}
           role="tabpanel"
           aria-labelledby={`skill-tab-${activeGroup.id}`}
-          className="flex h-full flex-col border border-line p-8"
+          className="flex h-full flex-col border border-line p-8 lg:p-10"
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -375,6 +464,7 @@ function ConstellationView({
               transition={{ duration: DURATION.reveal, ease: EASE.primary }}
               className="flex flex-col gap-6"
             >
+              {/* Header */}
               <div className="flex items-center justify-between">
                 <span className="font-mono-label text-secondary">
                   {activeGroup.index} / {activeGroup.label}
@@ -384,25 +474,36 @@ function ConstellationView({
                   style={{ background: "var(--accent)" }}
                 />
               </div>
+
+              {/* Title */}
               <h3 className="font-display text-[clamp(26px,3vw,38px)] leading-tight tracking-tight">
                 {activeGroup.title}
               </h3>
+
+              {/* Description */}
               <p className="text-body text-secondary text-pretty">
                 {activeGroup.description}
               </p>
-              <ul className="flex flex-wrap gap-2">
-                {activeGroup.skills.map((s, i) => (
-                  <motion.li
-                    key={s}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.06 * i, duration: 0.4, ease: EASE.primary }}
-                    className="rounded-full border border-line px-3.5 py-1.5 text-[13px]"
-                  >
-                    {s}
-                  </motion.li>
-                ))}
-              </ul>
+
+              {/* Skills grid */}
+              <div>
+                <span className="font-mono-label text-secondary">Skills</span>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {activeGroup.skills.map((s, i) => (
+                    <motion.li
+                      key={s}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.06 * i, duration: 0.4, ease: EASE.primary }}
+                      className="rounded-full border border-line px-3.5 py-1.5 text-[13px]"
+                    >
+                      {s}
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Evidence */}
               <div className="mt-auto border-t border-line pt-5">
                 <span className="font-mono-label text-secondary">Project evidence</span>
                 <p className="mt-2 text-[14px] text-foreground text-pretty">
