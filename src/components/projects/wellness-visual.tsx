@@ -5,25 +5,20 @@ import dynamic from "next/dynamic";
 import { Sparkles } from "lucide-react";
 
 /* ────────────────────────────────────────────────────────────────────────────
-   WellnessVisual
+   WellnessVisual (Hologram Edition)
    ────────────────────────────────────────────────────────────────────────────
-   A compact Three.js-inspired particle visual representing an intelligent
-   wellness universe. Replaces the old architecture-box diagram.
-
-   Scene composition (all inside a 520×280 compact card):
-     • Central glowing core — pulsing like a heartbeat, with a soft halo aura
-     • Orbiting particle galaxy — hundreds of tiny particles in smooth curved paths
-     • Heart-shaped particle cluster — abstract healthcare hint
-     • DNA-like spiral ribbon — flowing double-helix around the core
-     • ECG pulse wave — a signal trace that brightens and travels
-     • Preventive-health rings — soft circular waves expanding outward
-     • Faint rotating energy band — one slow ring, not aggressive
+   A compact Three.js holographic healthcare globe scene.
+   Inspired by the reference image: a floating wireframe Earth globe
+   with glowing "continents", orbital rings, floating medical icons,
+   an ECG waveform, and connection lines — all with additive glow.
 
    Behaviour:
-     • Slow orbital motion + tiny particle drift
-     • Breathing core (heartbeat-synced)
-     • Occasional signal pulse moving outward
-     • Hover intensifies glow + particle activity + parallax
+     • Slow rotating globe + counter-rotating orbital rings
+     • Floating medical icons with staggered entrance + breathing scale
+     • Travelling ECG heartbeat waveform
+     • Pulsing connection lines between icons and the globe
+     • Central glow halo that breathes softly
+     • Hover intensifies rotation + glow + parallax
      • Reduced motion → static low-motion version
      • Touch devices → hover disabled
 ───────────────────────────────────────────────────────────────────────────── */
@@ -69,7 +64,7 @@ const StaticFallback = () => (
   </div>
 );
 
-const WellnessCanvas = dynamic(() => import("./wellness-canvas"), {
+const HologramCanvas = dynamic(() => import("./hologram-canvas"), {
   ssr: false,
   loading: () => <StaticFallback />,
 });
@@ -129,7 +124,7 @@ export function WellnessVisual() {
         {webglOk === null ? (
           <StaticFallback />
         ) : webglOk ? (
-          <WellnessCanvas hovered={hovered} />
+          <HologramCanvas hovered={hovered} />
         ) : (
           <StaticFallback />
         )}
