@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, LayoutGroup } from "motion/react";
 import { X, ExternalLink, ArrowUpRight } from "lucide-react";
 import { PROJECTS } from "@/data/portfolio";
 import { EASE, DURATION } from "@/lib/motion";
@@ -65,16 +65,17 @@ export function ProjectDialog({
   }, [project, onClose]);
 
   return (
-    <AnimatePresence>
-      {project && (
-        <motion.div
-          className="fixed inset-0 z-[120] flex items-stretch justify-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: DURATION.modal, ease: EASE.primary }}
-          aria-hidden={false}
-        >
+    <LayoutGroup>
+      <AnimatePresence>
+        {project && (
+          <motion.div
+            className="fixed inset-0 z-[120] flex items-stretch justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: DURATION.modal, ease: EASE.primary }}
+            aria-hidden={false}
+          >
           {/* Backdrop */}
           <div
             className="absolute inset-0"
@@ -105,7 +106,14 @@ export function ProjectDialog({
                 <span className="font-mono-label text-secondary">
                   {project.number} / Case Study
                 </span>
-                <span className="font-mono-label text-secondary">{project.category}</span>
+                <motion.span
+                  layoutId={`project-category-${project.slug}`}
+                  className="font-mono-label text-secondary"
+                  layout
+                  transition={{ duration: 0.5, ease: EASE.primary }}
+                >
+                  {project.category}
+                </motion.span>
               </div>
               <button
                 ref={closeBtnRef}
@@ -121,12 +129,15 @@ export function ProjectDialog({
 
             {/* Body */}
             <div className="px-6 py-10 md:px-10 md:py-16">
-              <h2
+              <motion.h2
                 id={`dialog-title-${project.slug}`}
+                layoutId={`project-title-${project.slug}`}
+                layout
+                transition={{ duration: 0.5, ease: EASE.primary }}
                 className="font-display text-project text-balance"
               >
                 {project.title}
-              </h2>
+              </motion.h2>
               <p
                 id={`dialog-desc-${project.slug}`}
                 className="mt-5 max-w-2xl text-body text-secondary text-pretty"
@@ -233,7 +244,8 @@ export function ProjectDialog({
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+      </AnimatePresence>
+    </LayoutGroup>
   );
 }
 

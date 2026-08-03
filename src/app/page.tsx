@@ -8,10 +8,11 @@ import { Work } from "@/components/sections/work";
 import { Experience } from "@/components/sections/experience";
 import { Research } from "@/components/sections/research";
 import { Contact } from "@/components/sections/contact";
+import { LayoutGroup } from "motion/react";
 
 export default function Home() {
   return (
-    <>
+    <LayoutGroup>
       <Loader />
       <FloatingNav />
       <SectionProgressTrail />
@@ -24,6 +25,6 @@ export default function Home() {
         <Research />
         <Contact />
       </main>
-    </>
+    </LayoutGroup>
   );
 }

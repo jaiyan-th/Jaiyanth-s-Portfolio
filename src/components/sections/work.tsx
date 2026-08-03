@@ -136,13 +136,25 @@ function ProjectRow({
             {project.number} / Selected Work
           </span>
           <span className="h-px w-12 bg-line" />
-          <span className="font-mono-label text-secondary">{project.category}</span>
+          <motion.span
+            layoutId={`project-category-${project.slug}`}
+            className="font-mono-label text-secondary"
+            layout
+            transition={{ duration: 0.5, ease: EASE.primary }}
+          >
+            {project.category}
+          </motion.span>
         </div>
 
-        {/* Title */}
-        <h3 className="font-display text-project text-balance">
+        {/* Title — shared layout element, morphs into dialog title */}
+        <motion.h3
+          layoutId={`project-title-${project.slug}`}
+          layout
+          transition={{ duration: 0.5, ease: EASE.primary }}
+          className="font-display text-project text-balance"
+        >
           {project.title}
-        </h3>
+        </motion.h3>
 
         {/* Description */}
         <p className="text-body text-secondary text-pretty">{project.summary}</p>
