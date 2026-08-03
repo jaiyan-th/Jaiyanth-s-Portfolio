@@ -3,6 +3,7 @@
 import * as React from "react";
 import { motion } from "motion/react";
 import { EASE, DURATION } from "@/lib/motion";
+import { TrustGauge } from "./trust-gauge";
 
 type Variant = "evidence-network" | "career-layers" | "route-geometry";
 
@@ -19,120 +20,90 @@ export function ProjectVisual({ variant }: { variant: Variant }) {
 
 function EvidenceNetwork() {
   return (
-    <svg
-      viewBox="0 0 600 420"
-      className="h-full w-full"
-      role="img"
-      aria-label="Animated evidence-source network for the Fake News Detector"
-    >
-      <defs>
-        <radialGradient id="fn-glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.4" />
-          <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
-        </radialGradient>
-        <linearGradient id="fn-beam" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="var(--accent)" stopOpacity="0" />
-          <stop offset="50%" stopColor="var(--accent)" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
-        </linearGradient>
-      </defs>
+    <div className="relative h-full w-full">
+      <svg
+        viewBox="0 0 600 420"
+        className="absolute inset-0 h-full w-full"
+        role="img"
+        aria-label="Animated evidence-source network for the Fake News Detector"
+      >
+        <defs>
+          <radialGradient id="fn-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
+          </radialGradient>
+          <linearGradient id="fn-beam" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="var(--accent)" stopOpacity="0" />
+            <stop offset="50%" stopColor="var(--accent)" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
+          </linearGradient>
+        </defs>
 
-      <rect width="600" height="420" fill="url(#fn-glow)" opacity="0.6" />
+        <rect width="600" height="420" fill="url(#fn-glow)" opacity="0.6" />
 
-      {/* Center trust score */}
-      <g transform="translate(300,210)">
-        <circle r="62" fill="none" stroke="var(--line)" strokeWidth="1" />
-        <motion.circle
-          r="62"
-          fill="none"
-          stroke="var(--accent)"
-          strokeWidth="2"
-          strokeDasharray="390"
-          initial={{ strokeDashoffset: 390 }}
-          whileInView={{ strokeDashoffset: 80 }}
+        {/* Source nodes */}
+        {[
+          { x: 80, y: 80, label: "SRC-01" },
+          { x: 520, y: 80, label: "SRC-02" },
+          { x: 80, y: 340, label: "SRC-03" },
+          { x: 520, y: 340, label: "SRC-04" },
+          { x: 300, y: 60, label: "SRC-05" },
+          { x: 300, y: 360, label: "SRC-06" },
+        ].map((n, i) => (
+          <g key={i} transform={`translate(${n.x},${n.y})`}>
+            <motion.line
+              x1="0"
+              y1="0"
+              x2={300 - n.x}
+              y2={210 - n.y}
+              stroke="var(--line)"
+              strokeWidth="0.6"
+              initial={{ pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.2 + i * 0.08, ease: EASE.primary }}
+            />
+            <motion.circle
+              r="4"
+              fill="var(--accent-2)"
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.6 + i * 0.08, ease: EASE.primary }}
+            />
+            <text
+              textAnchor="middle"
+              dy="22"
+              fontFamily="var(--font-mono)"
+              fontSize="8"
+              letterSpacing="1"
+              fill="var(--text-secondary)"
+            >
+              {n.label}
+            </text>
+          </g>
+        ))}
+
+        {/* Semantic-search beam */}
+        <motion.line
+          x1="20"
+          y1="210"
+          x2="580"
+          y2="210"
+          stroke="url(#fn-beam)"
+          strokeWidth="1.5"
+          initial={{ pathLength: 0, opacity: 0 }}
+          whileInView={{ pathLength: 1, opacity: [0, 1, 0] }}
           viewport={{ once: true }}
-          transition={{ duration: 1.4, ease: EASE.primary, delay: 0.4 }}
-          transform="rotate(-90)"
+          transition={{ duration: 2, repeat: Infinity, repeatDelay: 1.5, ease: EASE.secondary }}
         />
-        <text
-          textAnchor="middle"
-          dy="-4"
-          fontFamily="var(--font-sans)"
-          fontWeight="600"
-          fontSize="28"
-          fill="var(--text-primary)"
-        >
-          83%
-        </text>
-        <text
-          textAnchor="middle"
-          dy="20"
-          fontFamily="var(--font-mono)"
-          fontSize="10"
-          letterSpacing="2"
-          fill="var(--text-secondary)"
-        >
-          TRUST
-        </text>
-      </g>
+      </svg>
 
-      {/* Source nodes */}
-      {[
-        { x: 80, y: 80, label: "SRC-01" },
-        { x: 520, y: 80, label: "SRC-02" },
-        { x: 80, y: 340, label: "SRC-03" },
-        { x: 520, y: 340, label: "SRC-04" },
-        { x: 300, y: 60, label: "SRC-05" },
-        { x: 300, y: 360, label: "SRC-06" },
-      ].map((n, i) => (
-        <g key={i} transform={`translate(${n.x},${n.y})`}>
-          <motion.line
-            x1="0"
-            y1="0"
-            x2={300 - n.x}
-            y2={210 - n.y}
-            stroke="var(--line)"
-            strokeWidth="0.6"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.2 + i * 0.08, ease: EASE.primary }}
-          />
-          <motion.circle
-            r="4"
-            fill="var(--accent-2)"
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.6 + i * 0.08, ease: EASE.primary }}
-          />
-          <text
-            textAnchor="middle"
-            dy="22"
-            fontFamily="var(--font-mono)"
-            fontSize="8"
-            letterSpacing="1"
-            fill="var(--text-secondary)"
-          >
-            {n.label}
-          </text>
-        </g>
-      ))}
-
-      {/* Semantic-search beam */}
-      <motion.line
-        x1="20"
-        y1="210"
-        x2="580"
-        y2="210"
-        stroke="url(#fn-beam)"
-        strokeWidth="1.5"
-        initial={{ pathLength: 0, opacity: 0 }}
-        whileInView={{ pathLength: 1, opacity: [0, 1, 0] }}
-        viewport={{ once: true }}
-        transition={{ duration: 2, repeat: Infinity, repeatDelay: 1.5, ease: EASE.secondary }}
-      />
-    </svg>
+      {/* Animated trust gauge — centered, overlays the SVG */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <TrustGauge target={83} label="TRUST" size={160} />
+      </div>
+    </div>
   );
 }
 
