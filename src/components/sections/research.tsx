@@ -40,7 +40,7 @@ export function Research() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: DURATION.reveal, ease: EASE.primary }}
-          className="mt-10"
+          className="mt-16"
         >
           <span className="font-mono-label text-secondary">Research highlights</span>
           <div className="mt-5 grid gap-4 sm:grid-cols-3">

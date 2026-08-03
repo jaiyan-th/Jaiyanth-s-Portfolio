@@ -64,7 +64,7 @@ export function Hero() {
         </h1>
 
         {/* Supporting + actions */}
-        <div className="mt-10 grid gap-10 border-t border-line pt-10 md:grid-cols-12 lg:mt-14">
+        <div className="mt-10 grid gap-8 border-t border-line pt-10 md:grid-cols-12 lg:mt-14 lg:gap-16">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

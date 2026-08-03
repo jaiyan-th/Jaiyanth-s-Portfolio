@@ -195,7 +195,7 @@ function ConstellationView({
   });
 
   return (
-    <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
+    <div className="grid gap-8 lg:grid-cols-12 lg:gap-16 items-stretch">
       {/* ── Rotating wheel — compact 5-column slot ─────────────── */}
       <div className="lg:col-span-5">
         <div className="relative aspect-square w-full border border-line bg-grid overflow-hidden">

@@ -23,7 +23,7 @@ export function Experience() {
         />
 
         {/* Two-column: role (left, 5 col) + workflow pipeline (right, 7 col) */}
-        <div className="mt-16 grid gap-12 md:grid-cols-12 md:gap-16">
+        <div className="mt-16 grid gap-8 md:grid-cols-12 lg:gap-16 items-stretch">
           {/* Left: role + reflection card */}
           <div className="md:col-span-5">
             <motion.div

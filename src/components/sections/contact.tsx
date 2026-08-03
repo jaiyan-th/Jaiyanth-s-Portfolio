@@ -29,7 +29,7 @@ export function Contact() {
           supporting="Open to applied-AI and full-stack engineering roles. I read every message and reply within a few days."
         />
 
-        <div className="mt-16 grid gap-12 md:grid-cols-12 md:gap-16">
+        <div className="mt-16 grid gap-8 md:grid-cols-12 lg:gap-16 items-stretch">
           {/* Left: closing statement + channels */}
           <div className="md:col-span-5">
             <motion.p

@@ -30,7 +30,7 @@ export function About() {
         />
 
         {/* Two-column: identity statement (left, 7 col) + metric matrix (right, 5 col) */}
-        <div className="mt-16 grid gap-12 md:grid-cols-12 md:gap-16">
+        <div className="mt-16 grid gap-8 md:grid-cols-12 lg:gap-16 items-stretch">
           {/* Left: identity statement + biography */}
           <div className="md:col-span-7">
             <motion.p

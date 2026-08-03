@@ -55,7 +55,7 @@ export function Work() {
         />
 
         {/* Two-column rows, alternating sides per project */}
-        <div className="mt-16 flex flex-col gap-20 md:gap-28">
+        <div className="mt-16 flex flex-col gap-16 md:gap-20">
           {PROJECTS.map((project, i) => (
             <ProjectRow
               key={project.slug}
