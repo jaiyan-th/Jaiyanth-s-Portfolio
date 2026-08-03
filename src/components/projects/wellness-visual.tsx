@@ -95,7 +95,7 @@ export function WellnessVisual() {
   return (
     <div
       ref={containerRef}
-      className="relative h-full min-h-[420px] border border-line bg-grid overflow-hidden"
+      className="relative h-full min-h-[360px] border border-line bg-grid overflow-hidden"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >

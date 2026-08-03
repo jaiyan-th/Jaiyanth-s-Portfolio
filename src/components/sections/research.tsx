@@ -41,27 +41,27 @@ export function Research() {
           supporting="Co-authored research integrating image recognition and conversational AI, accepted at ICETSIS 2026."
         />
 
-        {/* Two-column layout — mirrors the Skills section (5 col + 7 col, gap-12) */}
+        {/* Two-column layout — paper card (7 col, larger) + wellness visual (5 col, compact) */}
         <div className="mt-16 grid gap-8 lg:grid-cols-12 lg:gap-12">
-          {/* Left: paper card — larger 5-column slot */}
+          {/* Left: paper card — larger 7-column slot */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: DURATION.reveal, ease: EASE.primary }}
-            className="lg:col-span-5"
+            className="lg:col-span-7"
           >
             <PaperCard />
           </motion.div>
 
-          {/* Right: wellness particle visual — 7-column slot */}
+          {/* Right: wellness particle visual — compact 5-column slot */}
           <motion.div
             style={{ y: diagramY }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ delay: 0.12, duration: DURATION.reveal, ease: EASE.primary }}
-            className="lg:col-span-7"
+            className="lg:col-span-5"
           >
             <WellnessVisual />
           </motion.div>
@@ -139,20 +139,20 @@ function PaperCard() {
         </span>
       </div>
 
-      {/* Body — larger padding to match the 5-column slot */}
-      <div className="flex flex-1 flex-col gap-6 p-6">
-        <h3 className="font-display text-[clamp(19px,2vw,24px)] leading-snug tracking-tight text-balance">
+      {/* Body — larger padding to fill the 7-column slot */}
+      <div className="flex flex-1 flex-col gap-6 p-7">
+        <h3 className="font-display text-[clamp(20px,2.2vw,26px)] leading-snug tracking-tight text-balance">
           {RESEARCH.title}
         </h3>
 
         <blockquote
-          className="relative pl-4 text-[13.5px] text-secondary text-pretty italic leading-relaxed"
+          className="relative pl-4 text-[14px] text-secondary text-pretty italic leading-relaxed"
           style={{ borderLeft: "2px solid var(--accent)" }}
         >
           {RESEARCH.abstract}
         </blockquote>
 
-        <dl className="grid grid-cols-2 gap-x-4 gap-y-4 pt-1">
+        <dl className="grid grid-cols-2 gap-x-6 gap-y-4 pt-1">
           <MetaItem icon={Building2} label="Venue" value={RESEARCH.venue} />
           <MetaItem icon={MapPin} label="Location" value={RESEARCH.location} />
           <MetaItem icon={Calendar} label="Date" value={RESEARCH.date} />
