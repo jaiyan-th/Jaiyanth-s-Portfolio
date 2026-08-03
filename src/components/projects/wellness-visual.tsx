@@ -101,7 +101,7 @@ export function WellnessVisual() {
           <span className="font-mono-label text-secondary">Wellness intelligence</span>
         </div>
         <span className="font-mono-label text-secondary !text-[9px]">
-          PARTICLE · LIVE
+          LIVE
         </span>
       </div>
 

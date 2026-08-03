@@ -66,6 +66,42 @@ export function Research() {
             <WellnessVisual />
           </motion.div>
         </div>
+
+        {/* Research highlights — 3 cards full width below */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: DURATION.reveal, ease: EASE.primary }}
+          className="mt-10"
+        >
+          <span className="font-mono-label text-secondary">Research highlights</span>
+          <div className="mt-5 grid gap-4 sm:grid-cols-3">
+            {RESEARCH_CONTEXT.highlights.map((h, i) => (
+              <motion.div
+                key={h.index}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 + i * 0.1, duration: 0.5, ease: EASE.primary }}
+                className="border border-line p-5 flex flex-col gap-2.5"
+              >
+                <span
+                  className="font-display text-[28px] leading-none"
+                  style={{ color: "var(--accent)" }}
+                >
+                  {h.index}
+                </span>
+                <h4 className="text-[14.5px] font-medium tracking-tight text-foreground">
+                  {h.title}
+                </h4>
+                <p className="text-[12.5px] text-secondary text-pretty leading-snug">
+                  {h.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
