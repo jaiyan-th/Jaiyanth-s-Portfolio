@@ -1,38 +1,19 @@
 "use client";
 
 import * as React from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { FileText, MapPin, Calendar, Building2 } from "lucide-react";
 import { RESEARCH, RESEARCH_CONTEXT } from "@/data/portfolio";
 import { EASE, DURATION } from "@/lib/motion";
 import { SectionHeader } from "@/components/ui/masked-heading";
-import { WellnessVisual } from "@/components/projects/wellness-visual";
 
 export function Research() {
-  const sectionRef = React.useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-  const diagramY = useTransform(scrollYProgress, [0, 1], [40, -40]);
-
   return (
     <section
-      ref={sectionRef}
       id="research"
       aria-labelledby="research-heading"
       className="relative section-spacing border-t border-line overflow-hidden"
     >
-      {/* Ambient glow background */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(50% 40% at 70% 50%, var(--node-glow) 0%, transparent 70%)",
-        }}
-      />
-
       <div className="container-editorial relative">
         <SectionHeader
           index="05"
@@ -41,31 +22,16 @@ export function Research() {
           supporting="Co-authored research integrating image recognition and conversational AI, accepted at ICETSIS 2026."
         />
 
-        {/* Two-column layout — paper card (7 col, larger) + wellness visual (5 col, compact) */}
-        <div className="mt-16 grid gap-8 lg:grid-cols-12 lg:gap-12">
-          {/* Left: paper card — larger 7-column slot */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: DURATION.reveal, ease: EASE.primary }}
-            className="lg:col-span-7"
-          >
-            <PaperCard />
-          </motion.div>
-
-          {/* Right: wellness particle visual — compact 5-column slot */}
-          <motion.div
-            style={{ y: diagramY }}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ delay: 0.12, duration: DURATION.reveal, ease: EASE.primary }}
-            className="lg:col-span-5"
-          >
-            <WellnessVisual />
-          </motion.div>
-        </div>
+        {/* Paper card — full width */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: DURATION.reveal, ease: EASE.primary }}
+          className="mt-16"
+        >
+          <PaperCard />
+        </motion.div>
 
         {/* Research highlights — 3 cards full width below */}
         <motion.div
