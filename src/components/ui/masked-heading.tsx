@@ -97,11 +97,23 @@ export function SectionHeader({
         align === "center" ? "items-center text-center" : "items-start"
       }`}
     >
-      <div className="flex items-center gap-4">
-        <span className="font-mono-label text-secondary">[ {index} ]</span>
+      <motion.div
+        initial={{ opacity: 0, x: -12 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.5, ease: EASE.primary }}
+        className="flex items-center gap-4"
+      >
+        <motion.span
+          className="font-mono-label text-secondary"
+          whileHover={{ color: "var(--accent)" }}
+          transition={{ duration: 0.2 }}
+        >
+          [ {index} ]
+        </motion.span>
         <span className="h-px w-12 bg-line" />
         <span className="font-mono-label text-secondary">{label}</span>
-      </div>
+      </motion.div>
       <MaskedHeading
         text={title}
         className="font-display text-section text-balance"

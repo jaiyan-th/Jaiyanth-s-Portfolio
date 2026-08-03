@@ -1,5 +1,6 @@
 import { FloatingNav } from "@/components/layout/floating-nav";
 import { Loader } from "@/components/layout/loader";
+import { SectionProgressTrail } from "@/components/effects/section-progress-trail";
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { Skills } from "@/components/sections/skills";
@@ -13,6 +14,7 @@ export default function Home() {
     <>
       <Loader />
       <FloatingNav />
+      <SectionProgressTrail />
       <main id="main" className="relative">
         <Hero />
         <About />
