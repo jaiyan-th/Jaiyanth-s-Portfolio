@@ -14,6 +14,7 @@ import {
 import { SKILL_GROUPS } from "@/data/portfolio";
 import { EASE, DURATION } from "@/lib/motion";
 import { SectionHeader } from "@/components/ui/masked-heading";
+import { TiltCard } from "@/components/effects/tilt-card";
 
 // 0.2 degrees of rotation per 1 pixel of scroll
 const ROTATION_PER_PX = 0.2;
@@ -49,40 +50,39 @@ export function Skills() {
         <div className="mt-12 -mx-[4vw] md:hidden">
           <div className="no-scrollbar flex snap-x-card gap-4 overflow-x-auto px-[4vw] pb-4">
             {SKILL_GROUPS.map((g) => (
-              <article
-                key={g.id}
-                className="flex w-[84vw] flex-shrink-0 flex-col gap-4 border border-line p-6"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-mono-label text-secondary">
-                    {g.index} / {g.label}
-                  </span>
-                  <span
-                    className="h-1.5 w-1.5 rounded-full"
-                    style={{ background: "var(--accent)" }}
-                  />
-                </div>
-                <h3 className="font-display text-[28px] leading-tight tracking-tight">
-                  {g.title}
-                </h3>
-                <p className="text-[14px] text-secondary text-pretty">{g.description}</p>
-                <ul className="flex flex-wrap gap-2 pt-2">
-                  {g.skills.map((s) => (
-                    <li
-                      key={s}
-                      className="rounded-full border border-line px-3 py-1 text-[12px]"
-                    >
-                      {s}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-auto border-t border-line pt-4">
-                  <span className="font-mono-label text-secondary">Evidence</span>
-                  <p className="mt-2 text-[13px] text-foreground text-pretty">
-                    {g.evidence}
-                  </p>
-                </div>
-              </article>
+              <TiltCard key={g.id} max={8} scale={1.03} className="w-[84vw] flex-shrink-0">
+                <article className="flex h-full flex-col gap-4 border border-line p-6">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono-label text-secondary">
+                      {g.index} / {g.label}
+                    </span>
+                    <span
+                      className="h-1.5 w-1.5 rounded-full"
+                      style={{ background: "var(--accent)" }}
+                    />
+                  </div>
+                  <h3 className="font-display text-[28px] leading-tight tracking-tight">
+                    {g.title}
+                  </h3>
+                  <p className="text-[14px] text-secondary text-pretty">{g.description}</p>
+                  <ul className="flex flex-wrap gap-2 pt-2">
+                    {g.skills.map((s) => (
+                      <li
+                        key={s}
+                        className="rounded-full border border-line px-3 py-1 text-[12px]"
+                      >
+                        {s}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-auto border-t border-line pt-4">
+                    <span className="font-mono-label text-secondary">Evidence</span>
+                    <p className="mt-2 text-[13px] text-foreground text-pretty">
+                      {g.evidence}
+                    </p>
+                  </div>
+                </article>
+              </TiltCard>
             ))}
           </div>
         </div>
@@ -449,12 +449,13 @@ function ConstellationView({
 
       {/* ── Skill details card — expanded 7-column slot ────────── */}
       <div className="lg:col-span-7">
-        <div
-          id={`skill-panel-${activeGroup.id}`}
-          role="tabpanel"
-          aria-labelledby={`skill-tab-${activeGroup.id}`}
-          className="flex h-full flex-col border border-line p-8 lg:p-10"
-        >
+        <TiltCard max={5} scale={1.01} className="h-full">
+          <div
+            id={`skill-panel-${activeGroup.id}`}
+            role="tabpanel"
+            aria-labelledby={`skill-tab-${activeGroup.id}`}
+            className="flex h-full flex-col border border-line p-8 lg:p-10"
+          >
           <AnimatePresence mode="wait">
             <motion.div
               key={activeGroup.id}
@@ -512,7 +513,8 @@ function ConstellationView({
               </div>
             </motion.div>
           </AnimatePresence>
-        </div>
+          </div>
+        </TiltCard>
       </div>
     </div>
   );
