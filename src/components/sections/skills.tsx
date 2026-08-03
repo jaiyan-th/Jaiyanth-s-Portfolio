@@ -34,6 +34,7 @@ export function Skills() {
           index="02"
           label="Skills System"
           title="Seven evidence-based skill groups."
+          accentWords={["evidence"]}
           supporting="Every skill shown is supported by a project, internship task, or research contribution."
         />
 

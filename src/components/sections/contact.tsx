@@ -25,6 +25,7 @@ export function Contact() {
           index="06"
           label="Contact"
           title="Let's start a conversation."
+          accentWords={["conversation"]}
           supporting="Open to applied-AI and full-stack engineering roles. I read every message and reply within a few days."
         />
 
@@ -40,7 +41,7 @@ export function Contact() {
             >
               Send a note about{" "}
               <span
-                className="font-serif-editorial italic"
+                className="font-serif-editorial"
                 style={{ color: "var(--accent)" }}
               >
                 a role

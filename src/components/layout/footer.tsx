@@ -24,7 +24,7 @@ export function Footer() {
               className="mt-5 font-display text-section text-balance"
             >
               Let&apos;s build something{" "}
-              <span className="font-serif-editorial italic" style={{ color: "var(--accent)" }}>
+              <span className="font-serif-editorial" style={{ color: "var(--accent)" }}>
                 useful
               </span>
               .

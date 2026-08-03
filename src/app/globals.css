@@ -143,12 +143,13 @@
     font-weight: 700;
   }
   .font-serif-editorial {
-    /* Was serif (Instrument Serif) — now Inter italic to match the
-       Neo-Grotesque sans-serif italic accent shown in the reference. */
-    font-family: var(--font-sans), system-ui, sans-serif;
-    letter-spacing: -0.03em;
+    /* Instrument Serif — high-contrast italic serif for accent words.
+       Creates a striking type-contrast against the bold sans-serif body,
+       matching the "complex" word treatment in the reference image. */
+    font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+    letter-spacing: -0.01em;
     font-style: italic;
-    font-weight: 600;
+    font-weight: 400;
   }
   .font-mono-label {
     font-family: var(--font-mono), ui-monospace, monospace;

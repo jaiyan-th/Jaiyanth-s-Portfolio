@@ -18,6 +18,7 @@ export function Experience() {
           index="04"
           label="Experience"
           title="One focused AI internship."
+          accentWords={["focused"]}
           supporting="Real engineering work — prototypes that had to run, with the debugging and testing discipline that implies."
         />
 

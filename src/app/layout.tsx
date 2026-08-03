@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, DM_Mono } from "next/font/google";
+import { Inter, Instrument_Serif, DM_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/effects/theme-provider";
@@ -15,6 +15,17 @@ const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
+});
+
+// Instrument Serif — high-contrast italic serif for accent words.
+// Used ONLY for highlighted/emphasis words (like "complex" in the reference)
+// to create a striking type-contrast against the bold sans-serif body.
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -140,7 +151,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${dmMono.variable} antialiased bg-canvas text-foreground`}
+        className={`${inter.variable} ${instrumentSerif.variable} ${dmMono.variable} antialiased bg-canvas text-foreground`}
       >
         <ThemeProvider>
           <a

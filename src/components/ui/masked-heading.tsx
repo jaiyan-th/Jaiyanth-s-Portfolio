@@ -14,11 +14,14 @@ export function MaskedHeading({
   className,
   as: Tag = "h2",
   delay = 0,
+  accentWords = [],
 }: {
   text: string;
   className?: string;
   as?: React.ElementType;
   delay?: number;
+  /** Words to render in serif italic accent (case-insensitive, matches with punctuation stripped) */
+  accentWords?: string[];
 }) {
   const ref = React.useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
@@ -29,6 +32,7 @@ export function MaskedHeading({
   }, []);
 
   const lines = splitToLines(text);
+  const accentLower = accentWords.map((w) => w.toLowerCase());
 
   const container: Variants = {
     hidden: {},
@@ -37,6 +41,32 @@ export function MaskedHeading({
   const child: Variants = {
     hidden: { y: "110%" },
     visible: { y: "0%", transition: { duration: DURATION.reveal, ease: EASE.primary } },
+  };
+
+  // Render a line, wrapping any accent words in a serif italic span.
+  // Splits on whitespace and strips punctuation (including hyphens) for matching.
+  const renderLine = (line: string) => {
+    if (accentLower.length === 0) return line;
+    // Split into tokens (words) + whitespace, preserving both
+    const tokens = line.split(/(\s+)/);
+    return tokens.map((tok, i) => {
+      if (/^\s+$/.test(tok) || tok === "") return <React.Fragment key={i}>{tok}</React.Fragment>;
+      // Strip punctuation incl. hyphens for matching: "evidence-based" → "evidencebased"
+      const stripped = tok.toLowerCase().replace(/[.,!?;:"'\-]/g, "");
+      const isAccent = accentLower.some((aw) => stripped.includes(aw));
+      if (isAccent) {
+        return (
+          <span
+            key={i}
+            className="font-serif-editorial"
+            style={{ color: "var(--accent)" }}
+          >
+            {tok}
+          </span>
+        );
+      }
+      return <React.Fragment key={i}>{tok}</React.Fragment>;
+    });
   };
 
   return (
@@ -50,7 +80,7 @@ export function MaskedHeading({
         {lines.map((line, i) => (
           <span key={i} className="mask-line">
             <motion.span variants={reduce ? undefined : child} className="block">
-              {line}
+              {renderLine(line)}
             </motion.span>
           </span>
         ))}
@@ -84,12 +114,15 @@ export function SectionHeader({
   title,
   supporting,
   align = "left",
+  accentWords = [],
 }: {
   index: string;
   label: string;
   title: string;
   supporting?: string;
   align?: "left" | "center";
+  /** Words in the title to render in serif italic accent */
+  accentWords?: string[];
 }) {
   return (
     <div
@@ -116,6 +149,7 @@ export function SectionHeader({
       </motion.div>
       <MaskedHeading
         text={title}
+        accentWords={accentWords}
         className="font-display text-section text-balance"
       />
       {supporting ? (

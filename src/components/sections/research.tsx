@@ -19,6 +19,7 @@ export function Research() {
           index="05"
           label="IEEE Research"
           title="A preventive-healthcare AI framework."
+          accentWords={["preventive"]}
           supporting="Co-authored research integrating image recognition and conversational AI, accepted at ICETSIS 2026."
         />
 

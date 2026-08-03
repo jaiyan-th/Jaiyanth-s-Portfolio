@@ -138,7 +138,7 @@ function HeroLine({
         initial={{ y: "110%" }}
         animate={{ y: "0%" }}
         transition={{ delay, duration: DURATION.section, ease: EASE.primary }}
-        className="block"
+        className={`block ${accent ? "font-serif-editorial" : ""}`}
         style={
           accent
             ? { color: "var(--accent)" }

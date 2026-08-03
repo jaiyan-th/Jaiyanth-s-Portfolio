@@ -25,6 +25,7 @@ export function About() {
           index="01"
           label="About"
           title="From signal to system to story."
+          accentWords={["signal", "system", "story"]}
           supporting="A short orientation to who I am, what I build, and how I work."
         />
 
@@ -46,7 +47,7 @@ export function About() {
                   <React.Fragment key={i}>
                     {isAccent ? (
                       <span
-                        className="font-serif-editorial italic"
+                        className="font-serif-editorial"
                         style={{ color: "var(--accent)" }}
                       >
                         {word}

@@ -50,6 +50,7 @@ export function Work() {
           index="03"
           label="Selected Work"
           title="Three projects, three systems."
+          accentWords={["systems"]}
           supporting="Each one is a real artifact — built, debugged, and documented. Tap a project for the full case study."
         />
 
