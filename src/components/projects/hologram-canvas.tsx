@@ -167,14 +167,14 @@ function OrbitRings({ hovered }: { hovered: boolean }) {
       {/* Horizontal orbit ring — faint gray, elliptical via scale */}
       <group scale={[1.0, 0.28, 1.0]}>
         <mesh ref={ring1Ref}>
-          <ringGeometry args={[1.45, 1.47, 96]} />
+          <ringGeometry args={[1.25, 1.27, 96]} />
           <meshBasicMaterial color={COLORS.gray} transparent opacity={0.35} side={THREE.DoubleSide} depthWrite={false} />
         </mesh>
       </group>
       {/* Tilted orbit ring — faint gray, tilted ~35°, elliptical via scale */}
       <group rotation={[Math.PI / 5, 0, Math.PI / 8]} scale={[1.0, 0.32, 1.0]}>
         <mesh ref={ring2Ref}>
-          <ringGeometry args={[1.62, 1.64, 96]} />
+          <ringGeometry args={[1.4, 1.42, 96]} />
           <meshBasicMaterial color={COLORS.grayFaint} transparent opacity={0.4} side={THREE.DoubleSide} depthWrite={false} />
         </mesh>
       </group>
@@ -198,7 +198,7 @@ const BADGES = [
 
 // Precompute badge world positions on the elliptical orbits
 function getBadgePosition(badge: (typeof BADGES)[number]): [number, number, number] {
-  const r = badge.ring === "horizontal" ? 1.46 : 1.63;
+  const r = badge.ring === "horizontal" ? 1.26 : 1.41;
   const x = Math.cos(badge.angle) * r;
   const y = Math.sin(badge.angle) * r;
   if (badge.ring === "horizontal") {
