@@ -26,6 +26,10 @@ type TiltCardProps = {
   className?: string;
   /** Glare effect — subtle radial highlight that follows the cursor */
   glare?: boolean;
+  /** Accent glow — soft box-shadow in the accent color on hover */
+  glow?: boolean;
+  /** Glow color (CSS color). Defaults to var(--accent) via JS. */
+  glowColor?: string;
 };
 
 export function TiltCard({
@@ -35,9 +39,12 @@ export function TiltCard({
   scale = 1.02,
   className,
   glare = true,
+  glow = false,
+  glowColor,
 }: TiltCardProps) {
   const ref = React.useRef<HTMLDivElement>(null);
   const [enabled, setEnabled] = React.useState(false);
+  const [hovered, setHovered] = React.useState(false);
   const [transform, setTransform] = React.useState("");
   const [glarePos, setGlarePos] = React.useState({ x: 50, y: 50, opacity: 0 });
 
@@ -71,23 +78,38 @@ export function TiltCard({
     }
   };
 
+  const handleEnter = () => setHovered(true);
   const reset = () => {
     setTransform("");
+    setHovered(false);
     setGlarePos((g) => ({ ...g, opacity: 0 }));
   };
+
+  // Resolve glow color from CSS var if not provided
+  const resolvedGlowColor = React.useMemo(() => {
+    if (glowColor) return glowColor;
+    if (typeof window === "undefined") return "#ff6a3d";
+    return getComputedStyle(document.documentElement)
+      .getPropertyValue("--accent")
+      .trim() || "#ff6a3d";
+  }, [glowColor]);
 
   return (
     <div
       ref={ref}
       onMouseMove={handleMove}
+      onMouseEnter={handleEnter}
       onMouseLeave={reset}
       className={className}
       style={{
         transform,
-        transition: "transform 400ms cubic-bezier(0.16, 1, 0.3, 1)",
+        transition: "transform 400ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1)",
         willChange: "transform",
         transformStyle: "preserve-3d",
         position: "relative",
+        boxShadow: enabled && glow && hovered
+          ? `0 20px 60px -20px ${resolvedGlowColor}66, 0 0 30px -10px ${resolvedGlowColor}44`
+          : "none",
       }}
     >
       {children}

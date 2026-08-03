@@ -9,6 +9,7 @@ import { EASE, DURATION } from "@/lib/motion";
 import { SectionHeader } from "@/components/ui/masked-heading";
 import { ProjectVisual } from "@/components/projects/project-visual";
 import { ProjectDialog } from "@/components/projects/project-dialog";
+import { TiltCard } from "@/components/effects/tilt-card";
 import { usePathname } from "next/navigation";
 
 export function Work() {
@@ -92,33 +93,35 @@ function ProjectRow({
     >
       {/* Visual column — order-2 when reversed (text on left, visual on right) */}
       <div className={`flex items-center ${reversed ? "lg:order-2" : "lg:order-1"}`}>
-        <div
-          className="group relative aspect-square w-full overflow-hidden border border-line bg-grid"
-          data-cursor="open"
-          onClick={onOpen}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              onOpen();
-            }
-          }}
-          tabIndex={0}
-          role="button"
-          aria-label={`Open case study: ${project.title}`}
-        >
-          <ProjectVisual variant={project.visual as "evidence-network" | "career-layers" | "route-geometry"} />
+        <TiltCard max={8} scale={1.03} glow className="w-full">
           <div
-            aria-hidden
-            className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-            style={{
-              background: "color-mix(in oklab, var(--canvas) 70%, transparent)",
+            className="group relative aspect-square w-full overflow-hidden border border-line bg-grid"
+            data-cursor="open"
+            onClick={onOpen}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                onOpen();
+              }
             }}
+            tabIndex={0}
+            role="button"
+            aria-label={`Open case study: ${project.title}`}
           >
-            <span className="flex items-center gap-2 rounded-full border border-line px-4 py-2 font-mono-label text-foreground">
-              Open case study <ArrowUpRight className="h-3 w-3" aria-hidden />
-            </span>
+            <ProjectVisual variant={project.visual as "evidence-network" | "career-layers" | "route-geometry"} />
+            <div
+              aria-hidden
+              className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              style={{
+                background: "color-mix(in oklab, var(--canvas) 70%, transparent)",
+              }}
+            >
+              <span className="flex items-center gap-2 rounded-full border border-line px-4 py-2 font-mono-label text-foreground">
+                Open case study <ArrowUpRight className="h-3 w-3" aria-hidden />
+              </span>
+            </div>
           </div>
-        </div>
+        </TiltCard>
       </div>
 
       {/* Content column — order-1 when reversed (text on left) */}
