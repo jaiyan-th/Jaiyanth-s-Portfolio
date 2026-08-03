@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Instrument_Serif, DM_Mono } from "next/font/google";
+import { Inter, DM_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/effects/theme-provider";
@@ -9,19 +9,16 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE } from "@/data/portfolio";
 
-const spaceGrotesk = Space_Grotesk({
+// Inter — Helvetica-style Neo-Grotesque, tight tracking, high impact.
+// Used for both display headings and body text across the entire portfolio.
+const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-serif",
-  subsets: ["latin"],
-  weight: ["400"],
-  display: "swap",
-});
-
+// DM Mono — kept for technical labels / metadata (monospace)
 const dmMono = DM_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
@@ -143,7 +140,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${spaceGrotesk.variable} ${instrumentSerif.variable} ${dmMono.variable} antialiased bg-canvas text-foreground`}
+        className={`${inter.variable} ${dmMono.variable} antialiased bg-canvas text-foreground`}
       >
         <ThemeProvider>
           <a

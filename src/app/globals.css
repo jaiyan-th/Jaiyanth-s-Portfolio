@@ -12,7 +12,6 @@
   --color-background: var(--canvas);
   --color-foreground: var(--text-primary);
   --font-sans: var(--font-sans);
-  --font-serif: var(--font-serif);
   --font-mono: var(--font-mono);
 
   --color-canvas: var(--canvas);
@@ -139,12 +138,17 @@
 @layer utilities {
   .font-display {
     font-family: var(--font-sans), system-ui, sans-serif;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.04em;
     line-height: 0.92;
+    font-weight: 700;
   }
   .font-serif-editorial {
-    font-family: var(--font-serif), Georgia, serif;
-    letter-spacing: -0.02em;
+    /* Was serif (Instrument Serif) — now Inter italic to match the
+       Neo-Grotesque sans-serif italic accent shown in the reference. */
+    font-family: var(--font-sans), system-ui, sans-serif;
+    letter-spacing: -0.03em;
+    font-style: italic;
+    font-weight: 600;
   }
   .font-mono-label {
     font-family: var(--font-mono), ui-monospace, monospace;
