@@ -49,46 +49,43 @@
 }
 
 /* DARK THEME — default
-   Pure black canvas so the blue palette accents pop with maximum contrast.
-   Accent: cornflower blue · Secondary: sky blue · Warm: soft amber
+   Slate & Signal Orange palette.
+   Canvas: deep slate · Accent: signal orange · Borders: slate
 */
 :root,
 .dark {
-  --canvas: #000000;
-  --elevated: #0a0a0a;
-  --surface: #141414;
-  --text-primary: #f0f4fa;
-  --text-secondary: #8b9bb5;
-  --line: rgba(240, 244, 250, 0.13);
-  --accent: #83b0e1;
-  --accent-2: #aecbeb;
-  --accent-warm: #e89b7c;
+  --canvas: #0e1214;
+  --elevated: #131a1d;
+  --surface: #1b2528;
+  --text-primary: #eaf2f1;
+  --text-secondary: #8da3a8;
+  --line: rgba(234, 242, 241, 0.13);
+  --accent: #ff6a3d;
+  --accent-2: #3dd0c4;
+  --accent-warm: #ffb86b;
 
-  --grid-line: rgba(240, 244, 250, 0.04);
-  --node-glow: rgba(131, 176, 225, 0.22);
-  --halo: rgba(174, 203, 235, 0.22);
+  --grid-line: rgba(234, 242, 241, 0.04);
+  --node-glow: rgba(255, 106, 61, 0.22);
+  --halo: rgba(61, 208, 196, 0.18);
 
   color-scheme: dark;
 }
 
-/* LIGHT THEME
-   Matches the uploaded palette directly:
-   white → ghost white → pale blue → light sky blue → cornflower blue
-*/
+/* LIGHT THEME — soft slate/light version of the palette */
 .light {
-  --canvas: #ffffff;
-  --elevated: #f8f9fb;
-  --surface: #e1ecf7;
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
-  --line: rgba(31, 41, 55, 0.14);
-  --accent: #71a5de;
-  --accent-2: #83b0e1;
-  --accent-warm: #d97757;
+  --canvas: #f4f5f3;
+  --elevated: #ffffff;
+  --surface: #e8eae7;
+  --text-primary: #1b2528;
+  --text-secondary: #5a6b70;
+  --line: rgba(27, 37, 40, 0.14);
+  --accent: #e8542a;
+  --accent-2: #2bb0a6;
+  --accent-warm: #d98a3d;
 
-  --grid-line: rgba(31, 41, 55, 0.05);
-  --node-glow: rgba(113, 165, 222, 0.18);
-  --halo: rgba(131, 176, 225, 0.14);
+  --grid-line: rgba(27, 37, 40, 0.05);
+  --node-glow: rgba(232, 84, 42, 0.18);
+  --halo: rgba(43, 176, 166, 0.14);
 
   color-scheme: light;
 }

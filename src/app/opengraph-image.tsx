@@ -16,8 +16,8 @@ export default async function OG() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "#000000",
-          color: "#F0F4FA",
+          backgroundColor: "#0E1214",
+          color: "#EAF2F1",
           padding: 80,
           fontFamily: "sans-serif",
         }}
@@ -28,8 +28,8 @@ export default async function OG() {
               width: 56,
               height: 56,
               borderRadius: 999,
-              background: "#83B0E1",
-              color: "#000000",
+              background: "#FF6A3D",
+              color: "#0E1214",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -39,7 +39,7 @@ export default async function OG() {
           >
             JB
           </div>
-          <div style={{ fontSize: 18, color: "#8B9BB5", letterSpacing: 4 }}>
+          <div style={{ fontSize: 18, color: "#8DA3A8", letterSpacing: 4 }}>
             SIGNAL · SYSTEM · STORY
           </div>
         </div>
@@ -47,7 +47,7 @@ export default async function OG() {
           <div style={{ fontSize: 84, fontWeight: 700, letterSpacing: -4, lineHeight: 0.95 }}>
             Engineering intelligent
           </div>
-          <div style={{ fontSize: 84, fontWeight: 700, letterSpacing: -4, lineHeight: 0.95, color: "#83B0E1" }}>
+          <div style={{ fontSize: 84, fontWeight: 700, letterSpacing: -4, lineHeight: 0.95, color: "#FF6A3D" }}>
             products from signal to system.
           </div>
         </div>
@@ -55,10 +55,10 @@ export default async function OG() {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            borderTop: "1px solid rgba(240,244,250,0.13)",
+            borderTop: "1px solid rgba(234,242,241,0.13)",
             paddingTop: 24,
             fontSize: 18,
-            color: "#8B9BB5",
+            color: "#8DA3A8",
           }}
         >
           <div>{IDENTITY.name} — {IDENTITY.role}</div>
