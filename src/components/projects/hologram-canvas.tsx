@@ -223,15 +223,20 @@ function Icon({
 
   return (
     <group ref={ref} position={pos as [number, number, number]}>
-      {/* Glow circle background */}
+      {/* Outer glow halo (additive, sits behind) */}
       <mesh>
-        <circleGeometry args={[0.18, 32]} />
-        <meshBasicMaterial color={color} transparent opacity={0.2} blending={THREE.AdditiveBlending} depthWrite={false} />
+        <circleGeometry args={[0.22, 32]} />
+        <meshBasicMaterial color={color} transparent opacity={0.15} blending={THREE.AdditiveBlending} depthWrite={false} />
       </mesh>
-      {/* Ring */}
+      {/* Opaque background disc — covers orbital rings / connection lines behind the icon */}
       <mesh>
-        <ringGeometry args={[0.13, 0.15, 32]} />
-        <meshBasicMaterial color={color} transparent opacity={0.8} side={THREE.DoubleSide} blending={THREE.AdditiveBlending} depthWrite={false} />
+        <circleGeometry args={[0.17, 32]} />
+        <meshBasicMaterial color="#000000" transparent opacity={0.92} depthWrite={true} />
+      </mesh>
+      {/* Colored ring border */}
+      <mesh>
+        <ringGeometry args={[0.15, 0.17, 32]} />
+        <meshBasicMaterial color={color} transparent opacity={0.95} side={THREE.DoubleSide} depthWrite={false} />
       </mesh>
       {/* Icon symbol — simplified shapes */}
       <IconSymbol type={type} color={color} />
@@ -350,15 +355,28 @@ function ConnectionLines({ hovered }: { hovered: boolean }) {
   const groupRef = React.useRef<THREE.Group>(null);
 
   const lines = React.useMemo(() => {
-    // Connect icons to the center (globe)
+    // Connect icons to the center (globe), but stop short of both the icon
+    // disc (radius ~0.22) and the globe surface (radius ~1.0) so lines never
+    // overlap with either element.
     return ICON_POSITIONS.map((icon) => {
+      const ix = icon.pos[0]!;
+      const iy = icon.pos[1]!;
+      const iz = icon.pos[2]!;
+      const len = Math.sqrt(ix * ix + iy * iy + iz * iz) || 1;
+      // Unit vector from globe center toward icon
+      const ux = ix / len;
+      const uy = iy / len;
+      const uz = iz / len;
+      // Start just outside the globe (1.05), end just before the icon (len - 0.25)
+      const startR = 1.05;
+      const endR = Math.max(startR + 0.1, len - 0.25);
       const positions = new Float32Array(6);
-      positions[0] = icon.pos[0]!;
-      positions[1] = icon.pos[1]!;
-      positions[2] = icon.pos[2]!;
-      positions[3] = 0;
-      positions[4] = 0;
-      positions[5] = 0;
+      positions[0] = ux * startR;
+      positions[1] = uy * startR;
+      positions[2] = uz * startR;
+      positions[3] = ux * endR;
+      positions[4] = uy * endR;
+      positions[5] = uz * endR;
       const geom = new THREE.BufferGeometry();
       geom.setAttribute("position", new THREE.BufferAttribute(positions, 3));
       return geom;
