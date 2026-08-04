@@ -1,0 +1,423 @@
+/* ============================================================
+   ANIMATIONS.CSS — Minimal editorial animation layer
+   Drop-in stylesheet. No dependencies. Framework-agnostic.
+   ============================================================
+   Usage: <link rel="stylesheet" href="animations.css">
+   Then add the class names to your existing elements.
+   ============================================================ */
+
+/* ============================================================
+   1. .reveal-lines — Headline line-by-line reveal
+   ------------------------------------------------------------
+   Splits headline text into lines (wrapped in .reveal-line spans
+   by animations.js). Each line animates up from below with a
+   fade, staggered ~80ms per line, ease-out cubic, ~700ms.
+
+   HTML:
+     <h1 class="reveal-lines">Your headline here</h1>
+   Scroll-triggered mode (animates when scrolled into view):
+     <h1 class="reveal-lines reveal-on-scroll">Your headline</h1>
+   ============================================================ */
+
+.reveal-lines {
+  overflow: hidden;
+}
+
+.reveal-lines .reveal-line {
+  display: block;
+  overflow: hidden;
+}
+
+.reveal-lines .reveal-line > span {
+  display: block;
+  transform: translateY(110%);
+  opacity: 0;
+  transition:
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 700ms ease-out;
+  transition-delay: calc(var(--reveal-index, 0) * 80ms);
+}
+
+/* Load-triggered: animate immediately on page load */
+.reveal-lines:not(.reveal-on-scroll) .reveal-line > span {
+  animation: reveal-line-up 700ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--reveal-index, 0) * 80ms);
+}
+
+/* Scroll-triggered: animate when .is-visible is added by JS */
+.reveal-lines.reveal-on-scroll.is-visible .reveal-line > span {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@keyframes reveal-line-up {
+  from {
+    transform: translateY(110%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+/* ============================================================
+   2. .fade-up — Fade + slide up on scroll into view
+   ------------------------------------------------------------
+   Any element with .fade-up fades in and slides up ~24px when
+   scrolled into view. Consecutive siblings auto-stagger ~100ms.
+   Unobserves after first trigger.
+
+   HTML:
+     <div class="fade-up">Item one</div>
+     <div class="fade-up">Item two</div>
+     <div class="fade-up">Item three</div>
+   ============================================================ */
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 600ms ease-out,
+    transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--fade-index, 0) * 100ms);
+  will-change: opacity, transform;
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ============================================================
+   3. .active-counter — Crossfading two-digit counter
+   ------------------------------------------------------------
+   A counter that crossfades when the active item changes.
+   The JS swaps the text and triggers the crossfade animation.
+
+   HTML:
+     <span class="active-counter" data-counter>01</span>
+
+   For auto-wire mode (updates based on scroll through a list):
+     <span class="active-counter" data-counter data-counter-auto="#my-list"></span>
+   ============================================================ */
+
+.active-counter {
+  display: inline-block;
+  position: relative;
+  min-width: 1.5em;
+  text-align: center;
+  overflow: hidden;
+}
+
+.active-counter[data-counter] {
+  display: inline-block;
+}
+
+/* Crossfade animation — applied by JS when the value changes */
+.active-counter.is-swapping {
+  animation: counter-crossfade 400ms ease-in-out;
+}
+
+@keyframes counter-crossfade {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  49% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ============================================================
+   4. .menu-overlay + .menu-toggle — Full-screen overlay menu
+   ------------------------------------------------------------
+   Opens via a clip-path: circle() wipe from the top-right
+   corner (~600ms, ease cubic-bezier(0.76,0,0.24,1)).
+   Nav links fade/slide in staggered after overlay opens.
+   Includes close-on-link-click, close-on-Escape, body-scroll lock.
+
+   HTML:
+     <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+       <span></span><span></span><span></span>
+     </button>
+
+     <div class="menu-overlay" id="my-menu">
+       <nav>
+         <a href="#home">Home</a>
+         <a href="#about">About</a>
+         <a href="#work">Work</a>
+         <a href="#contact">Contact</a>
+       </nav>
+     </div>
+   ============================================================ */
+
+.menu-toggle {
+  position: relative;
+  z-index: 1010;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 0 auto;
+  background: var(--menu-toggle-color, currentColor);
+  transition: transform 400ms cubic-bezier(0.76, 0, 0.24, 1),
+    opacity 300ms ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--menu-overlay-bg, rgba(10, 12, 14, 0.97));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  /* Closed state: circle clipped to 0 at top-right corner */
+  clip-path: circle(0% at calc(100% - 32px) 32px);
+  pointer-events: none;
+  transition: clip-path 600ms cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.menu-overlay.is-open {
+  clip-path: circle(150% at calc(100% - 32px) 32px);
+  pointer-events: auto;
+}
+
+.menu-overlay nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.menu-overlay nav a {
+  position: relative;
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 600;
+  color: var(--menu-link-color, #eaf2f1);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 500ms ease-out, transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--menu-link-index, 0) * 80ms + 300ms);
+}
+
+.menu-overlay.is-open nav a {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu-overlay nav a:hover,
+.menu-overlay nav a:focus-visible {
+  color: var(--menu-link-hover, #ff6a3d);
+  outline: none;
+}
+
+/* Body scroll lock — applied by JS when menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+
+/* ============================================================
+   5. .bracket-link — [ Link text ] with letter-spacing hover
+   ------------------------------------------------------------
+   Links styled with bracket decorations. Letter-spacing
+   increases on hover (~300ms ease). Pure CSS.
+
+   HTML:
+     <a href="#" class="bracket-link">Read more</a>
+   ============================================================ */
+
+.bracket-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.2em 0.1em;
+  color: inherit;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: letter-spacing 300ms ease;
+}
+
+.bracket-link::before,
+.bracket-link::after {
+  opacity: 0.6;
+  transition: opacity 300ms ease, transform 300ms ease;
+  font-weight: 400;
+}
+
+.bracket-link::before {
+  content: "[";
+  transform: translateX(0);
+}
+
+.bracket-link::after {
+  content: "]";
+  transform: translateX(0);
+}
+
+.bracket-link:hover,
+.bracket-link:focus-visible {
+  letter-spacing: 0.08em;
+  outline: none;
+}
+
+.bracket-link:hover::before,
+.bracket-link:focus-visible::before {
+  opacity: 1;
+  transform: translateX(-2px);
+}
+
+.bracket-link:hover::after,
+.bracket-link:focus-visible::after {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+
+/* ============================================================
+   6. Floating label inputs — Pure CSS
+   ------------------------------------------------------------
+   Labels float above the input on focus or when filled.
+   Uses :placeholder-shown to detect empty state. No JS.
+
+   HTML:
+     <div class="float-field">
+       <input type="text" id="name" placeholder=" " />
+       <label for="name">Your name</label>
+     </div>
+   ============================================================ */
+
+.float-field {
+  position: relative;
+  display: block;
+}
+
+.float-field input,
+.float-field textarea {
+  width: 100%;
+  padding: 1.5rem 0.75rem 0.5rem;
+  border: 1px solid var(--float-border, rgba(255, 255, 255, 0.13));
+  border-radius: 6px;
+  background: var(--float-bg, transparent);
+  color: var(--float-text, #eaf2f1);
+  font-size: 15px;
+  font-family: inherit;
+  transition: border-color 300ms ease;
+}
+
+.float-field input:focus,
+.float-field textarea:focus {
+  outline: none;
+  border-color: var(--float-focus, #ff6a3d);
+}
+
+.float-field label {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--float-label, #8da3a8);
+  font-size: 15px;
+  pointer-events: none;
+  transition: transform 300ms ease, font-size 300ms ease, color 300ms ease;
+  transform-origin: left center;
+}
+
+.float-field textarea ~ label {
+  top: 1.1rem;
+  transform: translateY(0);
+}
+
+/* Float the label when input is focused OR has content
+   (placeholder=" " ensures :placeholder-shown is false when filled) */
+.float-field input:focus ~ label,
+.float-field input:not(:placeholder-shown) ~ label,
+.float-field textarea:focus ~ label,
+.float-field textarea:not(:placeholder-shown) ~ label {
+  transform: translateY(-110%) scale(0.75);
+  color: var(--float-focus, #ff6a3d);
+}
+
+.float-field textarea:focus ~ label,
+.float-field textarea:not(:placeholder-shown) ~ label {
+  transform: translateY(-100%) scale(0.75);
+}
+
+
+/* ============================================================
+   7. Reduced motion — disable all animations
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-lines .reveal-line > span,
+  .fade-up,
+  .menu-overlay,
+  .menu-overlay nav a,
+  .menu-toggle span,
+  .bracket-link,
+  .bracket-link::before,
+  .bracket-link::after,
+  .float-field label,
+  .float-field input,
+  .float-field textarea,
+  .active-counter {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    clip-path: none !important;
+  }
+
+  .menu-overlay {
+    display: none;
+  }
+
+  .menu-overlay.is-open {
+    display: flex;
+    clip-path: none !important;
+  }
+}
