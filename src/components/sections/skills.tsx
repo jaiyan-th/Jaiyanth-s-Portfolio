@@ -455,7 +455,7 @@ function ConstellationView({
             id={`skill-panel-${activeGroup.id}`}
             role="tabpanel"
             aria-labelledby={`skill-tab-${activeGroup.id}`}
-            className="flex h-full flex-col border border-line p-8 lg:p-10"
+            className="flex h-full flex-col border border-line p-8 lg:p-10 glass"
           >
           <AnimatePresence mode="wait">
             <motion.div

@@ -4,35 +4,34 @@ import * as React from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { EASE, DURATION } from "@/lib/motion";
 
-const MESSAGES = ["Mapping signals", "Connecting systems", "Calibrating interface", "Preparing experience"];
+/**
+ * Loader — shows a "WELCOME" text reveal on first visit per session.
+ * Each letter fades + slides up with a stagger, holds briefly, then exits.
+ * Skipped for reduced-motion, automated tests, and repeat visits (sessionStorage).
+ */
+const WORD = "WELCOME";
 
 export function Loader() {
   const [show, setShow] = React.useState(false);
-  const [msgIndex, setMsgIndex] = React.useState(0);
 
   React.useEffect(() => {
     if (typeof window === "undefined") return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const isTest = navigator.userAgent.toLowerCase().includes("playwright") || process.env.NODE_ENV === "test";
+    const isTest =
+      navigator.userAgent.toLowerCase().includes("playwright") ||
+      process.env.NODE_ENV === "test";
     if (reduce || isTest) return;
 
     const seen = sessionStorage.getItem("jb-loader-seen");
     if (seen) return;
     setShow(true);
 
-    const interval = setInterval(() => {
-      setMsgIndex((i) => (i + 1) % MESSAGES.length);
-    }, 220);
-
     const stop = setTimeout(() => {
       setShow(false);
       sessionStorage.setItem("jb-loader-seen", "1");
-    }, 820);
+    }, 2000);
 
-    return () => {
-      clearInterval(interval);
-      clearTimeout(stop);
-    };
+    return () => clearTimeout(stop);
   }, []);
 
   return (
@@ -41,62 +40,41 @@ export function Loader() {
         <motion.div
           aria-live="polite"
           role="status"
-          aria-label="Loading experience"
+          aria-label="Welcome"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: DURATION.modal, ease: EASE.primary }}
+          transition={{ duration: 0.5, ease: EASE.primary }}
           className="fixed inset-0 z-[200] flex flex-col items-center justify-center"
-          style={{ background: "var(--canvas)" }}
+          style={{ background: "#000000" }}
         >
-          <div className="relative flex flex-col items-center gap-6">
-            <div className="relative h-20 w-20">
-              <motion.svg
-                viewBox="0 0 80 80"
-                className="h-full w-full"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.4 }}
+          {/* WELCOME — letter-by-letter reveal */}
+          <div className="flex items-center gap-[2px] overflow-hidden">
+            {WORD.split("").map((char, i) => (
+              <motion.span
+                key={i}
+                initial={{ y: "100%", opacity: 0 }}
+                animate={{ y: "0%", opacity: 1 }}
+                transition={{
+                  delay: 0.15 + i * 0.07,
+                  duration: 0.5,
+                  ease: EASE.primary,
+                }}
+                className="font-display text-[clamp(40px,9vw,96px)] font-bold tracking-tight"
+                style={{ color: "var(--text-primary)" }}
               >
-                <motion.circle
-                  cx="40"
-                  cy="40"
-                  r="28"
-                  fill="none"
-                  stroke="var(--line)"
-                  strokeWidth="1"
-                />
-                <motion.circle
-                  cx="40"
-                  cy="40"
-                  r="28"
-                  fill="none"
-                  stroke="var(--accent)"
-                  strokeWidth="1.4"
-                  strokeDasharray="176"
-                  strokeDashoffset="176"
-                  animate={{ strokeDashoffset: 0 }}
-                  transition={{ duration: 0.78, ease: EASE.primary }}
-                />
-                <motion.text
-                  x="40"
-                  y="46"
-                  textAnchor="middle"
-                  fontFamily="var(--font-sans)"
-                  fontSize="22"
-                  fontWeight="600"
-                  fill="var(--text-primary)"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.18, duration: 0.4 }}
-                >
-                  JB
-                </motion.text>
-              </motion.svg>
-            </div>
-            <div className="font-mono-label text-secondary">
-              {MESSAGES[msgIndex]}
-            </div>
+                {char}
+              </motion.span>
+            ))}
           </div>
+
+          {/* Subtle accent dot — pulses */}
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0.3, 1, 0.3] }}
+            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+            className="mt-6 h-1.5 w-1.5 rounded-full"
+            style={{ background: "var(--accent)" }}
+          />
         </motion.div>
       )}
     </AnimatePresence>

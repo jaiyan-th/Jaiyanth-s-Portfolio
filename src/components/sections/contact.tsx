@@ -108,7 +108,7 @@ function ContactForm({
   }, [success]);
 
   return (
-    <div className="border border-line">
+    <div className="border border-line glass">
       <div className="flex items-center justify-between border-b border-line px-6 py-4">
         <div className="flex items-center gap-2.5">
           <span

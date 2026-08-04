@@ -80,7 +80,7 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ delay: 0.18, duration: DURATION.reveal, ease: EASE.primary }}
-              className="border border-line h-full"
+              className="border border-line h-full glass"
             >
               <div className="flex items-center justify-between border-b border-line px-5 py-3">
                 <span className="font-mono-label text-secondary">Verified metrics</span>

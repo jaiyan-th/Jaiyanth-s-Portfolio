@@ -31,7 +31,7 @@ export function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: DURATION.reveal, ease: EASE.primary }}
-              className="flex h-full flex-col gap-5 border border-line p-7"
+              className="flex h-full flex-col gap-5 border border-line p-7 glass"
             >
               <div className="flex items-center justify-between">
                 <span className="font-mono-label text-secondary">
@@ -66,7 +66,7 @@ export function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ delay: 0.1, duration: DURATION.reveal, ease: EASE.primary }}
-              className="border border-line p-7 h-full"
+              className="border border-line p-7 h-full glass"
             >
               <div className="flex items-center justify-between pb-5 mb-2 border-b border-line">
                 <span className="font-mono-label text-secondary">Workflow pipeline</span>

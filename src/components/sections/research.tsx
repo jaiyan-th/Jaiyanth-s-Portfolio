@@ -77,7 +77,7 @@ export function Research() {
 // ── Paper card — content unchanged, larger 5-column layout ────────────────
 function PaperCard() {
   return (
-    <div className="relative flex h-full flex-col border border-line overflow-hidden bg-elevated/40">
+    <div className="relative flex h-full flex-col border border-line overflow-hidden glass">
       {/* Top gradient accent bar */}
       <div
         aria-hidden
