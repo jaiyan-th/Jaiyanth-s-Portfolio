@@ -30,9 +30,6 @@ export function Hero() {
         />
       </div>
 
-      {/* Floating editorial labels */}
-      <FloatingLabels />
-
       <div className="container-editorial relative">
         {/* Top eyebrow */}
         <motion.div
@@ -148,36 +145,5 @@ function HeroLine({
         {text}
       </motion.span>
     </span>
-  );
-}
-
-function FloatingLabels() {
-  const labels = [
-    { text: "AI Systems", top: "18%", left: "8%", delay: 0.9 },
-    { text: "APIs", top: "24%", right: "10%", delay: 1.0 },
-    { text: "Data", top: "44%", left: "4%", delay: 1.1 },
-    { text: "Product", top: "62%", right: "6%", delay: 1.2 },
-    { text: "Interface", top: "78%", left: "12%", delay: 1.3 },
-  ];
-
-  return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:block">
-      {labels.map((l) => (
-        <motion.span
-          key={l.text}
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: l.delay, duration: 0.7, ease: EASE.primary }}
-          className="absolute font-mono-label text-secondary"
-          style={{
-            top: l.top,
-            left: l.left,
-            right: l.right,
-          }}
-        >
-          {l.text}
-        </motion.span>
-      ))}
-    </div>
   );
 }

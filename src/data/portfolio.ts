@@ -21,8 +21,8 @@ export const IDENTITY = {
   email: "jaiyanthofficial@gmail.com",
   github: "https://github.com/jaiyanth-b",
   githubPending: false,
-  linkedin: "Profile URL pending",
-  linkedinPending: true,
+  linkedin: "https://www.linkedin.com/in/jaiyan-th/",
+  linkedinPending: false,
   heroStatement: "Engineering intelligent products from signal to system.",
   heroSupporting:
     "I build applied AI workflows, full-stack products, structured APIs, data-driven systems, and thoughtful interfaces that turn complex problems into useful software.",
@@ -347,7 +347,7 @@ export const RESEARCH_CONTEXT = {
 export const CONTACT_LINKS: ContactLink[] = [
   { label: "Email", value: IDENTITY.email, href: `mailto:${IDENTITY.email}` },
   { label: "GitHub", value: "github.com/jaiyanth-b", href: IDENTITY.github, pending: IDENTITY.githubPending },
-  { label: "LinkedIn", value: IDENTITY.linkedin, pending: IDENTITY.linkedinPending },
+  { label: "LinkedIn", value: "in/jaiyan-th", href: IDENTITY.linkedin, pending: IDENTITY.linkedinPending },
   { label: "Location", value: IDENTITY.location },
 ];
 
