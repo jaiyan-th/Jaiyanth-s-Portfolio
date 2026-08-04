@@ -48,14 +48,13 @@
 }
 
 /* DARK THEME — default
-   Slate & Signal Orange palette.
-   Canvas: deep slate · Accent: signal orange · Borders: slate
+   Pure solid black canvas so the Signal Orange accents pop with maximum contrast.
 */
 :root,
 .dark {
-  --canvas: #0e1214;
-  --elevated: #131a1d;
-  --surface: #1b2528;
+  --canvas: #000000;
+  --elevated: #08090a;
+  --surface: #101214;
   --text-primary: #eaf2f1;
   --text-secondary: #8da3a8;
   --line: rgba(234, 242, 241, 0.13);
