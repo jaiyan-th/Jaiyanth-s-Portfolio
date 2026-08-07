@@ -31,6 +31,7 @@ export type Project = {
   engineeringFocus: string;
   repository: string;
   visual: string;
+  image?: string;
   layout: "featured" | "reversed" | "cinematic";
   caseStudy: {
     overview: string;

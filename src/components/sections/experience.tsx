@@ -1,136 +1,111 @@
 "use client";
 
 import * as React from "react";
-import { motion } from "motion/react";
 import { EXPERIENCE } from "@/data/portfolio";
-import { EASE, DURATION } from "@/lib/motion";
-import { SectionHeader } from "@/components/ui/masked-heading";
 
 export function Experience() {
   return (
-    <section
-      id="experience"
-      aria-labelledby="experience-heading"
-      className="relative section-spacing border-t border-line"
-    >
-      <div className="container-editorial">
-        <SectionHeader
-          index="04"
-          label="Experience"
-          title="One focused AI internship."
-          accentWords={["focused"]}
-          supporting="Real engineering work — prototypes that had to run, with the debugging and testing discipline that implies."
-        />
+    <section id="experience" className="relative bg-[#FAF3EE] border-b border-black/10 px-4 py-12 md:px-8 md:py-20 text-black bg-grid">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Headline */}
+        <div className="mb-12">
+          <span className="font-mono text-[10px] font-bold text-[#D9622B] tracking-widest uppercase block mb-1">
+            04 —— EXPERIENCE
+          </span>
+          <h2 className="font-heading font-black text-3xl sm:text-5xl text-black leading-[1.08] tracking-tight uppercase">
+            One <span className="text-[#B91C1C]">focused</span> AI internship.
+          </h2>
+          <p className="font-sans text-xs sm:text-sm text-black/60 mt-2 font-semibold">
+            Real engineering work — prototypes that had to run, with the debugging and testing discipline that implies.
+          </p>
+        </div>
 
-        {/* Two-column: role (left, 5 col) + workflow pipeline (right, 7 col) */}
-        <div className="mt-16 grid gap-8 md:grid-cols-12 lg:gap-16 items-stretch">
-          {/* Left: role + reflection card */}
-          <div className="md:col-span-5">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: DURATION.reveal, ease: EASE.primary }}
-              className="flex h-full flex-col gap-5 border border-line p-7 glass"
-            >
-              <div className="flex items-center justify-between">
-                <span className="font-mono-label text-secondary">
+        {/* Two Side-by-Side Blueprint Cards */}
+        <div className="grid md:grid-cols-2 gap-8 items-stretch">
+          {/* Left: Role Details */}
+          <div className="blueprint-box p-6 sm:p-8 bg-white relative flex flex-col justify-between">
+            {/* Viewfinder corners */}
+            <span className="blueprint-corner blueprint-corner-tl" />
+            <span className="blueprint-corner blueprint-corner-tr" />
+            <span className="blueprint-corner blueprint-corner-bl" />
+            <span className="blueprint-corner blueprint-corner-br" />
+
+            <div>
+              <div className="flex items-center justify-between border-b border-black/10 pb-4 mb-4">
+                <span className="font-mono text-[10px] font-bold text-black/70">
                   {EXPERIENCE.period}
                 </span>
-                <span
-                  className="rounded-full px-3 py-1 font-mono-label !text-[9.5px]"
-                  style={{
-                    background: "color-mix(in oklab, var(--accent) 16%, transparent)",
-                    color: "var(--accent)",
-                  }}
-                >
-                  Completed
+                <span className="border border-[#B91C1C]/45 text-[#B91C1C] px-2 py-0.5 font-mono text-[9px] uppercase font-bold tracking-wider">
+                  STATUS: COMPLETED
                 </span>
               </div>
-              <h3 className="font-display text-[clamp(26px,3.2vw,40px)] leading-tight tracking-tight text-balance">
+
+              <h3 className="font-heading font-bold text-lg sm:text-2xl text-black uppercase mb-1 leading-[1.08]">
                 {EXPERIENCE.role}
               </h3>
-              <p className="text-[15px] text-foreground">
+
+              <a
+                href="#"
+                className="font-mono text-[10px] uppercase tracking-wider font-bold text-[#B91C1C] hover:text-[#B91C1C]/80 transition-colors inline-block mb-6"
+              >
                 {EXPERIENCE.organisation}
-              </p>
-              <p className="text-body text-secondary text-pretty">
+              </a>
+
+              <p className="font-sans text-xs sm:text-sm text-black/75 leading-relaxed">
                 {EXPERIENCE.reflection}
               </p>
-            </motion.div>
+            </div>
           </div>
 
-          {/* Right: workflow pipeline inside a bordered card */}
-          <div className="md:col-span-7">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ delay: 0.1, duration: DURATION.reveal, ease: EASE.primary }}
-              className="border border-line p-7 h-full glass"
-            >
-              <div className="flex items-center justify-between pb-5 mb-2 border-b border-line">
-                <span className="font-mono-label text-secondary">Workflow pipeline</span>
-                <span className="font-mono-label text-secondary">
-                  {String(EXPERIENCE.work.length).padStart(2, "0")} stages
-                </span>
-              </div>
-              <PipelineStages work={EXPERIENCE.work} />
-            </motion.div>
+          {/* Right: Vertical Process Flow */}
+          <div className="blueprint-box p-6 sm:p-8 bg-white relative">
+            {/* Viewfinder corners */}
+            <span className="blueprint-corner blueprint-corner-tl" />
+            <span className="blueprint-corner blueprint-corner-tr" />
+            <span className="blueprint-corner blueprint-corner-bl" />
+            <span className="blueprint-corner blueprint-corner-br" />
+
+            <div className="flex items-center justify-between border-b border-black/10 pb-4 mb-6">
+              <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-black">
+                WORKFLOW PIPELINE
+              </span>
+              <span className="font-mono text-[9px] text-black/60 uppercase">
+                8 STAGES
+              </span>
+            </div>
+
+            {/* vertical process line */}
+            <div className="relative pl-6 space-y-4">
+              {/* Vertical line connecting nodes */}
+              <div className="absolute left-[7px] top-2 bottom-2 w-[1px] bg-black/15" />
+
+              {/* Checklist items as pipeline nodes */}
+              {EXPERIENCE.work.map((item, idx) => {
+                const stageNum = String(idx + 1).padStart(2, "0");
+                return (
+                  <div
+                    key={item}
+                    className="flex items-center justify-between relative"
+                  >
+                    <div className="flex items-center gap-3">
+                      {/* Node point */}
+                      <div className="absolute left-[-23px] w-2.5 h-2.5 rounded-full border border-black bg-white flex items-center justify-center">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#B91C1C]" />
+                      </div>
+                      <span className="font-mono text-[10px] font-bold text-black uppercase tracking-wider">
+                        {item}
+                      </span>
+                    </div>
+                    <span className="font-mono text-[9px] text-black/45 font-bold">
+                      {stageNum}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function PipelineStages({ work }: { work: string[] }) {
-  return (
-    <ol className="relative flex flex-col">
-      {/* Vertical line */}
-      <span
-        aria-hidden
-        className="absolute left-[7px] top-3 bottom-3 w-px"
-        style={{ background: "var(--line)" }}
-      />
-      {work.map((item, i) => (
-        <motion.li
-          key={item}
-          initial={{ opacity: 0, x: -10 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{
-            delay: i * 0.05,
-            duration: DURATION.reveal,
-            ease: EASE.primary,
-          }}
-          className="relative flex items-center gap-5 py-2.5 pl-8"
-        >
-          <span
-            aria-hidden
-            className="absolute left-0 top-1/2 -translate-y-1/2 grid h-3.5 w-3.5 place-items-center rounded-full"
-            style={{
-              background: "var(--elevated)",
-              border: "2px solid var(--accent)",
-            }}
-          >
-            <motion.span
-              className="h-1 w-1 rounded-full"
-              style={{ background: "var(--accent)" }}
-              animate={{ opacity: [1, 0.3, 1] }}
-              transition={{
-                duration: 1.8,
-                repeat: Infinity,
-                delay: i * 0.2,
-                ease: EASE.secondary,
-              }}
-            />
-          </span>
-          <span className="flex-1 text-[15px] text-foreground">{item}</span>
-          <span className="font-mono-label text-secondary">
-            {String(i + 1).padStart(2, "0")}
-          </span>
-        </motion.li>
-      ))}
-    </ol>
   );
 }

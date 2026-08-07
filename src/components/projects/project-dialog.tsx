@@ -1,85 +1,88 @@
 "use client";
 
 import * as React from "react";
-import { motion, AnimatePresence, LayoutGroup } from "motion/react";
-import { X, ExternalLink, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, ExternalLink } from "lucide-react";
 import { PROJECTS } from "@/data/portfolio";
 import { EASE, DURATION } from "@/lib/motion";
 import { ProjectVisual } from "./project-visual";
 
-export function ProjectDialog({
-  slug,
-  onClose,
-}: {
+interface ProjectDialogProps {
   slug: string | null;
   onClose: () => void;
-}) {
-  const project = slug ? PROJECTS.find((p) => p.slug === slug) : null;
+}
+
+export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const closeBtnRef = React.useRef<HTMLButtonElement>(null);
-  const previouslyFocused = React.useRef<HTMLElement | null>(null);
+  const project = PROJECTS.find((p) => p.slug === slug);
 
-  // Open / close + focus trap + scroll lock + ESC + history back
+  // Focus trap
   React.useEffect(() => {
     if (!project) return;
+    const focusable = containerRef.current?.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex="0"]'
+    ) as NodeListOf<HTMLElement>;
 
-    previouslyFocused.current = document.activeElement as HTMLElement;
-    document.body.style.overflow = "hidden";
-    closeBtnRef.current?.focus();
+    if (focusable && focusable.length > 0) {
+      const first = focusable[0]!;
+      const last = focusable[focusable.length - 1]!;
 
-    const node = containerRef.current;
-    if (!node) return;
+      const handleTab = (e: KeyboardEvent) => {
+        if (e.key !== "Tab") return;
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            last.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === last) {
+            first.focus();
+            e.preventDefault();
+          }
+        }
+      };
 
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        e.preventDefault();
-        onClose();
-        return;
-      }
-      if (e.key !== "Tab") return;
-      const focusables = node.querySelectorAll<HTMLElement>(
-        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
-      );
-      if (focusables.length === 0) return;
-      const first = focusables[0]!;
-      const last = focusables[focusables.length - 1]!;
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
+      // Focus close button initially
+      closeBtnRef.current?.focus();
+
+      window.addEventListener("keydown", handleTab);
+      return () => window.removeEventListener("keydown", handleTab);
+    }
+  }, [project]);
+
+  // Escape to close
+  React.useEffect(() => {
+    if (!project) return;
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
     };
-
-    const handlePop = () => onClose();
-    document.addEventListener("keydown", handleKey);
-    window.addEventListener("popstate", handlePop);
-
-    return () => {
-      document.body.style.overflow = "";
-      document.removeEventListener("keydown", handleKey);
-      window.removeEventListener("popstate", handlePop);
-      previouslyFocused.current?.focus();
-    };
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
   }, [project, onClose]);
 
+  // Lock scroll
+  React.useEffect(() => {
+    if (project) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [project]);
+
+  if (!project) return null;
+
   return (
-    <LayoutGroup>
-      <AnimatePresence>
-        {project && (
-          <motion.div
-            className="fixed inset-0 z-[120] flex items-stretch justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: DURATION.modal, ease: EASE.primary }}
-            aria-hidden={false}
-          >
+    <AnimatePresence>
+      {project && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           {/* Backdrop */}
           <div
-            className="absolute inset-0"
-            style={{ background: "color-mix(in oklab, var(--canvas) 80%, transparent)" }}
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
             onClick={onClose}
             aria-hidden
           />
@@ -95,20 +98,23 @@ export function ProjectDialog({
             animate={{ y: 0, opacity: 1, scale: 1 }}
             exit={{ y: 40, opacity: 0, scale: 0.99 }}
             transition={{ duration: DURATION.modal, ease: EASE.primary }}
-            className="relative my-[5vh] h-[90vh] w-[92vw] max-w-[1180px] overflow-y-auto border border-line"
-            style={{ background: "var(--elevated)" }}
+            className="relative my-[5vh] h-[90vh] w-[92vw] max-w-[1180px] overflow-y-auto border border-black/10 bg-[#FAF3EE] text-black blueprint-box"
           >
+            {/* Viewfinder corners */}
+            <span className="blueprint-corner blueprint-corner-tl" />
+            <span className="blueprint-corner blueprint-corner-tr" />
+            <span className="blueprint-corner blueprint-corner-bl" />
+            <span className="blueprint-corner blueprint-corner-br" />
+
             {/* Sticky top bar */}
-            <div className="sticky top-0 z-10 flex items-center justify-between border-b border-line px-6 py-4 backdrop-blur-md md:px-10"
-              style={{ background: "color-mix(in oklab, var(--elevated) 88%, transparent)" }}
-            >
+            <div className="sticky top-0 z-10 flex items-center justify-between border-b border-black/10 bg-[#FAF3EE] px-6 py-4 md:px-10">
               <div className="flex items-center gap-4">
-                <span className="font-mono-label text-secondary">
+                <span className="font-mono text-[10px] font-bold text-secondary">
                   {project.number} / Case Study
                 </span>
                 <motion.span
                   layoutId={`project-category-${project.slug}`}
-                  className="font-mono-label text-secondary"
+                  className="font-mono text-[10px] font-bold text-secondary"
                   layout
                   transition={{ duration: 0.5, ease: EASE.primary }}
                 >
@@ -121,7 +127,7 @@ export function ProjectDialog({
                 onClick={onClose}
                 aria-label="Close case study"
                 data-cursor="close"
-                className="grid h-10 w-10 place-items-center rounded-full border border-line text-foreground transition-colors hover:border-accent"
+                className="grid h-10 w-10 place-items-center rounded-full border border-black/15 text-black transition-colors hover:border-[#B91C1C]"
               >
                 <X className="h-4 w-4" aria-hidden />
               </button>
@@ -134,7 +140,7 @@ export function ProjectDialog({
                 layoutId={`project-title-${project.slug}`}
                 layout
                 transition={{ duration: 0.5, ease: EASE.primary }}
-                className="font-display text-project text-balance"
+                className="font-heading text-project text-balance uppercase"
               >
                 {project.title}
               </motion.h2>
@@ -146,19 +152,36 @@ export function ProjectDialog({
               </p>
 
               {/* Visual */}
-              <div className="mt-10 aspect-[16/9] w-full overflow-hidden border border-line bg-grid">
-                <ProjectVisual variant={project.visual as "evidence-network" | "career-layers" | "route-geometry"} />
+              <div className="relative mt-10 aspect-[16/9] w-full overflow-hidden border border-black/10 bg-grid blueprint-box">
+                {/* Viewfinder corners */}
+                <span className="blueprint-corner blueprint-corner-tl" />
+                <span className="blueprint-corner blueprint-corner-tr" />
+                <span className="blueprint-corner blueprint-corner-bl" />
+                <span className="blueprint-corner blueprint-corner-br" />
+
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} screenshot`}
+                    fill
+                    unoptimized
+                    className="object-cover"
+                    priority
+                  />
+                ) : (
+                  <ProjectVisual variant={project.visual as "evidence-network" | "career-layers" | "route-geometry"} />
+                )}
               </div>
 
               {/* Meta grid */}
               <div className="mt-10 grid gap-8 md:grid-cols-12">
                 <div className="md:col-span-4">
-                  <span className="font-mono-label text-secondary">Stack</span>
+                  <span className="font-mono text-[9px] font-bold text-secondary uppercase tracking-widest">Stack</span>
                   <ul className="mt-3 flex flex-wrap gap-2">
                     {project.stack.map((s) => (
                       <li
                         key={s}
-                        className="rounded-full border border-line px-3 py-1 text-[12px]"
+                        className="border border-black/15 px-3 py-1 text-[10px] font-mono font-bold bg-white"
                       >
                         {s}
                       </li>
@@ -166,7 +189,7 @@ export function ProjectDialog({
                   </ul>
                 </div>
                 <div className="md:col-span-8">
-                  <span className="font-mono-label text-secondary">Engineering focus</span>
+                  <span className="font-mono text-[9px] font-bold text-secondary uppercase tracking-widest">Engineering focus</span>
                   <p className="mt-3 text-body text-foreground text-pretty">
                     {project.engineeringFocus}
                   </p>
@@ -190,13 +213,13 @@ export function ProjectDialog({
               </div>
 
               {/* Features */}
-              <div className="mt-12 border-t border-line pt-10">
-                <span className="font-mono-label text-secondary">[ 05 ] Features</span>
+              <div className="mt-12 border-t border-black/10 pt-10">
+                <span className="font-mono text-[10px] font-bold text-secondary uppercase tracking-widest">05 / Features</span>
                 <ul className="mt-6 grid gap-3 md:grid-cols-2">
                   {project.caseStudy.features.map((f) => (
                     <li
                       key={f}
-                      className="flex items-start gap-3 border-l-2 border-line pl-4 text-body text-foreground text-pretty"
+                      className="flex items-start gap-3 border-l-2 border-[#D9622B] pl-4 text-body text-foreground text-pretty"
                     >
                       <span
                         aria-hidden
@@ -209,6 +232,26 @@ export function ProjectDialog({
                 </ul>
               </div>
 
+              {/* Showcase Image */}
+              {project.image && (
+                <div className="mt-12 space-y-4">
+                  <span className="font-mono text-[10px] font-bold text-secondary uppercase tracking-widest">System Architecture & Workflow</span>
+                  <div className="relative aspect-[16/9] w-full overflow-hidden border border-black/10 bg-grid blueprint-box">
+                    <span className="blueprint-corner blueprint-corner-tl" />
+                    <span className="blueprint-corner blueprint-corner-tr" />
+                    <span className="blueprint-corner blueprint-corner-bl" />
+                    <span className="blueprint-corner blueprint-corner-br" />
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} detailed workflow`}
+                      fill
+                      unoptimized
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              )}
+
               {/* Challenges & Learnings */}
               <div className="mt-12 grid gap-12 md:grid-cols-2">
                 <CaseBlock label="Challenges" index="06">
@@ -220,48 +263,40 @@ export function ProjectDialog({
               </div>
 
               {/* Repository action */}
-              <div className="mt-14 flex flex-wrap items-center gap-4 border-t border-line pt-10">
+              <div className="mt-14 flex flex-wrap items-center gap-4 border-t border-black/10 pt-10">
                 <a
                   href={project.repository}
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-cursor="code"
-                  className="btn-magnetic btn-primary"
+                  className="border border-black font-mono text-[10px] font-bold uppercase tracking-widest px-5 py-3 hover:bg-black/5 transition-all inline-flex items-center gap-2"
                 >
-                  View repository
-                  <ArrowUpRight className="h-4 w-4" aria-hidden />
-                </a>
-                <a
-                  href={`/projects/${project.slug}`}
-                  className="btn-magnetic btn-ghost"
-                  data-cursor="view"
-                >
-                  Permalink
-                  <ExternalLink className="h-4 w-4" aria-hidden />
+                  <span>VIEW REPOSITORY</span>
+                  <ExternalLink className="h-3.5 w-3.5" />
                 </a>
               </div>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
       )}
-      </AnimatePresence>
-    </LayoutGroup>
+    </AnimatePresence>
   );
 }
 
-function CaseBlock({
-  label,
-  index,
-  children,
-}: {
+interface CaseBlockProps {
   label: string;
   index: string;
   children: React.ReactNode;
-}) {
+}
+
+function CaseBlock({ label, index, children }: CaseBlockProps) {
   return (
     <div className="md:col-span-6">
-      <span className="font-mono-label text-secondary">[ {index} ] {label}</span>
-      <p className="mt-4 text-body text-foreground text-pretty">{children}</p>
+      <span className="font-mono text-[9px] font-bold text-secondary uppercase tracking-widest">
+        {index} / {label}
+      </span>
+      <p className="mt-3 text-body text-foreground leading-relaxed text-pretty">
+        {children}
+      </p>
     </div>
   );
 }

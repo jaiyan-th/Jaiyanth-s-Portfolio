@@ -1,145 +1,96 @@
 "use client";
 
 import * as React from "react";
-import { motion, useScroll, useTransform } from "motion/react";
-import { EASE, DURATION } from "@/lib/motion";
 import { ABOUT } from "@/data/portfolio";
-import { SectionHeader } from "@/components/ui/masked-heading";
 
 export function About() {
-  const ref = React.useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
-
   return (
-    <section
-      id="about"
-      aria-labelledby="about-heading"
-      className="relative section-spacing"
-    >
-      <div className="container-editorial">
-        <SectionHeader
-          index="01"
-          label="About"
-          title="From signal to system to story."
-          accentWords={["signal", "system", "story"]}
-          supporting="A short orientation to who I am, what I build, and how I work."
-        />
+    <section id="about" className="relative bg-[#FAF3EE] border-b border-black/10 px-4 py-12 md:px-8 md:py-20 text-black bg-grid">
+      {/* Thin corner-bracket frame around the content section wrapper */}
+      <div className="max-w-7xl mx-auto blueprint-box p-6 sm:p-10 relative">
+        {/* Viewfinder corners around the section */}
+        <span className="blueprint-corner blueprint-corner-tl blueprint-corner-orange" />
+        <span className="blueprint-corner blueprint-corner-tr blueprint-corner-orange" />
+        <span className="blueprint-corner blueprint-corner-bl blueprint-corner-orange" />
+        <span className="blueprint-corner blueprint-corner-br blueprint-corner-orange" />
 
-        {/* Two-column: identity statement (left, 7 col) + metric matrix (right, 5 col) */}
-        <div className="mt-16 grid gap-8 md:grid-cols-12 lg:gap-16 items-stretch">
-          {/* Left: identity statement + biography */}
-          <div className="md:col-span-7">
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: DURATION.reveal, ease: EASE.primary }}
-              className="font-display text-statement text-balance text-foreground"
-            >
-              {ABOUT.statement.split(" ").map((word, i) => {
-                const accentWords = ["signal,", "system,", "story."];
-                const isAccent = accentWords.includes(word.toLowerCase());
-                return (
-                  <React.Fragment key={i}>
-                    {isAccent ? (
-                      <span
-                        className="font-serif-editorial"
-                        style={{ color: "var(--accent)" }}
-                      >
-                        {word}
-                      </span>
-                    ) : (
-                      word
-                    )}{" "}
-                  </React.Fragment>
-                );
-              })}
-            </motion.p>
+        {/* Section Headline with Eyebrow Tag */}
+        <div className="mb-12">
+          <span className="font-mono text-[10px] font-bold text-[#D9622B] tracking-widest uppercase block mb-2">
+            01 —— ABOUT
+          </span>
+          <h2 className="font-heading font-black text-3xl sm:text-5xl text-black leading-[1.08] tracking-tight uppercase">
+            From <span className="italic font-serif text-[#D9622B]">signal</span> to{" "}
+            <span className="italic font-serif text-[#D9622B]">system</span> to{" "}
+            <span className="italic font-serif text-[#D9622B]">story.</span>
+          </h2>
+          <p className="font-sans text-xs sm:text-sm text-black/60 mt-2 font-semibold">
+            A short orientation to who I am, what I build, and how I work.
+          </p>
+        </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ delay: 0.12, duration: DURATION.reveal, ease: EASE.primary }}
-              className="mt-10 space-y-4 text-body text-secondary text-pretty"
-            >
-              {ABOUT.biography.map((para, i) => (
-                <p key={i}>{para}</p>
-              ))}
-            </motion.div>
+        {/* Two-Column Grid: Copy + Metrics 2x2 Grid */}
+        <div className="grid lg:grid-cols-12 gap-10 items-start">
+          {/* Left Column: Core Narrative */}
+          <div className="lg:col-span-7 space-y-6">
+            <h3 className="font-sans font-bold text-base sm:text-lg text-black leading-relaxed">
+              {ABOUT.statement}
+            </h3>
+
+            <div className="space-y-4 font-sans text-sm text-black/75 leading-relaxed">
+              <p>{ABOUT.biography[0]}</p>
+              <p>{ABOUT.biography[1]}</p>
+              <p>{ABOUT.biography[2]}</p>
+            </div>
           </div>
 
-          {/* Right: metric matrix — 2×2 grid for compact, balanced layout */}
-          <div className="md:col-span-5">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ delay: 0.18, duration: DURATION.reveal, ease: EASE.primary }}
-              className="border border-line h-full glass"
-            >
-              <div className="flex items-center justify-between border-b border-line px-5 py-3">
-                <span className="font-mono-label text-secondary">Verified metrics</span>
-                <span className="font-mono-label text-secondary">04</span>
+          {/* Right Column: Metrics 2x2 card layout */}
+          <div className="lg:col-span-5">
+            <div className="blueprint-box p-6 relative bg-white">
+              {/* Viewfinder corners */}
+              <span className="blueprint-corner blueprint-corner-tl" />
+              <span className="blueprint-corner blueprint-corner-tr" />
+              <span className="blueprint-corner blueprint-corner-bl" />
+              <span className="blueprint-corner blueprint-corner-br" />
+
+              {/* Header row */}
+              <div className="flex items-center justify-between border-b border-black/10 pb-3 mb-5">
+                <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-black">
+                  METRICS · 04
+                </span>
+                <span className="font-mono text-[9px] text-[#B91C1C] font-bold uppercase tracking-widest">
+                  REAL ARTIFACTS
+                </span>
               </div>
-              <ul className="grid grid-cols-1 sm:grid-cols-2">
-                {ABOUT.metrics.map((m, i) => (
-                  <li
-                    key={m.label}
-                    className={`flex flex-col gap-2 p-5 ${
-                      i % 2 === 0 ? "sm:border-r" : ""
-                    } ${i < 2 ? "border-b" : ""}`}
-                    style={{ borderColor: "var(--line)" }}
+
+              {/* 2x2 Grid */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                {ABOUT.metrics.map((m, idx) => (
+                  <div
+                    key={idx}
+                    className="relative p-4 border border-black/10 bg-[#FAF3EE] blueprint-box"
                   >
-                    <span
-                      className="font-display leading-none"
-                      style={{
-                        fontSize: "clamp(36px,4.5vw,48px)",
-                        color: "var(--accent)",
-                      }}
-                    >
+                    {/* Inner viewfinder corners */}
+                    <span className="blueprint-corner blueprint-corner-tl" />
+                    <span className="blueprint-corner blueprint-corner-tr" />
+                    <span className="blueprint-corner blueprint-corner-bl" />
+                    <span className="blueprint-corner blueprint-corner-br" />
+
+                    <span className="font-heading font-black text-3xl text-[#B91C1C] block mb-1">
                       {m.value}
                     </span>
-                    <span className="text-[13.5px] font-medium tracking-tight text-foreground">
+                    <span className="font-mono text-[9px] font-bold text-black uppercase tracking-wider block mb-1">
                       {m.label}
                     </span>
-                    <span className="text-[12px] text-secondary text-pretty leading-snug">
+                    <span className="font-sans text-[9px] text-black/65 leading-normal block">
                       {m.detail}
                     </span>
-                  </li>
+                  </div>
                 ))}
-              </ul>
-            </motion.div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* Expertise strip — moving marquee */}
-      <div
-        ref={ref}
-        className="mt-20 overflow-hidden border-y border-line py-6 md:mt-24"
-        aria-label="Expertise"
-      >
-        <motion.div
-          style={{ x }}
-          className="flex w-max gap-12 whitespace-nowrap"
-        >
-          {[...ABOUT.expertise, ...ABOUT.expertise].map((e, i) => (
-            <span
-              key={i}
-              className="flex items-center gap-12 font-display text-[clamp(20px,3vw,32px)] tracking-tight text-secondary"
-            >
-              <span>{e}</span>
-              <span aria-hidden style={{ color: "var(--accent)" }}>
-                ◆
-              </span>
-            </span>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

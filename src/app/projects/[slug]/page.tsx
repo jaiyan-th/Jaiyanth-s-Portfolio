@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PROJECTS, SITE } from "@/data/portfolio";
 import { ProjectVisual } from "@/components/projects/project-visual";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
@@ -54,8 +55,19 @@ export default async function ProjectPage({ params }: Params) {
       <h1 className="mt-10 font-display text-project text-balance">{project.title}</h1>
       <p className="mt-5 max-w-2xl text-body text-secondary text-pretty">{project.summary}</p>
 
-      <div className="mt-10 aspect-[16/9] w-full overflow-hidden border border-line bg-grid">
-        <ProjectVisual variant={project.visual as "evidence-network" | "career-layers" | "route-geometry"} />
+      <div className="relative mt-10 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-line bg-grid">
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={`${project.title} screenshot`}
+            fill
+            unoptimized
+            className="object-cover"
+            priority
+          />
+        ) : (
+          <ProjectVisual variant={project.visual as "evidence-network" | "career-layers" | "route-geometry"} />
+        )}
       </div>
 
       <div className="mt-10 grid gap-8 md:grid-cols-12">
@@ -100,6 +112,22 @@ export default async function ProjectPage({ params }: Params) {
           ))}
         </ul>
       </div>
+
+      {/* Showcase Image */}
+      {project.image && (
+        <div className="mt-12 space-y-4">
+          <span className="font-mono-label text-secondary">System Architecture & Workflow</span>
+          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-line bg-grid">
+            <Image
+              src={project.image}
+              alt={`${project.title} detailed workflow`}
+              fill
+              unoptimized
+              className="object-cover"
+            />
+          </div>
+        </div>
+      )}
 
       <div className="mt-12 grid gap-12 md:grid-cols-2">
         <CaseBlock label="Challenges" index="06">{project.caseStudy.challenges}</CaseBlock>

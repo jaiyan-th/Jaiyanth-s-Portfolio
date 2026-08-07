@@ -1,35 +1,26 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Instrument_Serif, DM_Mono } from "next/font/google";
+import { Inter, Space_Grotesk, DM_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/effects/theme-provider";
-import { CustomCursor } from "@/components/effects/custom-cursor";
-import { ScrollProgress } from "@/components/effects/scroll-progress";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE } from "@/data/portfolio";
 
-// Inter — Helvetica-style Neo-Grotesque, tight tracking, high impact.
-// Used for both display headings and body text across the entire portfolio.
 const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-// Instrument Serif — high-contrast italic serif for accent words.
-// Used ONLY for highlighted/emphasis words (like "complex" in the reference)
-// to create a striking type-contrast against the bold sans-serif body.
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-serif",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
+  weight: ["500", "700"],
   display: "swap",
 });
 
-// DM Mono — kept for technical labels / metadata (monospace)
 const dmMono = DM_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
@@ -91,7 +82,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   themeColor: [
     { media: "(prefers-color-scheme: dark)", color: "#000000" },
-    { media: "(prefers-color-scheme: light)", color: "#F4F5F3" },
+    { media: "(prefers-color-scheme: light)", color: "#FAF3EE" },
   ],
 };
 
@@ -129,7 +120,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
-        {/* No-flash theme bootstrap — runs before paint */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -151,17 +141,15 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${instrumentSerif.variable} ${dmMono.variable} antialiased bg-canvas text-foreground`}
+        className={`${inter.variable} ${spaceGrotesk.variable} ${dmMono.variable} antialiased bg-[#FAF3EE] text-black font-sans`}
       >
         <ThemeProvider>
           <a
             href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-md focus:bg-accent focus:text-canvas focus:text-sm focus:font-medium"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#B91C1C] focus:text-white focus:text-sm focus:font-medium"
           >
             Skip to content
           </a>
-          <ScrollProgress />
-          <CustomCursor />
           {children}
           <Toaster />
         </ThemeProvider>

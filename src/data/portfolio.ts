@@ -17,7 +17,7 @@ export const IDENTITY = {
   name: "Jaiyanth B",
   role: "AI + Full-Stack Engineer",
   education: "Final-year Computer Science & Business Systems",
-  location: "India / IST",
+  location: "Karur, Tamil Nadu, India",
   email: "jaiyanthofficial@gmail.com",
   github: "https://github.com/jaiyanth-b",
   githubPending: false,
@@ -33,7 +33,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Skills", href: "/#skills", index: "02" },
   { label: "Work", href: "/#work", index: "03" },
   { label: "Experience", href: "/#experience", index: "04" },
-  { label: "Research", href: "/#research", index: "05" },
+  { label: "Achievements", href: "/#research", index: "05" },
   { label: "Contact", href: "/#contact", index: "06" },
 ];
 
@@ -49,7 +49,7 @@ export const ABOUT = {
     { value: "3", label: "Selected projects", detail: "Fake News Detector · Up-Skill · Car-Rent" },
     { value: "7", label: "Evidence-based skill groups", detail: "Languages · Web · Backend · DB · AI · Tools · Soft" },
     { value: "1", label: "AI internship", detail: "Brainery Spot Technology · Jun–Jul 2025" },
-    { value: "1", label: "IEEE research contribution", detail: "ICETSIS 2026 · IEEE Bahrain Section" },
+    { value: "1", label: "IEEE research achievement", detail: "ICETSIS 2026 · IEEE Bahrain Section" },
   ] as Metric[],
   expertise: [
     "RAG",
@@ -170,6 +170,7 @@ export const PROJECTS: Project[] = [
     engineeringFocus: "Retrieval-augmented generation pipeline · semantic-search evidence layer",
     repository: "https://github.com/jaiyanth-b/fake-news-detector",
     visual: "evidence-network",
+    image: "/images/projects/fake-news-detector.jpg",
     layout: "featured",
     caseStudy: {
       overview:
@@ -206,6 +207,7 @@ export const PROJECTS: Project[] = [
     engineeringFocus: "Multi-stage LLM workflow · profile intelligence · skill-gap analysis",
     repository: "https://github.com/jaiyanth-b/up-skill",
     visual: "career-layers",
+    image: "/images/projects/up-skill.jpg",
     layout: "reversed",
     caseStudy: {
       overview:
@@ -241,6 +243,7 @@ export const PROJECTS: Project[] = [
     engineeringFocus: "Full-stack platform · secure auth · relational modeling",
     repository: "https://github.com/jaiyanth-b/car-rent",
     visual: "route-geometry",
+    image: "/images/projects/car-rent.jpg",
     layout: "cinematic",
     caseStudy: {
       overview:
