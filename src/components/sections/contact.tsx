@@ -127,7 +127,7 @@ export function Contact() {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     {/* Name Input */}
                     <div>
-                      <label htmlFor="name-input" className="block font-mono text-[9px] font-bold uppercase tracking-widest text-black/70 mb-2">
+                      <label htmlFor="name-input" className="block font-mono text-[10px] font-extrabold uppercase tracking-widest text-black mb-2">
                         NAME <span className="text-[#B91C1C]">*</span>
                       </label>
                       <input
@@ -135,13 +135,13 @@ export function Contact() {
                         type="text"
                         required
                         placeholder="Jane Doe"
-                        className="w-full bg-[#FAF3EE]/80 border-b-2 border-black/20 p-3 font-sans text-xs text-black font-medium placeholder:text-black/45 focus:outline-none focus:border-[#B91C1C] focus:bg-white rounded-none transition-colors"
+                        className="w-full bg-[#FAF3EE] border-b-2 border-black/40 p-3.5 font-sans text-xs text-black font-bold placeholder:text-black/75 focus:outline-none focus:border-[#B91C1C] focus:bg-white rounded-none transition-all"
                       />
                     </div>
 
                     {/* Email Input */}
                     <div>
-                      <label htmlFor="email-input" className="block font-mono text-[9px] font-bold uppercase tracking-widest text-black/70 mb-2">
+                      <label htmlFor="email-input" className="block font-mono text-[10px] font-extrabold uppercase tracking-widest text-black mb-2">
                         EMAIL <span className="text-[#B91C1C]">*</span>
                       </label>
                       <input
@@ -149,13 +149,13 @@ export function Contact() {
                         type="email"
                         required
                         placeholder="jane@example.com"
-                        className="w-full bg-[#FAF3EE]/80 border-b-2 border-black/20 p-3 font-sans text-xs text-black font-medium placeholder:text-black/45 focus:outline-none focus:border-[#B91C1C] focus:bg-white rounded-none transition-colors"
+                        className="w-full bg-[#FAF3EE] border-b-2 border-black/40 p-3.5 font-sans text-xs text-black font-bold placeholder:text-black/75 focus:outline-none focus:border-[#B91C1C] focus:bg-white rounded-none transition-all"
                       />
                     </div>
 
                     {/* Subject Input */}
                     <div>
-                      <label htmlFor="subject-input" className="block font-mono text-[9px] font-bold uppercase tracking-widest text-black/70 mb-2">
+                      <label htmlFor="subject-input" className="block font-mono text-[10px] font-extrabold uppercase tracking-widest text-black mb-2">
                         SUBJECT <span className="text-[#B91C1C]">*</span>
                       </label>
                       <input
@@ -163,13 +163,13 @@ export function Contact() {
                         type="text"
                         required
                         placeholder="Role, project, or idea..."
-                        className="w-full bg-[#FAF3EE]/80 border-b-2 border-black/20 p-3 font-sans text-xs text-black font-medium placeholder:text-black/45 focus:outline-none focus:border-[#B91C1C] focus:bg-white rounded-none transition-colors"
+                        className="w-full bg-[#FAF3EE] border-b-2 border-black/40 p-3.5 font-sans text-xs text-black font-bold placeholder:text-black/75 focus:outline-none focus:border-[#B91C1C] focus:bg-white rounded-none transition-all"
                       />
                     </div>
 
                     {/* Message Input */}
                     <div>
-                      <label htmlFor="message-input" className="block font-mono text-[9px] font-bold uppercase tracking-widest text-black/70 mb-2">
+                      <label htmlFor="message-input" className="block font-mono text-[10px] font-extrabold uppercase tracking-widest text-black mb-2">
                         MESSAGE <span className="text-[#B91C1C]">*</span>
                       </label>
                       <textarea
@@ -177,7 +177,7 @@ export function Contact() {
                         required
                         rows={4}
                         placeholder="Tell me more..."
-                        className="w-full bg-[#FAF3EE]/80 border-b-2 border-black/20 p-3 font-sans text-xs text-black font-medium placeholder:text-black/45 focus:outline-none focus:border-[#B91C1C] focus:bg-white rounded-none resize-none transition-colors"
+                        className="w-full bg-[#FAF3EE] border-b-2 border-black/40 p-3.5 font-sans text-xs text-black font-bold placeholder:text-black/75 focus:outline-none focus:border-[#B91C1C] focus:bg-white rounded-none resize-none transition-all"
                       />
                     </div>
 
