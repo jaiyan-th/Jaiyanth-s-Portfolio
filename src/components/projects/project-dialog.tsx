@@ -232,25 +232,6 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                 </ul>
               </div>
 
-              {/* Showcase Image */}
-              {project.image && (
-                <div className="mt-12 space-y-4">
-                  <span className="font-mono text-[10px] font-bold text-secondary uppercase tracking-widest">System Architecture & Workflow</span>
-                  <div className="relative aspect-[16/9] w-full overflow-hidden border border-black/10 bg-grid blueprint-box">
-                    <span className="blueprint-corner blueprint-corner-tl" />
-                    <span className="blueprint-corner blueprint-corner-tr" />
-                    <span className="blueprint-corner blueprint-corner-bl" />
-                    <span className="blueprint-corner blueprint-corner-br" />
-                    <Image
-                      src={project.image}
-                      alt={`${project.title} detailed workflow`}
-                      fill
-                      unoptimized
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-              )}
 
               {/* Challenges & Learnings */}
               <div className="mt-12 grid gap-12 md:grid-cols-2">

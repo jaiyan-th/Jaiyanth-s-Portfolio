@@ -113,21 +113,6 @@ export default async function ProjectPage({ params }: Params) {
         </ul>
       </div>
 
-      {/* Showcase Image */}
-      {project.image && (
-        <div className="mt-12 space-y-4">
-          <span className="font-mono-label text-secondary">System Architecture & Workflow</span>
-          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-line bg-grid">
-            <Image
-              src={project.image}
-              alt={`${project.title} detailed workflow`}
-              fill
-              unoptimized
-              className="object-cover"
-            />
-          </div>
-        </div>
-      )}
 
       <div className="mt-12 grid gap-12 md:grid-cols-2">
         <CaseBlock label="Challenges" index="06">{project.caseStudy.challenges}</CaseBlock>
