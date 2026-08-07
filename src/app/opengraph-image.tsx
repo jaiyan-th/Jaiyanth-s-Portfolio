@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
 import { IDENTITY } from "@/data/portfolio";
 
-export const runtime = "edge";
 export const alt = `${IDENTITY.name} — ${IDENTITY.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -61,8 +60,8 @@ export default async function OG() {
             color: "#8DA3A8",
           }}
         >
-          <div>{IDENTITY.name} — {IDENTITY.role}</div>
-          <div>{IDENTITY.location}</div>
+          <div style={{ display: "flex" }}>{IDENTITY.name} — {IDENTITY.role}</div>
+          <div style={{ display: "flex" }}>{IDENTITY.location}</div>
         </div>
       </div>
     ),
