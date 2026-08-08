@@ -23,11 +23,18 @@ export function Hero() {
           </div>
 
           {/* Scaled Display Headline (3 lines max on desktop, 1.0 line-height) */}
-          <div className="relative inline-block mb-4">
+          <div className="relative inline-block mb-3">
             <h1 className="font-heading font-black text-3xl sm:text-4xl lg:text-5xl xl:text-[52px] text-black leading-[1.02] tracking-tight uppercase">
               EVERY PROBLEM IS A SYSTEM <br className="hidden sm:inline" />
               WAITING TO BE DESIGNED.
             </h1>
+          </div>
+
+          {/* Highlighter-Stroke Badge */}
+          <div className="mb-4">
+            <span className="font-mono text-[10px] sm:text-[11px] font-extrabold uppercase tracking-widest text-white bg-[#D9622B] border border-black px-3.5 py-1 rounded-[2px_8px_3px_7px] shadow-[2px_2px_0px_rgba(0,0,0,1)] -rotate-1 inline-block transition-transform hover:rotate-0">
+              BUILT, NOT JUST DEMOED.
+            </span>
           </div>
 
           {/* FROM SIGNAL TO SYSTEM -> Inline node diagram */}
