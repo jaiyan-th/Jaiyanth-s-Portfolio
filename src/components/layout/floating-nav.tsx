@@ -55,7 +55,7 @@ export function FloatingNav() {
               <a
                 key={item.href}
                 href={item.href}
-                className={`font-sans text-[10px] uppercase tracking-widest font-bold py-1 transition-all relative ${
+                className={`font-nav text-[10.5px] uppercase tracking-widest font-bold py-1 transition-all relative ${
                   isActive ? "text-black border-b border-[#B91C1C]" : "text-black/75 hover:text-black"
                 }`}
               >

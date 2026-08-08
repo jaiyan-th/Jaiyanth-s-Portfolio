@@ -11,10 +11,13 @@
   --color-background: var(--canvas);
   --color-foreground: var(--text-primary);
   --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-serif: var(--font-serif);
   --font-mono: var(--font-mono);
+  --font-label: var(--font-label);
   --font-heading: var(--font-heading);
   --font-body: var(--font-sans);
-  --font-nav: var(--font-sans);
+  --font-nav: var(--font-heading);
 
   --color-canvas: var(--canvas);
   --color-elevated: var(--elevated);
@@ -61,7 +64,7 @@
   --accent: #B91C1C;
   --accent-2: #D9622B;
   --accent-warm: #D9622B;
-  --dark-charcoal: #FAF3EE; /* Converted dark sections to light cream */
+  --dark-charcoal: #FAF3EE;
 
   --grid-line: rgba(0, 0, 0, 0.035);
   --node-glow: rgba(185, 28, 28, 0.1);
@@ -83,7 +86,7 @@
   body {
     background-color: #FAF3EE;
     color: #000000;
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-sans), system-ui, sans-serif;
     overflow-x: hidden;
   }
 
@@ -99,29 +102,35 @@
 }
 
 /* ============================================================
-   SCHEMATIC & BLUEPRINT DESIGN UTILITIES
+   TYPOGRAPHY & DESIGN UTILITIES
    ============================================================ */
 @layer utilities {
   .font-heading {
-    font-family: var(--font-heading), var(--font-mono), monospace;
+    font-family: var(--font-display), var(--font-heading), system-ui, sans-serif;
     font-weight: 700;
-  }
-  .font-nav {
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    font-weight: 600;
-  }
-  .font-serif {
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   }
   .font-display {
-    font-family: var(--font-heading), var(--font-mono), monospace;
-    letter-spacing: -0.02em;
+    font-family: var(--font-display), var(--font-heading), system-ui, sans-serif;
+    letter-spacing: -0.025em;
     line-height: 1.05;
-    font-weight: 700;
+    font-weight: 800;
+  }
+  .font-serif {
+    font-family: var(--font-serif), Georgia, serif;
+  }
+  .font-nav {
+    font-family: var(--font-heading), var(--font-sans), sans-serif;
+    font-weight: 600;
   }
   .font-serif-editorial {
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-serif), Georgia, serif;
     font-style: italic;
+  }
+  .font-mono-label {
+    font-family: var(--font-label), var(--font-mono), monospace;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 700;
   }
 
   /* Blueprint coordinate grid - thin hairlines and corner tick marks */
