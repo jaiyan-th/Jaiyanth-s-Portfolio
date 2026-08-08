@@ -7,32 +7,31 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative bg-[#FAF3EE] border-b border-black/10 px-4 py-16 md:px-8 md:py-24 flex flex-col justify-center overflow-hidden bg-grid"
+      className="relative bg-[#FAF3EE] border-b border-black/10 px-4 py-8 lg:py-12 min-h-[calc(100vh-64px)] flex flex-col justify-center overflow-hidden bg-grid"
     >
-      <div className="max-w-7xl mx-auto w-full relative z-10 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div className="max-w-7xl mx-auto w-full relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center my-auto">
         {/* Left Column: Headlines & Call-to-Actions */}
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-7 flex flex-col justify-center">
           {/* Top Eyebrow Badges */}
-          <div className="flex items-center gap-4 mb-6">
-            <span className="font-mono text-[11px] font-bold text-[#B91C1C] tracking-widest uppercase">
-              AVAILABLE FOR ROLES
+          <div className="flex items-center gap-4 mb-4">
+            <span className="font-mono text-[10.5px] font-bold text-[#B91C1C] tracking-widest uppercase">
+              00 —— AVAILABLE FOR ROLES
             </span>
             <div className="h-[1px] flex-1 bg-black/15 relative">
               <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-[#B91C1C] rounded-full" />
             </div>
           </div>
 
-          {/* Scaled Display Headline */}
-          <div className="relative inline-block mb-6">
-            <h1 className="font-heading font-bold text-4xl sm:text-6xl lg:text-7xl text-black leading-[1.08] tracking-tight uppercase">
-              EVERY PROBLEM IS <br />
-              A SYSTEM WAITING <br />
-              TO BE DESIGNED.
+          {/* Scaled Display Headline (3 lines max on desktop, 1.0 line-height) */}
+          <div className="relative inline-block mb-4">
+            <h1 className="font-heading font-black text-3xl sm:text-4xl lg:text-5xl xl:text-[52px] text-black leading-[1.02] tracking-tight uppercase">
+              EVERY PROBLEM IS A SYSTEM <br className="hidden sm:inline" />
+              WAITING TO BE DESIGNED.
             </h1>
           </div>
 
           {/* FROM SIGNAL TO SYSTEM -> Inline node diagram */}
-          <div className="my-6">
+          <div className="my-4">
             <div className="flex items-center gap-4 font-mono text-[10px] sm:text-xs uppercase tracking-widest text-[#D9622B]">
               <div className="flex flex-col items-center">
                 <div className="w-5 h-5 rounded-full border border-[#D9622B] flex items-center justify-center bg-white">
@@ -41,7 +40,7 @@ export function Hero() {
                 <span className="mt-1 text-black/70 text-[9px] sm:text-[10px] font-bold">SIGNAL</span>
               </div>
               
-              <div className="w-12 sm:w-16 h-[1px] bg-[#D9622B] relative flex items-center justify-end">
+              <div className="w-10 sm:w-14 h-[1px] bg-[#D9622B] relative flex items-center justify-end">
                 <div className="w-1 h-2 border-t-4 border-b-4 border-l-4 border-transparent border-l-[#D9622B]" />
               </div>
 
@@ -52,7 +51,7 @@ export function Hero() {
                 <span className="mt-1 text-black/70 text-[9px] sm:text-[10px] font-bold">SYSTEM</span>
               </div>
 
-              <div className="w-12 sm:w-16 h-[1px] bg-[#D9622B] relative flex items-center justify-end">
+              <div className="w-10 sm:w-14 h-[1px] bg-[#D9622B] relative flex items-center justify-end">
                 <div className="w-1 h-2 border-t-4 border-b-4 border-l-4 border-transparent border-l-[#D9622B]" />
               </div>
 
@@ -66,15 +65,15 @@ export function Hero() {
           </div>
 
           {/* Supporting Description */}
-          <p className="max-w-2xl font-sans text-sm sm:text-base text-black/85 leading-relaxed mb-10">
+          <p className="max-w-xl font-sans text-xs sm:text-sm text-black/85 leading-relaxed mb-6">
             I work across the full stack — AI workflows, backend architecture, structured APIs, and interfaces — to turn messy, real-world problems into software that actually works.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-center gap-3">
             <a
               href="#work"
-              className="border border-black font-mono text-xs font-bold uppercase tracking-widest px-6 py-3.5 hover:bg-black/5 transition-all inline-flex items-center gap-2 relative bg-white"
+              className="border border-black font-mono text-xs font-bold uppercase tracking-widest px-5 py-3 hover:bg-black/5 transition-all inline-flex items-center gap-2 relative bg-white shadow-sm"
             >
               <span>VIEW SELECTED WORK</span>
               <ArrowRight className="w-4 h-4" />
@@ -82,7 +81,7 @@ export function Hero() {
 
             <a
               href="#contact"
-              className="border border-black/40 font-mono text-xs font-bold uppercase tracking-widest px-6 py-3.5 hover:bg-black/5 transition-all bg-white"
+              className="border border-black/40 font-mono text-xs font-bold uppercase tracking-widest px-5 py-3 hover:bg-black/5 transition-all bg-white"
             >
               START A CONVERSATION
             </a>
@@ -109,7 +108,7 @@ export function Hero() {
           </div>
 
           {/* Bordered Terminal Panel */}
-          <div className="w-full max-w-[420px] sm:max-w-[440px] bg-white relative z-10 my-4 blueprint-box shadow-sm">
+          <div className="w-full max-w-[460px] lg:max-w-[480px] bg-white relative z-10 blueprint-box shadow-md">
             {/* Viewfinder corners */}
             <span className="blueprint-corner blueprint-corner-tl" />
             <span className="blueprint-corner blueprint-corner-tr" />
