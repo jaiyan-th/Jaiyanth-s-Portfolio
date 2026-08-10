@@ -33,20 +33,48 @@ export function Contact() {
     setStatus("submitting");
 
     try {
-      const res = await fetch("/api/contact", {
+      // Direct client POST to FormSubmit.co (Zero API key required)
+      const fsPromise = fetch(`https://formsubmit.co/ajax/${IDENTITY.email}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          _subject: `[Portfolio Contact] ${formData.subject} - from ${formData.name}`,
+          _replyto: formData.email,
+          message: `Name: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`,
+          _captcha: "false",
+        }),
+      });
+
+      // API route POST fallback
+      const apiPromise = fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
-      const data = await res.json();
+      const [fsRes, apiRes] = await Promise.allSettled([fsPromise, apiPromise]);
 
-      if (res.ok && data.success && !data.fallbackMailto) {
+      let sent = false;
+      if (fsRes.status === "fulfilled" && fsRes.value.ok) {
+        const fsData = await fsRes.value.json();
+        if (fsData.success === "true" || fsData.success === true) sent = true;
+      }
+      if (!sent && apiRes.status === "fulfilled" && apiRes.value.ok) {
+        const apiData = await apiRes.value.json();
+        if (apiData.success) sent = true;
+      }
+
+      if (sent) {
         setStatus("success");
-        setStatusMessage("Message sent successfully!");
+        setStatusMessage("Message sent directly to inbox!");
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
-        // Direct mailto trigger fallback so message is never lost
+        // Direct mailto trigger fallback
         const mailtoUrl = `mailto:${IDENTITY.email}?subject=${encodeURIComponent(
           `[Portfolio] ${formData.subject}`
         )}&body=${encodeURIComponent(
@@ -71,7 +99,7 @@ export function Contact() {
       setTimeout(() => {
         setStatus("idle");
         setStatusMessage("");
-      }, 5000);
+      }, 6000);
     }
   };
 

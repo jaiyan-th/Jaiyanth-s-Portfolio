@@ -38,7 +38,38 @@ export async function POST(request: Request) {
       }
     }
 
-    // 2. Try Web3Forms (Works out-of-the-box with access_key or default key)
+    // 2. Try FormSubmit.co (Zero-config free endpoint targeting jaiyanthofficial@gmail.com)
+    try {
+      const fsRes = await fetch(`https://formsubmit.co/ajax/${IDENTITY.email}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          _subject: `[Portfolio Contact] ${subject} - from ${name}`,
+          _replyto: email,
+          message: `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`,
+          _captcha: "false",
+        }),
+      });
+
+      if (fsRes.ok) {
+        const fsData = await fsRes.json();
+        if (fsData.success === "true" || fsData.success === true) {
+          return NextResponse.json({
+            success: true,
+            message: "Email delivered to inbox successfully.",
+          });
+        }
+      }
+    } catch (fsErr) {
+      console.warn("FormSubmit fetch error:", fsErr);
+    }
+
+    // 3. Try Web3Forms if WEB3FORMS_ACCESS_KEY is set
     if (process.env.WEB3FORMS_ACCESS_KEY) {
       const web3Res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -66,7 +97,7 @@ export async function POST(request: Request) {
       }
     }
 
-    // Failsafe fallback indicator (if no backend key set, client handles mailto)
+    // Failsafe fallback indicator
     return NextResponse.json(
       {
         success: true,
