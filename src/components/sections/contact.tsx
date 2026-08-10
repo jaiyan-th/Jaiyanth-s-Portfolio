@@ -5,12 +5,74 @@ import { ArrowUpRight, Link2, Code, Share2 } from "lucide-react";
 import { IDENTITY } from "@/data/portfolio";
 
 export function Contact() {
-  const [submitted, setSubmitted] = React.useState(false);
+  const [formData, setFormData] = React.useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [status, setStatus] = React.useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = React.useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    const fieldMap: Record<string, string> = {
+      "name-input": "name",
+      "email-input": "email",
+      "subject-input": "subject",
+      "message-input": "message",
+    };
+    const field = fieldMap[id] || id;
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) return;
+
+    setStatus("submitting");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success && !data.fallbackMailto) {
+        setStatus("success");
+        setStatusMessage("Message sent successfully!");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        // Direct mailto trigger fallback so message is never lost
+        const mailtoUrl = `mailto:${IDENTITY.email}?subject=${encodeURIComponent(
+          `[Portfolio] ${formData.subject}`
+        )}&body=${encodeURIComponent(
+          `From: ${formData.name} <${formData.email}>\n\nMessage:\n${formData.message}`
+        )}`;
+        window.open(mailtoUrl, "_blank");
+        setStatus("success");
+        setStatusMessage("Opened in your email client!");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      }
+    } catch {
+      const mailtoUrl = `mailto:${IDENTITY.email}?subject=${encodeURIComponent(
+        `[Portfolio] ${formData.subject}`
+      )}&body=${encodeURIComponent(
+        `From: ${formData.name} <${formData.email}>\n\nMessage:\n${formData.message}`
+      )}`;
+      window.open(mailtoUrl, "_blank");
+      setStatus("success");
+      setStatusMessage("Opened in your email client!");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } finally {
+      setTimeout(() => {
+        setStatus("idle");
+        setStatusMessage("");
+      }, 5000);
+    }
   };
 
   return (
@@ -134,6 +196,8 @@ export function Contact() {
                         id="name-input"
                         type="text"
                         required
+                        value={formData.name}
+                        onChange={handleChange}
                         placeholder="Jane Doe"
                         className="w-full bg-[#FAF3EE] border-b-2 border-black/40 p-3.5 font-sans text-xs text-black font-bold placeholder:text-black/75 focus:outline-none focus:border-[#B91C1C] focus:bg-white rounded-none transition-all"
                       />
@@ -148,6 +212,8 @@ export function Contact() {
                         id="email-input"
                         type="email"
                         required
+                        value={formData.email}
+                        onChange={handleChange}
                         placeholder="jane@example.com"
                         className="w-full bg-[#FAF3EE] border-b-2 border-black/40 p-3.5 font-sans text-xs text-black font-bold placeholder:text-black/75 focus:outline-none focus:border-[#B91C1C] focus:bg-white rounded-none transition-all"
                       />
@@ -162,6 +228,8 @@ export function Contact() {
                         id="subject-input"
                         type="text"
                         required
+                        value={formData.subject}
+                        onChange={handleChange}
                         placeholder="Role, project, or idea..."
                         className="w-full bg-[#FAF3EE] border-b-2 border-black/40 p-3.5 font-sans text-xs text-black font-bold placeholder:text-black/75 focus:outline-none focus:border-[#B91C1C] focus:bg-white rounded-none transition-all"
                       />
@@ -176,6 +244,8 @@ export function Contact() {
                         id="message-input"
                         required
                         rows={4}
+                        value={formData.message}
+                        onChange={handleChange}
                         placeholder="Tell me more..."
                         className="w-full bg-[#FAF3EE] border-b-2 border-black/40 p-3.5 font-sans text-xs text-black font-bold placeholder:text-black/75 focus:outline-none focus:border-[#B91C1C] focus:bg-white rounded-none resize-none transition-all"
                       />
@@ -184,14 +254,21 @@ export function Contact() {
                     {/* Form Bottom Row */}
                     <div className="pt-4 flex items-center justify-between">
                       <span className="font-mono text-[9px] font-semibold text-black/55">
-                        RESPONSE TIME &lt; 48H
+                        {statusMessage || "RESPONSE TIME < 48H"}
                       </span>
 
                       <button
                         type="submit"
-                        className="bg-[#B91C1C] hover:bg-[#9B1515] text-white font-mono text-[10px] font-bold uppercase tracking-widest px-6 py-3.5 border border-black/20 transition-all inline-flex items-center gap-2 shadow-md active:translate-y-0.5"
+                        disabled={status === "submitting"}
+                        className="bg-[#B91C1C] hover:bg-[#9B1515] disabled:opacity-70 text-white font-mono text-[10px] font-bold uppercase tracking-widest px-6 py-3.5 border border-black/20 transition-all inline-flex items-center gap-2 shadow-md active:translate-y-0.5"
                       >
-                        <span>{submitted ? "SENT!" : "SEND MESSAGE"}</span>
+                        <span>
+                          {status === "submitting"
+                            ? "SENDING..."
+                            : status === "success"
+                            ? "SENT!"
+                            : "SEND MESSAGE"}
+                        </span>
                         <ArrowUpRight className="w-3.5 h-3.5" />
                       </button>
                     </div>
