@@ -355,25 +355,20 @@ export function Work() {
 
             {/* Image Right */}
             <div className="lg:col-span-6 lg:order-2 order-1">
-              <div className="relative aspect-[4/3] w-full border border-white/15 overflow-hidden bg-black/40 shadow-2xl flex items-center justify-center p-8 bg-grid">
+              <div className="relative aspect-[4/3] w-full border border-white/15 overflow-hidden bg-black/40 shadow-2xl">
                 {/* Viewfinder corners */}
                 <span className="absolute -top-[1px] -left-[1px] w-2.5 h-2.5 border-t-2 border-l-2 border-[#D9622B] pointer-events-none" />
                 <span className="absolute -top-[1px] -right-[1px] w-2.5 h-2.5 border-t-2 border-r-2 border-[#D9622B] pointer-events-none" />
                 <span className="absolute -bottom-[1px] -left-[1px] w-2.5 h-2.5 border-b-2 border-l-2 border-[#D9622B] pointer-events-none" />
                 <span className="absolute -bottom-[1px] -right-[1px] w-2.5 h-2.5 border-b-2 border-r-2 border-[#D9622B] pointer-events-none" />
 
-                <div className="w-full bg-[#161619] border border-white/10 p-5 font-mono text-xs text-white space-y-3">
-                  <div className="flex items-center justify-between border-b border-white/10 pb-2">
-                    <span className="text-[10px] text-[#D9622B] font-bold uppercase">SQL QUERY AGENT // QUERYGEN AI</span>
-                    <span className="w-2 h-2 rounded-full bg-[#D9622B] animate-pulse" />
-                  </div>
-                  <div className="space-y-1 text-[11px]">
-                    <p className="text-white/60">$ query_agent --input "Show top 5 sales in Q3"</p>
-                    <p className="text-[#FF4D4D] font-bold">&gt; [Qdrant] Schema retrieved: sales_data (4 tables)</p>
-                    <p className="text-white font-medium">&gt; SELECT customer_id, SUM(amount) FROM sales WHERE quarter='Q3' GROUP BY customer_id ORDER BY SUM(amount) DESC LIMIT 5;</p>
-                    <p className="text-emerald-400 font-bold">&gt; Query Status: 200 OK (5 rows returned)</p>
-                  </div>
-                </div>
+                <Image
+                  src="/images/projects/sql-query-agent.jpg"
+                  alt="SQL Query Agent project screenshot"
+                  fill
+                  unoptimized
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
