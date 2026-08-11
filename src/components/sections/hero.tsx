@@ -32,39 +32,39 @@ export function Hero() {
 
           {/* Highlighter-Stroke Badge */}
           <div className="mb-4">
-            <span className="font-mono text-[10px] sm:text-[11px] font-extrabold uppercase tracking-widest text-white bg-[#D9622B] border border-black px-3.5 py-1 rounded-[2px_8px_3px_7px] shadow-[2px_2px_0px_rgba(0,0,0,1)] -rotate-1 inline-block transition-transform hover:rotate-0">
+            <span className="font-mono text-[10px] sm:text-[11px] font-extrabold uppercase tracking-widest text-white bg-[#B91C1C] border border-black px-3.5 py-1 rounded-[2px_8px_3px_7px] shadow-[2px_2px_0px_rgba(0,0,0,1)] -rotate-1 inline-block transition-transform hover:rotate-0">
               BUILT, NOT JUST DEMOED.
             </span>
           </div>
 
           {/* FROM SIGNAL TO SYSTEM -> Inline node diagram */}
           <div className="my-4">
-            <div className="flex items-center gap-4 font-mono text-[10px] sm:text-xs uppercase tracking-widest text-[#D9622B]">
+            <div className="flex items-center gap-4 font-mono text-[10px] sm:text-xs uppercase tracking-widest text-[#B91C1C]">
               <div className="flex flex-col items-center">
-                <div className="w-5 h-5 rounded-full border border-[#D9622B] flex items-center justify-center bg-white">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D9622B]" />
+                <div className="w-5 h-5 rounded-full border border-[#B91C1C] flex items-center justify-center bg-white">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#B91C1C]" />
                 </div>
                 <span className="mt-1 text-black/70 text-[9px] sm:text-[10px] font-bold">SIGNAL</span>
               </div>
               
-              <div className="w-10 sm:w-14 h-[1px] bg-[#D9622B] relative flex items-center justify-end">
-                <div className="w-1 h-2 border-t-4 border-b-4 border-l-4 border-transparent border-l-[#D9622B]" />
+              <div className="w-10 sm:w-14 h-[1px] bg-[#B91C1C] relative flex items-center justify-end">
+                <div className="w-1 h-2 border-t-4 border-b-4 border-l-4 border-transparent border-l-[#B91C1C]" />
               </div>
 
               <div className="flex flex-col items-center">
-                <div className="w-5 h-5 rounded-full border border-[#D9622B] flex items-center justify-center bg-white">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D9622B]" />
+                <div className="w-5 h-5 rounded-full border border-[#B91C1C] flex items-center justify-center bg-white">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#B91C1C]" />
                 </div>
                 <span className="mt-1 text-black/70 text-[9px] sm:text-[10px] font-bold">SYSTEM</span>
               </div>
 
-              <div className="w-10 sm:w-14 h-[1px] bg-[#D9622B] relative flex items-center justify-end">
-                <div className="w-1 h-2 border-t-4 border-b-4 border-l-4 border-transparent border-l-[#D9622B]" />
+              <div className="w-10 sm:w-14 h-[1px] bg-[#B91C1C] relative flex items-center justify-end">
+                <div className="w-1 h-2 border-t-4 border-b-4 border-l-4 border-transparent border-l-[#B91C1C]" />
               </div>
 
               <div className="flex flex-col items-center">
-                <div className="w-5 h-5 rounded-full border border-[#D9622B] flex items-center justify-center bg-[#D9622B]/10">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D9622B]" />
+                <div className="w-5 h-5 rounded-full border border-[#B91C1C] flex items-center justify-center bg-[#B91C1C]/10">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#B91C1C]" />
                 </div>
                 <span className="mt-1 text-black/70 text-[9px] sm:text-[10px] font-bold">STORY</span>
               </div>

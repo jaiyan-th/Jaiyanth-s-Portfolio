@@ -9,14 +9,14 @@ export function About() {
       {/* Thin corner-bracket frame around the content section wrapper */}
       <div className="max-w-7xl mx-auto border border-white/15 p-6 sm:p-10 relative bg-[#141416]/90 shadow-2xl">
         {/* Viewfinder corners around the section */}
-        <span className="absolute -top-[1px] -left-[1px] w-2.5 h-2.5 border-t-2 border-l-2 border-[#D9622B] pointer-events-none" />
-        <span className="absolute -top-[1px] -right-[1px] w-2.5 h-2.5 border-t-2 border-r-2 border-[#D9622B] pointer-events-none" />
-        <span className="absolute -bottom-[1px] -left-[1px] w-2.5 h-2.5 border-b-2 border-l-2 border-[#D9622B] pointer-events-none" />
-        <span className="absolute -bottom-[1px] -right-[1px] w-2.5 h-2.5 border-b-2 border-r-2 border-[#D9622B] pointer-events-none" />
+        <span className="absolute -top-[1px] -left-[1px] w-2.5 h-2.5 border-t-2 border-l-2 border-[#FF4D4D] pointer-events-none" />
+        <span className="absolute -top-[1px] -right-[1px] w-2.5 h-2.5 border-t-2 border-r-2 border-[#FF4D4D] pointer-events-none" />
+        <span className="absolute -bottom-[1px] -left-[1px] w-2.5 h-2.5 border-b-2 border-l-2 border-[#FF4D4D] pointer-events-none" />
+        <span className="absolute -bottom-[1px] -right-[1px] w-2.5 h-2.5 border-b-2 border-r-2 border-[#FF4D4D] pointer-events-none" />
 
         {/* Section Headline with Eyebrow Tag */}
         <div className="mb-12">
-          <span className="font-mono text-[10px] font-bold text-[#D9622B] tracking-widest uppercase block mb-2">
+          <span className="font-mono text-[10px] font-bold text-[#FF4D4D] tracking-widest uppercase block mb-2">
             01 —— ABOUT
           </span>
           <h2 className="font-heading font-black text-3xl sm:text-5xl text-white leading-[1.08] tracking-tight uppercase">

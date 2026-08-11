@@ -9,7 +9,7 @@ export function Experience() {
       <div className="max-w-7xl mx-auto">
         {/* Section Headline */}
         <div className="mb-12">
-          <span className="font-mono text-[10px] font-bold text-[#D9622B] tracking-widest uppercase block mb-1">
+          <span className="font-mono text-[10px] font-bold text-[#B91C1C] tracking-widest uppercase block mb-1">
             04 —— EXPERIENCE
           </span>
           <h2 className="font-heading font-black text-3xl sm:text-5xl text-black leading-[1.08] tracking-tight uppercase">

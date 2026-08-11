@@ -62,13 +62,13 @@
   --text-secondary: #555555;
   --line: rgba(0, 0, 0, 0.15);
   --accent: #B91C1C;
-  --accent-2: #D9622B;
-  --accent-warm: #D9622B;
+  --accent-2: #B91C1C;
+  --accent-warm: #B91C1C;
   --dark-charcoal: #FAF3EE;
 
   --grid-line: rgba(0, 0, 0, 0.035);
   --node-glow: rgba(185, 28, 28, 0.1);
-  --halo: rgba(217, 98, 43, 0.1);
+  --halo: rgba(185, 28, 28, 0.1);
 
   color-scheme: light;
 }

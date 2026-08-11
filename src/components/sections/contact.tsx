@@ -110,7 +110,7 @@ export function Contact() {
         <div className="max-w-7xl mx-auto">
           {/* Top Badge */}
           <div className="flex items-center gap-4 mb-8">
-            <span className="font-mono text-[10px] font-bold text-[#D9622B] tracking-widest uppercase block">
+            <span className="font-mono text-[10px] font-bold text-[#B91C1C] tracking-widest uppercase block">
               06 —— CONTACT
             </span>
             <div className="h-[1px] flex-1 bg-black/10" />

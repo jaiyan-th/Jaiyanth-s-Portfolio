@@ -10,7 +10,7 @@ export function Research() {
       <div className="max-w-7xl mx-auto">
         {/* Section Headline */}
         <div className="mb-10">
-          <span className="font-mono text-[10px] font-bold text-[#D9622B] tracking-widest uppercase block mb-1">
+          <span className="font-mono text-[10px] font-bold text-[#FF4D4D] tracking-widest uppercase block mb-1">
             05 —— ACHIEVEMENTS
           </span>
           <h2 className="font-heading font-black text-3xl sm:text-5xl text-white leading-[1.08] tracking-tight uppercase">

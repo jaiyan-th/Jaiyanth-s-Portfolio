@@ -219,7 +219,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                   {project.caseStudy.features.map((f) => (
                     <li
                       key={f}
-                      className="flex items-start gap-3 border-l-2 border-[#D9622B] pl-4 text-body text-foreground text-pretty"
+                      className="flex items-start gap-3 border-l-2 border-[#B91C1C] pl-4 text-body text-foreground text-pretty"
                     >
                       <span
                         aria-hidden

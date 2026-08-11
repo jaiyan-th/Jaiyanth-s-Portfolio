@@ -13,7 +13,7 @@ export function Work() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-16">
-          <span className="font-mono text-[10px] font-bold text-[#D9622B] tracking-widest uppercase block mb-1">
+          <span className="font-mono text-[10px] font-bold text-[#FF4D4D] tracking-widest uppercase block mb-1">
             03 —— SELECTED WORK
           </span>
           <h2 className="font-heading font-black text-3xl sm:text-5xl text-white leading-[1.08] tracking-tight uppercase">
@@ -185,10 +185,10 @@ export function Work() {
             <div className="lg:col-span-6 lg:order-2 order-1">
               <div className="relative aspect-[4/3] w-full border border-white/15 overflow-hidden bg-black/40 shadow-2xl">
                 {/* Viewfinder corners */}
-                <span className="absolute -top-[1px] -left-[1px] w-2.5 h-2.5 border-t-2 border-l-2 border-[#D9622B] pointer-events-none" />
-                <span className="absolute -top-[1px] -right-[1px] w-2.5 h-2.5 border-t-2 border-r-2 border-[#D9622B] pointer-events-none" />
-                <span className="absolute -bottom-[1px] -left-[1px] w-2.5 h-2.5 border-b-2 border-l-2 border-[#D9622B] pointer-events-none" />
-                <span className="absolute -bottom-[1px] -right-[1px] w-2.5 h-2.5 border-b-2 border-r-2 border-[#D9622B] pointer-events-none" />
+                <span className="absolute -top-[1px] -left-[1px] w-2.5 h-2.5 border-t-2 border-l-2 border-[#FF4D4D] pointer-events-none" />
+                <span className="absolute -top-[1px] -right-[1px] w-2.5 h-2.5 border-t-2 border-r-2 border-[#FF4D4D] pointer-events-none" />
+                <span className="absolute -bottom-[1px] -left-[1px] w-2.5 h-2.5 border-b-2 border-l-2 border-[#FF4D4D] pointer-events-none" />
+                <span className="absolute -bottom-[1px] -right-[1px] w-2.5 h-2.5 border-b-2 border-r-2 border-[#FF4D4D] pointer-events-none" />
 
                 <Image
                   src="/images/projects/up-skill.jpg"
@@ -292,7 +292,7 @@ export function Work() {
             {/* Details Left */}
             <div className="lg:col-span-6 space-y-4 lg:order-1 order-2">
               <div className="flex items-center gap-4">
-                <span className="font-mono text-[10px] font-bold text-[#D9622B] tracking-widest">
+                <span className="font-mono text-[10px] font-bold text-[#FF4D4D] tracking-widest">
                   PROJECT 04 / SELECTED WORK
                 </span>
                 <div className="h-[1px] flex-1 bg-white/10" />
@@ -335,7 +335,7 @@ export function Work() {
                 <button
                   type="button"
                   onClick={() => setSelectedSlug("sql-query-agent")}
-                  className="bg-[#D9622B] hover:bg-[#FF4D4D] border border-white/20 text-white font-mono text-[10px] font-bold uppercase tracking-widest px-5 py-3 transition-all inline-flex items-center gap-2 relative"
+                  className="bg-[#B91C1C] hover:bg-[#FF4D4D] border border-white/20 text-white font-mono text-[10px] font-bold uppercase tracking-widest px-5 py-3 transition-all inline-flex items-center gap-2 relative"
                 >
                   <span>VIEW DETAILS</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -357,10 +357,10 @@ export function Work() {
             <div className="lg:col-span-6 lg:order-2 order-1">
               <div className="relative aspect-[4/3] w-full border border-white/15 overflow-hidden bg-black/40 shadow-2xl">
                 {/* Viewfinder corners */}
-                <span className="absolute -top-[1px] -left-[1px] w-2.5 h-2.5 border-t-2 border-l-2 border-[#D9622B] pointer-events-none" />
-                <span className="absolute -top-[1px] -right-[1px] w-2.5 h-2.5 border-t-2 border-r-2 border-[#D9622B] pointer-events-none" />
-                <span className="absolute -bottom-[1px] -left-[1px] w-2.5 h-2.5 border-b-2 border-l-2 border-[#D9622B] pointer-events-none" />
-                <span className="absolute -bottom-[1px] -right-[1px] w-2.5 h-2.5 border-b-2 border-r-2 border-[#D9622B] pointer-events-none" />
+                <span className="absolute -top-[1px] -left-[1px] w-2.5 h-2.5 border-t-2 border-l-2 border-[#FF4D4D] pointer-events-none" />
+                <span className="absolute -top-[1px] -right-[1px] w-2.5 h-2.5 border-t-2 border-r-2 border-[#FF4D4D] pointer-events-none" />
+                <span className="absolute -bottom-[1px] -left-[1px] w-2.5 h-2.5 border-b-2 border-l-2 border-[#FF4D4D] pointer-events-none" />
+                <span className="absolute -bottom-[1px] -right-[1px] w-2.5 h-2.5 border-b-2 border-r-2 border-[#FF4D4D] pointer-events-none" />
 
                 <Image
                   src="/images/projects/sql-query-agent.jpg"
