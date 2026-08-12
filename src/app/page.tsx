@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="bg-[#FAF3EE] min-h-screen text-black font-serif">
       <FloatingNav />
-      <main id="main" className="relative">
+      <main id="main" className="relative w-full max-w-full overflow-x-hidden">
         <Hero />
         <About />
         <Skills />

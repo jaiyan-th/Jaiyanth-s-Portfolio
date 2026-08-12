@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative bg-[#FAF3EE] border-b border-black/10 px-4 py-8 lg:py-12 min-h-[calc(100vh-64px)] flex flex-col justify-center overflow-hidden bg-grid"
+      className="relative bg-[#FAF3EE] border-b border-black/10 px-4 sm:px-6 lg:px-8 py-10 lg:py-16 min-h-[calc(100vh-56px)] flex flex-col justify-center overflow-hidden bg-grid"
     >
       <div className="max-w-7xl mx-auto w-full relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center my-auto">
         {/* Left Column: Headlines & Call-to-Actions */}

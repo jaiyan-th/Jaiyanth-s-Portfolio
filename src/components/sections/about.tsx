@@ -5,7 +5,7 @@ import { ABOUT } from "@/data/portfolio";
 
 export function About() {
   return (
-    <section id="about" className="relative bg-[#0E0E10] border-b border-white/10 px-4 py-12 md:px-8 md:py-20 text-white overflow-hidden" style={{ backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px)", backgroundSize: "48px 48px" }}>
+    <section id="about" className="relative bg-[#0E0E10] border-b border-white/10 px-4 sm:px-6 lg:px-8 py-16 lg:py-24 text-white overflow-hidden" style={{ backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px)", backgroundSize: "48px 48px" }}>
       {/* Thin corner-bracket frame around the content section wrapper */}
       <div className="max-w-7xl mx-auto border border-white/15 p-6 sm:p-10 relative bg-[#141416]/90 shadow-2xl">
         {/* Viewfinder corners around the section */}

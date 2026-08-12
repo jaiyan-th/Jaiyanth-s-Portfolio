@@ -117,7 +117,7 @@ export function Contact() {
   return (
     <div className="bg-[#FAF3EE] text-black relative">
       {/* Contact Section */}
-      <section id="contact" className="border-b border-black/10 px-4 py-12 md:px-8 md:py-20 bg-grid">
+      <section id="contact" className="border-b border-black/10 px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-grid">
         <div className="max-w-7xl mx-auto">
           {/* Top Badge */}
           <div className="flex items-center gap-4 mb-8">

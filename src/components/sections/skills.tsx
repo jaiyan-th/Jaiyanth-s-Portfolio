@@ -10,7 +10,7 @@ export function Skills() {
   const currentGroup = SKILL_GROUPS.find((g) => g.id === selectedId) || SKILL_GROUPS[0];
 
   return (
-    <section id="skills" className="relative bg-[#FAF3EE] border-b border-black/10 px-4 py-12 md:px-8 md:py-20 text-black bg-grid">
+    <section id="skills" className="relative bg-[#FAF3EE] border-b border-black/10 px-4 sm:px-6 lg:px-8 py-16 lg:py-24 text-black bg-grid">
       <div className="max-w-7xl mx-auto">
         {/* Section Headline */}
         <div className="mb-12">
