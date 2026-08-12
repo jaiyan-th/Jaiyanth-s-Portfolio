@@ -1,0 +1,243 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   JB PORTFOLIO — TECHNICAL BLUEPRINT & SCHEMATIC SYSTEM
+   ============================================================ */
+
+@theme inline {
+  --color-background: var(--canvas);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+  --font-label: var(--font-label);
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-sans);
+  --font-nav: var(--font-heading);
+
+  --color-canvas: var(--canvas);
+  --color-elevated: var(--elevated);
+  --color-surface: var(--surface);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-warm: var(--accent-warm);
+
+  --color-card: var(--surface);
+  --color-card-foreground: var(--text-primary);
+  --color-popover: var(--elevated);
+  --color-popover-foreground: var(--text-primary);
+  --color-primary: var(--accent);
+  --color-primary-foreground: var(--canvas);
+  --color-secondary: var(--elevated);
+  --color-secondary-foreground: var(--text-primary);
+  --color-muted: var(--elevated);
+  --color-muted-foreground: var(--text-secondary);
+  --color-accent-foreground: var(--canvas);
+  --color-destructive: var(--accent-warm);
+  --color-destructive-foreground: #ffffff;
+  --color-border: var(--line);
+  --color-input: var(--line);
+  --color-ring: var(--accent);
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+}
+
+:root,
+.light,
+.dark {
+  --canvas: #FAF3EE;
+  --elevated: #FFFFFF;
+  --surface: #FAF3EE;
+  --text-primary: #000000;
+  --text-secondary: #555555;
+  --line: rgba(0, 0, 0, 0.15);
+  --accent: #B91C1C;
+  --accent-2: #B91C1C;
+  --accent-warm: #B91C1C;
+  --dark-charcoal: #FAF3EE;
+
+  --grid-line: rgba(0, 0, 0, 0.035);
+  --node-glow: rgba(185, 28, 28, 0.1);
+  --halo: rgba(185, 28, 28, 0.1);
+
+  color-scheme: light;
+}
+
+@layer base {
+  * {
+    border-color: rgba(0, 0, 0, 0.15);
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #FAF3EE;
+    color: #000000;
+    font-family: var(--font-sans), system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: #B91C1C;
+    color: #FFFFFF;
+  }
+
+  :focus-visible {
+    outline: 1.5px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+/* ============================================================
+   TYPOGRAPHY & DESIGN UTILITIES
+   ============================================================ */
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-display), var(--font-heading), system-ui, sans-serif;
+    font-weight: 700;
+  }
+  .font-display {
+    font-family: var(--font-display), var(--font-heading), system-ui, sans-serif;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    font-weight: 800;
+  }
+  .font-serif {
+    font-family: var(--font-serif), Georgia, serif;
+  }
+  .font-nav {
+    font-family: var(--font-heading), var(--font-sans), sans-serif;
+    font-weight: 600;
+  }
+  .font-serif-editorial {
+    font-family: var(--font-serif), Georgia, serif;
+    font-style: italic;
+  }
+  .font-mono-label {
+    font-family: var(--font-label), var(--font-mono), monospace;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  /* Blueprint coordinate grid - thin hairlines and corner tick marks */
+  .bg-grid {
+    background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-position: -1px -1px;
+  }
+
+  /* Viewfinder corner brackets structure */
+  .blueprint-box {
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.4);
+  }
+  .blueprint-corner {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-color: var(--accent);
+    border-style: solid;
+    pointer-events: none;
+  }
+  .blueprint-corner-tl { top: -1px; left: -1px; border-width: 1.5px 0 0 1.5px; }
+  .blueprint-corner-tr { top: -1px; right: -1px; border-width: 1.5px 1.5px 0 0; }
+  .blueprint-corner-bl { bottom: -1px; left: -1px; border-width: 0 0 1.5px 1.5px; }
+  .blueprint-corner-br { bottom: -1px; right: -1px; border-width: 0 1.5px 1.5px 0; }
+
+  /* Orange coordinate highlights */
+  .blueprint-corner-orange {
+    border-color: var(--accent-2);
+  }
+
+  /* Dimension measurement separator line */
+  .dimension-line {
+    position: relative;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+  .dimension-line::before,
+  .dimension-line::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    width: 1px;
+    height: 9px;
+    background: rgba(0, 0, 0, 0.25);
+  }
+  .dimension-line::before { left: 0; }
+  .dimension-line::after { right: 0; }
+
+  .text-hero {
+    font-size: clamp(48px, 6.5vw, 98px);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+  .text-hero-mobile {
+    font-size: clamp(38px, 12vw, 68px);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+  .text-section {
+    font-size: clamp(32px, 4vw, 54px);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+  .text-project {
+    font-size: clamp(24px, 3vw, 42px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+  }
+  .text-statement {
+    font-size: clamp(24px, 3vw, 44px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .text-body {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  border: 2px solid var(--canvas);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Hide Next.js Dev Indicator Badge */
+nextjs-portal,
+[data-nextjs-toast],
+[data-nextjs-toast-errors-parent] {
+  display: none !important;
+}
+
