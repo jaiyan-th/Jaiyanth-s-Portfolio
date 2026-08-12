@@ -19,7 +19,7 @@ export const IDENTITY = {
   education: "Final-year Computer Science & Business Systems",
   location: "Karur, Tamil Nadu, India",
   email: "jaiyanthofficial@gmail.com",
-  github: "https://github.com/jaiyanth-b",
+  github: "https://github.com/jaiyan-th",
   githubPending: false,
   linkedin: "https://www.linkedin.com/in/jaiyan-th/",
   linkedinPending: false,
@@ -352,7 +352,7 @@ export const RESEARCH_CONTEXT = {
 
 export const CONTACT_LINKS: ContactLink[] = [
   { label: "Email", value: IDENTITY.email, href: `mailto:${IDENTITY.email}` },
-  { label: "GitHub", value: "github.com/jaiyanth-b", href: IDENTITY.github, pending: IDENTITY.githubPending },
+  { label: "GitHub", value: "github.com/jaiyan-th", href: IDENTITY.github, pending: IDENTITY.githubPending },
   { label: "LinkedIn", value: "in/jaiyan-th", href: IDENTITY.linkedin, pending: IDENTITY.linkedinPending },
   { label: "Location", value: IDENTITY.location },
 ];
