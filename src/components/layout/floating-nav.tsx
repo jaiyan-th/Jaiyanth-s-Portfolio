@@ -1,10 +1,12 @@
 "use client";
 
 import * as React from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
+import { Menu, X } from "lucide-react";
 
 export function FloatingNav() {
   const [active, setActive] = React.useState<string>("#hero");
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     const navHrefs = ["#hero", "#about", "#skills", "#work", "#experience", "#achievements", "#contact"];
@@ -43,17 +45,17 @@ export function FloatingNav() {
           href="#hero"
           whileHover={{ scale: 1.03, x: 2 }}
           whileTap={{ scale: 0.97 }}
-          className="flex items-center gap-3 group"
+          className="flex items-center gap-3 group min-h-[44px] min-w-[44px]"
         >
           <div className="w-8 h-8 bg-black flex items-center justify-center border-2 border-black shadow-[2px_2px_0px_#B91C1C] transition-shadow group-hover:shadow-[3px_3px_0px_#B91C1C]">
             <span className="text-white text-[11px] font-black tracking-tighter font-mono">JB</span>
           </div>
-          <span className="font-mono font-black text-base tracking-wider text-black uppercase">
+          <span className="font-mono font-black text-sm sm:text-base tracking-wider text-black uppercase">
             JAIYANTH B
           </span>
         </motion.a>
 
-        {/* Center-Right Nav Links with Framer Motion Active Pill & Hover Physics */}
+        {/* Center Nav Links - Desktop */}
         <div className="hidden lg:flex items-center gap-2 bg-white/60 p-1.5 border border-black/20 rounded-md">
           {navItems.map((item) => {
             const isActive = active === item.href;
@@ -61,7 +63,7 @@ export function FloatingNav() {
               <a
                 key={item.href}
                 href={item.href}
-                className={`font-mono text-[11px] uppercase tracking-widest font-black px-3.5 py-1.5 transition-all relative rounded-sm ${
+                className={`font-mono text-[11px] uppercase tracking-widest font-black px-3.5 py-2 min-h-[44px] inline-flex items-center justify-center transition-all relative rounded-sm ${
                   isActive
                     ? "text-white bg-[#B91C1C] border border-black shadow-[2px_2px_0px_#000]"
                     : "text-black/80 hover:text-black hover:bg-black/5"
@@ -80,20 +82,62 @@ export function FloatingNav() {
           })}
         </div>
 
-        {/* Right CTA */}
-        <div className="flex items-center">
+        {/* Right CTA & Mobile Toggle */}
+        <div className="flex items-center gap-3">
           <motion.a
             href="#contact"
             whileHover={{ y: -2, x: -1, boxShadow: "4px 4px 0px #000000" }}
             whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-            className="bg-[#B91C1C] text-white font-mono text-[10.5px] font-black tracking-wider uppercase px-4 py-2 border-2 border-black shadow-[2px_2px_0px_#000000] transition-all text-center leading-tight flex flex-col justify-center"
+            className="bg-[#B91C1C] text-white font-mono text-[10.5px] font-black tracking-wider uppercase px-4 py-2.5 min-h-[44px] min-w-[44px] border-2 border-black shadow-[2px_2px_0px_#000000] transition-all text-center leading-tight flex flex-col justify-center"
           >
             <span>GET IN</span>
             <span>TOUCH</span>
           </motion.a>
+
+          {/* Mobile Hamburger Toggle Button */}
+          <button
+            type="button"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            className="lg:hidden p-2.5 min-h-[44px] min-w-[44px] border-2 border-black bg-white shadow-[2px_2px_0px_#000000] text-black flex items-center justify-center"
+          >
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
       </nav>
+
+      {/* Mobile Drawer Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="lg:hidden mt-3 pt-3 border-t-2 border-black bg-white p-4 shadow-[4px_4px_0px_#000000]"
+          >
+            <div className="flex flex-col space-y-2">
+              {navItems.map((item) => {
+                const isActive = active === item.href;
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`font-mono text-xs uppercase tracking-widest font-black p-3.5 min-h-[44px] flex items-center border-2 ${
+                      isActive
+                        ? "bg-[#B91C1C] text-white border-black shadow-[2px_2px_0px_#000000]"
+                        : "bg-[#FAF3EE] text-black border-black/20 hover:border-black"
+                    }`}
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
-

@@ -79,10 +79,10 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
   return (
     <AnimatePresence>
       {project && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6">
           {/* Backdrop */}
           <div
-            className="absolute inset-0 bg-black/80 backdrop-blur-md"
+            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
             onClick={onClose}
             aria-hidden
           />
@@ -94,30 +94,30 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
             aria-modal="true"
             aria-labelledby={`dialog-title-${project.slug}`}
             aria-describedby={`dialog-desc-${project.slug}`}
-            initial={{ y: 60, opacity: 0, scale: 0.98 }}
+            initial={{ y: 50, opacity: 0, scale: 0.98 }}
             animate={{ y: 0, opacity: 1, scale: 1 }}
             exit={{ y: 40, opacity: 0, scale: 0.99 }}
             transition={{ duration: DURATION.modal, ease: EASE.primary }}
-            className="relative my-[4vh] h-[92vh] w-[94vw] max-w-[1180px] overflow-y-auto border border-white/20 bg-[#0E0E10] text-white shadow-2xl"
+            className="relative my-[2vh] h-[94vh] w-[96vw] max-w-[1180px] overflow-y-auto border-2 border-black bg-[#FAF3EE] text-black shadow-[8px_8px_0px_#000000] rounded-sm"
             style={{
               backgroundImage:
-                "linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px)",
+                "linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px)",
               backgroundSize: "48px 48px",
             }}
           >
             {/* Viewfinder corners */}
-            <span className="absolute -top-[1px] -left-[1px] w-3 h-3 border-t-2 border-l-2 border-[#FF4D4D] pointer-events-none" />
-            <span className="absolute -top-[1px] -right-[1px] w-3 h-3 border-t-2 border-r-2 border-[#FF4D4D] pointer-events-none" />
-            <span className="absolute -bottom-[1px] -left-[1px] w-3 h-3 border-b-2 border-l-2 border-[#FF4D4D] pointer-events-none" />
-            <span className="absolute -bottom-[1px] -right-[1px] w-3 h-3 border-b-2 border-r-2 border-[#FF4D4D] pointer-events-none" />
+            <span className="absolute -top-[1px] -left-[1px] w-3 h-3 border-t-2 border-l-2 border-[#B91C1C] pointer-events-none" />
+            <span className="absolute -top-[1px] -right-[1px] w-3 h-3 border-t-2 border-r-2 border-[#B91C1C] pointer-events-none" />
+            <span className="absolute -bottom-[1px] -left-[1px] w-3 h-3 border-b-2 border-l-2 border-[#B91C1C] pointer-events-none" />
+            <span className="absolute -bottom-[1px] -right-[1px] w-3 h-3 border-b-2 border-r-2 border-[#B91C1C] pointer-events-none" />
 
             {/* Sticky top bar */}
-            <div className="sticky top-0 z-20 flex items-center justify-between border-b border-white/10 bg-[#0E0E10]/95 backdrop-blur-md px-6 py-4 md:px-10">
-              <div className="flex items-center gap-4">
-                <span className="font-mono text-[10px] font-bold text-[#FF4D4D] tracking-widest uppercase">
+            <div className="sticky top-0 z-20 flex items-center justify-between border-b-2 border-black bg-[#FAF3EE]/95 backdrop-blur-md px-5 py-3.5 md:px-8">
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-[10px] font-black text-[#B91C1C] tracking-widest uppercase">
                   {project.number} / CASE STUDY
                 </span>
-                <span className="font-mono text-[10px] font-bold text-white/60 tracking-wider uppercase">
+                <span className="hidden sm:inline font-mono text-[10px] font-bold text-black/60 tracking-wider uppercase">
                   {project.category}
                 </span>
               </div>
@@ -126,35 +126,34 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                 type="button"
                 onClick={onClose}
                 aria-label="Close case study"
-                data-cursor="close"
-                className="grid h-9 w-9 place-items-center rounded-full border border-white/20 text-white transition-all hover:border-[#FF4D4D] hover:bg-[#FF4D4D]"
+                className="grid h-10 w-10 min-h-[44px] min-w-[44px] place-items-center border-2 border-black bg-white text-black transition-all hover:bg-[#B91C1C] hover:text-white shadow-[2px_2px_0px_#000000]"
               >
                 <X className="h-4 w-4" aria-hidden />
               </button>
             </div>
 
             {/* Body */}
-            <div className="px-6 py-8 md:px-10 md:py-12">
+            <div className="px-5 py-6 md:px-10 md:py-10">
               <h2
                 id={`dialog-title-${project.slug}`}
-                className="font-heading font-black text-2xl sm:text-4xl text-white tracking-tight uppercase leading-[1.08]"
+                className="font-heading font-black text-2xl sm:text-4xl text-black tracking-tight uppercase leading-[1.08]"
               >
                 {project.title}
               </h2>
               <p
                 id={`dialog-desc-${project.slug}`}
-                className="mt-4 max-w-3xl font-sans text-xs sm:text-sm text-white/80 leading-relaxed"
+                className="mt-3 max-w-3xl font-sans text-xs sm:text-sm text-black/85 leading-relaxed font-medium"
               >
                 {project.summary}
               </p>
 
               {/* Visual */}
-              <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden border border-white/15 bg-black/60 shadow-2xl">
+              <div className="relative mt-6 aspect-[16/9] w-full overflow-hidden border-2 border-black bg-white shadow-[5px_5px_0px_#B91C1C]">
                 {/* Viewfinder corners */}
-                <span className="absolute -top-[1px] -left-[1px] w-3 h-3 border-t-2 border-l-2 border-[#FF4D4D] pointer-events-none" />
-                <span className="absolute -top-[1px] -right-[1px] w-3 h-3 border-t-2 border-r-2 border-[#FF4D4D] pointer-events-none" />
-                <span className="absolute -bottom-[1px] -left-[1px] w-3 h-3 border-b-2 border-l-2 border-[#FF4D4D] pointer-events-none" />
-                <span className="absolute -bottom-[1px] -right-[1px] w-3 h-3 border-b-2 border-r-2 border-[#FF4D4D] pointer-events-none" />
+                <span className="absolute -top-[1px] -left-[1px] w-3 h-3 border-t-2 border-l-2 border-[#B91C1C] pointer-events-none" />
+                <span className="absolute -top-[1px] -right-[1px] w-3 h-3 border-t-2 border-r-2 border-[#B91C1C] pointer-events-none" />
+                <span className="absolute -bottom-[1px] -left-[1px] w-3 h-3 border-b-2 border-l-2 border-[#B91C1C] pointer-events-none" />
+                <span className="absolute -bottom-[1px] -right-[1px] w-3 h-3 border-b-2 border-r-2 border-[#B91C1C] pointer-events-none" />
 
                 {project.image ? (
                   <Image
@@ -172,33 +171,33 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
 
               {/* Meta grid */}
               <div className="mt-8 grid gap-6 md:grid-cols-12">
-                <div className="md:col-span-4 bg-[#141417] border border-white/10 p-5">
-                  <span className="font-mono text-[9px] font-bold text-[#FF4D4D] uppercase tracking-widest block mb-3">
+                <div className="md:col-span-4 bg-white border-2 border-black p-5 shadow-[4px_4px_0px_#000000]">
+                  <span className="font-mono text-[9px] font-black text-[#B91C1C] uppercase tracking-widest block mb-3">
                     TECH STACK
                   </span>
                   <div className="flex flex-wrap gap-1.5">
                     {project.stack.map((s) => (
                       <span
                         key={s}
-                        className="border border-white/20 px-2.5 py-1 text-[9px] font-mono font-bold bg-[#1A1A1D] text-white uppercase tracking-wider"
+                        className="border border-black/30 px-2.5 py-1 text-[9px] font-mono font-black bg-[#FAF3EE] text-black uppercase tracking-wider shadow-[1px_1px_0px_#B91C1C]"
                       >
                         {s}
                       </span>
                     ))}
                   </div>
                 </div>
-                <div className="md:col-span-8 bg-[#141417] border border-white/10 p-5">
-                  <span className="font-mono text-[9px] font-bold text-[#FF4D4D] uppercase tracking-widest block mb-2">
+                <div className="md:col-span-8 bg-white border-2 border-black p-5 shadow-[4px_4px_0px_#000000]">
+                  <span className="font-mono text-[9px] font-black text-[#B91C1C] uppercase tracking-widest block mb-2">
                     ENGINEERING FOCUS
                   </span>
-                  <p className="font-sans text-xs sm:text-sm text-white/90 leading-relaxed">
+                  <p className="font-sans text-xs sm:text-sm text-black/90 leading-relaxed font-semibold">
                     {project.engineeringFocus}
                   </p>
                 </div>
               </div>
 
               {/* Body sections */}
-              <div className="mt-8 grid gap-6 md:grid-cols-12">
+              <div className="mt-6 grid gap-6 md:grid-cols-12">
                 <CaseBlock label="Overview" index="01">
                   {project.caseStudy.overview}
                 </CaseBlock>
@@ -214,19 +213,19 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
               </div>
 
               {/* Features */}
-              <div className="mt-8 bg-[#141417] border border-white/10 p-6">
-                <span className="font-mono text-[10px] font-bold text-[#FF4D4D] uppercase tracking-widest block mb-4">
+              <div className="mt-6 bg-white border-2 border-black p-6 shadow-[4px_4px_0px_#000000]">
+                <span className="font-mono text-[10px] font-black text-[#B91C1C] uppercase tracking-widest block mb-4">
                   05 / KEY FEATURES
                 </span>
                 <ul className="grid gap-3 md:grid-cols-2">
                   {project.caseStudy.features.map((f) => (
                     <li
                       key={f}
-                      className="flex items-start gap-3 border-l-2 border-[#FF4D4D] bg-[#1A1A1D] p-3 text-xs sm:text-sm text-white/90 font-medium"
+                      className="flex items-start gap-3 border-l-4 border-[#B91C1C] bg-[#FAF3EE] border border-black/10 p-3 text-xs sm:text-sm text-black/90 font-semibold"
                     >
                       <span
                         aria-hidden
-                        className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#FF4D4D]"
+                        className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#B91C1C]"
                       />
                       <span>{f}</span>
                     </li>
@@ -235,7 +234,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
               </div>
 
               {/* Challenges & Learnings */}
-              <div className="mt-8 grid gap-6 md:grid-cols-2">
+              <div className="mt-6 grid gap-6 md:grid-cols-2">
                 <CaseBlock label="Challenges" index="06">
                   {project.caseStudy.challenges}
                 </CaseBlock>
@@ -245,8 +244,8 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
               </div>
 
               {/* Repository & Live Demo actions */}
-              <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-8">
-                <span className="font-mono text-[10px] text-white/60 uppercase tracking-wider">
+              <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t-2 border-black/15 pt-6">
+                <span className="font-mono text-[10px] text-black/60 font-black uppercase tracking-wider">
                   STATUS: VERIFIED APPLICATION
                 </span>
                 <div className="flex flex-wrap items-center gap-3">
@@ -255,7 +254,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-[#B91C1C] hover:bg-[#FF4D4D] text-white font-mono text-[10px] font-bold uppercase tracking-widest px-6 py-3.5 border border-white/20 transition-all inline-flex items-center gap-2 shadow-lg active:translate-y-0.5"
+                      className="bg-[#B91C1C] hover:bg-[#A11818] text-white font-mono text-[10px] font-black uppercase tracking-widest px-6 py-3.5 min-h-[44px] inline-flex items-center gap-2 border-2 border-black shadow-[3px_3px_0px_#000000]"
                     >
                       <span>LIVE DEMO</span>
                       <ExternalLink className="h-3.5 w-3.5" />
@@ -265,7 +264,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                     href={project.repository}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="border border-white/30 text-white hover:bg-white/10 font-mono text-[10px] font-bold uppercase tracking-widest px-6 py-3.5 transition-all inline-flex items-center gap-2"
+                    className="bg-white hover:bg-black/5 text-black font-mono text-[10px] font-black uppercase tracking-widest px-6 py-3.5 min-h-[44px] inline-flex items-center gap-2 border-2 border-black shadow-[3px_3px_0px_#B91C1C]"
                   >
                     <span>VIEW REPOSITORY</span>
                     <ExternalLink className="h-3.5 w-3.5" />
@@ -288,11 +287,11 @@ interface CaseBlockProps {
 
 function CaseBlock({ label, index, children }: CaseBlockProps) {
   return (
-    <div className="md:col-span-6 bg-[#141417] border border-white/10 p-5 sm:p-6 relative">
-      <span className="font-mono text-[9px] font-bold text-[#FF4D4D] uppercase tracking-widest block mb-2">
+    <div className="md:col-span-6 bg-white border-2 border-black p-5 sm:p-6 relative shadow-[4px_4px_0px_#000000]">
+      <span className="font-mono text-[9px] font-black text-[#B91C1C] uppercase tracking-widest block mb-2">
         {index} / {label}
       </span>
-      <p className="font-sans text-xs sm:text-sm text-white/85 leading-relaxed">
+      <p className="font-sans text-xs sm:text-sm text-black/85 leading-relaxed font-medium">
         {children}
       </p>
     </div>
