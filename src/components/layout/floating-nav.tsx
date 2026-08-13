@@ -43,6 +43,7 @@ export function FloatingNav() {
         {/* Left: Logo + Name -> Scrolls to #hero */}
         <motion.a
           href="#hero"
+          onClick={() => setActive("#hero")}
           whileHover={{ scale: 1.03, x: 2 }}
           whileTap={{ scale: 0.97 }}
           className="flex items-center gap-3 group min-h-[44px] min-w-[44px]"

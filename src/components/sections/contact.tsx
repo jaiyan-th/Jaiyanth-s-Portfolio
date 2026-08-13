@@ -335,34 +335,34 @@ export function Contact() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#0B0C0E] border-t-2 border-white/10 text-white px-4 py-12 md:px-8 md:py-16 relative" style={{ backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px)", backgroundSize: "48px 48px" }}>
+      {/* Compact Light Footer */}
+      <footer className="bg-[#FAF3EE] border-t-2 border-black text-black px-4 py-6 md:px-8 md:py-8 relative" style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px)", backgroundSize: "48px 48px" }}>
         <div className="max-w-7xl mx-auto">
           {/* Top Row: Brand + Links */}
-          <div className="grid md:grid-cols-12 gap-8 border-b-2 border-white/10 pb-12 mb-8">
+          <div className="grid md:grid-cols-12 gap-6 border-b-2 border-black/15 pb-6 mb-5">
             {/* Left: Heading + Paragraph */}
-            <div className="md:col-span-6 space-y-3">
-              <h3 className="font-heading font-black text-lg text-white uppercase tracking-tight leading-[1.08]">
+            <div className="md:col-span-6 space-y-2">
+              <h3 className="font-heading font-black text-base sm:text-lg text-black uppercase tracking-tight leading-[1.08]">
                 ENGINEERING THE FUTURE.
               </h3>
-              <p className="font-sans text-xs sm:text-sm text-white/70 max-w-md leading-relaxed font-medium">
+              <p className="font-sans text-xs sm:text-sm text-black/80 max-w-md leading-relaxed font-medium">
                 Building robust Full-Stack applications and Applied AI systems with Bauhaus precision and Neo-Brutalist scale.
               </p>
             </div>
 
             {/* Right: Two Link Columns with Monospace Links */}
-            <div className="md:col-span-6 grid grid-cols-2 gap-8 md:justify-items-end">
+            <div className="md:col-span-6 grid grid-cols-2 gap-6 md:justify-items-end">
               <div>
-                <span className="block font-mono text-[9px] font-black uppercase tracking-widest text-[#FF4D4D] mb-3">
+                <span className="block font-mono text-[9px] font-black uppercase tracking-widest text-[#B91C1C] mb-2">
                   SOCIALS
                 </span>
-                <ul className="space-y-2 font-mono text-[10px] uppercase tracking-wider font-bold">
+                <ul className="space-y-1.5 font-mono text-[10px] uppercase tracking-wider font-bold">
                   <li>
                     <a
                       href="https://www.linkedin.com/in/jaiyan-th/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white/80 hover:text-[#FF4D4D] transition-colors"
+                      className="text-black/80 hover:text-[#B91C1C] transition-colors"
                     >
                       LinkedIn
                     </a>
@@ -372,41 +372,31 @@ export function Contact() {
                       href={IDENTITY.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white/80 hover:text-[#FF4D4D] transition-colors"
+                      className="text-black/80 hover:text-[#B91C1C] transition-colors"
                     >
                       GitHub
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://twitter.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white/80 hover:text-[#FF4D4D] transition-colors"
-                    >
-                      Twitter
                     </a>
                   </li>
                 </ul>
               </div>
 
               <div>
-                <span className="block font-mono text-[9px] font-black uppercase tracking-widest text-[#FF4D4D] mb-3">
+                <span className="block font-mono text-[9px] font-black uppercase tracking-widest text-[#B91C1C] mb-2">
                   NAVIGATION
                 </span>
-                <ul className="space-y-2 font-mono text-[10px] uppercase tracking-wider font-bold">
+                <ul className="space-y-1.5 font-mono text-[10px] uppercase tracking-wider font-bold">
                   <li>
-                    <a href="#about" className="text-white/80 hover:text-[#FF4D4D] transition-colors">
+                    <a href="#about" className="text-black/80 hover:text-[#B91C1C] transition-colors">
                       About
                     </a>
                   </li>
                   <li>
-                    <a href="#work" className="text-white/80 hover:text-[#FF4D4D] transition-colors">
+                    <a href="#work" className="text-black/80 hover:text-[#B91C1C] transition-colors">
                       Work
                     </a>
                   </li>
                   <li>
-                    <a href="#contact" className="text-white/80 hover:text-[#FF4D4D] transition-colors">
+                    <a href="#contact" className="text-black/80 hover:text-[#B91C1C] transition-colors">
                       Contact
                     </a>
                   </li>
@@ -416,9 +406,9 @@ export function Contact() {
           </div>
 
           {/* Bottom Bar */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             <div>
-              <span className="font-mono text-[10px] font-black uppercase tracking-wider text-white/80 block">
+              <span className="font-mono text-[10px] font-black uppercase tracking-wider text-black/80 block">
                 — JAIYANTH B © 2026
               </span>
             </div>
@@ -426,12 +416,12 @@ export function Contact() {
             {/* Action Buttons */}
             <div className="flex items-center gap-2">
               <motion.a
-                href="#top"
+                href="#hero"
                 whileHover={{ y: -2 }}
-                aria-label="Link"
-                className="w-9 h-9 bg-[#18191C] border-2 border-white/20 text-white flex items-center justify-center hover:bg-[#FF4D4D] hover:border-[#FF4D4D] transition-colors shadow-[2px_2px_0px_#000]"
+                aria-label="Back to Top"
+                className="w-8 h-8 bg-white border-2 border-black text-black flex items-center justify-center hover:bg-[#B91C1C] hover:text-white transition-colors shadow-[2px_2px_0px_#000]"
               >
-                <Link2 className="w-4 h-4" />
+                <Link2 className="w-3.5 h-3.5" />
               </motion.a>
 
               <motion.a
@@ -440,18 +430,18 @@ export function Contact() {
                 aria-label="Code Repository"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 bg-[#18191C] border-2 border-white/20 text-white flex items-center justify-center hover:bg-[#FF4D4D] hover:border-[#FF4D4D] transition-colors shadow-[2px_2px_0px_#000]"
+                className="w-8 h-8 bg-white border-2 border-black text-black flex items-center justify-center hover:bg-[#B91C1C] hover:text-white transition-colors shadow-[2px_2px_0px_#000]"
               >
-                <Code className="w-4 h-4" />
+                <Code className="w-3.5 h-3.5" />
               </motion.a>
 
               <motion.a
                 href="#contact"
                 whileHover={{ y: -2 }}
                 aria-label="Share"
-                className="w-9 h-9 bg-[#18191C] border-2 border-white/20 text-white flex items-center justify-center hover:bg-[#FF4D4D] hover:border-[#FF4D4D] transition-colors shadow-[2px_2px_0px_#000]"
+                className="w-8 h-8 bg-white border-2 border-black text-black flex items-center justify-center hover:bg-[#B91C1C] hover:text-white transition-colors shadow-[2px_2px_0px_#000]"
               >
-                <Share2 className="w-4 h-4" />
+                <Share2 className="w-3.5 h-3.5" />
               </motion.a>
             </div>
           </div>
