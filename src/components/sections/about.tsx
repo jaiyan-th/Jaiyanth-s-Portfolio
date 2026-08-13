@@ -7,7 +7,7 @@ import { Card3DTilt } from "@/components/ui/card-3d-tilt";
 
 export function About() {
   return (
-    <section id="about" className="relative bg-[#D4C8B8] border-b-2 border-black px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-black overflow-hidden" style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.07) 1px, transparent 1px)", backgroundSize: "48px 48px" }}>
+    <section id="about" className="relative bg-[#C2B5A3] border-b-2 border-black px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-black overflow-hidden" style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.07) 1px, transparent 1px)", backgroundSize: "48px 48px" }}>
       {/* Corner-bracket frame around the content section wrapper */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
