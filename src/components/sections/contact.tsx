@@ -33,40 +33,51 @@ export function Contact() {
     setStatus("submitting");
 
     try {
-      // Direct client POST to FormSubmit.co (Zero API key required)
-      const fsPromise = fetch(`https://formsubmit.co/ajax/${IDENTITY.email}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          _subject: `[Portfolio Contact] ${formData.subject} - from ${formData.name}`,
-          _replyto: formData.email,
-          message: `Name: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`,
-          _captcha: "false",
-        }),
-      });
-
-      // API route POST fallback
-      const apiPromise = fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      const [fsRes, apiRes] = await Promise.allSettled([fsPromise, apiPromise]);
-
+      // 1. Try Next.js API Route first (supports Resend, Web3Forms, FormSubmit)
       let sent = false;
-      if (fsRes.status === "fulfilled" && fsRes.value.ok) {
-        const fsData = await fsRes.value.json();
-        if (fsData.success === "true" || fsData.success === true) sent = true;
+      try {
+        const apiRes = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+        if (apiRes.ok) {
+          const apiData = await apiRes.json();
+          if (apiData.success && !apiData.fallbackMailto) {
+            sent = true;
+          }
+        }
+      } catch (err) {
+        console.warn("API contact route failed, falling back to direct provider:", err);
       }
-      if (!sent && apiRes.status === "fulfilled" && apiRes.value.ok) {
-        const apiData = await apiRes.value.json();
-        if (apiData.success) sent = true;
+
+      // 2. Direct client fallback to FormSubmit.co if API route did not handle it
+      if (!sent) {
+        try {
+          const fsRes = await fetch(`https://formsubmit.co/ajax/${IDENTITY.email}`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({
+              name: formData.name,
+              email: formData.email,
+              _subject: `[Portfolio Contact] ${formData.subject} - from ${formData.name}`,
+              _replyto: formData.email,
+              message: `Name: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`,
+              _captcha: "false",
+            }),
+          });
+          if (fsRes.ok) {
+            const fsData = await fsRes.json();
+            if (fsData.success === "true" || fsData.success === true) {
+              sent = true;
+            }
+          }
+        } catch (fsErr) {
+          console.warn("Direct FormSubmit failed:", fsErr);
+        }
       }
 
       if (sent) {
@@ -74,7 +85,7 @@ export function Contact() {
         setStatusMessage("Message sent directly to inbox!");
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
-        // Direct mailto trigger fallback
+        // 3. Fallback: mailto link
         const mailtoUrl = `mailto:${IDENTITY.email}?subject=${encodeURIComponent(
           `[Portfolio] ${formData.subject}`
         )}&body=${encodeURIComponent(
@@ -106,7 +117,7 @@ export function Contact() {
   return (
     <div className="bg-[#FAF3EE] text-black relative">
       {/* Contact Section */}
-      <section id="contact" className="border-b border-black/10 px-4 py-12 md:px-8 md:py-20 bg-grid">
+      <section id="contact" className="border-b border-black/10 px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-grid">
         <div className="max-w-7xl mx-auto">
           {/* Top Badge */}
           <div className="flex items-center gap-4 mb-8">

@@ -120,11 +120,22 @@ export default async function ProjectPage({ params }: Params) {
       </div>
 
       <div className="mt-14 flex flex-wrap items-center gap-4 border-t border-line pt-10">
+        {project.liveUrl && (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-magnetic btn-primary"
+          >
+            Live Demo
+            <ArrowUpRight className="h-4 w-4" aria-hidden />
+          </a>
+        )}
         <a
           href={project.repository}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-magnetic btn-primary"
+          className="btn-magnetic btn-secondary"
         >
           View repository
           <ArrowUpRight className="h-4 w-4" aria-hidden />

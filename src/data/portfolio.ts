@@ -19,7 +19,7 @@ export const IDENTITY = {
   education: "Final-year Computer Science & Business Systems",
   location: "Karur, Tamil Nadu, India",
   email: "jaiyanthofficial@gmail.com",
-  github: "https://github.com/jaiyanth-b",
+  github: "https://github.com/jaiyan-th",
   githubPending: false,
   linkedin: "https://www.linkedin.com/in/jaiyan-th/",
   linkedinPending: false,
@@ -46,7 +46,7 @@ export const ABOUT = {
     "I'm currently open to applied-AI and full-stack engineering roles where rigour, taste, and care for the user matter as much as the model.",
   ],
   metrics: [
-    { value: "4", label: "Selected projects", detail: "Fake News Detector · Up-Skill · Car-Rent · SQL Query Agent" },
+    { value: "3", label: "Selected projects", detail: "Fake News Detector · Up-Skill · Car-Rent" },
     { value: "7", label: "Evidence-based skill groups", detail: "Languages · Web · Backend · DB · AI · Tools · Soft" },
     { value: "1", label: "AI internship", detail: "Brainery Spot Technology · Jun–Jul 2025" },
     { value: "1", label: "IEEE research achievement", detail: "ICETSIS 2026 · IEEE Bahrain Section" },
@@ -168,7 +168,8 @@ export const PROJECTS: Project[] = [
       "A RAG-powered fact-checking pipeline that cross-references incoming articles against a curated evidence base and surfaces a retrieval-grounded trust verdict.",
     stack: ["Python", "Flask", "Supabase", "Vector Database", "RAG", "LLM", "News API", "Embeddings", "Semantic Search"],
     engineeringFocus: "Retrieval-augmented generation pipeline · semantic-search evidence layer",
-    repository: "https://github.com/jaiyanth-b/fake-news-detector",
+    repository: "https://github.com/jaiyan-th/Fake-News-Detecter",
+    liveUrl: "https://fake-news-detecter-eyvz.onrender.com/",
     visual: "evidence-network",
     image: "/images/projects/fake-news-detector.jpg",
     layout: "featured",
@@ -205,7 +206,8 @@ export const PROJECTS: Project[] = [
       "An AI career assistant that scores resumes ATS-style, runs mock interviews, maps skill gaps, and proposes personalized learning paths.",
     stack: ["Flask", "Supabase", "Stitch", "NLP", "Groq", "Mistral"],
     engineeringFocus: "Multi-stage LLM workflow · profile intelligence · skill-gap analysis",
-    repository: "https://github.com/jaiyanth-b/up-skill",
+    repository: "https://github.com/jaiyan-th/UpSkill-AI-Personalized-Skill-and-Career-Assistant",
+    liveUrl: "https://upskill-ai-personalized-skill-and-career.onrender.com/",
     visual: "career-layers",
     image: "/images/projects/up-skill.jpg",
     layout: "reversed",
@@ -241,7 +243,8 @@ export const PROJECTS: Project[] = [
       "A full-stack rental platform covering vehicle discovery, booking, reviews, payments, and secure authentication, with REST APIs and relational data modeling.",
     stack: ["Next.js", "React", "TypeScript", "NestJS", "Prisma ORM", "JWT", "OAuth", "REST API", "Relational Database"],
     engineeringFocus: "Full-stack platform · secure auth · relational modeling",
-    repository: "https://github.com/jaiyanth-b/car-rent",
+    repository: "https://github.com/jaiyan-th/Car-Rent-Main",
+    liveUrl: "https://car-rent-main.onrender.com/",
     visual: "route-geometry",
     image: "/images/projects/car-rent.jpg",
     layout: "cinematic",
@@ -267,42 +270,6 @@ export const PROJECTS: Project[] = [
         "Booking availability under concurrent writes was the hardest correctness problem. Adding a database-level constraint on overlapping bookings removed a class of race conditions that application logic alone couldn't fully prevent.",
       learnings:
         "Push invariants into the schema wherever possible. Code that prevents double-bookings is fragile; a unique constraint is not.",
-    },
-  },
-  {
-    slug: "sql-query-agent",
-    number: "04",
-    category: "Applied AI · RAG & SQL Agent",
-    title: "SQL Query Agent",
-    summary:
-      "A production-ready SQL Query Agent (QueryGen AI) that converts natural language questions into valid SQLite queries using schema-aware RAG, Qdrant Cloud vector indexing, and LLM reasoning with safe query execution.",
-    stack: ["Python", "RAG", "Qdrant", "SQLite", "LLM", "Groq", "Vector Search", "SQL Engine"],
-    engineeringFocus: "Schema-aware RAG · vector-indexed SQL generation · safe query execution",
-    repository: "https://github.com/jaiyan-th/SQL-Query-Agent",
-    visual: "query-matrix",
-    image: "/images/projects/sql-query-agent.jpg",
-    layout: "featured",
-    caseStudy: {
-      overview:
-        "SQL Query Agent (QueryGen AI) is an intelligent database assistant that converts natural language questions into executable SQLite queries using schema-aware RAG, Qdrant Cloud vector search, and LLM reasoning. It provides both automated SQL generation and sandboxed query execution with formatted results.",
-      problem:
-        "Translating natural language questions into syntactically valid SQL queries on non-trivial database schemas requires deep context on table structures, column definitions, and constraints. Naive LLM prompts often hallucinate non-existent tables or column names.",
-      approach:
-        "Index database schema structures, table DDLs, and column metadata into Qdrant Cloud vector store. When a user asks a question, retrieve relevant schema fragments via semantic search, pass them to a constrained LLM prompt for SQL generation, and safely execute the generated SQL against the SQLite engine with error handling.",
-      architecture:
-        "Natural language prompt → Qdrant vector retrieval of relevant schema metadata → schema-grounded LLM SQL generation → SQL syntax validator → sandboxed SQLite execution engine → formatted chatbot output.",
-      features: [
-        "Natural language to valid SQLite query translation",
-        "Schema-aware RAG using Qdrant Cloud vector store",
-        "Automated table & column metadata extraction",
-        "Safe sandboxed query execution engine",
-        "Chatbot-style tabular and structured result formats",
-        "Support for complex JOINs, aggregations, and subqueries",
-      ],
-      challenges:
-        "Schema hallucination and invalid joins were the primary failure modes. Contextual schema retrieval via Qdrant and strict SQL syntax validation before execution dramatically improved query accuracy.",
-      learnings:
-        "Providing the LLM with precisely targeted schema fragments via vector search produces far more reliable SQL than dumping an entire database schema into prompt context.",
     },
   },
 ];
@@ -385,7 +352,7 @@ export const RESEARCH_CONTEXT = {
 
 export const CONTACT_LINKS: ContactLink[] = [
   { label: "Email", value: IDENTITY.email, href: `mailto:${IDENTITY.email}` },
-  { label: "GitHub", value: "github.com/jaiyanth-b", href: IDENTITY.github, pending: IDENTITY.githubPending },
+  { label: "GitHub", value: "github.com/jaiyan-th", href: IDENTITY.github, pending: IDENTITY.githubPending },
   { label: "LinkedIn", value: "in/jaiyan-th", href: IDENTITY.linkedin, pending: IDENTITY.linkedinPending },
   { label: "Location", value: IDENTITY.location },
 ];

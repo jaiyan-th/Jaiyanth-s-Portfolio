@@ -30,6 +30,7 @@ export type Project = {
   stack: ProjectStack;
   engineeringFocus: string;
   repository: string;
+  liveUrl?: string;
   visual: string;
   image?: string;
   layout: "featured" | "reversed" | "cinematic";

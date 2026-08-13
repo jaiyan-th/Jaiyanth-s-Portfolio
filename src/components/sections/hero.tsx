@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative bg-[#FAF3EE] border-b border-black/10 px-4 py-8 lg:py-12 min-h-[calc(100vh-64px)] flex flex-col justify-center overflow-hidden bg-grid"
+      className="relative bg-[#FAF3EE] border-b border-black/10 px-4 sm:px-6 lg:px-8 py-10 lg:py-16 min-h-[calc(100vh-56px)] flex flex-col justify-center overflow-hidden bg-grid"
     >
       <div className="max-w-7xl mx-auto w-full relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center my-auto">
         {/* Left Column: Headlines & Call-to-Actions */}
@@ -95,24 +95,8 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Circular Radar Graphic + Crisp Terminal Card */}
+        {/* Right Column: Crisp Terminal Card */}
         <div className="lg:col-span-5 relative flex flex-col items-center justify-center">
-          {/* Radar Axis Circles (Background Graphic) */}
-          <div className="absolute inset-0 pointer-events-none opacity-20 hidden md:flex items-center justify-center">
-            <div className="relative w-96 h-96 border border-black/20 rounded-full flex items-center justify-center">
-              <div className="w-72 h-72 border border-black/20 rounded-full flex items-center justify-center">
-                <div className="w-48 h-48 border border-black/20 rounded-full flex items-center justify-center">
-                  <div className="w-24 h-24 border border-black/20 rounded-full flex items-center justify-center relative">
-                    <div className="w-2.5 h-2.5 bg-[#B91C1C] rounded-full animate-pulse" />
-                  </div>
-                </div>
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-full h-[1px] bg-black/15" />
-                <div className="h-full w-[1px] bg-black/15 absolute" />
-              </div>
-            </div>
-          </div>
 
           {/* Bordered Terminal Panel */}
           <div className="w-full max-w-[460px] lg:max-w-[480px] bg-white relative z-10 blueprint-box shadow-md">

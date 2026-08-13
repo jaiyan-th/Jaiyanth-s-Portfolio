@@ -138,4 +138,4 @@ NEXT_PUBLIC_SITE_URL=https://jaiyanthb.com
 
 ## 📜 License
 
-MIT License © 2026 [Jaiyanth B](https://github.com/jaiyanth-b). All rights reserved.
+MIT License © 2026 [Jaiyanth B](https://github.com/jaiyan-th). All rights reserved.

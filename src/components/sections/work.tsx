@@ -9,7 +9,7 @@ export function Work() {
   const [selectedSlug, setSelectedSlug] = React.useState<string | null>(null);
 
   return (
-    <section id="work" className="relative bg-[#0E0E10] border-b border-white/10 px-4 py-12 md:px-8 md:py-20 text-white overflow-hidden" style={{ backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px)", backgroundSize: "48px 48px" }}>
+    <section id="work" className="relative bg-[#0E0E10] border-b border-white/10 px-4 sm:px-6 lg:px-8 py-16 lg:py-24 text-white overflow-hidden" style={{ backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px)", backgroundSize: "48px 48px" }}>
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-16">
@@ -17,8 +17,8 @@ export function Work() {
             03 —— SELECTED WORK
           </span>
           <h2 className="font-heading font-black text-3xl sm:text-5xl text-white leading-[1.08] tracking-tight uppercase">
-            FOUR PROJECTS, <br />
-            <span className="text-[#FF4D4D]">FOUR SYSTEMS.</span>
+            THREE PROJECTS, <br />
+            <span className="text-[#FF4D4D]">THREE SYSTEMS.</span>
           </h2>
           <div className="mt-4 border-l-2 border-[#FF4D4D] pl-4">
             <p className="font-sans text-xs sm:text-sm text-white/70 font-semibold">
@@ -103,7 +103,17 @@ export function Work() {
                 </button>
 
                 <a
-                  href="https://github.com/jaiyanth-b/fake-news-detector"
+                  href="https://fake-news-detecter-eyvz.onrender.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#B91C1C] hover:bg-[#FF4D4D] border border-white/20 text-white font-mono text-[10px] font-bold uppercase tracking-widest px-5 py-3 transition-all inline-flex items-center gap-2"
+                >
+                  <span>LIVE DEMO</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+
+                <a
+                  href="https://github.com/jaiyan-th/Fake-News-Detecter"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border border-white/30 text-white font-mono text-[10px] font-bold uppercase tracking-widest px-5 py-3 hover:bg-white/10 transition-all inline-flex items-center gap-2"
@@ -170,7 +180,17 @@ export function Work() {
                 </button>
 
                 <a
-                  href="https://github.com/jaiyanth-b/up-skill"
+                  href="https://upskill-ai-personalized-skill-and-career.onrender.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#B91C1C] hover:bg-[#FF4D4D] border border-white/20 text-white font-mono text-[10px] font-bold uppercase tracking-widest px-5 py-3 transition-all inline-flex items-center gap-2"
+                >
+                  <span>LIVE DEMO</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+
+                <a
+                  href="https://github.com/jaiyan-th/UpSkill-AI-Personalized-Skill-and-Career-Assistant"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border border-white/30 text-white font-mono text-[10px] font-bold uppercase tracking-widest px-5 py-3 hover:bg-white/10 transition-all inline-flex items-center gap-2"
@@ -275,74 +295,17 @@ export function Work() {
                 </button>
 
                 <a
-                  href="https://github.com/jaiyanth-b/car-rent"
+                  href="https://car-rent-main.onrender.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border border-white/30 text-white font-mono text-[10px] font-bold uppercase tracking-widest px-5 py-3 hover:bg-white/10 transition-all inline-flex items-center gap-2"
+                  className="bg-[#B91C1C] hover:bg-[#FF4D4D] border border-white/20 text-white font-mono text-[10px] font-bold uppercase tracking-widest px-5 py-3 transition-all inline-flex items-center gap-2"
                 >
-                  <span>REPOSITORY</span>
+                  <span>LIVE DEMO</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Project 4: SQL Query Agent */}
-          <div className="grid lg:grid-cols-12 gap-8 items-center">
-            {/* Details Left */}
-            <div className="lg:col-span-6 space-y-4 lg:order-1 order-2">
-              <div className="flex items-center gap-4">
-                <span className="font-mono text-[10px] font-bold text-[#FF4D4D] tracking-widest">
-                  PROJECT 04 / SELECTED WORK
-                </span>
-                <div className="h-[1px] flex-1 bg-white/10" />
-              </div>
-
-              <h3 className="font-heading font-black text-2xl sm:text-3xl text-white tracking-tight uppercase leading-[1.08]">
-                SQL QUERY AGENT
-              </h3>
-
-              <p className="font-sans text-xs sm:text-sm text-white/80 leading-relaxed">
-                A production-ready SQL Query Agent (QueryGen AI) that converts natural language questions into valid SQLite queries using schema-aware RAG, Qdrant Cloud vector indexing, and LLM reasoning with safe query execution.
-              </p>
-
-              <div>
-                <span className="block font-mono text-[9px] font-bold uppercase tracking-widest text-white/60 mb-1">
-                  ENGINEERING SPEC
-                </span>
-                <p className="font-mono text-[10px] text-white">
-                  Schema-aware RAG • vector-indexed SQL generation • safe query execution
-                </p>
-              </div>
-
-              <div>
-                <span className="block font-mono text-[9px] font-bold uppercase tracking-widest text-white/60 mb-1.5">
-                  STACK
-                </span>
-                <div className="flex flex-wrap gap-1.5">
-                  {["PYTHON", "RAG", "QDRANT", "SQLITE", "GROQ", "VECTOR SEARCH"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="font-mono text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 border border-white/20 bg-[#1A1A1D] text-white"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="pt-4 flex flex-wrap items-center gap-3">
-                <button
-                  type="button"
-                  onClick={() => setSelectedSlug("sql-query-agent")}
-                  className="bg-[#B91C1C] hover:bg-[#FF4D4D] border border-white/20 text-white font-mono text-[10px] font-bold uppercase tracking-widest px-5 py-3 transition-all inline-flex items-center gap-2 relative"
-                >
-                  <span>VIEW DETAILS</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
 
                 <a
-                  href="https://github.com/jaiyan-th/SQL-Query-Agent"
+                  href="https://github.com/jaiyan-th/Car-Rent-Main"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border border-white/30 text-white font-mono text-[10px] font-bold uppercase tracking-widest px-5 py-3 hover:bg-white/10 transition-all inline-flex items-center gap-2"
@@ -350,25 +313,6 @@ export function Work() {
                   <span>REPOSITORY</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
-              </div>
-            </div>
-
-            {/* Image Right */}
-            <div className="lg:col-span-6 lg:order-2 order-1">
-              <div className="relative aspect-[4/3] w-full border border-white/15 overflow-hidden bg-black/40 shadow-2xl">
-                {/* Viewfinder corners */}
-                <span className="absolute -top-[1px] -left-[1px] w-2.5 h-2.5 border-t-2 border-l-2 border-[#FF4D4D] pointer-events-none" />
-                <span className="absolute -top-[1px] -right-[1px] w-2.5 h-2.5 border-t-2 border-r-2 border-[#FF4D4D] pointer-events-none" />
-                <span className="absolute -bottom-[1px] -left-[1px] w-2.5 h-2.5 border-b-2 border-l-2 border-[#FF4D4D] pointer-events-none" />
-                <span className="absolute -bottom-[1px] -right-[1px] w-2.5 h-2.5 border-b-2 border-r-2 border-[#FF4D4D] pointer-events-none" />
-
-                <Image
-                  src="/images/projects/sql-query-agent.jpg"
-                  alt="SQL Query Agent project screenshot"
-                  fill
-                  unoptimized
-                  className="object-cover"
-                />
               </div>
             </div>
           </div>
