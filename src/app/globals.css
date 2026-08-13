@@ -216,6 +216,97 @@
   .text-secondary {
     color: var(--text-secondary);
   }
+
+  /* Neo-brutalist hover lift & shadow utility classes */
+  .shadow-brutal {
+    box-shadow: 4px 4px 0px #000000;
+  }
+  .shadow-brutal-lg {
+    box-shadow: 6px 6px 0px #000000;
+  }
+  .shadow-brutal-red {
+    box-shadow: 4px 4px 0px #B91C1C;
+  }
+  .shadow-brutal-red-lg {
+    box-shadow: 6px 6px 0px #B91C1C;
+  }
+  .shadow-brutal-white {
+    box-shadow: 4px 4px 0px #FFFFFF;
+  }
+
+  .hover-brutal-lift {
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hover-brutal-lift:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0px #B91C1C;
+  }
+
+  /* Continuous horizontal Marquee Ticker */
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 25s linear infinite;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+  /* 3D Perspective Utility */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  /* Animated traveling border beam effect */
+  .border-beam {
+    position: relative;
+    overflow: hidden;
+  }
+  .border-beam::before {
+    content: '';
+    position: absolute;
+    inset: -200%;
+    background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 300deg, #FF4D4D 340deg, #B91C1C 360deg);
+    animation: spin-beam 4s linear infinite;
+    z-index: 0;
+  }
+
+  /* Grid Scan Line Animation */
+  .grid-scan {
+    position: relative;
+  }
+  .grid-scan::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 77, 77, 0.4), transparent);
+    animation: scan-line 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+@keyframes spin-beam {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes scan-line {
+  0% { top: 0%; opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
 }
 
 ::-webkit-scrollbar {
@@ -240,4 +331,6 @@ nextjs-portal,
 [data-nextjs-toast-errors-parent] {
   display: none !important;
 }
+
+
 

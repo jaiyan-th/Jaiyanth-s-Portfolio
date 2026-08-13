@@ -10,6 +10,8 @@ import {
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/effects/theme-provider";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { CursorSpotlight } from "@/components/ui/cursor-spotlight";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE } from "@/data/portfolio";
@@ -173,6 +175,8 @@ export default function RootLayout({
         className={`${unbounded.variable} ${fraunces.variable} ${plusJakartaSans.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${spaceMono.variable} antialiased bg-[#FAF3EE] text-black font-sans`}
       >
         <ThemeProvider>
+          <ScrollProgress />
+          <CursorSpotlight />
           <a
             href="#main"
             className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#B91C1C] focus:text-white focus:text-sm focus:font-medium"
