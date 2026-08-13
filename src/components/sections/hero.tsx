@@ -133,93 +133,90 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Right Column: Compact Terminal Card */}
+        {/* Right Column: Spec ID Card */}
         <motion.div variants={itemVariants} className="lg:col-span-5 relative flex flex-col items-center justify-center">
-          <Card3DTilt maxDegree={6} glowColor="rgba(185, 28, 28, 0.25)" className="w-full max-w-[420px] lg:max-w-[440px]">
-            {/* Bordered Terminal Panel */}
+          <Card3DTilt maxDegree={6} glowColor="rgba(185, 28, 28, 0.25)" className="w-full max-w-[400px]">
             <div className="w-full bg-white relative z-10 border-2 border-black shadow-[6px_6px_0px_#000000] rounded-sm overflow-hidden">
-              {/* Terminal Chrome Bar */}
-              <div className="bg-[#FAF3EE] border-b-2 border-black px-4 py-2 flex items-center justify-between">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#B91C1C] border border-black" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-black/20 border border-black" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-black/20 border border-black" />
-                  <span className="font-mono text-[10px] font-black uppercase text-black ml-1.5 tracking-wider">
-                    SYSTEM_STATUS.SH
+              {/* Viewfinder corners */}
+              <span className="absolute -top-[1px] -left-[1px] w-3 h-3 border-t-2 border-l-2 border-[#B91C1C] pointer-events-none z-20" />
+              <span className="absolute -top-[1px] -right-[1px] w-3 h-3 border-t-2 border-r-2 border-[#B91C1C] pointer-events-none z-20" />
+              <span className="absolute -bottom-[1px] -left-[1px] w-3 h-3 border-b-2 border-l-2 border-[#B91C1C] pointer-events-none z-20" />
+              <span className="absolute -bottom-[1px] -right-[1px] w-3 h-3 border-b-2 border-r-2 border-[#B91C1C] pointer-events-none z-20" />
+
+              {/* Header Strip */}
+              <div className="bg-black px-4 py-2 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#B91C1C] animate-pulse" />
+                  <span className="font-mono text-[9px] font-black uppercase text-white/90 tracking-widest">
+                    JAIYANTH B — STATUS
                   </span>
                 </div>
-                <span className="font-mono text-[9px] font-black text-[#B91C1C] uppercase tracking-wider">
-                  LIVE · 2026
+                <span className="font-mono text-[8px] font-bold text-[#B91C1C] uppercase tracking-wider">
+                  2026
                 </span>
               </div>
 
-              {/* Terminal Body */}
-              <div className="p-4 sm:p-5 font-mono text-[11px] sm:text-xs text-black space-y-2.5 bg-white">
-                {/* Line 1 */}
-                <div className="flex items-start gap-2">
-                  <span className="text-[#B91C1C] font-black text-xs select-none">&gt;</span>
-                  <div>
-                    <span className="text-black/60 font-bold uppercase tracking-wider">LOCATION:</span>{" "}
-                    <span className="font-black text-black">Karur, TN, India</span>
-                  </div>
+              {/* Spec Grid Body */}
+              <div className="p-4 space-y-0 font-mono text-[10px]">
+                {/* Row 1 */}
+                <div className="grid grid-cols-[90px_1fr] border-b border-black/10 py-2">
+                  <span className="text-black/50 font-bold uppercase tracking-wider">Location</span>
+                  <span className="font-black text-black">Karur, TN, India</span>
+                </div>
+                {/* Row 2 */}
+                <div className="grid grid-cols-[90px_1fr] border-b border-black/10 py-2">
+                  <span className="text-black/50 font-bold uppercase tracking-wider">Status</span>
+                  <span className="font-black text-black">Final-year CSBS</span>
+                </div>
+                {/* Row 3 */}
+                <div className="grid grid-cols-[90px_1fr] border-b border-black/10 py-2">
+                  <span className="text-black/50 font-bold uppercase tracking-wider">Available</span>
+                  <span className="font-black text-black">Full-time / Internship</span>
+                </div>
+                {/* Row 4 */}
+                <div className="grid grid-cols-[90px_1fr] border-b border-black/10 py-2">
+                  <span className="text-black/50 font-bold uppercase tracking-wider">Focus</span>
+                  <span className="font-black text-black">Backend Dev & Applied AI</span>
+                </div>
+                {/* Row 5 */}
+                <div className="grid grid-cols-[90px_1fr] border-b border-black/10 py-2">
+                  <span className="text-black/50 font-bold uppercase tracking-wider">Passion</span>
+                  <span className="font-black text-[#B91C1C]">Building real-world software</span>
                 </div>
 
-                {/* Line 2 */}
-                <div className="flex items-start gap-2">
-                  <span className="text-[#B91C1C] font-black text-xs select-none">&gt;</span>
-                  <div>
-                    <span className="text-black/60 font-bold uppercase tracking-wider">STATUS:</span>{" "}
-                    <span className="font-black text-black">Final-year CSBS · Available for Full-time / Internship roles</span>
+                {/* Traits — Tag Row */}
+                <div className="pt-3">
+                  <span className="text-black/50 font-bold uppercase tracking-wider block mb-2 text-[9px]">Verified Traits</span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {[
+                      "3 Projects",
+                      "AI Intern",
+                      "Auth Systems",
+                      "Fast Learner",
+                      "Team Player",
+                    ].map((trait) => (
+                      <span
+                        key={trait}
+                        className="font-mono text-[8px] font-black uppercase tracking-wider px-2 py-1 border-2 border-black bg-[#FAF3EE] text-black shadow-[2px_2px_0px_#B91C1C]"
+                      >
+                        {trait}
+                      </span>
+                    ))}
                   </div>
                 </div>
+              </div>
 
-                {/* Line 3 */}
-                <div className="flex items-start gap-2">
-                  <span className="text-[#B91C1C] font-black text-xs select-none">&gt;</span>
-                  <div>
-                    <span className="text-black/60 font-bold uppercase tracking-wider">PASSION:</span>{" "}
-                    <span className="font-black text-[#B91C1C]">Building reliable, real-world software products</span>
-                  </div>
+              {/* Footer Status Bar */}
+              <div className="bg-[#FAF3EE] border-t-2 border-black px-4 py-2 flex items-center justify-between">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-600" />
+                  <span className="font-mono text-[8px] font-black uppercase tracking-widest text-black/70">
+                    OPEN_TO_WORK
+                  </span>
                 </div>
-
-                {/* Line 4 */}
-                <div className="flex items-start gap-2">
-                  <span className="text-[#B91C1C] font-black text-xs select-none">&gt;</span>
-                  <div>
-                    <span className="text-black/60 font-bold uppercase tracking-wider">FOCUS:</span>{" "}
-                    <span className="font-black text-black">Backend Development &amp; Applied AI</span>
-                  </div>
-                </div>
-
-                {/* Line 5: Trait Tags */}
-                <div className="flex items-start gap-2 pt-0.5">
-                  <span className="text-[#B91C1C] font-black text-xs select-none">&gt;</span>
-                  <div className="w-full">
-                    <span className="text-black/60 font-bold uppercase tracking-wider block mb-1.5">CORE TRAITS:</span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {[
-                        "3 PROJECTS SHIPPED",
-                        "AI INTERN EXPERIENCE",
-                        "SECURE AUTH SYSTEMS",
-                        "FAST LEARNER",
-                        "TEAM PLAYER",
-                      ].map((trait) => (
-                        <span
-                          key={trait}
-                          className="font-mono text-[9px] font-black uppercase tracking-wider px-2 py-0.5 border border-black/30 bg-[#FAF3EE] text-black shadow-[1px_1px_0px_#B91C1C]"
-                        >
-                          [ {trait} ]
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Terminal Footer Indicator */}
-                <div className="pt-2 border-t-2 border-black/10 flex items-center justify-between text-[11px] font-mono">
-                  <span className="text-black/80 font-black">MODE: OPEN_TO_WORK</span>
-                  <span className="inline-block w-2 h-3 bg-[#B91C1C] animate-pulse" />
-                </div>
+                <span className="font-mono text-[8px] font-bold text-black/40 tracking-wider">
+                  v1.0 · LIVE
+                </span>
               </div>
             </div>
           </Card3DTilt>
