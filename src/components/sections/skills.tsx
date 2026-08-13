@@ -92,7 +92,7 @@ export function Skills() {
 
           {/* Right Column: Spec Sheet Details Panel */}
           <div className="lg:col-span-7 flex flex-col">
-            <div className="bg-white p-6 sm:p-8 border-2 border-black shadow-[5px_5px_0px_#B91C1C] relative flex-1 flex flex-col justify-between rounded-sm">
+            <div className="bg-white p-6 sm:p-8 border-2 border-black shadow-[5px_5px_0px_#B91C1C] relative flex-1 flex flex-col rounded-sm">
               {/* Viewfinder corners */}
               <span className="blueprint-corner blueprint-corner-tl" />
               <span className="blueprint-corner blueprint-corner-tr" />
@@ -106,11 +106,11 @@ export function Skills() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -15 }}
                   transition={{ duration: 0.25, ease: "easeOut" }}
-                  className="flex-1 flex flex-col justify-between"
+                  className="flex-1 flex flex-col justify-start"
                 >
                   <div>
                     {/* Spec Sheet Header */}
-                    <div className="flex items-center justify-between border-b-2 border-black pb-4 mb-6">
+                    <div className="flex items-center justify-between border-b-2 border-black pb-4 mb-5">
                       <div className="font-mono text-[10px] font-black uppercase tracking-wider text-black">
                         {currentGroup.index} · {currentGroup.label}
                       </div>
@@ -120,7 +120,7 @@ export function Skills() {
                     </div>
 
                     {/* Title & Description */}
-                    <div className="mb-6">
+                    <div className="mb-5">
                       <h3 className="font-heading font-black text-xl sm:text-2xl text-black uppercase mb-2">
                         {currentGroup.title}
                       </h3>
@@ -131,7 +131,7 @@ export function Skills() {
                   </div>
 
                   {/* Technical Specifications */}
-                  <div className="space-y-4 border-t-2 border-b-2 border-black py-4 my-6">
+                  <div className="space-y-4 border-t-2 border-b-2 border-black py-4 mt-2 mb-4">
                     <div className="grid sm:grid-cols-3 gap-2 font-mono text-[10px]">
                       <span className="text-black/60 font-bold uppercase">DOMAIN:</span>
                       <span className="sm:col-span-2 text-black font-black uppercase">{currentGroup.label}</span>

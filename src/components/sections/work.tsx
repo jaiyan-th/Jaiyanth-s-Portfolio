@@ -11,7 +11,7 @@ export function Work() {
   const [selectedSlug, setSelectedSlug] = React.useState<string | null>(null);
 
   return (
-    <section id="work" className="relative bg-[#ECE5DD] border-b-2 border-black py-12 md:py-20 text-black overflow-hidden grid-scan" style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px)", backgroundSize: "48px 48px" }}>
+    <section id="work" className="relative bg-[#E2D9CE] border-b-2 border-black py-12 md:py-20 text-black overflow-hidden grid-scan" style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px)", backgroundSize: "48px 48px" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div

@@ -169,7 +169,7 @@ export function Hero() {
                   <span className="text-[#B91C1C] font-black text-sm select-none">&gt;</span>
                   <div>
                     <span className="text-black/60 font-bold uppercase tracking-wider">STATUS:</span>{" "}
-                    <span className="font-black text-black">Final-year CSBS · Open to roles</span>
+                    <span className="font-black text-black">Final-year CSBS · Available for Full-time / Internship roles</span>
                   </div>
                 </div>
 
@@ -178,7 +178,7 @@ export function Hero() {
                   <span className="text-[#B91C1C] font-black text-sm select-none">&gt;</span>
                   <div>
                     <span className="text-black/60 font-bold uppercase tracking-wider">PASSION:</span>{" "}
-                    <span className="font-black text-[#B91C1C]">AI &amp; Intelligent Systems</span>
+                    <span className="font-black text-[#B91C1C]">Building reliable, real-world software products</span>
                   </div>
                 </div>
 
@@ -187,7 +187,7 @@ export function Hero() {
                   <span className="text-[#B91C1C] font-black text-sm select-none">&gt;</span>
                   <div>
                     <span className="text-black/60 font-bold uppercase tracking-wider">FOCUS:</span>{" "}
-                    <span className="font-black text-black">Backend-first</span>
+                    <span className="font-black text-black">Backend Development &amp; Applied AI</span>
                   </div>
                 </div>
 
@@ -197,12 +197,18 @@ export function Hero() {
                   <div className="w-full">
                     <span className="text-black/60 font-bold uppercase tracking-wider block mb-2">CORE TRAITS:</span>
                     <div className="flex flex-wrap gap-2">
-                      {["Backend-first", "Detail-oriented", "Fast learner", "Problem solver", "Reliable"].map((trait) => (
+                      {[
+                        "3 PROJECTS SHIPPED",
+                        "AI INTERN EXPERIENCE",
+                        "SECURE AUTH SYSTEMS",
+                        "FAST LEARNER",
+                        "TEAM PLAYER",
+                      ].map((trait) => (
                         <span
                           key={trait}
                           className="font-mono text-[10px] font-black uppercase tracking-wider px-2.5 py-1 border border-black/30 bg-[#FAF3EE] text-black shadow-[2px_2px_0px_#B91C1C]"
                         >
-                          {trait}
+                          [ {trait} ]
                         </span>
                       ))}
                     </div>
@@ -211,7 +217,7 @@ export function Hero() {
 
                 {/* Terminal Footer Indicator */}
                 <div className="pt-3 border-t-2 border-black/10 flex items-center justify-between text-xs font-mono">
-                  <span className="text-black/60 font-black">MODE: BACKEND_ENGINEERING</span>
+                  <span className="text-black/80 font-black">MODE: OPEN_TO_WORK</span>
                   <span className="inline-block w-2.5 h-3.5 bg-[#B91C1C] animate-pulse" />
                 </div>
               </div>
