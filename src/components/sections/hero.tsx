@@ -133,31 +133,31 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Right Column: Prominent Terminal Card */}
+        {/* Right Column: Compact Terminal Card */}
         <motion.div variants={itemVariants} className="lg:col-span-5 relative flex flex-col items-center justify-center">
-          <Card3DTilt maxDegree={6} glowColor="rgba(185, 28, 28, 0.25)" className="w-full max-w-[540px] lg:max-w-[580px]">
+          <Card3DTilt maxDegree={6} glowColor="rgba(185, 28, 28, 0.25)" className="w-full max-w-[420px] lg:max-w-[440px]">
             {/* Bordered Terminal Panel */}
-            <div className="w-full bg-white relative z-10 border-2 border-black shadow-[8px_8px_0px_#000000] rounded-sm overflow-hidden">
+            <div className="w-full bg-white relative z-10 border-2 border-black shadow-[6px_6px_0px_#000000] rounded-sm overflow-hidden">
               {/* Terminal Chrome Bar */}
-              <div className="bg-[#FAF3EE] border-b-2 border-black px-5 py-3 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-[#B91C1C] border border-black" />
-                  <span className="w-3 h-3 rounded-full bg-black/20 border border-black" />
-                  <span className="w-3 h-3 rounded-full bg-black/20 border border-black" />
-                  <span className="font-mono text-xs font-black uppercase text-black ml-2 tracking-wider">
+              <div className="bg-[#FAF3EE] border-b-2 border-black px-4 py-2 flex items-center justify-between">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#B91C1C] border border-black" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-black/20 border border-black" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-black/20 border border-black" />
+                  <span className="font-mono text-[10px] font-black uppercase text-black ml-1.5 tracking-wider">
                     SYSTEM_STATUS.SH
                   </span>
                 </div>
-                <span className="font-mono text-[10px] font-black text-[#B91C1C] uppercase tracking-wider">
+                <span className="font-mono text-[9px] font-black text-[#B91C1C] uppercase tracking-wider">
                   LIVE · 2026
                 </span>
               </div>
 
               {/* Terminal Body */}
-              <div className="p-6 sm:p-7 font-mono text-xs sm:text-sm text-black space-y-4 bg-white">
+              <div className="p-4 sm:p-5 font-mono text-[11px] sm:text-xs text-black space-y-2.5 bg-white">
                 {/* Line 1 */}
-                <div className="flex items-start gap-2.5">
-                  <span className="text-[#B91C1C] font-black text-sm select-none">&gt;</span>
+                <div className="flex items-start gap-2">
+                  <span className="text-[#B91C1C] font-black text-xs select-none">&gt;</span>
                   <div>
                     <span className="text-black/60 font-bold uppercase tracking-wider">LOCATION:</span>{" "}
                     <span className="font-black text-black">Karur, TN, India</span>
@@ -165,8 +165,8 @@ export function Hero() {
                 </div>
 
                 {/* Line 2 */}
-                <div className="flex items-start gap-2.5">
-                  <span className="text-[#B91C1C] font-black text-sm select-none">&gt;</span>
+                <div className="flex items-start gap-2">
+                  <span className="text-[#B91C1C] font-black text-xs select-none">&gt;</span>
                   <div>
                     <span className="text-black/60 font-bold uppercase tracking-wider">STATUS:</span>{" "}
                     <span className="font-black text-black">Final-year CSBS · Available for Full-time / Internship roles</span>
@@ -174,8 +174,8 @@ export function Hero() {
                 </div>
 
                 {/* Line 3 */}
-                <div className="flex items-start gap-2.5">
-                  <span className="text-[#B91C1C] font-black text-sm select-none">&gt;</span>
+                <div className="flex items-start gap-2">
+                  <span className="text-[#B91C1C] font-black text-xs select-none">&gt;</span>
                   <div>
                     <span className="text-black/60 font-bold uppercase tracking-wider">PASSION:</span>{" "}
                     <span className="font-black text-[#B91C1C]">Building reliable, real-world software products</span>
@@ -183,8 +183,8 @@ export function Hero() {
                 </div>
 
                 {/* Line 4 */}
-                <div className="flex items-start gap-2.5">
-                  <span className="text-[#B91C1C] font-black text-sm select-none">&gt;</span>
+                <div className="flex items-start gap-2">
+                  <span className="text-[#B91C1C] font-black text-xs select-none">&gt;</span>
                   <div>
                     <span className="text-black/60 font-bold uppercase tracking-wider">FOCUS:</span>{" "}
                     <span className="font-black text-black">Backend Development &amp; Applied AI</span>
@@ -192,11 +192,11 @@ export function Hero() {
                 </div>
 
                 {/* Line 5: Trait Tags */}
-                <div className="flex items-start gap-2.5 pt-1">
-                  <span className="text-[#B91C1C] font-black text-sm select-none">&gt;</span>
+                <div className="flex items-start gap-2 pt-0.5">
+                  <span className="text-[#B91C1C] font-black text-xs select-none">&gt;</span>
                   <div className="w-full">
-                    <span className="text-black/60 font-bold uppercase tracking-wider block mb-2">CORE TRAITS:</span>
-                    <div className="flex flex-wrap gap-2">
+                    <span className="text-black/60 font-bold uppercase tracking-wider block mb-1.5">CORE TRAITS:</span>
+                    <div className="flex flex-wrap gap-1.5">
                       {[
                         "3 PROJECTS SHIPPED",
                         "AI INTERN EXPERIENCE",
@@ -206,7 +206,7 @@ export function Hero() {
                       ].map((trait) => (
                         <span
                           key={trait}
-                          className="font-mono text-[10px] font-black uppercase tracking-wider px-2.5 py-1 border border-black/30 bg-[#FAF3EE] text-black shadow-[2px_2px_0px_#B91C1C]"
+                          className="font-mono text-[9px] font-black uppercase tracking-wider px-2 py-0.5 border border-black/30 bg-[#FAF3EE] text-black shadow-[1px_1px_0px_#B91C1C]"
                         >
                           [ {trait} ]
                         </span>
@@ -216,9 +216,9 @@ export function Hero() {
                 </div>
 
                 {/* Terminal Footer Indicator */}
-                <div className="pt-3 border-t-2 border-black/10 flex items-center justify-between text-xs font-mono">
+                <div className="pt-2 border-t-2 border-black/10 flex items-center justify-between text-[11px] font-mono">
                   <span className="text-black/80 font-black">MODE: OPEN_TO_WORK</span>
-                  <span className="inline-block w-2.5 h-3.5 bg-[#B91C1C] animate-pulse" />
+                  <span className="inline-block w-2 h-3 bg-[#B91C1C] animate-pulse" />
                 </div>
               </div>
             </div>

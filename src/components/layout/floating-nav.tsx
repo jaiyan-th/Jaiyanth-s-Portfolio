@@ -38,7 +38,7 @@ export function FloatingNav() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-[#FAF3EE]/95 backdrop-blur-md border-b-2 border-black px-4 py-3 md:px-8 shadow-sm">
+    <header className="sticky top-0 z-50 bg-[#FAF3EE]/95 backdrop-blur-md border-b-2 border-black px-4 py-1.5 md:px-8 shadow-sm">
       <nav aria-label="Main Navigation" className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Left: Logo + Name -> Scrolls to #hero */}
         <motion.a
