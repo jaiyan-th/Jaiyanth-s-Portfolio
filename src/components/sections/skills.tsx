@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "motion/react";
 export function Skills() {
   const [selectedId, setSelectedId] = React.useState<string>("languages");
 
-  const categories = SKILL_GROUPS.slice(0, 6);
+  const categories = SKILL_GROUPS;
   const currentGroup = SKILL_GROUPS.find((g) => g.id === selectedId) || SKILL_GROUPS[0];
 
   return (
@@ -25,7 +25,7 @@ export function Skills() {
             02 —— SKILLS SYSTEM
           </span>
           <h2 className="font-heading font-black text-3xl sm:text-5xl text-black leading-[1.08] tracking-tight uppercase">
-            Seven <span className="italic text-[#B91C1C] font-serif">evidence-based</span> skill groups.
+            Six <span className="italic text-[#B91C1C] font-serif">evidence-based</span> skill groups.
           </h2>
           <p className="font-sans text-xs sm:text-sm text-black/70 mt-2 font-semibold">
             Every competency is tied directly to production deployments, research artifacts, or team contributions.
