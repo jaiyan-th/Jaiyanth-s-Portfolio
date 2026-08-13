@@ -17,6 +17,7 @@ export type SkillGroup = {
   description: string;
   skills: string[];
   evidence: string;
+  impact?: string;
 };
 
 export type ProjectStack = string[];

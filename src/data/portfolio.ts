@@ -87,6 +87,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
       "Core languages used across AI workflows, full-stack backends, and systems engineering.",
     skills: ["Python", "SQL", "Java"],
     evidence: "Used across AI workflows, full-stack backends, and system development.",
+    impact: "Provides the foundational logic for data pipelines, backend APIs, relational queries, and algorithms.",
   },
   {
     id: "frontend",
@@ -97,6 +98,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
       "Component-driven web interfaces built for accessibility, performance, and responsive UI.",
     skills: ["HTML", "CSS", "React", "Tailwind CSS", "JavaScript"],
     evidence: "Used for responsive, component-driven user interfaces.",
+    impact: "Delivers responsive layout architecture, component states, and modern UI interactions.",
   },
   {
     id: "backend",
@@ -107,6 +109,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
       "Structured, secure backends — REST APIs, JWT authentication, and microservice architectures.",
     skills: ["FastAPI", "Flask", "REST API", "JWT Authentication"],
     evidence: "Used for structured, secure REST API architectures and authentication.",
+    impact: "Ensures type-safe API routing, token authorization, request validation, and service integration.",
   },
   {
     id: "databases",
@@ -117,6 +120,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
       "Relational databases and vector stores for persistent application data and semantic search.",
     skills: ["Supabase", "MySQL", "Qdrant (Vector Database)"],
     evidence: "Relational and vector database systems for persistent data and semantic search.",
+    impact: "Powers ACID relational transactions and high-dimensional vector embeddings for AI retrieval.",
   },
   {
     id: "ai",
@@ -127,6 +131,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
       "Applied AI — retrieval-augmented generation, machine learning, NLP, and LLM reasoning.",
     skills: ["Machine Learning", "NLP", "RAG", "LangChain", "Prompt Engineering"],
     evidence: "Applied AI workflows, retrieval-augmented pipelines, and LLM reasoning.",
+    impact: "Orchestrates semantic document retrieval, fact-checking verification, and intelligent agent workflows.",
   },
   {
     id: "tools",
@@ -135,8 +140,9 @@ export const SKILL_GROUPS: SkillGroup[] = [
     title: "Tools",
     description:
       "Engineering tools for version control, API testing, UI design, analytics, and workflow automation.",
-    skills: ["Git", "GitHub", "Postman", "Figma", "Sitch", "Power BI"],
+    skills: ["Git", "GitHub", "Postman", "Figma", "Stitch", "Power BI"],
     evidence: "Engineering tools for version control, API testing, UI design, and analytics.",
+    impact: "Streamlines git collaboration, endpoint testing, design prototypes, and analytical dashboards.",
   },
 ];
 

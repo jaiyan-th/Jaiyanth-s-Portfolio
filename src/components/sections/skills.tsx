@@ -156,6 +156,27 @@ export function Skills() {
                       <span className="text-black/60 font-bold uppercase">EVIDENCE:</span>
                       <span className="sm:col-span-2 text-black text-[10px] font-semibold leading-normal">{currentGroup.evidence}</span>
                     </div>
+
+                    {currentGroup.impact && (
+                      <div className="grid sm:grid-cols-3 gap-2 font-mono text-[10px] items-start pt-1">
+                        <span className="text-black/60 font-bold uppercase">IMPACT:</span>
+                        <span className="sm:col-span-2 text-[#B91C1C] text-[10px] font-extrabold leading-normal">{currentGroup.impact}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Production Status & Architecture Highlights Footer Box */}
+                  <div className="p-4 border-2 border-black bg-[#FAF3EE] shadow-[3px_3px_0px_#000000] mt-auto">
+                    <div className="flex items-center justify-between font-mono text-[9.5px] font-black uppercase text-black border-b border-black/15 pb-2 mb-2">
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-[#B91C1C] animate-pulse" />
+                        SYSTEM LAYER: {currentGroup.label.toUpperCase()}
+                      </span>
+                      <span className="text-[#B91C1C]">VERIFIED COMPETENCY</span>
+                    </div>
+                    <p className="font-mono text-[9.5px] text-black/75 font-semibold leading-relaxed">
+                      Integrated into real-world projects, research benchmarks, and production-ready applications.
+                    </p>
                   </div>
                 </motion.div>
               </AnimatePresence>
