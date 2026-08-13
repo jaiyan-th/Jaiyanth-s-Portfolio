@@ -133,90 +133,118 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Right Column: Spec ID Card */}
+        {/* Right Column: macOS Style Terminal Window */}
         <motion.div variants={itemVariants} className="lg:col-span-5 relative flex flex-col items-center justify-center">
-          <Card3DTilt maxDegree={6} glowColor="rgba(185, 28, 28, 0.25)" className="w-full max-w-[400px]">
-            <div className="w-full bg-white relative z-10 border-2 border-black shadow-[6px_6px_0px_#000000] rounded-sm overflow-hidden">
-              {/* Viewfinder corners */}
-              <span className="absolute -top-[1px] -left-[1px] w-3 h-3 border-t-2 border-l-2 border-[#B91C1C] pointer-events-none z-20" />
-              <span className="absolute -top-[1px] -right-[1px] w-3 h-3 border-t-2 border-r-2 border-[#B91C1C] pointer-events-none z-20" />
-              <span className="absolute -bottom-[1px] -left-[1px] w-3 h-3 border-b-2 border-l-2 border-[#B91C1C] pointer-events-none z-20" />
-              <span className="absolute -bottom-[1px] -right-[1px] w-3 h-3 border-b-2 border-r-2 border-[#B91C1C] pointer-events-none z-20" />
-
-              {/* Header Strip */}
-              <div className="bg-black px-4 py-2 flex items-center justify-between">
+          <Card3DTilt maxDegree={6} glowColor="rgba(185, 28, 28, 0.25)" className="w-full max-w-[460px] lg:max-w-[490px]">
+            {/* macOS Window Frame */}
+            <div className="w-full bg-[#1E1E2E] text-slate-200 relative z-10 border-2 border-black shadow-[6px_6px_0px_#000000] rounded-lg overflow-hidden">
+              
+              {/* macOS Window Titlebar */}
+              <div className="bg-[#2B2B3B] border-b-2 border-black px-4 py-2.5 flex items-center justify-between select-none">
+                {/* Traffic Light Buttons */}
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#B91C1C] animate-pulse" />
-                  <span className="font-mono text-[9px] font-black uppercase text-white/90 tracking-widest">
-                    JAIYANTH B — STATUS
-                  </span>
+                  <span className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E] shadow-inner inline-block" />
+                  <span className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123] shadow-inner inline-block" />
+                  <span className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29] shadow-inner inline-block" />
                 </div>
-                <span className="font-mono text-[8px] font-bold text-[#B91C1C] uppercase tracking-wider">
-                  2026
+
+                {/* macOS Title */}
+                <div className="flex items-center gap-1.5 font-mono text-[11px] font-semibold text-slate-300">
+                  <span className="text-slate-400">⚡</span>
+                  <span>jaiyanth — zsh — 80×24</span>
+                </div>
+
+                {/* Status indicator badge */}
+                <span className="font-mono text-[9px] font-bold text-emerald-400 bg-emerald-950/80 px-2 py-0.5 border border-emerald-500/30 rounded">
+                  LIVE
                 </span>
               </div>
 
-              {/* Spec Grid Body */}
-              <div className="p-4 space-y-0 font-mono text-[10px]">
-                {/* Row 1 */}
-                <div className="grid grid-cols-[90px_1fr] border-b border-black/10 py-2">
-                  <span className="text-black/50 font-bold uppercase tracking-wider">Location</span>
-                  <span className="font-black text-black">Karur, TN, India</span>
-                </div>
-                {/* Row 2 */}
-                <div className="grid grid-cols-[90px_1fr] border-b border-black/10 py-2">
-                  <span className="text-black/50 font-bold uppercase tracking-wider">Status</span>
-                  <span className="font-black text-black">Final-year CSBS</span>
-                </div>
-                {/* Row 3 */}
-                <div className="grid grid-cols-[90px_1fr] border-b border-black/10 py-2">
-                  <span className="text-black/50 font-bold uppercase tracking-wider">Available</span>
-                  <span className="font-black text-black">Full-time / Internship</span>
-                </div>
-                {/* Row 4 */}
-                <div className="grid grid-cols-[90px_1fr] border-b border-black/10 py-2">
-                  <span className="text-black/50 font-bold uppercase tracking-wider">Focus</span>
-                  <span className="font-black text-black">Backend Dev & Applied AI</span>
-                </div>
-                {/* Row 5 */}
-                <div className="grid grid-cols-[90px_1fr] border-b border-black/10 py-2">
-                  <span className="text-black/50 font-bold uppercase tracking-wider">Passion</span>
-                  <span className="font-black text-[#B91C1C]">Building real-world software</span>
+              {/* Terminal Body */}
+              <div className="p-4 sm:p-5 font-mono text-xs text-slate-200 space-y-3 bg-[#1E1E2E] leading-relaxed">
+                {/* Shell Prompt Line */}
+                <div className="flex items-center gap-2 pb-1 border-b border-slate-700/50 text-[11px]">
+                  <span className="text-emerald-400 font-bold">jaiyanth@macbook</span>
+                  <span className="text-slate-400">:</span>
+                  <span className="text-sky-400 font-bold">~</span>
+                  <span className="text-slate-200 font-bold">$</span>
+                  <span className="text-amber-300 font-semibold">./status.sh</span>
                 </div>
 
-                {/* Traits — Tag Row */}
-                <div className="pt-3">
-                  <span className="text-black/50 font-bold uppercase tracking-wider block mb-2 text-[9px]">Verified Traits</span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {[
-                      "3 Projects",
-                      "AI Intern",
-                      "Auth Systems",
-                      "Fast Learner",
-                      "Team Player",
-                    ].map((trait) => (
-                      <span
-                        key={trait}
-                        className="font-mono text-[8px] font-black uppercase tracking-wider px-2 py-1 border-2 border-black bg-[#FAF3EE] text-black shadow-[2px_2px_0px_#B91C1C]"
-                      >
-                        {trait}
-                      </span>
-                    ))}
+                {/* Output Details */}
+                <div className="space-y-2 text-[11px] sm:text-xs">
+                  {/* Location */}
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 font-bold select-none">&gt;</span>
+                    <div>
+                      <span className="text-slate-400 font-semibold uppercase tracking-wider">LOCATION:</span>{" "}
+                      <span className="text-white font-medium">Karur, TN, India</span>
+                    </div>
+                  </div>
+
+                  {/* Status */}
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 font-bold select-none">&gt;</span>
+                    <div>
+                      <span className="text-slate-400 font-semibold uppercase tracking-wider">STATUS:</span>{" "}
+                      <span className="text-white font-medium">Final-year CSBS · Available for Full-time / Internship roles</span>
+                    </div>
+                  </div>
+
+                  {/* Passion */}
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 font-bold select-none">&gt;</span>
+                    <div>
+                      <span className="text-slate-400 font-semibold uppercase tracking-wider">PASSION:</span>{" "}
+                      <span className="text-[#FF6B6B] font-bold">Building reliable, real-world software products</span>
+                    </div>
+                  </div>
+
+                  {/* Focus */}
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 font-bold select-none">&gt;</span>
+                    <div>
+                      <span className="text-slate-400 font-semibold uppercase tracking-wider">FOCUS:</span>{" "}
+                      <span className="text-sky-300 font-medium">Backend Development &amp; Applied AI</span>
+                    </div>
+                  </div>
+
+                  {/* Core Traits */}
+                  <div className="pt-1">
+                    <div className="flex items-start gap-2 mb-2">
+                      <span className="text-emerald-400 font-bold select-none">&gt;</span>
+                      <span className="text-slate-400 font-semibold uppercase tracking-wider">CORE TRAITS:</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5 pl-4">
+                      {[
+                        "3 PROJECTS SHIPPED",
+                        "AI INTERN EXPERIENCE",
+                        "SECURE AUTH SYSTEMS",
+                        "FAST LEARNER",
+                        "TEAM PLAYER",
+                      ].map((trait) => (
+                        <span
+                          key={trait}
+                          className="font-mono text-[9.5px] font-bold px-2 py-0.5 rounded border border-emerald-400/30 bg-emerald-500/10 text-emerald-300 shadow-sm"
+                        >
+                          [ {trait} ]
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Footer Status Bar */}
-              <div className="bg-[#FAF3EE] border-t-2 border-black px-4 py-2 flex items-center justify-between">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-600" />
-                  <span className="font-mono text-[8px] font-black uppercase tracking-widest text-black/70">
-                    OPEN_TO_WORK
-                  </span>
+                {/* Footer Command Status */}
+                <div className="pt-2.5 border-t border-slate-700/50 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                  <div className="flex items-center gap-2">
+                    <span className="text-slate-400 font-semibold">MODE:</span>
+                    <span className="text-emerald-400 font-bold">OPEN_TO_WORK</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <span className="text-slate-500 text-[10px]">zsh</span>
+                    <span className="inline-block w-2 h-3.5 bg-emerald-400 animate-pulse align-middle" />
+                  </div>
                 </div>
-                <span className="font-mono text-[8px] font-bold text-black/40 tracking-wider">
-                  v1.0 · LIVE
-                </span>
               </div>
             </div>
           </Card3DTilt>
