@@ -346,7 +346,7 @@ export function Contact() {
                 ENGINEERING THE FUTURE.
               </h3>
               <p className="font-sans text-xs sm:text-sm text-black/80 max-w-md leading-relaxed font-medium">
-                Building robust Full-Stack applications and Applied AI systems with Bauhaus precision and Neo-Brutalist scale.
+                Building robust Full-Stack applications and Applied AI systems engineered for real-world impact and production performance.
               </p>
             </div>
 
