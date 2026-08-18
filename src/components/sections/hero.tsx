@@ -133,69 +133,72 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Right Column: Compact Technical System Console Card */}
+        {/* Right Column: Optimistic Technical System Console Card */}
         <motion.div variants={itemVariants} className="lg:col-span-5 relative flex flex-col items-center justify-center">
-          <Card3DTilt maxDegree={5} glowColor="rgba(185, 28, 28, 0.25)" className="w-full max-w-[460px] lg:max-w-[480px]">
+          <Card3DTilt maxDegree={6} glowColor="rgba(185, 28, 28, 0.25)" className="w-full max-w-[480px] lg:max-w-[500px]">
             {/* Bordered Spec Panel */}
-            <div className="w-full bg-white relative z-10 border-2 border-black shadow-[6px_6px_0px_#B91C1C] rounded-sm overflow-hidden transition-shadow duration-300">
+            <div className="w-full bg-white relative z-10 border-2 border-black shadow-[8px_8px_0px_#B91C1C] rounded-sm overflow-hidden transition-all duration-300 hover:shadow-[10px_10px_0px_#B91C1C]">
               
               {/* Blueprint Viewfinder Corner Accents */}
-              <span className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-[#B91C1C] z-20 pointer-events-none" />
-              <span className="absolute top-0 right-0 w-2.5 h-2.5 border-t-2 border-r-2 border-[#B91C1C] z-20 pointer-events-none" />
-              <span className="absolute bottom-0 left-0 w-2.5 h-2.5 border-b-2 border-l-2 border-[#B91C1C] z-20 pointer-events-none" />
-              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-[#B91C1C] z-20 pointer-events-none" />
+              <span className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#B91C1C] z-20 pointer-events-none" />
+              <span className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[#B91C1C] z-20 pointer-events-none" />
+              <span className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[#B91C1C] z-20 pointer-events-none" />
+              <span className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#B91C1C] z-20 pointer-events-none" />
 
               {/* Technical Header Bar */}
-              <div className="bg-black px-4 py-2 flex items-center justify-between border-b-2 border-black">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#B91C1C] animate-pulse" />
-                  <span className="font-mono text-[11px] font-black uppercase text-white tracking-wider">
+              <div className="bg-black px-4.5 py-2.5 flex items-center justify-between border-b-2 border-black">
+                <div className="flex items-center gap-2.5">
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+                  </span>
+                  <span className="font-mono text-xs font-black uppercase text-white tracking-wider">
                     SYSTEM_STATUS // JAIYANTH B
                   </span>
                 </div>
-                <span className="font-mono text-[9px] font-black uppercase tracking-widest text-[#B91C1C] bg-white px-1.5 py-0.5 border border-black shadow-[1px_1px_0px_#B91C1C]">
-                  LIVE 2026
+                <span className="font-mono text-[9.5px] font-black uppercase tracking-widest text-[#B91C1C] bg-white px-2 py-0.5 border border-black shadow-[1.5px_1.5px_0px_#B91C1C]">
+                  AVAILABLE 2026
                 </span>
               </div>
 
-              {/* Card Body - Compact & Perfectly Proportioned */}
-              <div className="p-4 sm:p-4.5 font-mono text-[11px] sm:text-xs text-black space-y-2.5 bg-white leading-tight">
+              {/* Card Body - Crisp & Optimistic Layout */}
+              <div className="p-5 sm:p-5.5 font-mono text-[11.5px] sm:text-xs text-black space-y-3 bg-white leading-tight">
                 
                 {/* Location Line */}
-                <div className="flex items-center gap-2 border-b border-black/10 pb-2">
+                <div className="flex items-center gap-2 border-b border-black/10 pb-2.5">
                   <span className="text-[#B91C1C] font-black select-none">&gt;</span>
                   <span className="text-black/50 font-bold uppercase tracking-wider text-[10px] w-20 shrink-0">LOCATION</span>
                   <span className="font-black text-black truncate">Karur, TN, India</span>
                 </div>
 
                 {/* Status Line */}
-                <div className="flex items-start gap-2 border-b border-black/10 pb-2">
+                <div className="flex items-start gap-2 border-b border-black/10 pb-2.5">
                   <span className="text-[#B91C1C] font-black select-none mt-0.5">&gt;</span>
                   <span className="text-black/50 font-bold uppercase tracking-wider text-[10px] w-20 shrink-0 mt-0.5">STATUS</span>
-                  <span className="font-black text-black leading-snug">Final-year CSBS · Open to Full-time / Intern roles</span>
+                  <span className="font-black text-black leading-snug">Final-year CSBS · Available for Full-time / Internship roles</span>
                 </div>
 
                 {/* Passion Line */}
-                <div className="flex items-start gap-2 border-b border-black/10 pb-2">
+                <div className="flex items-start gap-2 border-b border-black/10 pb-2.5">
                   <span className="text-[#B91C1C] font-black select-none mt-0.5">&gt;</span>
                   <span className="text-black/50 font-bold uppercase tracking-wider text-[10px] w-20 shrink-0 mt-0.5">PASSION</span>
                   <span className="font-black text-[#B91C1C] leading-snug">Building reliable, real-world software products</span>
                 </div>
 
                 {/* Focus Line */}
-                <div className="flex items-center gap-2 border-b border-black/10 pb-2">
+                <div className="flex items-center gap-2 border-b border-black/10 pb-2.5">
                   <span className="text-[#B91C1C] font-black select-none">&gt;</span>
                   <span className="text-black/50 font-bold uppercase tracking-wider text-[10px] w-20 shrink-0">FOCUS</span>
                   <span className="font-black text-black truncate">Backend Development &amp; Applied AI</span>
                 </div>
 
                 {/* Core Traits Section */}
-                <div className="pt-0.5">
-                  <div className="flex items-center gap-1.5 mb-1.5">
+                <div className="pt-1">
+                  <div className="flex items-center gap-1.5 mb-2">
                     <span className="text-[#B91C1C] font-black select-none">&gt;</span>
-                    <span className="text-black/60 font-bold uppercase tracking-wider text-[10px]">CORE TRAITS</span>
+                    <span className="text-black/60 font-bold uppercase tracking-wider text-[10.5px]">CORE TRAITS</span>
                   </div>
-                  <div className="flex flex-wrap gap-1.5 pl-3">
+                  <div className="flex flex-wrap gap-2 pl-3">
                     {[
                       "3 PROJECTS SHIPPED",
                       "AI INTERN EXPERIENCE",
@@ -205,8 +208,9 @@ export function Hero() {
                     ].map((trait) => (
                       <motion.span
                         key={trait}
-                        whileHover={{ scale: 1.03 }}
-                        className="font-mono text-[9px] sm:text-[9.5px] font-black uppercase tracking-wider px-2 py-0.5 border-2 border-black bg-[#FAF3EE] text-black shadow-[1.5px_1.5px_0px_#B91C1C] cursor-default"
+                        whileHover={{ scale: 1.04, y: -1.5 }}
+                        whileTap={{ scale: 0.97 }}
+                        className="font-mono text-[9px] sm:text-[9.5px] font-black uppercase tracking-wider px-2.5 py-1 border-2 border-black bg-[#FAF3EE] text-black shadow-[2px_2px_0px_#B91C1C] transition-shadow hover:shadow-[3px_3px_0px_#000000] cursor-default"
                       >
                         [ {trait} ]
                       </motion.span>
@@ -214,15 +218,19 @@ export function Hero() {
                   </div>
                 </div>
 
-                {/* Console Footer */}
-                <div className="pt-2 mt-1 border-t-2 border-black/15 flex items-center justify-between text-[11px] font-mono">
-                  <div className="flex items-center gap-1.5">
+                {/* Console Footer Status Bar */}
+                <div className="pt-2.5 mt-1.5 border-t-2 border-black/15 flex items-center justify-between text-[11px] font-mono">
+                  <div className="flex items-center gap-2">
                     <span className="text-black/60 font-bold text-[10px]">MODE:</span>
-                    <span className="font-black text-black tracking-wider bg-[#FAF3EE] px-1.5 py-0.5 border border-black/30 text-[10px]">
+                    <span className="font-black text-[#B91C1C] tracking-wider bg-[#FAF3EE] px-2 py-0.5 border border-black/30 text-[10px] flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                       OPEN_TO_WORK
                     </span>
                   </div>
-                  <span className="inline-block w-2 h-3 bg-[#B91C1C] animate-pulse" />
+                  <div className="flex items-center gap-1">
+                    <span className="font-bold text-[9.5px] text-black/50 uppercase tracking-widest">READY</span>
+                    <span className="inline-block w-2 h-3.5 bg-[#B91C1C] animate-pulse" />
+                  </div>
                 </div>
               </div>
             </div>
