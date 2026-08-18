@@ -101,11 +101,11 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Right Column: System Diagnostics HUD Dashboard (Matching Mockup) */}
-        <motion.div variants={itemVariants} className="lg:col-span-5 relative flex flex-col items-center justify-center">
+        {/* Right Column: Semi-Transparent System Diagnostics HUD Dashboard */}
+        <motion.div variants={itemVariants} className="lg:col-span-5 relative flex flex-col items-center justify-center my-auto">
           <Card3DTilt maxDegree={6} glowColor="rgba(185, 28, 28, 0.25)" className="w-full max-w-[480px] lg:max-w-[500px]">
-            {/* Bordered Spec Panel with side watermark label */}
-            <div className="w-full bg-white relative z-10 border-2 border-black shadow-[8px_8px_0px_#B91C1C] rounded-sm overflow-hidden transition-shadow duration-300">
+            {/* Bordered Spec Panel with side watermark label & backdrop transparency */}
+            <div className="w-full bg-white/85 backdrop-blur-md relative z-10 border-2 border-black shadow-[8px_8px_0px_#B91C1C] rounded-sm overflow-hidden transition-shadow duration-300">
               
               {/* Vertical Side Watermark Label */}
               <div className="absolute right-1 top-1/2 -translate-y-1/2 font-mono text-[8.5px] font-bold text-black/20 uppercase tracking-widest rotate-90 origin-center pointer-events-none select-none z-20">
@@ -119,7 +119,7 @@ export function Hero() {
               <span className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-[#B91C1C] z-20 pointer-events-none" />
 
               {/* HUD Header Bar */}
-              <div className="bg-[#FAF3EE] px-4 py-2.5 flex items-center justify-between border-b-2 border-black">
+              <div className="bg-[#FAF3EE]/90 backdrop-blur-sm px-4 py-2.5 flex items-center justify-between border-b-2 border-black">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                   <span className="font-mono text-xs font-black uppercase text-black tracking-wider">
@@ -131,58 +131,28 @@ export function Hero() {
                 </span>
               </div>
 
-              {/* Telemetry Wave Graph Area */}
-              <div className="p-4 border-b border-black/10 bg-[#FAF3EE]/40 relative">
-                <div className="flex items-center justify-between text-[9px] font-mono font-bold text-black/40 uppercase tracking-wider mb-2">
-                  <span>SIGNAL TELEMETRY</span>
-                  <span>FREQ: 60HZ</span>
-                </div>
-                
-                {/* SVG Live Wave Line */}
-                <div className="h-12 w-full relative flex items-center">
-                  <svg className="w-full h-full overflow-visible" viewBox="0 0 400 40" preserveAspectRatio="none">
-                    <path
-                      d="M0,25 Q30,10 60,25 T120,20 T180,30 T240,15 T300,25 T360,18 T400,22"
-                      fill="none"
-                      stroke="#B91C1C"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                    />
-                    {/* Animated Pulse Dot */}
-                    <motion.circle
-                      cx="300"
-                      cy="25"
-                      r="3.5"
-                      fill="#B91C1C"
-                      animate={{ opacity: [0.4, 1, 0.4] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    />
-                  </svg>
-                </div>
-              </div>
-
               {/* Grid Info Blocks */}
               <div className="p-4 space-y-3 font-mono">
                 {/* Row 1: Two Grid Blocks */}
                 <div className="grid grid-cols-2 gap-3">
-                  <div className="border border-black/20 bg-[#FAF3EE]/60 p-2.5 rounded-sm">
+                  <div className="border border-black/20 bg-white/70 backdrop-blur-xs p-2.5 rounded-sm">
                     <span className="text-[9px] font-bold text-black/50 uppercase tracking-widest block mb-1">LOC_01</span>
                     <span className="text-[11px] font-black text-black block tracking-tight">KARUR, TN, IN</span>
                   </div>
-                  <div className="border border-black/20 bg-[#FAF3EE]/60 p-2.5 rounded-sm">
+                  <div className="border border-black/20 bg-white/70 backdrop-blur-xs p-2.5 rounded-sm">
                     <span className="text-[9px] font-bold text-black/50 uppercase tracking-widest block mb-1">SYS_02</span>
                     <span className="text-[11px] font-black text-black block tracking-tight">FINAL-YEAR CSBS</span>
                   </div>
                 </div>
 
                 {/* Row 2: Single Full Block */}
-                <div className="border border-black/20 bg-[#FAF3EE]/60 p-2.5 rounded-sm">
+                <div className="border border-black/20 bg-white/70 backdrop-blur-xs p-2.5 rounded-sm">
                   <span className="text-[9px] font-bold text-black/50 uppercase tracking-widest block mb-1">PSN_03</span>
                   <span className="text-[11px] font-black text-black block tracking-tight">RELIABLE, REAL-WORLD SOFTWARE</span>
                 </div>
 
                 {/* Row 3: Highlighted Core Focus Box */}
-                <div className="border-2 border-black bg-[#FAF3EE] p-3 rounded-sm shadow-[2px_2px_0px_#B91C1C]">
+                <div className="border-2 border-black bg-white/90 p-3 rounded-sm shadow-[2px_2px_0px_#B91C1C]">
                   <span className="text-[9px] font-black text-[#B91C1C] uppercase tracking-widest block mb-1">CORE_FOCUS</span>
                   <span className="text-xs font-black text-black uppercase tracking-wider block">
                     BACKEND &amp; APPLIED AI
@@ -190,7 +160,7 @@ export function Hero() {
                 </div>
 
                 {/* Telemetry Log Terminal at Bottom */}
-                <div className="pt-2 text-[9.5px] font-mono text-black/70 space-y-1 border-t border-black/10">
+                <div className="pt-2 text-[9.5px] font-mono text-black/75 space-y-1 border-t border-black/10">
                   <div className="text-[#B91C1C] font-semibold flex items-center gap-1">
                     <span className="select-none">&gt;</span>
                     <span>####: Fast traffic detected on GPU node</span>
