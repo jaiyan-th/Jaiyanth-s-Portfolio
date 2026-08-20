@@ -6,31 +6,27 @@ import { motion } from "motion/react";
 const CERTIFICATIONS = [
   {
     index: "01",
-    title: "Python Programming & Full-Stack Development",
+    name: "Python Programming & Full-Stack Development",
     issuer: "Coursera",
     year: "2025",
-    domains: ["Python Core", "Backend Architectures", "Full-Stack Integration"],
   },
   {
     index: "02",
-    title: "Artificial Intelligence: Concepts and Techniques",
+    name: "Artificial Intelligence: Concepts and Techniques",
     issuer: "NPTEL",
     year: "2025",
-    domains: ["Search Algorithms", "Knowledge Representation", "Neural Systems"],
   },
   {
     index: "03",
-    title: "AWS Foundations: Getting Started with the AWS Cloud Essentials",
+    name: "AWS Foundations: Getting Started with the AWS Cloud Essentials",
     issuer: "AWS Training & Certification",
     year: "2026",
-    domains: ["Cloud Computing", "Infrastructure Architecture", "AWS Services"],
   },
   {
     index: "04",
-    title: "Certificate Program in Artificial Intelligence & Machine Learning",
+    name: "Certificate Program in Artificial Intelligence & Machine Learning",
     issuer: "FutureSkills Prime (NASSCOM)",
     year: "2026",
-    domains: ["Applied Machine Learning", "Deep Learning Models", "Industrial AI"],
   },
 ];
 
@@ -44,55 +40,55 @@ export function Certifications() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-14"
+          className="mb-12"
         >
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mb-2">
             <span className="w-2.5 h-2.5 bg-[#00A8C6] border border-black inline-block" />
             <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
               CERTIFICATIONS
             </span>
           </div>
+          <h2 className="font-heading font-black text-2xl sm:text-4xl lg:text-[40px] text-black leading-[1.08] tracking-tight uppercase">
+            VERIFIED INDUSTRY <br />
+            <span className="bg-[#00B2D6] text-black px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1">
+              CREDENTIALS.
+            </span>
+          </h2>
         </motion.div>
 
-        {/* Clean Editorial List — Simple, no heavy boxes */}
+        {/* Single Clean Card Container with Certificate Name, Issuer, and Year alone */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="border-t-2 border-black divide-y-2 divide-black"
+          className="bg-white border-2 border-black shadow-[5px_5px_0px_#000000] divide-y-2 divide-black"
         >
           {CERTIFICATIONS.map((cert) => (
             <div
               key={cert.index}
-              className="py-6 sm:py-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6"
+              className="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 hover:bg-[#FAF9F5] transition-colors"
             >
-              {/* Left Column: Number, Title, Issuer */}
-              <div className="space-y-2 max-w-2xl">
-                <div className="flex items-center gap-3">
-                  <span className="font-mono text-xs font-black text-[#00A8C6]">
-                    // {cert.index}
-                  </span>
-                  <span className="font-mono text-xs font-bold text-black/60 uppercase">
-                    {cert.issuer} · {cert.year}
+              {/* Left Column: Number & Name */}
+              <div className="flex items-start sm:items-center gap-4">
+                <span className="font-mono text-xs font-black text-[#00A8C6] shrink-0 pt-0.5 sm:pt-0">
+                  {cert.index}
+                </span>
+                <div>
+                  <h3 className="font-heading font-black text-base sm:text-lg text-black uppercase leading-snug">
+                    {cert.name}
+                  </h3>
+                  <span className="font-mono text-xs font-bold text-black/65 block mt-0.5">
+                    {cert.issuer}
                   </span>
                 </div>
-
-                <h3 className="font-heading font-black text-lg sm:text-xl text-black uppercase leading-snug">
-                  {cert.title}
-                </h3>
               </div>
 
-              {/* Right Column: Clean Domain Pills like Skills section */}
-              <div className="flex flex-wrap items-center gap-2">
-                {cert.domains.map((domain) => (
-                  <span
-                    key={domain}
-                    className="font-mono text-xs font-semibold text-black px-3 py-1.5 border border-black bg-transparent"
-                  >
-                    {domain}
-                  </span>
-                ))}
+              {/* Right Column: Year Alone */}
+              <div className="shrink-0 pl-8 sm:pl-0">
+                <span className="font-mono text-xs font-black uppercase text-black bg-[#EFEFEA] px-3 py-1 border border-black inline-block">
+                  {cert.year}
+                </span>
               </div>
             </div>
           ))}

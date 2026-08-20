@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, FileText, CheckCircle2 } from "lucide-react";
 import { RESEARCH } from "@/data/portfolio";
 import { motion } from "motion/react";
 
@@ -15,31 +15,41 @@ export function Achievements() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-14"
+          className="mb-12"
         >
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mb-2">
             <span className="w-2.5 h-2.5 bg-[#00A8C6] border border-black inline-block" />
             <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
               ACHIEVEMENTS
             </span>
           </div>
+          <h2 className="font-heading font-black text-2xl sm:text-4xl lg:text-[40px] text-black leading-[1.08] tracking-tight uppercase">
+            RESEARCH &amp; ACADEMIC <br />
+            <span className="bg-[#00B2D6] text-black px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1">
+              MILESTONES.
+            </span>
+          </h2>
         </motion.div>
 
-        {/* Minimal Editorial Content — No Heavy Boxes */}
+        {/* Single Clean Box Layout */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="space-y-8"
+          className="bg-white border-2 border-black p-6 sm:p-8 shadow-[5px_5px_0px_#000000] space-y-6"
         >
-          {/* Subheader & Status */}
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b-2 border-black pb-4">
-            <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
-              IEEE ICETSIS 2026 · CO-AUTHORED RESEARCH PAPER
-            </span>
-            <div className="flex items-center gap-3">
-              <span className="bg-[#00B2D6] text-black px-2.5 py-1 font-mono text-[10px] uppercase font-black tracking-widest border border-black">
+          {/* Header Bar */}
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-black pb-4">
+            <div className="flex items-center gap-2.5">
+              <FileText className="w-4 h-4 text-black" />
+              <span className="font-mono text-xs font-black uppercase text-black tracking-wider">
+                IEEE ICETSIS 2026 · CO-AUTHORED RESEARCH PAPER
+              </span>
+            </div>
+            <div className="flex items-center gap-2.5">
+              <span className="bg-[#00B2D6] text-black px-2.5 py-1 font-mono text-[10px] uppercase font-black tracking-widest border border-black inline-flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5" />
                 ACCEPTED &amp; PUBLISHED
               </span>
               {RESEARCH.certificateUrl && (
@@ -47,10 +57,10 @@ export function Achievements() {
                   href={RESEARCH.certificateUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-transparent hover:bg-black hover:text-white text-black px-3 py-1 font-mono text-xs font-bold border border-black inline-flex items-center gap-1.5 transition-colors"
+                  className="bg-black hover:bg-[#00B2D6] hover:text-black text-white px-3 py-1 font-mono text-[10px] uppercase font-black tracking-widest border border-black inline-flex items-center gap-1.5 transition-colors"
                 >
                   <span>VIEW CERTIFICATE</span>
-                  <ExternalLink className="w-3.5 h-3.5 stroke-[2.5]" />
+                  <ExternalLink className="w-3 h-3 stroke-[2.5]" />
                 </a>
               )}
             </div>
@@ -61,46 +71,28 @@ export function Achievements() {
             {RESEARCH.title}
           </h3>
 
-          {/* Metadata Row */}
-          <div className="flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs text-black">
-            <div>
-              <span className="font-black text-black/50 block mb-0.5">CONFERENCE</span>
-              <span className="font-bold">{RESEARCH.venue}</span>
-            </div>
-            <div>
-              <span className="font-black text-black/50 block mb-0.5">LOCATION</span>
-              <span className="font-bold">{RESEARCH.location}</span>
-            </div>
-            <div>
-              <span className="font-black text-black/50 block mb-0.5">DATE</span>
-              <span className="font-bold">{RESEARCH.date}</span>
-            </div>
-            <div>
-              <span className="font-black text-black/50 block mb-0.5">ORGANISER</span>
-              <span className="font-bold">{RESEARCH.organiser}</span>
-            </div>
+          {/* Details Row */}
+          <div className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs text-black/70 font-semibold border-y border-black/15 py-3">
+            <span><strong className="text-black font-black">VENUE:</strong> {RESEARCH.venue} · {RESEARCH.location}</span>
+            <span><strong className="text-black font-black">DATE:</strong> {RESEARCH.date}</span>
+            <span><strong className="text-black font-black">ORGANISER:</strong> {RESEARCH.organiser}</span>
           </div>
 
-          {/* Abstract */}
-          <p className="font-sans text-sm sm:text-base text-black/80 font-semibold leading-relaxed max-w-4xl pt-2">
+          {/* Vision / Abstract */}
+          <p className="font-sans text-sm sm:text-base text-black/85 font-semibold leading-relaxed">
             &ldquo;{RESEARCH.abstract}&rdquo;
           </p>
 
-          {/* Topics / Methodologies as clean pills (identical to Skills section) */}
-          <div className="pt-4 space-y-3">
-            <h4 className="font-mono text-xs font-black tracking-widest text-black uppercase">
-              TOPICS &amp; DOMAINS
-            </h4>
-            <div className="flex flex-wrap gap-2">
-              {RESEARCH.concepts.map((concept) => (
-                <span
-                  key={concept}
-                  className="font-mono text-xs font-semibold text-black px-3 py-1.5 border border-black bg-transparent"
-                >
-                  {concept}
-                </span>
-              ))}
-            </div>
+          {/* Concepts Pills */}
+          <div className="flex flex-wrap gap-2 pt-1">
+            {RESEARCH.concepts.map((concept) => (
+              <span
+                key={concept}
+                className="font-mono text-xs font-semibold text-black px-3 py-1 border border-black bg-[#EFEFEA]"
+              >
+                {concept}
+              </span>
+            ))}
           </div>
         </motion.div>
       </div>
