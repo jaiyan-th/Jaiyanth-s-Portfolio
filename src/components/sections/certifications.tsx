@@ -56,38 +56,30 @@ export function Certifications() {
           </h2>
         </motion.div>
 
-        {/* Clean Line-Divided List — No Box, Pure Minimal Lines */}
+        {/* 2-Column Grid matching Skills section category structure, using clean bordered pills/boxes for certificate names */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="border-t-2 border-black divide-y-2 divide-black"
+          className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10"
         >
           {CERTIFICATIONS.map((cert) => (
-            <div
-              key={cert.index}
-              className="py-5 sm:py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 hover:bg-black/[0.02] transition-colors"
-            >
-              {/* Left Column: Number, Title, Issuer */}
-              <div className="flex items-start sm:items-center gap-4">
-                <span className="font-mono text-xs font-black text-[#00A8C6] shrink-0 pt-0.5 sm:pt-0">
-                  // {cert.index}
+            <div key={cert.index} className="space-y-3">
+              {/* Category Header: Issuer & Year */}
+              <div className="flex items-center justify-between border-b border-black/15 pb-2">
+                <h3 className="font-mono text-xs font-black tracking-widest text-black uppercase">
+                  {cert.issuer}
+                </h3>
+                <span className="font-mono text-xs font-bold text-black/60">
+                  {cert.year}
                 </span>
-                <div>
-                  <h3 className="font-heading font-black text-base sm:text-lg text-black uppercase leading-snug">
-                    {cert.name}
-                  </h3>
-                  <span className="font-mono text-xs font-bold text-black/60 block mt-0.5">
-                    {cert.issuer}
-                  </span>
-                </div>
               </div>
 
-              {/* Right Column: Year */}
-              <div className="shrink-0 pl-8 sm:pl-0">
-                <span className="font-mono text-xs font-bold text-black bg-transparent px-2.5 py-1 border border-black inline-block">
-                  {cert.year}
+              {/* Certificate Name wrapped in a clean bordered box/pill like Skills section */}
+              <div className="flex flex-wrap gap-2">
+                <span className="font-mono text-xs font-semibold text-black px-3 py-1.5 border border-black bg-transparent leading-relaxed inline-block">
+                  {cert.name}
                 </span>
               </div>
             </div>
