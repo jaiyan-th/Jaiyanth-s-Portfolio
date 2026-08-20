@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { FileText, MapPin, Calendar, Building2, CheckCircle2, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { RESEARCH } from "@/data/portfolio";
 import { motion } from "motion/react";
 
@@ -15,41 +15,31 @@ export function Achievements() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-12"
+          className="mb-14"
         >
-          <div className="flex items-center gap-2 mb-2">
+          <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 bg-[#00A8C6] border border-black inline-block" />
             <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
               ACHIEVEMENTS
             </span>
           </div>
-          <h2 className="font-heading font-black text-2xl sm:text-4xl lg:text-[40px] text-black leading-[1.08] tracking-tight uppercase">
-            RESEARCH &amp; ACADEMIC <br />
-            <span className="bg-[#00B2D6] text-black px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1">
-              MILESTONES.
-            </span>
-          </h2>
         </motion.div>
 
-        {/* Featured IEEE Research Card */}
+        {/* Minimal Editorial Content — No Heavy Boxes */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="bg-white border-2 border-black p-6 sm:p-10 shadow-[6px_6px_0px_#000000] space-y-6"
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="space-y-8"
         >
-          {/* Header Strip */}
-          <div className="bg-[#00B2D6] border-b-2 border-black -m-6 sm:-m-10 mb-2 p-4 flex flex-wrap items-center justify-between gap-3">
+          {/* Subheader & Status */}
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b-2 border-black pb-4">
+            <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
+              IEEE ICETSIS 2026 · CO-AUTHORED RESEARCH PAPER
+            </span>
             <div className="flex items-center gap-3">
-              <FileText className="w-5 h-5 text-black" />
-              <span className="font-mono text-xs sm:text-sm font-black uppercase text-black tracking-wider">
-                IEEE ICETSIS 2026 · CO-AUTHORED RESEARCH PAPER
-              </span>
-            </div>
-            <div className="flex flex-wrap items-center gap-2.5">
-              <span className="bg-black text-white px-3 py-1 font-mono text-[10px] uppercase font-black tracking-widest border border-black shadow-[1.5px_1.5px_0px_#00B2D6] inline-flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#00B2D6]" />
+              <span className="bg-[#00B2D6] text-black px-2.5 py-1 font-mono text-[10px] uppercase font-black tracking-widest border border-black">
                 ACCEPTED &amp; PUBLISHED
               </span>
               {RESEARCH.certificateUrl && (
@@ -57,74 +47,55 @@ export function Achievements() {
                   href={RESEARCH.certificateUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white hover:bg-black hover:text-white text-black px-3 py-1 font-mono text-[10px] uppercase font-black tracking-widest border-2 border-black shadow-[2px_2px_0px_#000000] inline-flex items-center gap-1.5 transition-all"
+                  className="bg-transparent hover:bg-black hover:text-white text-black px-3 py-1 font-mono text-xs font-bold border border-black inline-flex items-center gap-1.5 transition-colors"
                 >
                   <span>VIEW CERTIFICATE</span>
-                  <ExternalLink className="w-3 h-3 stroke-[2.5]" />
+                  <ExternalLink className="w-3.5 h-3.5 stroke-[2.5]" />
                 </a>
               )}
             </div>
           </div>
 
           {/* Paper Title */}
-          <div className="pt-2">
-            <span className="font-mono text-[10.5px] font-black uppercase tracking-widest text-[#00A8C6] block mb-2">
-              PAPER TITLE
-            </span>
-            <h3 className="font-heading font-black text-xl sm:text-3xl text-black leading-tight">
-              {RESEARCH.title}
-            </h3>
-          </div>
+          <h3 className="font-heading font-black text-xl sm:text-2xl lg:text-3xl text-black leading-snug">
+            {RESEARCH.title}
+          </h3>
 
           {/* Metadata Row */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 border-y-2 border-black py-4 font-mono text-xs text-black">
+          <div className="flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs text-black">
             <div>
-              <span className="font-black text-[#00A8C6] block mb-0.5">CONFERENCE</span>
+              <span className="font-black text-black/50 block mb-0.5">CONFERENCE</span>
               <span className="font-bold">{RESEARCH.venue}</span>
             </div>
             <div>
-              <span className="font-black text-[#00A8C6] block mb-0.5">LOCATION</span>
-              <span className="font-bold inline-flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5" />
-                {RESEARCH.location}
-              </span>
+              <span className="font-black text-black/50 block mb-0.5">LOCATION</span>
+              <span className="font-bold">{RESEARCH.location}</span>
             </div>
             <div>
-              <span className="font-black text-[#00A8C6] block mb-0.5">DATE</span>
-              <span className="font-bold inline-flex items-center gap-1">
-                <Calendar className="w-3.5 h-3.5" />
-                {RESEARCH.date}
-              </span>
+              <span className="font-black text-black/50 block mb-0.5">DATE</span>
+              <span className="font-bold">{RESEARCH.date}</span>
             </div>
             <div>
-              <span className="font-black text-[#00A8C6] block mb-0.5">ORGANISER</span>
-              <span className="font-bold inline-flex items-center gap-1">
-                <Building2 className="w-3.5 h-3.5" />
-                {RESEARCH.organiser}
-              </span>
+              <span className="font-black text-black/50 block mb-0.5">ORGANISER</span>
+              <span className="font-bold">{RESEARCH.organiser}</span>
             </div>
           </div>
 
-          {/* Vision & Abstract */}
-          <div className="border-l-4 border-[#00A8C6] bg-[#EFEFEA] p-5 border border-black shadow-[3px_3px_0px_#000000] space-y-2">
-            <span className="font-mono text-[10px] font-black text-[#00A8C6] block uppercase tracking-widest">
-              RESEARCH VISION &amp; ABSTRACT
-            </span>
-            <p className="font-sans text-sm sm:text-base text-black/90 leading-relaxed font-semibold">
-              &ldquo;{RESEARCH.abstract}&rdquo;
-            </p>
-          </div>
+          {/* Abstract */}
+          <p className="font-sans text-sm sm:text-base text-black/80 font-semibold leading-relaxed max-w-4xl pt-2">
+            &ldquo;{RESEARCH.abstract}&rdquo;
+          </p>
 
-          {/* Research Concepts */}
-          <div className="pt-2">
-            <span className="font-mono text-[10px] font-black uppercase tracking-widest text-black/60 block mb-2">
-              CORE TOPICS &amp; METHODOLOGY
-            </span>
+          {/* Topics / Methodologies as clean pills (identical to Skills section) */}
+          <div className="pt-4 space-y-3">
+            <h4 className="font-mono text-xs font-black tracking-widest text-black uppercase">
+              TOPICS &amp; DOMAINS
+            </h4>
             <div className="flex flex-wrap gap-2">
               {RESEARCH.concepts.map((concept) => (
                 <span
                   key={concept}
-                  className="font-mono text-xs font-bold text-black bg-[#EFEFEA] px-3 py-1 border border-black shadow-[1.5px_1.5px_0px_#000000]"
+                  className="font-mono text-xs font-semibold text-black px-3 py-1.5 border border-black bg-transparent"
                 >
                   {concept}
                 </span>
