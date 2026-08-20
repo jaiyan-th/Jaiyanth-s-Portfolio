@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { ABOUT } from "@/data/portfolio";
 import { motion } from "motion/react";
 
@@ -45,27 +46,33 @@ export function About() {
             </div>
           </div>
 
-          {/* Right Column: Expertise Card */}
-          <div className="lg:col-span-5">
-            <div className="bg-white border-2 border-black p-6 shadow-[5px_5px_0px_#000000] space-y-4">
-              <div className="bg-[#00B2D6] border-b-2 border-black -m-6 mb-2 p-3.5">
+          {/* Right Column: Profile Photo */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            className="lg:col-span-5"
+          >
+            <div className="bg-white border-2 border-black shadow-[5px_5px_0px_#000000] overflow-hidden">
+              <div className="bg-[#00B2D6] border-b-2 border-black p-3">
                 <span className="font-mono text-xs font-black uppercase text-black tracking-widest block">
-                  TECHNICAL COMPETENCIES
+                  JAIYANTH B.
                 </span>
               </div>
-
-              <div className="flex flex-wrap gap-2 pt-2">
-                {ABOUT.expertise.map((item) => (
-                  <span
-                    key={item}
-                    className="font-mono text-xs font-bold text-black bg-[#EFEFEA] px-3 py-1 border border-black shadow-[1.5px_1.5px_0px_#000000]"
-                  >
-                    {item}
-                  </span>
-                ))}
+              <div className="relative w-full aspect-[3/4]">
+                <Image
+                  src="/images/jaiyanth-profile.jpg"
+                  alt="Jaiyanth B. — Software Engineer"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  priority
+                  unoptimized
+                />
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
