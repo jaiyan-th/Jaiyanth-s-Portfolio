@@ -104,219 +104,214 @@ export function Contact() {
       setStatus("success");
       setStatusMessage("Opened in your email client!");
       setFormData({ name: "", email: "", subject: "", message: "" });
-    } finally {
-      setTimeout(() => {
-        setStatus("idle");
-        setStatusMessage("");
-      }, 6000);
     }
   };
 
   return (
-    <div className="bg-[#FAF3EE] text-black relative">
+    <div className="relative">
       {/* Contact Section */}
-      <section id="contact" className="border-b-2 border-black px-4 sm:px-6 lg:px-8 py-12 md:py-20 bg-grid">
+      <section id="contact" className="relative bg-[#F6F3EC] border-b-2 border-[#14231C] px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-[#14231C] overflow-hidden bg-grid">
         <div className="max-w-7xl mx-auto">
-          {/* Top Badge */}
+          {/* Headline */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-4 mb-8"
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="mb-12"
           >
-            <span className="font-mono text-[10px] font-bold text-[#B91C1C] tracking-widest uppercase block">
-              06 —— CONTACT
+            <span className="font-mono text-[10px] font-bold text-[#2F5D46] tracking-widest uppercase block mb-1">
+              06 —— CONTACT &amp; DISCOVERY
             </span>
-            <div className="h-[2px] flex-1 bg-black/20" />
+            <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#14231C] leading-[1.08] tracking-tight uppercase">
+              Start a <span className="text-[#2F5D46]">conversation.</span>
+            </h2>
+            <p className="font-sans text-xs sm:text-sm text-[#6B6459] mt-2 font-semibold">
+              Open for full-time engineering roles, internship opportunities, and technical collaboration.
+            </p>
           </motion.div>
 
-          {/* Grid Layout */}
-          <div className="grid lg:grid-cols-12 gap-12 items-start">
-            {/* Left Column: Info & Links */}
+          <div className="grid lg:grid-cols-12 gap-10 items-stretch">
+            {/* Left: Contact Info */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="lg:col-span-6 space-y-8"
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="lg:col-span-5 flex flex-col"
             >
-              {/* Top Text Content */}
-              <div>
-                <h2 className="font-heading font-black text-3xl sm:text-5xl text-black leading-[1.08] tracking-tight uppercase mb-6">
-                  Let's start a <br />
-                  <span className="italic text-[#B91C1C]">// conversation.</span>
-                </h2>
+              <div className="border-2 border-[#14231C] p-6 sm:p-8 bg-white shadow-[6px_6px_0px_#14231C] relative flex-1 flex flex-col justify-between rounded-sm">
+                <span className="blueprint-corner blueprint-corner-tl" />
+                <span className="blueprint-corner blueprint-corner-tr" />
+                <span className="blueprint-corner blueprint-corner-bl" />
+                <span className="blueprint-corner blueprint-corner-br" />
 
-                {/* Quote Box */}
-                <div className="border-l-4 border-[#B91C1C] pl-4 py-1.5 mb-6 bg-white/60">
-                  <p className="font-sans text-xs sm:text-sm text-black/80 font-bold leading-relaxed">
-                    Open to applied-AI and full-stack engineering roles. I read every message and reply within a few days.
-                  </p>
+                <div>
+                  <div className="border-b-2 border-[#14231C] pb-4 mb-6">
+                    <span className="font-mono text-[10px] font-black uppercase tracking-wider text-[#14231C]">
+                      DIRECT DISCOVERY
+                    </span>
+                  </div>
+
+                  <div className="space-y-6">
+                    <div>
+                      <span className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#6B6459] mb-1">
+                        PRIMARY EMAIL
+                      </span>
+                      <a
+                        href={`mailto:${IDENTITY.email}`}
+                        className="font-mono text-sm sm:text-base font-black text-[#2F5D46] hover:underline break-all"
+                      >
+                        {IDENTITY.email}
+                      </a>
+                    </div>
+
+                    <div>
+                      <span className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#6B6459] mb-1">
+                        LOCATION
+                      </span>
+                      <span className="font-mono text-xs font-black text-[#14231C] block">
+                        {IDENTITY.location}
+                      </span>
+                    </div>
+
+                    <div>
+                      <span className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#6B6459] mb-1">
+                        CURRENT STATUS
+                      </span>
+                      <span className="font-mono text-xs font-black text-[#14231C] block">
+                        Open to full-time roles &amp; internships
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
-                <p className="font-sans text-xs sm:text-sm text-black/70 font-semibold">
-                  Send a note about a role, a project, or a research idea.
-                </p>
-              </div>
-
-              {/* Contact Links List */}
-              <div className="pt-6 border-t-2 border-black">
-                <div className="divide-y-2 divide-black/10 font-mono text-xs">
-                  <motion.div whileHover={{ x: 4 }} className="flex items-center justify-between py-4 group">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-black/60">
-                      EMAIL
-                    </span>
-                    <a
-                      href={`mailto:${IDENTITY.email}`}
-                      className="font-black text-black group-hover:text-[#B91C1C] transition-colors"
-                    >
-                      {IDENTITY.email}
-                    </a>
-                  </motion.div>
-
-                  <motion.div whileHover={{ x: 4 }} className="flex items-center justify-between py-4 group">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-black/60">
-                      GITHUB
-                    </span>
-                    <a
-                      href={IDENTITY.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-black text-black group-hover:text-[#B91C1C] transition-colors"
-                    >
-                      github.com/jaiyan-th
-                    </a>
-                  </motion.div>
-
-                  <motion.div whileHover={{ x: 4 }} className="flex items-center justify-between py-4 group">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-black/60">
-                      LINKEDIN
-                    </span>
+                <div className="pt-6 border-t-2 border-[#14231C] mt-6">
+                  <span className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#6B6459] mb-2">
+                    CONNECT
+                  </span>
+                  <div className="flex flex-wrap gap-2 font-mono text-[10px]">
                     <a
                       href="https://www.linkedin.com/in/jaiyan-th/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-black text-black group-hover:text-[#B91C1C] transition-colors"
+                      className="px-3 py-1.5 border-2 border-[#14231C] bg-[#F6F3EC] text-[#14231C] font-black hover:bg-[#2F5D46] hover:text-white transition-colors shadow-[2px_2px_0px_#14231C]"
                     >
-                      linkedin.com/in/jaiyan-th
+                      LINKEDIN
                     </a>
-                  </motion.div>
-
-                  <motion.div whileHover={{ x: 4 }} className="flex items-center justify-between py-4">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-black/60">
-                      LOCATION
-                    </span>
-                    <span className="font-black text-black">
-                      {IDENTITY.location}
-                    </span>
-                  </motion.div>
+                    <a
+                      href={IDENTITY.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-1.5 border-2 border-[#14231C] bg-[#F6F3EC] text-[#14231C] font-black hover:bg-[#2F5D46] hover:text-white transition-colors shadow-[2px_2px_0px_#14231C]"
+                    >
+                      GITHUB
+                    </a>
+                  </div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Right Column: Form Card */}
+            {/* Right: Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              whileHover={{ y: -4, x: -2, boxShadow: "8px 8px 0px #000000" }}
-              className="lg:col-span-6 bg-white border-2 border-black p-6 sm:p-8 relative shadow-[5px_5px_0px_#000000] text-black rounded-sm transition-all"
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="lg:col-span-7 flex flex-col"
             >
-              {/* Viewfinder corners */}
-              <span className="blueprint-corner blueprint-corner-tl" />
-              <span className="blueprint-corner blueprint-corner-tr" />
-              <span className="blueprint-corner blueprint-corner-bl" />
-              <span className="blueprint-corner blueprint-corner-br" />
+              <div className="border-2 border-[#14231C] p-6 sm:p-8 bg-white shadow-[6px_6px_0px_#2F5D46] relative flex-1 flex flex-col rounded-sm">
+                <span className="blueprint-corner blueprint-corner-tl" />
+                <span className="blueprint-corner blueprint-corner-tr" />
+                <span className="blueprint-corner blueprint-corner-bl" />
+                <span className="blueprint-corner blueprint-corner-br" />
 
-              <div>
-                {/* Form Header */}
-                <div className="flex items-center justify-between border-b-2 border-black pb-4 mb-6">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#B91C1C] animate-ping" />
-                    <span className="font-mono text-[10px] font-black uppercase tracking-wider text-black">
-                      SEND MESSAGE
-                    </span>
-                  </div>
+                <div className="border-b-2 border-[#14231C] pb-4 mb-6 flex items-center justify-between">
+                  <span className="font-mono text-[10px] font-black uppercase tracking-wider text-[#14231C]">
+                    SEND MESSAGE
+                  </span>
+                  <span className="font-mono text-[9px] text-[#B08D57] font-black uppercase bg-[#F6F3EC] px-2 py-0.5 border border-[#14231C]/30 shadow-[1px_1px_0px_#14231C]">
+                    DIRECT ROUTE
+                  </span>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Name Input */}
-                  <div>
-                    <label htmlFor="name-input" className="block font-mono text-[10px] font-black uppercase tracking-widest text-black mb-2">
-                      NAME <span className="text-[#B91C1C]">*</span>
-                    </label>
-                    <input
-                      id="name-input"
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Jane Doe"
-                      className="w-full bg-[#FAF3EE] border-b-2 border-black/40 p-3.5 font-sans text-xs text-black font-extrabold placeholder:text-black/60 focus:outline-none focus:border-[#B91C1C] focus:bg-white rounded-none transition-all"
-                    />
-                  </div>
+                <form onSubmit={handleSubmit} className="space-y-4 flex-1 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="name-input" className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#6B6459] mb-1">
+                          YOUR NAME
+                        </label>
+                        <input
+                          id="name-input"
+                          type="text"
+                          required
+                          value={formData.name}
+                          onChange={handleChange}
+                          placeholder="John Doe"
+                          className="w-full bg-[#F6F3EC] border-b-2 border-[#14231C]/40 p-3 font-sans text-xs text-[#14231C] font-extrabold placeholder:text-[#6B6459] focus:outline-none focus:border-[#2F5D46] focus:bg-white rounded-none transition-all"
+                        />
+                      </div>
 
-                  {/* Email Input */}
-                  <div>
-                    <label htmlFor="email-input" className="block font-mono text-[10px] font-black uppercase tracking-widest text-black mb-2">
-                      EMAIL <span className="text-[#B91C1C]">*</span>
-                    </label>
-                    <input
-                      id="email-input"
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="jane@example.com"
-                      className="w-full bg-[#FAF3EE] border-b-2 border-black/40 p-3.5 font-sans text-xs text-black font-extrabold placeholder:text-black/60 focus:outline-none focus:border-[#B91C1C] focus:bg-white rounded-none transition-all"
-                    />
-                  </div>
+                      <div>
+                        <label htmlFor="email-input" className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#6B6459] mb-1">
+                          YOUR EMAIL
+                        </label>
+                        <input
+                          id="email-input"
+                          type="email"
+                          required
+                          value={formData.email}
+                          onChange={handleChange}
+                          placeholder="john@example.com"
+                          className="w-full bg-[#F6F3EC] border-b-2 border-[#14231C]/40 p-3 font-sans text-xs text-[#14231C] font-extrabold placeholder:text-[#6B6459] focus:outline-none focus:border-[#2F5D46] focus:bg-white rounded-none transition-all"
+                        />
+                      </div>
+                    </div>
 
-                  {/* Subject Input */}
-                  <div>
-                    <label htmlFor="subject-input" className="block font-mono text-[10px] font-black uppercase tracking-widest text-black mb-2">
-                      SUBJECT <span className="text-[#B91C1C]">*</span>
-                    </label>
-                    <input
-                      id="subject-input"
-                      type="text"
-                      required
-                      value={formData.subject}
-                      onChange={handleChange}
-                      placeholder="Role, project, or idea..."
-                      className="w-full bg-[#FAF3EE] border-b-2 border-black/40 p-3.5 font-sans text-xs text-black font-extrabold placeholder:text-black/60 focus:outline-none focus:border-[#B91C1C] focus:bg-white rounded-none transition-all"
-                    />
-                  </div>
+                    <div>
+                      <label htmlFor="subject-input" className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#6B6459] mb-1">
+                        SUBJECT
+                      </label>
+                      <input
+                        id="subject-input"
+                        type="text"
+                        required
+                        value={formData.subject}
+                        onChange={handleChange}
+                        placeholder="Role inquiry / Collaboration"
+                        className="w-full bg-[#F6F3EC] border-b-2 border-[#14231C]/40 p-3 font-sans text-xs text-[#14231C] font-extrabold placeholder:text-[#6B6459] focus:outline-none focus:border-[#2F5D46] focus:bg-white rounded-none transition-all"
+                      />
+                    </div>
 
-                  {/* Message Input */}
-                  <div>
-                    <label htmlFor="message-input" className="block font-mono text-[10px] font-black uppercase tracking-widest text-black mb-2">
-                      MESSAGE <span className="text-[#B91C1C]">*</span>
-                    </label>
-                    <textarea
-                      id="message-input"
-                      required
-                      rows={4}
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell me more..."
-                      className="w-full bg-[#FAF3EE] border-b-2 border-black/40 p-3.5 font-sans text-xs text-black font-extrabold placeholder:text-black/60 focus:outline-none focus:border-[#B91C1C] focus:bg-white rounded-none resize-none transition-all"
-                    />
+                    <div>
+                      <label htmlFor="message-input" className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#6B6459] mb-1">
+                        MESSAGE
+                      </label>
+                      <textarea
+                        id="message-input"
+                        required
+                        rows={4}
+                        value={formData.message}
+                        onChange={handleChange}
+                        placeholder="Tell me more..."
+                        className="w-full bg-[#F6F3EC] border-b-2 border-[#14231C]/40 p-3.5 font-sans text-xs text-[#14231C] font-extrabold placeholder:text-[#6B6459] focus:outline-none focus:border-[#2F5D46] focus:bg-white rounded-none resize-none transition-all"
+                      />
+                    </div>
                   </div>
 
                   {/* Form Bottom Row */}
                   <div className="pt-4 flex items-center justify-between">
-                    <span className="font-mono text-[9px] font-black text-black/70">
+                    <span className="font-mono text-[9px] font-black text-[#6B6459]">
                       {statusMessage || "RESPONSE TIME < 48H"}
                     </span>
 
                     <motion.button
                       type="submit"
                       disabled={status === "submitting"}
-                      whileHover={{ y: -2, x: -1, boxShadow: "4px 4px 0px #000000" }}
-                      whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-                      className="bg-[#B91C1C] hover:bg-[#FF4D4D] disabled:opacity-70 text-white font-mono text-[10px] font-black uppercase tracking-widest px-6 py-3.5 border-2 border-black transition-colors inline-flex items-center gap-2 shadow-[2px_2px_0px_#000000]"
+                      whileHover={{ y: -2, x: -1, boxShadow: "4px 4px 0px #14231C" }}
+                      whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #14231C" }}
+                      className="bg-[#2F5D46] hover:bg-[#254B38] disabled:opacity-70 text-white font-mono text-[10px] font-black uppercase tracking-widest px-6 py-3.5 border-2 border-[#14231C] transition-colors inline-flex items-center gap-2 shadow-[2px_2px_0px_#14231C]"
                     >
                       <span>
                         {status === "submitting"
@@ -336,16 +331,16 @@ export function Contact() {
       </section>
 
       {/* Compact Light Footer */}
-      <footer className="bg-[#FAF3EE] border-t-2 border-black text-black px-4 py-6 md:px-8 md:py-8 relative" style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px)", backgroundSize: "48px 48px" }}>
+      <footer className="bg-[#F6F3EC] border-t-2 border-[#14231C] text-[#14231C] px-4 py-6 md:px-8 md:py-8 relative bg-grid">
         <div className="max-w-7xl mx-auto">
           {/* Top Row: Brand + Links */}
-          <div className="grid md:grid-cols-12 gap-6 border-b-2 border-black/15 pb-6 mb-5">
+          <div className="grid md:grid-cols-12 gap-6 border-b-2 border-[#DCD5C4] pb-6 mb-5">
             {/* Left: Heading + Paragraph */}
             <div className="md:col-span-6 space-y-2">
-              <h3 className="font-heading font-black text-base sm:text-lg text-black uppercase tracking-tight leading-[1.08]">
+              <h3 className="font-heading font-black text-base sm:text-lg text-[#14231C] uppercase tracking-tight leading-[1.08]">
                 ENGINEERING THE FUTURE.
               </h3>
-              <p className="font-sans text-xs sm:text-sm text-black/80 max-w-md leading-relaxed font-medium">
+              <p className="font-sans text-xs sm:text-sm text-[#6B6459] max-w-md leading-relaxed font-medium">
                 Building robust Full-Stack applications and Applied AI systems engineered for real-world impact and production performance.
               </p>
             </div>
@@ -353,7 +348,7 @@ export function Contact() {
             {/* Right: Two Link Columns with Monospace Links */}
             <div className="md:col-span-6 grid grid-cols-2 gap-6 md:justify-items-end">
               <div>
-                <span className="block font-mono text-[9px] font-black uppercase tracking-widest text-[#B91C1C] mb-2">
+                <span className="block font-mono text-[9px] font-black uppercase tracking-widest text-[#2F5D46] mb-2">
                   SOCIALS
                 </span>
                 <ul className="space-y-1.5 font-mono text-[10px] uppercase tracking-wider font-bold">
@@ -362,7 +357,7 @@ export function Contact() {
                       href="https://www.linkedin.com/in/jaiyan-th/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-black/80 hover:text-[#B91C1C] transition-colors"
+                      className="text-[#14231C]/80 hover:text-[#2F5D46] transition-colors"
                     >
                       LinkedIn
                     </a>
@@ -372,7 +367,7 @@ export function Contact() {
                       href={IDENTITY.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-black/80 hover:text-[#B91C1C] transition-colors"
+                      className="text-[#14231C]/80 hover:text-[#2F5D46] transition-colors"
                     >
                       GitHub
                     </a>
@@ -381,22 +376,22 @@ export function Contact() {
               </div>
 
               <div>
-                <span className="block font-mono text-[9px] font-black uppercase tracking-widest text-[#B91C1C] mb-2">
+                <span className="block font-mono text-[9px] font-black uppercase tracking-widest text-[#2F5D46] mb-2">
                   NAVIGATION
                 </span>
                 <ul className="space-y-1.5 font-mono text-[10px] uppercase tracking-wider font-bold">
                   <li>
-                    <a href="#about" className="text-black/80 hover:text-[#B91C1C] transition-colors">
+                    <a href="#about" className="text-[#14231C]/80 hover:text-[#2F5D46] transition-colors">
                       About
                     </a>
                   </li>
                   <li>
-                    <a href="#work" className="text-black/80 hover:text-[#B91C1C] transition-colors">
+                    <a href="#work" className="text-[#14231C]/80 hover:text-[#2F5D46] transition-colors">
                       Work
                     </a>
                   </li>
                   <li>
-                    <a href="#contact" className="text-black/80 hover:text-[#B91C1C] transition-colors">
+                    <a href="#contact" className="text-[#14231C]/80 hover:text-[#2F5D46] transition-colors">
                       Contact
                     </a>
                   </li>
@@ -408,7 +403,7 @@ export function Contact() {
           {/* Bottom Bar */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             <div>
-              <span className="font-mono text-[10px] font-black uppercase tracking-wider text-black/80 block">
+              <span className="font-mono text-[10px] font-black uppercase tracking-wider text-[#6B6459] block">
                 — JAIYANTH B © 2026
               </span>
             </div>
@@ -419,7 +414,7 @@ export function Contact() {
                 href="#hero"
                 whileHover={{ y: -2 }}
                 aria-label="Back to Top"
-                className="w-8 h-8 bg-white border-2 border-black text-black flex items-center justify-center hover:bg-[#B91C1C] hover:text-white transition-colors shadow-[2px_2px_0px_#000]"
+                className="w-8 h-8 bg-white border-2 border-[#14231C] text-[#14231C] flex items-center justify-center hover:bg-[#2F5D46] hover:text-white transition-colors shadow-[2px_2px_0px_#14231C]"
               >
                 <Link2 className="w-3.5 h-3.5" />
               </motion.a>
@@ -430,7 +425,7 @@ export function Contact() {
                 aria-label="Code Repository"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 bg-white border-2 border-black text-black flex items-center justify-center hover:bg-[#B91C1C] hover:text-white transition-colors shadow-[2px_2px_0px_#000]"
+                className="w-8 h-8 bg-white border-2 border-[#14231C] text-[#14231C] flex items-center justify-center hover:bg-[#2F5D46] hover:text-white transition-colors shadow-[2px_2px_0px_#14231C]"
               >
                 <Code className="w-3.5 h-3.5" />
               </motion.a>
@@ -439,7 +434,7 @@ export function Contact() {
                 href="#contact"
                 whileHover={{ y: -2 }}
                 aria-label="Share"
-                className="w-8 h-8 bg-white border-2 border-black text-black flex items-center justify-center hover:bg-[#B91C1C] hover:text-white transition-colors shadow-[2px_2px_0px_#000]"
+                className="w-8 h-8 bg-white border-2 border-[#14231C] text-[#14231C] flex items-center justify-center hover:bg-[#2F5D46] hover:text-white transition-colors shadow-[2px_2px_0px_#14231C]"
               >
                 <Share2 className="w-3.5 h-3.5" />
               </motion.a>

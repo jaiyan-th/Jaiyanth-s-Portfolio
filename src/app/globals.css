@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================================
-   JB PORTFOLIO — TECHNICAL BLUEPRINT & SCHEMATIC SYSTEM
+   JB PORTFOLIO — FOREST & BRONZE SPEC SYSTEM
    ============================================================ */
 
 @theme inline {
@@ -40,8 +40,6 @@
   --color-muted: var(--elevated);
   --color-muted-foreground: var(--text-secondary);
   --color-accent-foreground: var(--canvas);
-  --color-destructive: var(--accent-warm);
-  --color-destructive-foreground: #ffffff;
   --color-border: var(--line);
   --color-input: var(--line);
   --color-ring: var(--accent);
@@ -55,27 +53,27 @@
 :root,
 .light,
 .dark {
-  --canvas: #FAF3EE;
+  --canvas: #F6F3EC;
   --elevated: #FFFFFF;
-  --surface: #FAF3EE;
-  --text-primary: #000000;
-  --text-secondary: #555555;
-  --line: rgba(0, 0, 0, 0.15);
-  --accent: #B91C1C;
-  --accent-2: #B91C1C;
-  --accent-warm: #B91C1C;
-  --dark-charcoal: #FAF3EE;
+  --surface: #F6F3EC;
+  --text-primary: #14231C;
+  --text-secondary: #6B6459;
+  --line: #DCD5C4;
+  --accent: #2F5D46;
+  --accent-2: #B08D57;
+  --accent-warm: #2F5D46;
+  --dark-charcoal: #14231C;
 
-  --grid-line: rgba(0, 0, 0, 0.035);
-  --node-glow: rgba(185, 28, 28, 0.1);
-  --halo: rgba(185, 28, 28, 0.1);
+  --grid-line: rgba(20, 35, 28, 0.04);
+  --node-glow: rgba(47, 93, 70, 0.12);
+  --halo: rgba(47, 93, 70, 0.1);
 
   color-scheme: light;
 }
 
 @layer base {
   * {
-    border-color: rgba(0, 0, 0, 0.15);
+    border-color: #DCD5C4;
   }
   html {
     -webkit-text-size-adjust: 100%;
@@ -85,14 +83,14 @@
     scroll-behavior: smooth;
   }
   body {
-    background-color: #FAF3EE;
-    color: #000000;
+    background-color: #F6F3EC;
+    color: #14231C;
     font-family: var(--font-sans), system-ui, sans-serif;
     overflow-x: hidden;
   }
 
   ::selection {
-    background: #B91C1C;
+    background: #2F5D46;
     color: #FFFFFF;
   }
 
@@ -145,14 +143,14 @@
   /* Viewfinder corner brackets structure */
   .blueprint-box {
     position: relative;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid #DCD5C4;
     background: rgba(255, 255, 255, 0.4);
   }
   .blueprint-corner {
     position: absolute;
     width: 8px;
     height: 8px;
-    border-color: var(--accent);
+    border-color: #2F5D46;
     border-style: solid;
     pointer-events: none;
   }
@@ -161,16 +159,15 @@
   .blueprint-corner-bl { bottom: -1px; left: -1px; border-width: 0 0 1.5px 1.5px; }
   .blueprint-corner-br { bottom: -1px; right: -1px; border-width: 0 1.5px 1.5px 0; }
 
-  /* Orange coordinate highlights */
-  .blueprint-corner-orange {
-    border-color: var(--accent-2);
+  .blueprint-corner-bronze {
+    border-color: #B08D57;
   }
 
   /* Dimension measurement separator line */
   .dimension-line {
     position: relative;
     height: 1px;
-    background: rgba(0, 0, 0, 0.1);
+    background: #DCD5C4;
     width: 100%;
   }
   .dimension-line::before,
@@ -180,56 +177,49 @@
     top: -4px;
     width: 1px;
     height: 9px;
-    background: rgba(0, 0, 0, 0.25);
+    background: #6B6459;
   }
   .dimension-line::before { left: 0; }
   .dimension-line::after { right: 0; }
 
   .text-hero {
-    font-size: clamp(48px, 6.5vw, 98px);
-    line-height: 1.08;
+    font-size: clamp(40px, 5.5vw, 82px);
+    line-height: 1.04;
     letter-spacing: -0.02em;
   }
   .text-hero-mobile {
-    font-size: clamp(38px, 12vw, 68px);
-    line-height: 1.08;
+    font-size: clamp(32px, 10vw, 56px);
+    line-height: 1.04;
     letter-spacing: -0.02em;
   }
   .text-section {
-    font-size: clamp(32px, 4vw, 54px);
+    font-size: clamp(28px, 3.5vw, 46px);
     line-height: 1.08;
     letter-spacing: -0.02em;
-  }
-  .text-project {
-    font-size: clamp(24px, 3vw, 42px);
-    line-height: 1.08;
-    letter-spacing: -0.01em;
-  }
-  .text-statement {
-    font-size: clamp(24px, 3vw, 44px);
-    line-height: 1.1;
-    letter-spacing: -0.01em;
   }
   .text-body {
     font-size: 15px;
     line-height: 1.55;
   }
   .text-secondary {
-    color: var(--text-secondary);
+    color: #6B6459;
   }
 
-  /* Neo-brutalist hover lift & shadow utility classes */
+  /* Spec-card hover lift & shadow utility classes */
   .shadow-brutal {
-    box-shadow: 4px 4px 0px #000000;
+    box-shadow: 4px 4px 0px #14231C;
   }
   .shadow-brutal-lg {
-    box-shadow: 6px 6px 0px #000000;
+    box-shadow: 6px 6px 0px #14231C;
   }
-  .shadow-brutal-red {
-    box-shadow: 4px 4px 0px #B91C1C;
+  .shadow-brutal-green {
+    box-shadow: 4px 4px 0px #2F5D46;
   }
-  .shadow-brutal-red-lg {
-    box-shadow: 6px 6px 0px #B91C1C;
+  .shadow-brutal-green-lg {
+    box-shadow: 6px 6px 0px #2F5D46;
+  }
+  .shadow-brutal-bronze {
+    box-shadow: 4px 4px 0px #B08D57;
   }
   .shadow-brutal-white {
     box-shadow: 4px 4px 0px #FFFFFF;
@@ -240,7 +230,7 @@
   }
   .hover-brutal-lift:hover {
     transform: translate(-3px, -3px);
-    box-shadow: 6px 6px 0px #B91C1C;
+    box-shadow: 6px 6px 0px #2F5D46;
   }
 
   /* Continuous horizontal Marquee Ticker */
@@ -263,51 +253,8 @@
   }
 }
 
-  /* 3D Perspective Utility */
-  .perspective-1000 {
-    perspective: 1000px;
-  }
-
-  /* Animated traveling border beam effect */
-  .border-beam {
-    position: relative;
-    overflow: hidden;
-  }
-  .border-beam::before {
-    content: '';
-    position: absolute;
-    inset: -200%;
-    background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 300deg, #FF4D4D 340deg, #B91C1C 360deg);
-    animation: spin-beam 4s linear infinite;
-    z-index: 0;
-  }
-
-  /* Grid Scan Line Animation */
-  .grid-scan {
-    position: relative;
-  }
-  .grid-scan::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(255, 77, 77, 0.4), transparent);
-    animation: scan-line 6s ease-in-out infinite;
-    pointer-events: none;
-  }
-
-@keyframes spin-beam {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes scan-line {
-  0% { top: 0%; opacity: 0; }
-  5% { opacity: 1; }
-  95% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
+.perspective-1000 {
+  perspective: 1000px;
 }
 
 ::-webkit-scrollbar {
@@ -318,12 +265,12 @@
   background: var(--canvas);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(20, 35, 28, 0.25);
   border-radius: 4px;
   border: 2px solid var(--canvas);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(20, 35, 28, 0.45);
 }
 
 /* Hide Next.js Dev Indicator Badge */
@@ -332,6 +279,3 @@ nextjs-portal,
 [data-nextjs-toast-errors-parent] {
   display: none !important;
 }
-
-
-
