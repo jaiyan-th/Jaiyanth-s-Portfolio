@@ -9,7 +9,7 @@ export function FloatingNav() {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    const navHrefs = ["#hero", "#about", "#skills", "#work", "#experience", "#achievements", "#contact"];
+    const navHrefs = ["#hero", "#about", "#skills", "#work", "#experience", "#achievements", "#certifications", "#contact"];
     const sections = navHrefs
       .map((href) => document.getElementById(href.replace("#", "")))
       .filter(Boolean) as HTMLElement[];
@@ -35,6 +35,7 @@ export function FloatingNav() {
     { label: "SKILLS", href: "#skills" },
     { label: "EXPERIENCE", href: "#experience" },
     { label: "ACHIEVEMENTS", href: "#achievements" },
+    { label: "CERTIFICATIONS", href: "#certifications" },
   ];
 
   return (

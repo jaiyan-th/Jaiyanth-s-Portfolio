@@ -4,7 +4,8 @@ import { About } from "@/components/sections/about";
 import { Skills } from "@/components/sections/skills";
 import { Work } from "@/components/sections/work";
 import { Experience } from "@/components/sections/experience";
-import { Research } from "@/components/sections/research";
+import { Achievements } from "@/components/sections/achievements";
+import { Certifications } from "@/components/sections/certifications";
 import { Contact } from "@/components/sections/contact";
 
 export default function Home() {
@@ -17,7 +18,8 @@ export default function Home() {
         <Skills />
         <Work />
         <Experience />
-        <Research />
+        <Achievements />
+        <Certifications />
         <Contact />
       </main>
     </div>

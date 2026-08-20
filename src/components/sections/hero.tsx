@@ -26,14 +26,6 @@ export function Hero() {
     },
   };
 
-  // Proof, Not Adjectives Real Numbers Grid
-  const proofItems = [
-    { title: "03", underline: "projects", desc: "Selected production-ready applications built and shipped.", tag: "FAKE NEWS · UP-SKILL · CAR-RENT" },
-    { title: "01", underline: "internship", desc: "Full-stack & applied AI engineering work in real deployment environment.", tag: "BRAINERY SPOT TECH · 2025" },
-    { title: "01", underline: "ieee paper", desc: "Co-authored medical AI triage research accepted at ICETSIS 2026.", tag: "ICETSIS 2026 · BAHRAIN" },
-    { title: "06", underline: "domains", desc: "Verified skill groups across languages, frontend, backend, databases, & AI.", tag: "LANGS · FE · BE · DB · AI · TOOLS" },
-  ];
-
   const specRows = [
     { label: "BASED", value: "Karur, TN, India" },
     { label: "MODE", value: "Remote · Intl" },
@@ -83,18 +75,19 @@ export function Hero() {
                 href="#work"
                 whileHover={{ y: -2, x: -1, boxShadow: "5px 5px 0px #000000" }}
                 whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-                className="bg-black text-white hover:bg-black/90 font-mono text-xs font-black uppercase tracking-widest px-6 py-3.5 border-2 border-black shadow-[3px_3px_0px_#00B2D6] inline-flex items-center gap-2 transition-all cursor-pointer"
+                className="bg-[#00B2D6] hover:bg-[#0092B0] text-black font-mono text-xs font-black tracking-wider uppercase px-6 py-3.5 border-2 border-black shadow-[4px_4px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-2"
               >
-                <span>VIEW SELECTED WORK</span>
-                <ArrowRight className="w-4 h-4 text-[#00B2D6]" />
+                <span>EXPLORE WORK</span>
+                <ArrowRight className="w-4 h-4 stroke-[2.5]" />
               </motion.a>
 
               <motion.a
                 href="#contact"
-                whileHover={{ x: 2 }}
-                className="font-mono text-xs font-black uppercase tracking-widest text-black hover:text-[#00A8C6] transition-colors py-3.5"
+                whileHover={{ y: -2, x: -1, boxShadow: "5px 5px 0px #000000" }}
+                whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
+                className="bg-white hover:bg-[#EFEFEA] text-black font-mono text-xs font-black tracking-wider uppercase px-6 py-3.5 border-2 border-black shadow-[4px_4px_0px_#000000] transition-all cursor-pointer"
               >
-                START A CONVERSATION →
+                GET IN TOUCH
               </motion.a>
             </motion.div>
           </div>
@@ -125,46 +118,6 @@ export function Hero() {
             </div>
           </motion.div>
         </div>
-
-        {/* PROOF, NOT ADJECTIVES Grid (Exact karolbinkow.ski 4-Column Grid) */}
-        <motion.div variants={itemVariants} className="pt-6">
-          {/* Eyebrow */}
-          <div className="flex items-center gap-2 mb-4">
-            <span className="w-2.5 h-2.5 bg-[#00A8C6] border border-black inline-block" />
-            <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
-              PROOF, NOT ADJECTIVES
-            </span>
-          </div>
-
-          {/* Grid Container */}
-          <div className="border-2 border-black bg-white shadow-[6px_6px_0px_#000000]">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y-2 md:divide-y-0 md:divide-x-2 divide-black">
-              {proofItems.map((item) => (
-                <div key={item.title} className="p-6 space-y-3">
-                  {/* Huge Number Title with Cyan Underline */}
-                  <div>
-                    <h3 className="font-heading font-black text-5xl text-black inline-block leading-none border-b-4 border-[#00A8C6] pb-1">
-                      {item.title}
-                    </h3>
-                  </div>
-
-                  <p className="font-sans text-xs text-black/90 font-semibold leading-relaxed">
-                    {item.desc}
-                  </p>
-
-                  <span className="font-mono text-[9.5px] font-black text-black/60 uppercase tracking-wider block pt-2 border-t border-black/10">
-                    {item.tag}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Sub-ticker Strip */}
-          <div className="mt-4 font-mono text-[10.5px] font-black uppercase text-black/70 tracking-widest text-center py-2 border-t border-b border-black">
-            CSBS GRAD 2026 · AI &amp; FULL STACK · IEEE PUBLISHED · OPEN SOURCE CONTRIBUTOR
-          </div>
-        </motion.div>
       </motion.div>
 
       {/* Horizontal Auto-Scrolling Marquee Ticker */}
