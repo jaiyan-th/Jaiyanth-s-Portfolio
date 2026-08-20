@@ -63,7 +63,7 @@ export function Skills() {
           className="mt-16 pt-8 border-t border-black/20"
         >
           <p className="font-mono text-xs font-semibold text-black/70 tracking-wide">
-            IEEE Published · CS50 (Harvard) · 3+ Projects Shipped to Production
+            IEEE Published · 3+ Production-Ready Projects Shipped
           </p>
         </motion.div>
       </div>
