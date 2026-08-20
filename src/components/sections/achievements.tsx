@@ -9,26 +9,20 @@ export function Achievements() {
   return (
     <section id="achievements" className="relative bg-[#EFEFEA] text-black border-b-2 border-black py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Eyebrow Header */}
+        {/* Eyebrow Header — Identical to STACK/Skills */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-12"
+          className="mb-14"
         >
-          <div className="flex items-center gap-2 mb-2">
+          <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 bg-[#00A8C6] border border-black inline-block" />
             <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
               ACHIEVEMENTS
             </span>
           </div>
-          <h2 className="font-heading font-black text-2xl sm:text-4xl lg:text-[40px] text-black leading-[1.08] tracking-tight uppercase">
-            RESEARCH &amp; ACADEMIC <br />
-            <span className="bg-[#00B2D6] text-black px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1">
-              MILESTONES.
-            </span>
-          </h2>
         </motion.div>
 
         {/* Single Clean Box Layout */}
@@ -37,7 +31,7 @@ export function Achievements() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="bg-white border-2 border-black p-6 sm:p-8 shadow-[5px_5px_0px_#000000] space-y-6"
+          className="bg-white border-2 border-black p-6 sm:p-8 shadow-[4px_4px_0px_#000000] space-y-6"
         >
           {/* Header Bar */}
           <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-black pb-4">
@@ -67,7 +61,7 @@ export function Achievements() {
           </div>
 
           {/* Paper Title */}
-          <h3 className="font-heading font-black text-xl sm:text-2xl lg:text-3xl text-black leading-snug">
+          <h3 className="font-heading font-bold text-lg sm:text-xl lg:text-2xl text-black leading-snug">
             {RESEARCH.title}
           </h3>
 
@@ -79,16 +73,16 @@ export function Achievements() {
           </div>
 
           {/* Vision / Abstract */}
-          <p className="font-sans text-sm sm:text-base text-black/85 font-semibold leading-relaxed">
+          <p className="font-sans text-sm text-black/85 font-semibold leading-relaxed">
             &ldquo;{RESEARCH.abstract}&rdquo;
           </p>
 
-          {/* Concepts Pills */}
+          {/* Concepts Pills — matching Skills section */}
           <div className="flex flex-wrap gap-2 pt-1">
             {RESEARCH.concepts.map((concept) => (
               <span
                 key={concept}
-                className="font-mono text-xs font-semibold text-black px-3 py-1 border border-black bg-[#EFEFEA]"
+                className="font-mono text-xs font-semibold text-black px-3 py-1.5 border border-black bg-transparent"
               >
                 {concept}
               </span>
