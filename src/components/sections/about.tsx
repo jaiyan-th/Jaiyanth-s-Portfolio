@@ -54,19 +54,19 @@ export function About() {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             className="lg:col-span-5 flex justify-center lg:justify-end"
           >
-            <div className="w-full max-w-[300px] bg-white border-2 border-black shadow-[4px_4px_0px_#000000] overflow-hidden">
+            <div className="w-full max-w-[400px] bg-white border-2 border-black shadow-[4px_4px_0px_#000000] overflow-hidden">
               <div className="bg-[#00B2D6] border-b-2 border-black px-3 py-2">
                 <span className="font-mono text-[10px] font-black uppercase text-black tracking-widest block">
                   JAIYANTH B.
                 </span>
               </div>
-              <div className="relative w-full aspect-[4/5]">
+              <div className="relative w-full aspect-square">
                 <Image
                   src="/images/jaiyanth-profile.jpg"
                   alt="Jaiyanth B. — Software Engineer"
                   fill
                   className="object-cover object-top"
-                  sizes="(max-width: 1024px) 300px, 300px"
+                  sizes="(max-width: 1024px) 100vw, 400px"
                   priority
                   unoptimized
                 />
