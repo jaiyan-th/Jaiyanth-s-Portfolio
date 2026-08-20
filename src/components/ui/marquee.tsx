@@ -24,16 +24,15 @@ const DEFAULT_ITEMS = [
 ];
 
 export function Marquee({ items = DEFAULT_ITEMS, className = "" }: MarqueeProps) {
-  // Duplicate items array so animation loops seamlessly without a gap
   const displayItems = [...items, ...items, ...items, ...items];
 
   return (
-    <div className={`w-full overflow-hidden bg-[#0B0C0E] text-[#F5F3EF] border-y border-[#232323] py-3 ${className}`}>
-      <div className="animate-marquee flex items-center gap-8 whitespace-nowrap font-mono text-xs font-bold tracking-widest uppercase">
+    <div className={`w-full overflow-hidden bg-white text-black border-y-2 border-black py-3.5 ${className}`}>
+      <div className="animate-marquee flex items-center gap-8 whitespace-nowrap font-mono text-xs font-black tracking-widest uppercase">
         {displayItems.map((text, idx) => (
           <div key={idx} className="flex items-center gap-8">
-            <span className="hover:text-[#6D2932] transition-colors">{text}</span>
-            <span className="text-[#6D2932] font-mono text-xs">/</span>
+            <span className="hover:bg-[#00B2D6] px-1 transition-colors">{text}</span>
+            <span className="text-[#00A8C6] font-mono text-xs font-black">•</span>
           </div>
         ))}
       </div>

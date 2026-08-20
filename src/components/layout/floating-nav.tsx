@@ -30,76 +30,65 @@ export function FloatingNav() {
   }, []);
 
   const navItems = [
+    { label: "WORK", href: "#work" },
     { label: "ABOUT", href: "#about" },
     { label: "SKILLS", href: "#skills" },
-    { label: "WORK", href: "#work" },
     { label: "EXPERIENCE", href: "#experience" },
     { label: "ACHIEVEMENTS", href: "#achievements" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-[#0B0C0E]/90 backdrop-blur-md border-b border-[#232323] px-4 py-2 md:px-8 shadow-sm">
+    <header className="sticky top-0 z-50 bg-[#EFEFEA]/95 backdrop-blur-md border-t-2 border-b-2 border-black px-4 py-2.5 md:px-8">
       <nav aria-label="Main Navigation" className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Left: Logo + Name -> Scrolls to #hero */}
-        <motion.a
+        {/* Left: KB Style Logo + Name */}
+        <a
           href="#hero"
           onClick={() => setActive("#hero")}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className="flex items-center gap-3 group min-h-[44px] min-w-[44px]"
+          className="flex items-center gap-3 group"
         >
-          <div className="w-7 h-7 bg-[#141619] border border-[#232323] flex items-center justify-center transition-colors group-hover:border-[#6D2932]">
-            <span className="text-[#F5F3EF] text-[11px] font-bold tracking-tighter font-mono">JB</span>
+          <div className="w-8 h-8 bg-black text-white flex items-center justify-center font-mono font-black text-xs border-2 border-black">
+            JB
           </div>
-          <span className="font-mono font-bold text-xs sm:text-sm tracking-widest text-[#F5F3EF] uppercase">
+          <span className="font-mono font-black text-sm tracking-wider text-black uppercase">
             JAIYANTH B
           </span>
-        </motion.a>
+        </a>
 
-        {/* Center Nav Links - Desktop */}
-        <div className="hidden lg:flex items-center gap-6">
+        {/* Center Nav Links - karolbinkow.ski Monospace Upper Case */}
+        <div className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => {
             const isActive = active === item.href;
             return (
               <a
                 key={item.href}
                 href={item.href}
-                className={`font-mono text-[11px] uppercase tracking-widest transition-colors py-2 relative ${
-                  isActive
-                    ? "text-[#F5F3EF] font-bold"
-                    : "text-[#9A958D] hover:text-[#F5F3EF]"
+                className={`font-mono text-xs uppercase tracking-widest font-black transition-colors relative ${
+                  isActive ? "text-black underline underline-offset-4 decoration-[#00B2D6] decoration-2" : "text-black/70 hover:text-black"
                 }`}
               >
                 {item.label}
-                {isActive && (
-                  <motion.div
-                    layoutId="activeNavTab"
-                    className="absolute -bottom-1 left-0 right-0 h-[1.5px] bg-[#6D2932]"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
               </a>
             );
           })}
         </div>
 
-        {/* Right CTA & Mobile Toggle */}
+        {/* Right CTA Button: BOOK A CALL -> GET IN TOUCH */}
         <div className="flex items-center gap-3">
           <motion.a
             href="#contact"
-            whileHover={{ y: -1 }}
-            whileTap={{ y: 0 }}
-            className="bg-[#6D2932] hover:bg-[#582027] text-white font-mono text-[10.5px] font-bold tracking-wider uppercase px-4 py-2 min-h-[40px] border border-[#6D2932] transition-all text-center leading-tight flex items-center justify-center cursor-pointer"
+            whileHover={{ y: -2, x: -1, boxShadow: "5px 5px 0px #000000" }}
+            whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
+            className="bg-[#00B2D6] hover:bg-[#0092B0] text-black font-mono text-xs font-black tracking-wider uppercase px-4 py-2 border-2 border-black shadow-[3px_3px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-1.5"
           >
-            GET IN TOUCH
+            <span>GET IN TOUCH →</span>
           </motion.a>
 
-          {/* Mobile Hamburger Toggle Button */}
+          {/* Mobile Hamburger Toggle */}
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-            className="lg:hidden p-2 min-h-[40px] min-w-[40px] border border-[#232323] bg-[#141619] text-[#F5F3EF] flex items-center justify-center"
+            className="lg:hidden p-2 border-2 border-black bg-white shadow-[2px_2px_0px_#000000] text-black flex items-center justify-center"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -114,7 +103,7 @@ export function FloatingNav() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden mt-2 pt-3 border-t border-[#232323] bg-[#0B0C0E] p-4"
+            className="lg:hidden mt-3 pt-3 border-t-2 border-black bg-[#EFEFEA] p-4"
           >
             <div className="flex flex-col space-y-2">
               {navItems.map((item) => {
@@ -124,10 +113,10 @@ export function FloatingNav() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={`font-mono text-xs uppercase tracking-widest font-bold p-3 flex items-center border-b border-[#232323]/50 ${
+                    className={`font-mono text-xs uppercase tracking-widest font-black p-3 flex items-center border-2 ${
                       isActive
-                        ? "text-[#F5F3EF] border-[#6D2932]"
-                        : "text-[#9A958D] hover:text-[#F5F3EF]"
+                        ? "bg-[#00B2D6] text-black border-black shadow-[2px_2px_0px_#000000]"
+                        : "bg-white text-black border-black"
                     }`}
                   >
                     {item.label}

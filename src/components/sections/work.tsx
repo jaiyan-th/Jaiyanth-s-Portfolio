@@ -10,108 +10,111 @@ export function Work() {
   const [selectedSlug, setSelectedSlug] = React.useState<string | null>(null);
 
   return (
-    <section id="work" className="relative bg-[#0B0C0E] border-b border-[#232323] py-16 md:py-24 text-[#F5F3EF] bg-grid">
+    <section id="work" className="relative bg-[#EFEFEA] text-black border-b-2 border-black py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Eyebrow Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-16 border-b border-[#232323] pb-8"
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="mb-10"
         >
-          <span className="font-mono text-xs font-bold text-[#6D2932] tracking-widest uppercase block mb-1">
-            03 —— SELECTED WORK
-          </span>
-          <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-6xl text-[#F5F3EF] leading-[1.06] tracking-tight uppercase">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="w-2.5 h-2.5 bg-[#00A8C6] border border-black inline-block" />
+            <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
+              SELECTED WORK
+            </span>
+          </div>
+          <h2 className="font-heading font-black text-3xl sm:text-5xl text-black leading-[1.04] tracking-tight uppercase">
             THREE PROJECTS, <br />
-            <span className="text-[#6D2932]">THREE SYSTEMS.</span>
+            <span className="bg-[#00B2D6] text-black px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000]">
+              THREE SHIPPED SYSTEMS.
+            </span>
           </h2>
-          <p className="font-sans text-sm text-[#9A958D] mt-3 font-normal">
-            Each project represents a fully realized, debugged, and integrated software artifact.
-          </p>
         </motion.div>
 
-        {/* Minimal Case-Study Entries Layout (Text-Forward, No Heavy Cards) */}
-        <div className="space-y-16">
-          {PROJECTS.map((project, index) => {
-            const projectNum = String(index + 1).padStart(2, "0");
-
-            return (
-              <motion.article
-                key={project.slug}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="border-b border-[#232323] pb-14 grid lg:grid-cols-12 gap-8 items-start"
-              >
-                {/* Number & Category */}
-                <div className="lg:col-span-3 space-y-1">
-                  <span className="font-mono text-xs font-bold text-[#6D2932] tracking-widest uppercase block">
-                    CASE STUDY {projectNum} / {project.category}
+        {/* Selected Work List Items (Exact karolbinkow.ski Selected Work Format) */}
+        <div className="border-t-2 border-black divide-y-2 divide-black">
+          {PROJECTS.map((project) => (
+            <motion.article
+              key={project.slug}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="py-10 space-y-6"
+            >
+              {/* Row Header: Title on Left, Tech Stack Pills on Right */}
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div>
+                  <span className="font-mono text-[10.5px] font-black uppercase text-black/60 tracking-wider block mb-1">
+                    PROJECT {project.number} / {project.category}
                   </span>
-                  <span className="font-mono text-xs text-[#9A958D] uppercase block">
-                    {project.layout.toUpperCase()} ARCHITECTURE
-                  </span>
-                </div>
-
-                {/* Main Content Details */}
-                <div className="lg:col-span-9 space-y-5">
-                  <h3 className="font-heading font-black text-2xl sm:text-4xl text-[#F5F3EF] tracking-tight uppercase leading-tight">
+                  <h3 className="font-heading font-black text-2xl sm:text-4xl text-black uppercase tracking-tight">
                     {project.title}
                   </h3>
-
-                  <p className="font-sans text-base text-[#F5F3EF]/90 leading-relaxed font-normal">
-                    {project.summary}
-                  </p>
-
-                  <div className="border-l-2 border-[#6D2932] pl-4 py-1">
-                    <span className="font-mono text-xs text-[#9A958D] font-bold uppercase tracking-wider block mb-1">
-                      ENGINEERING FOCUS:
-                    </span>
-                    <p className="font-mono text-xs text-[#F5F3EF] font-semibold">
-                      {project.engineeringFocus}
-                    </p>
-                  </div>
-
-                  {/* Inline Tech Stack (Plain Text) */}
-                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-mono text-[#9A958D] pt-1">
-                    <span className="text-[#F5F3EF] font-bold">STACK:</span>
-                    <span>{project.stack.join(" · ")}</span>
-                  </div>
-
-                  {/* Actions */}
-                  <div className="pt-3 flex flex-wrap items-center gap-6">
-                    <button
-                      type="button"
-                      onClick={() => setSelectedSlug(project.slug)}
-                      className="font-mono text-xs font-bold uppercase tracking-widest text-[#F5F3EF] hover:text-[#6D2932] transition-colors inline-flex items-center gap-2 cursor-pointer"
-                    >
-                      <span>INSPECT CASE STUDY</span>
-                      <ArrowRight className="w-4 h-4 text-[#6D2932]" />
-                    </button>
-
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-mono text-xs font-bold uppercase tracking-widest text-[#9A958D] hover:text-[#F5F3EF] transition-colors inline-flex items-center gap-1.5"
-                      >
-                        <span>LIVE DEMO</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    )}
-                  </div>
                 </div>
-              </motion.article>
-            );
-          })}
+
+                {/* Tech Pills (karolbinkow.ski bordered tag pills) */}
+                <div className="flex flex-wrap gap-1.5">
+                  {project.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="font-mono text-xs font-bold text-black bg-white px-2.5 py-1 border border-black shadow-[1.5px_1.5px_0px_#000000]"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Summary Description */}
+              <p className="font-sans text-sm sm:text-base text-black/90 font-semibold max-w-3xl leading-relaxed">
+                {project.summary}
+              </p>
+
+              {/* Outcome Bar (karolbinkow.ski cyan left-bar callout) */}
+              <div className="border-l-4 border-[#00A8C6] bg-white p-3.5 border border-black shadow-[3px_3px_0px_#000000] max-w-3xl">
+                <span className="font-mono text-[10px] font-black text-[#00A8C6] uppercase tracking-widest block mb-1">
+                  ENGINEERING OUTCOME
+                </span>
+                <p className="font-mono text-xs font-black text-black">
+                  {project.engineeringFocus}
+                </p>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <motion.button
+                  type="button"
+                  onClick={() => setSelectedSlug(project.slug)}
+                  whileHover={{ y: -2, x: -1, boxShadow: "4px 4px 0px #000000" }}
+                  whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
+                  className="bg-black text-white font-mono text-xs font-black uppercase tracking-widest px-5 py-3 border-2 border-black shadow-[2px_2px_0px_#00B2D6] inline-flex items-center gap-2 cursor-pointer"
+                >
+                  <span>INSPECT CASE STUDY</span>
+                  <ArrowRight className="w-4 h-4 text-[#00B2D6]" />
+                </motion.button>
+
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white text-black font-mono text-xs font-black uppercase tracking-widest px-5 py-3 border-2 border-black shadow-[2px_2px_0px_#000000] hover:bg-[#00B2D6] transition-colors inline-flex items-center gap-1.5"
+                  >
+                    <span>LIVE DEMO</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                )}
+              </div>
+            </motion.article>
+          ))}
         </div>
       </div>
 
-      {/* Project Inspection Dialog */}
+      {/* Project Inspection Modal */}
       <ProjectDialog slug={selectedSlug} onClose={() => setSelectedSlug(null)} />
     </section>
   );

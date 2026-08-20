@@ -109,111 +109,87 @@ export function Contact() {
 
   return (
     <div className="relative">
-      {/* Contact Section */}
-      <section id="contact" className="relative bg-[#0B0C0E] border-b border-[#232323] px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-[#F5F3EF] overflow-hidden bg-grid">
+      {/* Contact Section — karolbinkow.ski Soft Ice-Blue Section Background */}
+      <section id="contact" className="relative bg-[#D8EFEF] border-b-2 border-black px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-black">
         <div className="max-w-7xl mx-auto">
-          {/* Headline */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="mb-14 border-b border-[#232323] pb-8"
-          >
-            <span className="font-mono text-xs font-bold text-[#6D2932] tracking-widest uppercase block mb-1">
-              06 —— CONTACT &amp; DISCOVERY
-            </span>
-            <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#F5F3EF] leading-[1.08] tracking-tight uppercase">
-              Start a <span className="text-[#6D2932]">conversation.</span>
-            </h2>
-            <p className="font-sans text-sm text-[#9A958D] mt-2 font-normal">
-              Open for full-time engineering roles, internship opportunities, and technical collaboration.
-            </p>
-          </motion.div>
+          {/* Main White Box (karolbinkow.ski LET'S TALK Box) */}
+          <div className="bg-white border-2 border-black p-8 sm:p-12 shadow-[8px_8px_0px_#000000] relative">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="w-2.5 h-2.5 bg-[#00A8C6] border border-black inline-block" />
+              <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
+                LET'S TALK
+              </span>
+            </div>
 
-          <div className="grid lg:grid-cols-12 gap-12 items-start">
-            {/* Left: Direct Info */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5 }}
-              className="lg:col-span-5 space-y-8"
-            >
-              <div className="space-y-4">
-                <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#6D2932] block">
-                  // DIRECT DISCOVERY
-                </span>
-                
-                <div className="space-y-6 text-sm font-mono">
+            <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-6xl text-black leading-[1.04] tracking-tight uppercase mb-10">
+              HAVE A PROBLEM THAT <br />
+              <span className="bg-[#00B2D6] text-black px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000]">
+                NEEDS TO SHIP?
+              </span>
+            </h2>
+
+            <div className="grid lg:grid-cols-12 gap-10 items-start">
+              {/* Left Column: Direct Info */}
+              <div className="lg:col-span-5 space-y-6">
+                <p className="font-sans text-sm sm:text-base text-black/90 font-semibold leading-relaxed">
+                  Open for full-time engineering roles, internship opportunities, and technical collaboration.
+                </p>
+
+                <div className="border-t-2 border-b-2 border-black py-4 space-y-4 font-mono text-xs">
                   <div>
-                    <span className="text-[#9A958D] text-xs block mb-1">PRIMARY EMAIL</span>
+                    <span className="text-black/60 font-black uppercase tracking-wider block mb-1">PRIMARY EMAIL</span>
                     <a
                       href={`mailto:${IDENTITY.email}`}
-                      className="text-[#F5F3EF] hover:text-[#6D2932] transition-colors font-bold text-base break-all"
+                      className="text-black font-black text-base hover:text-[#00A8C6] transition-colors break-all"
                     >
                       {IDENTITY.email}
                     </a>
                   </div>
 
                   <div>
-                    <span className="text-[#9A958D] text-xs block mb-1">LOCATION</span>
-                    <span className="text-[#F5F3EF] font-bold block">{IDENTITY.location}</span>
+                    <span className="text-black/60 font-black uppercase tracking-wider block mb-1">LOCATION</span>
+                    <span className="text-black font-black block">{IDENTITY.location}</span>
                   </div>
 
                   <div>
-                    <span className="text-[#9A958D] text-xs block mb-1">STATUS</span>
-                    <span className="text-[#F5F3EF] font-bold block">Open to full-time roles &amp; internships</span>
+                    <span className="text-black/60 font-black uppercase tracking-wider block mb-1">STATUS</span>
+                    <span className="text-emerald-700 font-extrabold block">● Available for 2026</span>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <span className="font-mono text-xs font-black text-black/60 uppercase tracking-wider block mb-3">
+                    CONNECT DIRECTLY
+                  </span>
+                  <div className="flex flex-wrap gap-2 font-mono text-xs font-black">
+                    <a
+                      href="https://www.linkedin.com/in/jaiyan-th/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-[#EFEFEA] text-black px-3.5 py-2 border-2 border-black shadow-[2px_2px_0px_#000000] hover:bg-[#00B2D6] transition-colors inline-flex items-center gap-1"
+                    >
+                      <span>LINKEDIN</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </a>
+                    <a
+                      href={IDENTITY.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-[#EFEFEA] text-black px-3.5 py-2 border-2 border-black shadow-[2px_2px_0px_#000000] hover:bg-[#00B2D6] transition-colors inline-flex items-center gap-1"
+                    >
+                      <span>GITHUB</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </a>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-[#232323]">
-                <span className="font-mono text-xs font-bold text-[#9A958D] uppercase tracking-widest block mb-3">
-                  CONNECT DIRECTLY
-                </span>
-                <div className="flex flex-wrap gap-4 font-mono text-xs font-bold">
-                  <a
-                    href="https://www.linkedin.com/in/jaiyan-th/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#9A958D] hover:text-[#F5F3EF] transition-colors flex items-center gap-1"
-                  >
-                    <span>LINKEDIN</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </a>
-                  <a
-                    href={IDENTITY.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#9A958D] hover:text-[#F5F3EF] transition-colors flex items-center gap-1"
-                  >
-                    <span>GITHUB</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Right: Low-Pressure Editorial Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5 }}
-              className="lg:col-span-7"
-            >
-              <div className="bg-[#141619] border border-[#232323] p-8">
-                <div className="border-b border-[#232323] pb-4 mb-6">
-                  <span className="font-mono text-xs font-bold text-[#F5F3EF] uppercase tracking-widest">
-                    SEND A DIRECT MESSAGE
-                  </span>
-                </div>
-
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid sm:grid-cols-2 gap-6">
+              {/* Right Column: Direct Form */}
+              <div className="lg:col-span-7">
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name-input" className="block font-mono text-[10px] font-bold uppercase tracking-widest text-[#9A958D] mb-2">
+                      <label htmlFor="name-input" className="block font-mono text-[10px] font-black uppercase tracking-widest text-black/60 mb-1">
                         YOUR NAME
                       </label>
                       <input
@@ -223,12 +199,12 @@ export function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="John Doe"
-                        className="w-full bg-[#0B0C0E] border border-[#232323] p-3 font-sans text-xs text-[#F5F3EF] font-medium placeholder:text-[#9A958D]/50 focus:outline-none focus:border-[#6D2932] transition-all"
+                        className="w-full bg-[#EFEFEA] border-2 border-black p-3 font-sans text-xs text-black font-extrabold placeholder:text-black/40 focus:outline-none focus:bg-white transition-all shadow-[2px_2px_0px_#000000]"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="email-input" className="block font-mono text-[10px] font-bold uppercase tracking-widest text-[#9A958D] mb-2">
+                      <label htmlFor="email-input" className="block font-mono text-[10px] font-black uppercase tracking-widest text-black/60 mb-1">
                         YOUR EMAIL
                       </label>
                       <input
@@ -238,13 +214,13 @@ export function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="john@example.com"
-                        className="w-full bg-[#0B0C0E] border border-[#232323] p-3 font-sans text-xs text-[#F5F3EF] font-medium placeholder:text-[#9A958D]/50 focus:outline-none focus:border-[#6D2932] transition-all"
+                        className="w-full bg-[#EFEFEA] border-2 border-black p-3 font-sans text-xs text-black font-extrabold placeholder:text-black/40 focus:outline-none focus:bg-white transition-all shadow-[2px_2px_0px_#000000]"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="subject-input" className="block font-mono text-[10px] font-bold uppercase tracking-widest text-[#9A958D] mb-2">
+                    <label htmlFor="subject-input" className="block font-mono text-[10px] font-black uppercase tracking-widest text-black/60 mb-1">
                       SUBJECT
                     </label>
                     <input
@@ -254,12 +230,12 @@ export function Contact() {
                       value={formData.subject}
                       onChange={handleChange}
                       placeholder="Role inquiry / Collaboration"
-                      className="w-full bg-[#0B0C0E] border border-[#232323] p-3 font-sans text-xs text-[#F5F3EF] font-medium placeholder:text-[#9A958D]/50 focus:outline-none focus:border-[#6D2932] transition-all"
+                      className="w-full bg-[#EFEFEA] border-2 border-black p-3 font-sans text-xs text-black font-extrabold placeholder:text-black/40 focus:outline-none focus:bg-white transition-all shadow-[2px_2px_0px_#000000]"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message-input" className="block font-mono text-[10px] font-bold uppercase tracking-widest text-[#9A958D] mb-2">
+                    <label htmlFor="message-input" className="block font-mono text-[10px] font-black uppercase tracking-widest text-black/60 mb-1">
                       MESSAGE
                     </label>
                     <textarea
@@ -268,116 +244,61 @@ export function Contact() {
                       rows={4}
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Tell me more..."
-                      className="w-full bg-[#0B0C0E] border border-[#232323] p-3.5 font-sans text-xs text-[#F5F3EF] font-medium placeholder:text-[#9A958D]/50 focus:outline-none focus:border-[#6D2932] resize-none transition-all"
+                      placeholder="Tell me more about your requirements..."
+                      className="w-full bg-[#EFEFEA] border-2 border-black p-3.5 font-sans text-xs text-black font-extrabold placeholder:text-black/40 focus:outline-none focus:bg-white resize-none transition-all shadow-[2px_2px_0px_#000000]"
                     />
                   </div>
 
                   <div className="pt-2 flex items-center justify-between">
-                    <span className="font-mono text-[10px] text-[#9A958D]">
+                    <span className="font-mono text-[10px] font-black text-black/60">
                       {statusMessage || "RESPONSE TIME < 48H"}
                     </span>
 
                     <motion.button
                       type="submit"
                       disabled={status === "submitting"}
-                      whileHover={{ x: 2 }}
-                      className="bg-[#6D2932] hover:bg-[#582027] disabled:opacity-70 text-white font-mono text-xs font-bold uppercase tracking-widest px-6 py-3 border border-[#6D2932] transition-colors inline-flex items-center gap-2 cursor-pointer"
+                      whileHover={{ y: -2, x: -1, boxShadow: "5px 5px 0px #000000" }}
+                      whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
+                      className="bg-[#00B2D6] hover:bg-[#0092B0] disabled:opacity-70 text-black font-mono text-xs font-black uppercase tracking-widest px-6 py-3.5 border-2 border-black shadow-[3px_3px_0px_#000000] transition-colors inline-flex items-center gap-2 cursor-pointer"
                     >
                       <span>
                         {status === "submitting"
                           ? "SENDING..."
                           : status === "success"
                           ? "SENT!"
-                          : "SEND MESSAGE"}
+                          : "SEND MESSAGE →"}
                       </span>
-                      <ArrowUpRight className="w-4 h-4" />
                     </motion.button>
                   </div>
                 </form>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Understated Dark Footer */}
-      <footer className="bg-[#0B0C0E] border-t border-[#232323] text-[#F5F3EF] px-4 py-8 md:px-8 relative">
-        <div className="max-w-7xl mx-auto space-y-8">
-          <div className="grid md:grid-cols-12 gap-8 border-b border-[#232323] pb-8">
-            <div className="md:col-span-6 space-y-2">
-              <h3 className="font-heading font-black text-lg text-[#F5F3EF] uppercase tracking-tight">
-                ENGINEERING THE FUTURE.
-              </h3>
-              <p className="font-sans text-xs text-[#9A958D] max-w-md leading-relaxed font-normal">
-                Building robust Full-Stack applications and Applied AI systems engineered for real-world impact and production performance.
-              </p>
+      {/* Understated karolbinkow.ski Footer */}
+      <footer className="bg-[#EFEFEA] text-black px-4 py-8 md:px-8 border-b-2 border-black">
+        <div className="max-w-7xl mx-auto space-y-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs font-black border-b-2 border-black pb-4">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 bg-black text-white flex items-center justify-center text-[10px]">JB</div>
+              <span className="uppercase">JAIYANTH B — SOFTWARE ENGINEER</span>
             </div>
 
-            <div className="md:col-span-6 grid grid-cols-2 gap-6 md:justify-items-end font-mono text-xs">
-              <div>
-                <span className="block text-[10px] font-bold uppercase tracking-widest text-[#6D2932] mb-3">
-                  SOCIALS
-                </span>
-                <ul className="space-y-2">
-                  <li>
-                    <a
-                      href="https://www.linkedin.com/in/jaiyan-th/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#9A958D] hover:text-[#F5F3EF] transition-colors"
-                    >
-                      LinkedIn
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={IDENTITY.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#9A958D] hover:text-[#F5F3EF] transition-colors"
-                    >
-                      GitHub
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <span className="block text-[10px] font-bold uppercase tracking-widest text-[#6D2932] mb-3">
-                  NAVIGATION
-                </span>
-                <ul className="space-y-2">
-                  <li>
-                    <a href="#about" className="text-[#9A958D] hover:text-[#F5F3EF] transition-colors">
-                      About
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#work" className="text-[#9A958D] hover:text-[#F5F3EF] transition-colors">
-                      Work
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#contact" className="text-[#9A958D] hover:text-[#F5F3EF] transition-colors">
-                      Contact
-                    </a>
-                  </li>
-                </ul>
-              </div>
+            <div className="flex items-center gap-6 uppercase">
+              <a href="#about" className="hover:underline">About</a>
+              <a href="#work" className="hover:underline">Work</a>
+              <a href="#contact" className="hover:underline">Contact</a>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-[#9A958D]">
-            <span>— JAIYANTH B © 2026</span>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] font-black text-black/70">
+            <span>© 2026 JAIYANTH B. ALL RIGHTS RESERVED.</span>
 
             <div className="flex items-center gap-4">
-              <a href="#hero" className="hover:text-[#F5F3EF] transition-colors">
-                Back to Top ↑
-              </a>
-              <a href={IDENTITY.github} target="_blank" rel="noopener noreferrer" className="hover:text-[#F5F3EF] transition-colors">
-                Source Code
-              </a>
+              <a href="#hero" className="hover:text-black transition-colors">BACK TO TOP ↑</a>
+              <a href={IDENTITY.github} target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">GITHUB REPO</a>
             </div>
           </div>
         </div>
