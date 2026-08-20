@@ -1,29 +1,32 @@
 "use client";
 
 import * as React from "react";
-import { Award } from "lucide-react";
 import { motion } from "motion/react";
 
-const CERTIFICATION_GROUPS = [
+const CERTIFICATIONS = [
   {
-    issuer: "COURSERA",
+    index: "01",
+    name: "Python Programming & Full-Stack Development",
+    issuer: "Coursera",
     year: "2025",
-    items: ["Python Programming & Full-Stack Development"],
   },
   {
+    index: "02",
+    name: "Artificial Intelligence: Concepts and Techniques",
     issuer: "NPTEL",
     year: "2025",
-    items: ["Artificial Intelligence: Concepts and Techniques"],
   },
   {
-    issuer: "AWS TRAINING & CERTIFICATION",
+    index: "03",
+    name: "AWS Foundations: Getting Started with AWS Cloud Essentials",
+    issuer: "AWS Training & Certification",
     year: "2026",
-    items: ["AWS Foundations: Getting Started with AWS Cloud Essentials"],
   },
   {
-    issuer: "FUTURESKILLS PRIME (NASSCOM)",
+    index: "04",
+    name: "Certificate Program in AI & Machine Learning",
+    issuer: "FutureSkills Prime (NASSCOM)",
     year: "2026",
-    items: ["Certificate Program in AI & Machine Learning"],
   },
 ];
 
@@ -46,60 +49,49 @@ export function Certifications() {
             </span>
           </div>
           <h2 className="font-heading font-black text-2xl sm:text-4xl lg:text-[40px] text-black leading-[1.08] tracking-tight uppercase">
-            FOUR VERIFIED <br />
+            VERIFIED <br />
             <span className="bg-[#00B2D6] text-black px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1">
               INDUSTRY CERTIFICATIONS.
             </span>
           </h2>
         </motion.div>
 
-        {/* Single Clean Box Layout — Identical to Achievements Section */}
+        {/* Clean Line-Divided List — No Box, Pure Minimal Lines */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="bg-white border-2 border-black p-6 sm:p-8 shadow-[4px_4px_0px_#000000] space-y-6"
+          className="border-t-2 border-black divide-y-2 divide-black"
         >
-          {/* Header Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-black pb-4">
-            <div className="flex items-center gap-2.5">
-              <Award className="w-4 h-4 text-black" />
-              <span className="font-mono text-xs font-black uppercase text-black tracking-wider">
-                PROFESSIONAL INDUSTRY CERTIFICATIONS
-              </span>
-            </div>
-            <span className="bg-[#00B2D6] text-black px-2.5 py-1 font-mono text-[10px] uppercase font-black tracking-widest border border-black inline-flex items-center gap-1.5">
-              VERIFIED &amp; ACTIVE
-            </span>
-          </div>
-
-          {/* Certifications 2-Column Grid inside the single card */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 pt-2">
-            {CERTIFICATION_GROUPS.map((group) => (
-              <div key={group.issuer} className="space-y-2.5">
-                <div className="flex items-center justify-between border-b border-black/15 pb-1.5">
-                  <h3 className="font-mono text-xs font-black tracking-widest text-black uppercase">
-                    {group.issuer}
+          {CERTIFICATIONS.map((cert) => (
+            <div
+              key={cert.index}
+              className="py-5 sm:py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 hover:bg-black/[0.02] transition-colors"
+            >
+              {/* Left Column: Number, Title, Issuer */}
+              <div className="flex items-start sm:items-center gap-4">
+                <span className="font-mono text-xs font-black text-[#00A8C6] shrink-0 pt-0.5 sm:pt-0">
+                  // {cert.index}
+                </span>
+                <div>
+                  <h3 className="font-heading font-black text-base sm:text-lg text-black uppercase leading-snug">
+                    {cert.name}
                   </h3>
-                  <span className="font-mono text-xs font-bold text-black/60">
-                    {group.year}
+                  <span className="font-mono text-xs font-bold text-black/60 block mt-0.5">
+                    {cert.issuer}
                   </span>
                 </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {group.items.map((cert) => (
-                    <span
-                      key={cert}
-                      className="font-mono text-xs font-semibold text-black px-3 py-1.5 border border-black bg-[#EFEFEA]"
-                    >
-                      {cert}
-                    </span>
-                  ))}
-                </div>
               </div>
-            ))}
-          </div>
+
+              {/* Right Column: Year */}
+              <div className="shrink-0 pl-8 sm:pl-0">
+                <span className="font-mono text-xs font-bold text-black bg-transparent px-2.5 py-1 border border-black inline-block">
+                  {cert.year}
+                </span>
+              </div>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>
