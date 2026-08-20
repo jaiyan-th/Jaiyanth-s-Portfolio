@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { FileText, MapPin, Calendar, Building2, CheckCircle2 } from "lucide-react";
+import { FileText, MapPin, Calendar, Building2, CheckCircle2, ExternalLink } from "lucide-react";
 import { RESEARCH } from "@/data/portfolio";
 import { motion } from "motion/react";
 
@@ -47,10 +47,23 @@ export function Achievements() {
                 IEEE ICETSIS 2026 · CO-AUTHORED RESEARCH PAPER
               </span>
             </div>
-            <span className="bg-black text-white px-3 py-1 font-mono text-[10px] uppercase font-black tracking-widest border border-black shadow-[1.5px_1.5px_0px_#00B2D6] inline-flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#00B2D6]" />
-              ACCEPTED &amp; PUBLISHED
-            </span>
+            <div className="flex flex-wrap items-center gap-2.5">
+              <span className="bg-black text-white px-3 py-1 font-mono text-[10px] uppercase font-black tracking-widest border border-black shadow-[1.5px_1.5px_0px_#00B2D6] inline-flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#00B2D6]" />
+                ACCEPTED &amp; PUBLISHED
+              </span>
+              {RESEARCH.certificateUrl && (
+                <a
+                  href={RESEARCH.certificateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white hover:bg-black hover:text-white text-black px-3 py-1 font-mono text-[10px] uppercase font-black tracking-widest border-2 border-black shadow-[2px_2px_0px_#000000] inline-flex items-center gap-1.5 transition-all"
+                >
+                  <span>VIEW CERTIFICATE</span>
+                  <ExternalLink className="w-3 h-3 stroke-[2.5]" />
+                </a>
+              )}
+            </div>
           </div>
 
           {/* Paper Title */}

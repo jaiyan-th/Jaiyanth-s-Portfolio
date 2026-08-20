@@ -297,6 +297,7 @@ export const RESEARCH: ResearchPaper = {
     "Research collaboration",
     "Technical presentation",
   ],
+  certificateUrl: "https://drive.google.com/file/d/1ro5v9Cb1Un-pj2ZEiKdZVDEPDeOpfEU_/view?usp=sharing",
 };
 
 // Supplementary research context — does not modify the paper itself.

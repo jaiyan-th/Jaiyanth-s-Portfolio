@@ -63,6 +63,7 @@ export type ResearchPaper = {
   status: "co-authored" | "accepted" | "presented" | "published";
   concepts: string[];
   abstract: string;
+  certificateUrl?: string;
 };
 
 export type Metric = {
