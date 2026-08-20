@@ -121,9 +121,9 @@ export function Contact() {
               </span>
             </div>
 
-            <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-6xl text-black leading-[1.04] tracking-tight uppercase mb-10">
+            <h2 className="font-heading font-black text-2xl sm:text-4xl lg:text-[44px] text-black leading-[1.08] tracking-tight uppercase mb-8">
               HAVE A PROBLEM THAT <br />
-              <span className="bg-[#00B2D6] text-black px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000]">
+              <span className="bg-[#00B2D6] text-black px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1">
                 NEEDS TO SHIP?
               </span>
             </h2>

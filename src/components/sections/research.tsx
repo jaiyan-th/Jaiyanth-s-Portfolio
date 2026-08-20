@@ -41,9 +41,9 @@ export function Research() {
               FEATURED ACHIEVEMENTS
             </span>
           </div>
-          <h2 className="font-heading font-black text-3xl sm:text-5xl text-black leading-[1.04] tracking-tight uppercase">
+          <h2 className="font-heading font-black text-2xl sm:text-4xl lg:text-[40px] text-black leading-[1.08] tracking-tight uppercase">
             IEEE RESEARCH &amp; KEY <br />
-            <span className="bg-[#00B2D6] text-black px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000]">
+            <span className="bg-[#00B2D6] text-black px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1">
               ACCOMPLISHMENTS.
             </span>
           </h2>

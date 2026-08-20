@@ -62,18 +62,18 @@ export function Hero() {
               </span>
             </motion.div>
 
-            {/* Display Headline (karolbinkow.ski cyan block highlight style) */}
+            {/* Display Headline (karolbinkow.ski proportions) */}
             <motion.div variants={itemVariants}>
-              <h1 className="font-heading font-black text-4xl sm:text-6xl lg:text-7xl xl:text-[72px] text-black leading-[1.02] tracking-tight uppercase">
+              <h1 className="font-heading font-black text-2xl sm:text-4xl lg:text-5xl xl:text-[52px] text-black leading-[1.08] tracking-tight uppercase">
                 YOU HAVE A PROBLEM. <br />
-                <span className="bg-[#00B2D6] text-black px-3 py-0.5 inline-block border-2 border-black shadow-[4px_4px_0px_#000000] mt-1">
+                <span className="bg-[#00B2D6] text-black px-2.5 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1.5">
                   I HAVE THE SOLUTION.
                 </span>
               </h1>
             </motion.div>
 
             {/* Subtext */}
-            <motion.p variants={itemVariants} className="max-w-xl font-sans text-base text-black/80 leading-relaxed font-semibold">
+            <motion.p variants={itemVariants} className="max-w-lg font-sans text-sm sm:text-base text-black/80 leading-relaxed font-semibold">
               I work across full-stack architecture, applied AI workflows, structured APIs, and intuitive interfaces to turn complex engineering problems into dependable, production-ready solutions.
             </motion.p>
 
@@ -99,9 +99,9 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: ENGINEER SPEC Card (Exact karolbinkow.ski visual spec card) */}
+          {/* Right Column: ENGINEER SPEC Card */}
           <motion.div variants={itemVariants} className="lg:col-span-5 flex justify-center">
-            <div className="w-full max-w-[420px] bg-white border-2 border-black shadow-[6px_6px_0px_#000000]">
+            <div className="w-full max-w-[380px] bg-white border-2 border-black shadow-[5px_5px_0px_#000000]">
               {/* Header */}
               <div className="bg-[#00B2D6] border-b-2 border-black p-3.5">
                 <span className="font-mono text-xs font-black uppercase text-black tracking-widest block">
