@@ -38,12 +38,18 @@ export function Certifications() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-14"
         >
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mb-2">
             <span className="w-2.5 h-2.5 bg-[#00A8C6] border border-black inline-block" />
             <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
-              CERTIFICATIONS
+              CREDENTIALS
             </span>
           </div>
+          <h2 className="font-heading font-black text-2xl sm:text-4xl lg:text-[40px] text-black leading-[1.08] tracking-tight uppercase">
+            FOUR VERIFIED <br />
+            <span className="bg-[#00B2D6] text-black px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1">
+              INDUSTRY CERTIFICATIONS.
+            </span>
+          </h2>
         </motion.div>
 
         {/* Certifications Grid — Exactly like STACK / Skills Section */}
