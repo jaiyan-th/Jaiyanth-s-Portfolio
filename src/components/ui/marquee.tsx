@@ -8,13 +8,19 @@ interface MarqueeProps {
 }
 
 const DEFAULT_ITEMS = [
-  "SYSTEMS ENGINEER",
-  "APPLIED AI WORKFLOWS",
+  "PYTHON",
+  "REACT",
+  "NEXT.JS",
+  "TYPESCRIPT",
+  "FLASK",
+  "SUPABASE",
+  "NESTJS",
+  "GROQ",
+  "MISTRAL",
   "RAG PIPELINES",
-  "FULL-STACK PRODUCTS",
-  "STRUCTURED REST APIS",
-  "RETRIEVAL-GROUNDED AI",
-  "BUILT, NOT JUST DEMOED",
+  "REST APIS",
+  "TAILWIND CSS",
+  "PRISMA ORM",
 ];
 
 export function Marquee({ items = DEFAULT_ITEMS, className = "" }: MarqueeProps) {
@@ -22,12 +28,12 @@ export function Marquee({ items = DEFAULT_ITEMS, className = "" }: MarqueeProps)
   const displayItems = [...items, ...items, ...items, ...items];
 
   return (
-    <div className={`w-full overflow-hidden bg-[#6D2932] text-[#E8D8C4] border-y-2 border-[#561C24] py-2.5 shadow-[0_4px_0_rgba(86,28,36,1)] ${className}`}>
-      <div className="animate-marquee flex items-center gap-6 whitespace-nowrap font-mono text-xs sm:text-sm font-black tracking-widest uppercase">
+    <div className={`w-full overflow-hidden bg-[#0B0C0E] text-[#F5F3EF] border-y border-[#232323] py-3 ${className}`}>
+      <div className="animate-marquee flex items-center gap-8 whitespace-nowrap font-mono text-xs font-bold tracking-widest uppercase">
         {displayItems.map((text, idx) => (
-          <div key={idx} className="flex items-center gap-6">
-            <span>{text}</span>
-            <span className="text-[#E8D8C4]/70 font-mono text-xs">→</span>
+          <div key={idx} className="flex items-center gap-8">
+            <span className="hover:text-[#6D2932] transition-colors">{text}</span>
+            <span className="text-[#6D2932] font-mono text-xs">/</span>
           </div>
         ))}
       </div>

@@ -4,7 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================================
-   JB PORTFOLIO — PURE WHITE & WINE SPEC SYSTEM
+   JB PORTFOLIO — DARK EDITORIAL ENGINEERING SYSTEM
+   Inspired by karolbinkow.ski
    ============================================================ */
 
 @theme inline {
@@ -34,12 +35,12 @@
   --color-popover: var(--elevated);
   --color-popover-foreground: var(--text-primary);
   --color-primary: var(--accent);
-  --color-primary-foreground: #FFFFFF;
+  --color-primary-foreground: #F5F3EF;
   --color-secondary: var(--elevated);
   --color-secondary-foreground: var(--text-primary);
   --color-muted: var(--elevated);
   --color-muted-foreground: var(--text-secondary);
-  --color-accent-foreground: #FFFFFF;
+  --color-accent-foreground: #F5F3EF;
   --color-border: var(--line);
   --color-input: var(--line);
   --color-ring: var(--accent);
@@ -53,38 +54,38 @@
 :root,
 .light,
 .dark {
-  --canvas: #FFFFFF;
-  --surface: #F5EFE6;
-  --elevated: #FFFFFF;
-  --text-primary: #561C24;
-  --text-secondary: rgba(86, 28, 36, 0.6);
-  --line: #E5DCD0;
+  --canvas: #0B0C0E;
+  --surface: #141619;
+  --elevated: #1A1C20;
+  --text-primary: #F5F3EF;
+  --text-secondary: #9A958D;
+  --line: #232323;
   --accent: #6D2932;
-  --accent-2: #561C24;
+  --accent-2: #F5F3EF;
   --accent-warm: #6D2932;
-  --dark-charcoal: #561C24;
+  --dark-charcoal: #0B0C0E;
 
-  --grid-line: rgba(86, 28, 36, 0.04);
-  --node-glow: rgba(109, 41, 50, 0.12);
-  --halo: rgba(109, 41, 50, 0.1);
+  --grid-line: rgba(245, 243, 239, 0.03);
+  --node-glow: rgba(109, 41, 50, 0.15);
+  --halo: rgba(109, 41, 50, 0.12);
 
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 @layer base {
   * {
-    border-color: #E5DCD0;
+    border-color: #232323;
   }
   html {
     -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: auto;
-    -moz-osx-font-smoothing: auto;
-    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
   }
   body {
-    background-color: #FFFFFF;
-    color: #561C24;
+    background-color: #0B0C0E;
+    color: #F5F3EF;
     font-family: var(--font-sans), system-ui, sans-serif;
     overflow-x: hidden;
   }
@@ -132,51 +133,13 @@
     font-weight: 700;
   }
 
-  /* Blueprint coordinate grid - thin hairlines and corner tick marks */
+  /* Editorial background grid */
   .bg-grid {
     background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
       linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
     background-size: 48px 48px;
     background-position: -1px -1px;
   }
-
-  /* Viewfinder corner brackets structure */
-  .blueprint-box {
-    position: relative;
-    border: 1px solid #E5DCD0;
-    background: rgba(245, 239, 230, 0.4);
-  }
-  .blueprint-corner {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-color: #6D2932;
-    border-style: solid;
-    pointer-events: none;
-  }
-  .blueprint-corner-tl { top: -1px; left: -1px; border-width: 1.5px 0 0 1.5px; }
-  .blueprint-corner-tr { top: -1px; right: -1px; border-width: 1.5px 1.5px 0 0; }
-  .blueprint-corner-bl { bottom: -1px; left: -1px; border-width: 0 0 1.5px 1.5px; }
-  .blueprint-corner-br { bottom: -1px; right: -1px; border-width: 0 1.5px 1.5px 0; }
-
-  /* Dimension measurement separator line */
-  .dimension-line {
-    position: relative;
-    height: 1px;
-    background: #E5DCD0;
-    width: 100%;
-  }
-  .dimension-line::before,
-  .dimension-line::after {
-    content: '';
-    position: absolute;
-    top: -4px;
-    width: 1px;
-    height: 9px;
-    background: rgba(86, 28, 36, 0.35);
-  }
-  .dimension-line::before { left: 0; }
-  .dimension-line::after { right: 0; }
 
   .text-hero {
     font-size: clamp(40px, 5.5vw, 82px);
@@ -195,35 +158,21 @@
   }
   .text-body {
     font-size: 15px;
-    line-height: 1.55;
+    line-height: 1.6;
   }
   .text-secondary {
-    color: rgba(86, 28, 36, 0.6);
+    color: #9A958D;
   }
 
-  /* Spec-card hover lift & shadow utility classes */
+  /* Editorial shadows & lifts */
   .shadow-brutal {
-    box-shadow: 4px 4px 0px #561C24;
+    box-shadow: 4px 4px 0px #232323;
   }
   .shadow-brutal-lg {
-    box-shadow: 6px 6px 0px #561C24;
+    box-shadow: 6px 6px 0px #232323;
   }
   .shadow-brutal-wine {
     box-shadow: 4px 4px 0px #6D2932;
-  }
-  .shadow-brutal-wine-lg {
-    box-shadow: 6px 6px 0px #6D2932;
-  }
-  .shadow-brutal-white {
-    box-shadow: 4px 4px 0px #FFFFFF;
-  }
-
-  .hover-brutal-lift {
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .hover-brutal-lift:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 6px 6px 0px #6D2932;
   }
 
   /* Continuous horizontal Marquee Ticker */
@@ -246,24 +195,20 @@
   }
 }
 
-.perspective-1000 {
-  perspective: 1000px;
-}
-
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--canvas);
+  background: #0B0C0E;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(86, 28, 36, 0.25);
+  background: #232323;
   border-radius: 4px;
-  border: 2px solid var(--canvas);
+  border: 2px solid #0B0C0E;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(86, 28, 36, 0.45);
+  background: #6D2932;
 }
 
 /* Hide Next.js Dev Indicator Badge */

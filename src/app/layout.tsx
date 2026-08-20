@@ -172,7 +172,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${unbounded.variable} ${fraunces.variable} ${plusJakartaSans.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${spaceMono.variable} antialiased bg-[#E8D8C4] text-[#561C24] font-sans`}
+        className={`${unbounded.variable} ${fraunces.variable} ${plusJakartaSans.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${spaceMono.variable} antialiased bg-[#0B0C0E] text-[#F5F3EF] font-sans`}
       >
         <ThemeProvider>
           <ScrollProgress />

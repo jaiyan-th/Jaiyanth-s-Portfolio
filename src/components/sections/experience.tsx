@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 
 export function Experience() {
   return (
-    <section id="experience" className="relative bg-[#FFFFFF] border-b-2 border-[#E5DCD0] px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-[#561C24] bg-grid">
+    <section id="experience" className="relative bg-[#0B0C0E] border-b border-[#232323] px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-[#F5F3EF] bg-grid">
       <div className="max-w-7xl mx-auto">
         {/* Section Headline */}
         <motion.div
@@ -14,111 +14,77 @@ export function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-12"
+          className="mb-14 border-b border-[#232323] pb-8"
         >
-          <span className="font-mono text-[10px] font-bold text-[#6D2932] tracking-widest uppercase block mb-1">
-            04 —— EXPERIENCE
+          <span className="font-mono text-xs font-bold text-[#6D2932] tracking-widest uppercase block mb-1">
+            04 —— EXPERIENCE TRACK
           </span>
-          <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#561C24] leading-[1.08] tracking-tight uppercase">
+          <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#F5F3EF] leading-[1.08] tracking-tight uppercase">
             One <span className="text-[#6D2932]">focused</span> AI internship.
           </h2>
-          <p className="font-sans text-xs sm:text-sm text-[#561C24]/75 mt-2 font-semibold">
+          <p className="font-sans text-sm text-[#9A958D] mt-2 font-normal">
             Real engineering work — prototypes that had to run, with the debugging and testing discipline that implies.
           </p>
         </motion.div>
 
-        {/* Two Side-by-Side Spec Cards */}
-        <div className="grid md:grid-cols-2 gap-8 items-stretch">
-          {/* Left: Role Details */}
+        {/* Numbered Process & Impact Layout */}
+        <div className="grid lg:grid-cols-12 gap-12 items-start">
+          {/* Left: Role Context */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            whileHover={{ y: -4, x: -2, boxShadow: "6px 6px 0px #561C24" }}
-            className="border-2 border-[#561C24] p-6 sm:p-8 bg-white shadow-[4px_4px_0px_#561C24] relative flex flex-col justify-between rounded-sm"
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-5 space-y-6"
           >
-            {/* Viewfinder corners */}
-            <span className="blueprint-corner blueprint-corner-tl" />
-            <span className="blueprint-corner blueprint-corner-tr" />
-            <span className="blueprint-corner blueprint-corner-bl" />
-            <span className="blueprint-corner blueprint-corner-br" />
-
-            <div>
-              <div className="flex items-center justify-between border-b-2 border-[#E5DCD0] pb-4 mb-4">
-                <span className="font-mono text-[10px] font-black text-[#561C24]">
-                  {EXPERIENCE.period}
-                </span>
-                <span className="border-2 border-[#561C24] bg-[#6D2932] text-white px-2.5 py-0.5 font-mono text-[9px] uppercase font-black tracking-wider shadow-[1px_1px_0px_#561C24]">
-                  STATUS: COMPLETED
-                </span>
-              </div>
-
-              <h3 className="font-heading font-black text-lg sm:text-2xl text-[#561C24] uppercase mb-1 leading-[1.08]">
+            <div className="space-y-2 border-b border-[#232323] pb-4">
+              <span className="font-mono text-xs font-bold text-[#6D2932] uppercase tracking-widest block">
+                {EXPERIENCE.period} // STATUS: COMPLETED
+              </span>
+              <h3 className="font-heading font-black text-2xl text-[#F5F3EF] uppercase">
                 {EXPERIENCE.role}
               </h3>
-
-              <span className="font-mono text-[11px] uppercase tracking-wider font-black text-[#6D2932] inline-block mb-6">
+              <span className="font-mono text-xs font-bold text-[#9A958D] block uppercase">
                 {EXPERIENCE.organisation}
               </span>
-
-              <p className="font-sans text-xs sm:text-sm text-[#561C24]/85 leading-relaxed font-medium">
-                {EXPERIENCE.reflection}
-              </p>
             </div>
+
+            <p className="font-sans text-sm text-[#9A958D] leading-relaxed font-normal">
+              {EXPERIENCE.reflection}
+            </p>
           </motion.div>
 
-          {/* Right: Vertical Process Flow */}
+          {/* Right: Numbered Workflow Steps (01–08 Style with Hairlines) */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            whileHover={{ y: -4, x: -2, boxShadow: "6px 6px 0px #6D2932" }}
-            className="border-2 border-[#561C24] p-6 sm:p-8 bg-[#F5EFE6] shadow-[4px_4px_0px_#6D2932] relative rounded-sm"
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-7 space-y-4"
           >
-            {/* Viewfinder corners */}
-            <span className="blueprint-corner blueprint-corner-tl" />
-            <span className="blueprint-corner blueprint-corner-tr" />
-            <span className="blueprint-corner blueprint-corner-bl" />
-            <span className="blueprint-corner blueprint-corner-br" />
-
-            <div className="flex items-center justify-between border-b-2 border-[#E5DCD0] pb-4 mb-6">
-              <span className="font-mono text-[10px] font-black uppercase tracking-widest text-[#561C24]">
-                WORKFLOW PIPELINE
-              </span>
-              <span className="font-mono text-[9px] text-[#6D2932] font-black uppercase bg-white px-2 py-0.5 border border-[#E5DCD0] shadow-[1px_1px_0px_#561C24]">
-                8 STAGES
+            <div className="border-b border-[#232323] pb-3 mb-6">
+              <span className="font-mono text-xs font-bold text-[#F5F3EF] uppercase tracking-widest">
+                WORKFLOW PIPELINE // 8 VERIFIED STAGES
               </span>
             </div>
 
-            {/* Vertical process line */}
-            <div className="relative pl-6 space-y-3.5">
-              {/* Vertical line connecting nodes */}
-              <div className="absolute left-[7px] top-2 bottom-2 w-[2px] bg-[#561C24]/20" />
-
-              {/* Checklist items as pipeline nodes */}
+            <div className="divide-y divide-[#232323]">
               {EXPERIENCE.work.map((item, idx) => {
                 const stageNum = String(idx + 1).padStart(2, "0");
                 return (
-                  <motion.div
-                    key={item}
-                    whileHover={{ x: 4 }}
-                    className="flex items-center justify-between relative group cursor-default"
-                  >
-                    <div className="flex items-center gap-3">
-                      {/* Node point */}
-                      <div className="absolute left-[-23px] w-3 h-3 rounded-full border-2 border-[#561C24] bg-white flex items-center justify-center group-hover:bg-[#6D2932] transition-colors">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#6D2932] group-hover:bg-white" />
-                      </div>
-                      <span className="font-mono text-[10px] font-black text-[#561C24] uppercase tracking-wider group-hover:text-[#6D2932] transition-colors">
+                  <div key={item} className="py-3.5 flex items-center justify-between group">
+                    <div className="flex items-center gap-4">
+                      <span className="font-mono text-xs font-bold text-[#6D2932]">
+                        {stageNum}
+                      </span>
+                      <span className="font-mono text-xs text-[#F5F3EF] uppercase tracking-wider group-hover:text-[#6D2932] transition-colors">
                         {item}
                       </span>
                     </div>
-                    <span className="font-mono text-[9px] text-[#561C24]/60 font-black">
-                      {stageNum}
+                    <span className="font-mono text-[10px] text-[#9A958D] uppercase">
+                      VERIFIED
                     </span>
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
