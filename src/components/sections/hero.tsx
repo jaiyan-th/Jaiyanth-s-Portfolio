@@ -62,20 +62,19 @@ export function Hero() {
               </span>
             </motion.div>
 
-            {/* Display Headline (Exact karolbinkow.ski block cyan highlight style) */}
+            {/* Display Headline (karolbinkow.ski cyan block highlight style) */}
             <motion.div variants={itemVariants}>
               <h1 className="font-heading font-black text-4xl sm:text-6xl lg:text-7xl xl:text-[72px] text-black leading-[1.02] tracking-tight uppercase">
-                EVERY PROBLEM <br />
-                IS A SYSTEM. <br />
+                YOU HAVE A PROBLEM. <br />
                 <span className="bg-[#00B2D6] text-black px-3 py-0.5 inline-block border-2 border-black shadow-[4px_4px_0px_#000000] mt-1">
-                  I DESIGN &amp; SHIP IT.
+                  I HAVE THE SOLUTION.
                 </span>
               </h1>
             </motion.div>
 
             {/* Subtext */}
             <motion.p variants={itemVariants} className="max-w-xl font-sans text-base text-black/80 leading-relaxed font-semibold">
-              I work across the full stack — AI workflows, backend architecture, structured APIs, and user interfaces — to turn complex requirements into software that actually ships.
+              I work across full-stack architecture, applied AI workflows, structured APIs, and intuitive interfaces to turn complex engineering problems into dependable, production-ready solutions.
             </motion.p>
 
             {/* CTA Action Buttons */}
