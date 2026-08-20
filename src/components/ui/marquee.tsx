@@ -22,12 +22,12 @@ export function Marquee({ items = DEFAULT_ITEMS, className = "" }: MarqueeProps)
   const displayItems = [...items, ...items, ...items, ...items];
 
   return (
-    <div className={`w-full overflow-hidden bg-[#2F5D46] text-white border-y-2 border-[#14231C] py-2.5 shadow-[0_4px_0_rgba(20,35,28,1)] ${className}`}>
+    <div className={`w-full overflow-hidden bg-[#6D2932] text-[#E8D8C4] border-y-2 border-[#561C24] py-2.5 shadow-[0_4px_0_rgba(86,28,36,1)] ${className}`}>
       <div className="animate-marquee flex items-center gap-6 whitespace-nowrap font-mono text-xs sm:text-sm font-black tracking-widest uppercase">
         {displayItems.map((text, idx) => (
           <div key={idx} className="flex items-center gap-6">
             <span>{text}</span>
-            <span className="text-white/70 font-mono text-xs">→</span>
+            <span className="text-[#E8D8C4]/70 font-mono text-xs">→</span>
           </div>
         ))}
       </div>

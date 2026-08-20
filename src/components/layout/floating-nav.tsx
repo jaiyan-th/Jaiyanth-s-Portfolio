@@ -38,7 +38,7 @@ export function FloatingNav() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-[#F6F3EC]/95 backdrop-blur-md border-b-2 border-[#14231C] px-4 py-1.5 md:px-8 shadow-sm">
+    <header className="sticky top-0 z-50 bg-[#E8D8C4]/95 backdrop-blur-md border-b-2 border-[#561C24] px-4 py-1.5 md:px-8 shadow-sm">
       <nav aria-label="Main Navigation" className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Left: Logo + Name -> Scrolls to #hero */}
         <motion.a
@@ -48,16 +48,16 @@ export function FloatingNav() {
           whileTap={{ scale: 0.97 }}
           className="flex items-center gap-3 group min-h-[44px] min-w-[44px]"
         >
-          <div className="w-8 h-8 bg-[#14231C] flex items-center justify-center border-2 border-[#14231C] shadow-[2px_2px_0px_#2F5D46] transition-shadow group-hover:shadow-[3px_3px_0px_#2F5D46]">
-            <span className="text-white text-[11px] font-black tracking-tighter font-mono">JB</span>
+          <div className="w-8 h-8 bg-[#561C24] flex items-center justify-center border-2 border-[#561C24] shadow-[2px_2px_0px_#6D2932] transition-shadow group-hover:shadow-[3px_3px_0px_#6D2932]">
+            <span className="text-[#E8D8C4] text-[11px] font-black tracking-tighter font-mono">JB</span>
           </div>
-          <span className="font-mono font-black text-sm sm:text-base tracking-wider text-[#14231C] uppercase">
+          <span className="font-mono font-black text-sm sm:text-base tracking-wider text-[#561C24] uppercase">
             JAIYANTH B
           </span>
         </motion.a>
 
         {/* Center Nav Links - Desktop */}
-        <div className="hidden lg:flex items-center gap-2 bg-white/70 p-1.5 border border-[#14231C]/20 rounded-md">
+        <div className="hidden lg:flex items-center gap-2 bg-white/60 p-1.5 border border-[#561C24]/20 rounded-md">
           {navItems.map((item) => {
             const isActive = active === item.href;
             return (
@@ -66,14 +66,14 @@ export function FloatingNav() {
                 href={item.href}
                 className={`font-mono text-[11px] uppercase tracking-widest font-black px-3.5 py-2 min-h-[44px] inline-flex items-center justify-center transition-all relative rounded-sm ${
                   isActive
-                    ? "text-white bg-[#2F5D46] border border-[#14231C] shadow-[2px_2px_0px_#14231C]"
-                    : "text-[#14231C]/80 hover:text-[#14231C] hover:bg-[#14231C]/5"
+                    ? "text-white bg-[#6D2932] border border-[#561C24] shadow-[2px_2px_0px_#561C24]"
+                    : "text-[#561C24]/80 hover:text-[#561C24] hover:bg-[#561C24]/5"
                 }`}
               >
                 {isActive && (
                   <motion.div
                     layoutId="activeNavTab"
-                    className="absolute inset-0 bg-[#2F5D46] border border-[#14231C] shadow-[2px_2px_0px_#14231C] -z-10 rounded-sm"
+                    className="absolute inset-0 bg-[#6D2932] border border-[#561C24] shadow-[2px_2px_0px_#561C24] -z-10 rounded-sm"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -87,9 +87,9 @@ export function FloatingNav() {
         <div className="flex items-center gap-3">
           <motion.a
             href="#contact"
-            whileHover={{ y: -2, x: -1, boxShadow: "4px 4px 0px #14231C" }}
-            whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #14231C" }}
-            className="bg-[#2F5D46] text-white font-mono text-[10.5px] font-black tracking-wider uppercase px-4 py-2.5 min-h-[44px] min-w-[44px] border-2 border-[#14231C] shadow-[2px_2px_0px_#14231C] transition-all text-center leading-tight flex flex-col justify-center"
+            whileHover={{ y: -2, x: -1, boxShadow: "4px 4px 0px #561C24" }}
+            whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #561C24" }}
+            className="bg-[#6D2932] text-white font-mono text-[10.5px] font-black tracking-wider uppercase px-4 py-2.5 min-h-[44px] min-w-[44px] border-2 border-[#561C24] shadow-[2px_2px_0px_#561C24] transition-all text-center leading-tight flex flex-col justify-center"
           >
             <span>GET IN</span>
             <span>TOUCH</span>
@@ -100,7 +100,7 @@ export function FloatingNav() {
             type="button"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-            className="lg:hidden p-2.5 min-h-[44px] min-w-[44px] border-2 border-[#14231C] bg-white shadow-[2px_2px_0px_#14231C] text-[#14231C] flex items-center justify-center"
+            className="lg:hidden p-2.5 min-h-[44px] min-w-[44px] border-2 border-[#561C24] bg-white shadow-[2px_2px_0px_#561C24] text-[#561C24] flex items-center justify-center"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -115,7 +115,7 @@ export function FloatingNav() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden mt-3 pt-3 border-t-2 border-[#14231C] bg-white p-4 shadow-[4px_4px_0px_#14231C]"
+            className="lg:hidden mt-3 pt-3 border-t-2 border-[#561C24] bg-white p-4 shadow-[4px_4px_0px_#561C24]"
           >
             <div className="flex flex-col space-y-2">
               {navItems.map((item) => {
@@ -127,8 +127,8 @@ export function FloatingNav() {
                     onClick={() => setIsOpen(false)}
                     className={`font-mono text-xs uppercase tracking-widest font-black p-3.5 min-h-[44px] flex items-center border-2 ${
                       isActive
-                        ? "bg-[#2F5D46] text-white border-[#14231C] shadow-[2px_2px_0px_#14231C]"
-                        : "bg-[#F6F3EC] text-[#14231C] border-[#14231C]/20 hover:border-[#14231C]"
+                        ? "bg-[#6D2932] text-white border-[#561C24] shadow-[2px_2px_0px_#561C24]"
+                        : "bg-[#E8D8C4] text-[#561C24] border-[#561C24]/20 hover:border-[#561C24]"
                     }`}
                   >
                     {item.label}

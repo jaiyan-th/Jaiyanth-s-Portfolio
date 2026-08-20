@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================================
-   JB PORTFOLIO — FOREST & BRONZE SPEC SYSTEM
+   JB PORTFOLIO — WINE & MAROON SPEC SYSTEM
    ============================================================ */
 
 @theme inline {
@@ -34,12 +34,12 @@
   --color-popover: var(--elevated);
   --color-popover-foreground: var(--text-primary);
   --color-primary: var(--accent);
-  --color-primary-foreground: var(--canvas);
+  --color-primary-foreground: #FFFFFF;
   --color-secondary: var(--elevated);
   --color-secondary-foreground: var(--text-primary);
   --color-muted: var(--elevated);
   --color-muted-foreground: var(--text-secondary);
-  --color-accent-foreground: var(--canvas);
+  --color-accent-foreground: #FFFFFF;
   --color-border: var(--line);
   --color-input: var(--line);
   --color-ring: var(--accent);
@@ -53,27 +53,27 @@
 :root,
 .light,
 .dark {
-  --canvas: #F6F3EC;
+  --canvas: #E8D8C4;
   --elevated: #FFFFFF;
-  --surface: #F6F3EC;
-  --text-primary: #14231C;
-  --text-secondary: #6B6459;
-  --line: #DCD5C4;
-  --accent: #2F5D46;
-  --accent-2: #B08D57;
-  --accent-warm: #2F5D46;
-  --dark-charcoal: #14231C;
+  --surface: #C7B7A3;
+  --text-primary: #561C24;
+  --text-secondary: rgba(86, 28, 36, 0.68);
+  --line: rgba(86, 28, 36, 0.22);
+  --accent: #6D2932;
+  --accent-2: #561C24;
+  --accent-warm: #6D2932;
+  --dark-charcoal: #561C24;
 
-  --grid-line: rgba(20, 35, 28, 0.04);
-  --node-glow: rgba(47, 93, 70, 0.12);
-  --halo: rgba(47, 93, 70, 0.1);
+  --grid-line: rgba(86, 28, 36, 0.05);
+  --node-glow: rgba(109, 41, 50, 0.12);
+  --halo: rgba(109, 41, 50, 0.1);
 
   color-scheme: light;
 }
 
 @layer base {
   * {
-    border-color: #DCD5C4;
+    border-color: rgba(86, 28, 36, 0.22);
   }
   html {
     -webkit-text-size-adjust: 100%;
@@ -83,14 +83,14 @@
     scroll-behavior: smooth;
   }
   body {
-    background-color: #F6F3EC;
-    color: #14231C;
+    background-color: #E8D8C4;
+    color: #561C24;
     font-family: var(--font-sans), system-ui, sans-serif;
     overflow-x: hidden;
   }
 
   ::selection {
-    background: #2F5D46;
+    background: #6D2932;
     color: #FFFFFF;
   }
 
@@ -143,14 +143,14 @@
   /* Viewfinder corner brackets structure */
   .blueprint-box {
     position: relative;
-    border: 1px solid #DCD5C4;
+    border: 1px solid rgba(86, 28, 36, 0.15);
     background: rgba(255, 255, 255, 0.4);
   }
   .blueprint-corner {
     position: absolute;
     width: 8px;
     height: 8px;
-    border-color: #2F5D46;
+    border-color: #6D2932;
     border-style: solid;
     pointer-events: none;
   }
@@ -159,15 +159,11 @@
   .blueprint-corner-bl { bottom: -1px; left: -1px; border-width: 0 0 1.5px 1.5px; }
   .blueprint-corner-br { bottom: -1px; right: -1px; border-width: 0 1.5px 1.5px 0; }
 
-  .blueprint-corner-bronze {
-    border-color: #B08D57;
-  }
-
   /* Dimension measurement separator line */
   .dimension-line {
     position: relative;
     height: 1px;
-    background: #DCD5C4;
+    background: rgba(86, 28, 36, 0.15);
     width: 100%;
   }
   .dimension-line::before,
@@ -177,7 +173,7 @@
     top: -4px;
     width: 1px;
     height: 9px;
-    background: #6B6459;
+    background: rgba(86, 28, 36, 0.35);
   }
   .dimension-line::before { left: 0; }
   .dimension-line::after { right: 0; }
@@ -202,24 +198,21 @@
     line-height: 1.55;
   }
   .text-secondary {
-    color: #6B6459;
+    color: rgba(86, 28, 36, 0.68);
   }
 
   /* Spec-card hover lift & shadow utility classes */
   .shadow-brutal {
-    box-shadow: 4px 4px 0px #14231C;
+    box-shadow: 4px 4px 0px #561C24;
   }
   .shadow-brutal-lg {
-    box-shadow: 6px 6px 0px #14231C;
+    box-shadow: 6px 6px 0px #561C24;
   }
-  .shadow-brutal-green {
-    box-shadow: 4px 4px 0px #2F5D46;
+  .shadow-brutal-wine {
+    box-shadow: 4px 4px 0px #6D2932;
   }
-  .shadow-brutal-green-lg {
-    box-shadow: 6px 6px 0px #2F5D46;
-  }
-  .shadow-brutal-bronze {
-    box-shadow: 4px 4px 0px #B08D57;
+  .shadow-brutal-wine-lg {
+    box-shadow: 6px 6px 0px #6D2932;
   }
   .shadow-brutal-white {
     box-shadow: 4px 4px 0px #FFFFFF;
@@ -230,7 +223,7 @@
   }
   .hover-brutal-lift:hover {
     transform: translate(-3px, -3px);
-    box-shadow: 6px 6px 0px #2F5D46;
+    box-shadow: 6px 6px 0px #6D2932;
   }
 
   /* Continuous horizontal Marquee Ticker */
@@ -265,12 +258,12 @@
   background: var(--canvas);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(20, 35, 28, 0.25);
+  background: rgba(86, 28, 36, 0.3);
   border-radius: 4px;
   border: 2px solid var(--canvas);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(20, 35, 28, 0.45);
+  background: rgba(86, 28, 36, 0.55);
 }
 
 /* Hide Next.js Dev Indicator Badge */

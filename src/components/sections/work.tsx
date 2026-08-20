@@ -12,7 +12,7 @@ export function Work() {
   const [selectedSlug, setSelectedSlug] = React.useState<string | null>(null);
 
   return (
-    <section id="work" className="relative bg-[#F6F3EC] border-b-2 border-[#14231C] py-16 md:py-24 text-[#14231C] overflow-hidden bg-grid">
+    <section id="work" className="relative bg-[#C7B7A3] border-b-2 border-[#561C24] py-16 md:py-24 text-[#561C24] overflow-hidden bg-grid">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -22,15 +22,15 @@ export function Work() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="mb-16 md:mb-20"
         >
-          <span className="font-mono text-[10px] font-bold text-[#2F5D46] tracking-widest uppercase block mb-1">
+          <span className="font-mono text-[10px] font-bold text-[#6D2932] tracking-widest uppercase block mb-1">
             03 —— SELECTED WORK
           </span>
-          <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-6xl text-[#14231C] leading-[1.06] tracking-tight uppercase">
+          <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-6xl text-[#561C24] leading-[1.06] tracking-tight uppercase">
             THREE PROJECTS, <br />
-            <span className="text-[#2F5D46]">THREE SYSTEMS.</span>
+            <span className="text-[#6D2932]">THREE SYSTEMS.</span>
           </h2>
-          <div className="mt-4 border-l-2 border-[#2F5D46] pl-4">
-            <p className="font-sans text-xs sm:text-sm text-[#6B6459] font-semibold">
+          <div className="mt-4 border-l-2 border-[#6D2932] pl-4">
+            <p className="font-sans text-xs sm:text-sm text-[#561C24]/80 font-semibold">
               Each project represents a fully realized, debugged, and integrated software artifact.
             </p>
           </div>
@@ -55,16 +55,16 @@ export function Work() {
               >
                 {/* Image Column */}
                 <div className={`lg:col-span-7 ${isEven ? "" : "lg:col-start-6"}`}>
-                  <Card3DTilt glowColor="rgba(47, 93, 70, 0.25)">
-                    <div className="relative aspect-[16/10] w-full border-2 border-[#14231C] overflow-hidden bg-white shadow-[8px_8px_0px_#2F5D46] group rounded-sm transition-all hover:shadow-[10px_10px_0px_#14231C]">
+                  <Card3DTilt glowColor="rgba(109, 41, 50, 0.25)">
+                    <div className="relative aspect-[16/10] w-full border-2 border-[#561C24] overflow-hidden bg-white shadow-[8px_8px_0px_#6D2932] group rounded-sm transition-all hover:shadow-[10px_10px_0px_#561C24]">
                       {/* Top Glowing Accent Line */}
-                      <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#2F5D46] z-20" />
+                      <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#6D2932] z-20" />
                       
                       {/* Viewfinder corners */}
-                      <span className="absolute -top-[1px] -left-[1px] w-3.5 h-3.5 border-t-2 border-l-2 border-[#2F5D46] z-30 pointer-events-none" />
-                      <span className="absolute -top-[1px] -right-[1px] w-3.5 h-3.5 border-t-2 border-r-2 border-[#2F5D46] z-30 pointer-events-none" />
-                      <span className="absolute -bottom-[1px] -left-[1px] w-3.5 h-3.5 border-b-2 border-l-2 border-[#2F5D46] z-30 pointer-events-none" />
-                      <span className="absolute -bottom-[1px] -right-[1px] w-3.5 h-3.5 border-b-2 border-r-2 border-[#2F5D46] z-30 pointer-events-none" />
+                      <span className="absolute -top-[1px] -left-[1px] w-3.5 h-3.5 border-t-2 border-l-2 border-[#6D2932] z-30 pointer-events-none" />
+                      <span className="absolute -top-[1px] -right-[1px] w-3.5 h-3.5 border-t-2 border-r-2 border-[#6D2932] z-30 pointer-events-none" />
+                      <span className="absolute -bottom-[1px] -left-[1px] w-3.5 h-3.5 border-b-2 border-l-2 border-[#6D2932] z-30 pointer-events-none" />
+                      <span className="absolute -bottom-[1px] -right-[1px] w-3.5 h-3.5 border-b-2 border-r-2 border-[#6D2932] z-30 pointer-events-none" />
 
                       <Image
                         src={project.image || `/images/projects/${project.slug}.jpg`}
@@ -80,39 +80,39 @@ export function Work() {
                 {/* Details Column */}
                 <div className={`lg:col-span-5 space-y-5 ${isEven ? "" : "lg:col-start-1"}`}>
                   <div className="flex items-center gap-4">
-                    <span className="font-mono text-[10.5px] font-extrabold text-[#2F5D46] tracking-widest uppercase">
+                    <span className="font-mono text-[10.5px] font-extrabold text-[#6D2932] tracking-widest uppercase">
                       PROJECT {projectNum} / SELECTED WORK
                     </span>
-                    <div className="h-[1px] flex-1 bg-[#DCD5C4]" />
+                    <div className="h-[1px] flex-1 bg-[#561C24]/20" />
                   </div>
 
-                  <h3 className="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-[#14231C] tracking-tight uppercase leading-[1.06]">
+                  <h3 className="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-[#561C24] tracking-tight uppercase leading-[1.06]">
                     {project.title}
                   </h3>
 
-                  <p className="font-sans text-xs sm:text-sm text-[#14231C]/90 leading-relaxed font-medium">
+                  <p className="font-sans text-xs sm:text-sm text-[#561C24]/90 leading-relaxed font-medium">
                     {project.summary}
                   </p>
 
-                  <div className="p-3 border-2 border-[#14231C] bg-white rounded-sm shadow-[2px_2px_0px_#B08D57]">
-                    <span className="block font-mono text-[9px] font-black uppercase tracking-widest text-[#B08D57] mb-1">
+                  <div className="p-3.5 border-2 border-[#561C24] bg-white rounded-sm shadow-[3px_3px_0px_#561C24]">
+                    <span className="block font-mono text-[9px] font-black uppercase tracking-widest text-[#6D2932] mb-1">
                       ENGINEERING FOCUS
                     </span>
-                    <p className="font-mono text-[10.5px] text-[#14231C] font-black leading-snug">
+                    <p className="font-mono text-[10.5px] text-[#561C24] font-black leading-snug">
                       {project.engineeringFocus}
                     </p>
                   </div>
 
                   <div>
-                    <span className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#6B6459] mb-2">
+                    <span className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#561C24]/70 mb-2">
                       STACK
                     </span>
                     <div className="flex flex-wrap gap-2">
                       {project.stack.map((tech) => (
                         <motion.span
                           key={tech}
-                          whileHover={{ scale: 1.04, y: -1, borderColor: "#B08D57" }}
-                          className="font-mono text-[9.5px] font-black uppercase tracking-wider px-3 py-1 border border-[#14231C]/40 bg-white text-[#14231C] shadow-[2px_2px_0px_#2F5D46] transition-colors"
+                          whileHover={{ scale: 1.04, y: -1, borderColor: "#6D2932" }}
+                          className="font-mono text-[9.5px] font-black uppercase tracking-wider px-3 py-1 border-2 border-[#6D2932] bg-white text-[#561C24] shadow-[2px_2px_0px_#561C24] transition-colors"
                         >
                           {tech}
                         </motion.span>
@@ -125,9 +125,9 @@ export function Work() {
                     <motion.button
                       type="button"
                       onClick={() => setSelectedSlug(project.slug)}
-                      whileHover={{ y: -2, x: -1, boxShadow: "4px 4px 0px #14231C" }}
-                      whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #14231C" }}
-                      className="bg-[#2F5D46] hover:bg-[#254B38] border-2 border-[#14231C] text-white font-mono text-[10.5px] font-black uppercase tracking-widest px-5 py-3 transition-colors inline-flex items-center gap-2 relative shadow-[2px_2px_0px_#14231C] group cursor-pointer"
+                      whileHover={{ y: -2, x: -1, boxShadow: "4px 4px 0px #561C24" }}
+                      whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #561C24" }}
+                      className="bg-[#6D2932] hover:bg-[#582027] border-2 border-[#561C24] text-white font-mono text-[10.5px] font-black uppercase tracking-widest px-5 py-3 transition-colors inline-flex items-center gap-2 relative shadow-[2px_2px_0px_#561C24] group cursor-pointer"
                     >
                       <span>INSPECT ARCHITECTURE</span>
                       <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
@@ -138,12 +138,12 @@ export function Work() {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        whileHover={{ y: -2, x: -1, boxShadow: "4px 4px 0px #2F5D46" }}
-                        whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #2F5D46" }}
-                        className="bg-white hover:bg-[#14231C]/5 border-2 border-[#14231C] text-[#14231C] font-mono text-[10.5px] font-black uppercase tracking-widest px-5 py-3 transition-colors inline-flex items-center gap-2 relative shadow-[2px_2px_0px_#2F5D46]"
+                        whileHover={{ y: -2, x: -1, boxShadow: "4px 4px 0px #6D2932" }}
+                        whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #6D2932" }}
+                        className="bg-white hover:bg-[#561C24]/5 border-2 border-[#561C24] text-[#561C24] font-mono text-[10.5px] font-black uppercase tracking-widest px-5 py-3 transition-colors inline-flex items-center gap-2 relative shadow-[2px_2px_0px_#6D2932]"
                       >
                         <span>LIVE DEPLOYMENT</span>
-                        <ExternalLink className="w-3.5 h-3.5 text-[#2F5D46]" />
+                        <ExternalLink className="w-3.5 h-3.5 text-[#6D2932]" />
                       </motion.a>
                     )}
                   </div>

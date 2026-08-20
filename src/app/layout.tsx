@@ -172,14 +172,14 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${unbounded.variable} ${fraunces.variable} ${plusJakartaSans.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${spaceMono.variable} antialiased bg-[#F6F3EC] text-[#14231C] font-sans`}
+        className={`${unbounded.variable} ${fraunces.variable} ${plusJakartaSans.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${spaceMono.variable} antialiased bg-[#E8D8C4] text-[#561C24] font-sans`}
       >
         <ThemeProvider>
           <ScrollProgress />
           <CursorSpotlight />
           <a
             href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#2F5D46] focus:text-white focus:text-sm focus:font-medium"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#6D2932] focus:text-white focus:text-sm focus:font-medium"
           >
             Skip to content
           </a>
