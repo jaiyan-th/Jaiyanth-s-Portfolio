@@ -29,7 +29,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative bg-[#E8D8C4] border-b-2 border-[#561C24] px-4 sm:px-6 lg:px-8 py-8 lg:py-14 min-h-[calc(100vh-60px)] flex flex-col justify-center overflow-hidden bg-grid"
+      className="relative bg-[#FFFFFF] border-b-2 border-[#E5DCD0] px-4 sm:px-6 lg:px-8 py-8 lg:py-14 min-h-[calc(100vh-60px)] flex flex-col justify-center overflow-hidden bg-grid"
     >
       <motion.div
         variants={containerVariants}
@@ -42,10 +42,10 @@ export function Hero() {
           
           {/* Top Eyebrow: 00 -- [ AVAILABLE FOR ROLES ] */}
           <motion.div variants={itemVariants} className="flex items-center gap-3">
-            <span className="font-mono text-xs font-bold text-[#561C24]/65 tracking-wider">
+            <span className="font-mono text-xs font-bold text-[#561C24]/60 tracking-wider">
               00 ——
             </span>
-            <div className="border border-[#561C24]/30 bg-white/80 px-3 py-1 rounded-sm shadow-[1.5px_1.5px_0px_#561C24] flex items-center gap-2">
+            <div className="border border-[#E5DCD0] bg-[#F5EFE6] px-3 py-1 rounded-sm shadow-[1.5px_1.5px_0px_#561C24] flex items-center gap-2">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6D2932] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#6D2932]" />
@@ -56,7 +56,7 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* Refined Display Headline (~18% scaled down for elegance with wine red mark) */}
+          {/* Display Headline (~18% scaled down for elegance with wine red mark) */}
           <motion.div variants={itemVariants} className="relative inline-block">
             <h1 className="font-heading font-black text-3xl sm:text-4xl lg:text-5xl xl:text-[50px] text-[#561C24] leading-[1.04] tracking-tight uppercase">
               EVERY PROBLEM <br />
@@ -68,12 +68,12 @@ export function Hero() {
 
           {/* Sub-badge: BUILT, NOT JUST DEMOED. */}
           <motion.div variants={itemVariants}>
-            <span className="font-mono text-[10.5px] font-extrabold uppercase tracking-widest text-[#6D2932] border border-[#6D2932]/40 bg-[#6D2932]/10 px-3.5 py-1.5 inline-block rounded-sm">
+            <span className="font-mono text-[10.5px] font-extrabold uppercase tracking-widest text-[#6D2932] border border-[#6D2932]/30 bg-[#F5EFE6] px-3.5 py-1.5 inline-block rounded-sm shadow-[1.5px_1.5px_0px_#561C24]">
               BUILT, NOT JUST DEMOED.
             </span>
           </motion.div>
 
-          {/* Monospace Supporting Description */}
+          {/* Supporting Description */}
           <motion.p variants={itemVariants} className="max-w-xl font-mono text-xs sm:text-[13px] text-[#561C24] leading-relaxed font-semibold">
             I work across the full stack — AI workflows, backend architecture, structured APIs, and interfaces — to turn messy, real-world problems into software that actually works.
           </motion.p>
@@ -84,7 +84,7 @@ export function Hero() {
               href="#work"
               whileHover={{ y: -3, x: -2, boxShadow: "5px 5px 0px #561C24" }}
               whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #561C24" }}
-              className="border-2 border-[#561C24] font-mono text-xs font-black uppercase tracking-widest px-6 py-3.5 inline-flex items-center gap-2 relative bg-[#561C24] text-white shadow-[3px_3px_0px_#6D2932] group"
+              className="border-2 border-[#561C24] font-mono text-xs font-black uppercase tracking-widest px-6 py-3.5 inline-flex items-center gap-2 relative bg-[#6D2932] text-white shadow-[3px_3px_0px_#561C24] group cursor-pointer"
             >
               <span>VIEW SELECTED WORK</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -101,11 +101,11 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Right Column: Clean Spec Sheet HUD Card (No Terminal Metaphor) */}
+        {/* Right Column: Clean "Engineering Profile" Spec Card Panel */}
         <motion.div variants={itemVariants} className="lg:col-span-5 relative flex flex-col items-center justify-center my-auto">
-          <Card3DTilt maxDegree={6} glowColor="rgba(109, 41, 50, 0.25)" className="w-full max-w-[480px] lg:max-w-[500px]">
-            {/* Bordered Spec Panel with side watermark label & backdrop transparency */}
-            <div className="w-full bg-white/95 backdrop-blur-md relative z-10 border-2 border-[#561C24] shadow-[8px_8px_0px_#6D2932] rounded-sm overflow-hidden transition-all duration-300 hover:shadow-[10px_10px_0px_#6D2932]">
+          <Card3DTilt maxDegree={6} glowColor="rgba(109, 41, 50, 0.2)" className="w-full max-w-[480px] lg:max-w-[500px]">
+            {/* Bordered Spec Panel in #F5EFE6 with #E5DCD0 / #561C24 borders */}
+            <div className="w-full bg-[#F5EFE6] relative z-10 border-2 border-[#561C24] shadow-[8px_8px_0px_#561C24] rounded-sm overflow-hidden transition-all duration-300 hover:shadow-[10px_10px_0px_#6D2932]">
               
               {/* Vertical Side Watermark Label */}
               <div className="absolute right-1 top-1/2 -translate-y-1/2 font-mono text-[8.5px] font-bold text-[#561C24]/30 uppercase tracking-widest rotate-90 origin-center pointer-events-none select-none z-20">
@@ -113,27 +113,27 @@ export function Hero() {
               </div>
 
               {/* Viewfinder Corner Brackets */}
-              <span className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-[#6D2932] z-20 pointer-events-none" />
-              <span className="absolute top-0 right-0 w-2.5 h-2.5 border-t-2 border-r-2 border-[#6D2932] z-20 pointer-events-none" />
-              <span className="absolute bottom-0 left-0 w-2.5 h-2.5 border-b-2 border-l-2 border-[#6D2932] z-20 pointer-events-none" />
-              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-[#6D2932] z-20 pointer-events-none" />
+              <span className="blueprint-corner blueprint-corner-tl" />
+              <span className="blueprint-corner blueprint-corner-tr" />
+              <span className="blueprint-corner blueprint-corner-bl" />
+              <span className="blueprint-corner blueprint-corner-br" />
 
               {/* Card Header Strip */}
-              <div className="bg-[#E8D8C4]/95 px-4 py-2.5 flex items-center justify-between border-b-2 border-[#561C24]">
+              <div className="bg-white px-4 py-2.5 flex items-center justify-between border-b-2 border-[#E5DCD0]">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#6D2932] animate-pulse" />
                   <span className="font-mono text-xs font-black uppercase text-[#561C24] tracking-wider">
                     ENGINEERING PROFILE
                   </span>
                 </div>
-                <span className="font-mono text-[10px] font-black uppercase tracking-widest text-[#6D2932] bg-white px-2 py-0.5 border border-[#561C24] shadow-[1px_1px_0px_#6D2932]">
+                <span className="font-mono text-[10px] font-black uppercase tracking-widest text-[#6D2932] bg-[#F5EFE6] px-2 py-0.5 border border-[#E5DCD0]">
                   SPEC SHEET v2.6
                 </span>
               </div>
 
-              {/* System Architecture Node Flow Diagram */}
-              <div className="p-4 bg-[#E8D8C4]/50 border-b border-[#561C24]/20 relative">
-                <div className="flex items-center justify-between font-mono text-[9.5px] font-bold text-[#561C24]/70 uppercase tracking-wider mb-2.5">
+              {/* System Pipeline Flow Graphics */}
+              <div className="p-4 bg-white/70 border-b border-[#E5DCD0] relative">
+                <div className="flex items-center justify-between font-mono text-[9.5px] font-bold text-[#561C24]/60 uppercase tracking-wider mb-2.5">
                   <span>PIPELINE ARCHITECTURE</span>
                   <span className="text-[#6D2932] font-black flex items-center gap-1">
                     <Radio className="w-3 h-3 text-[#6D2932] animate-pulse" />
@@ -144,11 +144,11 @@ export function Hero() {
                 {/* Node Pipeline Graphics */}
                 <div className="grid grid-cols-3 gap-2 items-center text-center font-mono">
                   {/* Node 1: Intake */}
-                  <div className="p-2 border border-[#561C24]/20 bg-white rounded-sm shadow-[1.5px_1.5px_0px_#561C24] relative">
+                  <div className="p-2 border border-[#E5DCD0] bg-white rounded-sm shadow-[1.5px_1.5px_0px_#561C24] relative">
                     <div className="flex justify-center mb-1">
                       <Radio className="w-4 h-4 text-[#6D2932]" />
                     </div>
-                    <span className="text-[9px] font-black text-[#561C24]/70 block uppercase">INTAKE</span>
+                    <span className="text-[9px] font-black text-[#561C24]/60 block uppercase">INTAKE</span>
                     <span className="text-[10px] font-black text-[#561C24] block truncate">DATA SIGNAL</span>
                   </div>
 
@@ -161,7 +161,7 @@ export function Hero() {
                         className="w-1.5 h-1.5 rounded-full bg-[#561C24] absolute"
                       />
                     </div>
-                    <span className="text-[8px] font-mono font-bold text-[#561C24]/70 uppercase mt-1">REST / API</span>
+                    <span className="text-[8px] font-mono font-bold text-[#561C24]/60 uppercase mt-1">REST / API</span>
                   </div>
 
                   {/* Node 2: Core Processing */}
@@ -175,28 +175,28 @@ export function Hero() {
                 </div>
               </div>
 
-              {/* Clean 2x2 Metric Spec Grid (No terminal prompts, no blinking cursors) */}
+              {/* Clean 2x2 Metric Spec Grid */}
               <div className="p-4 space-y-3 font-mono">
                 {/* 2-Column Grid */}
                 <div className="grid grid-cols-2 gap-2.5">
-                  <div className="border border-[#561C24]/20 bg-[#E8D8C4]/70 p-2.5 rounded-sm">
-                    <span className="text-[9px] font-bold text-[#561C24]/65 uppercase tracking-widest block mb-1">01 / LOCATION</span>
+                  <div className="border border-[#E5DCD0] bg-white p-2.5 rounded-sm">
+                    <span className="text-[9px] font-bold text-[#561C24]/60 uppercase tracking-widest block mb-1">01 / LOCATION</span>
                     <span className="text-[11px] font-black text-[#561C24] block tracking-tight">Karur, TN, India</span>
                   </div>
-                  <div className="border border-[#561C24]/20 bg-[#E8D8C4]/70 p-2.5 rounded-sm">
-                    <span className="text-[9px] font-bold text-[#561C24]/65 uppercase tracking-widest block mb-1">02 / STATUS</span>
+                  <div className="border border-[#E5DCD0] bg-white p-2.5 rounded-sm">
+                    <span className="text-[9px] font-bold text-[#561C24]/60 uppercase tracking-widest block mb-1">02 / STATUS</span>
                     <span className="text-[11px] font-black text-[#561C24] block tracking-tight">Final-Year CSBS</span>
                   </div>
                 </div>
 
                 {/* Single Row: Mission */}
-                <div className="border border-[#561C24]/20 bg-[#E8D8C4]/70 p-2.5 rounded-sm">
-                  <span className="text-[9px] font-bold text-[#561C24]/65 uppercase tracking-widest block mb-1">03 / MISSION</span>
+                <div className="border border-[#E5DCD0] bg-white p-2.5 rounded-sm">
+                  <span className="text-[9px] font-bold text-[#561C24]/60 uppercase tracking-widest block mb-1">03 / MISSION</span>
                   <span className="text-[11px] font-black text-[#561C24] block tracking-tight">Building Reliable, Real-World Software</span>
                 </div>
 
                 {/* Highlighted Core Focus Box */}
-                <div className="border-2 border-[#561C24] bg-[#E8D8C4] p-3 rounded-sm shadow-[2px_2px_0px_#6D2932]">
+                <div className="border-2 border-[#561C24] bg-white p-3 rounded-sm shadow-[2px_2px_0px_#6D2932]">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-[9px] font-black text-[#6D2932] uppercase tracking-widest">04 / CORE FOCUS</span>
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#6D2932]" />
@@ -208,7 +208,7 @@ export function Hero() {
 
                 {/* Trait Pills Container */}
                 <div className="pt-1">
-                  <span className="text-[9px] font-bold text-[#561C24]/65 uppercase tracking-widest block mb-1.5">VERIFIED TRAITS</span>
+                  <span className="text-[9px] font-bold text-[#561C24]/60 uppercase tracking-widest block mb-1.5">VERIFIED TRAITS</span>
                   <div className="flex flex-wrap gap-1.5">
                     {[
                       "3 PROJECTS SHIPPED",
@@ -220,7 +220,7 @@ export function Hero() {
                       <motion.span
                         key={trait}
                         whileHover={{ scale: 1.04, y: -1, borderColor: "#6D2932" }}
-                        className="font-mono text-[9px] font-black uppercase tracking-wider px-2 py-0.5 border border-[#561C24]/30 bg-[#E8D8C4] text-[#561C24] shadow-[1.5px_1.5px_0px_#6D2932] cursor-default transition-colors"
+                        className="font-mono text-[9px] font-black uppercase tracking-wider px-2 py-0.5 border border-[#E5DCD0] bg-white text-[#561C24] shadow-[1.5px_1.5px_0px_#561C24] cursor-default transition-colors"
                       >
                         [ {trait} ]
                       </motion.span>
@@ -229,7 +229,7 @@ export function Hero() {
                 </div>
 
                 {/* Footer Bar */}
-                <div className="pt-2 border-t border-[#561C24]/20 flex items-center justify-between text-[10px] text-[#561C24]">
+                <div className="pt-2 border-t border-[#E5DCD0] flex items-center justify-between text-[10px] text-[#561C24]">
                   <span className="font-bold">STATUS: OPEN TO ROLES</span>
                   <span className="font-black text-[#6D2932] flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6D2932] animate-pulse" />

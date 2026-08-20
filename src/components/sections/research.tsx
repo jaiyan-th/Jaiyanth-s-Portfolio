@@ -32,7 +32,7 @@ export function Research() {
   ];
 
   return (
-    <section id="achievements" className="relative bg-[#C7B7A3] border-b-2 border-[#561C24] px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-[#561C24] overflow-hidden bg-grid">
+    <section id="achievements" className="relative bg-[#F5EFE6] border-b-2 border-[#561C24] px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-[#561C24] overflow-hidden bg-grid">
       <div className="max-w-7xl mx-auto">
         {/* Section Headline */}
         <motion.div
@@ -61,55 +61,60 @@ export function Research() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="mb-14"
         >
-          <div className="bg-[#E8D8C4] border-2 border-[#561C24] shadow-[8px_8px_0px_#561C24] rounded-sm relative overflow-hidden">
+          <div className="bg-white border-2 border-[#561C24] shadow-[8px_8px_0px_#561C24] rounded-sm relative overflow-hidden">
             
             {/* Wide Achievement Banner Header Strip */}
             <div className="bg-[#6D2932] text-white px-6 py-4 border-b-2 border-[#561C24] flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-3">
-                <FileText className="w-5 h-5 text-[#E8D8C4]" />
-                <span className="font-mono text-xs sm:text-sm font-black uppercase tracking-widest text-[#E8D8C4]">
+                <FileText className="w-5 h-5 text-[#F5EFE6]" />
+                <span className="font-mono text-xs sm:text-sm font-black uppercase tracking-widest text-[#F5EFE6]">
                   IEEE ICETSIS 2026 · CO-AUTHORED RESEARCH PAPER
                 </span>
               </div>
-              <span className="border-2 border-[#561C24] bg-[#561C24] text-white px-3 py-1 font-mono text-[10px] uppercase font-black tracking-widest shadow-[2px_2px_0px_#E8D8C4]">
+              <span className="border-2 border-[#561C24] bg-[#561C24] text-white px-3 py-1 font-mono text-[10px] uppercase font-black tracking-widest shadow-[2px_2px_0px_#F5EFE6]">
                 ACCEPTED &amp; PUBLISHED
               </span>
             </div>
 
-            <div className="p-6 sm:p-10 relative bg-white/60 backdrop-blur-sm">
+            <div className="p-6 sm:p-10 relative bg-[#FFFFFF]/90 backdrop-blur-sm">
               {/* Viewfinder corner brackets */}
               <span className="blueprint-corner blueprint-corner-tl" />
               <span className="blueprint-corner blueprint-corner-tr" />
               <span className="blueprint-corner blueprint-corner-bl" />
               <span className="blueprint-corner blueprint-corner-br" />
 
-              {/* Headline Title */}
-              <h3 className="font-serif italic text-xl sm:text-2xl lg:text-3xl text-[#561C24] leading-tight mb-6 font-bold">
-                {RESEARCH.title}
-              </h3>
+              {/* Eyebrow Label & Headline Title */}
+              <div className="mb-6">
+                <span className="font-mono text-xs font-black uppercase tracking-widest text-[#6D2932] block mb-2">
+                  RESEARCH TITLE
+                </span>
+                <h3 className="font-serif italic text-xl sm:text-2xl lg:text-3xl text-[#561C24] leading-tight font-bold">
+                  {RESEARCH.title}
+                </h3>
+              </div>
 
               {/* Compact Horizontal Meta-Row (Icons + Labels) */}
-              <div className="flex flex-wrap items-center gap-3 sm:gap-6 border-y-2 border-[#561C24]/15 py-3.5 mb-8 font-mono text-xs text-[#561C24]">
-                <div className="flex items-center gap-2 bg-[#E8D8C4]/80 px-3 py-1.5 border border-[#561C24]/30 rounded-sm">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-6 border-y-2 border-[#E5DCD0] py-3.5 mb-8 font-mono text-xs text-[#561C24]">
+                <div className="flex items-center gap-2 bg-[#F5EFE6] px-3 py-1.5 border border-[#E5DCD0] rounded-sm">
                   <span className="font-bold text-[#6D2932]">VENUE:</span>
                   <span className="font-black">{RESEARCH.venue}</span>
                 </div>
-                <div className="flex items-center gap-2 bg-[#E8D8C4]/80 px-3 py-1.5 border border-[#561C24]/30 rounded-sm">
+                <div className="flex items-center gap-2 bg-[#F5EFE6] px-3 py-1.5 border border-[#E5DCD0] rounded-sm">
                   <MapPin className="w-3.5 h-3.5 text-[#6D2932]" />
                   <span className="font-black">{RESEARCH.location}</span>
                 </div>
-                <div className="flex items-center gap-2 bg-[#E8D8C4]/80 px-3 py-1.5 border border-[#561C24]/30 rounded-sm">
+                <div className="flex items-center gap-2 bg-[#F5EFE6] px-3 py-1.5 border border-[#E5DCD0] rounded-sm">
                   <Calendar className="w-3.5 h-3.5 text-[#6D2932]" />
                   <span className="font-black">{RESEARCH.date}</span>
                 </div>
-                <div className="flex items-center gap-2 bg-[#E8D8C4]/80 px-3 py-1.5 border border-[#561C24]/30 rounded-sm">
+                <div className="flex items-center gap-2 bg-[#F5EFE6] px-3 py-1.5 border border-[#E5DCD0] rounded-sm">
                   <Building2 className="w-3.5 h-3.5 text-[#6D2932]" />
                   <span className="font-black">{RESEARCH.organiser}</span>
                 </div>
               </div>
 
               {/* Abstract Pull-Quote Style Block */}
-              <div className="relative border-l-4 border-[#6D2932] pl-6 py-4 pr-4 bg-[#E8D8C4]/90 mb-10 shadow-[3px_3px_0px_#561C24] border-t border-r border-b border-[#561C24]/20 rounded-r-sm">
+              <div className="relative border-l-4 border-[#6D2932] pl-6 py-4 pr-4 bg-[#F5EFE6] mb-10 shadow-[3px_3px_0px_#561C24] border-t border-r border-b border-[#E5DCD0] rounded-r-sm">
                 <span className="font-mono text-[10px] font-black text-[#6D2932] block mb-2 uppercase tracking-widest">
                   // EXECUTIVE ABSTRACT
                 </span>
@@ -124,7 +129,7 @@ export function Research() {
                   <span className="font-mono text-[11px] font-black uppercase tracking-widest text-[#561C24]">
                     RESEARCH FRAMEWORK PIPELINE · 3 STAGES
                   </span>
-                  <span className="font-mono text-[9.5px] font-black text-[#6D2932] bg-[#E8D8C4] px-2.5 py-1 border border-[#561C24]/30 shadow-[1px_1px_0px_#561C24]">
+                  <span className="font-mono text-[9.5px] font-black text-[#6D2932] bg-[#F5EFE6] px-2.5 py-1 border border-[#E5DCD0] shadow-[1px_1px_0px_#561C24]">
                     SYSTEM DESIGN
                   </span>
                 </div>
@@ -136,14 +141,14 @@ export function Research() {
                     const isLast = idx === pipelineSteps.length - 1;
 
                     return (
-                      <div key={step.step} className="relative flex flex-col justify-between border-2 border-[#561C24] bg-white p-5 shadow-[4px_4px_0px_#6D2932] rounded-sm group hover:shadow-[6px_6px_0px_#561C24] transition-all">
+                      <div key={step.step} className="relative flex flex-col justify-between border-2 border-[#561C24] bg-[#F5EFE6] p-5 shadow-[4px_4px_0px_#6D2932] rounded-sm group hover:shadow-[6px_6px_0px_#561C24] transition-all">
                         <div>
                           {/* Step Top Bar */}
-                          <div className="flex items-center justify-between border-b border-[#561C24]/15 pb-2 mb-3">
+                          <div className="flex items-center justify-between border-b border-[#E5DCD0] pb-2 mb-3">
                             <span className="font-mono text-xs font-black text-[#6D2932] tracking-wider">
                               STAGE {step.step}
                             </span>
-                            <span className="font-mono text-[8.5px] font-bold text-[#561C24]/70 bg-[#E8D8C4] px-2 py-0.5 border border-[#561C24]/20">
+                            <span className="font-mono text-[8.5px] font-bold text-[#561C24]/70 bg-white px-2 py-0.5 border border-[#E5DCD0]">
                               {step.tag}
                             </span>
                           </div>
@@ -183,8 +188,8 @@ export function Research() {
                   {RESEARCH.concepts.map((concept) => (
                     <motion.span
                       key={concept}
-                      whileHover={{ y: -2, scale: 1.04, borderColor: "#6D2932" }}
-                      className="font-mono text-[10px] font-black text-[#561C24] px-3.5 py-1.5 border-2 border-[#6D2932] bg-[#C7B7A3] shadow-[2px_2px_0px_#561C24] cursor-default transition-colors"
+                      whileHover={{ y: -2, scale: 1.04, borderColor: "#561C24" }}
+                      className="font-mono text-[10px] font-black text-[#561C24] px-3.5 py-1.5 border-2 border-[#6D2932] bg-[#F5EFE6] shadow-[2px_2px_0px_#561C24] cursor-default transition-colors"
                     >
                       {concept}
                     </motion.span>
@@ -207,7 +212,7 @@ export function Research() {
               whileHover={{ y: -4, boxShadow: "6px 6px 0px #6D2932" }}
               className="p-5 border-2 border-[#561C24] bg-white shadow-[4px_4px_0px_#561C24] rounded-sm transition-all relative group"
             >
-              <div className="flex items-center justify-between mb-3 border-b border-[#561C24]/15 pb-2">
+              <div className="flex items-center justify-between mb-3 border-b border-[#E5DCD0] pb-2">
                 <span className="font-heading font-black text-xl text-[#6D2932] leading-none">
                   {item.index}
                 </span>

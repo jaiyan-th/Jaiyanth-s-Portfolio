@@ -110,7 +110,7 @@ export function Contact() {
   return (
     <div className="relative">
       {/* Contact Section */}
-      <section id="contact" className="relative bg-[#E8D8C4] border-b-2 border-[#561C24] px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-[#561C24] overflow-hidden bg-grid">
+      <section id="contact" className="relative bg-[#FFFFFF] border-b-2 border-[#E5DCD0] px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-[#561C24] overflow-hidden bg-grid">
         <div className="max-w-7xl mx-auto">
           {/* Headline */}
           <motion.div
@@ -140,14 +140,14 @@ export function Contact() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="lg:col-span-5 flex flex-col"
             >
-              <div className="border-2 border-[#561C24] p-6 sm:p-8 bg-white shadow-[6px_6px_0px_#561C24] relative flex-1 flex flex-col justify-between rounded-sm">
+              <div className="border-2 border-[#561C24] p-6 sm:p-8 bg-[#F5EFE6] shadow-[6px_6px_0px_#561C24] relative flex-1 flex flex-col justify-between rounded-sm">
                 <span className="blueprint-corner blueprint-corner-tl" />
                 <span className="blueprint-corner blueprint-corner-tr" />
                 <span className="blueprint-corner blueprint-corner-bl" />
                 <span className="blueprint-corner blueprint-corner-br" />
 
                 <div>
-                  <div className="border-b-2 border-[#561C24] pb-4 mb-6">
+                  <div className="border-b-2 border-[#E5DCD0] pb-4 mb-6">
                     <span className="font-mono text-[10px] font-black uppercase tracking-wider text-[#561C24]">
                       DIRECT DISCOVERY
                     </span>
@@ -155,7 +155,7 @@ export function Contact() {
 
                   <div className="space-y-6">
                     <div>
-                      <span className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#561C24]/65 mb-1">
+                      <span className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#561C24]/60 mb-1">
                         PRIMARY EMAIL
                       </span>
                       <a
@@ -167,7 +167,7 @@ export function Contact() {
                     </div>
 
                     <div>
-                      <span className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#561C24]/65 mb-1">
+                      <span className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#561C24]/60 mb-1">
                         LOCATION
                       </span>
                       <span className="font-mono text-xs font-black text-[#561C24] block">
@@ -176,7 +176,7 @@ export function Contact() {
                     </div>
 
                     <div>
-                      <span className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#561C24]/65 mb-1">
+                      <span className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#561C24]/60 mb-1">
                         CURRENT STATUS
                       </span>
                       <span className="font-mono text-xs font-black text-[#561C24] block">
@@ -186,8 +186,8 @@ export function Contact() {
                   </div>
                 </div>
 
-                <div className="pt-6 border-t-2 border-[#561C24] mt-6">
-                  <span className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#561C24]/65 mb-2">
+                <div className="pt-6 border-t-2 border-[#E5DCD0] mt-6">
+                  <span className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#561C24]/60 mb-2">
                     CONNECT
                   </span>
                   <div className="flex flex-wrap gap-2 font-mono text-[10px]">
@@ -195,7 +195,7 @@ export function Contact() {
                       href="https://www.linkedin.com/in/jaiyan-th/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-3 py-1.5 border-2 border-[#561C24] bg-[#E8D8C4] text-[#561C24] font-black hover:bg-[#6D2932] hover:text-white transition-colors shadow-[2px_2px_0px_#561C24]"
+                      className="px-3 py-1.5 border-2 border-[#561C24] bg-white text-[#561C24] font-black hover:bg-[#6D2932] hover:text-white transition-colors shadow-[2px_2px_0px_#561C24]"
                     >
                       LINKEDIN
                     </a>
@@ -203,7 +203,7 @@ export function Contact() {
                       href={IDENTITY.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-3 py-1.5 border-2 border-[#561C24] bg-[#E8D8C4] text-[#561C24] font-black hover:bg-[#6D2932] hover:text-white transition-colors shadow-[2px_2px_0px_#561C24]"
+                      className="px-3 py-1.5 border-2 border-[#561C24] bg-white text-[#561C24] font-black hover:bg-[#6D2932] hover:text-white transition-colors shadow-[2px_2px_0px_#561C24]"
                     >
                       GITHUB
                     </a>
@@ -226,11 +226,11 @@ export function Contact() {
                 <span className="blueprint-corner blueprint-corner-bl" />
                 <span className="blueprint-corner blueprint-corner-br" />
 
-                <div className="border-b-2 border-[#561C24] pb-4 mb-6 flex items-center justify-between">
+                <div className="border-b-2 border-[#E5DCD0] pb-4 mb-6 flex items-center justify-between">
                   <span className="font-mono text-[10px] font-black uppercase tracking-wider text-[#561C24]">
                     SEND MESSAGE
                   </span>
-                  <span className="font-mono text-[9px] text-[#6D2932] font-black uppercase bg-[#E8D8C4] px-2 py-0.5 border border-[#561C24]/30 shadow-[1px_1px_0px_#561C24]">
+                  <span className="font-mono text-[9px] text-[#6D2932] font-black uppercase bg-[#F5EFE6] px-2 py-0.5 border border-[#E5DCD0] shadow-[1px_1px_0px_#561C24]">
                     DIRECT ROUTE
                   </span>
                 </div>
@@ -239,7 +239,7 @@ export function Contact() {
                   <div className="space-y-4">
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="name-input" className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#561C24]/65 mb-1">
+                        <label htmlFor="name-input" className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#561C24]/60 mb-1">
                           YOUR NAME
                         </label>
                         <input
@@ -249,12 +249,12 @@ export function Contact() {
                           value={formData.name}
                           onChange={handleChange}
                           placeholder="John Doe"
-                          className="w-full bg-[#E8D8C4] border-b-2 border-[#561C24]/40 p-3 font-sans text-xs text-[#561C24] font-extrabold placeholder:text-[#561C24]/60 focus:outline-none focus:border-[#6D2932] focus:bg-white rounded-none transition-all"
+                          className="w-full bg-[#F5EFE6] border-b-2 border-[#561C24]/30 p-3 font-sans text-xs text-[#561C24] font-extrabold placeholder:text-[#561C24]/60 focus:outline-none focus:border-[#6D2932] focus:bg-white rounded-none transition-all"
                         />
                       </div>
 
                       <div>
-                        <label htmlFor="email-input" className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#561C24]/65 mb-1">
+                        <label htmlFor="email-input" className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#561C24]/60 mb-1">
                           YOUR EMAIL
                         </label>
                         <input
@@ -264,13 +264,13 @@ export function Contact() {
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="john@example.com"
-                          className="w-full bg-[#E8D8C4] border-b-2 border-[#561C24]/40 p-3 font-sans text-xs text-[#561C24] font-extrabold placeholder:text-[#561C24]/60 focus:outline-none focus:border-[#6D2932] focus:bg-white rounded-none transition-all"
+                          className="w-full bg-[#F5EFE6] border-b-2 border-[#561C24]/30 p-3 font-sans text-xs text-[#561C24] font-extrabold placeholder:text-[#561C24]/60 focus:outline-none focus:border-[#6D2932] focus:bg-white rounded-none transition-all"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label htmlFor="subject-input" className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#561C24]/65 mb-1">
+                      <label htmlFor="subject-input" className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#561C24]/60 mb-1">
                         SUBJECT
                       </label>
                       <input
@@ -280,12 +280,12 @@ export function Contact() {
                         value={formData.subject}
                         onChange={handleChange}
                         placeholder="Role inquiry / Collaboration"
-                        className="w-full bg-[#E8D8C4] border-b-2 border-[#561C24]/40 p-3 font-sans text-xs text-[#561C24] font-extrabold placeholder:text-[#561C24]/60 focus:outline-none focus:border-[#6D2932] focus:bg-white rounded-none transition-all"
+                        className="w-full bg-[#F5EFE6] border-b-2 border-[#561C24]/30 p-3 font-sans text-xs text-[#561C24] font-extrabold placeholder:text-[#561C24]/60 focus:outline-none focus:border-[#6D2932] focus:bg-white rounded-none transition-all"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="message-input" className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#561C24]/65 mb-1">
+                      <label htmlFor="message-input" className="block font-mono text-[9px] font-bold uppercase tracking-widest text-[#561C24]/60 mb-1">
                         MESSAGE
                       </label>
                       <textarea
@@ -295,14 +295,14 @@ export function Contact() {
                         value={formData.message}
                         onChange={handleChange}
                         placeholder="Tell me more..."
-                        className="w-full bg-[#E8D8C4] border-b-2 border-[#561C24]/40 p-3.5 font-sans text-xs text-[#561C24] font-extrabold placeholder:text-[#561C24]/60 focus:outline-none focus:border-[#6D2932] focus:bg-white rounded-none resize-none transition-all"
+                        className="w-full bg-[#F5EFE6] border-b-2 border-[#561C24]/30 p-3.5 font-sans text-xs text-[#561C24] font-extrabold placeholder:text-[#561C24]/60 focus:outline-none focus:border-[#6D2932] focus:bg-white rounded-none resize-none transition-all"
                       />
                     </div>
                   </div>
 
                   {/* Form Bottom Row */}
                   <div className="pt-4 flex items-center justify-between">
-                    <span className="font-mono text-[9px] font-black text-[#561C24]/75">
+                    <span className="font-mono text-[9px] font-black text-[#561C24]/60">
                       {statusMessage || "RESPONSE TIME < 48H"}
                     </span>
 
@@ -311,7 +311,7 @@ export function Contact() {
                       disabled={status === "submitting"}
                       whileHover={{ y: -2, x: -1, boxShadow: "4px 4px 0px #561C24" }}
                       whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #561C24" }}
-                      className="bg-[#6D2932] hover:bg-[#582027] disabled:opacity-70 text-white font-mono text-[10px] font-black uppercase tracking-widest px-6 py-3.5 border-2 border-[#561C24] transition-colors inline-flex items-center gap-2 shadow-[2px_2px_0px_#561C24]"
+                      className="bg-[#6D2932] hover:bg-[#582027] disabled:opacity-70 text-white font-mono text-[10px] font-black uppercase tracking-widest px-6 py-3.5 border-2 border-[#561C24] transition-colors inline-flex items-center gap-2 shadow-[2px_2px_0px_#561C24] cursor-pointer"
                     >
                       <span>
                         {status === "submitting"
@@ -331,10 +331,10 @@ export function Contact() {
       </section>
 
       {/* Compact Light Footer */}
-      <footer className="bg-[#E8D8C4] border-t-2 border-[#561C24] text-[#561C24] px-4 py-6 md:px-8 md:py-8 relative bg-grid">
+      <footer className="bg-[#FFFFFF] border-t-2 border-[#E5DCD0] text-[#561C24] px-4 py-6 md:px-8 md:py-8 relative bg-grid">
         <div className="max-w-7xl mx-auto">
           {/* Top Row: Brand + Links */}
-          <div className="grid md:grid-cols-12 gap-6 border-b-2 border-[#561C24]/15 pb-6 mb-5">
+          <div className="grid md:grid-cols-12 gap-6 border-b-2 border-[#E5DCD0] pb-6 mb-5">
             {/* Left: Heading + Paragraph */}
             <div className="md:col-span-6 space-y-2">
               <h3 className="font-heading font-black text-base sm:text-lg text-[#561C24] uppercase tracking-tight leading-[1.08]">
@@ -414,7 +414,7 @@ export function Contact() {
                 href="#hero"
                 whileHover={{ y: -2 }}
                 aria-label="Back to Top"
-                className="w-8 h-8 bg-white border-2 border-[#561C24] text-[#561C24] flex items-center justify-center hover:bg-[#6D2932] hover:text-white transition-colors shadow-[2px_2px_0px_#561C24]"
+                className="w-8 h-8 bg-[#F5EFE6] border-2 border-[#561C24] text-[#561C24] flex items-center justify-center hover:bg-[#6D2932] hover:text-white transition-colors shadow-[2px_2px_0px_#561C24]"
               >
                 <Link2 className="w-3.5 h-3.5" />
               </motion.a>
@@ -425,7 +425,7 @@ export function Contact() {
                 aria-label="Code Repository"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 bg-white border-2 border-[#561C24] text-[#561C24] flex items-center justify-center hover:bg-[#6D2932] hover:text-white transition-colors shadow-[2px_2px_0px_#561C24]"
+                className="w-8 h-8 bg-[#F5EFE6] border-2 border-[#561C24] text-[#561C24] flex items-center justify-center hover:bg-[#6D2932] hover:text-white transition-colors shadow-[2px_2px_0px_#561C24]"
               >
                 <Code className="w-3.5 h-3.5" />
               </motion.a>
@@ -434,7 +434,7 @@ export function Contact() {
                 href="#contact"
                 whileHover={{ y: -2 }}
                 aria-label="Share"
-                className="w-8 h-8 bg-white border-2 border-[#561C24] text-[#561C24] flex items-center justify-center hover:bg-[#6D2932] hover:text-white transition-colors shadow-[2px_2px_0px_#561C24]"
+                className="w-8 h-8 bg-[#F5EFE6] border-2 border-[#561C24] text-[#561C24] flex items-center justify-center hover:bg-[#6D2932] hover:text-white transition-colors shadow-[2px_2px_0px_#561C24]"
               >
                 <Share2 className="w-3.5 h-3.5" />
               </motion.a>

@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 
 export function Experience() {
   return (
-    <section id="experience" className="relative bg-[#E8D8C4] border-b-2 border-[#561C24] px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-[#561C24] bg-grid">
+    <section id="experience" className="relative bg-[#FFFFFF] border-b-2 border-[#E5DCD0] px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-[#561C24] bg-grid">
       <div className="max-w-7xl mx-auto">
         {/* Section Headline */}
         <motion.div
@@ -45,7 +45,7 @@ export function Experience() {
             <span className="blueprint-corner blueprint-corner-br" />
 
             <div>
-              <div className="flex items-center justify-between border-b-2 border-[#561C24] pb-4 mb-4">
+              <div className="flex items-center justify-between border-b-2 border-[#E5DCD0] pb-4 mb-4">
                 <span className="font-mono text-[10px] font-black text-[#561C24]">
                   {EXPERIENCE.period}
                 </span>
@@ -75,7 +75,7 @@ export function Experience() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             whileHover={{ y: -4, x: -2, boxShadow: "6px 6px 0px #6D2932" }}
-            className="border-2 border-[#561C24] p-6 sm:p-8 bg-white shadow-[4px_4px_0px_#6D2932] relative rounded-sm"
+            className="border-2 border-[#561C24] p-6 sm:p-8 bg-[#F5EFE6] shadow-[4px_4px_0px_#6D2932] relative rounded-sm"
           >
             {/* Viewfinder corners */}
             <span className="blueprint-corner blueprint-corner-tl" />
@@ -83,11 +83,11 @@ export function Experience() {
             <span className="blueprint-corner blueprint-corner-bl" />
             <span className="blueprint-corner blueprint-corner-br" />
 
-            <div className="flex items-center justify-between border-b-2 border-[#561C24] pb-4 mb-6">
+            <div className="flex items-center justify-between border-b-2 border-[#E5DCD0] pb-4 mb-6">
               <span className="font-mono text-[10px] font-black uppercase tracking-widest text-[#561C24]">
                 WORKFLOW PIPELINE
               </span>
-              <span className="font-mono text-[9px] text-[#6D2932] font-black uppercase bg-[#E8D8C4] px-2 py-0.5 border border-[#561C24]/30 shadow-[1px_1px_0px_#561C24]">
+              <span className="font-mono text-[9px] text-[#6D2932] font-black uppercase bg-white px-2 py-0.5 border border-[#E5DCD0] shadow-[1px_1px_0px_#561C24]">
                 8 STAGES
               </span>
             </div>
@@ -115,7 +115,7 @@ export function Experience() {
                         {item}
                       </span>
                     </div>
-                    <span className="font-mono text-[9px] text-[#561C24]/65 font-black">
+                    <span className="font-mono text-[9px] text-[#561C24]/60 font-black">
                       {stageNum}
                     </span>
                   </motion.div>

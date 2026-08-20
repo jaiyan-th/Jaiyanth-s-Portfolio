@@ -7,20 +7,20 @@ import { Card3DTilt } from "@/components/ui/card-3d-tilt";
 
 export function About() {
   return (
-    <section id="about" className="relative bg-[#C7B7A3] border-b-2 border-[#561C24] px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-[#561C24] overflow-hidden bg-grid">
+    <section id="about" className="relative bg-[#FFFFFF] border-b-2 border-[#E5DCD0] px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-[#561C24] overflow-hidden bg-grid">
       {/* Corner-bracket frame around the content section wrapper */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="max-w-7xl mx-auto border-2 border-[#561C24] p-6 sm:p-10 relative bg-white shadow-[8px_8px_0px_#561C24]"
+        className="max-w-7xl mx-auto border-2 border-[#561C24] p-6 sm:p-10 relative bg-[#F5EFE6] shadow-[8px_8px_0px_#561C24] rounded-sm"
       >
         {/* Viewfinder corners around the section */}
-        <span className="absolute -top-[1px] -left-[1px] w-3 h-3 border-t-2 border-l-2 border-[#6D2932] pointer-events-none" />
-        <span className="absolute -top-[1px] -right-[1px] w-3 h-3 border-t-2 border-r-2 border-[#6D2932] pointer-events-none" />
-        <span className="absolute -bottom-[1px] -left-[1px] w-3 h-3 border-b-2 border-l-2 border-[#6D2932] pointer-events-none" />
-        <span className="absolute -bottom-[1px] -right-[1px] w-3 h-3 border-b-2 border-r-2 border-[#6D2932] pointer-events-none" />
+        <span className="blueprint-corner blueprint-corner-tl" />
+        <span className="blueprint-corner blueprint-corner-tr" />
+        <span className="blueprint-corner blueprint-corner-bl" />
+        <span className="blueprint-corner blueprint-corner-br" />
 
         {/* Section Headline with Eyebrow Tag */}
         <div className="mb-12">
@@ -54,15 +54,15 @@ export function About() {
 
           {/* Right Column: Metrics 2x2 card layout */}
           <div className="lg:col-span-5">
-            <div className="border-2 border-[#561C24] p-6 relative bg-[#E8D8C4] shadow-[5px_5px_0px_#561C24]">
+            <div className="border-2 border-[#561C24] p-6 relative bg-white shadow-[5px_5px_0px_#561C24] rounded-sm">
               {/* Viewfinder corners */}
-              <span className="absolute -top-[1px] -left-[1px] w-2.5 h-2.5 border-t-2 border-l-2 border-[#6D2932] pointer-events-none" />
-              <span className="absolute -top-[1px] -right-[1px] w-2.5 h-2.5 border-t-2 border-r-2 border-[#6D2932] pointer-events-none" />
-              <span className="absolute -bottom-[1px] -left-[1px] w-2.5 h-2.5 border-b-2 border-l-2 border-[#6D2932] pointer-events-none" />
-              <span className="absolute -bottom-[1px] -right-[1px] w-2.5 h-2.5 border-b-2 border-r-2 border-[#6D2932] pointer-events-none" />
+              <span className="blueprint-corner blueprint-corner-tl" />
+              <span className="blueprint-corner blueprint-corner-tr" />
+              <span className="blueprint-corner blueprint-corner-bl" />
+              <span className="blueprint-corner blueprint-corner-br" />
 
               {/* Header row */}
-              <div className="flex items-center justify-between border-b-2 border-[#561C24]/15 pb-3 mb-5">
+              <div className="flex items-center justify-between border-b-2 border-[#E5DCD0] pb-3 mb-5">
                 <span className="font-mono text-[10px] font-black uppercase tracking-widest text-[#561C24]">
                   METRICS · 04
                 </span>
@@ -75,12 +75,12 @@ export function About() {
               <div className="grid sm:grid-cols-2 gap-4">
                 {ABOUT.metrics.map((m, idx) => (
                   <Card3DTilt key={idx} maxDegree={8} glowColor="rgba(109, 41, 50, 0.2)">
-                    <div className="relative p-4 border-2 border-[#561C24] bg-white shadow-[3px_3px_0px_#6D2932] transition-all cursor-default hover:border-[#6D2932]">
+                    <div className="relative p-4 border-2 border-[#561C24] bg-[#F5EFE6] shadow-[3px_3px_0px_#6D2932] transition-all cursor-default hover:border-[#6D2932] rounded-sm">
                       {/* Inner viewfinder corners */}
-                      <span className="absolute -top-[1px] -left-[1px] w-1.5 h-1.5 border-t border-l border-[#6D2932] pointer-events-none" />
-                      <span className="absolute -top-[1px] -right-[1px] w-1.5 h-1.5 border-t border-r border-[#6D2932] pointer-events-none" />
-                      <span className="absolute -bottom-[1px] -left-[1px] w-1.5 h-1.5 border-b border-l border-[#6D2932] pointer-events-none" />
-                      <span className="absolute -bottom-[1px] -right-[1px] w-1.5 h-1.5 border-b border-r border-[#6D2932] pointer-events-none" />
+                      <span className="blueprint-corner blueprint-corner-tl" />
+                      <span className="blueprint-corner blueprint-corner-tr" />
+                      <span className="blueprint-corner blueprint-corner-bl" />
+                      <span className="blueprint-corner blueprint-corner-br" />
 
                       <span className="font-heading font-black text-3xl text-[#6D2932] block mb-1">
                         {m.value}
