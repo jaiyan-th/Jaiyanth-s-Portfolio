@@ -7,7 +7,7 @@ import { motion } from "motion/react";
 
 export function About() {
   return (
-    <section id="about" className="relative bg-[#EFEFEA] text-black border-b-2 border-black py-16 md:py-24">
+    <section id="about" className="relative bg-[#EFEFEA] text-black border-b-2 border-black py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Eyebrow Header */}
         <motion.div
@@ -17,22 +17,20 @@ export function About() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-12"
         >
-          <div className="flex items-center gap-2 mb-2">
+          <div className="flex items-center gap-2 mb-3">
             <span className="w-2.5 h-2.5 bg-[#A30000] border border-black inline-block" />
             <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
-              WHO YOU'D BE WORKING WITH
+              WHO YOU&apos;D BE WORKING WITH
             </span>
           </div>
-          <h2 className="font-heading font-black text-2xl sm:text-4xl lg:text-[40px] text-black leading-[1.08] tracking-tight uppercase">
+          <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-[52px] text-black leading-[1.05] tracking-tight uppercase">
             ENGINEER &amp; BUILDER, <br />
-            <span className="bg-[#A30000] text-white px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1">
-              SHIPPING END-TO-END.
-            </span>
+            SHIPPING END-TO-END.
           </h2>
         </motion.div>
 
         {/* Two-Column Editorial Layout */}
-        <div className="grid lg:grid-cols-12 gap-10 items-center">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Narrative */}
           <div className="lg:col-span-7 space-y-6">
             <h3 className="font-sans font-black text-lg sm:text-xl text-black leading-relaxed">

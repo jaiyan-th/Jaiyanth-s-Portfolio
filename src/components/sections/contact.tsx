@@ -110,7 +110,7 @@ export function Contact() {
   return (
     <div className="relative">
       {/* Contact Section — Clean Warm Section Background */}
-      <section id="contact" className="relative bg-[#FAF5E8] border-b-2 border-black px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-black">
+      <section id="contact" className="relative bg-[#FAF5E8] border-b-2 border-black px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-black">
         <div className="max-w-7xl mx-auto">
           {/* Main White Box (karolbinkow.ski LET'S TALK Box) */}
           <div className="bg-white border-2 border-black p-8 sm:p-12 shadow-[8px_8px_0px_#000000] relative">
@@ -121,11 +121,9 @@ export function Contact() {
               </span>
             </div>
 
-            <h2 className="font-heading font-black text-2xl sm:text-4xl lg:text-[44px] text-black leading-[1.08] tracking-tight uppercase mb-8">
+            <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-[52px] text-black leading-[1.05] tracking-tight uppercase mb-8">
               HAVE A PROBLEM THAT <br />
-              <span className="bg-[#A30000] text-white px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1">
-                NEEDS TO SHIP?
-              </span>
+              NEEDS TO SHIP?
             </h2>
 
             <div className="grid lg:grid-cols-12 gap-10 items-start">

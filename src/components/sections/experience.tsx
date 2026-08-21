@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 
 export function Experience() {
   return (
-    <section id="experience" className="relative bg-[#EFEFEA] text-black border-b-2 border-black py-16 md:py-24">
+    <section id="experience" className="relative bg-[#EFEFEA] text-black border-b-2 border-black py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Eyebrow Header */}
         <motion.div
@@ -16,21 +16,19 @@ export function Experience() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-12"
         >
-          <div className="flex items-center gap-2 mb-2">
+          <div className="flex items-center gap-2 mb-3">
             <span className="w-2.5 h-2.5 bg-[#A30000] border border-black inline-block" />
             <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
               EXPERIENCE &amp; WORKFLOW
             </span>
           </div>
-          <h2 className="font-heading font-black text-2xl sm:text-4xl lg:text-[40px] text-black leading-[1.08] tracking-tight uppercase">
-            <span className="bg-[#A30000] text-white px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000]">
-              WHERE I&apos;VE WORKED.
-            </span>
+          <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-[52px] text-black leading-[1.05] tracking-tight uppercase">
+            WHERE I&apos;VE WORKED.
           </h2>
         </motion.div>
 
         {/* Two Columns: Context on Left, Numbered Pipeline on Right */}
-        <div className="grid lg:grid-cols-12 gap-10 items-start">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column */}
           <div className="lg:col-span-5 space-y-6">
             <div className="bg-white border-2 border-black p-6 shadow-[5px_5px_0px_#000000] space-y-3">

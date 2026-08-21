@@ -10,7 +10,7 @@ export function Work() {
   const [selectedSlug, setSelectedSlug] = React.useState<string | null>(null);
 
   return (
-    <section id="work" className="relative bg-[#EFEFEA] text-black border-b-2 border-black py-16 md:py-24">
+    <section id="work" className="relative bg-[#EFEFEA] text-black border-b-2 border-black py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Eyebrow Header */}
         <motion.div
@@ -20,17 +20,15 @@ export function Work() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-10"
         >
-          <div className="flex items-center gap-2 mb-2">
+          <div className="flex items-center gap-2 mb-3">
             <span className="w-2.5 h-2.5 bg-[#A30000] border border-black inline-block" />
             <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
               SELECTED WORK
             </span>
           </div>
-          <h2 className="font-heading font-black text-2xl sm:text-4xl lg:text-[40px] text-black leading-[1.08] tracking-tight uppercase">
+          <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-[52px] text-black leading-[1.05] tracking-tight uppercase">
             THREE PROJECTS, <br />
-            <span className="bg-[#A30000] text-white px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1">
-              THREE SHIPPED SYSTEMS.
-            </span>
+            THREE SHIPPED SYSTEMS.
           </h2>
         </motion.div>
 
