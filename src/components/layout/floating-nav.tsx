@@ -30,9 +30,9 @@ export function FloatingNav() {
   }, []);
 
   const navItems = [
-    { label: "WORK", href: "#work" },
     { label: "ABOUT", href: "#about" },
     { label: "SKILLS", href: "#skills" },
+    { label: "WORK", href: "#work" },
     { label: "EXPERIENCE", href: "#experience" },
     { label: "ACHIEVEMENTS", href: "#achievements" },
     { label: "CERTIFICATIONS", href: "#certifications" },

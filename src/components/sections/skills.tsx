@@ -16,12 +16,15 @@ export function Skills() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-14"
         >
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mb-3">
             <span className="w-2.5 h-2.5 bg-[#A30000] border border-black inline-block" />
             <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
               STACK
             </span>
           </div>
+          <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-[52px] text-black leading-[1.05] tracking-tight uppercase">
+            TOOLS I BUILD WITH.
+          </h2>
         </motion.div>
 
         {/* Skill Categories Grid — karolbinkow.ski layout */}

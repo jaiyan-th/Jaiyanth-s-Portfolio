@@ -56,7 +56,7 @@ export function Hero() {
 
             {/* Display Headline (exact karolbinkow.ski proportions) */}
             <motion.div variants={itemVariants}>
-              <h1 className="font-heading font-black text-3xl sm:text-5xl lg:text-6xl xl:text-[62px] text-black leading-[1.03] tracking-tight uppercase">
+              <h1 className="font-heading font-black text-2xl sm:text-4xl lg:text-5xl xl:text-[52px] text-black leading-[1.05] tracking-tight uppercase">
                 YOU HAVE A PROBLEM. <br />
                 <span className="bg-[#A30000] text-white px-2.5 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1.5">
                   I HAVE THE SOLUTION.

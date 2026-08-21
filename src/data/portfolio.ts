@@ -348,7 +348,7 @@ export const CONTACT_LINKS: ContactLink[] = [
 
 export const SITE = {
   url: "https://jaiyanthb.com",
-  title: "Jaiyanth B — AI + Full-Stack Engineer",
+  title: "Jaiyanth B",
   description: IDENTITY.heroSupporting,
   ogImage: "/opengraph-image",
 } as const;
