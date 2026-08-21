@@ -48,7 +48,7 @@ export function Hero() {
           <div className="lg:col-span-7 space-y-6">
             {/* Eyebrow: ■ SOFTWARE ENGINEER · BUILDER */}
             <motion.div variants={itemVariants} className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 bg-[#FFC000] border border-black inline-block" />
+              <span className="w-2.5 h-2.5 bg-[#9E0020] border border-black inline-block" />
               <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
                 SOFTWARE ENGINEER · BUILDER
               </span>
@@ -58,7 +58,7 @@ export function Hero() {
             <motion.div variants={itemVariants}>
               <h1 className="font-heading font-black text-2xl sm:text-4xl lg:text-5xl xl:text-[52px] text-black leading-[1.08] tracking-tight uppercase">
                 YOU HAVE A PROBLEM. <br />
-                <span className="bg-[#FFC000] text-black px-2.5 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1.5">
+                <span className="bg-[#9E0020] text-white px-2.5 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1.5">
                   I HAVE THE SOLUTION.
                 </span>
               </h1>
@@ -75,7 +75,7 @@ export function Hero() {
                 href="#work"
                 whileHover={{ y: -2, x: -1, boxShadow: "5px 5px 0px #000000" }}
                 whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-                className="bg-[#FFC000] hover:bg-[#E5AC00] text-black font-mono text-xs font-black tracking-wider uppercase px-6 py-3.5 border-2 border-black shadow-[4px_4px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-2"
+                className="bg-[#9E0020] hover:bg-[#80001A] text-white font-mono text-xs font-black tracking-wider uppercase px-6 py-3.5 border-2 border-black shadow-[4px_4px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-2"
               >
                 <span>EXPLORE WORK</span>
                 <ArrowRight className="w-4 h-4 stroke-[2.5]" />
@@ -96,8 +96,8 @@ export function Hero() {
           <motion.div variants={itemVariants} className="lg:col-span-5 flex justify-center">
             <div className="w-full max-w-[380px] bg-white border-2 border-black shadow-[5px_5px_0px_#000000]">
               {/* Header */}
-              <div className="bg-[#FFC000] border-b-2 border-black p-3.5">
-                <span className="font-mono text-xs font-black uppercase text-black tracking-widest block">
+              <div className="bg-[#9E0020] border-b-2 border-black p-3.5">
+                <span className="font-mono text-xs font-black uppercase text-white tracking-widest block">
                   ENGINEER SPEC
                 </span>
               </div>

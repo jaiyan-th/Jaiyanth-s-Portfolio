@@ -64,7 +64,7 @@ export function FloatingNav() {
                 key={item.href}
                 href={item.href}
                 className={`font-mono text-xs uppercase tracking-widest font-black transition-colors relative ${
-                  isActive ? "text-black underline underline-offset-4 decoration-[#FFC000] decoration-2" : "text-black/70 hover:text-black"
+                  isActive ? "text-black underline underline-offset-4 decoration-[#9E0020] decoration-2" : "text-black/70 hover:text-black"
                 }`}
               >
                 {item.label}
@@ -79,7 +79,7 @@ export function FloatingNav() {
             href="#contact"
             whileHover={{ y: -2, x: -1, boxShadow: "5px 5px 0px #000000" }}
             whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-            className="bg-[#FFC000] hover:bg-[#E5AC00] text-black font-mono text-xs font-black tracking-wider uppercase px-4 py-2 border-2 border-black shadow-[3px_3px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-1.5"
+            className="bg-[#9E0020] hover:bg-[#80001A] text-white font-mono text-xs font-black tracking-wider uppercase px-4 py-2 border-2 border-black shadow-[3px_3px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-1.5"
           >
             <span>GET IN TOUCH →</span>
           </motion.a>
@@ -116,7 +116,7 @@ export function FloatingNav() {
                     onClick={() => setIsOpen(false)}
                     className={`font-mono text-xs uppercase tracking-widest font-black p-3 flex items-center border-2 ${
                       isActive
-                        ? "bg-[#FFC000] text-black border-black shadow-[2px_2px_0px_#000000]"
+                        ? "bg-[#9E0020] text-white border-black shadow-[2px_2px_0px_#000000]"
                         : "bg-white text-black border-black"
                     }`}
                   >

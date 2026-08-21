@@ -17,13 +17,13 @@ export function Experience() {
           className="mb-12"
         >
           <div className="flex items-center gap-2 mb-2">
-            <span className="w-2.5 h-2.5 bg-[#FFC000] border border-black inline-block" />
+            <span className="w-2.5 h-2.5 bg-[#9E0020] border border-black inline-block" />
             <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
               EXPERIENCE &amp; WORKFLOW
             </span>
           </div>
           <h2 className="font-heading font-black text-2xl sm:text-4xl lg:text-[40px] text-black leading-[1.08] tracking-tight uppercase">
-            <span className="bg-[#FFC000] text-black px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000]">
+            <span className="bg-[#9E0020] text-white px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000]">
               WHERE I&apos;VE WORKED.
             </span>
           </h2>
@@ -38,7 +38,7 @@ export function Experience() {
                 <span className="font-mono text-xs font-black text-black">
                   {EXPERIENCE.period}
                 </span>
-                <span className="bg-[#FFC000] text-black px-2.5 py-0.5 font-mono text-[9.5px] uppercase font-black border border-black shadow-[1.5px_1.5px_0px_#000000]">
+                <span className="bg-[#9E0020] text-white px-2.5 py-0.5 font-mono text-[9.5px] uppercase font-black border border-black shadow-[1.5px_1.5px_0px_#000000]">
                   COMPLETED
                 </span>
               </div>
@@ -60,8 +60,8 @@ export function Experience() {
           {/* Right Column: 8-Stage Numbered Workflow Grid */}
           <div className="lg:col-span-7">
             <div className="bg-white border-2 border-black p-6 shadow-[6px_6px_0px_#000000] space-y-4">
-              <div className="bg-[#FFC000] border-b-2 border-black -m-6 mb-2 p-3.5 flex items-center justify-between">
-                <span className="font-mono text-xs font-black uppercase text-black tracking-widest">
+              <div className="bg-[#9E0020] text-white border-b-2 border-black -m-6 mb-2 p-3.5 flex items-center justify-between">
+                <span className="font-mono text-xs font-black uppercase text-white tracking-widest">
                   WORKFLOW PIPELINE
                 </span>
                 <span className="font-mono text-xs font-black uppercase text-black bg-white px-2 py-0.5 border border-black">
@@ -75,7 +75,7 @@ export function Experience() {
                   return (
                     <div key={item} className="py-3 flex items-center justify-between group">
                       <div className="flex items-center gap-3">
-                        <span className="w-2 h-2 bg-[#FFC000] border border-black inline-block group-hover:bg-black transition-colors" />
+                        <span className="w-2 h-2 bg-[#9E0020] border border-black inline-block group-hover:bg-black transition-colors" />
                         <span className="font-black text-black uppercase tracking-wider">
                           {item}
                         </span>

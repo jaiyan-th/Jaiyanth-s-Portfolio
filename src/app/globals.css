@@ -6,7 +6,7 @@
 /* ============================================================
    JB PORTFOLIO — KAROL BINKOWSKI (karolbinkow.ski) EXACT SYSTEM
    Light warm paper canvas (#EFEFEA), bold black borders (#000000),
-   vibrant golden yellow highlight (#FFC000), brutalist offset shadows.
+   vibrant crimson highlight (#9E0020), brutalist offset shadows.
    ============================================================ */
 
 @theme inline {
@@ -36,12 +36,12 @@
   --color-popover: var(--elevated);
   --color-popover-foreground: var(--text-primary);
   --color-primary: var(--accent);
-  --color-primary-foreground: #000000;
+  --color-primary-foreground: #FFFFFF;
   --color-secondary: var(--elevated);
   --color-secondary-foreground: var(--text-primary);
   --color-muted: var(--elevated);
   --color-muted-foreground: var(--text-secondary);
-  --color-accent-foreground: #000000;
+  --color-accent-foreground: #FFFFFF;
   --color-border: var(--line);
   --color-input: var(--line);
   --color-ring: var(--accent);
@@ -61,14 +61,14 @@
   --text-primary: #000000;
   --text-secondary: #444444;
   --line: #000000;
-  --accent: #FFC000;
-  --accent-2: #E5AC00;
-  --accent-warm: #FFC000;
+  --accent: #9E0020;
+  --accent-2: #80001A;
+  --accent-warm: #9E0020;
   --dark-charcoal: #000000;
 
   --grid-line: rgba(0, 0, 0, 0.04);
-  --node-glow: rgba(255, 192, 0, 0.2);
-  --halo: rgba(255, 192, 0, 0.15);
+  --node-glow: rgba(158, 0, 32, 0.2);
+  --halo: rgba(158, 0, 32, 0.15);
 
   color-scheme: light;
 }
@@ -92,8 +92,8 @@
   }
 
   ::selection {
-    background: #FFC000;
-    color: #000000;
+    background: #9E0020;
+    color: #FFFFFF;
   }
 
   :focus-visible {
@@ -128,9 +128,10 @@
 
   /* block headline highlight */
   .highlight-cyan,
-  .highlight-yellow {
-    background-color: #FFC000;
-    color: #000000;
+  .highlight-yellow,
+  .highlight-accent {
+    background-color: #9E0020;
+    color: #FFFFFF;
     padding: 0 0.3em;
     display: inline-block;
   }
@@ -146,8 +147,9 @@
     box-shadow: 6px 6px 0px #000000;
   }
   .shadow-brutal-cyan,
-  .shadow-brutal-yellow {
-    box-shadow: 4px 4px 0px #FFC000;
+  .shadow-brutal-yellow,
+  .shadow-brutal-accent {
+    box-shadow: 4px 4px 0px #9E0020;
   }
 
   .hover-lift-brutal {
@@ -189,7 +191,7 @@
   background: #000000;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #FFC000;
+  background: #9E0020;
 }
 
 /* Hide Next.js Dev Indicator Badge */
