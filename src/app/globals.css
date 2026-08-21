@@ -6,7 +6,7 @@
 /* ============================================================
    JB PORTFOLIO — KAROL BINKOWSKI (karolbinkow.ski) EXACT SYSTEM
    Light warm paper canvas (#EFEFEA), bold black borders (#000000),
-   vibrant crimson highlight (#9E0020), brutalist offset shadows.
+   vibrant deep red highlight (#A30000), brutalist offset shadows.
    ============================================================ */
 
 @theme inline {
@@ -61,14 +61,14 @@
   --text-primary: #000000;
   --text-secondary: #444444;
   --line: #000000;
-  --accent: #9E0020;
-  --accent-2: #80001A;
-  --accent-warm: #9E0020;
+  --accent: #A30000;
+  --accent-2: #850000;
+  --accent-warm: #A30000;
   --dark-charcoal: #000000;
 
   --grid-line: rgba(0, 0, 0, 0.04);
-  --node-glow: rgba(158, 0, 32, 0.2);
-  --halo: rgba(158, 0, 32, 0.15);
+  --node-glow: rgba(163, 0, 0, 0.2);
+  --halo: rgba(163, 0, 0, 0.15);
 
   color-scheme: light;
 }
@@ -92,7 +92,7 @@
   }
 
   ::selection {
-    background: #9E0020;
+    background: #A30000;
     color: #FFFFFF;
   }
 
@@ -130,7 +130,7 @@
   .highlight-cyan,
   .highlight-yellow,
   .highlight-accent {
-    background-color: #9E0020;
+    background-color: #A30000;
     color: #FFFFFF;
     padding: 0 0.3em;
     display: inline-block;
@@ -149,7 +149,7 @@
   .shadow-brutal-cyan,
   .shadow-brutal-yellow,
   .shadow-brutal-accent {
-    box-shadow: 4px 4px 0px #9E0020;
+    box-shadow: 4px 4px 0px #A30000;
   }
 
   .hover-lift-brutal {
@@ -191,7 +191,7 @@
   background: #000000;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #9E0020;
+  background: #A30000;
 }
 
 /* Hide Next.js Dev Indicator Badge */

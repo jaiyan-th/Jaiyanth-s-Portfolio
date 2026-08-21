@@ -104,7 +104,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
             className="relative z-10 my-auto flex max-h-[90vh] w-full max-w-4xl flex-col border-2 border-black bg-white p-6 sm:p-8 shadow-[8px_8px_0px_#000000] text-black overflow-hidden"
           >
             {/* Header bar */}
-            <div className="bg-[#9E0020] border-b-2 border-black -m-6 sm:-m-8 mb-4 p-4 flex items-center justify-between">
+            <div className="bg-[#A30000] border-b-2 border-black -m-6 sm:-m-8 mb-4 p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <span className="font-mono text-xs font-black uppercase text-white">
                   {project.category}
@@ -202,11 +202,11 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                   {project.caseStudy.features.map((f) => (
                     <li
                       key={f}
-                      className="flex items-start gap-3 border-l-4 border-[#9E0020] bg-white border border-black p-3 text-xs sm:text-sm text-black font-semibold shadow-[2px_2px_0px_#000000]"
+                      className="flex items-start gap-3 border-l-4 border-[#A30000] bg-white border border-black p-3 text-xs sm:text-sm text-black font-semibold shadow-[2px_2px_0px_#000000]"
                     >
                       <span
                         aria-hidden
-                        className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 bg-[#9E0020]"
+                        className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 bg-[#A30000]"
                       />
                       <span>{f}</span>
                     </li>
@@ -247,7 +247,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="border-2 border-black bg-[#9E0020] px-4 py-2 font-mono text-[10px] font-black uppercase text-white shadow-[2px_2px_0px_#000000] hover:bg-[#80001A] transition-colors inline-flex items-center gap-1.5"
+                      className="border-2 border-black bg-[#A30000] px-4 py-2 font-mono text-[10px] font-black uppercase text-white shadow-[2px_2px_0px_#000000] hover:bg-[#850000] transition-colors inline-flex items-center gap-1.5"
                     >
                       <span>Live Site</span>
                       <ExternalLink className="h-3 h-3" />

@@ -31,8 +31,8 @@ export function Marquee({ items = DEFAULT_ITEMS, className = "" }: MarqueeProps)
       <div className="animate-marquee flex items-center gap-8 whitespace-nowrap font-mono text-xs font-black tracking-widest uppercase">
         {displayItems.map((text, idx) => (
           <div key={idx} className="flex items-center gap-8">
-            <span className="hover:bg-[#9E0020] hover:text-white px-1 transition-colors">{text}</span>
-            <span className="text-[#9E0020] font-mono text-xs font-black">•</span>
+            <span className="hover:bg-[#A30000] hover:text-white px-1 transition-colors">{text}</span>
+            <span className="text-[#A30000] font-mono text-xs font-black">•</span>
           </div>
         ))}
       </div>

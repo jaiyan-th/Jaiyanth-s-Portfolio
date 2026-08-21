@@ -43,14 +43,14 @@ export function Certifications() {
           className="mb-12"
         >
           <div className="flex items-center gap-2 mb-2">
-            <span className="w-2.5 h-2.5 bg-[#9E0020] border border-black inline-block" />
+            <span className="w-2.5 h-2.5 bg-[#A30000] border border-black inline-block" />
             <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
               CREDENTIALS
             </span>
           </div>
           <h2 className="font-heading font-black text-2xl sm:text-4xl lg:text-[40px] text-black leading-[1.08] tracking-tight uppercase">
             VERIFIED <br />
-            <span className="bg-[#9E0020] text-white px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1">
+            <span className="bg-[#A30000] text-white px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1">
               INDUSTRY CERTIFICATIONS.
             </span>
           </h2>

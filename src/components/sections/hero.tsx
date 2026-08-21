@@ -42,61 +42,60 @@ export function Hero() {
         animate="visible"
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12"
       >
-        {/* Top Grid: Headline on Left, Spec Card on Right */}
-        <div className="grid lg:grid-cols-12 gap-10 items-center">
+        {/* Top Grid: Headline on Left, Spec Card on Right aligned to top */}
+        <div className="grid lg:grid-cols-12 gap-10 items-start">
           {/* Left Column: Headline & Subtext */}
           <div className="lg:col-span-7 space-y-6">
             {/* Eyebrow: ■ SOFTWARE ENGINEER · BUILDER */}
             <motion.div variants={itemVariants} className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 bg-[#9E0020] border border-black inline-block" />
+              <span className="w-2.5 h-2.5 bg-[#A30000] border border-black inline-block" />
               <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
                 SOFTWARE ENGINEER · BUILDER
               </span>
             </motion.div>
 
-            {/* Display Headline (karolbinkow.ski proportions) */}
+            {/* Display Headline (exact karolbinkow.ski proportions) */}
             <motion.div variants={itemVariants}>
-              <h1 className="font-heading font-black text-2xl sm:text-4xl lg:text-5xl xl:text-[52px] text-black leading-[1.08] tracking-tight uppercase">
+              <h1 className="font-heading font-black text-3xl sm:text-5xl lg:text-6xl xl:text-[62px] text-black leading-[1.03] tracking-tight uppercase">
                 YOU HAVE A PROBLEM. <br />
-                <span className="bg-[#9E0020] text-white px-2.5 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1.5">
+                <span className="bg-[#A30000] text-white px-2.5 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1.5">
                   I HAVE THE SOLUTION.
                 </span>
               </h1>
             </motion.div>
 
             {/* Subtext */}
-            <motion.p variants={itemVariants} className="max-w-lg font-sans text-sm sm:text-base text-black/80 leading-relaxed font-semibold">
+            <motion.p variants={itemVariants} className="max-w-xl font-sans text-sm sm:text-base text-black/85 leading-relaxed font-semibold">
               I work across full-stack architecture, applied AI workflows, structured APIs, and intuitive interfaces to turn complex engineering problems into dependable, production-ready solutions.
             </motion.p>
 
-            {/* CTA Action Buttons */}
-            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-5 pt-2">
-              <motion.a
-                href="#work"
-                whileHover={{ y: -2, x: -1, boxShadow: "5px 5px 0px #000000" }}
-                whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-                className="bg-[#9E0020] hover:bg-[#80001A] text-white font-mono text-xs font-black tracking-wider uppercase px-6 py-3.5 border-2 border-black shadow-[4px_4px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-2"
-              >
-                <span>EXPLORE WORK</span>
-                <ArrowRight className="w-4 h-4 stroke-[2.5]" />
-              </motion.a>
-
+            {/* CTA Action Buttons matching exact layout */}
+            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-2">
               <motion.a
                 href="#contact"
                 whileHover={{ y: -2, x: -1, boxShadow: "5px 5px 0px #000000" }}
                 whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-                className="bg-white hover:bg-[#EFEFEA] text-black font-mono text-xs font-black tracking-wider uppercase px-6 py-3.5 border-2 border-black shadow-[4px_4px_0px_#000000] transition-all cursor-pointer"
+                className="bg-[#A30000] hover:bg-[#850000] text-white font-mono text-xs font-black tracking-wider uppercase px-6 py-3.5 border-2 border-black shadow-[3px_3px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-2"
               >
-                GET IN TOUCH
+                <span>GET IN TOUCH →</span>
+              </motion.a>
+
+              <motion.a
+                href="#work"
+                whileHover={{ y: -2, x: -1, boxShadow: "5px 5px 0px #000000" }}
+                whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
+                className="bg-white hover:bg-[#EFEFEA] text-black font-mono text-xs font-black tracking-wider uppercase px-6 py-3.5 border-2 border-black shadow-[3px_3px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-2"
+              >
+                <span>SEE THE WORK ↓</span>
               </motion.a>
             </motion.div>
           </div>
 
-          {/* Right Column: ENGINEER SPEC Card */}
-          <motion.div variants={itemVariants} className="lg:col-span-5 flex justify-center">
-            <div className="w-full max-w-[380px] bg-white border-2 border-black shadow-[5px_5px_0px_#000000]">
+          {/* Right Column: ENGINEER SPEC Card aligned top-right */}
+          <motion.div variants={itemVariants} className="lg:col-span-5 flex justify-center lg:justify-end">
+            <div className="w-full max-w-[360px] bg-white border-2 border-black shadow-[5px_5px_0px_#000000]">
               {/* Header */}
-              <div className="bg-[#9E0020] border-b-2 border-black p-3.5">
+              <div className="bg-[#A30000] border-b-2 border-black p-3.5">
                 <span className="font-mono text-xs font-black uppercase text-white tracking-widest block">
                   ENGINEER SPEC
                 </span>
@@ -105,11 +104,11 @@ export function Hero() {
               {/* Rows */}
               <div className="divide-y-2 divide-black font-mono text-xs">
                 {specRows.map((row) => (
-                  <div key={row.label} className="p-3 flex items-center justify-between">
+                  <div key={row.label} className="p-3.5 flex items-center justify-between">
                     <span className="font-black text-black/60 tracking-wider">
                       {row.label}
                     </span>
-                    <span className={`font-black ${row.label === "STATUS" ? "text-emerald-700 font-extrabold" : "text-black"}`}>
+                    <span className={`font-black ${row.label === "STATUS" ? "text-emerald-700 font-extrabold flex items-center gap-1.5" : "text-black"}`}>
                       {row.value}
                     </span>
                   </div>
