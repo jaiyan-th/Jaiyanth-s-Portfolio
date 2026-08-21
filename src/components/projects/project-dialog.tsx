@@ -104,7 +104,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
             className="relative z-10 my-auto flex max-h-[90vh] w-full max-w-4xl flex-col border-2 border-black bg-white p-6 sm:p-8 shadow-[8px_8px_0px_#000000] text-black overflow-hidden"
           >
             {/* Header bar */}
-            <div className="bg-[#00B2D6] border-b-2 border-black -m-6 sm:-m-8 mb-4 p-4 flex items-center justify-between">
+            <div className="bg-[#FFC000] border-b-2 border-black -m-6 sm:-m-8 mb-4 p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <span className="font-mono text-xs font-black uppercase text-black">
                   {project.category}
@@ -153,7 +153,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
               {/* Meta grid */}
               <div className="mt-8 grid gap-6 md:grid-cols-12">
                 <div className="md:col-span-4 bg-[#EFEFEA] border-2 border-black p-5 shadow-[3px_3px_0px_#000000]">
-                  <span className="font-mono text-[9px] font-black text-[#00A8C6] uppercase tracking-widest block mb-3">
+                  <span className="font-mono text-[9px] font-black text-black/70 uppercase tracking-widest block mb-3">
                     TECH STACK
                   </span>
                   <div className="flex flex-wrap gap-1.5">
@@ -168,7 +168,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                   </div>
                 </div>
                 <div className="md:col-span-8 bg-[#EFEFEA] border-2 border-black p-5 shadow-[3px_3px_0px_#000000]">
-                  <span className="font-mono text-[9px] font-black text-[#00A8C6] uppercase tracking-widest block mb-2">
+                  <span className="font-mono text-[9px] font-black text-black/70 uppercase tracking-widest block mb-2">
                     ENGINEERING FOCUS
                   </span>
                   <p className="font-sans text-xs sm:text-sm text-black font-semibold leading-relaxed">
@@ -195,18 +195,18 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
 
               {/* Features */}
               <div className="mt-6 bg-[#EFEFEA] border-2 border-black p-6 shadow-[4px_4px_0px_#000000]">
-                <span className="font-mono text-[10px] font-black text-[#00A8C6] uppercase tracking-widest block mb-4">
+                <span className="font-mono text-[10px] font-black text-black/70 uppercase tracking-widest block mb-4">
                   05 / KEY FEATURES
                 </span>
                 <ul className="grid gap-3 md:grid-cols-2">
                   {project.caseStudy.features.map((f) => (
                     <li
                       key={f}
-                      className="flex items-start gap-3 border-l-4 border-[#00A8C6] bg-white border border-black p-3 text-xs sm:text-sm text-black font-semibold shadow-[2px_2px_0px_#000000]"
+                      className="flex items-start gap-3 border-l-4 border-[#FFC000] bg-white border border-black p-3 text-xs sm:text-sm text-black font-semibold shadow-[2px_2px_0px_#000000]"
                     >
                       <span
                         aria-hidden
-                        className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 bg-[#00A8C6]"
+                        className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 bg-[#FFC000]"
                       />
                       <span>{f}</span>
                     </li>
@@ -247,7 +247,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="border-2 border-black bg-[#00B2D6] px-4 py-2 font-mono text-[10px] font-black uppercase text-black shadow-[2px_2px_0px_#000000] hover:bg-[#0092B0] transition-colors inline-flex items-center gap-1.5"
+                      className="border-2 border-black bg-[#FFC000] px-4 py-2 font-mono text-[10px] font-black uppercase text-black shadow-[2px_2px_0px_#000000] hover:bg-[#E5AC00] transition-colors inline-flex items-center gap-1.5"
                     >
                       <span>Live Site</span>
                       <ExternalLink className="h-3 h-3" />
@@ -267,7 +267,7 @@ function CaseBlock({ label, index, children }: { label: string; index: string; c
   return (
     <div className="md:col-span-6 bg-[#EFEFEA] border-2 border-black p-5 shadow-[3px_3px_0px_#000000]">
       <div className="flex items-center justify-between border-b-2 border-black pb-2 mb-3">
-        <span className="font-mono text-[10px] font-black text-[#00A8C6] uppercase tracking-wider">
+        <span className="font-mono text-[10px] font-black text-black/70 uppercase tracking-wider">
           {index} / {label}
         </span>
       </div>

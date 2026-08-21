@@ -6,7 +6,7 @@
 /* ============================================================
    JB PORTFOLIO — KAROL BINKOWSKI (karolbinkow.ski) EXACT SYSTEM
    Light warm paper canvas (#EFEFEA), bold black borders (#000000),
-   vibrant cyan highlight (#00B2D6), brutalist offset shadows.
+   vibrant golden yellow highlight (#FFC000), brutalist offset shadows.
    ============================================================ */
 
 @theme inline {
@@ -61,14 +61,14 @@
   --text-primary: #000000;
   --text-secondary: #444444;
   --line: #000000;
-  --accent: #00B2D6;
-  --accent-2: #00A8C6;
-  --accent-warm: #00B2D6;
+  --accent: #FFC000;
+  --accent-2: #E5AC00;
+  --accent-warm: #FFC000;
   --dark-charcoal: #000000;
 
   --grid-line: rgba(0, 0, 0, 0.04);
-  --node-glow: rgba(0, 178, 214, 0.2);
-  --halo: rgba(0, 178, 214, 0.15);
+  --node-glow: rgba(255, 192, 0, 0.2);
+  --halo: rgba(255, 192, 0, 0.15);
 
   color-scheme: light;
 }
@@ -92,7 +92,7 @@
   }
 
   ::selection {
-    background: #00B2D6;
+    background: #FFC000;
     color: #000000;
   }
 
@@ -126,9 +126,10 @@
     font-weight: 700;
   }
 
-  /* karolbinkow.ski block headline highlight */
-  .highlight-cyan {
-    background-color: #00B2D6;
+  /* block headline highlight */
+  .highlight-cyan,
+  .highlight-yellow {
+    background-color: #FFC000;
     color: #000000;
     padding: 0 0.3em;
     display: inline-block;
@@ -144,8 +145,9 @@
   .shadow-brutal-lg {
     box-shadow: 6px 6px 0px #000000;
   }
-  .shadow-brutal-cyan {
-    box-shadow: 4px 4px 0px #00B2D6;
+  .shadow-brutal-cyan,
+  .shadow-brutal-yellow {
+    box-shadow: 4px 4px 0px #FFC000;
   }
 
   .hover-lift-brutal {
@@ -187,7 +189,7 @@
   background: #000000;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00B2D6;
+  background: #FFC000;
 }
 
 /* Hide Next.js Dev Indicator Badge */

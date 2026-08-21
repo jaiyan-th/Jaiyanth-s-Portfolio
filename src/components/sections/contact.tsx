@@ -109,13 +109,13 @@ export function Contact() {
 
   return (
     <div className="relative">
-      {/* Contact Section — karolbinkow.ski Soft Ice-Blue Section Background */}
-      <section id="contact" className="relative bg-[#D8EFEF] border-b-2 border-black px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-black">
+      {/* Contact Section — Clean Warm Section Background */}
+      <section id="contact" className="relative bg-[#FAF5E8] border-b-2 border-black px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-black">
         <div className="max-w-7xl mx-auto">
           {/* Main White Box (karolbinkow.ski LET'S TALK Box) */}
           <div className="bg-white border-2 border-black p-8 sm:p-12 shadow-[8px_8px_0px_#000000] relative">
             <div className="flex items-center gap-2 mb-3">
-              <span className="w-2.5 h-2.5 bg-[#00A8C6] border border-black inline-block" />
+              <span className="w-2.5 h-2.5 bg-[#FFC000] border border-black inline-block" />
               <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
                 LET'S TALK
               </span>
@@ -123,7 +123,7 @@ export function Contact() {
 
             <h2 className="font-heading font-black text-2xl sm:text-4xl lg:text-[44px] text-black leading-[1.08] tracking-tight uppercase mb-8">
               HAVE A PROBLEM THAT <br />
-              <span className="bg-[#00B2D6] text-black px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1">
+              <span className="bg-[#FFC000] text-black px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1">
                 NEEDS TO SHIP?
               </span>
             </h2>
@@ -140,7 +140,7 @@ export function Contact() {
                     <span className="text-black/60 font-black uppercase tracking-wider block mb-1">PRIMARY EMAIL</span>
                     <a
                       href={`mailto:${IDENTITY.email}`}
-                      className="text-black font-black text-base hover:text-[#00A8C6] transition-colors break-all"
+                      className="text-black font-black text-base hover:text-[#E5AC00] transition-colors break-all"
                     >
                       {IDENTITY.email}
                     </a>
@@ -166,7 +166,7 @@ export function Contact() {
                       href="https://www.linkedin.com/in/jaiyan-th/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-[#EFEFEA] text-black px-3.5 py-2 border-2 border-black shadow-[2px_2px_0px_#000000] hover:bg-[#00B2D6] transition-colors inline-flex items-center gap-1"
+                      className="bg-[#EFEFEA] text-black px-3.5 py-2 border-2 border-black shadow-[2px_2px_0px_#000000] hover:bg-[#FFC000] transition-colors inline-flex items-center gap-1"
                     >
                       <span>LINKEDIN</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
@@ -175,7 +175,7 @@ export function Contact() {
                       href={IDENTITY.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-[#EFEFEA] text-black px-3.5 py-2 border-2 border-black shadow-[2px_2px_0px_#000000] hover:bg-[#00B2D6] transition-colors inline-flex items-center gap-1"
+                      className="bg-[#EFEFEA] text-black px-3.5 py-2 border-2 border-black shadow-[2px_2px_0px_#000000] hover:bg-[#FFC000] transition-colors inline-flex items-center gap-1"
                     >
                       <span>GITHUB</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
@@ -259,7 +259,7 @@ export function Contact() {
                       disabled={status === "submitting"}
                       whileHover={{ y: -2, x: -1, boxShadow: "5px 5px 0px #000000" }}
                       whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-                      className="bg-[#00B2D6] hover:bg-[#0092B0] disabled:opacity-70 text-black font-mono text-xs font-black uppercase tracking-widest px-6 py-3.5 border-2 border-black shadow-[3px_3px_0px_#000000] transition-colors inline-flex items-center gap-2 cursor-pointer"
+                      className="bg-[#FFC000] hover:bg-[#E5AC00] disabled:opacity-70 text-black font-mono text-xs font-black uppercase tracking-widest px-6 py-3.5 border-2 border-black shadow-[3px_3px_0px_#000000] transition-colors inline-flex items-center gap-2 cursor-pointer"
                     >
                       <span>
                         {status === "submitting"

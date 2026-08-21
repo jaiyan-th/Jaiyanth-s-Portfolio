@@ -18,14 +18,14 @@ export function About() {
           className="mb-12"
         >
           <div className="flex items-center gap-2 mb-2">
-            <span className="w-2.5 h-2.5 bg-[#00A8C6] border border-black inline-block" />
+            <span className="w-2.5 h-2.5 bg-[#FFC000] border border-black inline-block" />
             <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
               WHO YOU'D BE WORKING WITH
             </span>
           </div>
           <h2 className="font-heading font-black text-2xl sm:text-4xl lg:text-[40px] text-black leading-[1.08] tracking-tight uppercase">
             ENGINEER &amp; BUILDER, <br />
-            <span className="bg-[#00B2D6] text-black px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1">
+            <span className="bg-[#FFC000] text-black px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1">
               SHIPPING END-TO-END.
             </span>
           </h2>
@@ -55,7 +55,7 @@ export function About() {
             className="lg:col-span-5 flex justify-center lg:justify-end"
           >
             <div className="w-full max-w-[400px] bg-white border-2 border-black shadow-[4px_4px_0px_#000000] overflow-hidden">
-              <div className="bg-[#00B2D6] border-b-2 border-black px-3 py-2">
+              <div className="bg-[#FFC000] border-b-2 border-black px-3 py-2">
                 <span className="font-mono text-[10px] font-black uppercase text-black tracking-widest block">
                   JAIYANTH B.
                 </span>

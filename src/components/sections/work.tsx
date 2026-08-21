@@ -21,14 +21,14 @@ export function Work() {
           className="mb-10"
         >
           <div className="flex items-center gap-2 mb-2">
-            <span className="w-2.5 h-2.5 bg-[#00A8C6] border border-black inline-block" />
+            <span className="w-2.5 h-2.5 bg-[#FFC000] border border-black inline-block" />
             <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
               SELECTED WORK
             </span>
           </div>
           <h2 className="font-heading font-black text-2xl sm:text-4xl lg:text-[40px] text-black leading-[1.08] tracking-tight uppercase">
             THREE PROJECTS, <br />
-            <span className="bg-[#00B2D6] text-black px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1">
+            <span className="bg-[#FFC000] text-black px-2 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1">
               THREE SHIPPED SYSTEMS.
             </span>
           </h2>
@@ -74,9 +74,9 @@ export function Work() {
                 {project.summary}
               </p>
 
-              {/* Outcome Bar (karolbinkow.ski cyan left-bar callout) */}
-              <div className="border-l-4 border-[#00A8C6] bg-white p-3.5 border border-black shadow-[3px_3px_0px_#000000] max-w-3xl">
-                <span className="font-mono text-[10px] font-black text-[#00A8C6] uppercase tracking-widest block mb-1">
+              {/* Outcome Bar (karolbinkow.ski left-bar callout) */}
+              <div className="border-l-4 border-[#FFC000] bg-white p-3.5 border border-black shadow-[3px_3px_0px_#000000] max-w-3xl">
+                <span className="font-mono text-[10px] font-black text-black/70 uppercase tracking-widest block mb-1">
                   ENGINEERING OUTCOME
                 </span>
                 <p className="font-mono text-xs font-black text-black">
@@ -91,10 +91,10 @@ export function Work() {
                   onClick={() => setSelectedSlug(project.slug)}
                   whileHover={{ y: -2, x: -1, boxShadow: "4px 4px 0px #000000" }}
                   whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-                  className="bg-black text-white font-mono text-xs font-black uppercase tracking-widest px-5 py-3 border-2 border-black shadow-[2px_2px_0px_#00B2D6] inline-flex items-center gap-2 cursor-pointer"
+                  className="bg-black text-white font-mono text-xs font-black uppercase tracking-widest px-5 py-3 border-2 border-black shadow-[2px_2px_0px_#FFC000] inline-flex items-center gap-2 cursor-pointer"
                 >
                   <span>INSPECT CASE STUDY</span>
-                  <ArrowRight className="w-4 h-4 text-[#00B2D6]" />
+                  <ArrowRight className="w-4 h-4 text-[#FFC000]" />
                 </motion.button>
 
                 {project.liveUrl && (
@@ -102,7 +102,7 @@ export function Work() {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white text-black font-mono text-xs font-black uppercase tracking-widest px-5 py-3 border-2 border-black shadow-[2px_2px_0px_#000000] hover:bg-[#00B2D6] transition-colors inline-flex items-center gap-1.5"
+                    className="bg-white text-black font-mono text-xs font-black uppercase tracking-widest px-5 py-3 border-2 border-black shadow-[2px_2px_0px_#000000] hover:bg-[#FFC000] transition-colors inline-flex items-center gap-1.5"
                   >
                     <span>LIVE DEMO</span>
                     <ExternalLink className="w-3.5 h-3.5" />

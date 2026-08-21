@@ -17,7 +17,7 @@ export function Skills() {
           className="mb-14"
         >
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 bg-[#00A8C6] border border-black inline-block" />
+            <span className="w-2.5 h-2.5 bg-[#FFC000] border border-black inline-block" />
             <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
               STACK
             </span>
