@@ -57,13 +57,19 @@ export function Hero() {
               </span>
             </motion.div>
 
-            {/* Display Headline - perfectly scaled strong poster look */}
+            {/* Display Headline */}
             <motion.div variants={itemVariants}>
-              <h1 className="font-display font-normal text-5xl sm:text-6xl lg:text-7xl xl:text-[76px] text-black leading-[0.94] tracking-tight uppercase">
-                YOU HAVE A <br />
-                PROBLEM. <br />
+              <h1 className="font-display font-normal text-4xl sm:text-6xl lg:text-7xl xl:text-[72px] text-black leading-[0.95] tracking-tight uppercase">
+                I DON&apos;T JUST CODE. <br />
+                <span className="text-black">I </span>
+                <span className="font-cursive lowercase font-bold text-5xl sm:text-7xl lg:text-8xl text-[#8E0000] tracking-normal font-normal">
+                  solve.
+                </span> <br />
                 <div className="bg-[#8E0000] text-white px-4 py-2 inline-block border-2 border-black shadow-[5px_5px_0px_#000000] mt-2">
-                  I HAVE THE SOLUTION.
+                  <span>THINK IT. BUILD IT. </span>
+                  <span className="font-cursive lowercase font-bold text-3xl sm:text-5xl lg:text-6xl text-white tracking-normal font-normal">
+                    solve it.
+                  </span>
                 </div>
               </h1>
             </motion.div>
