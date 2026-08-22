@@ -25,13 +25,13 @@ export function Work() {
             <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
               SELECTED WORK
             </span>
-            <span className="font-cursive text-xl sm:text-2xl text-[#8E0000] font-bold ml-1 transform -rotate-2 select-none">
-              ~ real systems shipped
+            <span className="font-editorial-italic text-sm sm:text-base text-[#8E0000] font-semibold tracking-tight select-none">
+              / real systems shipped
             </span>
           </div>
           <h2 className="font-display font-normal text-4xl sm:text-5xl lg:text-6xl text-black leading-[0.96] tracking-tight uppercase">
             THREE PROJECTS, <br />
-            <span className="font-cursive lowercase font-bold text-4xl sm:text-5xl lg:text-6xl text-[#8E0000] tracking-normal font-normal">three</span> SHIPPED SYSTEMS.
+            <span className="font-editorial-italic normal-case text-[#8E0000] font-semibold tracking-tight">three</span> SHIPPED SYSTEMS.
           </h2>
         </motion.div>
 

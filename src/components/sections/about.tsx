@@ -22,14 +22,14 @@ export function About() {
             <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
               WHO YOU&apos;D BE WORKING WITH
             </span>
-            <span className="font-cursive text-xl sm:text-2xl text-[#8E0000] font-bold transform -rotate-2 select-none">
-              ~ the background
+            <span className="font-editorial-italic text-sm sm:text-base text-[#8E0000] font-semibold tracking-tight select-none">
+              / the background
             </span>
           </div>
           <h2 className="font-display font-normal text-4xl sm:text-5xl lg:text-6xl text-black leading-[0.96] tracking-tight uppercase">
             ENGINEER &amp; BUILDER, <br />
             <span className="text-black">SHIPPING</span>{" "}
-            <span className="font-cursive lowercase font-bold text-4xl sm:text-5xl lg:text-6xl text-[#8E0000] tracking-normal font-normal">end-to-end.</span>
+            <span className="font-editorial-italic normal-case text-[#8E0000] font-semibold tracking-tight">end-to-end.</span>
           </h2>
         </motion.div>
 

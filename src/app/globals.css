@@ -18,7 +18,7 @@
   --font-mono: var(--font-mono);
   --font-label: var(--font-label);
   --font-heading: var(--font-heading);
-  --font-cursive: var(--font-cursive);
+  --font-italic: var(--font-italic);
   --font-body: var(--font-sans);
   --font-nav: var(--font-heading);
 
@@ -116,8 +116,10 @@
   .font-serif {
     font-family: var(--font-serif), Georgia, serif;
   }
-  .font-cursive {
-    font-family: var(--font-cursive), "Caveat", "Brush Script MT", cursive;
+  .font-editorial-italic {
+    font-family: var(--font-italic), "Newsreader", "Georgia", "Times New Roman", serif;
+    font-style: italic;
+    letter-spacing: -0.02em;
   }
   .font-mono-label {
     font-family: var(--font-label), var(--font-mono), monospace;

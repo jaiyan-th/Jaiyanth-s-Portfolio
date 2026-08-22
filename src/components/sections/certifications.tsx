@@ -47,13 +47,13 @@ export function Certifications() {
             <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
               CREDENTIALS
             </span>
-            <span className="font-cursive text-xl sm:text-2xl text-[#8E0000] font-bold ml-1 transform -rotate-2 select-none">
-              ~ verified knowledge
+            <span className="font-editorial-italic text-sm sm:text-base text-[#8E0000] font-semibold tracking-tight select-none">
+              / verified knowledge
             </span>
           </div>
           <h2 className="font-display font-normal text-4xl sm:text-5xl lg:text-6xl text-black leading-[0.96] tracking-tight uppercase">
             VERIFIED <br />
-            <span className="font-cursive lowercase font-bold text-4xl sm:text-5xl lg:text-6xl text-[#8E0000] tracking-normal font-normal">industry</span> CERTIFICATIONS.
+            <span className="font-editorial-italic normal-case text-[#8E0000] font-semibold tracking-tight">industry</span> CERTIFICATIONS.
           </h2>
         </motion.div>
 

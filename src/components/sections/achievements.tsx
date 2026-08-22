@@ -22,13 +22,13 @@ export function Achievements() {
             <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
               RESEARCH &amp; ACHIEVEMENTS
             </span>
-            <span className="font-cursive text-xl sm:text-2xl text-[#8E0000] font-bold ml-1 transform -rotate-2 select-none">
-              ~ published &amp; verified
+            <span className="font-editorial-italic text-sm sm:text-base text-[#8E0000] font-semibold tracking-tight select-none">
+              / published &amp; verified
             </span>
           </div>
           <h2 className="font-display font-normal text-4xl sm:text-5xl lg:text-6xl text-black leading-[0.96] tracking-tight uppercase">
             CO-AUTHORED IEEE PAPER, <br />
-            <span className="font-cursive lowercase font-bold text-4xl sm:text-5xl lg:text-6xl text-[#8E0000] tracking-normal font-normal">peer-reviewed</span> &amp; ACCEPTED.
+            <span className="font-editorial-italic normal-case text-[#8E0000] font-semibold tracking-tight">peer-reviewed</span> &amp; ACCEPTED.
           </h2>
         </motion.div>
 

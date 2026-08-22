@@ -119,14 +119,14 @@ export function Contact() {
               <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
                 LET'S TALK
               </span>
-              <span className="font-cursive text-xl sm:text-2xl text-[#8E0000] font-bold ml-1 transform -rotate-2 select-none">
-                ~ get in touch
+              <span className="font-editorial-italic text-sm sm:text-base text-[#8E0000] font-semibold tracking-tight select-none">
+                / get in touch
               </span>
             </div>
 
             <h2 className="font-display font-normal text-4xl sm:text-5xl lg:text-6xl text-black leading-[0.96] tracking-tight uppercase mb-8">
               HAVE A PROBLEM THAT <br />
-              <span className="font-cursive lowercase font-bold text-4xl sm:text-5xl lg:text-6xl text-[#8E0000] tracking-normal font-normal">needs to ship?</span>
+              <span className="font-editorial-italic normal-case text-[#8E0000] font-semibold tracking-tight">needs to ship?</span>
             </h2>
 
             <div className="grid lg:grid-cols-12 gap-10 items-start">

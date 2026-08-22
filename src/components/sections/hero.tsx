@@ -46,28 +46,28 @@ export function Hero() {
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left Column: Headline & Subtext */}
           <div className="lg:col-span-7 space-y-5">
-            {/* Eyebrow: ■ SOFTWARE ENGINEER • BUILDER + Cursive Accent */}
+            {/* Eyebrow: ■ SOFTWARE ENGINEER • BUILDER + Editorial Italic Accent */}
             <motion.div variants={itemVariants} className="flex items-center gap-2.5 flex-wrap">
               <span className="w-2.5 h-2.5 bg-[#8E0000] border border-black inline-block" />
               <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
                 SOFTWARE ENGINEER • BUILDER
               </span>
-              <span className="font-cursive text-xl sm:text-2xl text-[#8E0000] font-bold transform -rotate-2 select-none">
-                ~ building for production
+              <span className="font-editorial-italic text-sm sm:text-base text-[#8E0000] font-semibold tracking-tight select-none">
+                / building for production
               </span>
             </motion.div>
 
             {/* Display Headline */}
             <motion.div variants={itemVariants}>
-              <h1 className="font-display font-normal text-4xl sm:text-6xl lg:text-7xl xl:text-[72px] text-black leading-[0.95] tracking-tight uppercase">
+              <h1 className="font-display font-normal text-5xl sm:text-6xl lg:text-7xl xl:text-[76px] text-black leading-[0.94] tracking-tight uppercase">
                 I DON&apos;T JUST CODE. <br />
                 <span className="text-black">I </span>
-                <span className="font-cursive lowercase font-bold text-5xl sm:text-7xl lg:text-8xl text-[#8E0000] tracking-normal font-normal">
+                <span className="font-editorial-italic normal-case text-[#8E0000] font-semibold text-5xl sm:text-6xl lg:text-7xl xl:text-[76px] tracking-tight">
                   solve.
                 </span> <br />
                 <div className="bg-[#8E0000] text-white px-4 py-2 inline-block border-2 border-black shadow-[5px_5px_0px_#000000] mt-2">
                   <span>THINK IT. BUILD IT. </span>
-                  <span className="font-cursive lowercase font-bold text-3xl sm:text-5xl lg:text-6xl text-white tracking-normal font-normal">
+                  <span className="font-editorial-italic normal-case text-white font-semibold tracking-tight text-3xl sm:text-4xl lg:text-5xl">
                     solve it.
                   </span>
                 </div>
@@ -109,7 +109,7 @@ export function Hero() {
                 <span className="font-display text-2xl text-white tracking-wider block uppercase">
                   ENGINEER SPEC
                 </span>
-                <span className="font-cursive text-xl text-white/90 font-bold transform -rotate-1">
+                <span className="font-editorial-italic text-sm text-white/90 font-medium tracking-tight">
                   verified
                 </span>
               </div>
