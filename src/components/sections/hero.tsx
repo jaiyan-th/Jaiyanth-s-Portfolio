@@ -26,7 +26,7 @@ export function Hero() {
   };
 
   return (
-    <section id="hero" className="relative bg-[#EFEFEA] text-black border-b-2 border-black pt-8 lg:pt-10 pb-0">
+    <section id="hero" className="relative bg-[#EFEFEA] text-black pt-8 lg:pt-10 pb-0">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -142,9 +142,7 @@ export function Hero() {
       </motion.div>
 
       {/* Marquee Strip: Directly touches hero with no dead space */}
-      <div className="border-t-2 border-black bg-white">
-        <Marquee />
-      </div>
+      <Marquee />
     </section>
   );
 }

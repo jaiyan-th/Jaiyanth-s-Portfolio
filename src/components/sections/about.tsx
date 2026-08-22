@@ -7,7 +7,7 @@ import { motion } from "motion/react";
 
 export function About() {
   return (
-    <section id="about" className="relative bg-[#EFEFEA] text-black border-b-2 border-black py-20 md:py-28">
+    <section id="about" className="relative bg-[#EFEFEA] text-black border-b-2 border-black pt-12 pb-16 md:pt-14 md:pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Eyebrow Header */}
         <motion.div
