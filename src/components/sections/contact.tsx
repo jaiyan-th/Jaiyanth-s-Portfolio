@@ -114,16 +114,19 @@ export function Contact() {
         <div className="max-w-7xl mx-auto">
           {/* Main White Box (karolbinkow.ski LET'S TALK Box) */}
           <div className="bg-white border-2 border-black p-8 sm:p-12 shadow-[8px_8px_0px_#000000] relative">
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2.5 mb-3 flex-wrap">
               <span className="w-2.5 h-2.5 bg-[#8E0000] border border-black inline-block" />
               <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
                 LET'S TALK
               </span>
+              <span className="font-cursive text-xl sm:text-2xl text-[#8E0000] font-bold ml-1 transform -rotate-2 select-none">
+                ~ get in touch
+              </span>
             </div>
 
-            <h2 className="font-display font-normal text-3xl sm:text-4xl lg:text-5xl text-black leading-[0.98] tracking-tight uppercase mb-8">
+            <h2 className="font-display font-normal text-4xl sm:text-5xl lg:text-6xl text-black leading-[0.96] tracking-tight uppercase mb-8">
               HAVE A PROBLEM THAT <br />
-              NEEDS TO SHIP?
+              <span className="font-cursive lowercase font-bold text-4xl sm:text-5xl lg:text-6xl text-[#8E0000] tracking-normal font-normal">needs to ship?</span>
             </h2>
 
             <div className="grid lg:grid-cols-12 gap-10 items-start">

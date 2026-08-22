@@ -18,6 +18,7 @@
   --font-mono: var(--font-mono);
   --font-label: var(--font-label);
   --font-heading: var(--font-heading);
+  --font-cursive: var(--font-cursive);
   --font-body: var(--font-sans);
   --font-nav: var(--font-heading);
 
@@ -114,6 +115,9 @@
   }
   .font-serif {
     font-family: var(--font-serif), Georgia, serif;
+  }
+  .font-cursive {
+    font-family: var(--font-cursive), "Caveat", "Brush Script MT", cursive;
   }
   .font-mono-label {
     font-family: var(--font-label), var(--font-mono), monospace;

@@ -16,14 +16,17 @@ export function Experience() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-12"
         >
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2.5 mb-3 flex-wrap">
             <span className="w-2.5 h-2.5 bg-[#8E0000] border border-black inline-block" />
             <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
               EXPERIENCE &amp; WORKFLOW
             </span>
+            <span className="font-cursive text-xl sm:text-2xl text-[#8E0000] font-bold ml-1 transform -rotate-2 select-none">
+              ~ the journey
+            </span>
           </div>
-          <h2 className="font-display font-normal text-3xl sm:text-4xl lg:text-5xl text-black leading-[0.98] tracking-tight uppercase">
-            WHERE I&apos;VE WORKED.
+          <h2 className="font-display font-normal text-4xl sm:text-5xl lg:text-6xl text-black leading-[0.96] tracking-tight uppercase">
+            WHERE I&apos;VE <span className="font-cursive lowercase font-bold text-4xl sm:text-5xl lg:text-6xl text-[#8E0000] tracking-normal font-normal">worked.</span>
           </h2>
         </motion.div>
 

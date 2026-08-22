@@ -35,47 +35,51 @@ export function Hero() {
   ];
 
   return (
-    <section id="hero" className="relative bg-[#EFEFEA] text-black border-b-2 border-black pt-6 pb-6 lg:pt-8 lg:pb-8">
+    <section id="hero" className="relative bg-[#EFEFEA] text-black border-b-2 border-black pt-8 pb-8 lg:pt-12 lg:pb-10">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8"
       >
         {/* Top Grid: Headline on Left, Spec Card on Right aligned to top */}
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left Column: Headline & Subtext */}
-          <div className="lg:col-span-7 space-y-4">
-            {/* Eyebrow: ■ SOFTWARE ENGINEER • BUILDER */}
-            <motion.div variants={itemVariants} className="flex items-center gap-2">
+          <div className="lg:col-span-7 space-y-5">
+            {/* Eyebrow: ■ SOFTWARE ENGINEER • BUILDER + Cursive Accent */}
+            <motion.div variants={itemVariants} className="flex items-center gap-2.5 flex-wrap">
               <span className="w-2.5 h-2.5 bg-[#8E0000] border border-black inline-block" />
               <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
                 SOFTWARE ENGINEER • BUILDER
               </span>
+              <span className="font-cursive text-xl sm:text-2xl text-[#8E0000] font-bold transform -rotate-2 select-none">
+                ~ building for production
+              </span>
             </motion.div>
 
-            {/* Display Headline - perfectly scaled */}
+            {/* Display Headline - perfectly scaled strong poster look */}
             <motion.div variants={itemVariants}>
-              <h1 className="font-display font-normal text-4xl sm:text-5xl lg:text-6xl xl:text-[64px] text-black leading-[0.98] tracking-tight uppercase">
-                YOU HAVE A PROBLEM. <br />
-                <div className="bg-[#8E0000] text-white px-3.5 py-1.5 inline-block border-2 border-black shadow-[4px_4px_0px_#000000] mt-1.5">
+              <h1 className="font-display font-normal text-5xl sm:text-6xl lg:text-7xl xl:text-[76px] text-black leading-[0.94] tracking-tight uppercase">
+                YOU HAVE A <br />
+                PROBLEM. <br />
+                <div className="bg-[#8E0000] text-white px-4 py-2 inline-block border-2 border-black shadow-[5px_5px_0px_#000000] mt-2">
                   I HAVE THE SOLUTION.
                 </div>
               </h1>
             </motion.div>
 
             {/* Subtext in monospace font */}
-            <motion.p variants={itemVariants} className="max-w-lg font-mono text-xs sm:text-sm text-black/85 leading-relaxed font-normal">
+            <motion.p variants={itemVariants} className="max-w-xl font-mono text-xs sm:text-sm text-black/90 leading-relaxed font-normal">
               I work across full-stack architecture, applied AI workflows, structured APIs, and intuitive interfaces to turn complex engineering problems into dependable, production-ready solutions.
             </motion.p>
 
             {/* CTA Action Buttons */}
-            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-1">
+            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-2">
               <motion.a
                 href="#contact"
                 whileHover={{ y: -2, x: -1, boxShadow: "5px 5px 0px #000000" }}
                 whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-                className="bg-[#8E0000] hover:bg-[#700000] text-white font-display text-base sm:text-lg tracking-wider uppercase px-6 py-2 border-2 border-black shadow-[3px_3px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-2"
+                className="bg-[#8E0000] hover:bg-[#700000] text-white font-display text-lg sm:text-xl tracking-wider uppercase px-7 py-2.5 border-2 border-black shadow-[3px_3px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-2"
               >
                 <span>GET IN TOUCH →</span>
               </motion.a>
@@ -84,7 +88,7 @@ export function Hero() {
                 href="#work"
                 whileHover={{ y: -2, x: -1, boxShadow: "5px 5px 0px #000000" }}
                 whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-                className="bg-white hover:bg-[#EFEFEA] text-black font-display text-base sm:text-lg tracking-wider uppercase px-6 py-2 border-2 border-black shadow-[3px_3px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-2"
+                className="bg-white hover:bg-[#EFEFEA] text-black font-display text-lg sm:text-xl tracking-wider uppercase px-7 py-2.5 border-2 border-black shadow-[3px_3px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-2"
               >
                 <span>SEE THE WORK ↓</span>
               </motion.a>
@@ -93,40 +97,43 @@ export function Hero() {
 
           {/* Right Column: ENGINEER SPEC Card aligned top-right */}
           <motion.div variants={itemVariants} className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="w-full max-w-[340px] bg-white border-2 border-black shadow-[5px_5px_0px_#000000]">
+            <div className="w-full max-w-[360px] bg-white border-2 border-black shadow-[6px_6px_0px_#000000]">
               {/* Header */}
-              <div className="bg-[#8E0000] border-b-2 border-black px-3.5 py-2.5">
-                <span className="font-display text-xl text-white tracking-wider block uppercase">
+              <div className="bg-[#8E0000] border-b-2 border-black px-4 py-3 flex items-center justify-between">
+                <span className="font-display text-2xl text-white tracking-wider block uppercase">
                   ENGINEER SPEC
+                </span>
+                <span className="font-cursive text-xl text-white/90 font-bold transform -rotate-1">
+                  verified
                 </span>
               </div>
 
               {/* Rows */}
               <div className="divide-y-2 divide-black font-mono text-xs">
-                <div className="p-2.5 px-3.5 flex items-center justify-between">
+                <div className="p-3 px-4 flex items-center justify-between">
                   <span className="font-bold text-black/70 uppercase tracking-wider">BASED</span>
                   <span className="font-semibold text-black">Karur, TN, India</span>
                 </div>
-                <div className="p-2.5 px-3.5 flex items-center justify-between">
+                <div className="p-3 px-4 flex items-center justify-between">
                   <span className="font-bold text-black/70 uppercase tracking-wider">MODE</span>
                   <span className="font-semibold text-black">Remote • Intl</span>
                 </div>
-                <div className="p-2.5 px-3.5 flex items-center justify-between">
+                <div className="p-3 px-4 flex items-center justify-between">
                   <span className="font-bold text-black/70 uppercase tracking-wider">ENGAGE</span>
                   <span className="font-semibold text-black">Full-time / Internship</span>
                 </div>
-                <div className="p-2.5 px-3.5 flex items-center justify-between">
+                <div className="p-3 px-4 flex items-center justify-between">
                   <span className="font-bold text-black/70 uppercase tracking-wider">STACK</span>
                   <div className="flex flex-wrap gap-1 justify-end">
-                    <span className="border border-black bg-white px-1.5 py-0.5 font-mono text-[10px] font-bold text-black shadow-[1px_1px_0px_#000000]">Python</span>
-                    <span className="border border-black bg-white px-1.5 py-0.5 font-mono text-[10px] font-bold text-black shadow-[1px_1px_0px_#000000]">Next.js</span>
-                    <span className="border border-black bg-white px-1.5 py-0.5 font-mono text-[10px] font-bold text-black shadow-[1px_1px_0px_#000000]">Supabase</span>
+                    <span className="border border-black bg-white px-2 py-0.5 font-mono text-[11px] font-bold text-black shadow-[1px_1px_0px_#000000]">Python</span>
+                    <span className="border border-black bg-white px-2 py-0.5 font-mono text-[11px] font-bold text-black shadow-[1px_1px_0px_#000000]">Next.js</span>
+                    <span className="border border-black bg-white px-2 py-0.5 font-mono text-[11px] font-bold text-black shadow-[1px_1px_0px_#000000]">Supabase</span>
                   </div>
                 </div>
-                <div className="p-2.5 px-3.5 flex items-center justify-between">
+                <div className="p-3 px-4 flex items-center justify-between">
                   <span className="font-bold text-black/70 uppercase tracking-wider">STATUS</span>
                   <span className="text-emerald-700 font-bold flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-600 inline-block" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block" />
                     Available
                   </span>
                 </div>
@@ -137,7 +144,7 @@ export function Hero() {
       </motion.div>
 
       {/* Horizontal Auto-Scrolling Marquee Ticker */}
-      <div className="mt-8 border-t-2 border-b-2 border-black bg-white">
+      <div className="mt-10 border-t-2 border-b-2 border-black bg-white">
         <Marquee />
       </div>
     </section>

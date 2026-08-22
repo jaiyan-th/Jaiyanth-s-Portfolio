@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import {
   Anton,
+  Caveat,
   Fraunces,
   Plus_Jakarta_Sans,
   JetBrains_Mono,
@@ -19,6 +20,13 @@ const anton = Anton({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ["400"],
+  display: "swap",
+});
+
+const caveat = Caveat({
+  variable: "--font-cursive",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
@@ -164,7 +172,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${anton.variable} ${fraunces.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} ${spaceMono.variable} antialiased bg-[#EFEFEA] text-black font-sans`}
+        className={`${anton.variable} ${caveat.variable} ${fraunces.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} ${spaceMono.variable} antialiased bg-[#EFEFEA] text-black font-sans`}
       >
         <ThemeProvider>
           <ScrollProgress />

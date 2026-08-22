@@ -17,15 +17,18 @@ export function Achievements() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-14"
         >
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2.5 mb-3 flex-wrap">
             <span className="w-2.5 h-2.5 bg-[#8E0000] border border-black inline-block" />
             <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
               RESEARCH &amp; ACHIEVEMENTS
             </span>
+            <span className="font-cursive text-xl sm:text-2xl text-[#8E0000] font-bold ml-1 transform -rotate-2 select-none">
+              ~ published &amp; verified
+            </span>
           </div>
-          <h2 className="font-display font-normal text-3xl sm:text-4xl lg:text-5xl text-black leading-[0.98] tracking-tight uppercase">
+          <h2 className="font-display font-normal text-4xl sm:text-5xl lg:text-6xl text-black leading-[0.96] tracking-tight uppercase">
             CO-AUTHORED IEEE PAPER, <br />
-            PEER-REVIEWED &amp; ACCEPTED.
+            <span className="font-cursive lowercase font-bold text-4xl sm:text-5xl lg:text-6xl text-[#8E0000] tracking-normal font-normal">peer-reviewed</span> &amp; ACCEPTED.
           </h2>
         </motion.div>
 
