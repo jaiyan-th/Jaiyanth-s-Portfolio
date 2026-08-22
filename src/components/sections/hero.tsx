@@ -46,45 +46,47 @@ export function Hero() {
         <div className="grid lg:grid-cols-12 gap-10 items-start">
           {/* Left Column: Headline & Subtext */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Eyebrow: ■ SOFTWARE ENGINEER · BUILDER */}
+            {/* Eyebrow: ■ SOFTWARE ENGINEER • BUILDER */}
             <motion.div variants={itemVariants} className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 bg-[#A30000] border border-black inline-block" />
-              <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
-                SOFTWARE ENGINEER · BUILDER
+              <span className="w-2.5 h-2.5 bg-[#8E0000] border border-black inline-block" />
+              <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
+                SOFTWARE ENGINEER • BUILDER
               </span>
             </motion.div>
 
-            {/* Display Headline (exact karolbinkow.ski proportions) */}
+            {/* Display Headline matching screenshot */}
             <motion.div variants={itemVariants}>
-              <h1 className="font-heading font-black text-2xl sm:text-4xl lg:text-5xl xl:text-[52px] text-black leading-[1.05] tracking-tight uppercase">
-                YOU HAVE A PROBLEM. <br />
-                <span className="bg-[#A30000] text-white px-2.5 py-0.5 inline-block border-2 border-black shadow-[3px_3px_0px_#000000] mt-1.5">
-                  I HAVE THE SOLUTION.
-                </span>
+              <h1 className="font-display font-normal text-6xl sm:text-7xl lg:text-8xl xl:text-[96px] text-black leading-[0.92] tracking-tight uppercase">
+                YOU HAVE A <br />
+                PROBLEM. <br />
+                <div className="bg-[#8E0000] text-white px-5 py-3.5 inline-block border-2 border-black shadow-[6px_6px_0px_#000000] mt-3">
+                  I HAVE THE <br />
+                  SOLUTION.
+                </div>
               </h1>
             </motion.div>
 
-            {/* Subtext */}
-            <motion.p variants={itemVariants} className="max-w-xl font-sans text-sm sm:text-base text-black/85 leading-relaxed font-semibold">
+            {/* Subtext in monospace font matching screenshot */}
+            <motion.p variants={itemVariants} className="max-w-xl font-mono text-xs sm:text-sm text-black leading-relaxed font-normal">
               I work across full-stack architecture, applied AI workflows, structured APIs, and intuitive interfaces to turn complex engineering problems into dependable, production-ready solutions.
             </motion.p>
 
-            {/* CTA Action Buttons matching exact layout */}
-            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-2">
+            {/* CTA Action Buttons */}
+            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-5 pt-3">
               <motion.a
                 href="#contact"
-                whileHover={{ y: -2, x: -1, boxShadow: "5px 5px 0px #000000" }}
+                whileHover={{ y: -2, x: -1, boxShadow: "6px 6px 0px #000000" }}
                 whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-                className="bg-[#A30000] hover:bg-[#850000] text-white font-mono text-xs font-black tracking-wider uppercase px-6 py-3.5 border-2 border-black shadow-[3px_3px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-2"
+                className="bg-[#8E0000] hover:bg-[#700000] text-white font-display text-xl sm:text-2xl tracking-wider uppercase px-7 py-3 border-2 border-black shadow-[4px_4px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-2"
               >
                 <span>GET IN TOUCH →</span>
               </motion.a>
 
               <motion.a
                 href="#work"
-                whileHover={{ y: -2, x: -1, boxShadow: "5px 5px 0px #000000" }}
+                whileHover={{ y: -2, x: -1, boxShadow: "6px 6px 0px #000000" }}
                 whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-                className="bg-white hover:bg-[#EFEFEA] text-black font-mono text-xs font-black tracking-wider uppercase px-6 py-3.5 border-2 border-black shadow-[3px_3px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-2"
+                className="bg-white hover:bg-[#EFEFEA] text-black font-display text-xl sm:text-2xl tracking-wider uppercase px-7 py-3 border-2 border-black shadow-[4px_4px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-2"
               >
                 <span>SEE THE WORK ↓</span>
               </motion.a>
@@ -93,26 +95,43 @@ export function Hero() {
 
           {/* Right Column: ENGINEER SPEC Card aligned top-right */}
           <motion.div variants={itemVariants} className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="w-full max-w-[360px] bg-white border-2 border-black shadow-[5px_5px_0px_#000000]">
+            <div className="w-full max-w-[380px] bg-white border-2 border-black shadow-[6px_6px_0px_#000000]">
               {/* Header */}
-              <div className="bg-[#A30000] border-b-2 border-black p-3.5">
-                <span className="font-mono text-xs font-black uppercase text-white tracking-widest block">
+              <div className="bg-[#8E0000] border-b-2 border-black px-4 py-3">
+                <span className="font-display text-2xl text-white tracking-wider block uppercase">
                   ENGINEER SPEC
                 </span>
               </div>
 
               {/* Rows */}
               <div className="divide-y-2 divide-black font-mono text-xs">
-                {specRows.map((row) => (
-                  <div key={row.label} className="p-3.5 flex items-center justify-between">
-                    <span className="font-black text-black/60 tracking-wider">
-                      {row.label}
-                    </span>
-                    <span className={`font-black ${row.label === "STATUS" ? "text-emerald-700 font-extrabold flex items-center gap-1.5" : "text-black"}`}>
-                      {row.value}
-                    </span>
+                <div className="p-3.5 flex items-center justify-between">
+                  <span className="font-bold text-black/70 uppercase tracking-wider">BASED</span>
+                  <span className="font-semibold text-black">Karur, TN, India</span>
+                </div>
+                <div className="p-3.5 flex items-center justify-between">
+                  <span className="font-bold text-black/70 uppercase tracking-wider">MODE</span>
+                  <span className="font-semibold text-black">Remote • Intl</span>
+                </div>
+                <div className="p-3.5 flex items-center justify-between">
+                  <span className="font-bold text-black/70 uppercase tracking-wider">ENGAGE</span>
+                  <span className="font-semibold text-black">Full-time / Internship</span>
+                </div>
+                <div className="p-3.5 flex items-center justify-between">
+                  <span className="font-bold text-black/70 uppercase tracking-wider">STACK</span>
+                  <div className="flex flex-wrap gap-1.5 justify-end">
+                    <span className="border border-black bg-white px-2 py-0.5 font-mono text-[11px] font-bold text-black shadow-[1px_1px_0px_#000000]">Python</span>
+                    <span className="border border-black bg-white px-2 py-0.5 font-mono text-[11px] font-bold text-black shadow-[1px_1px_0px_#000000]">Next.js</span>
+                    <span className="border border-black bg-white px-2 py-0.5 font-mono text-[11px] font-bold text-black shadow-[1px_1px_0px_#000000]">Supabase</span>
                   </div>
-                ))}
+                </div>
+                <div className="p-3.5 flex items-center justify-between">
+                  <span className="font-bold text-black/70 uppercase tracking-wider">STATUS</span>
+                  <span className="text-emerald-700 font-bold flex items-center gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block" />
+                    Available
+                  </span>
+                </div>
               </div>
             </div>
           </motion.div>

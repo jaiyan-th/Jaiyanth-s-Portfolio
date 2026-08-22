@@ -17,12 +17,12 @@ export function Experience() {
           className="mb-12"
         >
           <div className="flex items-center gap-2 mb-3">
-            <span className="w-2.5 h-2.5 bg-[#A30000] border border-black inline-block" />
-            <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
+            <span className="w-2.5 h-2.5 bg-[#8E0000] border border-black inline-block" />
+            <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
               EXPERIENCE &amp; WORKFLOW
             </span>
           </div>
-          <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-[52px] text-black leading-[1.05] tracking-tight uppercase">
+          <h2 className="font-display font-normal text-4xl sm:text-6xl lg:text-7xl text-black leading-[0.92] tracking-tight uppercase">
             WHERE I&apos;VE WORKED.
           </h2>
         </motion.div>
@@ -31,21 +31,21 @@ export function Experience() {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white border-2 border-black p-6 shadow-[5px_5px_0px_#000000] space-y-3">
+            <div className="bg-white border-2 border-black p-6 shadow-[6px_6px_0px_#000000] space-y-3">
               <div className="flex items-center justify-between border-b-2 border-black pb-3">
-                <span className="font-mono text-xs font-black text-black">
+                <span className="font-mono text-xs font-bold text-black">
                   {EXPERIENCE.period}
                 </span>
-                <span className="bg-[#A30000] text-white px-2.5 py-0.5 font-mono text-[9.5px] uppercase font-black border border-black shadow-[1.5px_1.5px_0px_#000000]">
+                <span className="bg-[#8E0000] text-white px-2.5 py-0.5 font-mono text-[9.5px] uppercase font-bold border border-black shadow-[1.5px_1.5px_0px_#000000]">
                   COMPLETED
                 </span>
               </div>
 
-              <h3 className="font-heading font-black text-2xl text-black uppercase">
+              <h3 className="font-display text-3xl text-black uppercase">
                 {EXPERIENCE.role}
               </h3>
 
-              <span className="font-mono text-xs font-black text-black/70 block uppercase">
+              <span className="font-mono text-xs font-bold text-black/70 block uppercase">
                 {EXPERIENCE.organisation}
               </span>
 
@@ -58,11 +58,11 @@ export function Experience() {
           {/* Right Column: 8-Stage Numbered Workflow Grid */}
           <div className="lg:col-span-7">
             <div className="bg-white border-2 border-black p-6 shadow-[6px_6px_0px_#000000] space-y-4">
-              <div className="bg-[#A30000] text-white border-b-2 border-black -m-6 mb-2 p-3.5 flex items-center justify-between">
-                <span className="font-mono text-xs font-black uppercase text-white tracking-widest">
+              <div className="bg-[#8E0000] text-white border-b-2 border-black -m-6 mb-2 p-3.5 flex items-center justify-between">
+                <span className="font-display text-xl uppercase text-white tracking-wider">
                   WORKFLOW PIPELINE
                 </span>
-                <span className="font-mono text-xs font-black uppercase text-black bg-white px-2 py-0.5 border border-black">
+                <span className="font-mono text-xs font-bold uppercase text-black bg-white px-2 py-0.5 border border-black">
                   8 STAGES
                 </span>
               </div>
@@ -73,7 +73,7 @@ export function Experience() {
                   return (
                     <div key={item} className="py-3 flex items-center justify-between group">
                       <div className="flex items-center gap-3">
-                        <span className="w-2 h-2 bg-[#A30000] border border-black inline-block group-hover:bg-black transition-colors" />
+                        <span className="w-2 h-2 bg-[#8E0000] border border-black inline-block group-hover:bg-black transition-colors" />
                         <span className="font-black text-black uppercase tracking-wider">
                           {item}
                         </span>

@@ -104,13 +104,13 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
             className="relative z-10 my-auto flex max-h-[90vh] w-full max-w-4xl flex-col border-2 border-black bg-white p-6 sm:p-8 shadow-[8px_8px_0px_#000000] text-black overflow-hidden"
           >
             {/* Header bar */}
-            <div className="bg-[#A30000] border-b-2 border-black -m-6 sm:-m-8 mb-4 p-4 flex items-center justify-between">
+            <div className="bg-[#8E0000] border-b-2 border-black -m-6 sm:-m-8 mb-4 p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <span className="font-mono text-xs font-black uppercase text-white">
+                <span className="font-display text-lg uppercase text-white tracking-wider">
                   {project.category}
                 </span>
                 <span className="font-mono text-xs text-white">•</span>
-                <span className="font-mono text-xs font-black text-white">
+                <span className="font-display text-lg uppercase text-white tracking-wider">
                   PROJECT {project.number}
                 </span>
               </div>
@@ -127,7 +127,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
 
             {/* Scrollable Content */}
             <div className="mt-6 flex-1 overflow-y-auto pr-1">
-              <h2 id="dialog-title" className="font-heading text-2xl font-black uppercase text-black sm:text-3xl">
+              <h2 id="dialog-title" className="font-display text-3xl sm:text-5xl font-normal uppercase text-black leading-tight">
                 {project.title}
               </h2>
               <p className="mt-2 font-sans text-xs text-black/90 font-semibold sm:text-sm">
@@ -153,7 +153,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
               {/* Meta grid */}
               <div className="mt-8 grid gap-6 md:grid-cols-12">
                 <div className="md:col-span-4 bg-[#EFEFEA] border-2 border-black p-5 shadow-[3px_3px_0px_#000000]">
-                  <span className="font-mono text-[9px] font-black text-black/70 uppercase tracking-widest block mb-3">
+                  <span className="font-mono text-[9px] font-bold text-black/70 uppercase tracking-widest block mb-3">
                     TECH STACK
                   </span>
                   <div className="flex flex-wrap gap-1.5">
@@ -168,7 +168,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                   </div>
                 </div>
                 <div className="md:col-span-8 bg-[#EFEFEA] border-2 border-black p-5 shadow-[3px_3px_0px_#000000]">
-                  <span className="font-mono text-[9px] font-black text-black/70 uppercase tracking-widest block mb-2">
+                  <span className="font-mono text-[9px] font-bold text-black/70 uppercase tracking-widest block mb-2">
                     ENGINEERING FOCUS
                   </span>
                   <p className="font-sans text-xs sm:text-sm text-black font-semibold leading-relaxed">
@@ -195,18 +195,18 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
 
               {/* Features */}
               <div className="mt-6 bg-[#EFEFEA] border-2 border-black p-6 shadow-[4px_4px_0px_#000000]">
-                <span className="font-mono text-[10px] font-black text-black/70 uppercase tracking-widest block mb-4">
+                <span className="font-mono text-[10px] font-bold text-black/70 uppercase tracking-widest block mb-4">
                   05 / KEY FEATURES
                 </span>
                 <ul className="grid gap-3 md:grid-cols-2">
                   {project.caseStudy.features.map((f) => (
                     <li
                       key={f}
-                      className="flex items-start gap-3 border-l-4 border-[#A30000] bg-white border border-black p-3 text-xs sm:text-sm text-black font-semibold shadow-[2px_2px_0px_#000000]"
+                      className="flex items-start gap-3 border-l-4 border-[#8E0000] bg-white border border-black p-3 text-xs sm:text-sm text-black font-semibold shadow-[2px_2px_0px_#000000]"
                     >
                       <span
                         aria-hidden
-                        className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 bg-[#A30000]"
+                        className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 bg-[#8E0000]"
                       />
                       <span>{f}</span>
                     </li>
@@ -226,7 +226,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
 
               {/* Actions */}
               <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t-2 border-black pt-6">
-                <span className="font-mono text-[10px] text-black font-black uppercase tracking-wider">
+                <span className="font-mono text-[10px] text-black font-bold uppercase tracking-wider">
                   STATUS: VERIFIED APPLICATION
                 </span>
 
@@ -236,7 +236,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                       href={project.repository}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="border-2 border-black bg-white px-4 py-2 font-mono text-[10px] font-black uppercase text-black shadow-[2px_2px_0px_#000000] hover:bg-[#EFEFEA] transition-colors"
+                      className="border-2 border-black bg-white px-4 py-2 font-mono text-[10px] font-bold uppercase text-black shadow-[2px_2px_0px_#000000] hover:bg-[#EFEFEA] transition-colors"
                     >
                       GitHub Repo
                     </a>
@@ -247,7 +247,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="border-2 border-black bg-[#A30000] px-4 py-2 font-mono text-[10px] font-black uppercase text-white shadow-[2px_2px_0px_#000000] hover:bg-[#850000] transition-colors inline-flex items-center gap-1.5"
+                      className="border-2 border-black bg-[#8E0000] px-4 py-2 font-mono text-[10px] font-bold uppercase text-white shadow-[2px_2px_0px_#000000] hover:bg-[#700000] transition-colors inline-flex items-center gap-1.5"
                     >
                       <span>Live Site</span>
                       <ExternalLink className="h-3 h-3" />

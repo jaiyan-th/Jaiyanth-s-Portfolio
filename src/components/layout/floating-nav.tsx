@@ -50,12 +50,12 @@ export function FloatingNav() {
           <div className="w-8 h-8 bg-black text-white flex items-center justify-center font-mono font-black text-xs border-2 border-black">
             JB
           </div>
-          <span className="font-mono font-black text-sm tracking-wider text-black uppercase">
+          <span className="font-display text-2xl tracking-wider text-black uppercase">
             JAIYANTH B
           </span>
         </a>
 
-        {/* Center Nav Links - karolbinkow.ski Monospace Upper Case */}
+        {/* Center Nav Links - Monospace Upper Case */}
         <div className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => {
             const isActive = active === item.href;
@@ -64,7 +64,7 @@ export function FloatingNav() {
                 key={item.href}
                 href={item.href}
                 className={`font-mono text-xs uppercase tracking-widest font-black transition-colors relative ${
-                  isActive ? "text-black underline underline-offset-4 decoration-[#A30000] decoration-2" : "text-black/70 hover:text-black"
+                  isActive ? "text-black underline underline-offset-4 decoration-[#8E0000] decoration-2" : "text-black/70 hover:text-black"
                 }`}
               >
                 {item.label}
@@ -73,13 +73,13 @@ export function FloatingNav() {
           })}
         </div>
 
-        {/* Right CTA Button: BOOK A CALL -> GET IN TOUCH */}
+        {/* Right CTA Button: GET IN TOUCH */}
         <div className="flex items-center gap-3">
           <motion.a
             href="#contact"
             whileHover={{ y: -2, x: -1, boxShadow: "5px 5px 0px #000000" }}
             whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-            className="bg-[#A30000] hover:bg-[#850000] text-white font-mono text-xs font-black tracking-wider uppercase px-4 py-2 border-2 border-black shadow-[3px_3px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-1.5"
+            className="bg-[#8E0000] hover:bg-[#700000] text-white font-display text-lg tracking-wider uppercase px-5 py-1.5 border-2 border-black shadow-[3px_3px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-1.5"
           >
             <span>GET IN TOUCH →</span>
           </motion.a>
@@ -116,7 +116,7 @@ export function FloatingNav() {
                     onClick={() => setIsOpen(false)}
                     className={`font-mono text-xs uppercase tracking-widest font-black p-3 flex items-center border-2 ${
                       isActive
-                        ? "bg-[#A30000] text-white border-black shadow-[2px_2px_0px_#000000]"
+                        ? "bg-[#8E0000] text-white border-black shadow-[2px_2px_0px_#000000]"
                         : "bg-white text-black border-black"
                     }`}
                   >

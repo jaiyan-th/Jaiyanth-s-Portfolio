@@ -21,12 +21,12 @@ export function Work() {
           className="mb-10"
         >
           <div className="flex items-center gap-2 mb-3">
-            <span className="w-2.5 h-2.5 bg-[#A30000] border border-black inline-block" />
-            <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
+            <span className="w-2.5 h-2.5 bg-[#8E0000] border border-black inline-block" />
+            <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
               SELECTED WORK
             </span>
           </div>
-          <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-[52px] text-black leading-[1.05] tracking-tight uppercase">
+          <h2 className="font-display font-normal text-4xl sm:text-6xl lg:text-7xl text-black leading-[0.92] tracking-tight uppercase">
             THREE PROJECTS, <br />
             THREE SHIPPED SYSTEMS.
           </h2>
@@ -46,10 +46,10 @@ export function Work() {
               {/* Row Header: Title on Left, Tech Stack Pills on Right */}
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
-                  <span className="font-mono text-[10.5px] font-black uppercase text-black/60 tracking-wider block mb-1">
+                  <span className="font-mono text-[10.5px] font-bold uppercase text-black/60 tracking-wider block mb-1">
                     PROJECT {project.number} / {project.category}
                   </span>
-                  <h3 className="font-heading font-black text-2xl sm:text-4xl text-black uppercase tracking-tight">
+                  <h3 className="font-display text-3xl sm:text-5xl text-black uppercase tracking-tight">
                     {project.title}
                   </h3>
                 </div>
@@ -73,11 +73,11 @@ export function Work() {
               </p>
 
               {/* Outcome Bar (karolbinkow.ski left-bar callout) */}
-              <div className="border-l-4 border-[#A30000] bg-white p-3.5 border border-black shadow-[3px_3px_0px_#000000] max-w-3xl">
-                <span className="font-mono text-[10px] font-black text-black/70 uppercase tracking-widest block mb-1">
+              <div className="border-l-4 border-[#8E0000] bg-white p-3.5 border border-black shadow-[3px_3px_0px_#000000] max-w-3xl">
+                <span className="font-mono text-[10px] font-bold text-black/70 uppercase tracking-widest block mb-1">
                   ENGINEERING OUTCOME
                 </span>
-                <p className="font-mono text-xs font-black text-black">
+                <p className="font-mono text-xs font-bold text-black">
                   {project.engineeringFocus}
                 </p>
               </div>
@@ -89,10 +89,10 @@ export function Work() {
                   onClick={() => setSelectedSlug(project.slug)}
                   whileHover={{ y: -2, x: -1, boxShadow: "4px 4px 0px #000000" }}
                   whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-                  className="bg-black text-white font-mono text-xs font-black uppercase tracking-widest px-5 py-3 border-2 border-black shadow-[2px_2px_0px_#A30000] inline-flex items-center gap-2 cursor-pointer"
+                  className="bg-black text-white font-display text-base tracking-wider uppercase px-6 py-2.5 border-2 border-black shadow-[2px_2px_0px_#8E0000] inline-flex items-center gap-2 cursor-pointer"
                 >
                   <span>INSPECT CASE STUDY</span>
-                  <ArrowRight className="w-4 h-4 text-[#A30000]" />
+                  <ArrowRight className="w-4 h-4 text-[#8E0000]" />
                 </motion.button>
 
                 {project.liveUrl && (
@@ -100,7 +100,7 @@ export function Work() {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white text-black font-mono text-xs font-black uppercase tracking-widest px-5 py-3 border-2 border-black shadow-[2px_2px_0px_#000000] hover:bg-[#A30000] hover:text-white transition-colors inline-flex items-center gap-1.5"
+                    className="bg-white text-black font-display text-base tracking-wider uppercase px-6 py-2.5 border-2 border-black shadow-[2px_2px_0px_#000000] hover:bg-[#8E0000] hover:text-white transition-colors inline-flex items-center gap-1.5"
                   >
                     <span>LIVE DEMO</span>
                     <ExternalLink className="w-3.5 h-3.5" />

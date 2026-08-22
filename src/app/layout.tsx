@@ -1,9 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import {
-  Unbounded,
+  Anton,
   Fraunces,
   Plus_Jakarta_Sans,
-  Space_Grotesk,
   JetBrains_Mono,
   Space_Mono,
 } from "next/font/google";
@@ -16,10 +15,10 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE } from "@/data/portfolio";
 
-const unbounded = Unbounded({
+const anton = Anton({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["600", "700", "800", "900"],
+  weight: ["400"],
   display: "swap",
 });
 
@@ -35,13 +34,6 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-heading",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
   display: "swap",
 });
 
@@ -172,7 +164,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${unbounded.variable} ${fraunces.variable} ${plusJakartaSans.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${spaceMono.variable} antialiased bg-[#EFEFEA] text-black font-sans`}
+        className={`${anton.variable} ${fraunces.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} ${spaceMono.variable} antialiased bg-[#EFEFEA] text-black font-sans`}
       >
         <ThemeProvider>
           <ScrollProgress />

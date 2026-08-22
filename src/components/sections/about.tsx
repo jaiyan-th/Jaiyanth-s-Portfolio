@@ -18,12 +18,12 @@ export function About() {
           className="mb-12"
         >
           <div className="flex items-center gap-2 mb-3">
-            <span className="w-2.5 h-2.5 bg-[#A30000] border border-black inline-block" />
-            <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
+            <span className="w-2.5 h-2.5 bg-[#8E0000] border border-black inline-block" />
+            <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
               WHO YOU&apos;D BE WORKING WITH
             </span>
           </div>
-          <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-[52px] text-black leading-[1.05] tracking-tight uppercase">
+          <h2 className="font-display font-normal text-4xl sm:text-6xl lg:text-7xl text-black leading-[0.92] tracking-tight uppercase">
             ENGINEER &amp; BUILDER, <br />
             SHIPPING END-TO-END.
           </h2>
@@ -52,9 +52,9 @@ export function About() {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             className="lg:col-span-5 flex justify-center lg:justify-end"
           >
-            <div className="w-full max-w-[400px] bg-white border-2 border-black shadow-[4px_4px_0px_#000000] overflow-hidden">
-              <div className="bg-[#A30000] border-b-2 border-black px-3 py-2">
-                <span className="font-mono text-[10px] font-black uppercase text-white tracking-widest block">
+            <div className="w-full max-w-[400px] bg-white border-2 border-black shadow-[6px_6px_0px_#000000] overflow-hidden">
+              <div className="bg-[#8E0000] border-b-2 border-black px-4 py-2.5">
+                <span className="font-display text-xl text-white tracking-wider block uppercase">
                   JAIYANTH B.
                 </span>
               </div>

@@ -43,12 +43,12 @@ export function Certifications() {
           className="mb-12"
         >
           <div className="flex items-center gap-2 mb-3">
-            <span className="w-2.5 h-2.5 bg-[#A30000] border border-black inline-block" />
-            <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
+            <span className="w-2.5 h-2.5 bg-[#8E0000] border border-black inline-block" />
+            <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
               CREDENTIALS
             </span>
           </div>
-          <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-[52px] text-black leading-[1.05] tracking-tight uppercase">
+          <h2 className="font-display font-normal text-4xl sm:text-6xl lg:text-7xl text-black leading-[0.92] tracking-tight uppercase">
             VERIFIED <br />
             INDUSTRY CERTIFICATIONS.
           </h2>
@@ -66,7 +66,7 @@ export function Certifications() {
             <div key={cert.index} className="space-y-3">
               {/* Category Header: Issuer & Year */}
               <div className="flex items-center justify-between border-b border-black/15 pb-2">
-                <h3 className="font-mono text-xs font-black tracking-widest text-black uppercase">
+                <h3 className="font-display text-xl tracking-wider text-black uppercase">
                   {cert.issuer}
                 </h3>
                 <span className="font-mono text-xs font-bold text-black/60">

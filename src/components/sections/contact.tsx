@@ -115,13 +115,13 @@ export function Contact() {
           {/* Main White Box (karolbinkow.ski LET'S TALK Box) */}
           <div className="bg-white border-2 border-black p-8 sm:p-12 shadow-[8px_8px_0px_#000000] relative">
             <div className="flex items-center gap-2 mb-3">
-              <span className="w-2.5 h-2.5 bg-[#A30000] border border-black inline-block" />
-              <span className="font-mono text-xs font-black tracking-widest text-black uppercase">
+              <span className="w-2.5 h-2.5 bg-[#8E0000] border border-black inline-block" />
+              <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
                 LET'S TALK
               </span>
             </div>
 
-            <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-[52px] text-black leading-[1.05] tracking-tight uppercase mb-8">
+            <h2 className="font-display font-normal text-4xl sm:text-6xl lg:text-7xl text-black leading-[0.92] tracking-tight uppercase mb-8">
               HAVE A PROBLEM THAT <br />
               NEEDS TO SHIP?
             </h2>
@@ -135,36 +135,36 @@ export function Contact() {
 
                 <div className="border-t-2 border-b-2 border-black py-4 space-y-4 font-mono text-xs">
                   <div>
-                    <span className="text-black/60 font-black uppercase tracking-wider block mb-1">PRIMARY EMAIL</span>
+                    <span className="text-black/60 font-bold uppercase tracking-wider block mb-1">PRIMARY EMAIL</span>
                     <a
                       href={`mailto:${IDENTITY.email}`}
-                      className="text-black font-black text-base hover:text-[#A30000] transition-colors break-all"
+                      className="text-black font-bold text-base hover:text-[#8E0000] transition-colors break-all"
                     >
                       {IDENTITY.email}
                     </a>
                   </div>
 
                   <div>
-                    <span className="text-black/60 font-black uppercase tracking-wider block mb-1">LOCATION</span>
-                    <span className="text-black font-black block">{IDENTITY.location}</span>
+                    <span className="text-black/60 font-bold uppercase tracking-wider block mb-1">LOCATION</span>
+                    <span className="text-black font-bold block">{IDENTITY.location}</span>
                   </div>
 
                   <div>
-                    <span className="text-black/60 font-black uppercase tracking-wider block mb-1">STATUS</span>
-                    <span className="text-emerald-700 font-extrabold block">● Available for 2026</span>
+                    <span className="text-black/60 font-bold uppercase tracking-wider block mb-1">STATUS</span>
+                    <span className="text-emerald-700 font-bold block">● Available for 2026</span>
                   </div>
                 </div>
 
                 <div className="pt-2">
-                  <span className="font-mono text-xs font-black text-black/60 uppercase tracking-wider block mb-3">
+                  <span className="font-mono text-xs font-bold text-black/60 uppercase tracking-wider block mb-3">
                     CONNECT DIRECTLY
                   </span>
-                  <div className="flex flex-wrap gap-2 font-mono text-xs font-black">
+                  <div className="flex flex-wrap gap-2 font-mono text-xs font-bold">
                     <a
                       href="https://www.linkedin.com/in/jaiyan-th/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-[#EFEFEA] text-black px-3.5 py-2 border-2 border-black shadow-[2px_2px_0px_#000000] hover:bg-[#A30000] hover:text-white transition-colors inline-flex items-center gap-1"
+                      className="bg-[#EFEFEA] text-black px-3.5 py-2 border-2 border-black shadow-[2px_2px_0px_#000000] hover:bg-[#8E0000] hover:text-white transition-colors inline-flex items-center gap-1"
                     >
                       <span>LINKEDIN</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
@@ -173,7 +173,7 @@ export function Contact() {
                       href={IDENTITY.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-[#EFEFEA] text-black px-3.5 py-2 border-2 border-black shadow-[2px_2px_0px_#000000] hover:bg-[#A30000] hover:text-white transition-colors inline-flex items-center gap-1"
+                      className="bg-[#EFEFEA] text-black px-3.5 py-2 border-2 border-black shadow-[2px_2px_0px_#000000] hover:bg-[#8E0000] hover:text-white transition-colors inline-flex items-center gap-1"
                     >
                       <span>GITHUB</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
@@ -187,7 +187,7 @@ export function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name-input" className="block font-mono text-[10px] font-black uppercase tracking-widest text-black/60 mb-1">
+                      <label htmlFor="name-input" className="block font-mono text-[10px] font-bold uppercase tracking-widest text-black/60 mb-1">
                         YOUR NAME
                       </label>
                       <input
@@ -202,7 +202,7 @@ export function Contact() {
                     </div>
 
                     <div>
-                      <label htmlFor="email-input" className="block font-mono text-[10px] font-black uppercase tracking-widest text-black/60 mb-1">
+                      <label htmlFor="email-input" className="block font-mono text-[10px] font-bold uppercase tracking-widest text-black/60 mb-1">
                         YOUR EMAIL
                       </label>
                       <input
@@ -218,7 +218,7 @@ export function Contact() {
                   </div>
 
                   <div>
-                    <label htmlFor="subject-input" className="block font-mono text-[10px] font-black uppercase tracking-widest text-black/60 mb-1">
+                    <label htmlFor="subject-input" className="block font-mono text-[10px] font-bold uppercase tracking-widest text-black/60 mb-1">
                       SUBJECT
                     </label>
                     <input
@@ -233,7 +233,7 @@ export function Contact() {
                   </div>
 
                   <div>
-                    <label htmlFor="message-input" className="block font-mono text-[10px] font-black uppercase tracking-widest text-black/60 mb-1">
+                    <label htmlFor="message-input" className="block font-mono text-[10px] font-bold uppercase tracking-widest text-black/60 mb-1">
                       MESSAGE
                     </label>
                     <textarea
@@ -248,7 +248,7 @@ export function Contact() {
                   </div>
 
                   <div className="pt-2 flex items-center justify-between">
-                    <span className="font-mono text-[10px] font-black text-black/60">
+                    <span className="font-mono text-[10px] font-bold text-black/60">
                       {statusMessage || "RESPONSE TIME < 48H"}
                     </span>
 
@@ -257,7 +257,7 @@ export function Contact() {
                       disabled={status === "submitting"}
                       whileHover={{ y: -2, x: -1, boxShadow: "5px 5px 0px #000000" }}
                       whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-                      className="bg-[#A30000] hover:bg-[#850000] disabled:opacity-70 text-white font-mono text-xs font-black uppercase tracking-widest px-6 py-3.5 border-2 border-black shadow-[3px_3px_0px_#000000] transition-colors inline-flex items-center gap-2 cursor-pointer"
+                      className="bg-[#8E0000] hover:bg-[#700000] disabled:opacity-70 text-white font-display text-xl tracking-wider uppercase px-7 py-2.5 border-2 border-black shadow-[3px_3px_0px_#000000] transition-colors inline-flex items-center gap-2 cursor-pointer"
                     >
                       <span>
                         {status === "submitting"
