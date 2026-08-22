@@ -35,12 +35,12 @@ export function Hero() {
   ];
 
   return (
-    <section id="hero" className="relative bg-[#EFEFEA] text-black border-b-2 border-black pt-8 pb-8 lg:pt-12 lg:pb-10">
+    <section id="hero" className="relative bg-[#EFEFEA] text-black border-b-2 border-black pt-6 pb-6 lg:pt-8 lg:pb-8">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6"
       >
         {/* Top Grid: Headline on Left, Spec Card on Right aligned to top */}
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
@@ -57,17 +57,17 @@ export function Hero() {
               </span>
             </motion.div>
 
-            {/* Display Headline */}
+            {/* Display Headline - properly proportioned */}
             <motion.div variants={itemVariants}>
-              <h1 className="font-display font-normal text-5xl sm:text-6xl lg:text-7xl xl:text-[76px] text-black leading-[0.94] tracking-tight uppercase">
+              <h1 className="font-display font-normal text-3xl sm:text-4xl lg:text-5xl xl:text-[52px] text-black leading-[1.04] tracking-tight uppercase">
                 I DON&apos;T JUST CODE. <br />
                 <span className="text-black">I </span>
-                <span className="font-editorial-italic normal-case text-[#8E0000] font-semibold text-5xl sm:text-6xl lg:text-7xl xl:text-[76px] tracking-tight">
+                <span className="font-editorial-italic normal-case text-[#8E0000] font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-[52px] tracking-tight">
                   solve.
                 </span> <br />
-                <div className="bg-[#8E0000] text-white px-4 py-2 inline-block border-2 border-black shadow-[5px_5px_0px_#000000] mt-2">
-                  <span>THINK IT. BUILD IT. </span>
-                  <span className="font-editorial-italic normal-case text-white font-semibold tracking-tight text-3xl sm:text-4xl lg:text-5xl">
+                <div className="bg-[#8E0000] text-white px-3 py-1 sm:px-3.5 sm:py-1.5 inline-flex items-center gap-1.5 flex-wrap border-2 border-black shadow-[3px_3px_0px_#000000] mt-2 text-xl sm:text-2xl lg:text-3xl">
+                  <span>THINK IT. BUILD IT.</span>
+                  <span className="font-editorial-italic normal-case text-white font-bold tracking-tight">
                     solve it.
                   </span>
                 </div>
@@ -75,17 +75,17 @@ export function Hero() {
             </motion.div>
 
             {/* Subtext in monospace font */}
-            <motion.p variants={itemVariants} className="max-w-xl font-mono text-xs sm:text-sm text-black/90 leading-relaxed font-normal">
+            <motion.p variants={itemVariants} className="max-w-lg font-mono text-xs sm:text-sm text-black/85 leading-relaxed font-normal">
               I work across full-stack architecture, applied AI workflows, structured APIs, and intuitive interfaces to turn complex engineering problems into dependable, production-ready solutions.
             </motion.p>
 
             {/* CTA Action Buttons */}
-            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-2">
+            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-1">
               <motion.a
                 href="#contact"
                 whileHover={{ y: -2, x: -1, boxShadow: "5px 5px 0px #000000" }}
                 whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-                className="bg-[#8E0000] hover:bg-[#700000] text-white font-display text-lg sm:text-xl tracking-wider uppercase px-7 py-2.5 border-2 border-black shadow-[3px_3px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-2"
+                className="bg-[#8E0000] hover:bg-[#700000] text-white font-display text-base sm:text-lg tracking-wider uppercase px-6 py-2 border-2 border-black shadow-[3px_3px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-2"
               >
                 <span>GET IN TOUCH →</span>
               </motion.a>
@@ -94,7 +94,7 @@ export function Hero() {
                 href="#work"
                 whileHover={{ y: -2, x: -1, boxShadow: "5px 5px 0px #000000" }}
                 whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-                className="bg-white hover:bg-[#EFEFEA] text-black font-display text-lg sm:text-xl tracking-wider uppercase px-7 py-2.5 border-2 border-black shadow-[3px_3px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-2"
+                className="bg-white hover:bg-[#EFEFEA] text-black font-display text-base sm:text-lg tracking-wider uppercase px-6 py-2 border-2 border-black shadow-[3px_3px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-2"
               >
                 <span>SEE THE WORK ↓</span>
               </motion.a>
