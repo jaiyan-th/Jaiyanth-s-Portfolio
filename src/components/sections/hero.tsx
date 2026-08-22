@@ -42,8 +42,8 @@ export function Hero() {
         animate="visible"
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6"
       >
-        {/* Top Grid: Headline on Left, Spec Card on Right aligned to top */}
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        {/* Top Grid: Headline on Left, Spec Card closely aligned on Right without empty dead space */}
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           {/* Left Column: Headline & Subtext */}
           <div className="lg:col-span-7 space-y-5">
             {/* Eyebrow: ■ SOFTWARE ENGINEER • BUILDER + Editorial Italic Accent */}
@@ -57,12 +57,12 @@ export function Hero() {
               </span>
             </motion.div>
 
-            {/* Display Headline - properly proportioned */}
+            {/* Display Headline */}
             <motion.div variants={itemVariants}>
-              <h1 className="font-display font-normal text-3xl sm:text-4xl lg:text-5xl xl:text-[52px] text-black leading-[1.04] tracking-tight uppercase">
+              <h1 className="font-display font-normal text-3xl sm:text-4xl lg:text-5xl xl:text-[54px] text-black leading-[1.04] tracking-tight uppercase">
                 I DON&apos;T JUST CODE. <br />
                 <span className="text-black">I </span>
-                <span className="font-editorial-italic normal-case text-[#8E0000] font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-[52px] tracking-tight">
+                <span className="font-editorial-italic normal-case text-[#8E0000] font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-[54px] tracking-tight">
                   solve.
                 </span> <br />
                 <div className="bg-[#8E0000] text-white px-3 py-1 sm:px-3.5 sm:py-1.5 inline-flex items-center gap-1.5 flex-wrap border-2 border-black shadow-[3px_3px_0px_#000000] mt-2 text-xl sm:text-2xl lg:text-3xl">
@@ -101,9 +101,9 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: ENGINEER SPEC Card aligned top-right */}
-          <motion.div variants={itemVariants} className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="w-full max-w-[360px] bg-white border-2 border-black shadow-[6px_6px_0px_#000000]">
+          {/* Right Column: ENGINEER SPEC Card moved to left of column (no empty space) */}
+          <motion.div variants={itemVariants} className="lg:col-span-5 flex justify-start">
+            <div className="w-full max-w-[380px] bg-white border-2 border-black shadow-[6px_6px_0px_#000000]">
               {/* Header */}
               <div className="bg-[#8E0000] border-b-2 border-black px-4 py-3 flex items-center justify-between">
                 <span className="font-display text-2xl text-white tracking-wider block uppercase">
