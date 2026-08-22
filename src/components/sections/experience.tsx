@@ -22,7 +22,7 @@ export function Experience() {
               EXPERIENCE &amp; WORKFLOW
             </span>
           </div>
-          <h2 className="font-display font-normal text-4xl sm:text-6xl lg:text-7xl text-black leading-[0.92] tracking-tight uppercase">
+          <h2 className="font-display font-normal text-3xl sm:text-4xl lg:text-5xl text-black leading-[0.98] tracking-tight uppercase">
             WHERE I&apos;VE WORKED.
           </h2>
         </motion.div>

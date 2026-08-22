@@ -23,7 +23,7 @@ export function About() {
               WHO YOU&apos;D BE WORKING WITH
             </span>
           </div>
-          <h2 className="font-display font-normal text-4xl sm:text-6xl lg:text-7xl text-black leading-[0.92] tracking-tight uppercase">
+          <h2 className="font-display font-normal text-3xl sm:text-4xl lg:text-5xl text-black leading-[0.98] tracking-tight uppercase">
             ENGINEER &amp; BUILDER, <br />
             SHIPPING END-TO-END.
           </h2>
