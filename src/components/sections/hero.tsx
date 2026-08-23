@@ -136,13 +136,13 @@ export function Hero() {
                   </span>
                 </div>
               </div>
+            </div>
 
-              {/* Bottom Quote Banner in Cursive & Italic Combined */}
-              <div className="bg-[#EFEFEA] border-t-2 border-black px-4 py-3 flex items-center justify-center text-center">
-                <span className="font-editorial-italic italic font-semibold text-sm sm:text-base text-black/85 tracking-tight">
-                  “Life is a personal race, don&apos;t depend on others.”
-                </span>
-              </div>
+            {/* Separate Quote in the empty space below, perfectly centered */}
+            <div className="w-full max-w-[460px] mt-6 flex items-center justify-center text-center px-4">
+              <p className="font-editorial-italic italic font-semibold text-lg sm:text-xl text-black tracking-tight leading-snug">
+                “Life is a personal race, don&apos;t depend on others.”
+              </p>
             </div>
           </motion.div>
         </div>
