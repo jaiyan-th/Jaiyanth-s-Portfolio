@@ -6,22 +6,21 @@ import { Marquee } from "@/components/ui/marquee";
 
 export function Hero() {
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.05,
+        staggerChildren: 0.05,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 15 },
+    hidden: { opacity: 1, y: 0 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] as const },
+      transition: { duration: 0.35, ease: "easeOut" as const },
     },
   };
 
@@ -94,7 +93,7 @@ export function Hero() {
           </div>
 
           {/* Right Column: ENGINEER SPEC Card & Live System Metrics */}
-          <motion.div variants={itemVariants} className="lg:col-span-5 flex flex-col justify-start w-full max-w-[420px]">
+          <motion.div variants={itemVariants} className="lg:col-span-5 flex flex-col justify-start w-full">
             {/* Main Spec Card */}
             <div className="w-full bg-white border-2 border-black shadow-[6px_6px_0px_#000000]">
               {/* Header */}
