@@ -93,11 +93,12 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: ENGINEER SPEC Card */}
-          <motion.div variants={itemVariants} className="lg:col-span-5 flex justify-start">
-            <div className="w-full max-w-[400px] bg-white border-2 border-black shadow-[6px_6px_0px_#000000]">
+          {/* Right Column: ENGINEER SPEC Card & Live System Metrics */}
+          <motion.div variants={itemVariants} className="lg:col-span-5 flex flex-col justify-start w-full max-w-[420px]">
+            {/* Main Spec Card */}
+            <div className="w-full bg-white border-2 border-black shadow-[6px_6px_0px_#000000]">
               {/* Header */}
-              <div className="bg-[#8E0000] border-b-2 border-black px-4 py-3 flex items-center justify-between">
+              <div className="bg-[#8E0000] border-b-2 border-black px-4 py-2.5 flex items-center justify-between">
                 <span className="font-display text-2xl text-white tracking-wider block uppercase">
                   ENGINEER SPEC
                 </span>
@@ -106,8 +107,8 @@ export function Hero() {
                 </span>
               </div>
 
-              {/* Rows */}
-              <div className="divide-y-2 divide-black font-mono text-xs sm:text-sm">
+              {/* Spec Rows */}
+              <div className="divide-y-2 divide-black font-mono text-xs sm:text-[13px]">
                 <div className="py-2.5 px-4 flex items-center justify-between">
                   <span className="font-bold text-black/70 uppercase tracking-wider">BASED</span>
                   <span className="font-semibold text-black">Karur, TN, India</span>
@@ -117,8 +118,8 @@ export function Hero() {
                   <span className="font-semibold text-black">Remote • Intl</span>
                 </div>
                 <div className="py-2.5 px-4 flex items-center justify-between">
-                  <span className="font-bold text-black/70 uppercase tracking-wider">ENGAGE</span>
-                  <span className="font-semibold text-black">Full-time / Internship</span>
+                  <span className="font-bold text-black/70 uppercase tracking-wider">FOCUS</span>
+                  <span className="font-semibold text-black">Full-Stack &amp; Applied AI</span>
                 </div>
                 <div className="py-2.5 px-4 flex items-center justify-between">
                   <span className="font-bold text-black/70 uppercase tracking-wider">STACK</span>
@@ -131,10 +132,34 @@ export function Hero() {
                 <div className="py-2.5 px-4 flex items-center justify-between">
                   <span className="font-bold text-black/70 uppercase tracking-wider">STATUS</span>
                   <span className="text-emerald-700 font-bold flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block" />
-                    Available
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block animate-pulse" />
+                    Available for Work
                   </span>
                 </div>
+              </div>
+
+              {/* Bottom Telemetry Bar */}
+              <div className="bg-black text-white px-4 py-2 border-t-2 border-black font-mono text-[11px] flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                  </span>
+                  <span className="text-emerald-400 font-bold uppercase tracking-wider">LIVE TELEMETRY</span>
+                </div>
+                <span className="text-white/80 font-semibold uppercase">SHIPPING READY</span>
+              </div>
+            </div>
+
+            {/* Sub-Card Stats to perfectly fill vertical space */}
+            <div className="mt-3.5 grid grid-cols-2 gap-3.5 w-full">
+              <div className="bg-white border-2 border-black p-3 px-4 shadow-[4px_4px_0px_#000000] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-transform">
+                <div className="font-display text-2xl sm:text-3xl text-black">3+ SYSTEMS</div>
+                <div className="font-mono text-[11px] text-black/70 uppercase font-bold tracking-wider">PRODUCTION READY</div>
+              </div>
+              <div className="bg-white border-2 border-black p-3 px-4 shadow-[4px_4px_0px_#000000] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-transform">
+                <div className="font-display text-2xl sm:text-3xl text-[#8E0000]">IEEE PAPER</div>
+                <div className="font-mono text-[11px] text-black/70 uppercase font-bold tracking-wider">PEER-REVIEWED</div>
               </div>
             </div>
           </motion.div>
