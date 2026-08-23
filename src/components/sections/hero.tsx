@@ -139,8 +139,8 @@ export function Hero() {
             </div>
 
             {/* Separate Quote in the empty space below, perfectly centered */}
-            <div className="w-full max-w-[460px] mt-6 flex items-center justify-center text-center px-4">
-              <p className="font-editorial-italic italic font-semibold text-lg sm:text-xl text-black tracking-tight leading-snug">
+            <div className="w-full max-w-[460px] mt-8 flex flex-col items-center justify-center text-center">
+              <p className="font-editorial-italic italic font-bold text-xl sm:text-2xl text-black tracking-tight leading-snug">
                 “Life is a personal race, don&apos;t depend on others.”
               </p>
             </div>
