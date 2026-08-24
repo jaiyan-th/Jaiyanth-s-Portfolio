@@ -138,10 +138,10 @@ export function Hero() {
               </div>
             </div>
 
-            {/* Separate Quote in the empty space below, perfectly centered */}
-            <div className="w-full max-w-[460px] mt-8 flex flex-col items-center justify-center text-center">
-              <p className="font-editorial-italic italic font-bold text-xl sm:text-2xl text-black tracking-tight leading-snug">
-                “Life is a personal race, don&apos;t depend on others.”
+            {/* Shaded Maroon Quote Card matching ENGINEER SPEC width & theme */}
+            <div className="bg-[#8E0000] border-2 border-black px-6 py-3.5 w-full max-w-[460px] shadow-[4px_4px_0px_#000000] mt-6 text-center">
+              <p className="font-editorial-italic italic font-medium text-base sm:text-lg text-white leading-snug">
+                &ldquo;Life is a personal race, don&apos;t depend on others.&rdquo;
               </p>
             </div>
           </motion.div>
