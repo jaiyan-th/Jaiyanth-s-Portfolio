@@ -39,14 +39,27 @@ export function FloatingNav() {
     { label: "CERTIFICATIONS", href: "#certifications" },
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href === "#hero") {
+      e.preventDefault();
+      setActive("#hero");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      try {
+        window.history.pushState(null, "", "#hero");
+      } catch {}
+    } else {
+      setActive(href);
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-[#EFEFEA]/95 backdrop-blur-md border-t-2 border-b-2 border-black px-4 py-2.5 md:px-8">
       <nav aria-label="Main Navigation" className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Left: KB Style Logo + Name */}
         <a
           href="#hero"
-          onClick={() => setActive("#hero")}
-          className="flex items-center gap-3 group"
+          onClick={(e) => handleNavClick(e, "#hero")}
+          className="flex items-center gap-3 group cursor-pointer"
         >
           <div className="w-8 h-8 bg-black text-white flex items-center justify-center font-mono font-black text-xs border-2 border-black">
             JB
@@ -64,7 +77,8 @@ export function FloatingNav() {
               <a
                 key={item.href}
                 href={item.href}
-                className={`font-mono text-xs uppercase tracking-widest font-black transition-colors relative ${
+                onClick={(e) => handleNavClick(e, item.href)}
+                className={`font-mono text-xs uppercase tracking-widest font-black transition-colors relative cursor-pointer ${
                   isActive ? "text-black underline underline-offset-4 decoration-[#8E0000] decoration-2" : "text-black/70 hover:text-black"
                 }`}
               >
@@ -114,7 +128,10 @@ export function FloatingNav() {
                   <a
                     key={item.href}
                     href={item.href}
-                    onClick={() => setIsOpen(false)}
+                    onClick={(e) => {
+                      setIsOpen(false);
+                      handleNavClick(e, item.href);
+                    }}
                     className={`font-mono text-xs uppercase tracking-widest font-black p-3 flex items-center border-2 ${
                       isActive
                         ? "bg-[#8E0000] text-white border-black shadow-[2px_2px_0px_#000000]"

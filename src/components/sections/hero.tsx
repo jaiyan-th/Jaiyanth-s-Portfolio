@@ -25,7 +25,7 @@ export function Hero() {
   };
 
   return (
-    <section id="hero" className="relative bg-[#EFEFEA] text-black pt-10 lg:pt-14 pb-0">
+    <section id="hero" className="relative bg-[#EFEFEA] text-black pt-10 lg:pt-14 pb-0 scroll-mt-24">
       <motion.div
         variants={containerVariants}
         initial="hidden"
