@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { motion } from "motion/react";
-import { Marquee } from "@/components/ui/marquee";
 
 export function Hero() {
   const containerVariants = {
@@ -25,12 +24,12 @@ export function Hero() {
   };
 
   return (
-    <section id="hero" className="relative bg-[#EFEFEA] text-black pt-6 sm:pt-8 lg:pt-10 pb-0 scroll-mt-20">
+    <section id="hero" className="relative bg-[#EFEFEA] text-black min-h-[calc(100vh-62px)] flex flex-col justify-center py-6 sm:py-8 lg:py-10 scroll-mt-20">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-10 lg:pb-12"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"
       >
         {/* Two-Column Grid: Left Column & Right Card Vertically Aligned Top */}
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
@@ -140,9 +139,6 @@ export function Hero() {
           </motion.div>
         </div>
       </motion.div>
-
-      {/* Marquee Strip: Directly touches hero with no dead space */}
-      <Marquee />
     </section>
   );
 }

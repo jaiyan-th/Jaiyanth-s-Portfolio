@@ -1,5 +1,6 @@
 import { FloatingNav } from "@/components/layout/floating-nav";
 import { Hero } from "@/components/sections/hero";
+import { Marquee } from "@/components/ui/marquee";
 import { About } from "@/components/sections/about";
 import { Skills } from "@/components/sections/skills";
 import { Work } from "@/components/sections/work";
@@ -14,6 +15,7 @@ export default function Home() {
       <FloatingNav />
       <main id="main" className="relative w-full max-w-full overflow-x-hidden">
         <Hero />
+        <Marquee />
         <About />
         <Skills />
         <Work />
