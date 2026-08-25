@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { motion } from "motion/react";
-import { Marquee } from "@/components/ui/marquee";
 
 export function Hero() {
   const containerVariants = {
@@ -25,12 +24,12 @@ export function Hero() {
   };
 
   return (
-    <section id="hero" className="relative bg-[#EFEFEA] text-black pt-6 sm:pt-8 lg:pt-10 pb-0 scroll-mt-20">
+    <section id="hero" className="relative bg-[#EFEFEA] text-black border-b-2 border-black pt-8 sm:pt-10 lg:pt-12 pb-10 sm:pb-14 lg:pb-16 scroll-mt-20">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-10 lg:pb-12"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         {/* Two-Column Grid: Left Column & Right Card Vertically Aligned Top */}
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
@@ -137,19 +136,9 @@ export function Hero() {
                 </div>
               </div>
             </div>
-
-            {/* Shaded Maroon Quote Card matching ENGINEER SPEC width & theme */}
-            <div className="bg-[#8E0000] border-2 border-black px-6 py-3 sm:py-3.5 w-full max-w-[460px] shadow-[4px_4px_0px_#000000] mt-4 sm:mt-5 text-center">
-              <p className="font-editorial-italic italic font-medium text-base sm:text-lg text-white leading-snug">
-                &ldquo;Life is a personal race, don&apos;t depend on others.&rdquo;
-              </p>
-            </div>
           </motion.div>
         </div>
       </motion.div>
-
-      {/* Marquee Strip: Directly touches hero with no dead space */}
-      <Marquee />
     </section>
   );
 }
