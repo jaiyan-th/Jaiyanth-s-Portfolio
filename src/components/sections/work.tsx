@@ -131,20 +131,27 @@ export function Work() {
     }
   };
 
-  // Convert all mouse wheel scrolling anywhere in the Work section to sideways horizontal scroll only
+  // Scroll sideways while inside Work cards, and naturally continue vertical page scrolling once completed
   React.useEffect(() => {
     const el = sectionRef.current;
     const scrollEl = scrollRef.current;
     if (!el || !scrollEl) return;
 
     const onWheel = (e: WheelEvent) => {
-      // Prevent default vertical page scrolling so the section never moves down
-      e.preventDefault();
       const delta = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
-      scrollEl.scrollBy({
-        left: delta * 0.85,
-        behavior: "auto",
-      });
+      const atStart = scrollEl.scrollLeft <= 6;
+      const atEnd = scrollEl.scrollLeft + scrollEl.clientWidth >= scrollEl.scrollWidth - 6;
+
+      // Intercept and glide sideways only if there are still cards to scroll in that direction
+      if ((delta > 0 && !atEnd) || (delta < 0 && !atStart)) {
+        e.preventDefault();
+        scrollEl.scrollBy({
+          left: delta * 0.85,
+          behavior: "auto",
+        });
+      }
+      // Once side scroll is complete (atEnd on down scroll, or atStart on up scroll),
+      // the event passes through naturally so you can visit the other sections below/above
     };
 
     el.addEventListener("wheel", onWheel, { passive: false });
