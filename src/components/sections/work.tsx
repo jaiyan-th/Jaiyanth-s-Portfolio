@@ -10,6 +10,7 @@ import { PROJECTS } from "@/data/portfolio";
 export function Work() {
   const [selectedSlug, setSelectedSlug] = React.useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = React.useState(0);
+  const sectionRef = React.useRef<HTMLElement>(null);
   const scrollRef = React.useRef<HTMLDivElement>(null);
 
   const scrollToIndex = (index: number) => {
@@ -45,8 +46,65 @@ export function Work() {
     }
   };
 
+  // Convert mouse wheel vertical scrolling to horizontal scroll within Work section
+  React.useEffect(() => {
+    const el = sectionRef.current;
+    const scrollEl = scrollRef.current;
+    if (!el || !scrollEl) return;
+
+    const onWheel = (e: WheelEvent) => {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        const atStart = scrollEl.scrollLeft <= 5;
+        const atEnd = scrollEl.scrollLeft + scrollEl.clientWidth >= scrollEl.scrollWidth - 5;
+
+        // If scrolling forward and not yet at end, or backward and not yet at start
+        if ((e.deltaY > 0 && !atEnd) || (e.deltaY < 0 && !atStart)) {
+          e.preventDefault();
+          scrollEl.scrollBy({
+            left: e.deltaY * 1.5,
+            behavior: "auto",
+          });
+        }
+      }
+    };
+
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, []);
+
+  // Keyboard navigation when Work section is in viewport
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight * 0.7 && rect.bottom > window.innerHeight * 0.3;
+      if (!inView) return;
+
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        if (currentIndex < PROJECTS.length - 1) {
+          e.preventDefault();
+          const nextIdx = Math.min(PROJECTS.length - 1, currentIndex + 1);
+          scrollToIndex(nextIdx);
+        }
+      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        if (currentIndex > 0) {
+          e.preventDefault();
+          const prevIdx = Math.max(0, currentIndex - 1);
+          scrollToIndex(prevIdx);
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [currentIndex]);
+
   return (
-    <section id="work" className="relative bg-[#EFEFEA] text-black border-b-2 border-black py-16 md:py-24 scroll-mt-[57px] overflow-hidden">
+    <section
+      id="work"
+      ref={sectionRef}
+      className="relative bg-[#EFEFEA] text-black border-b-2 border-black py-16 md:py-24 scroll-mt-[57px] overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Eyebrow Header + Sideways Navigation Controls */}
         <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
