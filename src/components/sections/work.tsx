@@ -61,7 +61,7 @@ export function Work() {
         if ((e.deltaY > 0 && !atEnd) || (e.deltaY < 0 && !atStart)) {
           e.preventDefault();
           scrollEl.scrollBy({
-            left: e.deltaY * 1.5,
+            left: e.deltaY * 0.75,
             behavior: "auto",
           });
         }
