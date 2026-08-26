@@ -21,18 +21,18 @@ export function About() {
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <div className="flex items-center gap-2.5 mb-3 flex-wrap">
-                <span className="w-2.5 h-2.5 bg-[#8E0000] border border-black inline-block" />
+                <span className="w-2.5 h-2.5 bg-[#C9971C] border border-black inline-block" />
                 <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
                   WHO YOU&apos;D BE WORKING WITH
                 </span>
-                <span className="font-editorial-italic text-sm sm:text-base text-[#8E0000] font-semibold tracking-tight select-none">
+                <span className="font-editorial-italic text-sm sm:text-base text-[#C9971C] font-semibold tracking-tight select-none">
                   / the background
                 </span>
               </div>
               <h2 className="font-display font-normal text-4xl sm:text-5xl lg:text-6xl text-black leading-[0.96] tracking-tight uppercase">
                 ENGINEER &amp; BUILDER, <br />
                 <span className="text-black">SHIPPING</span>{" "}
-                <span className="font-editorial-italic normal-case text-[#8E0000] font-semibold tracking-tight">end-to-end.</span>
+                <span className="font-editorial-italic normal-case text-[#C9971C] font-semibold tracking-tight">end-to-end.</span>
               </h2>
             </motion.div>
 
@@ -56,8 +56,8 @@ export function About() {
             className="lg:col-span-5 flex justify-center lg:justify-end lg:pt-20"
           >
             <div className="w-full max-w-[400px] bg-white border-2 border-black shadow-[6px_6px_0px_#000000] overflow-hidden">
-              <div className="bg-[#8E0000] border-b-2 border-black px-4 py-2.5">
-                <span className="font-display text-xl text-white tracking-wider block uppercase">
+              <div className="bg-[#C9971C] border-b-2 border-black px-4 py-2.5">
+                <span className="font-display text-xl text-black font-bold tracking-wider block uppercase">
                   JAIYANTH B.
                 </span>
               </div>

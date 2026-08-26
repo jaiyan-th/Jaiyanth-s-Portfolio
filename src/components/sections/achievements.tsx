@@ -18,17 +18,17 @@ export function Achievements() {
           className="mb-14"
         >
           <div className="flex items-center gap-2.5 mb-3 flex-wrap">
-            <span className="w-2.5 h-2.5 bg-[#8E0000] border border-black inline-block" />
+            <span className="w-2.5 h-2.5 bg-[#C9971C] border border-black inline-block" />
             <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
               RESEARCH &amp; ACHIEVEMENTS
             </span>
-            <span className="font-editorial-italic text-sm sm:text-base text-[#8E0000] font-semibold tracking-tight select-none">
+            <span className="font-editorial-italic text-sm sm:text-base text-[#C9971C] font-semibold tracking-tight select-none">
               / published &amp; verified
             </span>
           </div>
           <h2 className="font-display font-normal text-4xl sm:text-5xl lg:text-6xl text-black leading-[0.96] tracking-tight uppercase">
             CO-AUTHORED IEEE PAPER, <br />
-            <span className="font-editorial-italic normal-case text-[#8E0000] font-semibold tracking-tight">peer-reviewed</span> &amp; ACCEPTED.
+            <span className="font-editorial-italic normal-case text-[#C9971C] font-semibold tracking-tight">peer-reviewed</span> &amp; ACCEPTED.
           </h2>
         </motion.div>
 
@@ -49,7 +49,7 @@ export function Achievements() {
               </span>
             </div>
             <div className="flex items-center gap-2.5">
-              <span className="bg-[#8E0000] text-white px-2.5 py-1 font-mono text-[10px] uppercase font-bold tracking-widest border border-black inline-flex items-center gap-1.5">
+              <span className="bg-[#C9971C] text-black px-2.5 py-1 font-mono text-[10px] uppercase font-bold tracking-widest border border-black inline-flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 ACCEPTED &amp; PUBLISHED
               </span>
@@ -58,7 +58,7 @@ export function Achievements() {
                   href={RESEARCH.certificateUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-black hover:bg-[#8E0000] hover:text-white text-white px-3 py-1 font-mono text-[10px] uppercase font-bold tracking-widest border border-black inline-flex items-center gap-1.5 transition-colors"
+                  className="bg-black hover:bg-[#C9971C] hover:text-black text-white px-3 py-1 font-mono text-[10px] uppercase font-bold tracking-widest border border-black inline-flex items-center gap-1.5 transition-colors"
                 >
                   <span>VIEW CERTIFICATE</span>
                   <ExternalLink className="w-3 h-3 stroke-[2.5]" />

@@ -131,26 +131,20 @@ export function Work() {
     }
   };
 
-  // Convert mouse wheel vertical scrolling to horizontal scroll inside Work section
+  // Convert all mouse wheel scrolling anywhere in the Work section to sideways horizontal scroll only
   React.useEffect(() => {
     const el = sectionRef.current;
     const scrollEl = scrollRef.current;
     if (!el || !scrollEl) return;
 
     const onWheel = (e: WheelEvent) => {
-      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-        const atStart = scrollEl.scrollLeft <= 5;
-        const atEnd = scrollEl.scrollLeft + scrollEl.clientWidth >= scrollEl.scrollWidth - 5;
-
-        // If scrolling forward and not yet at end, or backward and not yet at start
-        if ((e.deltaY > 0 && !atEnd) || (e.deltaY < 0 && !atStart)) {
-          e.preventDefault();
-          scrollEl.scrollBy({
-            left: e.deltaY * 0.75,
-            behavior: "auto",
-          });
-        }
-      }
+      // Prevent default vertical page scrolling so the section never moves down
+      e.preventDefault();
+      const delta = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+      scrollEl.scrollBy({
+        left: delta * 0.85,
+        behavior: "auto",
+      });
     };
 
     el.addEventListener("wheel", onWheel, { passive: false });

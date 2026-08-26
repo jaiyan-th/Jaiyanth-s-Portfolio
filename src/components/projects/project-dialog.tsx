@@ -104,13 +104,13 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
             className="relative z-10 my-auto flex max-h-[90vh] w-full max-w-4xl flex-col border-2 border-black bg-white p-6 sm:p-8 shadow-[8px_8px_0px_#000000] text-black overflow-hidden"
           >
             {/* Header bar */}
-            <div className="bg-[#8E0000] border-b-2 border-black -m-6 sm:-m-8 mb-4 p-4 flex items-center justify-between">
+            <div className="bg-[#C9971C] border-b-2 border-black -m-6 sm:-m-8 mb-4 p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <span className="font-display text-lg uppercase text-white tracking-wider">
+                <span className="font-display text-lg uppercase text-black font-bold tracking-wider">
                   {project.category}
                 </span>
-                <span className="font-mono text-xs text-white">•</span>
-                <span className="font-display text-lg uppercase text-white tracking-wider">
+                <span className="font-mono text-xs text-black font-bold">•</span>
+                <span className="font-display text-lg uppercase text-black font-bold tracking-wider">
                   PROJECT {project.number}
                 </span>
               </div>
@@ -202,11 +202,11 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                   {project.caseStudy.features.map((f) => (
                     <li
                       key={f}
-                      className="flex items-start gap-3 border-l-4 border-[#8E0000] bg-white border border-black p-3 text-xs sm:text-sm text-black font-semibold shadow-[2px_2px_0px_#000000]"
+                      className="flex items-start gap-3 border-l-4 border-[#C9971C] bg-white border border-black p-3 text-xs sm:text-sm text-black font-semibold shadow-[2px_2px_0px_#000000]"
                     >
                       <span
                         aria-hidden
-                        className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 bg-[#8E0000]"
+                        className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 bg-[#C9971C]"
                       />
                       <span>{f}</span>
                     </li>
@@ -247,7 +247,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="border-2 border-black bg-[#8E0000] px-4 py-2 font-mono text-[10px] font-bold uppercase text-white shadow-[2px_2px_0px_#000000] hover:bg-[#700000] transition-colors inline-flex items-center gap-1.5"
+                      className="border-2 border-black bg-[#C9971C] px-4 py-2 font-mono text-[10px] font-bold uppercase text-black shadow-[2px_2px_0px_#000000] hover:bg-[#A67C14] transition-colors inline-flex items-center gap-1.5 font-bold"
                     >
                       <span>Live Site</span>
                       <ExternalLink className="h-3 h-3" />

@@ -37,11 +37,11 @@ export function Hero() {
           <div className="lg:col-span-7 flex flex-col items-start">
             {/* Eyebrow Label */}
             <motion.div variants={itemVariants} className="flex items-center gap-2.5 mb-3 flex-wrap">
-              <span className="w-2.5 h-2.5 bg-[#8E0000] border border-black inline-block" />
+              <span className="w-2.5 h-2.5 bg-[#C9971C] border border-black inline-block" />
               <span className="font-mono text-xs sm:text-sm font-bold tracking-widest text-black uppercase">
                 SOFTWARE ENGINEER • BUILDER
               </span>
-              <span className="font-editorial-italic text-sm sm:text-base text-[#8E0000] font-semibold tracking-tight select-none">
+              <span className="font-editorial-italic text-sm sm:text-base text-[#C9971C] font-semibold tracking-tight select-none">
                 / building for production
               </span>
             </motion.div>
@@ -51,14 +51,14 @@ export function Hero() {
               <h1 className="font-display font-normal text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] text-black leading-[0.96] tracking-tight uppercase">
                 I DON&apos;T JUST CODE. <br />
                 <span className="text-black">I </span>
-                <span className="font-editorial-italic normal-case text-[#8E0000] font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] tracking-tight">
+                <span className="font-editorial-italic normal-case text-[#C9971C] font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] tracking-tight">
                   solve.
                 </span>
               </h1>
-              {/* Red Tagline Banner */}
-              <div className="bg-[#8E0000] text-white px-4 py-2 inline-flex items-center gap-2 flex-wrap border-2 border-black shadow-[4px_4px_0px_#000000] mt-3 text-xl sm:text-2xl lg:text-3xl font-display">
+              {/* Golden Yellow Tagline Banner */}
+              <div className="bg-[#C9971C] text-black px-4 py-2 inline-flex items-center gap-2 flex-wrap border-2 border-black shadow-[4px_4px_0px_#000000] mt-3 text-xl sm:text-2xl lg:text-3xl font-display">
                 <span>THINK IT. BUILD IT.</span>
-                <span className="font-editorial-italic normal-case text-white font-bold tracking-tight">
+                <span className="font-editorial-italic normal-case text-black font-bold tracking-tight">
                   solve it.
                 </span>
               </div>
@@ -75,7 +75,7 @@ export function Hero() {
                 href="#contact"
                 whileHover={{ y: -2, x: -1, boxShadow: "6px 6px 0px #000000" }}
                 whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-                className="bg-[#8E0000] hover:bg-[#700000] text-white font-display text-lg sm:text-xl tracking-wider uppercase px-7 py-3 border-2 border-black shadow-[4px_4px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-2"
+                className="bg-[#C9971C] hover:bg-[#A67C14] text-black font-display text-lg sm:text-xl tracking-wider uppercase px-7 py-3 border-2 border-black shadow-[4px_4px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-2 font-bold"
               >
                 <span>GET IN TOUCH →</span>
               </motion.a>
@@ -96,11 +96,11 @@ export function Hero() {
             {/* Main Spec Card - expanded width */}
             <div className="w-full max-w-[460px] bg-white border-2 border-black shadow-[6px_6px_0px_#000000]">
               {/* Header */}
-              <div className="bg-[#8E0000] border-b-2 border-black px-5 py-3 flex items-center justify-between">
-                <span className="font-display text-2xl sm:text-3xl text-white tracking-wider block uppercase">
+              <div className="bg-[#C9971C] border-b-2 border-black px-5 py-3 flex items-center justify-between">
+                <span className="font-display text-2xl sm:text-3xl text-black tracking-wider block uppercase font-bold">
                   ENGINEER SPEC
                 </span>
-                <span className="font-editorial-italic text-sm text-white/90 font-medium tracking-tight">
+                <span className="font-editorial-italic text-sm text-black/80 font-bold tracking-tight">
                   verified
                 </span>
               </div>

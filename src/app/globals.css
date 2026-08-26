@@ -62,14 +62,14 @@
   --text-primary: #000000;
   --text-secondary: #444444;
   --line: #000000;
-  --accent: #8E0000;
-  --accent-2: #700000;
-  --accent-warm: #8E0000;
+  --accent: #C9971C;
+  --accent-2: #A67C14;
+  --accent-warm: #C9971C;
   --dark-charcoal: #000000;
 
   --grid-line: rgba(0, 0, 0, 0.04);
-  --node-glow: rgba(142, 0, 0, 0.2);
-  --halo: rgba(142, 0, 0, 0.15);
+  --node-glow: rgba(201, 151, 28, 0.2);
+  --halo: rgba(201, 151, 28, 0.15);
 
   color-scheme: light;
 }
@@ -93,8 +93,8 @@
   }
 
   ::selection {
-    background: #8E0000;
-    color: #FFFFFF;
+    background: #C9971C;
+    color: #000000;
   }
 
   :focus-visible {
@@ -132,8 +132,8 @@
   .highlight-cyan,
   .highlight-yellow,
   .highlight-accent {
-    background-color: #8E0000;
-    color: #FFFFFF;
+    background-color: #C9971C;
+    color: #000000;
     padding: 0 0.3em;
     display: inline-block;
   }
@@ -151,7 +151,7 @@
   .shadow-brutal-cyan,
   .shadow-brutal-yellow,
   .shadow-brutal-accent {
-    box-shadow: 4px 4px 0px #8E0000;
+    box-shadow: 4px 4px 0px #C9971C;
   }
 
   .hover-lift-brutal {
@@ -193,7 +193,7 @@
   background: #000000;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8E0000;
+  background: #C9971C;
 }
 
 /* Hide Next.js Dev Indicator Badge */

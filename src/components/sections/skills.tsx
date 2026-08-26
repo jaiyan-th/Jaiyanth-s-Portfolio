@@ -17,16 +17,16 @@ export function Skills() {
           className="mb-14"
         >
           <div className="flex items-center gap-2.5 mb-3 flex-wrap">
-            <span className="w-2.5 h-2.5 bg-[#8E0000] border border-black inline-block" />
+            <span className="w-2.5 h-2.5 bg-[#C9971C] border border-black inline-block" />
             <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
               STACK
             </span>
-            <span className="font-editorial-italic text-sm sm:text-base text-[#8E0000] font-semibold tracking-tight select-none">
+            <span className="font-editorial-italic text-sm sm:text-base text-[#C9971C] font-semibold tracking-tight select-none">
               / tools of the trade
             </span>
           </div>
           <h2 className="font-display font-normal text-4xl sm:text-5xl lg:text-6xl text-black leading-[0.96] tracking-tight uppercase">
-            TOOLS I <span className="font-editorial-italic normal-case text-[#8E0000] font-semibold tracking-tight">build</span> WITH.
+            TOOLS I <span className="font-editorial-italic normal-case text-[#C9971C] font-semibold tracking-tight">build</span> WITH.
           </h2>
         </motion.div>
 
