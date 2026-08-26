@@ -9,35 +9,34 @@ export function About() {
   return (
     <section id="about" className="relative bg-[#EFEFEA] text-black border-b-2 border-black pt-12 pb-16 md:pt-14 md:pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Eyebrow Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-12"
-        >
-          <div className="flex items-center gap-2.5 mb-3 flex-wrap">
-            <span className="w-2.5 h-2.5 bg-[#8E0000] border border-black inline-block" />
-            <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
-              WHO YOU&apos;D BE WORKING WITH
-            </span>
-            <span className="font-editorial-italic text-sm sm:text-base text-[#8E0000] font-semibold tracking-tight select-none">
-              / the background
-            </span>
-          </div>
-          <h2 className="font-display font-normal text-4xl sm:text-5xl lg:text-6xl text-black leading-[0.96] tracking-tight uppercase">
-            ENGINEER &amp; BUILDER, <br />
-            <span className="text-black">SHIPPING</span>{" "}
-            <span className="font-editorial-italic normal-case text-[#8E0000] font-semibold tracking-tight">end-to-end.</span>
-          </h2>
-        </motion.div>
-
-        {/* Two-Column Editorial Layout */}
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Narrative */}
+        {/* Two-Column Editorial Layout with Photo Aligned to Top */}
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          {/* Left Column: Eyebrow, Heading & Narrative */}
           <div className="lg:col-span-7 space-y-6">
-            <h3 className="font-sans font-black text-lg sm:text-xl text-black leading-relaxed">
+            {/* Eyebrow Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              <div className="flex items-center gap-2.5 mb-3 flex-wrap">
+                <span className="w-2.5 h-2.5 bg-[#8E0000] border border-black inline-block" />
+                <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
+                  WHO YOU&apos;D BE WORKING WITH
+                </span>
+                <span className="font-editorial-italic text-sm sm:text-base text-[#8E0000] font-semibold tracking-tight select-none">
+                  / the background
+                </span>
+              </div>
+              <h2 className="font-display font-normal text-4xl sm:text-5xl lg:text-6xl text-black leading-[0.96] tracking-tight uppercase">
+                ENGINEER &amp; BUILDER, <br />
+                <span className="text-black">SHIPPING</span>{" "}
+                <span className="font-editorial-italic normal-case text-[#8E0000] font-semibold tracking-tight">end-to-end.</span>
+              </h2>
+            </motion.div>
+
+            <h3 className="font-sans font-black text-lg sm:text-xl text-black leading-relaxed pt-2">
               {ABOUT.statement}
             </h3>
 
@@ -48,12 +47,12 @@ export function About() {
             </div>
           </div>
 
-          {/* Right Column: Profile Photo */}
+          {/* Right Column: Profile Photo aligned directly to top near header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
             className="lg:col-span-5 flex justify-center lg:justify-end"
           >
             <div className="w-full max-w-[400px] bg-white border-2 border-black shadow-[6px_6px_0px_#000000] overflow-hidden">
