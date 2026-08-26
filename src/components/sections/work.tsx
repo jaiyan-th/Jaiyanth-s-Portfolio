@@ -14,10 +14,20 @@ interface ProjectCardProps {
 }
 
 function ProjectCard({ project, onInspect, index }: ProjectCardProps) {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onInspect(project.slug);
+    }
+  };
+
   return (
-    <div
+    <button
+      type="button"
       onClick={() => onInspect(project.slug)}
-      className="group relative cursor-pointer select-none [perspective:1000px] w-full"
+      onKeyDown={handleKeyDown}
+      aria-label={`View case study for ${project.title}`}
+      className="group relative cursor-pointer select-none [perspective:1000px] w-full text-left bg-transparent p-0 border-0 outline-none focus-visible:ring-2 focus-visible:ring-[#C9971C] focus-visible:ring-offset-4 focus-visible:ring-offset-[#EFEFEA] transition-shadow rounded-sm"
     >
       {/* Giant Translucent Watermark Number behind/behind-left of card top */}
       <span
@@ -30,14 +40,17 @@ function ProjectCard({ project, onInspect, index }: ProjectCardProps) {
       {/* Main Image Frame (4/5 Aspect Ratio with 2px black border & brutalist shadow) */}
       <div className="relative z-10 aspect-[4/5] w-full overflow-hidden bg-white border-2 border-black shadow-[6px_6px_0px_#000000]">
         {/* Category Pill in top-right */}
-        <div className="absolute top-3.5 right-3.5 z-20 px-3 py-1 bg-black/85 backdrop-blur-sm border border-black text-[10px] font-mono font-bold tracking-widest text-white uppercase shadow-[1.5px_1.5px_0px_#C9971C]">
+        <div
+          aria-hidden="true"
+          className="absolute top-3.5 right-3.5 z-20 px-3 py-1 bg-black/85 backdrop-blur-sm border border-black text-[10px] font-mono font-bold tracking-widest text-white uppercase shadow-[1.5px_1.5px_0px_#C9971C]"
+        >
           {project.category}
         </div>
 
         {/* Project Image */}
         <Image
           src={project.image || "/images/projects/fake-news-detector.jpg"}
-          alt={project.title}
+          alt=""
           fill
           className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, 420px"
@@ -52,7 +65,7 @@ function ProjectCard({ project, onInspect, index }: ProjectCardProps) {
         />
 
         {/* Floating "View case study" Pill in Center */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div aria-hidden="true" className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div className="opacity-0 group-hover:opacity-100 transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 ease-out">
             <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-black text-white font-display text-sm uppercase tracking-wider border-2 border-black shadow-[3px_3px_0px_#C9971C]">
               <span>VIEW CASE STUDY</span>
@@ -68,7 +81,7 @@ function ProjectCard({ project, onInspect, index }: ProjectCardProps) {
           <h3 className="font-display text-2xl sm:text-3xl text-black uppercase tracking-tight group-hover:text-[#C9971C] transition-colors duration-300">
             {project.title}
           </h3>
-          <span className="w-2.5 h-2.5 rounded-full bg-[#C9971C] border border-black mt-2 shrink-0" />
+          <span aria-hidden="true" className="w-2.5 h-2.5 rounded-full bg-[#C9971C] border border-black mt-2 shrink-0" />
         </div>
 
         <p className="font-mono text-xs text-black/75 line-clamp-2 leading-relaxed">
@@ -76,7 +89,7 @@ function ProjectCard({ project, onInspect, index }: ProjectCardProps) {
         </p>
 
         {/* Tech Stack Pills (Up to 4 tags) */}
-        <div className="flex flex-wrap gap-1.5 pt-1.5">
+        <div aria-hidden="true" className="flex flex-wrap gap-1.5 pt-1.5">
           {project.stack.slice(0, 4).map((tech) => (
             <span
               key={tech}
@@ -87,7 +100,7 @@ function ProjectCard({ project, onInspect, index }: ProjectCardProps) {
           ))}
         </div>
       </div>
-    </div>
+    </button>
   );
 }
 
