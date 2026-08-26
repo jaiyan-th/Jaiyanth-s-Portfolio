@@ -2,32 +2,22 @@
 
 import * as React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, ExternalLink } from "lucide-react";
-import { ProjectDialog } from "@/components/projects/project-dialog";
 import { motion, useScroll, useTransform } from "motion/react";
 import { PROJECTS } from "@/data/portfolio";
 
 interface ProjectCardProps {
   project: (typeof PROJECTS)[number];
-  onInspect: (slug: string) => void;
   index: number;
 }
 
-function ProjectCard({ project, onInspect, index }: ProjectCardProps) {
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      onInspect(project.slug);
-    }
-  };
-
+function ProjectCard({ project, index }: ProjectCardProps) {
   return (
-    <button
-      type="button"
-      onClick={() => onInspect(project.slug)}
-      onKeyDown={handleKeyDown}
+    <Link
+      href={`/projects/${project.slug}`}
       aria-label={`View case study for ${project.title}`}
-      className="group relative cursor-pointer select-none [perspective:1000px] w-full text-left bg-transparent p-0 border-0 outline-none focus-visible:ring-2 focus-visible:ring-[#C9971C] focus-visible:ring-offset-4 focus-visible:ring-offset-[#EFEFEA] transition-shadow rounded-sm"
+      className="group relative cursor-pointer select-none [perspective:1000px] w-full text-left bg-transparent p-0 border-0 outline-none focus-visible:ring-2 focus-visible:ring-[#C9971C] focus-visible:ring-offset-4 focus-visible:ring-offset-[#EFEFEA] transition-shadow rounded-sm block"
     >
       {/* Giant Translucent Watermark Number behind/behind-left of card top */}
       <span
@@ -100,12 +90,11 @@ function ProjectCard({ project, onInspect, index }: ProjectCardProps) {
           ))}
         </div>
       </div>
-    </button>
+    </Link>
   );
 }
 
 export function Work() {
-  const [selectedSlug, setSelectedSlug] = React.useState<string | null>(null);
   const targetRef = React.useRef<HTMLDivElement>(null);
   const trackRef = React.useRef<HTMLDivElement>(null);
   const [scrollRange, setScrollRange] = React.useState<number>(0);
@@ -168,11 +157,7 @@ export function Work() {
             >
               {PROJECTS.map((project, idx) => (
                 <div key={project.slug} className="w-[340px] lg:w-[380px] xl:w-[400px] shrink-0">
-                  <ProjectCard
-                    project={project}
-                    onInspect={(slug) => setSelectedSlug(slug)}
-                    index={idx}
-                  />
+                  <ProjectCard project={project} index={idx} />
                 </div>
               ))}
 
@@ -245,18 +230,11 @@ export function Work() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-8">
           {PROJECTS.map((project, idx) => (
             <div key={project.slug}>
-              <ProjectCard
-                project={project}
-                onInspect={(slug) => setSelectedSlug(slug)}
-                index={idx}
-              />
+              <ProjectCard project={project} index={idx} />
             </div>
           ))}
         </div>
       </div>
-
-      {/* Modal Dialog */}
-      <ProjectDialog slug={selectedSlug} onClose={() => setSelectedSlug(null)} />
     </section>
   );
 }
