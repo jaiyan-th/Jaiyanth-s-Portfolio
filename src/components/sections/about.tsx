@@ -47,13 +47,13 @@ export function About() {
             </div>
           </div>
 
-          {/* Right Column: Profile Photo aligned to the 'SHIPPING end-to-end' line */}
+          {/* Right Column: Profile Photo */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="lg:col-span-5 flex justify-center lg:justify-end lg:pt-14"
+            className="lg:col-span-5 flex justify-center lg:justify-end lg:pt-20"
           >
             <div className="w-full max-w-[400px] bg-white border-2 border-black shadow-[6px_6px_0px_#000000] overflow-hidden">
               <div className="bg-[#8E0000] border-b-2 border-black px-4 py-2.5">
