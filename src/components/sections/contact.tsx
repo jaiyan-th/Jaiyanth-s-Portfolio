@@ -110,7 +110,7 @@ export function Contact() {
   return (
     <div className="relative">
       {/* Contact Section — Clean Warm Section Background */}
-      <section id="contact" className="relative bg-[#FAF5E8] border-b-2 border-black px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-black scroll-mt-20">
+      <section id="contact" className="relative bg-[#FAF5E8] border-b-2 border-black px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-black scroll-mt-[57px]">
         <div className="max-w-7xl mx-auto">
           {/* Main White Box (karolbinkow.ski LET'S TALK Box) */}
           <div className="bg-white border-2 border-black p-8 sm:p-12 shadow-[8px_8px_0px_#000000] relative">

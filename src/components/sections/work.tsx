@@ -11,7 +11,7 @@ export function Work() {
   const [selectedSlug, setSelectedSlug] = React.useState<string | null>(null);
 
   return (
-    <section id="work" className="relative bg-[#EFEFEA] text-black border-b-2 border-black py-20 md:py-28 scroll-mt-20">
+    <section id="work" className="relative bg-[#EFEFEA] text-black border-b-2 border-black py-20 md:py-28 scroll-mt-[57px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Eyebrow Header */}
         <motion.div
