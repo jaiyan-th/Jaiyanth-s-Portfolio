@@ -107,23 +107,44 @@ function ProjectCard({ project, onInspect, index }: ProjectCardProps) {
 export function Work() {
   const [selectedSlug, setSelectedSlug] = React.useState<string | null>(null);
   const targetRef = React.useRef<HTMLDivElement>(null);
+  const trackRef = React.useRef<HTMLDivElement>(null);
+  const [scrollRange, setScrollRange] = React.useState<number>(0);
 
+  // Measure exact horizontal scroll distance needed so last card ends flush with right edge
+  React.useEffect(() => {
+    const updateRange = () => {
+      if (trackRef.current) {
+        const trackWidth = trackRef.current.scrollWidth;
+        const viewportWidth = window.innerWidth;
+        // Translate distance is total content width minus viewport width + margin clearance
+        const maxScroll = Math.max(0, trackWidth - viewportWidth + 64);
+        setScrollRange(maxScroll);
+      }
+    };
+
+    updateRange();
+    window.addEventListener("resize", updateRange);
+    return () => window.removeEventListener("resize", updateRange);
+  }, []);
+
+  // useScroll configured with target = outer tall wrapper and offset = ["start start", "end end"]
   const { scrollYProgress } = useScroll({
     target: targetRef,
+    offset: ["start start", "end end"],
   });
 
-  // Smooth scroll translation for desktop horizontal track
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-60%"]);
+  // Exact pixel transform: cards slide horizontally only while pinned, reaching end flush at progress 1
+  const x = useTransform(scrollYProgress, [0, 1], [0, -scrollRange]);
   const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
     <section id="work" className="relative bg-[#EFEFEA] text-black border-b-2 border-black scroll-mt-[57px]">
       {/* DESKTOP (md breakpoint and up): Sticky Scroll-Driven Horizontal Track */}
-      <div ref={targetRef} className="hidden md:block relative h-[300vh]">
-        <div className="sticky top-0 h-screen flex flex-col justify-between py-12 px-6 lg:px-12 overflow-hidden max-w-7xl mx-auto w-full">
+      <div ref={targetRef} className="hidden md:block relative h-[250vh]">
+        <div className="sticky top-[57px] h-[calc(100vh-57px)] flex flex-col justify-between py-8 lg:py-10 px-6 lg:px-12 overflow-hidden w-full">
           {/* Eyebrow Header */}
-          <div>
-            <div className="flex items-center gap-2.5 mb-2.5 flex-wrap">
+          <div className="max-w-7xl mx-auto w-full">
+            <div className="flex items-center gap-2.5 mb-2 flex-wrap">
               <span className="w-2.5 h-2.5 bg-[#C9971C] border border-black inline-block" />
               <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
                 SELECTED WORK
@@ -132,17 +153,21 @@ export function Work() {
                 / scroll to explore projects
               </span>
             </div>
-            <h2 className="font-display font-normal text-4xl lg:text-5xl text-black leading-[0.96] tracking-tight uppercase">
+            <h2 className="font-display font-normal text-3xl lg:text-4xl xl:text-5xl text-black leading-[0.96] tracking-tight uppercase">
               THREE PROJECTS, <br />
               <span className="font-editorial-italic normal-case text-[#C9971C] font-semibold tracking-tight">three</span> SHIPPED SYSTEMS.
             </h2>
           </div>
 
           {/* Horizontal Track of Project Cards */}
-          <div className="relative overflow-visible my-auto py-6">
-            <motion.div style={{ x }} className="flex items-center gap-10 lg:gap-12 pl-2">
+          <div className="relative overflow-visible my-auto py-4">
+            <motion.div
+              ref={trackRef}
+              style={{ x }}
+              className="flex items-center gap-8 lg:gap-10 pl-6 lg:pl-12 w-max"
+            >
               {PROJECTS.map((project, idx) => (
-                <div key={project.slug} className="w-[380px] lg:w-[420px] shrink-0">
+                <div key={project.slug} className="w-[340px] lg:w-[380px] xl:w-[400px] shrink-0">
                   <ProjectCard
                     project={project}
                     onInspect={(slug) => setSelectedSlug(slug)}
@@ -152,32 +177,32 @@ export function Work() {
               ))}
 
               {/* End of Selection Slide */}
-              <div className="w-[320px] lg:w-[360px] shrink-0 bg-white border-2 border-black p-8 shadow-[6px_6px_0px_#000000] flex flex-col justify-center">
+              <div className="w-[300px] lg:w-[340px] shrink-0 bg-white border-2 border-black p-6 lg:p-8 shadow-[6px_6px_0px_#000000] flex flex-col justify-center mr-8">
                 <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#C9971C] block mb-2">
                   END OF SELECTION
                 </span>
-                <h3 className="font-display text-3xl text-black uppercase tracking-tight mb-3">
+                <h3 className="font-display text-2xl lg:text-3xl text-black uppercase tracking-tight mb-2">
                   READY TO BUILD?
                 </h3>
-                <p className="font-mono text-xs text-black/80 leading-relaxed mb-6">
-                  Explore full repositories on GitHub or get in touch for custom engineering engagements.
+                <p className="font-mono text-xs text-black/80 leading-relaxed mb-5">
+                  Explore repositories on GitHub or get in touch for engineering roles and collaborations.
                 </p>
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-2.5">
                   <a
                     href="https://github.com/jaiyan-th"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-black text-white font-display text-sm tracking-wider uppercase px-5 py-2.5 border-2 border-black shadow-[2px_2px_0px_#C9971C] hover:bg-[#C9971C] hover:text-black transition-colors inline-flex items-center justify-between"
+                    className="bg-black text-white font-display text-xs lg:text-sm tracking-wider uppercase px-4 py-2.5 border-2 border-black shadow-[2px_2px_0px_#C9971C] hover:bg-[#C9971C] hover:text-black transition-colors inline-flex items-center justify-between"
                   >
                     <span>VIEW GITHUB</span>
-                    <ExternalLink className="w-4 h-4" />
+                    <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                   <a
                     href="#contact"
-                    className="bg-white text-black font-display text-sm tracking-wider uppercase px-5 py-2.5 border-2 border-black shadow-[2px_2px_0px_#000000] hover:bg-[#EFEFEA] transition-colors inline-flex items-center justify-between"
+                    className="bg-white text-black font-display text-xs lg:text-sm tracking-wider uppercase px-4 py-2.5 border-2 border-black shadow-[2px_2px_0px_#000000] hover:bg-[#EFEFEA] transition-colors inline-flex items-center justify-between"
                   >
                     <span>CONTACT ME</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
               </div>
@@ -185,10 +210,10 @@ export function Work() {
           </div>
 
           {/* Bottom Progress Bar */}
-          <div className="w-full pt-4">
-            <div className="flex items-center justify-between font-mono text-xs font-bold text-black/60 uppercase mb-2">
+          <div className="max-w-7xl mx-auto w-full pt-2">
+            <div className="flex items-center justify-between font-mono text-[11px] font-bold text-black/60 uppercase mb-1.5">
               <span>01 / 03 PROJECTS</span>
-              <span>SCROLL DOWN ↓</span>
+              <span>SCROLL TO PROCEED ↓</span>
             </div>
             <div className="w-full h-2 bg-white border-2 border-black overflow-hidden shadow-[2px_2px_0px_#000000]">
               <motion.div style={{ scaleX }} className="h-full bg-[#C9971C] origin-left" />
