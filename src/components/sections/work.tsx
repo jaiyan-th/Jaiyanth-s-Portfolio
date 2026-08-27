@@ -41,7 +41,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
           alt=""
           fill
           className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes="(max-width: 768px) 100vw, 900px"
           priority={index === 0}
           unoptimized
         />
@@ -116,8 +116,8 @@ export function Work() {
           </h2>
         </div>
 
-        {/* Vertical Project Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 pt-4">
+        {/* Vertical Project Stack */}
+        <div className="flex flex-col gap-20 pt-4 max-w-4xl mx-auto w-full">
           {PROJECTS.map((project, idx) => (
             <div key={project.slug}>
               <ProjectCard project={project} index={idx} />
