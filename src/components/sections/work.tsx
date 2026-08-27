@@ -130,8 +130,8 @@ export function Work() {
             </span>
           </div>
           <h2 className="font-display font-normal text-3xl sm:text-4xl lg:text-5xl text-black leading-[0.96] tracking-tight uppercase">
-            THREE PROJECTS, <br />
-            <span className="font-editorial-italic normal-case text-[#C9971C] font-semibold tracking-tight">three</span> SHIPPED SYSTEMS.
+            BUILT TO SHIP, <br />
+            <span className="font-editorial-italic normal-case text-[#C9971C] font-semibold tracking-tight">designed</span> TO LAST.
           </h2>
         </div>
 
