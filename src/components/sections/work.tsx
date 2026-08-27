@@ -11,81 +11,100 @@ interface ProjectCardProps {
 }
 
 function ProjectCard({ project, index }: ProjectCardProps) {
+  const isReversed = index % 2 !== 0;
+
   return (
     <Link
       href={`/projects/${project.slug}`}
       aria-label={`View case study for ${project.title}`}
-      className="group relative cursor-pointer select-none [perspective:1000px] w-full text-left bg-transparent p-0 border-0 outline-none focus-visible:ring-2 focus-visible:ring-[#C9971C] focus-visible:ring-offset-4 focus-visible:ring-offset-[#EFEFEA] transition-shadow rounded-sm block"
+      className="group relative cursor-pointer select-none w-full text-left bg-transparent p-0 border-0 outline-none focus-visible:ring-2 focus-visible:ring-[#C9971C] focus-visible:ring-offset-4 focus-visible:ring-offset-[#EFEFEA] transition-shadow rounded-sm block"
     >
-      {/* Giant Translucent Watermark Number behind/behind-left of card top */}
+      {/* Giant Translucent Watermark Number */}
       <span
         aria-hidden="true"
-        className="absolute -top-8 sm:-top-10 -left-2 z-0 font-display text-[6rem] sm:text-[7.5rem] md:text-[8.5rem] text-black/10 leading-none pointer-events-none select-none"
+        className={`absolute -top-8 sm:-top-12 z-0 font-display text-[6rem] sm:text-[7.5rem] md:text-[9rem] text-black/[0.06] leading-none pointer-events-none select-none ${
+          isReversed ? "-right-2" : "-left-2"
+        }`}
       >
         0{index + 1}
       </span>
 
-      {/* Main Image Frame */}
-      <div className="relative z-10 aspect-[16/10] w-full overflow-hidden bg-white border-2 border-black shadow-[6px_6px_0px_#000000]">
-        {/* Category Pill in top-right */}
-        <div
-          aria-hidden="true"
-          className="absolute top-3 right-3 z-20 px-2.5 py-1 bg-black/85 backdrop-blur-sm border border-black text-[10px] font-mono font-bold tracking-widest text-white uppercase shadow-[1.5px_1.5px_0px_#C9971C]"
-        >
-          {project.category}
-        </div>
+      <div className={`relative z-10 flex flex-col ${isReversed ? "md:flex-row-reverse" : "md:flex-row"} gap-6 md:gap-10 items-stretch`}>
+        {/* Image Side */}
+        <div className="w-full md:w-[55%] shrink-0">
+          <div className="relative aspect-[16/10] w-full overflow-hidden bg-white border-2 border-black shadow-[6px_6px_0px_#000000]">
+            {/* Category Pill */}
+            <div
+              aria-hidden="true"
+              className="absolute top-3 right-3 z-20 px-2.5 py-1 bg-black/85 backdrop-blur-sm border border-black text-[10px] font-mono font-bold tracking-widest text-white uppercase shadow-[1.5px_1.5px_0px_#C9971C]"
+            >
+              {project.category}
+            </div>
 
-        {/* Project Image */}
-        <Image
-          src={project.image || "/images/projects/fake-news-detector.jpg"}
-          alt=""
-          fill
-          className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, 900px"
-          priority={index === 0}
-          unoptimized
-        />
+            <Image
+              src={project.image || "/images/projects/fake-news-detector.jpg"}
+              alt=""
+              fill
+              className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 55vw"
+              priority={index === 0}
+              unoptimized
+            />
 
-        {/* Gold Gradient Overlay with mix-blend-multiply */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-b from-transparent via-[#C9971C]/25 to-[#C9971C]/60 mix-blend-multiply"
-        />
+            {/* Gold Gradient Overlay */}
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-b from-transparent via-[#C9971C]/25 to-[#C9971C]/60 mix-blend-multiply"
+            />
 
-        {/* Floating "View case study" Pill in Center */}
-        <div aria-hidden="true" className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white font-display text-xs sm:text-sm uppercase tracking-wider border-2 border-black shadow-[3px_3px_0px_#C9971C]">
-              <span>VIEW CASE STUDY</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#C9971C]" />
-            </span>
+            {/* Floating "View case study" Pill */}
+            <div aria-hidden="true" className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                <span className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white font-display text-xs sm:text-sm uppercase tracking-wider border-2 border-black shadow-[3px_3px_0px_#C9971C]">
+                  <span>VIEW CASE STUDY</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#C9971C]" />
+                </span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Info Below Image */}
-      <div className="mt-3.5 space-y-1.5 relative z-10">
-        <div className="flex items-start justify-between gap-3">
-          <h3 className="font-display text-xl sm:text-2xl text-black uppercase tracking-tight group-hover:text-[#C9971C] transition-colors duration-300">
-            {project.title}
-          </h3>
-          <span aria-hidden="true" className="w-2.5 h-2.5 rounded-full bg-[#C9971C] border border-black mt-1.5 shrink-0" />
-        </div>
+        {/* Content Side */}
+        <div className="w-full md:w-[45%] flex flex-col justify-center space-y-4">
+          <div className="flex items-start justify-between gap-3">
+            <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl text-black uppercase tracking-tight group-hover:text-[#C9971C] transition-colors duration-300 leading-[1.05]">
+              {project.title}
+            </h3>
+            <span aria-hidden="true" className="w-2.5 h-2.5 rounded-full bg-[#C9971C] border border-black mt-2 shrink-0" />
+          </div>
 
-        <p className="font-mono text-xs text-black/75 line-clamp-2 leading-relaxed">
-          {project.engineeringFocus}
-        </p>
+          <p className="font-mono text-xs sm:text-sm text-black/70 leading-relaxed">
+            {project.engineeringFocus}
+          </p>
 
-        {/* Tech Stack Pills (Up to 4 tags) */}
-        <div aria-hidden="true" className="flex flex-wrap gap-1.5 pt-1">
-          {project.stack.slice(0, 4).map((tech) => (
-            <span
-              key={tech}
-              className="font-mono text-[10px] sm:text-[11px] font-bold text-black bg-white px-2.5 py-0.5 border border-black shadow-[1.5px_1.5px_0px_#000000]"
-            >
-              {tech}
+          <p className="font-mono text-xs text-black/55 leading-relaxed line-clamp-3">
+            {project.summary}
+          </p>
+
+          {/* Tech Stack Pills */}
+          <div aria-hidden="true" className="flex flex-wrap gap-1.5 pt-1">
+            {project.stack.slice(0, 5).map((tech) => (
+              <span
+                key={tech}
+                className="font-mono text-[10px] sm:text-[11px] font-bold text-black bg-white px-2.5 py-0.5 border border-black shadow-[1.5px_1.5px_0px_#000000]"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* View arrow hint */}
+          <div className="pt-2">
+            <span className="inline-flex items-center gap-2 font-display text-xs uppercase tracking-wider text-black/50 group-hover:text-[#C9971C] transition-colors duration-300">
+              VIEW CASE STUDY
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </span>
-          ))}
+          </div>
         </div>
       </div>
     </Link>
@@ -117,7 +136,7 @@ export function Work() {
         </div>
 
         {/* Vertical Project Stack */}
-        <div className="flex flex-col gap-20 pt-4 max-w-4xl mx-auto w-full">
+        <div className="flex flex-col gap-24 lg:gap-32 pt-4">
           {PROJECTS.map((project, idx) => (
             <div key={project.slug}>
               <ProjectCard project={project} index={idx} />
