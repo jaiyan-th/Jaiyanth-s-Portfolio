@@ -74,7 +74,7 @@ export default async function ProjectPage({ params }: Params) {
             </div>
 
             <div className="flex items-center gap-4 text-xs font-mono tracking-widest text-white/50 uppercase">
-              <span>{project.number} / 03 PROJECTS</span>
+              <span>{project.number} / {String(PROJECTS.length).padStart(2, "0")} PROJECTS</span>
               <Link
                 href="/#work"
                 className="hidden sm:inline-block px-3 py-1 rounded-full border border-white/20 hover:border-[#C9971C] hover:text-[#C9971C] transition-colors text-[11px]"

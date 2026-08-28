@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import { EASE, DURATION } from "@/lib/motion";
 import { TrustGauge } from "./trust-gauge";
 
-type Variant = "evidence-network" | "career-layers" | "route-geometry";
+type Variant = "evidence-network" | "career-layers" | "route-geometry" | "crypto-vault";
 
 export function ProjectVisual({ variant }: { variant: Variant }) {
   switch (variant) {
@@ -15,6 +15,8 @@ export function ProjectVisual({ variant }: { variant: Variant }) {
       return <CareerLayers />;
     case "route-geometry":
       return <RouteGeometry />;
+    case "crypto-vault":
+      return <CryptoVault />;
   }
 }
 
@@ -325,6 +327,121 @@ function RouteGeometry() {
           JWT · OAUTH
         </text>
       </g>
+    </svg>
+  );
+}
+
+function CryptoVault() {
+  return (
+    <svg
+      viewBox="0 0 600 420"
+      className="h-full w-full"
+      role="img"
+      aria-label="Animated cryptographic vault and zero-trust security layers for Secure Document Vault"
+    >
+      <defs>
+        <linearGradient id="vault-beam" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.1" />
+          <stop offset="50%" stopColor="var(--accent)" stopOpacity="0.9" />
+          <stop offset="100%" stopColor="var(--accent)" stopOpacity="0.1" />
+        </linearGradient>
+      </defs>
+
+      {/* Central Vault Shield & Lock Rings */}
+      <g transform="translate(300, 180)">
+        <circle r="75" fill="none" stroke="var(--line)" strokeWidth="1" />
+        <motion.circle
+          r="75"
+          fill="none"
+          stroke="var(--accent)"
+          strokeWidth="2"
+          strokeDasharray="12 12"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          style={{ transformOrigin: "0px 0px" }}
+        />
+        <circle r="52" fill="none" stroke="var(--line)" strokeWidth="1" />
+        <motion.circle
+          r="52"
+          fill="none"
+          stroke="var(--accent-2)"
+          strokeWidth="1.5"
+          strokeDasharray="8 8"
+          animate={{ rotate: -360 }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          style={{ transformOrigin: "0px 0px" }}
+        />
+        <circle r="12" fill="var(--accent)" />
+        <text
+          textAnchor="middle"
+          dy="110"
+          fontFamily="var(--font-mono)"
+          fontSize="10"
+          letterSpacing="2"
+          fill="var(--text-secondary)"
+          fontWeight="bold"
+        >
+          AES-256-GCM · ZERO-TRUST
+        </text>
+      </g>
+
+      {/* Security Nodes */}
+      {[
+        { x: 90, y: 90, label: "ARGON2ID KEY" },
+        { x: 510, y: 90, label: "PyJWT / RBAC" },
+        { x: 90, y: 310, label: "CHUNKED STREAM" },
+        { x: 510, y: 310, label: "AUDIT LOGS" },
+      ].map((node, i) => (
+        <g key={i} transform={`translate(${node.x},${node.y})`}>
+          <motion.line
+            x1="0"
+            y1="0"
+            x2={300 - node.x}
+            y2={180 - node.y}
+            stroke="var(--line)"
+            strokeWidth="0.8"
+            strokeDasharray="4 4"
+            initial={{ pathLength: 0 }}
+            whileInView={{ pathLength: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 + i * 0.1, ease: EASE.primary }}
+          />
+          <rect
+            x="-55"
+            y="-14"
+            width="110"
+            height="28"
+            fill="none"
+            stroke="var(--line)"
+            rx="2"
+          />
+          <text
+            textAnchor="middle"
+            dy="4"
+            fontFamily="var(--font-mono)"
+            fontSize="8"
+            letterSpacing="1"
+            fill="var(--text-primary)"
+            fontWeight="bold"
+          >
+            {node.label}
+          </text>
+        </g>
+      ))}
+
+      {/* Encryption Stream Beam */}
+      <motion.line
+        x1="40"
+        y1="180"
+        x2="560"
+        y2="180"
+        stroke="url(#vault-beam)"
+        strokeWidth="2"
+        initial={{ pathLength: 0, opacity: 0 }}
+        whileInView={{ pathLength: 1, opacity: [0, 1, 0] }}
+        viewport={{ once: true }}
+        transition={{ duration: 2.2, repeat: Infinity, repeatDelay: 1.2, ease: EASE.secondary }}
+      />
     </svg>
   );
 }

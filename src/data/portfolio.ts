@@ -42,11 +42,11 @@ export const ABOUT = {
     "I translate ambiguous problems into engineered, useful software — moving carefully from signal, to system, to story.",
   biography: [
     "I'm a final-year Computer Science & Business Systems student in India, focused on Applied AI and Full-Stack Engineering. My work sits between research and production: I build RAG pipelines, conversational systems, structured APIs, and end-to-end web products that hold up under real use.",
-    "I care about the full path — clean data, dependable APIs, accessible interfaces, and code that another engineer can read. I've contributed to an IEEE research paper on preventive healthcare AI, completed an AI internship building production prototypes, and shipped three selected projects that anchor everything I've learned.",
+    "I care about the full path — clean data, dependable APIs, accessible interfaces, and code that another engineer can read. I've contributed to an IEEE research paper on preventive healthcare AI, completed an AI internship building production prototypes, and shipped four selected projects that anchor everything I've learned.",
     "I'm currently open to applied-AI and full-stack engineering roles where rigour, taste, and care for the user matter as much as the model.",
   ],
   metrics: [
-    { value: "3", label: "Selected projects", detail: "Fake News Detector · Up-Skill · Car-Rent" },
+    { value: "4", label: "Selected projects", detail: "Fake News Detector · Up-Skill · Car-Rent · Secure Document Vault" },
     { value: "6", label: "Evidence-based skill groups", detail: "Languages · Frontend · Backend · Databases · AI & ML · Tools" },
     { value: "1", label: "AI internship", detail: "Brainery Spot Technology · Jun–Jul 2025" },
     { value: "1", label: "IEEE research achievement", detail: "ICETSIS 2026 · IEEE Bahrain Section" },
@@ -62,10 +62,13 @@ export const ABOUT = {
     "React",
     "TypeScript",
     "NestJS",
+    "FastAPI",
     "Flask",
     "REST APIs",
     "Supabase",
+    "PostgreSQL",
     "Prisma ORM",
+    "AES-256-GCM",
     "JWT",
     "OAuth",
     "Prompt Engineering",
@@ -118,7 +121,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
     title: "Databases",
     description:
       "Relational databases and vector stores for persistent application data and semantic search.",
-    skills: ["Supabase", "MySQL", "Qdrant (Vector Database)"],
+    skills: ["Supabase", "MySQL", "PostgreSQL", "Qdrant (Vector Database)"],
     evidence: "Relational and vector database systems for persistent data and semantic search.",
     impact: "Powers ACID relational transactions and high-dimensional vector embeddings for AI retrieval.",
   },
@@ -258,6 +261,44 @@ export const PROJECTS: Project[] = [
         "Booking availability under concurrent writes was the hardest correctness problem. Adding a database-level constraint on overlapping bookings removed a class of race conditions that application logic alone couldn't fully prevent.",
       learnings:
         "Push invariants into the schema wherever possible. Code that prevents double-bookings is fragile; a unique constraint is not.",
+    },
+  },
+  {
+    slug: "secure-document-vault",
+    number: "04",
+    category: "Full-Stack · Cybersecurity",
+    title: "Secure Document Vault",
+    summary:
+      "A zero-trust encrypted document vault with AES-256-GCM authenticated encryption, role-based access control, chunked streaming, device trust, and immutable audit logging.",
+    stack: ["Python", "FastAPI", "SQLAlchemy", "PostgreSQL", "AES-256-GCM", "Argon2", "PyJWT", "JavaScript"],
+    engineeringFocus: "Zero-knowledge encryption pipeline · AES-256-GCM · immutable audit logging",
+    repository: "https://github.com/jaiyan-th/Secure-Digital-Document-Vault",
+    liveUrl: "https://jaiy-vault.onrender.com",
+    visual: "crypto-vault",
+    image: "/images/projects/document-vault.jpg",
+    layout: "featured",
+    caseStudy: {
+      overview:
+        "Secure Digital Document Vault is a zero-trust encrypted storage platform built for high-assurance data privacy. Files are encrypted client-side or during chunked ingestion using AES-256-GCM with unique cryptographic nonces before persisting to disk. The system enforces strict role-based access control (RBAC), password-derived keys with Argon2 hashing, device verification, and append-only audit logging.",
+      problem:
+        "Traditional cloud storage solutions often store files in plaintext or decrypt them on the server without strict per-file key isolation, leaving sensitive documents vulnerable to internal data leaks and server breaches. The goal was to engineer a zero-trust vault with end-to-end cryptographic guarantees and complete access provenance.",
+      approach:
+        "Implement AES-256-GCM authenticated encryption for all uploaded artifacts with isolated initialization vectors (IVs). Combine Argon2 password hashing and PyJWT authentication to verify user authorization and device trust, while persisting structured access logs to guarantee complete auditability.",
+      architecture:
+        "FastAPI backend · chunked file ingestion & MIME validator · AES-256-GCM encryption engine · Argon2 key derivation · PostgreSQL & SQLAlchemy ORM · PyJWT session & device management · append-only audit logging layer.",
+      features: [
+        "Zero-knowledge AES-256-GCM file encryption & decryption",
+        "Mandatory user password protection & Argon2 hashing",
+        "Chunked upload processing with MIME-type validation",
+        "Role-Based Access Control (RBAC) with strict ownership isolation",
+        "Tamper-evident, immutable audit trail for all file operations",
+        "Device trust monitoring and session management",
+        "Containerized one-click cloud deployment pipeline",
+      ],
+      challenges:
+        "Streaming large encrypted payloads without blowing up memory limits required architecting a chunked encryption stream where blocks are validated and encrypted on the fly while maintaining cryptographic integrity and authentication tags.",
+      learnings:
+        "Security is an architectural discipline, not an afterthought. Enforcing cryptographic invariants and strict RBAC boundaries at the API layer eliminates accidental exposure vectors completely.",
     },
   },
 ];
