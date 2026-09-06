@@ -131,8 +131,10 @@ export function Contact() {
               </span>
             </div>
 
+            {/* Section Headline with ONE italic accent word (talk) */}
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
-              Let&apos;s talk.
+              Let&apos;s{" "}
+              <span className="italic text-[#D9622B]">talk.</span>
             </h2>
             <p className="font-body text-base sm:text-lg text-[#444444] max-w-[620px]">
               Open for full-time engineering roles, internship opportunities, and technical collaboration.
@@ -289,11 +291,11 @@ export function Contact() {
                       {statusMessage || "Response time under 48h"}
                     </span>
 
-                    {/* Primary CTA button: allowed solid red */}
+                    {/* Primary CTA button: solid orange fill */}
                     <button
                       type="submit"
                       disabled={status === "submitting"}
-                      className="neo-btn-primary px-8 py-3.5 text-xs inline-flex items-center justify-center cursor-pointer font-bold tracking-wider"
+                      className="neo-btn-primary px-8 py-3.5 text-xs inline-flex items-center justify-center cursor-pointer font-extrabold tracking-wider text-[#111111]"
                     >
                       {status === "submitting" ? "Sending..." : "Send message"}
                     </button>

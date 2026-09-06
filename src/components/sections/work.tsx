@@ -10,7 +10,7 @@ import { fadeUpVariants } from "@/lib/motion";
 const PROJECT_CONFIGS: Record<string, { sticker: string; stickerBg: string; rotation: string; copy: string; stackText: string }> = {
   "fake-news-detector": {
     sticker: "APPLIED AI · RAG",
-    stickerBg: "bg-[#B91C1C] text-white",
+    stickerBg: "bg-[#D9622B] text-white",
     rotation: "-rotate-2",
     copy: "A RAG-powered fact-checking pipeline that cross-references incoming articles against a curated evidence base and surfaces a retrieval-grounded trust verdict.",
     stackText: "Python, Flask, Supabase, Vector Database, RAG",
@@ -31,7 +31,7 @@ const PROJECT_CONFIGS: Record<string, { sticker: string; stickerBg: string; rota
   },
   "secure-document-vault": {
     sticker: "FULL-STACK · SECURITY",
-    stickerBg: "bg-[#B91C1C] text-white",
+    stickerBg: "bg-[#D9622B] text-white",
     rotation: "rotate-1",
     copy: "A zero-trust encrypted document vault with AES-256-GCM authenticated encryption, role-based access control, chunked streaming, and immutable audit logging.",
     stackText: "Python, FastAPI, SQLAlchemy, PostgreSQL, AES-256-GCM",
@@ -138,9 +138,10 @@ export function Work() {
             </span>
           </div>
 
-          {/* Plain bold black headline, no italic, no color */}
+          {/* Section Headline with ONE italic accent word (shipped) */}
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
-            Projects I built and shipped.
+            Projects I built and{" "}
+            <span className="italic text-[#D9622B]">shipped.</span>
           </h2>
         </motion.div>
 
@@ -176,7 +177,7 @@ export function Work() {
             </a>
             <a
               href="#contact"
-              className="neo-btn-primary px-4 py-2.5 inline-flex items-center justify-center text-white"
+              className="neo-btn-primary px-4 py-2.5 inline-flex items-center justify-center text-[#111111]"
             >
               Contact me
             </a>

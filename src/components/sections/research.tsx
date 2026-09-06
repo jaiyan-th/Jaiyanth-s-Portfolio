@@ -37,8 +37,10 @@ export function Research() {
             </span>
           </div>
 
+          {/* Section Headline with ONE italic accent word (accepted) */}
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
-            Co-authored IEEE paper, peer-reviewed and accepted.
+            Co-authored IEEE paper, peer-reviewed and{" "}
+            <span className="italic text-[#D9622B]">accepted.</span>
           </h2>
         </motion.div>
 

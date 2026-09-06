@@ -8,7 +8,7 @@ A high-performance, responsive portfolio web application engineered with Next.js
 
 - **Framework**: [Next.js 16](https://nextjs.org/) (App Router, Turbopack)
 - **UI & Logic**: [React 19](https://react.dev/), [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) with Neo-Brutalist design tokens (`#FAF3EE` cream background, `#B91C1C` deep red accent, `#D9622B` burnt orange secondary)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) with Neo-Brutalist design tokens (`#FAF3EE` cream background, `#111111` high-contrast black text/borders, `#D9622B` orange single accent)
 - **Typography**: [Google Fonts](https://fonts.google.com/) via `next/font/google` (`Bricolage Grotesque` for headlines, `Lora` for body serif, `Plus Jakarta Sans` for nav, `DM Mono` for code cards)
 - **Animations**: [Motion](https://motion.dev/) (Framer Motion v12)
 - **Icons**: [Lucide React](https://lucide.dev/)

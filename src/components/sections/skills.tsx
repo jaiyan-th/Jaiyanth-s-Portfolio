@@ -55,9 +55,9 @@ export function Skills() {
             </span>
           </div>
 
-          {/* Headline: "TOOLS I build WITH." - "build" in italic orange accent */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black uppercase text-[#111111] tracking-tight">
-            TOOLS I <span className="italic text-[#D9622B] font-black lowercase text-4xl sm:text-5xl md:text-6xl">build</span> WITH.
+          {/* Section Headline with ONE italic accent word (build) */}
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
+            TOOLS I <span className="italic text-[#D9622B]">build</span> WITH.
           </h2>
         </motion.div>
 

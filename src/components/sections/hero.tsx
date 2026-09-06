@@ -25,12 +25,10 @@ export function Hero() {
               </span>
             </div>
 
-            {/* Headline with ONE accent word total (software) */}
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-black leading-[1.08] tracking-tight text-[#111111]">
+            {/* Headline with ONE accent word (software) in italic orange */}
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.08] tracking-tight text-[#111111]">
               I turn ambiguous problems into production-ready{" "}
-              <span className="marker-highlight inline-block text-[#111111] font-extrabold italic border-b-[3px] border-[#B91C1C]">
-                software.
-              </span>
+              <span className="italic text-[#D9622B]">software.</span>
             </h1>
 
             {/* Subhead (2 lines max) */}

@@ -7,8 +7,7 @@
    EXPRESSIVE NEO-BRUTALIST DESIGN SYSTEM
    Background: #FAF3EE (cream)
    Text: #111111 (near-black, hard contrast)
-   Accent Primary: #B91C1C (red)
-   Accent Secondary: #D9622B (orange, ~20% max highlight)
+   Accent: #D9622B (orange as the SINGLE accent color site-wide)
    Borders: #111111 (3-4px solid black with 4px 4px hard shadow)
    ============================================================ */
 
@@ -28,7 +27,7 @@
   --color-text-secondary: var(--text-secondary);
   --color-line: var(--line);
   --color-accent: var(--accent);
-  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-secondary: var(--accent);
 
   --color-card: var(--surface);
   --color-card-foreground: var(--text-primary);
@@ -43,8 +42,9 @@
   --text-primary: #111111;
   --text-secondary: #444444;
   --line: #111111;
-  --accent: #B91C1C;
+  --accent: #D9622B;
   --accent-secondary: #D9622B;
+  --accent-2: #D9622B;
 
   color-scheme: light;
 }
@@ -70,7 +70,7 @@
   }
 
   ::selection {
-    background: #B91C1C;
+    background: #D9622B;
     color: #FFFFFF;
   }
 
@@ -111,10 +111,10 @@
     box-shadow: 2px 2px 0px #111111;
   }
 
-  /* Neo-brutalist buttons */
+  /* Neo-brutalist buttons — solid orange fill, passes WCAG AA with black text (5.7:1 contrast) */
   .neo-btn-primary {
-    background-color: #B91C1C;
-    color: #FFFFFF;
+    background-color: #D9622B;
+    color: #111111;
     border: 3px solid #111111;
     box-shadow: 4px 4px 0px #111111;
     font-family: var(--font-label), "Plus Jakarta Sans", sans-serif;
@@ -126,7 +126,7 @@
   .neo-btn-primary:hover {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0px #111111;
-    background-color: #991b1b;
+    background-color: #c04e1c;
   }
 
   .neo-btn-secondary {
@@ -183,11 +183,6 @@
     padding: 0.1em 0.3em;
     border-radius: 2px;
   }
-  .marker-highlight-red {
-    background: linear-gradient(120deg, rgba(185, 28, 28, 0.15) 0%, rgba(185, 28, 28, 0.25) 100%);
-    padding: 0.1em 0.3em;
-    border-radius: 2px;
-  }
 }
 
 ::-webkit-scrollbar {
@@ -202,7 +197,7 @@
   background: #111111;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #B91C1C;
+  background: #D9622B;
 }
 
 nextjs-portal,

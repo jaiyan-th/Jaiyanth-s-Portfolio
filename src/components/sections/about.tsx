@@ -30,9 +30,10 @@ export function About() {
               </span>
             </div>
 
-            {/* Section Headline: Plain bold black, no italic, no color */}
+            {/* Section Headline with ONE italic accent word (story) */}
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] leading-[1.12] tracking-tight">
-              From signal to system to story.
+              From signal to system to{" "}
+              <span className="italic text-[#D9622B]">story.</span>
             </h2>
 
             {/* Bio Copy */}

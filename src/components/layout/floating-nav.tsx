@@ -60,12 +60,12 @@ export function FloatingNav() {
           onClick={(e) => handleNavClick(e, "#hero")}
           className="group cursor-pointer flex items-center"
         >
-          <span className="font-heading text-xl font-extrabold tracking-tight text-[#111111] group-hover:opacity-75 transition-opacity">
+          <span className="font-heading text-xl font-extrabold tracking-tight text-[#111111] group-hover:text-[#D9622B] transition-colors">
             JAIYANTH B
           </span>
         </a>
 
-        {/* Center Nav Links (Black underline for active, no red) */}
+        {/* Center Nav Links (Orange underline for active, hover orange) */}
         <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) => {
             const isActive = active === item.href;
@@ -76,8 +76,8 @@ export function FloatingNav() {
                 onClick={(e) => handleNavClick(e, item.href)}
                 className={`font-label-caps text-xs tracking-wider transition-colors relative py-1 cursor-pointer ${
                   isActive
-                    ? "text-[#111111] font-extrabold border-b-2 border-[#111111]"
-                    : "text-[#6B6B6B] hover:text-[#111111]"
+                    ? "text-[#111111] font-extrabold border-b-2 border-[#D9622B]"
+                    : "text-[#6B6B6B] hover:text-[#D9622B]"
                 }`}
               >
                 {item.label}
@@ -86,11 +86,11 @@ export function FloatingNav() {
           })}
         </div>
 
-        {/* Right CTA (Primary button allowed red) */}
+        {/* Right CTA (Solid orange fill, hard shadow, press-down hover, WCAG AA black text) */}
         <div className="flex items-center gap-3">
           <a
             href="#contact"
-            className="hidden sm:inline-flex items-center justify-center font-label-caps text-xs px-4 py-2 border-[2.5px] border-[#111111] bg-[#B91C1C] text-white shadow-[3px_3px_0px_#111111] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0px_#111111] transition-all cursor-pointer font-bold tracking-wider"
+            className="hidden sm:inline-flex items-center justify-center font-label-caps text-xs px-4 py-2 border-[2.5px] border-[#111111] bg-[#D9622B] text-[#111111] shadow-[3px_3px_0px_#111111] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0px_#111111] transition-all cursor-pointer font-extrabold tracking-wider"
           >
             GET IN TOUCH
           </a>
@@ -129,7 +129,7 @@ export function FloatingNav() {
                       handleNavClick(e, item.href);
                     }}
                     className={`font-label-caps text-sm tracking-wider py-2 transition-colors ${
-                      isActive ? "text-[#111111] font-extrabold" : "text-[#6B6B6B]"
+                      isActive ? "text-[#D9622B] font-extrabold" : "text-[#6B6B6B]"
                     }`}
                   >
                     {item.label}
@@ -139,7 +139,7 @@ export function FloatingNav() {
               <a
                 href="#contact"
                 onClick={() => setIsOpen(false)}
-                className="inline-flex items-center justify-center font-label-caps text-xs py-2.5 border-2 border-[#111111] bg-[#B91C1C] text-white shadow-[3px_3px_0px_#111111] font-bold mt-2"
+                className="inline-flex items-center justify-center font-label-caps text-xs py-2.5 border-2 border-[#111111] bg-[#D9622B] text-[#111111] shadow-[3px_3px_0px_#111111] font-extrabold mt-2"
               >
                 GET IN TOUCH
               </a>
