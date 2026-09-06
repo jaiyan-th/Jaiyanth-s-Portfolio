@@ -25,15 +25,15 @@ export function Hero() {
               </span>
             </div>
 
-            {/* Headline with ONE accent word (software) in italic orange */}
+            {/* Headline with ONE accent word (matters) in italic orange */}
             <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.08] tracking-tight text-[#111111]">
-              I turn ambiguous problems into production-ready{" "}
-              <span className="italic text-[#D9622B]">software.</span>
+              Engineering that doesn&apos;t break when it{" "}
+              <span className="italic text-[#D9622B]">matters.</span>
             </h1>
 
             {/* Subhead (2 lines max) */}
             <p className="font-body text-lg sm:text-xl text-[#333333] leading-relaxed max-w-[620px] font-normal">
-              I build applied-AI workflows, full-stack products, and structured APIs that hold up in production — not just in a demo.
+              Applied AI, full-stack systems, and structured APIs — built to actually work when someone else has to rely on them.
             </p>
 
             {/* CTAs */}
