@@ -116,7 +116,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                 type="button"
                 onClick={onClose}
                 aria-label="Close dialog"
-                className="flex h-8 w-8 items-center justify-center border-2 border-[#111111] bg-white text-[#111111] shadow-[2px_2px_0px_#111111] hover:bg-[#B91C1C] hover:text-white transition-colors cursor-pointer font-bold"
+                className="flex h-8 w-8 items-center justify-center border-2 border-[#111111] bg-white text-[#111111] shadow-[2px_2px_0px_#111111] hover:bg-[#111111] hover:text-white transition-colors cursor-pointer font-bold"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -205,7 +205,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                     >
                       <span
                         aria-hidden
-                        className="mt-1.5 h-2 w-2 flex-shrink-0 bg-[#B91C1C]"
+                        className="mt-1.5 h-2 w-2 flex-shrink-0 bg-[#111111]"
                       />
                       <span>{f}</span>
                     </li>

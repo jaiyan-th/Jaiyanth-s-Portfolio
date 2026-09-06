@@ -18,7 +18,7 @@ export function Research() {
   return (
     <section id="achievements" className="relative bg-[#FAF3EE] text-[#111111] border-b-[3px] border-[#111111] py-16 md:py-24 scroll-mt-20">
       <div className="max-w-6xl mx-auto px-6 space-y-12">
-        {/* Section Header */}
+        {/* Section Header: Plain bold black headline, no italic, no color */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -28,12 +28,12 @@ export function Research() {
         >
           <div className="inline-block">
             <span className="sticker-badge bg-[#111111] text-white -rotate-1">
-              <BookOpen className="w-3.5 h-3.5 text-[#D9622B]" />
+              <BookOpen className="w-3.5 h-3.5 text-[#FFFFFF]" />
               RESEARCH &amp; PUBLICATIONS
             </span>
           </div>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
-            Co-authored IEEE paper, peer-reviewed and <span className="italic text-[#B91C1C]">accepted.</span>
+            Co-authored IEEE paper, peer-reviewed and accepted.
           </h2>
         </motion.div>
 
@@ -45,9 +45,9 @@ export function Research() {
           transition={{ duration: 0.45 }}
           className="neo-card p-6 sm:p-10 bg-white relative space-y-6"
         >
-          {/* Rotated sticker badge in corner: "PUBLISHED" */}
+          {/* Rotated sticker badge in corner: "PUBLISHED" in solid black */}
           <div className="absolute -top-3.5 right-6">
-            <span className="sticker-badge bg-[#B91C1C] text-white rotate-2 text-xs py-1 px-3">
+            <span className="sticker-badge bg-[#111111] text-white rotate-2 text-xs py-1 px-3">
               PUBLISHED
             </span>
           </div>
@@ -62,7 +62,7 @@ export function Research() {
                 href={RESEARCH.certificateUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-label-caps text-xs text-[#B91C1C] hover:underline inline-flex items-center gap-1 font-bold"
+                className="font-label-caps text-xs text-[#111111] hover:underline inline-flex items-center gap-1 font-bold"
               >
                 <span>VIEW CERTIFICATE</span>
                 <ArrowUpRight className="w-4 h-4" />

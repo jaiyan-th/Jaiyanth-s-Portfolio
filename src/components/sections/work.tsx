@@ -87,7 +87,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
               </span>
               <Link
                 href={`/projects/${project.slug}`}
-                className="font-label-caps text-xs text-[#B91C1C] hover:underline inline-flex items-center gap-0.5 font-bold"
+                className="font-label-caps text-xs text-[#111111] hover:underline inline-flex items-center gap-0.5 font-bold"
               >
                 CASE STUDY <ArrowUpRight className="w-4 h-4" />
               </Link>
@@ -132,8 +132,9 @@ export function Work() {
               FEATURED BUILDS
             </span>
           </div>
+          {/* Plain bold black headline, no italic, no color */}
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
-            Projects I built and <span className="italic text-[#B91C1C]">shipped.</span>
+            Projects I built and shipped.
           </h2>
         </motion.div>
 

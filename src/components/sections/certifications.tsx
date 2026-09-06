@@ -36,7 +36,7 @@ export function Certifications() {
   return (
     <section id="certifications" className="relative bg-[#FAF3EE] text-[#111111] border-b-[3px] border-[#111111] py-16 md:py-24 scroll-mt-20">
       <div className="max-w-6xl mx-auto px-6 space-y-12">
-        {/* Section Header */}
+        {/* Section Header: Plain bold black headline, no italic, no color */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -46,16 +46,16 @@ export function Certifications() {
         >
           <div className="inline-block">
             <span className="sticker-badge bg-[#111111] text-white -rotate-1">
-              <Award className="w-3.5 h-3.5 text-[#B91C1C]" />
+              <Award className="w-3.5 h-3.5 text-[#FFFFFF]" />
               CREDENTIALS
             </span>
           </div>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
-            Verified industry <span className="italic text-[#D9622B]">certifications.</span>
+            Verified industry certifications.
           </h2>
         </motion.div>
 
-        {/* Grid of Thick-Bordered Cards with Consistent Sizing */}
+        {/* Grid of Thick-Bordered Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {CERTIFICATIONS.map((cert, idx) => (
             <motion.div
@@ -64,13 +64,14 @@ export function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="neo-card p-6 sm:p-7 bg-white space-y-4 flex flex-col justify-between min-h-[150px]"
+              className="neo-card p-6 sm:p-7 bg-white space-y-4 flex flex-col justify-between min-h-[140px]"
             >
-              <div className="flex items-center justify-between border-b-2 border-[#111111] pb-3">
+              {/* Issuer Bold + Plain Small-Caps Muted Year Text (No border, no fill) */}
+              <div className="flex items-baseline justify-between border-b-2 border-[#111111] pb-3">
                 <span className="font-heading text-lg sm:text-xl font-extrabold text-[#111111]">
                   {cert.issuer}
                 </span>
-                <span className="sticker-badge bg-[#111111] text-white text-[10px] py-0.5 px-2.5 -rotate-1">
+                <span className="font-label-caps text-xs text-[#6B6B6B] tracking-wider">
                   {cert.year}
                 </span>
               </div>

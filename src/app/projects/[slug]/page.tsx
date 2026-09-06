@@ -43,7 +43,7 @@ export default async function ProjectPage({ params }: Params) {
         <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-4 font-label-caps text-xs">
           <Link
             href="/#work"
-            className="inline-flex items-center gap-2 text-[#111111] hover:text-[#B91C1C] transition-colors font-bold"
+            className="inline-flex items-center gap-2 text-[#111111] hover:opacity-75 transition-opacity font-bold"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>BACK TO WORK</span>
@@ -53,7 +53,7 @@ export default async function ProjectPage({ params }: Params) {
             <span className="sticker-badge bg-[#111111] text-white text-[10px] -rotate-1">
               {project.category}
             </span>
-            <span className="font-mono-code font-bold text-xs">
+            <span className="font-mono-code font-bold text-xs text-[#555555]">
               0{project.number} / 0{PROJECTS.length}
             </span>
           </div>
@@ -64,7 +64,7 @@ export default async function ProjectPage({ params }: Params) {
       <section className="px-6 py-12 md:py-20 border-b-[3px] border-[#111111]">
         <div className="max-w-5xl mx-auto space-y-8">
           <div className="space-y-3">
-            <span className="font-label-caps text-xs text-[#B91C1C] font-bold block">
+            <span className="font-label-caps text-xs text-[#6B6B6B] font-bold block">
               ENGINEERING CASE STUDY
             </span>
             <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl text-[#111111] font-black leading-tight tracking-tight">
@@ -88,8 +88,8 @@ export default async function ProjectPage({ params }: Params) {
             </div>
             <div className="border-[1.5px] border-[#111111] p-3.5 bg-white shadow-[2px_2px_0px_#111111]">
               <span className="font-label-caps text-[10px] text-[#777777] block mb-1">STATUS</span>
-              <span className="font-body text-xs sm:text-sm text-[#B91C1C] font-bold flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#B91C1C]" />
+              <span className="font-body text-xs sm:text-sm text-[#111111] font-bold flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#111111]" />
                 Production Live
               </span>
             </div>
@@ -158,7 +158,7 @@ export default async function ProjectPage({ params }: Params) {
             {project.caseStudy.overview}
           </p>
           <div className="border-[1.5px] border-[#111111] bg-[#FAF3EE] p-5 space-y-1.5">
-            <span className="font-label-caps text-xs text-[#B91C1C] font-bold block">
+            <span className="font-label-caps text-xs text-[#111111] font-bold block">
               CORE CHALLENGE
             </span>
             <p className="font-body text-sm sm:text-base text-[#111111] leading-relaxed font-semibold">
@@ -179,7 +179,7 @@ export default async function ProjectPage({ params }: Params) {
             {project.caseStudy.approach}
           </p>
           <div className="border-[1.5px] border-[#111111] bg-[#FAF3EE] p-5 space-y-1.5">
-            <span className="font-label-caps text-xs text-[#D9622B] font-bold block">
+            <span className="font-label-caps text-xs text-[#111111] font-bold block">
               EXECUTION MODEL
             </span>
             <p className="font-body text-sm sm:text-base text-[#111111] leading-relaxed font-semibold">
@@ -202,7 +202,7 @@ export default async function ProjectPage({ params }: Params) {
                 key={feature}
                 className="border-[1.5px] border-[#111111] bg-[#FAF3EE] p-4 flex items-start gap-3"
               >
-                <CheckCircle2 className="w-4 h-4 text-[#B91C1C] mt-0.5 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#111111] mt-0.5 shrink-0" />
                 <span className="font-body text-xs sm:text-sm text-[#111111] font-semibold">
                   {feature}
                 </span>
@@ -229,7 +229,7 @@ export default async function ProjectPage({ params }: Params) {
 
           <div className="neo-card p-6 sm:p-8 bg-white space-y-3">
             <div className="border-b-2 border-[#111111] pb-2">
-              <span className="font-label-caps text-xs text-[#B91C1C] font-bold">
+              <span className="font-label-caps text-xs text-[#111111] font-bold">
                 05 · TAKEAWAYS
               </span>
             </div>
@@ -246,7 +246,7 @@ export default async function ProjectPage({ params }: Params) {
         <div className="neo-card p-6 sm:p-8 bg-white flex flex-col sm:flex-row items-center justify-between gap-6">
           <Link
             href="/#work"
-            className="font-label-caps text-xs text-[#111111] hover:text-[#B91C1C] transition-colors inline-flex items-center gap-2 font-bold"
+            className="font-label-caps text-xs text-[#111111] hover:underline transition-all inline-flex items-center gap-2 font-bold"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>ALL PROJECTS</span>
@@ -260,7 +260,7 @@ export default async function ProjectPage({ params }: Params) {
               <span className="text-[9px] text-[#777777] block">NEXT CASE STUDY</span>
               <span className="text-sm font-extrabold text-[#111111]">{nextProject.title}</span>
             </div>
-            <ArrowRight className="w-4 h-4 text-[#B91C1C]" />
+            <ArrowRight className="w-4 h-4 text-[#111111]" />
           </Link>
         </div>
       </section>

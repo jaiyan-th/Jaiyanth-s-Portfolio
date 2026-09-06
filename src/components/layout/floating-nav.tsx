@@ -54,21 +54,18 @@ export function FloatingNav() {
   return (
     <header className="sticky top-0 z-50 bg-[#FAF3EE]/95 backdrop-blur-md border-b-[3px] border-[#111111] px-6 py-3.5 transition-colors">
       <nav aria-label="Main Navigation" className="max-w-6xl mx-auto flex items-center justify-between">
-        {/* Left: Brand */}
+        {/* Left: Brand (Clean logo + wordmark only, no stray badge) */}
         <a
           href="#hero"
           onClick={(e) => handleNavClick(e, "#hero")}
-          className="group cursor-pointer flex items-center gap-2.5"
+          className="group cursor-pointer flex items-center"
         >
-          <span className="font-heading text-xl font-extrabold tracking-tight text-[#111111] group-hover:text-[#B91C1C] transition-colors">
+          <span className="font-heading text-xl font-extrabold tracking-tight text-[#111111] group-hover:opacity-75 transition-opacity">
             JAIYANTH B
-          </span>
-          <span className="hidden sm:inline border-[1.5px] border-[#111111] px-2 py-0.5 font-mono-code text-[10px] font-bold uppercase tracking-wider bg-white text-[#111111]">
-            AI &amp; FULL-STACK
           </span>
         </a>
 
-        {/* Center Nav Links */}
+        {/* Center Nav Links (Black underline for active, no red) */}
         <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) => {
             const isActive = active === item.href;
@@ -79,8 +76,8 @@ export function FloatingNav() {
                 onClick={(e) => handleNavClick(e, item.href)}
                 className={`font-label-caps text-xs tracking-wider transition-colors relative py-1 cursor-pointer ${
                   isActive
-                    ? "text-[#B91C1C] font-extrabold border-b-2 border-[#B91C1C]"
-                    : "text-[#111111] hover:text-[#B91C1C]"
+                    ? "text-[#111111] font-extrabold border-b-2 border-[#111111]"
+                    : "text-[#6B6B6B] hover:text-[#111111]"
                 }`}
               >
                 {item.label}
@@ -89,7 +86,7 @@ export function FloatingNav() {
           })}
         </div>
 
-        {/* Right CTA */}
+        {/* Right CTA (Primary button allowed red) */}
         <div className="flex items-center gap-3">
           <a
             href="#contact"
@@ -132,7 +129,7 @@ export function FloatingNav() {
                       handleNavClick(e, item.href);
                     }}
                     className={`font-label-caps text-sm tracking-wider py-2 transition-colors ${
-                      isActive ? "text-[#B91C1C] font-extrabold" : "text-[#111111]"
+                      isActive ? "text-[#111111] font-extrabold" : "text-[#6B6B6B]"
                     }`}
                   >
                     {item.label}

@@ -112,7 +112,7 @@ export function Contact() {
     <div className="relative bg-[#FAF3EE]">
       <section id="contact" className="relative px-6 py-16 md:py-24 text-[#111111] scroll-mt-20">
         <div className="max-w-6xl mx-auto space-y-12">
-          {/* Section Header */}
+          {/* Section Header: Plain bold black headline, no italic, no color */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -122,12 +122,12 @@ export function Contact() {
           >
             <div className="inline-block">
               <span className="sticker-badge bg-[#111111] text-white -rotate-1">
-                <Send className="w-3.5 h-3.5 text-[#B91C1C]" />
+                <Send className="w-3.5 h-3.5 text-[#FFFFFF]" />
                 CONTACT
               </span>
             </div>
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
-              Let&apos;s <span className="italic text-[#B91C1C]">talk.</span>
+              Let&apos;s talk.
             </h2>
             <p className="font-body text-base sm:text-lg text-[#444444] max-w-[620px]">
               Open for full-time engineering roles, internship opportunities, and technical collaboration.
@@ -148,7 +148,7 @@ export function Contact() {
                   <span className="font-label-caps text-xs text-[#555555]">
                     DIRECT CONTACT
                   </span>
-                  <span className="sticker-badge bg-[#D9622B] text-white text-[10px] rotate-1">
+                  <span className="sticker-badge bg-[#111111] text-white text-[10px] rotate-1">
                     AVAILABLE 2026
                   </span>
                 </div>
@@ -160,9 +160,9 @@ export function Contact() {
                     </span>
                     <a
                       href="mailto:jaiyanthofficial@gmail.com"
-                      className="font-mono-code text-sm sm:text-base font-bold text-[#111111] hover:text-[#B91C1C] transition-colors break-all inline-flex items-center gap-1.5"
+                      className="font-mono-code text-sm sm:text-base font-bold text-[#111111] hover:opacity-75 transition-opacity break-all inline-flex items-center gap-1.5"
                     >
-                      <Mail className="w-4 h-4 text-[#B91C1C]" />
+                      <Mail className="w-4 h-4 text-[#111111]" />
                       jaiyanthofficial@gmail.com
                     </a>
                   </div>
@@ -172,7 +172,7 @@ export function Contact() {
                       LOCATION
                     </span>
                     <p className="font-body text-sm font-semibold text-[#111111] flex items-center gap-1.5">
-                      <MapPin className="w-4 h-4 text-[#D9622B]" />
+                      <MapPin className="w-4 h-4 text-[#111111]" />
                       Karur, Tamil Nadu, India
                     </p>
                   </div>
@@ -229,7 +229,7 @@ export function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Jane Doe"
-                        className="w-full bg-transparent border-0 border-b-[3px] border-[#111111] pb-2 font-body text-sm sm:text-base text-[#111111] placeholder:text-[#888888] focus:outline-none focus:border-[#B91C1C] transition-colors rounded-none"
+                        className="w-full bg-transparent border-0 border-b-[3px] border-[#111111] pb-2 font-body text-sm sm:text-base text-[#111111] placeholder:text-[#888888] focus:outline-none focus:border-[#111111] transition-colors rounded-none"
                       />
                     </div>
 
@@ -244,7 +244,7 @@ export function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="jane@example.com"
-                        className="w-full bg-transparent border-0 border-b-[3px] border-[#111111] pb-2 font-body text-sm sm:text-base text-[#111111] placeholder:text-[#888888] focus:outline-none focus:border-[#B91C1C] transition-colors rounded-none"
+                        className="w-full bg-transparent border-0 border-b-[3px] border-[#111111] pb-2 font-body text-sm sm:text-base text-[#111111] placeholder:text-[#888888] focus:outline-none focus:border-[#111111] transition-colors rounded-none"
                       />
                     </div>
                   </div>
@@ -260,7 +260,7 @@ export function Contact() {
                       value={formData.subject}
                       onChange={handleChange}
                       placeholder="Project inquiry / Full-time role"
-                      className="w-full bg-transparent border-0 border-b-[3px] border-[#111111] pb-2 font-body text-sm sm:text-base text-[#111111] placeholder:text-[#888888] focus:outline-none focus:border-[#B91C1C] transition-colors rounded-none"
+                      className="w-full bg-transparent border-0 border-b-[3px] border-[#111111] pb-2 font-body text-sm sm:text-base text-[#111111] placeholder:text-[#888888] focus:outline-none focus:border-[#111111] transition-colors rounded-none"
                     />
                   </div>
 
@@ -275,7 +275,7 @@ export function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Tell me about your team, system goals, or timeline..."
-                      className="w-full bg-transparent border-0 border-b-[3px] border-[#111111] pb-2 font-body text-sm sm:text-base text-[#111111] placeholder:text-[#888888] focus:outline-none focus:border-[#B91C1C] resize-none transition-colors rounded-none"
+                      className="w-full bg-transparent border-0 border-b-[3px] border-[#111111] pb-2 font-body text-sm sm:text-base text-[#111111] placeholder:text-[#888888] focus:outline-none focus:border-[#111111] resize-none transition-colors rounded-none"
                     />
                   </div>
 
@@ -284,6 +284,7 @@ export function Contact() {
                       {statusMessage || "Response time under 48h"}
                     </span>
 
+                    {/* Primary CTA button: allowed solid red */}
                     <button
                       type="submit"
                       disabled={status === "submitting"}
@@ -309,13 +310,13 @@ export function Contact() {
           </div>
 
           <div className="flex items-center gap-6 font-bold">
-            <a href="#about" className="hover:text-[#B91C1C] transition-colors">
+            <a href="#about" className="hover:text-[#111111] hover:underline transition-colors">
               About
             </a>
-            <a href="#work" className="hover:text-[#B91C1C] transition-colors">
+            <a href="#work" className="hover:text-[#111111] hover:underline transition-colors">
               Work
             </a>
-            <a href="#contact" className="hover:text-[#B91C1C] transition-colors">
+            <a href="#contact" className="hover:text-[#111111] hover:underline transition-colors">
               Contact
             </a>
           </div>
@@ -329,7 +330,7 @@ export function Contact() {
               href="https://github.com/jaiyan-th/Jaiyanth-s-Portfolio"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#B91C1C] font-bold transition-colors inline-flex items-center gap-0.5"
+              className="hover:text-[#111111] font-bold transition-colors inline-flex items-center gap-0.5"
             >
               <span>GitHub repo</span>
               <ArrowUpRight className="w-3 h-3" />
