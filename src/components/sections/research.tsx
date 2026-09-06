@@ -38,7 +38,7 @@ export function Research() {
           </div>
 
           {/* Section Headline with ONE italic accent word (print) */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] leading-[1.12] tracking-tight">
             Research that made it to{" "}
             <span className="italic text-[#D9622B]">print.</span>
           </h2>

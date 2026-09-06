@@ -56,8 +56,8 @@ export function Skills() {
           </div>
 
           {/* Section Headline with ONE italic accent word (build) */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
-            THE STACK I <span className="italic text-[#D9622B]">build</span> WITH.
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] leading-[1.12] tracking-tight">
+            The stack I <span className="italic text-[#D9622B]">build</span> with.
           </h2>
         </motion.div>
 

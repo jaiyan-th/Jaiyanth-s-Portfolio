@@ -56,7 +56,7 @@ export function Certifications() {
           </div>
 
           {/* Section Headline with ONE italic accent word (verified) */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] leading-[1.12] tracking-tight">
             Certifications,{" "}
             <span className="italic text-[#D9622B]">verified.</span>
           </h2>

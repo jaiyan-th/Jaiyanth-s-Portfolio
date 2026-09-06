@@ -132,7 +132,7 @@ export function Contact() {
             </div>
 
             {/* Section Headline with ONE italic accent word (talk) */}
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] leading-[1.12] tracking-tight">
               Let&apos;s{" "}
               <span className="italic text-[#D9622B]">talk.</span>
             </h2>

@@ -40,7 +40,7 @@ export function Experience() {
           </div>
 
           {/* Section Headline with ONE italic accent word (worked) */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] leading-[1.12] tracking-tight">
             Where I&apos;ve{" "}
             <span className="italic text-[#D9622B]">worked.</span>
           </h2>

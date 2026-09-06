@@ -139,7 +139,7 @@ export function Work() {
           </div>
 
           {/* Section Headline with ONE italic accent word (shipped) */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] leading-[1.12] tracking-tight">
             Things I&apos;ve built and{" "}
             <span className="italic text-[#D9622B]">shipped.</span>
           </h2>
