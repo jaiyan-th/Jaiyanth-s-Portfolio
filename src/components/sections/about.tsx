@@ -26,7 +26,7 @@ export function About() {
                 ABOUT
               </span>
               <span className="font-body italic text-[#D9622B] text-sm font-semibold">
-                / the background
+                / the story so far
               </span>
             </div>
 

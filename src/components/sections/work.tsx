@@ -134,13 +134,13 @@ export function Work() {
               WORK
             </span>
             <span className="font-body italic text-[#D9622B] text-sm font-semibold">
-              / selected builds
+              / proof of work
             </span>
           </div>
 
           {/* Section Headline with ONE italic accent word (shipped) */}
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
-            Projects I built and{" "}
+            Things I&apos;ve built and{" "}
             <span className="italic text-[#D9622B]">shipped.</span>
           </h2>
         </motion.div>

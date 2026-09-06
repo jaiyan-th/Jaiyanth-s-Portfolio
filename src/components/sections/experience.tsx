@@ -35,7 +35,7 @@ export function Experience() {
               EXPERIENCE
             </span>
             <span className="font-body italic text-[#D9622B] text-sm font-semibold">
-              / where I&apos;ve worked
+              / on the job
             </span>
           </div>
 

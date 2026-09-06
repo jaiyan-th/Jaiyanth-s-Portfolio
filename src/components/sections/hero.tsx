@@ -21,7 +21,7 @@ export function Hero() {
             <div className="inline-block">
               <span className="sticker-badge bg-[#111111] text-white -rotate-2">
                 <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                AVAILABLE FOR ROLES
+                AVAILABLE FOR NEW ROLES
               </span>
             </div>
 

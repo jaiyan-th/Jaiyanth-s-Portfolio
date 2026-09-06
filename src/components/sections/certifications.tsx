@@ -51,14 +51,14 @@ export function Certifications() {
               CREDENTIALS
             </span>
             <span className="font-body italic text-[#D9622B] text-sm font-semibold">
-              / verified credentials
+              / on record
             </span>
           </div>
 
-          {/* Section Headline with ONE italic accent word (certifications) */}
+          {/* Section Headline with ONE italic accent word (verified) */}
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
-            Verified industry{" "}
-            <span className="italic text-[#D9622B]">certifications.</span>
+            Certifications,{" "}
+            <span className="italic text-[#D9622B]">verified.</span>
           </h2>
         </motion.div>
 

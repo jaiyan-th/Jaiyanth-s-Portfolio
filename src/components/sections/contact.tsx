@@ -127,7 +127,7 @@ export function Contact() {
                 CONTACT
               </span>
               <span className="font-body italic text-[#D9622B] text-sm font-semibold">
-                / let&apos;s connect
+                / start here
               </span>
             </div>
 
@@ -312,7 +312,7 @@ export function Contact() {
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 font-label-caps text-xs">
           <div>
             <span className="font-heading font-extrabold text-sm text-[#111111]">
-              Jaiyanth B — Software Engineer
+              Jaiyanth B — AI &amp; Full-Stack Engineer
             </span>
           </div>
 

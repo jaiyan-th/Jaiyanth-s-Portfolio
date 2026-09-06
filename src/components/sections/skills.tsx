@@ -51,13 +51,13 @@ export function Skills() {
               STACK
             </span>
             <span className="font-body italic text-[#D9622B] text-sm font-semibold">
-              / tools of the trade
+              / what I reach for
             </span>
           </div>
 
           {/* Section Headline with ONE italic accent word (build) */}
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
-            TOOLS I <span className="italic text-[#D9622B]">build</span> WITH.
+            THE STACK I <span className="italic text-[#D9622B]">build</span> WITH.
           </h2>
         </motion.div>
 

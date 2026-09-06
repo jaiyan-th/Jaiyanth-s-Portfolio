@@ -33,14 +33,14 @@ export function Research() {
               RESEARCH
             </span>
             <span className="font-body italic text-[#D9622B] text-sm font-semibold">
-              / published research
+              / peer-reviewed
             </span>
           </div>
 
-          {/* Section Headline with ONE italic accent word (accepted) */}
+          {/* Section Headline with ONE italic accent word (print) */}
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
-            Co-authored IEEE paper, peer-reviewed and{" "}
-            <span className="italic text-[#D9622B]">accepted.</span>
+            Research that made it to{" "}
+            <span className="italic text-[#D9622B]">print.</span>
           </h2>
         </motion.div>
 
@@ -77,10 +77,16 @@ export function Research() {
             )}
           </div>
 
-          {/* Paper Title (bold headline) */}
-          <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#111111] leading-tight">
-            An AI Intelligence Wellness Framework Integrating Image Recognition and Conversational AI for Preventive Healthcare
-          </h3>
+          {/* Relocated original detail: small caps line above paper title */}
+          <div>
+            <span className="font-label-caps text-xs text-[#555555] block mb-2">
+              CO-AUTHORED IEEE PAPER · PEER-REVIEWED AND ACCEPTED
+            </span>
+            {/* Paper Title (bold headline) */}
+            <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#111111] leading-tight">
+              An AI Intelligence Wellness Framework Integrating Image Recognition and Conversational AI for Preventive Healthcare
+            </h3>
+          </div>
 
           {/* Abstract (body text) */}
           <p className="font-body text-base sm:text-lg text-[#333333] leading-relaxed max-w-[760px]">
