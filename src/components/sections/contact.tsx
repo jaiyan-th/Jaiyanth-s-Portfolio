@@ -118,14 +118,19 @@ export function Contact() {
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
             variants={fadeUpVariants}
-            className="space-y-3"
+            className="space-y-4"
           >
-            <div className="inline-block">
+            {/* Sticker Badge + Beside Subtitle */}
+            <div className="flex items-center gap-2.5">
               <span className="sticker-badge bg-[#111111] text-white -rotate-1">
                 <Send className="w-3.5 h-3.5 text-[#FFFFFF]" />
                 CONTACT
               </span>
+              <span className="font-body italic text-[#D9622B] text-sm font-semibold">
+                / let&apos;s connect
+              </span>
             </div>
+
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
               Let&apos;s talk.
             </h2>

@@ -47,7 +47,7 @@ export function Skills() {
           {/* Sticker Label with Square Icon and Italic Muted Orange Text */}
           <div className="flex items-center gap-2.5">
             <span className="sticker-badge bg-[#111111] text-white -rotate-1">
-              <SquareCode className="w-3.5 h-3.5 text-[#D9622B]" />
+              <SquareCode className="w-3.5 h-3.5 text-[#FFFFFF]" />
               STACK
             </span>
             <span className="font-body italic text-[#D9622B] text-sm font-semibold">

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, FolderGit2 } from "lucide-react";
 import { PROJECTS } from "@/data/portfolio";
 import { motion } from "motion/react";
 import { fadeUpVariants } from "@/lib/motion";
@@ -125,13 +125,19 @@ export function Work() {
           whileInView="visible"
           viewport={{ once: true, margin: "-40px" }}
           variants={fadeUpVariants}
-          className="space-y-3"
+          className="space-y-4"
         >
-          <div className="inline-block">
+          {/* Sticker Badge + Beside Subtitle */}
+          <div className="flex items-center gap-2.5">
             <span className="sticker-badge bg-[#111111] text-white -rotate-1">
-              FEATURED BUILDS
+              <FolderGit2 className="w-3.5 h-3.5 text-[#FFFFFF]" />
+              WORK
+            </span>
+            <span className="font-body italic text-[#D9622B] text-sm font-semibold">
+              / selected builds
             </span>
           </div>
+
           {/* Plain bold black headline, no italic, no color */}
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
             Projects I built and shipped.

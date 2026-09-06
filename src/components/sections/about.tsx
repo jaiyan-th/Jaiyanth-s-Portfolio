@@ -3,6 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
+import { User } from "lucide-react";
 import { fadeUpVariants } from "@/lib/motion";
 
 export function About() {
@@ -10,7 +11,7 @@ export function About() {
     <section id="about" className="relative bg-[#FAF3EE] text-[#111111] border-b-[3px] border-[#111111] py-16 md:py-24 scroll-mt-20">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-          {/* Left Column: Eyebrow, Plain Black Headline, Bio (no metrics card) */}
+          {/* Left Column: Eyebrow, Plain Black Headline, Bio */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -18,10 +19,14 @@ export function About() {
             variants={fadeUpVariants}
             className="lg:col-span-7 space-y-6"
           >
-            {/* Rotated sticker label above headline */}
-            <div className="inline-block">
-              <span className="sticker-badge bg-[#111111] text-white -rotate-2">
-                THE BACKGROUND
+            {/* Sticker Badge + Beside Subtitle */}
+            <div className="flex items-center gap-2.5">
+              <span className="sticker-badge bg-[#111111] text-white -rotate-1">
+                <User className="w-3.5 h-3.5 text-[#FFFFFF]" />
+                ABOUT
+              </span>
+              <span className="font-body italic text-[#D9622B] text-sm font-semibold">
+                / the background
               </span>
             </div>
 

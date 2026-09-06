@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ArrowUpRight, BookOpen } from "lucide-react";
+import { ArrowUpRight, FileText } from "lucide-react";
 import { RESEARCH } from "@/data/portfolio";
 import { motion } from "motion/react";
 import { fadeUpVariants } from "@/lib/motion";
@@ -24,14 +24,19 @@ export function Research() {
           whileInView="visible"
           viewport={{ once: true, margin: "-40px" }}
           variants={fadeUpVariants}
-          className="space-y-3"
+          className="space-y-4"
         >
-          <div className="inline-block">
+          {/* Sticker Badge + Beside Subtitle */}
+          <div className="flex items-center gap-2.5">
             <span className="sticker-badge bg-[#111111] text-white -rotate-1">
-              <BookOpen className="w-3.5 h-3.5 text-[#FFFFFF]" />
-              RESEARCH &amp; PUBLICATIONS
+              <FileText className="w-3.5 h-3.5 text-[#FFFFFF]" />
+              RESEARCH
+            </span>
+            <span className="font-body italic text-[#D9622B] text-sm font-semibold">
+              / published research
             </span>
           </div>
+
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
             Co-authored IEEE paper, peer-reviewed and accepted.
           </h2>
