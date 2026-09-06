@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion } from "motion/react";
-import { MapPin, Layers, Sparkles } from "lucide-react";
+import { MapPin, Target, Layers, Sparkles } from "lucide-react";
 import { fadeUpVariants } from "@/lib/motion";
 
 export function Hero() {
@@ -60,7 +60,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="lg:col-span-4 lg:mt-4"
           >
-            <div className="neo-card p-6 space-y-5 relative bg-white">
+            <div className="neo-card p-5 sm:p-6 space-y-4 sm:space-y-4.5 relative bg-white">
               {/* Card top tape / tag */}
               <div className="flex items-center justify-between border-b-2 border-[#111111] pb-3">
                 <span className="font-label-caps text-[10px] text-[#555555]">
@@ -82,14 +82,25 @@ export function Hero() {
                 </p>
               </div>
 
+              {/* Focus */}
+              <div className="space-y-1 border-t-[1.5px] border-[#111111]/20 pt-3">
+                <div className="flex items-center gap-1.5 font-label-caps text-[10px] text-[#777777]">
+                  <Target className="w-3.5 h-3.5 text-[#111111]" />
+                  <span>FOCUS</span>
+                </div>
+                <p className="font-body text-sm font-semibold text-[#111111]">
+                  Applied AI · Full-Stack Engineering
+                </p>
+              </div>
+
               {/* Stack */}
               <div className="space-y-1 border-t-[1.5px] border-[#111111]/20 pt-3">
                 <div className="flex items-center gap-1.5 font-label-caps text-[10px] text-[#777777]">
                   <Layers className="w-3.5 h-3.5 text-[#111111]" />
                   <span>STACK</span>
                 </div>
-                <p className="font-mono-code text-xs font-bold text-[#111111]">
-                  Python · Next.js · Supabase
+                <p className="font-mono-code text-xs font-bold text-[#111111] leading-relaxed">
+                  Python · SQL · LangChain · LLM Integration
                 </p>
               </div>
 
