@@ -7,7 +7,7 @@ import { fadeUpVariants } from "@/lib/motion";
 
 export function Hero() {
   return (
-    <section id="hero" className="relative bg-[#FAF3EE] text-[#111111] py-16 md:py-24 border-b-[3px] border-[#111111] scroll-mt-20">
+    <section id="hero" className="relative bg-[#FAF3EE] text-[#111111] min-h-[100dvh] flex flex-col justify-center pt-24 pb-16 md:pt-28 md:pb-20 border-b-[3px] border-[#111111] scroll-mt-20">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
           {/* Main Hero Copy (Left 8 cols) */}
