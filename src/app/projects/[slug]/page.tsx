@@ -37,76 +37,79 @@ export default async function ProjectPage({ params }: Params) {
   const nextProject = PROJECTS[(projectIndex + 1) % PROJECTS.length];
 
   return (
-    <main className="min-h-screen bg-[#FCFBF9] text-[#1A1A1A]">
+    <main className="min-h-screen bg-[#FAF3EE] text-[#111111]">
       {/* 1. Header & Navigation */}
-      <header className="border-b border-[#E5E2DC] px-6 py-8">
-        <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-4 text-xs font-label uppercase tracking-wider text-[#6B6B6B]">
+      <header className="border-b-[3px] border-[#111111] px-6 py-6 bg-white">
+        <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-4 font-label-caps text-xs">
           <Link
             href="/#work"
-            className="inline-flex items-center gap-2 text-[#1A1A1A] hover:text-[#2D5F4E] transition-colors font-medium"
+            className="inline-flex items-center gap-2 text-[#111111] hover:text-[#B91C1C] transition-colors font-bold"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Back to selected work</span>
+            <span>BACK TO WORK</span>
           </Link>
 
-          <div className="flex items-center gap-4">
-            <span>{project.number} / {String(PROJECTS.length).padStart(2, "0")}</span>
-            <span>·</span>
-            <span className="text-[#2D5F4E] font-semibold">{project.category}</span>
+          <div className="flex items-center gap-3">
+            <span className="sticker-badge bg-[#111111] text-white text-[10px] -rotate-1">
+              {project.category}
+            </span>
+            <span className="font-mono-code font-bold text-xs">
+              0{project.number} / 0{PROJECTS.length}
+            </span>
           </div>
         </div>
       </header>
 
       {/* 2. Hero Section */}
-      <section className="px-6 py-16 md:py-24 border-b border-[#E5E2DC]">
+      <section className="px-6 py-12 md:py-20 border-b-[3px] border-[#111111]">
         <div className="max-w-5xl mx-auto space-y-8">
-          <div className="space-y-4">
-            <span className="font-label text-xs uppercase tracking-[0.14em] text-[#6B6B6B] block">
-              Case Study
+          <div className="space-y-3">
+            <span className="font-label-caps text-xs text-[#B91C1C] font-bold block">
+              ENGINEERING CASE STUDY
             </span>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#1A1A1A] font-normal leading-[1.1] tracking-tight">
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl text-[#111111] font-black leading-tight tracking-tight">
               {project.title}
             </h1>
           </div>
 
-          <p className="font-sans text-lg sm:text-xl text-[#6B6B6B] leading-relaxed max-w-[760px]">
+          <p className="font-body text-lg sm:text-xl text-[#333333] leading-relaxed max-w-[760px]">
             {project.summary}
           </p>
 
           {/* Metadata Specs */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-[#E5E2DC] text-xs">
-            <div>
-              <span className="font-label uppercase tracking-wider text-[#6B6B6B] block mb-1">Focus</span>
-              <span className="text-[#1A1A1A] font-medium">{project.engineeringFocus}</span>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t-2 border-[#111111]">
+            <div className="border-[1.5px] border-[#111111] p-3.5 bg-white shadow-[2px_2px_0px_#111111]">
+              <span className="font-label-caps text-[10px] text-[#777777] block mb-1">FOCUS</span>
+              <span className="font-body text-xs sm:text-sm text-[#111111] font-bold">{project.engineeringFocus}</span>
             </div>
-            <div>
-              <span className="font-label uppercase tracking-wider text-[#6B6B6B] block mb-1">Category</span>
-              <span className="text-[#1A1A1A] font-medium">{project.category}</span>
+            <div className="border-[1.5px] border-[#111111] p-3.5 bg-white shadow-[2px_2px_0px_#111111]">
+              <span className="font-label-caps text-[10px] text-[#777777] block mb-1">CATEGORY</span>
+              <span className="font-body text-xs sm:text-sm text-[#111111] font-bold">{project.category}</span>
             </div>
-            <div>
-              <span className="font-label uppercase tracking-wider text-[#6B6B6B] block mb-1">Status</span>
-              <span className="text-[#2D5F4E] font-medium flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#2D5F4E]" />
-                Live in Production
+            <div className="border-[1.5px] border-[#111111] p-3.5 bg-white shadow-[2px_2px_0px_#111111]">
+              <span className="font-label-caps text-[10px] text-[#777777] block mb-1">STATUS</span>
+              <span className="font-body text-xs sm:text-sm text-[#B91C1C] font-bold flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#B91C1C]" />
+                Production Live
               </span>
             </div>
-            <div>
-              <span className="font-label uppercase tracking-wider text-[#6B6B6B] block mb-1">Year</span>
-              <span className="text-[#1A1A1A] font-medium">2025 – 2026</span>
+            <div className="border-[1.5px] border-[#111111] p-3.5 bg-white shadow-[2px_2px_0px_#111111]">
+              <span className="font-label-caps text-[10px] text-[#777777] block mb-1">YEAR</span>
+              <span className="font-mono-code text-xs sm:text-sm text-[#111111] font-bold">2025–2026</span>
             </div>
           </div>
 
           {/* Action CTAs */}
-          <div className="flex flex-wrap items-center gap-4 pt-4">
+          <div className="flex flex-wrap items-center gap-4 pt-2">
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-label text-xs tracking-[0.14em] uppercase px-6 py-3 bg-[#2D5F4E] text-white hover:bg-[#234b3d] transition-colors inline-flex items-center gap-2"
+                className="neo-btn-primary px-6 py-3 text-xs inline-flex items-center gap-2 cursor-pointer font-bold"
               >
-                <span>View Live Application</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <span>VIEW LIVE SITE</span>
+                <ArrowUpRight className="w-4 h-4" />
               </a>
             )}
 
@@ -115,10 +118,10 @@ export default async function ProjectPage({ params }: Params) {
                 href={project.repository}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-label text-xs tracking-[0.14em] uppercase px-6 py-3 border border-[#E5E2DC] text-[#1A1A1A] hover:border-[#2D5F4E] hover:text-[#2D5F4E] transition-colors inline-flex items-center gap-2 bg-white"
+                className="neo-btn-secondary px-6 py-3 text-xs inline-flex items-center gap-2 cursor-pointer font-bold bg-white text-[#111111]"
               >
-                <span>Source Repository</span>
-                <Github className="w-3.5 h-3.5" />
+                <span>SOURCE REPO</span>
+                <Github className="w-4 h-4" />
               </a>
             )}
           </div>
@@ -126,158 +129,138 @@ export default async function ProjectPage({ params }: Params) {
       </section>
 
       {/* 3. Main Showcase Image */}
-      <section className="px-6 py-16 max-w-5xl mx-auto">
-        <div className="relative aspect-[16/9] w-full overflow-hidden bg-white border border-[#E5E2DC]">
-          <Image
-            src={project.image || "/images/projects/fake-news-detector.jpg"}
-            alt={`${project.title} Interface Preview`}
-            fill
-            className="object-cover"
-            priority
-            unoptimized
-          />
+      <section className="px-6 py-12 max-w-5xl mx-auto">
+        <div className="relative aspect-[16/9] w-full overflow-hidden neo-card bg-white p-2">
+          <div className="relative w-full h-full border-2 border-[#111111]">
+            <Image
+              src={project.image || "/images/projects/fake-news-detector.jpg"}
+              alt={`${project.title} Interface Preview`}
+              fill
+              className="object-cover"
+              priority
+              unoptimized
+            />
+          </div>
         </div>
       </section>
 
       {/* 4. Case Study Body */}
-      <section className="px-6 pb-24 max-w-5xl mx-auto space-y-16">
+      <section className="px-6 pb-24 max-w-5xl mx-auto space-y-12">
         {/* Context & Problem */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 border-t border-[#E5E2DC] pt-12">
-          <div className="md:col-span-4">
-            <span className="font-label text-xs uppercase tracking-wider text-[#6B6B6B] block mb-2">
-              01 / Context
+        <div className="neo-card p-6 sm:p-8 bg-white space-y-5">
+          <div className="flex items-center justify-between border-b-2 border-[#111111] pb-3">
+            <span className="font-label-caps text-xs text-[#111111] font-bold">
+              01 · OVERVIEW &amp; PROBLEM
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl text-[#1A1A1A] font-normal">
-              Overview &amp; Problem
-            </h2>
+            <span className="font-mono-code text-xs text-[#777777] font-bold">CONTEXT</span>
           </div>
-          <div className="md:col-span-8 space-y-6">
-            <p className="font-sans text-base text-[#6B6B6B] leading-relaxed">
-              {project.caseStudy.overview}
+          <p className="font-body text-base sm:text-lg text-[#333333] leading-relaxed">
+            {project.caseStudy.overview}
+          </p>
+          <div className="border-[1.5px] border-[#111111] bg-[#FAF3EE] p-5 space-y-1.5">
+            <span className="font-label-caps text-xs text-[#B91C1C] font-bold block">
+              CORE CHALLENGE
+            </span>
+            <p className="font-body text-sm sm:text-base text-[#111111] leading-relaxed font-semibold">
+              {project.caseStudy.problem}
             </p>
-            <div className="bg-white border border-[#E5E2DC] p-6 space-y-2">
-              <span className="font-label text-[10px] tracking-wider uppercase text-[#2D5F4E] font-semibold block">
-                Core Challenge
-              </span>
-              <p className="font-sans text-sm text-[#1A1A1A] leading-relaxed font-medium">
-                {project.caseStudy.problem}
-              </p>
-            </div>
           </div>
         </div>
 
         {/* Architecture & Engineering */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 border-t border-[#E5E2DC] pt-12">
-          <div className="md:col-span-4">
-            <span className="font-label text-xs uppercase tracking-wider text-[#6B6B6B] block mb-2">
-              02 / Engineering
+        <div className="neo-card p-6 sm:p-8 bg-white space-y-5">
+          <div className="flex items-center justify-between border-b-2 border-[#111111] pb-3">
+            <span className="font-label-caps text-xs text-[#111111] font-bold">
+              02 · ARCHITECTURE &amp; PIPELINE
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl text-[#1A1A1A] font-normal">
-              Architecture &amp; Pipeline
-            </h2>
+            <span className="font-mono-code text-xs text-[#777777] font-bold">ENGINEERING</span>
           </div>
-          <div className="md:col-span-8 space-y-6">
-            <p className="font-sans text-base text-[#6B6B6B] leading-relaxed">
-              {project.caseStudy.approach}
+          <p className="font-body text-base sm:text-lg text-[#333333] leading-relaxed">
+            {project.caseStudy.approach}
+          </p>
+          <div className="border-[1.5px] border-[#111111] bg-[#FAF3EE] p-5 space-y-1.5">
+            <span className="font-label-caps text-xs text-[#D9622B] font-bold block">
+              EXECUTION MODEL
+            </span>
+            <p className="font-body text-sm sm:text-base text-[#111111] leading-relaxed font-semibold">
+              {project.caseStudy.architecture}
             </p>
-            <div className="bg-white border border-[#E5E2DC] p-6 space-y-2">
-              <span className="font-label text-[10px] tracking-wider uppercase text-[#2D5F4E] font-semibold block">
-                Execution Model
-              </span>
-              <p className="font-sans text-sm text-[#1A1A1A] leading-relaxed font-medium">
-                {project.caseStudy.architecture}
-              </p>
-            </div>
           </div>
         </div>
 
         {/* Key Features */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 border-t border-[#E5E2DC] pt-12">
-          <div className="md:col-span-4">
-            <span className="font-label text-xs uppercase tracking-wider text-[#6B6B6B] block mb-2">
-              03 / Features
+        <div className="neo-card p-6 sm:p-8 bg-white space-y-5">
+          <div className="flex items-center justify-between border-b-2 border-[#111111] pb-3">
+            <span className="font-label-caps text-xs text-[#111111] font-bold">
+              03 · KEY CAPABILITIES
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl text-[#1A1A1A] font-normal">
-              Key Capabilities
-            </h2>
+            <span className="font-mono-code text-xs text-[#777777] font-bold">FEATURES</span>
           </div>
-          <div className="md:col-span-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {project.caseStudy.features.map((feature, idx) => (
-                <div
-                  key={feature}
-                  className="bg-white border border-[#E5E2DC] p-4 flex items-start gap-3"
-                >
-                  <CheckCircle2 className="w-4 h-4 text-[#2D5F4E] mt-0.5 shrink-0" />
-                  <span className="font-sans text-xs sm:text-sm text-[#1A1A1A]">
-                    {feature}
-                  </span>
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {project.caseStudy.features.map((feature) => (
+              <div
+                key={feature}
+                className="border-[1.5px] border-[#111111] bg-[#FAF3EE] p-4 flex items-start gap-3"
+              >
+                <CheckCircle2 className="w-4 h-4 text-[#B91C1C] mt-0.5 shrink-0" />
+                <span className="font-body text-xs sm:text-sm text-[#111111] font-semibold">
+                  {feature}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
 
         {/* Challenges & Learnings */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-[#E5E2DC] pt-12">
-          <div className="bg-white border border-[#E5E2DC] p-6 sm:p-8 space-y-3">
-            <span className="font-label text-xs uppercase tracking-wider text-[#6B6B6B] block">
-              04 / Trade-offs &amp; Hurdles
-            </span>
-            <h3 className="font-serif text-xl text-[#1A1A1A] font-normal">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="neo-card p-6 sm:p-8 bg-white space-y-3">
+            <div className="border-b-2 border-[#111111] pb-2">
+              <span className="font-label-caps text-xs text-[#555555] font-bold">
+                04 · TRADE-OFFS &amp; HURDLES
+              </span>
+            </div>
+            <h3 className="font-heading text-xl font-bold text-[#111111]">
               Technical Challenges
             </h3>
-            <p className="font-sans text-sm text-[#6B6B6B] leading-relaxed">
+            <p className="font-body text-sm sm:text-base text-[#444444] leading-relaxed">
               {project.caseStudy.challenges}
             </p>
           </div>
 
-          <div className="bg-white border border-[#E5E2DC] p-6 sm:p-8 space-y-3">
-            <span className="font-label text-xs uppercase tracking-wider text-[#2D5F4E] block">
-              05 / Takeaways
-            </span>
-            <h3 className="font-serif text-xl text-[#1A1A1A] font-normal">
+          <div className="neo-card p-6 sm:p-8 bg-white space-y-3">
+            <div className="border-b-2 border-[#111111] pb-2">
+              <span className="font-label-caps text-xs text-[#B91C1C] font-bold">
+                05 · TAKEAWAYS
+              </span>
+            </div>
+            <h3 className="font-heading text-xl font-bold text-[#111111]">
               Engineering Learnings
             </h3>
-            <p className="font-sans text-sm text-[#6B6B6B] leading-relaxed">
+            <p className="font-body text-sm sm:text-base text-[#444444] leading-relaxed">
               {project.caseStudy.learnings}
             </p>
           </div>
         </div>
 
-        {/* Stack */}
-        <div className="border-t border-[#E5E2DC] pt-12">
-          <span className="font-label text-xs uppercase tracking-wider text-[#6B6B6B] block mb-3">
-            06 / Technology Stack
-          </span>
-          <p className="font-sans text-sm sm:text-base text-[#1A1A1A]">
-            {project.stack.join(" · ")}
-          </p>
-        </div>
-
         {/* Next Project Footer */}
-        <div className="border-t border-[#E5E2DC] pt-12 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="neo-card p-6 sm:p-8 bg-white flex flex-col sm:flex-row items-center justify-between gap-6">
           <Link
             href="/#work"
-            className="font-label text-xs uppercase tracking-wider text-[#6B6B6B] hover:text-[#1A1A1A] transition-colors inline-flex items-center gap-2"
+            className="font-label-caps text-xs text-[#111111] hover:text-[#B91C1C] transition-colors inline-flex items-center gap-2 font-bold"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>All projects</span>
+            <span>ALL PROJECTS</span>
           </Link>
 
           <Link
             href={`/projects/${nextProject.slug}`}
-            className="group inline-flex items-center gap-4 bg-white border border-[#E5E2DC] hover:border-[#2D5F4E] p-4 sm:p-6 transition-colors"
+            className="neo-btn-secondary px-5 py-3 text-xs inline-flex items-center gap-3 font-bold bg-[#FAF3EE]"
           >
             <div>
-              <span className="font-label text-[10px] uppercase tracking-wider text-[#6B6B6B] block">
-                Next Case Study
-              </span>
-              <span className="font-serif text-lg sm:text-xl text-[#1A1A1A] font-normal group-hover:text-[#2D5F4E] transition-colors">
-                {nextProject.title}
-              </span>
+              <span className="text-[9px] text-[#777777] block">NEXT CASE STUDY</span>
+              <span className="text-sm font-extrabold text-[#111111]">{nextProject.title}</span>
             </div>
-            <ArrowRight className="w-4 h-4 text-[#2D5F4E] group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 text-[#B91C1C]" />
           </Link>
         </div>
       </section>

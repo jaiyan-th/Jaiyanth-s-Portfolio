@@ -2,76 +2,110 @@
 
 import * as React from "react";
 import { motion } from "motion/react";
-import { ArrowDownRight } from "lucide-react";
-import { IDENTITY } from "@/data/portfolio";
+import { MapPin, Layers, Sparkles } from "lucide-react";
+import { fadeUpVariants } from "@/lib/motion";
 
 export function Hero() {
   return (
-    <section id="hero" className="relative bg-[#FCFBF9] text-[#1A1A1A] py-20 md:py-28 lg:py-36 border-b border-[#E5E2DC] scroll-mt-20">
+    <section id="hero" className="relative bg-[#FAF3EE] text-[#111111] py-16 md:py-24 border-b-[3px] border-[#111111] scroll-mt-20">
       <div className="max-w-6xl mx-auto px-6">
-        {/* Single Quiet Masthead Line */}
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-wrap items-center justify-between gap-4 pb-12 mb-12 border-b border-[#E5E2DC] text-[#6B6B6B] font-label text-[11px] tracking-[0.14em] uppercase"
-        >
-          <div className="flex items-center gap-2.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#2D5F4E]" />
-            <span>{IDENTITY.location} — Available for Roles</span>
-          </div>
-          <div className="flex items-center gap-6">
-            <span className="hidden sm:inline text-[#6B6B6B]">Applied AI · Full-Stack</span>
-            <a
-              href="#work"
-              className="text-[#1A1A1A] hover:text-[#2D5F4E] transition-colors inline-flex items-center gap-1"
-            >
-              <span>Selected Work</span>
-              <ArrowDownRight className="w-3.5 h-3.5 text-[#2D5F4E]" />
-            </a>
-          </div>
-        </motion.div>
-
-        {/* Main Editorial Statement & Lead */}
-        <div className="max-w-4xl space-y-8">
-          <motion.h1
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
-            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-normal leading-[1.08] tracking-[-0.02em] text-[#1A1A1A]"
-          >
-            Engineering intelligent products from{" "}
-            <span className="italic text-[#2D5F4E]">signal</span> to system.
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-sans text-base sm:text-lg text-[#6B6B6B] leading-relaxed max-w-[640px] font-normal"
-          >
-            {IDENTITY.heroSupporting}
-          </motion.p>
-
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
+          {/* Main Hero Copy (Left 8 cols) */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="pt-4 flex flex-wrap items-center gap-6 text-sm"
+            initial="hidden"
+            animate="visible"
+            variants={fadeUpVariants}
+            className="lg:col-span-8 space-y-6"
           >
-            <a
-              href="#contact"
-              className="font-label text-xs tracking-[0.14em] uppercase px-5 py-2.5 bg-[#2D5F4E] text-white hover:bg-[#234b3d] transition-colors"
-            >
-              Get in touch
-            </a>
-            <a
-              href="#about"
-              className="font-label text-xs tracking-[0.14em] uppercase text-[#6B6B6B] hover:text-[#1A1A1A] transition-colors inline-flex items-center gap-1.5"
-            >
-              <span>About background</span>
-              <span className="text-[#2D5F4E]">→</span>
-            </a>
+            {/* Rotated sticker badge near headline */}
+            <div className="inline-block">
+              <span className="sticker-badge bg-[#D9622B] text-white -rotate-2">
+                <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                AVAILABLE FOR ROLES
+              </span>
+            </div>
+
+            {/* Headline with marker highlight */}
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-black leading-[1.08] tracking-tight text-[#111111]">
+              I turn ambiguous problems into production-ready{" "}
+              <span className="marker-highlight inline-block text-[#111111] font-extrabold border-b-[3px] border-[#B91C1C]">
+                software.
+              </span>
+            </h1>
+
+            {/* Subhead (2 lines max) */}
+            <p className="font-body text-lg sm:text-xl text-[#333333] leading-relaxed max-w-[620px] font-normal">
+              I build applied-AI workflows, full-stack products, and structured APIs that hold up in production — not just in a demo.
+            </p>
+
+            {/* CTAs */}
+            <div className="pt-2 flex flex-wrap items-center gap-6">
+              <a
+                href="#contact"
+                className="neo-btn-primary px-7 py-3.5 inline-flex items-center justify-center text-sm cursor-pointer"
+              >
+                GET IN TOUCH
+              </a>
+              <a
+                href="#work"
+                className="font-body text-base font-semibold text-[#111111] underline underline-offset-4 decoration-2 decoration-[#B91C1C] hover:text-[#B91C1C] transition-colors inline-flex items-center gap-1"
+              >
+                See the work →
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Asymmetrically Placed Stat Card (Right 4 cols) */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="lg:col-span-4 lg:mt-4"
+          >
+            <div className="neo-card p-6 space-y-5 relative bg-white">
+              {/* Card top tape / tag */}
+              <div className="flex items-center justify-between border-b-2 border-[#111111] pb-3">
+                <span className="font-label-caps text-[10px] text-[#555555]">
+                  QUICK SNAPSHOT
+                </span>
+                <span className="sticker-badge bg-[#111111] text-white text-[9px] py-0.5 px-2 rotate-1">
+                  2026
+                </span>
+              </div>
+
+              {/* Location */}
+              <div className="space-y-1">
+                <div className="flex items-center gap-1.5 font-label-caps text-[10px] text-[#777777]">
+                  <MapPin className="w-3.5 h-3.5 text-[#B91C1C]" />
+                  <span>LOCATION</span>
+                </div>
+                <p className="font-body text-sm font-semibold text-[#111111]">
+                  Karur, Tamil Nadu, India
+                </p>
+              </div>
+
+              {/* Stack */}
+              <div className="space-y-1 border-t-[1.5px] border-[#111111]/20 pt-3">
+                <div className="flex items-center gap-1.5 font-label-caps text-[10px] text-[#777777]">
+                  <Layers className="w-3.5 h-3.5 text-[#D9622B]" />
+                  <span>STACK</span>
+                </div>
+                <p className="font-mono-code text-xs font-bold text-[#111111]">
+                  Python · Next.js · Supabase
+                </p>
+              </div>
+
+              {/* Status */}
+              <div className="space-y-1 border-t-[1.5px] border-[#111111]/20 pt-3">
+                <div className="flex items-center gap-1.5 font-label-caps text-[10px] text-[#777777]">
+                  <Sparkles className="w-3.5 h-3.5 text-[#B91C1C]" />
+                  <span>STATUS</span>
+                </div>
+                <p className="font-body text-xs font-semibold text-[#111111] bg-[#FAF3EE] border-[1.5px] border-[#111111] p-2">
+                  Open to full-time &amp; internship roles
+                </p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

@@ -1,45 +1,43 @@
-// Editorial motion presets
-// Easing: cubic-bezier(0.16, 1, 0.3, 1) everywhere
+// Expressive Neo-Brutalist Motion Presets
+// Snappy ease-out, 150-200ms, fade + 12-16px slide
 
 export const EASE = {
-  primary: [0.16, 1, 0.3, 1] as const,
-  secondary: [0.16, 1, 0.3, 1] as const,
+  primary: [0.2, 0.8, 0.2, 1] as const,
+  snappy: [0.16, 1, 0.3, 1] as const,
 };
 
 export const DURATION = {
-  micro: 0.18, // 180ms — hover / micro transitions
-  button: 0.2, // 200ms — buttons
-  reveal: 0.5, // 500ms — calm scroll reveals
-  section: 0.6,
-  modal: 0.35,
+  micro: 0.15, // 150ms — snappy hover / press
+  button: 0.18,
+  reveal: 0.45, // 450ms — scroll-in
+  section: 0.5,
+  modal: 0.25,
 } as const;
 
 export const STAGGER = {
-  children: 0.06, // 60ms between siblings
-  words: 0.04,
-  lines: 0.06,
+  children: 0.08, // 80ms between siblings
+  words: 0.05,
+  lines: 0.08,
 } as const;
 
-// Soft fade-up (8-12px translateY)
+// Neo-brutalist scroll reveal (fade + slide 12-16px)
 export const fadeUpVariants = {
-  hidden: { opacity: 0, y: 10 },
+  hidden: { opacity: 0, y: 14 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: DURATION.reveal, ease: EASE.primary },
+    transition: { duration: DURATION.reveal, ease: EASE.snappy },
   },
 };
 
-// Subtle fade-in
 export const fadeInVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { duration: DURATION.reveal, ease: EASE.primary },
+    transition: { duration: DURATION.reveal, ease: EASE.snappy },
   },
 };
 
-// Stagger container
 export const staggerContainer = (stagger: number = STAGGER.children) => ({
   hidden: {},
   visible: {

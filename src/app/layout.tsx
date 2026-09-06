@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import {
-  Inter,
-  Newsreader,
-  Fraunces,
+  Bricolage_Grotesque,
+  Lora,
   Plus_Jakarta_Sans,
   JetBrains_Mono,
 } from "next/font/google";
@@ -14,40 +13,32 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE } from "@/data/portfolio";
 
-const inter = Inter({
-  variable: "--font-sans",
+const bricolageGrotesque = Bricolage_Grotesque({
+  variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["600", "700", "800"],
   display: "swap",
 });
 
-const newsreader = Newsreader({
-  variable: "--font-serif",
+const lora = Lora({
+  variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-  style: ["italic", "normal"],
-  display: "swap",
-});
-
-const fraunces = Fraunces({
-  variable: "--font-display",
-  subsets: ["latin"],
   style: ["normal", "italic"],
-  weight: ["400", "500", "600"],
   display: "swap",
 });
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-label",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["600", "700", "800"],
   display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "700"],
   display: "swap",
 });
 
@@ -103,10 +94,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#000000" },
-    { media: "(prefers-color-scheme: light)", color: "#FAF3EE" },
-  ],
+  themeColor: "#FAF3EE",
 };
 
 const personJsonLd = {
@@ -143,34 +131,15 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var stored = localStorage.getItem('jb-theme');
-                  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  var theme = stored || (prefersDark ? 'dark' : 'dark');
-                  var root = document.documentElement;
-                  root.classList.remove('dark', 'light');
-                  root.classList.add(theme === 'light' ? 'light' : 'dark');
-                  root.dataset.theme = theme;
-                } catch (e) {
-                  document.documentElement.classList.add('dark');
-                }
-              })();
-            `,
-          }}
-        />
       </head>
       <body
-        className={`${inter.variable} ${newsreader.variable} ${fraunces.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} antialiased bg-[#FCFBF9] text-[#1A1A1A] font-sans`}
+        className={`${bricolageGrotesque.variable} ${lora.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} antialiased bg-[#FAF3EE] text-[#111111] font-body`}
       >
         <ThemeProvider>
           <ScrollProgress />
           <a
             href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#2D5F4E] focus:text-white focus:text-sm focus:font-medium"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#B91C1C] focus:text-white focus:text-sm focus:font-bold focus:border-2 focus:border-black"
           >
             Skip to content
           </a>

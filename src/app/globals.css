@@ -4,31 +4,31 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================================
-   LIGHT EDITORIAL DESIGN SYSTEM
-   Background: #FCFBF9
-   Text Primary: #1A1A1A, Secondary: #6B6B6B
-   Accent: #2D5F4E (Single restrained accent)
-   Borders: #E5E2DC (1px hairline)
+   EXPRESSIVE NEO-BRUTALIST DESIGN SYSTEM
+   Background: #FAF3EE (cream)
+   Text: #111111 (near-black, hard contrast)
+   Accent Primary: #B91C1C (red)
+   Accent Secondary: #D9622B (orange, ~20% max highlight)
+   Borders: #111111 (3-4px solid black with 4px 4px hard shadow)
    ============================================================ */
 
 @theme inline {
   --color-background: var(--canvas);
   --color-foreground: var(--text-primary);
-  --font-sans: var(--font-sans);
-  --font-serif: var(--font-serif);
-  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-body);
+  --font-display: var(--font-heading);
+  --font-heading: var(--font-heading);
   --font-mono: var(--font-mono);
   --font-label: var(--font-label);
-  --font-heading: var(--font-heading);
 
   --color-canvas: var(--canvas);
   --color-surface: var(--surface);
-  --color-elevated: var(--elevated);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-line: var(--line);
   --color-accent: var(--accent);
-  --color-accent-muted: var(--accent-muted);
+  --color-accent-secondary: var(--accent-secondary);
 
   --color-card: var(--surface);
   --color-card-foreground: var(--text-primary);
@@ -38,21 +38,20 @@
 }
 
 :root {
-  --canvas: #FCFBF9;
+  --canvas: #FAF3EE;
   --surface: #FFFFFF;
-  --elevated: #F7F6F2;
-  --text-primary: #1A1A1A;
-  --text-secondary: #6B6B6B;
-  --line: #E5E2DC;
-  --accent: #2D5F4E;
-  --accent-muted: rgba(45, 95, 78, 0.08);
+  --text-primary: #111111;
+  --text-secondary: #444444;
+  --line: #111111;
+  --accent: #B91C1C;
+  --accent-secondary: #D9622B;
 
   color-scheme: light;
 }
 
 @layer base {
   * {
-    border-color: var(--line);
+    border-color: #111111;
   }
   html {
     -webkit-text-size-adjust: 100%;
@@ -60,23 +59,23 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
-    background-color: #FCFBF9;
+    background-color: #FAF3EE;
   }
   body {
-    background-color: #FCFBF9;
-    color: #1A1A1A;
-    font-family: var(--font-sans), system-ui, sans-serif;
+    background-color: #FAF3EE;
+    color: #111111;
+    font-family: var(--font-body), "Lora", Georgia, serif;
     line-height: 1.65;
     overflow-x: clip;
   }
 
   ::selection {
-    background: #2D5F4E;
+    background: #B91C1C;
     color: #FFFFFF;
   }
 
   :focus-visible {
-    outline: 1px solid #2D5F4E;
+    outline: 2px solid #111111;
     outline-offset: 2px;
   }
 }
@@ -84,44 +83,126 @@
 @layer utilities {
   .font-heading,
   .font-display {
-    font-family: var(--font-display), "Newsreader", "Fraunces", Georgia, serif;
-    letter-spacing: -0.015em;
+    font-family: var(--font-heading), "Bricolage Grotesque", sans-serif;
   }
-  .font-editorial-italic {
-    font-family: var(--font-serif), "Newsreader", "Fraunces", Georgia, serif;
-    font-style: italic;
+  .font-body {
+    font-family: var(--font-body), "Lora", Georgia, serif;
+  }
+  .font-mono-code {
+    font-family: var(--font-mono), "JetBrains Mono", monospace;
   }
   .font-label-caps {
-    font-family: var(--font-label), var(--font-sans), sans-serif;
-    font-size: 0.6875rem;
-    letter-spacing: 0.12em;
+    font-family: var(--font-label), "Plus Jakarta Sans", sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  /* Neo-brutalist cards with hard shadow */
+  .neo-card {
+    background-color: #FFFFFF;
+    border: 3px solid #111111;
+    box-shadow: 4px 4px 0px #111111;
+    transition: transform 150ms ease-out, box-shadow 150ms ease-out;
+  }
+  .neo-card-interactive:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #111111;
+  }
+
+  /* Neo-brutalist buttons */
+  .neo-btn-primary {
+    background-color: #B91C1C;
+    color: #FFFFFF;
+    border: 3px solid #111111;
+    box-shadow: 4px 4px 0px #111111;
+    font-family: var(--font-label), "Plus Jakarta Sans", sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: transform 150ms ease-out, box-shadow 150ms ease-out, background-color 150ms ease-out;
+  }
+  .neo-btn-primary:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #111111;
+    background-color: #991b1b;
+  }
+
+  .neo-btn-secondary {
+    background-color: #FAF3EE;
+    color: #111111;
+    border: 3px solid #111111;
+    box-shadow: 4px 4px 0px #111111;
+    font-family: var(--font-label), "Plus Jakarta Sans", sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: transform 150ms ease-out, box-shadow 150ms ease-out;
+  }
+  .neo-btn-secondary:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #111111;
+    background-color: #FFFFFF;
+  }
+
+  /* Sticker badges */
+  .sticker-badge {
+    border: 2px solid #111111;
+    font-family: var(--font-label), "Plus Jakarta Sans", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.6rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    box-shadow: 2px 2px 0px #111111;
+    transition: transform 150ms ease-out;
+  }
+  .sticker-badge:hover {
+    transform: rotate(0deg) scale(1.04) !important;
+  }
+
+  /* Quiet skill pills (no shadow, no rotation, no color fill) */
+  .skill-pill {
+    border: 1.5px solid #111111;
+    background-color: transparent;
+    color: #111111;
+    padding: 0.25rem 0.65rem;
+    font-family: var(--font-mono), "JetBrains Mono", monospace;
+    font-size: 0.75rem;
     font-weight: 600;
+    line-height: 1.2;
   }
-  .hairline-border {
-    border: 1px solid #E5E2DC;
+
+  /* Marker highlight */
+  .marker-highlight {
+    background: linear-gradient(120deg, rgba(217, 98, 43, 0.25) 0%, rgba(217, 98, 43, 0.35) 100%);
+    padding: 0.1em 0.3em;
+    border-radius: 2px;
   }
-  .hairline-b {
-    border-bottom: 1px solid #E5E2DC;
-  }
-  .hairline-t {
-    border-top: 1px solid #E5E2DC;
+  .marker-highlight-red {
+    background: linear-gradient(120deg, rgba(185, 28, 28, 0.15) 0%, rgba(185, 28, 28, 0.25) 100%);
+    padding: 0.1em 0.3em;
+    border-radius: 2px;
   }
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #FCFBF9;
+  background: #FAF3EE;
+  border-left: 2px solid #111111;
 }
 ::-webkit-scrollbar-thumb {
-  background: #E5E2DC;
-  border-radius: 3px;
+  background: #111111;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #6B6B6B;
+  background: #B91C1C;
 }
 
 nextjs-portal,
@@ -129,4 +210,3 @@ nextjs-portal,
 [data-nextjs-toast-errors-parent] {
   display: none !important;
 }
-
