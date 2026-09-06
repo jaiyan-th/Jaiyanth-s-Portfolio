@@ -4,79 +4,55 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================================
-   JB PORTFOLIO — KAROL BINKOWSKI (karolbinkow.ski) EXACT SYSTEM
-   Light warm paper canvas (#EFEFEA), bold black borders (#000000),
-   vibrant deep red highlight (#A30000), brutalist offset shadows.
+   LIGHT EDITORIAL DESIGN SYSTEM
+   Background: #FCFBF9
+   Text Primary: #1A1A1A, Secondary: #6B6B6B
+   Accent: #2D5F4E (Single restrained accent)
+   Borders: #E5E2DC (1px hairline)
    ============================================================ */
 
 @theme inline {
   --color-background: var(--canvas);
   --color-foreground: var(--text-primary);
   --font-sans: var(--font-sans);
-  --font-display: var(--font-display);
   --font-serif: var(--font-serif);
+  --font-display: var(--font-display);
   --font-mono: var(--font-mono);
   --font-label: var(--font-label);
   --font-heading: var(--font-heading);
-  --font-italic: var(--font-italic);
-  --font-body: var(--font-sans);
-  --font-nav: var(--font-heading);
 
   --color-canvas: var(--canvas);
-  --color-elevated: var(--elevated);
   --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-line: var(--line);
   --color-accent: var(--accent);
-  --color-accent-2: var(--accent-2);
-  --color-accent-warm: var(--accent-warm);
+  --color-accent-muted: var(--accent-muted);
 
   --color-card: var(--surface);
   --color-card-foreground: var(--text-primary);
-  --color-popover: var(--elevated);
-  --color-popover-foreground: var(--text-primary);
-  --color-primary: var(--accent);
-  --color-primary-foreground: #FFFFFF;
-  --color-secondary: var(--elevated);
-  --color-secondary-foreground: var(--text-primary);
-  --color-muted: var(--elevated);
-  --color-muted-foreground: var(--text-secondary);
-  --color-accent-foreground: #FFFFFF;
   --color-border: var(--line);
   --color-input: var(--line);
   --color-ring: var(--accent);
-
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
-  --radius-xl: 0px;
 }
 
-:root,
-.light,
-.dark {
-  --canvas: #EFEFEA;
+:root {
+  --canvas: #FCFBF9;
   --surface: #FFFFFF;
-  --elevated: #FFFFFF;
-  --text-primary: #000000;
-  --text-secondary: #444444;
-  --line: #000000;
-  --accent: #C9971C;
-  --accent-2: #A67C14;
-  --accent-warm: #C9971C;
-  --dark-charcoal: #000000;
-
-  --grid-line: rgba(0, 0, 0, 0.04);
-  --node-glow: rgba(201, 151, 28, 0.2);
-  --halo: rgba(201, 151, 28, 0.15);
+  --elevated: #F7F6F2;
+  --text-primary: #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --line: #E5E2DC;
+  --accent: #2D5F4E;
+  --accent-muted: rgba(45, 95, 78, 0.08);
 
   color-scheme: light;
 }
 
 @layer base {
   * {
-    border-color: #000000;
+    border-color: var(--line);
   }
   html {
     -webkit-text-size-adjust: 100%;
@@ -84,121 +60,73 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
+    background-color: #FCFBF9;
   }
   body {
-    background-color: #EFEFEA;
-    color: #000000;
+    background-color: #FCFBF9;
+    color: #1A1A1A;
     font-family: var(--font-sans), system-ui, sans-serif;
+    line-height: 1.65;
     overflow-x: clip;
   }
 
   ::selection {
-    background: #C9971C;
-    color: #000000;
+    background: #2D5F4E;
+    color: #FFFFFF;
   }
 
   :focus-visible {
-    outline: 2px solid #000000;
+    outline: 1px solid #2D5F4E;
     outline-offset: 2px;
   }
 }
 
-/* ============================================================
-   TYPOGRAPHY & DESIGN UTILITIES (karolbinkow.ski style)
-   ============================================================ */
 @layer utilities {
   .font-heading,
   .font-display {
-    font-family: var(--font-display), "Impact", "Arial Black", "Anton", sans-serif;
-    letter-spacing: 0.02em;
-    font-weight: 400;
-  }
-  .font-serif {
-    font-family: var(--font-serif), Georgia, serif;
+    font-family: var(--font-display), "Newsreader", "Fraunces", Georgia, serif;
+    letter-spacing: -0.015em;
   }
   .font-editorial-italic {
-    font-family: var(--font-italic), "Newsreader", "Georgia", "Times New Roman", serif;
+    font-family: var(--font-serif), "Newsreader", "Fraunces", Georgia, serif;
     font-style: italic;
-    letter-spacing: -0.02em;
   }
-  .font-mono-label {
-    font-family: var(--font-label), var(--font-mono), monospace;
+  .font-label-caps {
+    font-family: var(--font-label), var(--font-sans), sans-serif;
+    font-size: 0.6875rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 600;
   }
-
-  /* block headline highlight */
-  .highlight-cyan,
-  .highlight-yellow,
-  .highlight-accent {
-    background-color: #C9971C;
-    color: #000000;
-    padding: 0 0.3em;
-    display: inline-block;
+  .hairline-border {
+    border: 1px solid #E5E2DC;
   }
-
-  /* Brutalist offset drop shadows */
-  .shadow-brutal {
-    box-shadow: 4px 4px 0px #000000;
+  .hairline-b {
+    border-bottom: 1px solid #E5E2DC;
   }
-  .shadow-brutal-sm {
-    box-shadow: 2px 2px 0px #000000;
-  }
-  .shadow-brutal-lg {
-    box-shadow: 6px 6px 0px #000000;
-  }
-  .shadow-brutal-cyan,
-  .shadow-brutal-yellow,
-  .shadow-brutal-accent {
-    box-shadow: 4px 4px 0px #C9971C;
-  }
-
-  .hover-lift-brutal {
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-  .hover-lift-brutal:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0px #000000;
-  }
-
-  /* Continuous horizontal Marquee Ticker */
-  .animate-marquee {
-    display: flex;
-    width: max-content;
-    animation: marquee 25s linear infinite;
-  }
-  .animate-marquee:hover {
-    animation-play-state: paused;
-  }
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
+  .hairline-t {
+    border-top: 1px solid #E5E2DC;
   }
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #EFEFEA;
+  background: #FCFBF9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #000000;
+  background: #E5E2DC;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C9971C;
+  background: #6B6B6B;
 }
 
-/* Hide Next.js Dev Indicator Badge */
 nextjs-portal,
 [data-nextjs-toast],
 [data-nextjs-toast-errors-parent] {
   display: none !important;
 }
+

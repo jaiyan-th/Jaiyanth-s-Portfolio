@@ -97,21 +97,21 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
           {/* Modal Panel */}
           <motion.div
             ref={containerRef}
-            initial={{ opacity: 0, scale: 0.96, y: 12 }}
+            initial={{ opacity: 0, scale: 0.98, y: 8 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.96, y: 12 }}
+            exit={{ opacity: 0, scale: 0.98, y: 8 }}
             transition={{ duration: DURATION.modal, ease: EASE.primary }}
-            className="relative z-10 my-auto flex max-h-[90vh] w-full max-w-4xl flex-col border-2 border-black bg-white p-6 sm:p-8 shadow-[8px_8px_0px_#000000] text-black overflow-hidden"
+            className="relative z-10 my-auto flex max-h-[90vh] w-full max-w-4xl flex-col border border-[#E5E2DC] bg-[#FCFBF9] p-6 sm:p-10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] text-[#1A1A1A] overflow-hidden"
           >
             {/* Header bar */}
-            <div className="bg-[#C9971C] border-b-2 border-black -m-6 sm:-m-8 mb-4 p-4 flex items-center justify-between">
+            <div className="border-b border-[#E5E2DC] -m-6 sm:-m-10 mb-6 p-6 sm:px-10 flex items-center justify-between bg-[#FCFBF9]">
               <div className="flex items-center gap-3">
-                <span className="font-display text-lg uppercase text-black font-bold tracking-wider">
+                <span className="font-sans text-[11px] font-medium tracking-[0.16em] uppercase text-[#6B6B6B]">
                   {project.category}
                 </span>
-                <span className="font-mono text-xs text-black font-bold">•</span>
-                <span className="font-display text-lg uppercase text-black font-bold tracking-wider">
-                  PROJECT {project.number}
+                <span className="text-[#E5E2DC]">•</span>
+                <span className="font-serif italic text-xs text-[#6B6B6B]">
+                  No. {project.number}
                 </span>
               </div>
               <button
@@ -119,23 +119,25 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                 type="button"
                 onClick={onClose}
                 aria-label="Close dialog"
-                className="flex h-8 w-8 items-center justify-center border-2 border-black bg-white text-black shadow-[2px_2px_0px_#000000] hover:bg-black hover:text-white transition-colors cursor-pointer font-black"
+                className="flex h-8 w-8 items-center justify-center border border-[#E5E2DC] bg-white text-[#6B6B6B] hover:text-[#1A1A1A] hover:border-[#1A1A1A] transition-colors cursor-pointer"
               >
                 <X className="h-4 w-4" />
               </button>
             </div>
 
             {/* Scrollable Content */}
-            <div className="mt-6 flex-1 overflow-y-auto pr-1">
-              <h2 id="dialog-title" className="font-display text-3xl sm:text-5xl font-normal uppercase text-black leading-tight">
-                {project.title}
-              </h2>
-              <p className="mt-2 font-sans text-xs text-black/90 font-semibold sm:text-sm">
-                {project.summary}
-              </p>
+            <div className="mt-2 flex-1 overflow-y-auto pr-2 space-y-8">
+              <div>
+                <h2 id="dialog-title" className="font-serif text-3xl sm:text-4xl text-[#1A1A1A] tracking-tight font-normal leading-snug">
+                  {project.title}
+                </h2>
+                <p className="mt-3 font-sans text-sm text-[#6B6B6B] leading-relaxed max-w-2xl">
+                  {project.summary}
+                </p>
+              </div>
 
               {/* Visual */}
-              <div className="relative mt-6 aspect-[16/9] w-full overflow-hidden border-2 border-black bg-[#EFEFEA] shadow-[4px_4px_0px_#000000]">
+              <div className="relative aspect-[16/9] w-full overflow-hidden border border-[#E5E2DC] bg-[#F7F5F0]">
                 {project.image ? (
                   <Image
                     src={project.image}
@@ -151,41 +153,41 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
               </div>
 
               {/* Meta grid */}
-              <div className="mt-8 grid gap-6 md:grid-cols-12">
-                <div className="md:col-span-4 bg-[#EFEFEA] border-2 border-black p-5 shadow-[3px_3px_0px_#000000]">
-                  <span className="font-mono text-[9px] font-bold text-black/70 uppercase tracking-widest block mb-3">
-                    TECH STACK
+              <div className="grid gap-6 md:grid-cols-12">
+                <div className="md:col-span-4 bg-[#F7F5F0] border border-[#E5E2DC] p-5">
+                  <span className="font-sans text-[10px] font-medium text-[#6B6B6B] uppercase tracking-[0.16em] block mb-3">
+                    Technologies
                   </span>
                   <div className="flex flex-wrap gap-1.5">
                     {project.stack.map((s) => (
                       <span
                         key={s}
-                        className="border border-black px-2.5 py-1 text-[9px] font-mono font-bold bg-white text-black uppercase tracking-wider shadow-[1px_1px_0px_#000000]"
+                        className="border border-[#E5E2DC] px-2 py-0.5 text-[10px] font-mono bg-white text-[#1A1A1A]"
                       >
                         {s}
                       </span>
                     ))}
                   </div>
                 </div>
-                <div className="md:col-span-8 bg-[#EFEFEA] border-2 border-black p-5 shadow-[3px_3px_0px_#000000]">
-                  <span className="font-mono text-[9px] font-bold text-black/70 uppercase tracking-widest block mb-2">
-                    ENGINEERING FOCUS
+                <div className="md:col-span-8 bg-[#F7F5F0] border border-[#E5E2DC] p-5">
+                  <span className="font-sans text-[10px] font-medium text-[#6B6B6B] uppercase tracking-[0.16em] block mb-2">
+                    Core Focus
                   </span>
-                  <p className="font-sans text-xs sm:text-sm text-black font-semibold leading-relaxed">
+                  <p className="font-sans text-xs sm:text-sm text-[#1A1A1A] leading-relaxed">
                     {project.engineeringFocus}
                   </p>
                 </div>
               </div>
 
               {/* Body sections */}
-              <div className="mt-6 grid gap-6 md:grid-cols-12">
+              <div className="grid gap-6 md:grid-cols-12">
                 <CaseBlock label="Overview" index="01">
                   {project.caseStudy.overview}
                 </CaseBlock>
                 <CaseBlock label="Problem" index="02">
                   {project.caseStudy.problem}
                 </CaseBlock>
-                <CaseBlock label="Engineering approach" index="03">
+                <CaseBlock label="Engineering Approach" index="03">
                   {project.caseStudy.approach}
                 </CaseBlock>
                 <CaseBlock label="Architecture" index="04">
@@ -194,19 +196,19 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
               </div>
 
               {/* Features */}
-              <div className="mt-6 bg-[#EFEFEA] border-2 border-black p-6 shadow-[4px_4px_0px_#000000]">
-                <span className="font-mono text-[10px] font-bold text-black/70 uppercase tracking-widest block mb-4">
-                  05 / KEY FEATURES
+              <div className="bg-[#F7F5F0] border border-[#E5E2DC] p-6">
+                <span className="font-sans text-[10px] font-medium text-[#6B6B6B] uppercase tracking-[0.16em] block mb-4">
+                  05 · Key Capabilities
                 </span>
                 <ul className="grid gap-3 md:grid-cols-2">
                   {project.caseStudy.features.map((f) => (
                     <li
                       key={f}
-                      className="flex items-start gap-3 border-l-4 border-[#C9971C] bg-white border border-black p-3 text-xs sm:text-sm text-black font-semibold shadow-[2px_2px_0px_#000000]"
+                      className="flex items-start gap-3 bg-white border border-[#E5E2DC] p-3 text-xs text-[#1A1A1A] leading-relaxed"
                     >
                       <span
                         aria-hidden
-                        className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 bg-[#C9971C]"
+                        className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 bg-[#2D5F4E]"
                       />
                       <span>{f}</span>
                     </li>
@@ -215,19 +217,19 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
               </div>
 
               {/* Challenges & Learnings */}
-              <div className="mt-6 grid gap-6 md:grid-cols-2">
-                <CaseBlock label="Challenges" index="06">
+              <div className="grid gap-6 md:grid-cols-2">
+                <CaseBlock label="Engineering Challenges" index="06">
                   {project.caseStudy.challenges}
                 </CaseBlock>
-                <CaseBlock label="Learnings" index="07">
+                <CaseBlock label="Key Insights" index="07">
                   {project.caseStudy.learnings}
                 </CaseBlock>
               </div>
 
               {/* Actions */}
-              <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t-2 border-black pt-6">
-                <span className="font-mono text-[10px] text-black font-bold uppercase tracking-wider">
-                  STATUS: VERIFIED APPLICATION
+              <div className="flex flex-wrap items-center justify-between gap-4 border-t border-[#E5E2DC] pt-6">
+                <span className="font-sans text-[11px] text-[#6B6B6B] tracking-wider uppercase">
+                  Verified Application
                 </span>
 
                 <div className="flex flex-wrap items-center gap-3">
@@ -236,9 +238,9 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                       href={project.repository}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="border-2 border-black bg-white px-4 py-2 font-mono text-[10px] font-bold uppercase text-black shadow-[2px_2px_0px_#000000] hover:bg-[#EFEFEA] transition-colors"
+                      className="border border-[#E5E2DC] bg-white px-4 py-2 font-sans text-xs text-[#1A1A1A] hover:border-[#1A1A1A] transition-colors"
                     >
-                      GitHub Repo
+                      Source Code
                     </a>
                   )}
 
@@ -247,10 +249,10 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="border-2 border-black bg-[#C9971C] px-4 py-2 font-mono text-[10px] font-bold uppercase text-black shadow-[2px_2px_0px_#000000] hover:bg-[#A67C14] transition-colors inline-flex items-center gap-1.5 font-bold"
+                      className="bg-[#1A1A1A] text-white px-4 py-2 font-sans text-xs hover:bg-[#2D5F4E] transition-colors inline-flex items-center gap-1.5"
                     >
-                      <span>Live Site</span>
-                      <ExternalLink className="h-3 h-3" />
+                      <span>Launch Site</span>
+                      <ExternalLink className="h-3.5 w-3.5" />
                     </a>
                   )}
                 </div>
@@ -265,13 +267,13 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
 
 function CaseBlock({ label, index, children }: { label: string; index: string; children: React.ReactNode }) {
   return (
-    <div className="md:col-span-6 bg-[#EFEFEA] border-2 border-black p-5 shadow-[3px_3px_0px_#000000]">
-      <div className="flex items-center justify-between border-b-2 border-black pb-2 mb-3">
-        <span className="font-mono text-[10px] font-black text-black/70 uppercase tracking-wider">
-          {index} / {label}
+    <div className="md:col-span-6 bg-[#F7F5F0] border border-[#E5E2DC] p-6">
+      <div className="flex items-center justify-between border-b border-[#E5E2DC] pb-2 mb-3">
+        <span className="font-sans text-[10px] font-medium text-[#6B6B6B] uppercase tracking-[0.16em]">
+          {index} · {label}
         </span>
       </div>
-      <p className="font-sans text-xs text-black font-semibold leading-relaxed">
+      <p className="font-sans text-xs sm:text-sm text-[#1A1A1A] leading-relaxed">
         {children}
       </p>
     </div>

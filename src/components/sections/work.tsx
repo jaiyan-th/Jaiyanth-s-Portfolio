@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { PROJECTS } from "@/data/portfolio";
+import { motion } from "motion/react";
 
 interface ProjectCardProps {
   project: (typeof PROJECTS)[number];
@@ -17,93 +18,51 @@ function ProjectCard({ project, index }: ProjectCardProps) {
     <Link
       href={`/projects/${project.slug}`}
       aria-label={`View case study for ${project.title}`}
-      className="group relative cursor-pointer select-none w-full text-left bg-transparent p-0 border-0 outline-none focus-visible:ring-2 focus-visible:ring-[#C9971C] focus-visible:ring-offset-4 focus-visible:ring-offset-[#EFEFEA] transition-shadow rounded-sm block"
+      className="group block w-full text-left bg-white border border-[#E5E2DC] p-6 sm:p-8 lg:p-10 hover:border-[#2D5F4E]/40 transition-colors"
     >
-      {/* Giant Translucent Watermark Number */}
-      <span
-        aria-hidden="true"
-        className={`absolute -top-8 sm:-top-12 z-0 font-display text-[6rem] sm:text-[7.5rem] md:text-[9rem] text-black/[0.06] leading-none pointer-events-none select-none ${
-          isReversed ? "-right-2" : "-left-2"
-        }`}
-      >
-        0{index + 1}
-      </span>
-
-      <div className={`relative z-10 flex flex-col ${isReversed ? "md:flex-row-reverse" : "md:flex-row"} gap-6 md:gap-10 items-stretch`}>
-        {/* Image Side */}
-        <div className="w-full md:w-[55%] shrink-0">
-          <div className="relative aspect-[16/10] w-full overflow-hidden bg-white border-2 border-black shadow-[6px_6px_0px_#000000]">
-            {/* Category Pill */}
-            <div
-              aria-hidden="true"
-              className="absolute top-3 right-3 z-20 px-2.5 py-1 bg-black/85 backdrop-blur-sm border border-black text-[10px] font-mono font-bold tracking-widest text-white uppercase shadow-[1.5px_1.5px_0px_#C9971C]"
-            >
-              {project.category}
-            </div>
-
+      <div className={`flex flex-col ${isReversed ? "lg:flex-row-reverse" : "lg:flex-row"} gap-8 lg:gap-12 items-center`}>
+        {/* Image Frame */}
+        <div className="w-full lg:w-[52%] shrink-0">
+          <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#F7F6F2] border border-[#E5E2DC]">
             <Image
               src={project.image || "/images/projects/fake-news-detector.jpg"}
-              alt=""
+              alt={`${project.title} Interface`}
               fill
-              className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-              sizes="(max-width: 768px) 100vw, 55vw"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+              sizes="(max-width: 1024px) 100vw, 50vw"
               priority={index === 0}
               unoptimized
             />
-
-            {/* Gold Gradient Overlay */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-b from-transparent via-[#C9971C]/25 to-[#C9971C]/60 mix-blend-multiply"
-            />
-
-            {/* Floating "View case study" Pill */}
-            <div aria-hidden="true" className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                <span className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white font-display text-xs sm:text-sm uppercase tracking-wider border-2 border-black shadow-[3px_3px_0px_#C9971C]">
-                  <span>VIEW CASE STUDY</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#C9971C]" />
-                </span>
-              </div>
-            </div>
           </div>
         </div>
 
         {/* Content Side */}
-        <div className="w-full md:w-[45%] flex flex-col justify-center space-y-4">
-          <div className="flex items-start justify-between gap-3">
-            <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl text-black uppercase tracking-tight group-hover:text-[#C9971C] transition-colors duration-300 leading-[1.05]">
-              {project.title}
-            </h3>
-            <span aria-hidden="true" className="w-2.5 h-2.5 rounded-full bg-[#C9971C] border border-black mt-2 shrink-0" />
+        <div className="w-full lg:w-[48%] flex flex-col justify-center space-y-4">
+          <div className="flex items-center justify-between text-[11px] font-label tracking-[0.14em] uppercase text-[#6B6B6B]">
+            <span>0{index + 1} / {project.category}</span>
+            <span className="text-[#2D5F4E] opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-0.5 font-semibold">
+              Case study <ArrowUpRight className="w-3.5 h-3.5" />
+            </span>
           </div>
 
-          <p className="font-mono text-xs sm:text-sm text-black/70 leading-relaxed">
+          <h3 className="font-serif text-2xl sm:text-3xl text-[#1A1A1A] font-normal tracking-tight group-hover:text-[#2D5F4E] transition-colors">
+            {project.title}
+          </h3>
+
+          <p className="font-sans text-xs sm:text-sm text-[#1A1A1A] font-medium leading-relaxed">
             {project.engineeringFocus}
           </p>
 
-          <p className="font-mono text-xs text-black/55 leading-relaxed line-clamp-3">
+          <p className="font-sans text-sm text-[#6B6B6B] leading-relaxed line-clamp-3">
             {project.summary}
           </p>
 
-          {/* Tech Stack Pills */}
-          <div aria-hidden="true" className="flex flex-wrap gap-1.5 pt-1">
-            {project.stack.slice(0, 5).map((tech) => (
-              <span
-                key={tech}
-                className="font-mono text-[10px] sm:text-[11px] font-bold text-black bg-white px-2.5 py-0.5 border border-black shadow-[1.5px_1.5px_0px_#000000]"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-
-          {/* View arrow hint */}
-          <div className="pt-2">
-            <span className="inline-flex items-center gap-2 font-display text-xs uppercase tracking-wider text-black/50 group-hover:text-[#C9971C] transition-colors duration-300">
-              VIEW CASE STUDY
-              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+          {/* Tech Stack - quiet plain listing */}
+          <div className="pt-2 text-xs font-sans text-[#6B6B6B]">
+            <span className="font-label text-[10px] tracking-wider uppercase text-[#1A1A1A] font-semibold mr-2">
+              Stack:
             </span>
+            {project.stack.join(" · ")}
           </div>
         </div>
       </div>
@@ -113,70 +72,51 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 
 export function Work() {
   return (
-    <section
-      id="work"
-      className="relative bg-[#EFEFEA] text-black border-b-2 border-black scroll-mt-[57px] py-16 lg:py-24"
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
+    <section id="work" className="relative bg-[#FCFBF9] text-[#1A1A1A] border-b border-[#E5E2DC] py-20 md:py-28 scroll-mt-20">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
-        <div className="mb-12 lg:mb-16">
-          <div className="flex items-center gap-2.5 mb-2.5 flex-wrap">
-            <span className="w-2.5 h-2.5 bg-[#C9971C] border border-black inline-block" />
-            <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
-              SELECTED WORK
-            </span>
-            <span className="font-editorial-italic text-sm sm:text-base text-[#C9971C] font-semibold tracking-tight select-none">
-              / explore below
-            </span>
-          </div>
-          <h2 className="font-display font-normal text-3xl sm:text-4xl lg:text-5xl text-black leading-[0.96] tracking-tight uppercase">
-            PROJECTS I BUILT <br />
-            <span className="font-editorial-italic normal-case text-[#C9971C] font-semibold tracking-tight">and</span> SHIPPED.
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="space-y-3 mb-16"
+        >
+          <span className="font-label text-[11px] tracking-[0.14em] uppercase text-[#6B6B6B] block">
+            03 / Selected Work
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl text-[#1A1A1A] font-normal leading-[1.15] tracking-tight">
+            Projects built and <span className="italic text-[#2D5F4E]">deployed</span>.
           </h2>
-        </div>
+        </motion.div>
 
         {/* Vertical Project Stack */}
-        <div className="flex flex-col gap-24 lg:gap-32 pt-4">
+        <div className="flex flex-col gap-10">
           {PROJECTS.map((project, idx) => (
-            <div key={project.slug}>
+            <motion.div
+              key={project.slug}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.5, delay: idx * 0.05, ease: [0.16, 1, 0.3, 1] }}
+            >
               <ProjectCard project={project} index={idx} />
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* Bottom CTA Banner */}
-        <div className="mt-16 lg:mt-20 pt-8 border-t-2 border-black/15">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div>
-              <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#C9971C] block mb-1.5">
-                END OF SELECTION
-              </span>
-              <h3 className="font-display text-2xl sm:text-3xl text-black uppercase tracking-tight">
-                READY TO BUILD?
-              </h3>
-              <p className="font-mono text-xs text-black/80 leading-relaxed mt-1.5 max-w-md">
-                Explore all repositories on GitHub or get in touch for custom engineering engagements.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <a
-                href="https://github.com/jaiyan-th"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-black text-white font-display text-xs sm:text-sm tracking-wider uppercase px-5 py-2.5 border-2 border-black shadow-[2px_2px_0px_#C9971C] hover:bg-[#C9971C] hover:text-black transition-colors inline-flex items-center gap-3"
-              >
-                <span>VIEW GITHUB</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-              <a
-                href="#contact"
-                className="bg-white text-black font-display text-xs sm:text-sm tracking-wider uppercase px-5 py-2.5 border-2 border-black shadow-[2px_2px_0px_#000000] hover:bg-[#EFEFEA] transition-colors inline-flex items-center gap-3"
-              >
-                <span>CONTACT ME</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
+        {/* Quiet Footer Link */}
+        <div className="mt-16 pt-8 border-t border-[#E5E2DC] flex flex-wrap items-center justify-between gap-4 text-xs text-[#6B6B6B]">
+          <span>All architecture models and codebases are tested in production.</span>
+          <a
+            href="https://github.com/jaiyan-th"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-label text-[11px] tracking-[0.14em] uppercase text-[#1A1A1A] hover:text-[#2D5F4E] transition-colors inline-flex items-center gap-1 font-semibold"
+          >
+            <span>Explore all repositories on GitHub</span>
+            <ArrowUpRight className="w-3.5 h-3.5 text-[#2D5F4E]" />
+          </a>
         </div>
       </div>
     </section>

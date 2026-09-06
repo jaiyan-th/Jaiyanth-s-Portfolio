@@ -1,6 +1,5 @@
 import { FloatingNav } from "@/components/layout/floating-nav";
 import { Hero } from "@/components/sections/hero";
-import { Marquee } from "@/components/ui/marquee";
 import { About } from "@/components/sections/about";
 import { Skills } from "@/components/sections/skills";
 import { Work } from "@/components/sections/work";
@@ -11,11 +10,10 @@ import { Contact } from "@/components/sections/contact";
 
 export default function Home() {
   return (
-    <div className="bg-[#EFEFEA] min-h-screen text-black font-serif">
+    <div className="bg-[#FCFBF9] min-h-screen text-[#1A1A1A]">
       <FloatingNav />
-      <main id="main" className="relative w-full max-w-full overflow-x-clip">
+      <main id="main" className="relative w-full max-w-full">
         <Hero />
-        <Marquee />
         <About />
         <Skills />
         <Work />

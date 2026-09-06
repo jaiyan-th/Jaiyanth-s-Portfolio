@@ -18,7 +18,7 @@ const CERTIFICATIONS = [
   },
   {
     index: "03",
-    name: "AWS Foundations: Getting Started with AWS Cloud Essentials",
+    name: "AWS Foundations: Getting Started with Cloud Essentials",
     issuer: "AWS Training & Certification",
     year: "2026",
   },
@@ -32,60 +32,45 @@ const CERTIFICATIONS = [
 
 export function Certifications() {
   return (
-    <section id="certifications" className="relative bg-[#EFEFEA] text-black border-b-2 border-black py-20 md:py-28 scroll-mt-[57px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="certifications" className="relative bg-[#FCFBF9] text-[#1A1A1A] border-b border-[#E5E2DC] py-20 md:py-28 scroll-mt-20">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Eyebrow Header */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-12"
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="space-y-3 mb-16"
         >
-          <div className="flex items-center gap-2.5 mb-3 flex-wrap">
-            <span className="w-2.5 h-2.5 bg-[#C9971C] border border-black inline-block" />
-            <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
-              CREDENTIALS
-            </span>
-            <span className="font-editorial-italic text-sm sm:text-base text-[#C9971C] font-semibold tracking-tight select-none">
-              / verified knowledge
-            </span>
-          </div>
-          <h2 className="font-display font-normal text-4xl sm:text-5xl lg:text-6xl text-black leading-[0.96] tracking-tight uppercase">
-            VERIFIED <br />
-            <span className="font-editorial-italic normal-case text-[#C9971C] font-semibold tracking-tight">industry</span> CERTIFICATIONS.
+          <span className="font-label text-[11px] tracking-[0.14em] uppercase text-[#6B6B6B] block">
+            06 / Certifications
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl text-[#1A1A1A] font-normal leading-[1.15] tracking-tight">
+            Verified industry <span className="italic text-[#2D5F4E]">credentials</span>.
           </h2>
         </motion.div>
 
-        {/* 2-Column Grid matching Skills section category structure, using clean bordered pills/boxes for certificate names */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10"
-        >
+        {/* Two-Column List */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10 border-t border-[#E5E2DC] pt-10">
           {CERTIFICATIONS.map((cert) => (
-            <div key={cert.index} className="space-y-3">
-              {/* Category Header: Issuer & Year */}
-              <div className="flex items-center justify-between border-b border-black/15 pb-2">
-                <h3 className="font-display text-xl tracking-wider text-black uppercase">
-                  {cert.issuer}
-                </h3>
-                <span className="font-mono text-xs font-bold text-black/60">
-                  {cert.year}
-                </span>
+            <motion.div
+              key={cert.index}
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="space-y-2 pb-6 border-b border-[#E5E2DC]"
+            >
+              <div className="flex items-baseline justify-between text-xs font-label uppercase tracking-wider text-[#6B6B6B]">
+                <span className="text-[#1A1A1A] font-semibold">{cert.issuer}</span>
+                <span className="font-mono text-[11px]">{cert.year}</span>
               </div>
-
-              {/* Certificate Name wrapped in a clean bordered box/pill like Skills section */}
-              <div className="flex flex-wrap gap-2">
-                <span className="font-mono text-xs font-semibold text-black px-3 py-1.5 border border-black bg-transparent leading-relaxed inline-block">
-                  {cert.name}
-                </span>
-              </div>
-            </div>
+              <p className="font-sans text-sm sm:text-base text-[#6B6B6B] leading-relaxed">
+                {cert.name}
+              </p>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -6,72 +6,49 @@ import { motion } from "motion/react";
 
 export function Skills() {
   return (
-    <section id="skills" className="relative bg-[#EFEFEA] text-black border-b-2 border-black py-20 md:py-28 scroll-mt-[57px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="relative bg-[#FCFBF9] text-[#1A1A1A] border-b border-[#E5E2DC] py-20 md:py-28 scroll-mt-20">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Eyebrow Header */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-14"
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="space-y-3 mb-16"
         >
-          <div className="flex items-center gap-2.5 mb-3 flex-wrap">
-            <span className="w-2.5 h-2.5 bg-[#C9971C] border border-black inline-block" />
-            <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
-              STACK
-            </span>
-            <span className="font-editorial-italic text-sm sm:text-base text-[#C9971C] font-semibold tracking-tight select-none">
-              / tools of the trade
-            </span>
-          </div>
-          <h2 className="font-display font-normal text-4xl sm:text-5xl lg:text-6xl text-black leading-[0.96] tracking-tight uppercase">
-            TOOLS I <span className="font-editorial-italic normal-case text-[#C9971C] font-semibold tracking-tight">build</span> WITH.
+          <span className="font-label text-[11px] tracking-[0.14em] uppercase text-[#6B6B6B] block">
+            02 / Capabilities
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl text-[#1A1A1A] font-normal leading-[1.15] tracking-tight">
+            Technical foundation and <span className="italic text-[#2D5F4E]">stack</span>.
           </h2>
         </motion.div>
 
-        {/* Skill Categories Grid — karolbinkow.ski layout */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-10"
-        >
-          {SKILL_GROUPS.map((group) => (
-            <div key={group.id} className="space-y-3">
-              {/* Category Label */}
-              <h3 className="font-display text-xl tracking-wider text-black uppercase">
-                {group.title}
-              </h3>
-
-              {/* Skill Pills */}
-              <div className="flex flex-wrap gap-2">
-                {group.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="font-mono text-xs font-semibold text-black px-3 py-1.5 border border-black bg-transparent"
-                  >
-                    {skill}
-                  </span>
-                ))}
+        {/* Plain Two-Column List */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10 border-t border-[#E5E2DC] pt-10">
+          {SKILL_GROUPS.map((group, idx) => (
+            <motion.div
+              key={group.id}
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.4, delay: idx * 0.04, ease: [0.16, 1, 0.3, 1] }}
+              className="space-y-2 pb-6 border-b border-[#E5E2DC]"
+            >
+              <div className="flex items-baseline justify-between">
+                <h3 className="font-label text-xs tracking-[0.14em] uppercase text-[#1A1A1A] font-semibold">
+                  {group.title}
+                </h3>
+                <span className="font-mono text-[11px] text-[#6B6B6B]">
+                  0{idx + 1}
+                </span>
               </div>
-            </div>
+              <p className="font-sans text-sm sm:text-base text-[#6B6B6B] leading-relaxed">
+                {group.skills.join(", ")}
+              </p>
+            </motion.div>
           ))}
-        </motion.div>
-
-        {/* Footer credential line */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-16 pt-8 border-t border-black/20"
-        >
-          <p className="font-mono text-xs font-semibold text-black/70 tracking-wide">
-            IEEE Published · 3+ Production-Ready Projects Shipped
-          </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

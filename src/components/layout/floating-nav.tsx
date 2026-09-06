@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 
 export function FloatingNav() {
@@ -30,13 +30,12 @@ export function FloatingNav() {
   }, []);
 
   const navItems = [
-    { label: "HOME", href: "#hero" },
-    { label: "ABOUT", href: "#about" },
-    { label: "SKILLS", href: "#skills" },
-    { label: "WORK", href: "#work" },
-    { label: "EXPERIENCE", href: "#experience" },
-    { label: "ACHIEVEMENTS", href: "#achievements" },
-    { label: "CERTIFICATIONS", href: "#certifications" },
+    { label: "About", href: "#about" },
+    { label: "Skills", href: "#skills" },
+    { label: "Work", href: "#work" },
+    { label: "Experience", href: "#experience" },
+    { label: "Research", href: "#achievements" },
+    { label: "Certifications", href: "#certifications" },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -53,24 +52,24 @@ export function FloatingNav() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#EFEFEA]/95 backdrop-blur-md border-t-2 border-b-2 border-black px-4 py-2.5 md:px-8">
-      <nav aria-label="Main Navigation" className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Left: KB Style Logo + Name */}
+    <header className="sticky top-0 z-50 bg-[#FCFBF9]/90 backdrop-blur-md border-b border-[#E5E2DC] px-6 py-4 transition-colors">
+      <nav aria-label="Main Navigation" className="max-w-6xl mx-auto flex items-center justify-between">
+        {/* Left: Author Brand */}
         <a
           href="#hero"
           onClick={(e) => handleNavClick(e, "#hero")}
-          className="flex items-center gap-3 group cursor-pointer"
+          className="group cursor-pointer flex items-baseline gap-2.5"
         >
-          <div className="w-8 h-8 bg-black text-white flex items-center justify-center font-mono font-black text-xs border-2 border-black">
-            JB
-          </div>
-          <span className="font-display text-2xl tracking-wider text-black uppercase">
-            JAIYANTH B
+          <span className="font-serif text-lg tracking-tight text-[#1A1A1A] font-medium group-hover:text-[#2D5F4E] transition-colors">
+            Jaiyanth B
+          </span>
+          <span className="hidden sm:inline font-mono text-[10px] tracking-wider uppercase text-[#6B6B6B]">
+            / AI &amp; Full-Stack
           </span>
         </a>
 
-        {/* Center Nav Links - Monospace Upper Case */}
-        <div className="hidden lg:flex items-center gap-8">
+        {/* Center Nav Links */}
+        <div className="hidden md:flex items-center gap-7">
           {navItems.map((item) => {
             const isActive = active === item.href;
             return (
@@ -78,35 +77,38 @@ export function FloatingNav() {
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={`font-mono text-xs uppercase tracking-widest font-black transition-colors relative cursor-pointer ${
-                  isActive ? "text-black underline underline-offset-4 decoration-[#C9971C] decoration-2" : "text-black/70 hover:text-black"
+                className={`font-label text-[11px] tracking-[0.14em] uppercase transition-colors relative cursor-pointer ${
+                  isActive
+                    ? "text-[#1A1A1A] font-semibold"
+                    : "text-[#6B6B6B] hover:text-[#1A1A1A] font-medium"
                 }`}
               >
                 {item.label}
+                {isActive && (
+                  <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-[#2D5F4E]" />
+                )}
               </a>
             );
           })}
         </div>
 
-        {/* Right CTA Button: GET IN TOUCH */}
+        {/* Right CTA */}
         <div className="flex items-center gap-3">
-          <motion.a
+          <a
             href="#contact"
-            whileHover={{ y: -2, x: -1, boxShadow: "5px 5px 0px #000000" }}
-            whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-            className="bg-[#C9971C] hover:bg-[#A67C14] text-black font-display text-lg tracking-wider uppercase px-5 py-1.5 border-2 border-black shadow-[3px_3px_0px_#000000] transition-all cursor-pointer inline-flex items-center gap-1.5 font-bold"
+            className="font-label text-[11px] tracking-[0.14em] uppercase px-4 py-2 border border-[#E5E2DC] rounded-none text-[#1A1A1A] hover:border-[#2D5F4E] hover:text-[#2D5F4E] hover:bg-[#2D5F4E]/5 transition-all"
           >
-            <span>GET IN TOUCH →</span>
-          </motion.a>
+            Get in touch
+          </a>
 
           {/* Mobile Hamburger Toggle */}
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-            className="lg:hidden p-2 border-2 border-black bg-white shadow-[2px_2px_0px_#000000] text-black flex items-center justify-center"
+            className="md:hidden p-2 border border-[#E5E2DC] text-[#1A1A1A]"
           >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
         </div>
       </nav>
@@ -119,9 +121,9 @@ export function FloatingNav() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden mt-3 pt-3 border-t-2 border-black bg-[#EFEFEA] p-4"
+            className="md:hidden mt-3 pt-3 border-t border-[#E5E2DC] bg-[#FCFBF9] px-2 py-4"
           >
-            <div className="flex flex-col space-y-2">
+            <div className="flex flex-col space-y-3">
               {navItems.map((item) => {
                 const isActive = active === item.href;
                 return (
@@ -132,10 +134,8 @@ export function FloatingNav() {
                       setIsOpen(false);
                       handleNavClick(e, item.href);
                     }}
-                    className={`font-mono text-xs uppercase tracking-widest font-black p-3 flex items-center border-2 ${
-                      isActive
-                        ? "bg-[#C9971C] text-black border-black shadow-[2px_2px_0px_#000000]"
-                        : "bg-white text-black border-black"
+                    className={`font-label text-xs tracking-[0.14em] uppercase py-2 transition-colors ${
+                      isActive ? "text-[#2D5F4E] font-semibold" : "text-[#6B6B6B]"
                     }`}
                   >
                     {item.label}

@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ArrowUpRight, Link2, Code, Share2 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { IDENTITY } from "@/data/portfolio";
 import { motion } from "motion/react";
 
@@ -81,7 +81,7 @@ export function Contact() {
 
       if (sent) {
         setStatus("success");
-        setStatusMessage("Message sent directly to inbox!");
+        setStatusMessage("Message sent directly to inbox.");
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
         const mailtoUrl = `mailto:${IDENTITY.email}?subject=${encodeURIComponent(
@@ -91,7 +91,7 @@ export function Contact() {
         )}`;
         window.open(mailtoUrl, "_blank");
         setStatus("success");
-        setStatusMessage("Opened in your email client!");
+        setStatusMessage("Opened in your email client.");
         setFormData({ name: "", email: "", subject: "", message: "" });
       }
     } catch {
@@ -102,205 +102,207 @@ export function Contact() {
       )}`;
       window.open(mailtoUrl, "_blank");
       setStatus("success");
-      setStatusMessage("Opened in your email client!");
+      setStatusMessage("Opened in your email client.");
       setFormData({ name: "", email: "", subject: "", message: "" });
     }
   };
 
   return (
-    <div className="relative">
-      {/* Contact Section — Clean Warm Section Background */}
-      <section id="contact" className="relative bg-[#FAF5E8] border-b-2 border-black px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-black scroll-mt-[57px]">
-        <div className="max-w-7xl mx-auto">
-          {/* Main White Box (karolbinkow.ski LET'S TALK Box) */}
-          <div className="bg-white border-2 border-black p-8 sm:p-12 shadow-[8px_8px_0px_#000000] relative">
-            <div className="flex items-center gap-2.5 mb-3 flex-wrap">
-              <span className="w-2.5 h-2.5 bg-[#C9971C] border border-black inline-block" />
-              <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
-                LET'S TALK
-              </span>
-              <span className="font-editorial-italic text-sm sm:text-base text-[#C9971C] font-semibold tracking-tight select-none">
-                / get in touch
-              </span>
+    <div className="relative bg-[#FCFBF9]">
+      <section id="contact" className="relative px-6 py-20 md:py-28 text-[#1A1A1A] scroll-mt-20">
+        <div className="max-w-6xl mx-auto">
+          {/* Eyebrow Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="space-y-3 mb-16"
+          >
+            <span className="font-label text-[11px] tracking-[0.14em] uppercase text-[#6B6B6B] block">
+              07 / Contact
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl text-[#1A1A1A] font-normal leading-[1.15] tracking-tight">
+              Start a <span className="italic text-[#2D5F4E]">conversation</span>.
+            </h2>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            {/* Left Column: Direct Info */}
+            <div className="lg:col-span-5 space-y-6">
+              <p className="font-sans text-sm sm:text-base text-[#6B6B6B] leading-relaxed">
+                Available for full-time engineering roles, high-impact prototypes, and technical engagements.
+              </p>
+
+              <div className="border-t border-b border-[#E5E2DC] py-6 space-y-4 font-sans text-sm">
+                <div>
+                  <span className="font-label text-[10px] tracking-wider uppercase text-[#6B6B6B] block mb-1">
+                    Direct Email
+                  </span>
+                  <a
+                    href={`mailto:${IDENTITY.email}`}
+                    className="text-[#1A1A1A] hover:text-[#2D5F4E] transition-colors font-medium break-all"
+                  >
+                    {IDENTITY.email}
+                  </a>
+                </div>
+
+                <div>
+                  <span className="font-label text-[10px] tracking-wider uppercase text-[#6B6B6B] block mb-1">
+                    Location
+                  </span>
+                  <span className="text-[#1A1A1A]">{IDENTITY.location}</span>
+                </div>
+
+                <div>
+                  <span className="font-label text-[10px] tracking-wider uppercase text-[#6B6B6B] block mb-1">
+                    Availability
+                  </span>
+                  <span className="text-[#2D5F4E] font-medium flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#2D5F4E]" />
+                    Open to opportunities
+                  </span>
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <span className="font-label text-[10px] tracking-wider uppercase text-[#6B6B6B] block mb-3">
+                  Online Profiles
+                </span>
+                <div className="flex items-center gap-6 text-xs font-label uppercase tracking-wider">
+                  <a
+                    href="https://www.linkedin.com/in/jaiyan-th/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#1A1A1A] hover:text-[#2D5F4E] transition-colors inline-flex items-center gap-1"
+                  >
+                    <span>LinkedIn</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[#2D5F4E]" />
+                  </a>
+                  <a
+                    href={IDENTITY.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#1A1A1A] hover:text-[#2D5F4E] transition-colors inline-flex items-center gap-1"
+                  >
+                    <span>GitHub</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[#2D5F4E]" />
+                  </a>
+                </div>
+              </div>
             </div>
 
-            <h2 className="font-display font-normal text-4xl sm:text-5xl lg:text-6xl text-black leading-[0.96] tracking-tight uppercase mb-8">
-              HAVE A PROBLEM THAT <br />
-              <span className="font-editorial-italic normal-case text-[#C9971C] font-semibold tracking-tight">needs to ship?</span>
-            </h2>
-
-            <div className="grid lg:grid-cols-12 gap-10 items-start">
-              {/* Left Column: Direct Info */}
-              <div className="lg:col-span-5 space-y-6">
-                <p className="font-sans text-sm sm:text-base text-black/90 font-semibold leading-relaxed">
-                  Open for full-time engineering roles, internship opportunities, and technical collaboration.
-                </p>
-
-                <div className="border-t-2 border-b-2 border-black py-4 space-y-4 font-mono text-xs">
+            {/* Right Column: Underline-Only Form */}
+            <div className="lg:col-span-7 bg-white border border-[#E5E2DC] p-6 sm:p-10">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid sm:grid-cols-2 gap-6">
                   <div>
-                    <span className="text-black/60 font-bold uppercase tracking-wider block mb-1">PRIMARY EMAIL</span>
-                    <a
-                      href={`mailto:${IDENTITY.email}`}
-                      className="text-black font-bold text-base hover:text-[#C9971C] transition-colors break-all"
-                    >
-                      {IDENTITY.email}
-                    </a>
-                  </div>
-
-                  <div>
-                    <span className="text-black/60 font-bold uppercase tracking-wider block mb-1">LOCATION</span>
-                    <span className="text-black font-bold block">{IDENTITY.location}</span>
-                  </div>
-
-                  <div>
-                    <span className="text-black/60 font-bold uppercase tracking-wider block mb-1">STATUS</span>
-                    <span className="text-emerald-700 font-bold block">● Available for 2026</span>
-                  </div>
-                </div>
-
-                <div className="pt-2">
-                  <span className="font-mono text-xs font-bold text-black/60 uppercase tracking-wider block mb-3">
-                    CONNECT DIRECTLY
-                  </span>
-                  <div className="flex flex-wrap gap-2 font-mono text-xs font-bold">
-                    <a
-                      href="https://www.linkedin.com/in/jaiyan-th/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-[#EFEFEA] text-black px-3.5 py-2 border-2 border-black shadow-[2px_2px_0px_#000000] hover:bg-[#C9971C] hover:text-black transition-colors inline-flex items-center gap-1"
-                    >
-                      <span>LINKEDIN</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </a>
-                    <a
-                      href={IDENTITY.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-[#EFEFEA] text-black px-3.5 py-2 border-2 border-black shadow-[2px_2px_0px_#000000] hover:bg-[#C9971C] hover:text-black transition-colors inline-flex items-center gap-1"
-                    >
-                      <span>GITHUB</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Direct Form */}
-              <div className="lg:col-span-7">
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="name-input" className="block font-mono text-[10px] font-bold uppercase tracking-widest text-black/60 mb-1">
-                        YOUR NAME
-                      </label>
-                      <input
-                        id="name-input"
-                        type="text"
-                        required
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="John Doe"
-                        className="w-full bg-[#EFEFEA] border-2 border-black p-3 font-sans text-xs text-black font-extrabold placeholder:text-black/40 focus:outline-none focus:bg-white transition-all shadow-[2px_2px_0px_#000000]"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="email-input" className="block font-mono text-[10px] font-bold uppercase tracking-widest text-black/60 mb-1">
-                        YOUR EMAIL
-                      </label>
-                      <input
-                        id="email-input"
-                        type="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="john@example.com"
-                        className="w-full bg-[#EFEFEA] border-2 border-black p-3 font-sans text-xs text-black font-extrabold placeholder:text-black/40 focus:outline-none focus:bg-white transition-all shadow-[2px_2px_0px_#000000]"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="subject-input" className="block font-mono text-[10px] font-bold uppercase tracking-widest text-black/60 mb-1">
-                      SUBJECT
+                    <label htmlFor="name-input" className="block font-label text-[10px] uppercase tracking-widest text-[#6B6B6B] mb-2">
+                      Your Name
                     </label>
                     <input
-                      id="subject-input"
+                      id="name-input"
                       type="text"
                       required
-                      value={formData.subject}
+                      value={formData.name}
                       onChange={handleChange}
-                      placeholder="Role inquiry / Collaboration"
-                      className="w-full bg-[#EFEFEA] border-2 border-black p-3 font-sans text-xs text-black font-extrabold placeholder:text-black/40 focus:outline-none focus:bg-white transition-all shadow-[2px_2px_0px_#000000]"
+                      placeholder="Jane Doe"
+                      className="w-full bg-transparent border-0 border-b border-[#E5E2DC] pb-2 font-sans text-sm text-[#1A1A1A] placeholder:text-[#6B6B6B]/40 focus:outline-none focus:border-[#2D5F4E] transition-colors rounded-none"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message-input" className="block font-mono text-[10px] font-bold uppercase tracking-widest text-black/60 mb-1">
-                      MESSAGE
+                    <label htmlFor="email-input" className="block font-label text-[10px] uppercase tracking-widest text-[#6B6B6B] mb-2">
+                      Your Email
                     </label>
-                    <textarea
-                      id="message-input"
+                    <input
+                      id="email-input"
+                      type="email"
                       required
-                      rows={4}
-                      value={formData.message}
+                      value={formData.email}
                       onChange={handleChange}
-                      placeholder="Tell me more about your requirements..."
-                      className="w-full bg-[#EFEFEA] border-2 border-black p-3.5 font-sans text-xs text-black font-extrabold placeholder:text-black/40 focus:outline-none focus:bg-white resize-none transition-all shadow-[2px_2px_0px_#000000]"
+                      placeholder="jane@example.com"
+                      className="w-full bg-transparent border-0 border-b border-[#E5E2DC] pb-2 font-sans text-sm text-[#1A1A1A] placeholder:text-[#6B6B6B]/40 focus:outline-none focus:border-[#2D5F4E] transition-colors rounded-none"
                     />
                   </div>
+                </div>
 
-                  <div className="pt-2 flex items-center justify-between">
-                    <span className="font-mono text-[10px] font-bold text-black/60">
-                      {statusMessage || "RESPONSE TIME < 48H"}
-                    </span>
+                <div>
+                  <label htmlFor="subject-input" className="block font-label text-[10px] uppercase tracking-widest text-[#6B6B6B] mb-2">
+                    Subject
+                  </label>
+                  <input
+                    id="subject-input"
+                    type="text"
+                    required
+                    value={formData.subject}
+                    onChange={handleChange}
+                    placeholder="Project inquiry / Full-time role"
+                    className="w-full bg-transparent border-0 border-b border-[#E5E2DC] pb-2 font-sans text-sm text-[#1A1A1A] placeholder:text-[#6B6B6B]/40 focus:outline-none focus:border-[#2D5F4E] transition-colors rounded-none"
+                  />
+                </div>
 
-                    <motion.button
-                      type="submit"
-                      disabled={status === "submitting"}
-                      whileHover={{ y: -2, x: -1, boxShadow: "5px 5px 0px #000000" }}
-                      whileTap={{ y: 1, x: 1, boxShadow: "1px 1px 0px #000000" }}
-                      className="bg-[#C9971C] hover:bg-[#A67C14] disabled:opacity-70 text-black font-display text-xl tracking-wider uppercase px-7 py-2.5 border-2 border-black shadow-[3px_3px_0px_#000000] transition-colors inline-flex items-center gap-2 cursor-pointer font-bold"
-                    >
-                      <span>
-                        {status === "submitting"
-                          ? "SENDING..."
-                          : status === "success"
-                          ? "SENT!"
-                          : "SEND MESSAGE →"}
-                      </span>
-                    </motion.button>
-                  </div>
-                </form>
-              </div>
+                <div>
+                  <label htmlFor="message-input" className="block font-label text-[10px] uppercase tracking-widest text-[#6B6B6B] mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    id="message-input"
+                    required
+                    rows={4}
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Tell me about your team, system goals, or timeline..."
+                    className="w-full bg-transparent border-0 border-b border-[#E5E2DC] pb-2 font-sans text-sm text-[#1A1A1A] placeholder:text-[#6B6B6B]/40 focus:outline-none focus:border-[#2D5F4E] resize-none transition-colors rounded-none"
+                  />
+                </div>
+
+                <div className="pt-4 flex flex-wrap items-center justify-between gap-4">
+                  <span className="font-sans text-xs text-[#6B6B6B]">
+                    {statusMessage || "Response within 24–48 hours."}
+                  </span>
+
+                  <button
+                    type="submit"
+                    disabled={status === "submitting"}
+                    className="font-label text-xs tracking-[0.14em] uppercase px-6 py-3 bg-[#2D5F4E] text-white hover:bg-[#234b3d] disabled:opacity-60 transition-colors cursor-pointer"
+                  >
+                    {status === "submitting" ? "Sending..." : "Send message"}
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Understated karolbinkow.ski Footer */}
-      <footer className="bg-[#EFEFEA] text-black px-4 py-8 md:px-8 border-b-2 border-black">
-        <div className="max-w-7xl mx-auto space-y-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs font-black border-b-2 border-black pb-4">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-black text-white flex items-center justify-center text-[10px]">JB</div>
-              <span className="uppercase">JAIYANTH B — SOFTWARE ENGINEER</span>
-            </div>
-
-            <div className="flex items-center gap-6 uppercase">
-              <a href="#about" className="hover:underline">About</a>
-              <a href="#work" className="hover:underline">Work</a>
-              <a href="#contact" className="hover:underline">Contact</a>
-            </div>
+      {/* Restrained Editorial Footer */}
+      <footer className="border-t border-[#E5E2DC] px-6 py-10 bg-[#FCFBF9] text-[#6B6B6B] text-xs">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 font-label tracking-wider uppercase text-[11px]">
+          <div>
+            <span>© 2026 Jaiyanth B · AI + Full-Stack Engineer</span>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] font-black text-black/70">
-            <span>© 2026 JAIYANTH B. ALL RIGHTS RESERVED.</span>
-
-            <div className="flex items-center gap-4">
-              <a href="#hero" className="hover:text-black transition-colors">BACK TO TOP ↑</a>
-              <a href={IDENTITY.github} target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">GITHUB REPO</a>
-            </div>
+          <div className="flex items-center gap-6">
+            <a href="#hero" className="hover:text-[#1A1A1A] transition-colors">
+              Top ↑
+            </a>
+            <a
+              href={IDENTITY.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#1A1A1A] transition-colors"
+            >
+              GitHub
+            </a>
+            <a
+              href={IDENTITY.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#1A1A1A] transition-colors"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
       </footer>

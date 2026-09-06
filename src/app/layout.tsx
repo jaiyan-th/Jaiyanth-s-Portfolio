@@ -1,62 +1,53 @@
 import type { Metadata, Viewport } from "next";
 import {
-  Anton,
+  Inter,
   Newsreader,
   Fraunces,
   Plus_Jakarta_Sans,
   JetBrains_Mono,
-  Space_Mono,
 } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/effects/theme-provider";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
-import { CursorSpotlight } from "@/components/ui/cursor-spotlight";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE } from "@/data/portfolio";
 
-const anton = Anton({
-  variable: "--font-display",
+const inter = Inter({
+  variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
 const newsreader = Newsreader({
-  variable: "--font-italic",
+  variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   style: ["italic", "normal"],
   display: "swap",
 });
 
 const fraunces = Fraunces({
-  variable: "--font-serif",
+  variable: "--font-display",
   subsets: ["latin"],
   style: ["normal", "italic"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
 const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-sans",
+  variable: "--font-label",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  display: "swap",
-});
-
-const spaceMono = Space_Mono({
-  variable: "--font-label",
-  subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500"],
   display: "swap",
 });
 
@@ -173,14 +164,13 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${anton.variable} ${newsreader.variable} ${fraunces.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} ${spaceMono.variable} antialiased bg-[#EFEFEA] text-black font-sans`}
+        className={`${inter.variable} ${newsreader.variable} ${fraunces.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} antialiased bg-[#FCFBF9] text-[#1A1A1A] font-sans`}
       >
         <ThemeProvider>
           <ScrollProgress />
-          <CursorSpotlight />
           <a
             href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#6D2932] focus:text-white focus:text-sm focus:font-medium"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#2D5F4E] focus:text-white focus:text-sm focus:font-medium"
           >
             Skip to content
           </a>

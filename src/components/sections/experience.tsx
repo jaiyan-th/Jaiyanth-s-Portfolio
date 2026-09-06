@@ -6,27 +6,21 @@ import { motion } from "motion/react";
 
 export function Experience() {
   return (
-    <section id="experience" className="relative bg-[#EFEFEA] text-black border-b-2 border-black py-20 md:py-28 scroll-mt-[57px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="experience" className="relative bg-[#FCFBF9] text-[#1A1A1A] border-b border-[#E5E2DC] py-20 md:py-28 scroll-mt-20">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Eyebrow Header */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-12"
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="space-y-3 mb-16"
         >
-          <div className="flex items-center gap-2.5 mb-3 flex-wrap">
-            <span className="w-2.5 h-2.5 bg-[#C9971C] border border-black inline-block" />
-            <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
-              EXPERIENCE &amp; WORKFLOW
-            </span>
-            <span className="font-editorial-italic text-sm sm:text-base text-[#C9971C] font-semibold tracking-tight select-none">
-              / the journey
-            </span>
-          </div>
-          <h2 className="font-display font-normal text-4xl sm:text-5xl lg:text-6xl text-black leading-[0.96] tracking-tight uppercase">
-            WHERE I&apos;VE <span className="font-editorial-italic normal-case text-[#C9971C] font-semibold tracking-tight">worked.</span>
+          <span className="font-label text-[11px] tracking-[0.14em] uppercase text-[#6B6B6B] block">
+            04 / Experience
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl text-[#1A1A1A] font-normal leading-[1.15] tracking-tight">
+            Work history and engineering <span className="italic text-[#2D5F4E]">practice</span>.
           </h2>
         </motion.div>
 
@@ -34,61 +28,70 @@ export function Experience() {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white border-2 border-black p-6 shadow-[6px_6px_0px_#000000] space-y-3">
-              <div className="flex items-center justify-between border-b-2 border-black pb-3">
-                <span className="font-mono text-xs font-bold text-black">
-                  {EXPERIENCE.period}
-                </span>
-                <span className="bg-[#C9971C] text-black px-2.5 py-0.5 font-mono text-[9.5px] uppercase font-bold border border-black shadow-[1.5px_1.5px_0px_#000000]">
-                  COMPLETED
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-white border border-[#E5E2DC] p-6 sm:p-8 space-y-4"
+            >
+              <div className="flex items-center justify-between border-b border-[#E5E2DC] pb-4 text-xs font-label uppercase tracking-wider text-[#6B6B6B]">
+                <span>{EXPERIENCE.period}</span>
+                <span className="text-[#2D5F4E] font-medium">Internship Completed</span>
+              </div>
+
+              <div>
+                <h3 className="font-serif text-2xl text-[#1A1A1A] font-normal">
+                  {EXPERIENCE.role}
+                </h3>
+                <span className="font-label text-xs uppercase tracking-wider text-[#6B6B6B] block mt-1">
+                  {EXPERIENCE.organisation}
                 </span>
               </div>
 
-              <h3 className="font-display text-3xl text-black uppercase">
-                {EXPERIENCE.role}
-              </h3>
-
-              <span className="font-mono text-xs font-bold text-black/70 block uppercase">
-                {EXPERIENCE.organisation}
-              </span>
-
-              <p className="font-sans text-sm text-black/90 font-semibold leading-relaxed pt-2">
+              <p className="font-sans text-sm text-[#6B6B6B] leading-relaxed pt-2">
                 {EXPERIENCE.reflection}
               </p>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Column: 8-Stage Numbered Workflow Grid */}
           <div className="lg:col-span-7">
-            <div className="bg-white border-2 border-black p-6 shadow-[6px_6px_0px_#000000] space-y-4">
-              <div className="bg-[#C9971C] text-black border-b-2 border-black -m-6 mb-2 p-3.5 flex items-center justify-between">
-                <span className="font-display text-xl uppercase text-black font-bold tracking-wider">
-                  WORKFLOW PIPELINE
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.5, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-white border border-[#E5E2DC] p-6 sm:p-8"
+            >
+              <div className="border-b border-[#E5E2DC] pb-4 mb-2 flex items-center justify-between">
+                <span className="font-label text-xs uppercase tracking-[0.14em] text-[#1A1A1A] font-semibold">
+                  Engineering Workflow &amp; Deliverables
                 </span>
-                <span className="font-mono text-xs font-bold uppercase text-black bg-white px-2 py-0.5 border border-black">
-                  8 STAGES
+                <span className="font-mono text-xs text-[#6B6B6B]">
+                  8 stages
                 </span>
               </div>
 
-              <div className="divide-y-2 divide-black font-mono text-xs pt-2">
+              <div className="divide-y divide-[#E5E2DC]">
                 {EXPERIENCE.work.map((item, idx) => {
                   const stageNum = String(idx + 1).padStart(2, "0");
                   return (
-                    <div key={item} className="py-3 flex items-center justify-between group">
-                      <div className="flex items-center gap-3">
-                        <span className="w-2 h-2 bg-[#C9971C] border border-black inline-block group-hover:bg-black transition-colors" />
-                        <span className="font-black text-black uppercase tracking-wider">
+                    <div key={item} className="py-3.5 flex items-center justify-between group">
+                      <div className="flex items-baseline gap-4">
+                        <span className="font-serif italic text-sm text-[#2D5F4E] font-normal w-5">
+                          {stageNum}
+                        </span>
+                        <span className="font-sans text-sm text-[#1A1A1A] font-normal">
                           {item}
                         </span>
                       </div>
-                      <span className="font-black text-black/50">
-                        {stageNum}
-                      </span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#E5E2DC] group-hover:bg-[#2D5F4E] transition-colors" />
                     </div>
                   );
                 })}
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

@@ -7,70 +7,73 @@ import { motion } from "motion/react";
 
 export function About() {
   return (
-    <section id="about" className="relative bg-[#EFEFEA] text-black border-b-2 border-black pt-12 pb-16 md:pt-14 md:pb-24 scroll-mt-[57px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Two-Column Editorial Layout with Photo Aligned to Top */}
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+    <section id="about" className="relative bg-[#FCFBF9] text-[#1A1A1A] border-b border-[#E5E2DC] py-20 md:py-28 scroll-mt-20">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Eyebrow, Heading & Narrative */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Eyebrow Header */}
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="space-y-3"
             >
-              <div className="flex items-center gap-2.5 mb-3 flex-wrap">
-                <span className="w-2.5 h-2.5 bg-[#C9971C] border border-black inline-block" />
-                <span className="font-mono text-xs font-bold tracking-widest text-black uppercase">
-                  WHO YOU&apos;D BE WORKING WITH
-                </span>
-                <span className="font-editorial-italic text-sm sm:text-base text-[#C9971C] font-semibold tracking-tight select-none">
-                  / the background
-                </span>
-              </div>
-              <h2 className="font-display font-normal text-4xl sm:text-5xl lg:text-6xl text-black leading-[0.96] tracking-tight uppercase">
-                ENGINEER &amp; BUILDER, <br />
-                <span className="text-black">SHIPPING</span>{" "}
-                <span className="font-editorial-italic normal-case text-[#C9971C] font-semibold tracking-tight">end-to-end.</span>
+              <span className="font-label text-[11px] tracking-[0.14em] uppercase text-[#6B6B6B] block">
+                01 / Background
+              </span>
+              <h2 className="font-serif text-3xl sm:text-4xl text-[#1A1A1A] font-normal leading-[1.15] tracking-tight">
+                Engineering at the intersection of{" "}
+                <span className="italic text-[#2D5F4E]">models</span> and production.
               </h2>
             </motion.div>
 
-            <h3 className="font-sans font-black text-lg sm:text-xl text-black leading-relaxed pt-2">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+              className="font-sans text-base text-[#1A1A1A] font-medium leading-relaxed pt-1"
+            >
               {ABOUT.statement}
-            </h3>
+            </motion.p>
 
-            <div className="space-y-4 font-sans text-sm sm:text-base text-black/90 leading-relaxed font-semibold">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="space-y-4 font-sans text-sm sm:text-base text-[#6B6B6B] leading-relaxed max-w-[640px]"
+            >
               <p>{ABOUT.biography[0]}</p>
               <p>{ABOUT.biography[1]}</p>
               <p>{ABOUT.biography[2]}</p>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Column: Profile Photo */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="lg:col-span-5 flex justify-center lg:justify-end lg:pt-20"
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 flex flex-col justify-start lg:pt-6"
           >
-            <div className="w-full max-w-[400px] bg-white border-2 border-black shadow-[6px_6px_0px_#000000] overflow-hidden">
-              <div className="bg-[#C9971C] border-b-2 border-black px-4 py-2.5">
-                <span className="font-display text-xl text-black font-bold tracking-wider block uppercase">
-                  JAIYANTH B.
-                </span>
-              </div>
-              <div className="relative w-full aspect-square">
+            <div className="w-full max-w-[360px] mx-auto lg:ml-auto border border-[#E5E2DC] bg-white p-2">
+              <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#F7F6F2]">
                 <Image
                   src="/images/jaiyanth-profile.jpg"
-                  alt="Jaiyanth B. — Software Engineer"
+                  alt="Jaiyanth B — AI & Full-Stack Engineer"
                   fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 1024px) 100vw, 400px"
+                  className="object-cover object-top filter grayscale-[20%] hover:grayscale-0 transition-all duration-500"
+                  sizes="(max-width: 1024px) 100vw, 360px"
                   priority
                   unoptimized
                 />
+              </div>
+              <div className="pt-3 pb-1 px-1 flex items-center justify-between text-[11px] font-label text-[#6B6B6B] tracking-wider uppercase">
+                <span>Jaiyanth B</span>
+                <span className="text-[#2D5F4E]">Engineer</span>
               </div>
             </div>
           </motion.div>
