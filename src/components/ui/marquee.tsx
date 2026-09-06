@@ -8,34 +8,53 @@ interface MarqueeProps {
 }
 
 const DEFAULT_ITEMS = [
-  "PYTHON",
-  "REACT",
-  "NEXT.JS",
-  "TYPESCRIPT",
-  "FLASK",
-  "SUPABASE",
-  "NESTJS",
-  "GROQ",
-  "MISTRAL",
+  "APPLIED AI",
   "RAG PIPELINES",
+  "FULL-STACK ENGINEERING",
+  "PYTHON",
+  "FASTAPI",
+  "REACT 19",
+  "NEXT.JS 16",
+  "TYPESCRIPT",
+  "SUPABASE",
   "REST APIS",
+  "GROQ & MISTRAL",
+  "AES-256-GCM",
+  "VECTOR DATABASES",
   "TAILWIND CSS",
-  "PRISMA ORM",
+  "IEEE CO-AUTHORED",
 ];
 
 export function Marquee({ items = DEFAULT_ITEMS, className = "" }: MarqueeProps) {
-  const displayItems = [...items, ...items, ...items, ...items];
-
   return (
-    <div className={`w-full overflow-hidden bg-white text-black border-y-2 border-black py-2.5 sm:py-3 ${className}`}>
-      <div className="animate-marquee flex items-center gap-6 whitespace-nowrap font-display text-xl sm:text-2xl tracking-wider uppercase">
-        {displayItems.map((text, idx) => (
-          <div key={idx} className="flex items-center gap-6">
-            <span className="hover:bg-[#D9622B] hover:text-black px-1.5 py-0.5 transition-colors">{text}</span>
-            <span className="text-black text-lg sm:text-xl font-bold leading-none select-none">•</span>
-          </div>
-        ))}
+    <aside
+      aria-label="Core technologies and skills ticker"
+      className={`w-full overflow-hidden bg-white text-[#111111] border-b-[3px] border-[#111111] py-3.5 select-none ${className}`}
+    >
+      <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
+        {/* Track 1 */}
+        <div className="flex items-center gap-8 pr-8 font-heading text-sm sm:text-base font-extrabold tracking-wider uppercase shrink-0">
+          {items.map((text, idx) => (
+            <div key={`track1-${idx}`} className="flex items-center gap-8">
+              <span className="hover:text-[#D9622B] transition-colors cursor-default">{text}</span>
+              <span className="w-2 h-2 rounded-full bg-[#D9622B] shrink-0" aria-hidden="true" />
+            </div>
+          ))}
+        </div>
+
+        {/* Track 2 (for seamless infinite loop) */}
+        <div
+          aria-hidden="true"
+          className="flex items-center gap-8 pr-8 font-heading text-sm sm:text-base font-extrabold tracking-wider uppercase shrink-0"
+        >
+          {items.map((text, idx) => (
+            <div key={`track2-${idx}`} className="flex items-center gap-8">
+              <span className="hover:text-[#D9622B] transition-colors cursor-default">{text}</span>
+              <span className="w-2 h-2 rounded-full bg-[#D9622B] shrink-0" aria-hidden="true" />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </aside>
   );
 }

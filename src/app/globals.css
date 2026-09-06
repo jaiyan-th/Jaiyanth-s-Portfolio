@@ -183,6 +183,25 @@
     padding: 0.1em 0.3em;
     border-radius: 2px;
   }
+
+  /* Continuous horizontal Marquee ticker */
+  .animate-marquee {
+    animation: marquee-ticker 28s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+      animation: none;
+    }
+  }
+}
+
+@keyframes marquee-ticker {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 ::-webkit-scrollbar {
