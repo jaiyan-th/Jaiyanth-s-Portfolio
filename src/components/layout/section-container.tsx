@@ -7,12 +7,8 @@ interface SectionContainerProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Shared container ensuring consistent left/right gutters and max-width across all sections.
- * Responsive padding scale:
- * - Mobile: px-4 (16px)
- * - Tablet: sm:px-6 (24px)
- * - Desktop: md:px-8 (32px)
- * Standard max-width: max-w-6xl (1152px)
+ * Shared container set to completely flush (0px side margins and 0px side padding)
+ * ensuring content and borders touch the absolute browser window edges directly.
  */
 export function SectionContainer({
   children,
@@ -22,7 +18,7 @@ export function SectionContainer({
 }: SectionContainerProps) {
   return (
     <Component
-      className={`w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 ${className}`}
+      className={`w-full px-0 ${className}`}
       {...props}
     >
       {children}

@@ -231,15 +231,15 @@
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF3EE;
-  border-left: 2px solid #111111;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #111111;
+  background: rgba(17, 17, 17, 0.25);
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #D9622B;
