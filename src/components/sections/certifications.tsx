@@ -57,14 +57,14 @@ export function Certifications() {
           </div>
 
           {/* Section Headline with ONE italic accent word (verified) */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] leading-[1.12] tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#111111] leading-[1.08] tracking-tight">
             Certifications,{" "}
             <span className="italic text-[#D9622B]">verified.</span>
           </h2>
         </motion.div>
 
         {/* Grid of Thick-Bordered Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {CERTIFICATIONS.map((cert, idx) => (
             <motion.div
               key={cert.index}
@@ -72,19 +72,19 @@ export function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="neo-card p-6 sm:p-7 bg-white space-y-4 flex flex-col justify-between min-h-[140px]"
+              className="neo-card p-6 sm:p-8 bg-white space-y-4 flex flex-col justify-between min-h-[160px]"
             >
               {/* Issuer Bold + Plain Small-Caps Muted Year Text (No border, no fill) */}
               <div className="flex items-baseline justify-between border-b-2 border-[#111111] pb-3">
-                <span className="font-heading text-lg sm:text-xl font-extrabold text-[#111111]">
+                <span className="font-heading text-lg sm:text-xl lg:text-2xl font-extrabold text-[#111111]">
                   {cert.issuer}
                 </span>
-                <span className="font-label-caps text-xs text-[#6B6B6B] tracking-wider">
+                <span className="font-label-caps text-xs sm:text-sm text-[#6B6B6B] tracking-wider font-semibold">
                   {cert.year}
                 </span>
               </div>
 
-              <p className="font-body text-base font-semibold text-[#222222] leading-snug">
+              <p className="font-body text-base sm:text-lg font-semibold text-[#222222] leading-snug">
                 {cert.name}
               </p>
             </motion.div>

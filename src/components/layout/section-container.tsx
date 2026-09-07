@@ -7,8 +7,8 @@ interface SectionContainerProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Shared container with subtle edge padding (16px-24px) ensuring a small,
- * clean breathing space on both the left and right edges.
+ * Shared container with spacious max-width and comfortable edge padding (20px-48px)
+ * ensuring a refined, balanced breathing space on both the left and right sides.
  */
 export function SectionContainer({
   children,
@@ -18,7 +18,7 @@ export function SectionContainer({
 }: SectionContainerProps) {
   return (
     <Component
-      className={`w-full px-4 sm:px-5 md:px-6 ${className}`}
+      className={`w-full max-w-[1380px] mx-auto px-5 sm:px-8 md:px-10 lg:px-12 ${className}`}
       {...props}
     >
       {children}

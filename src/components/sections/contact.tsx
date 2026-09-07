@@ -133,11 +133,11 @@ export function Contact() {
             </div>
 
             {/* Section Headline with ONE italic accent word (talk) */}
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] leading-[1.12] tracking-tight">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#111111] leading-[1.08] tracking-tight">
               Let&apos;s{" "}
               <span className="italic text-[#D9622B]">talk.</span>
             </h2>
-            <p className="font-body text-base sm:text-lg text-[#444444] max-w-[620px]">
+            <p className="font-body text-base sm:text-lg lg:text-[1.2rem] text-[#444444] max-w-2xl xl:max-w-3xl">
               Open for full-time engineering roles, internship opportunities, and technical collaboration.
             </p>
           </motion.div>
@@ -151,19 +151,19 @@ export function Contact() {
               transition={{ duration: 0.45 }}
               className="lg:col-span-5"
             >
-              <div className="neo-card p-6 sm:p-8 bg-white space-y-6">
-                <div className="flex items-center justify-between border-b-2 border-[#111111] pb-3">
-                  <span className="font-label-caps text-xs text-[#555555]">
+              <div className="neo-card p-6 sm:p-8 lg:p-10 bg-white space-y-6">
+                <div className="flex items-center justify-between border-b-2 border-[#111111] pb-3.5">
+                  <span className="font-label-caps text-xs sm:text-[13px] text-[#555555]">
                     DIRECT CONTACT
                   </span>
-                  <span className="sticker-badge bg-[#111111] text-white text-[10px] rotate-1">
+                  <span className="sticker-badge bg-[#111111] text-white text-[10px] sm:text-[11px] py-0.5 px-2.5 rotate-1">
                     AVAILABLE 2026
                   </span>
                 </div>
 
-                <div className="space-y-4 font-body text-sm">
+                <div className="space-y-5 font-body text-sm sm:text-base">
                   <div>
-                    <span className="font-label-caps text-[10px] text-[#777777] block mb-1">
+                    <span className="font-label-caps text-[11px] sm:text-xs text-[#777777] block mb-1.5">
                       EMAIL
                     </span>
                     <a
@@ -175,11 +175,11 @@ export function Contact() {
                     </a>
                   </div>
 
-                  <div className="border-t-[1.5px] border-[#111111]/20 pt-3">
-                    <span className="font-label-caps text-[10px] text-[#777777] block mb-1">
+                  <div className="border-t-[1.5px] border-[#111111]/20 pt-4">
+                    <span className="font-label-caps text-[11px] sm:text-xs text-[#777777] block mb-1.5">
                       LOCATION
                     </span>
-                    <p className="font-body text-sm font-semibold text-[#111111] flex items-center gap-1.5">
+                    <p className="font-body text-sm sm:text-base font-semibold text-[#111111] flex items-center gap-1.5">
                       <MapPin className="w-4 h-4 text-[#111111]" />
                       Karur, Tamil Nadu, India
                     </p>

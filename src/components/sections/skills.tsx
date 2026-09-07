@@ -57,13 +57,13 @@ export function Skills() {
           </div>
 
           {/* Section Headline with ONE italic accent word (build) */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] leading-[1.12] tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#111111] leading-[1.08] tracking-tight">
             The stack I <span className="italic text-[#D9622B]">build</span> with.
           </h2>
         </motion.div>
 
         {/* Flat Grid: 2 rows x 3 columns, NO card borders, NO shadows, NO rotation, NO numbering */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 lg:gap-y-14">
           {SKILL_CATEGORIES.map((category, idx) => (
             <motion.div
               key={category.title}
@@ -73,20 +73,20 @@ export function Skills() {
               transition={{ duration: 0.4, delay: idx * 0.04 }}
               className="space-y-3"
             >
-              {/* Category Label + Thin ~40px Black Underline Rule */}
+              {/* Category Label + Thin Black Underline Rule */}
               <div>
-                <h3 className="font-label-caps text-xs sm:text-[13px] text-[#111111] font-extrabold tracking-wider">
+                <h3 className="font-label-caps text-xs sm:text-sm text-[#111111] font-extrabold tracking-wider">
                   {category.title}
                 </h3>
-                <div className="w-10 h-[2px] bg-[#111111] mt-2 mb-3" />
+                <div className="w-12 h-[2.5px] bg-[#111111] mt-2 mb-3.5" />
               </div>
 
               {/* Skills as Individual Pill Badges: 1.5px border, transparent bg, plain sans text */}
-              <div className="flex flex-wrap gap-2 pt-1">
+              <div className="flex flex-wrap gap-2.5 pt-1">
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="border-[1.5px] border-[#111111] bg-transparent text-[#111111] px-3 py-1 font-sans text-xs font-semibold rounded-none inline-block"
+                    className="border-[1.5px] border-[#111111] bg-transparent text-[#111111] px-3.5 py-1.5 font-sans text-xs sm:text-[13px] font-semibold rounded-none inline-block"
                   >
                     {skill}
                   </span>

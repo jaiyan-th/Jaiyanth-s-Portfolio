@@ -32,13 +32,13 @@ export function About() {
             </div>
 
             {/* Section Headline with ONE italic accent word (story) */}
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] leading-[1.12] tracking-tight">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#111111] leading-[1.08] tracking-tight">
               From signal to system to{" "}
               <span className="italic text-[#D9622B]">story.</span>
             </h2>
 
             {/* Bio Copy */}
-            <div className="space-y-4 font-body text-base sm:text-[17px] text-[#222222] leading-relaxed max-w-[620px]">
+            <div className="space-y-4 font-body text-base sm:text-lg lg:text-[1.15rem] text-[#222222] leading-relaxed max-w-2xl xl:max-w-3xl">
               <p>
                 I&apos;m a final-year Computer Science &amp; Business Systems student focused on applied AI and full-stack engineering. My work sits between research and production — RAG pipelines, conversational systems, structured APIs, and end-to-end products that hold up under real use.
               </p>
@@ -56,7 +56,7 @@ export function About() {
             transition={{ duration: 0.45, delay: 0.1 }}
             className="lg:col-span-5 flex justify-center lg:justify-end"
           >
-            <div className="w-full max-w-[380px] sm:max-w-[400px] neo-card p-3.5 bg-white space-y-3">
+            <div className="w-full max-w-[400px] sm:max-w-[430px] lg:max-w-[450px] neo-card p-3.5 sm:p-4 bg-white space-y-3">
               {/* Portrait Aspect Ratio 4:5, not clipped */}
               <div className="relative w-full aspect-[4/5] overflow-hidden border-2 border-[#111111] bg-[#FAF3EE]">
                 <Image
@@ -64,15 +64,15 @@ export function About() {
                   alt="Jaiyanth B — AI & Full-Stack Engineer"
                   fill
                   className="object-cover object-top filter grayscale contrast-105 hover:grayscale-0 transition-all duration-300"
-                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 380px, 400px"
+                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 430px, 450px"
                   priority
                 />
               </div>
 
               {/* Photo Caption Tag */}
-              <div className="pt-1 pb-1 px-1 flex items-center justify-between font-label-caps text-xs text-[#111111]">
+              <div className="pt-1.5 pb-1 px-1 flex items-center justify-between font-label-caps text-xs sm:text-[13px] text-[#111111]">
                 <span className="font-bold tracking-wider">JAIYANTH B</span>
-                <span className="sticker-badge bg-[#111111] text-white text-[10px] py-0.5 px-2">
+                <span className="sticker-badge bg-[#111111] text-white text-[10px] sm:text-[11px] py-0.5 px-2.5">
                   ENGINEER
                 </span>
               </div>

@@ -55,7 +55,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
   };
 
   return (
-    <div className="neo-card neo-card-interactive p-6 sm:p-8 lg:p-8 bg-white space-y-6">
+    <div className="neo-card neo-card-interactive p-6 sm:p-8 lg:p-10 bg-white space-y-6">
       <div className={`flex flex-col ${isReversed ? "lg:flex-row-reverse" : "lg:flex-row"} gap-8 lg:gap-10 items-start`}>
         {/* Screenshot / Image Frame */}
         <div className="w-full lg:w-[50%] shrink-0 relative">
@@ -79,32 +79,32 @@ function ProjectCard({ project, index }: ProjectCardProps) {
         </div>
 
         {/* Content Side */}
-        <div className="w-full lg:w-[50%] flex flex-col justify-between space-y-4">
-          <div className="space-y-2">
+        <div className="w-full lg:w-[50%] flex flex-col justify-between space-y-5">
+          <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <span className="font-mono-code text-xs font-bold text-[#777777]">
+              <span className="font-mono-code text-xs sm:text-[13px] font-bold text-[#777777]">
                 PROJECT 0{index + 1}
               </span>
               <Link
                 href={`/projects/${project.slug}`}
-                className="font-label-caps text-xs text-[#111111] hover:underline inline-flex items-center gap-0.5 font-bold"
+                className="font-label-caps text-xs sm:text-[13px] text-[#111111] hover:underline inline-flex items-center gap-0.5 font-bold"
               >
                 CASE STUDY <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>
 
-            <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#111111] tracking-tight">
+            <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#111111] tracking-tight">
               {project.title}
             </h3>
 
-            <p className="font-body text-base text-[#333333] leading-relaxed pt-1">
+            <p className="font-body text-base sm:text-lg lg:text-[1.15rem] text-[#333333] leading-relaxed pt-1">
               {config.copy}
             </p>
           </div>
 
           {/* Plain text tech stack */}
-          <div className="border-t-2 border-[#111111]/15 pt-3 font-mono-code text-xs text-[#555555]">
-            <span className="font-label-caps text-[10px] text-[#111111] font-bold mr-2 uppercase">
+          <div className="border-t-2 border-[#111111]/15 pt-3 font-mono-code text-xs sm:text-[13px] text-[#555555]">
+            <span className="font-label-caps text-[11px] sm:text-xs text-[#111111] font-bold mr-2 uppercase">
               STACK:
             </span>
             {config.stackText}
@@ -139,7 +139,7 @@ export function Work() {
           </div>
 
           {/* Section Headline with ONE italic accent word (shipped) */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] leading-[1.12] tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#111111] leading-[1.08] tracking-tight">
             Things I&apos;ve built and{" "}
             <span className="italic text-[#D9622B]">shipped.</span>
           </h2>
