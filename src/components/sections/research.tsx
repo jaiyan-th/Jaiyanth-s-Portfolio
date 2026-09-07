@@ -33,7 +33,7 @@ export function Research() {
               <FileText className="w-3.5 h-3.5 text-[#FFFFFF]" />
               RESEARCH
             </span>
-            <span className="font-body italic text-[#D9622B] text-sm font-semibold">
+            <span className="font-body italic text-[#E5484D] text-sm font-semibold">
               / peer-reviewed
             </span>
           </div>
@@ -41,7 +41,7 @@ export function Research() {
           {/* Section Headline with ONE italic accent word (print) */}
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#111111] leading-[1.08] tracking-tight">
             Research that made it to{" "}
-            <span className="italic text-[#D9622B]">print.</span>
+            <span className="italic text-[#E5484D]">print.</span>
           </h2>
         </motion.div>
 

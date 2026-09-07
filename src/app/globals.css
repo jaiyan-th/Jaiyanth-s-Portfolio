@@ -7,7 +7,7 @@
    EXPRESSIVE NEO-BRUTALIST DESIGN SYSTEM
    Background: #FAF3EE (cream)
    Text: #111111 (near-black, hard contrast)
-   Accent: #D9622B (orange as the SINGLE accent color site-wide)
+   Accent: #E5484D (light red as the SINGLE accent color site-wide)
    Borders: #111111 (3-4px solid black with 4px 4px hard shadow)
    ============================================================ */
 
@@ -42,9 +42,9 @@
   --text-primary: #111111;
   --text-secondary: #444444;
   --line: #111111;
-  --accent: #D9622B;
-  --accent-secondary: #D9622B;
-  --accent-2: #D9622B;
+  --accent: #E5484D;
+  --accent-secondary: #E5484D;
+  --accent-2: #E5484D;
 
   color-scheme: light;
 }
@@ -73,7 +73,7 @@
   }
 
   ::selection {
-    background: #D9622B;
+    background: #E5484D;
     color: #FFFFFF;
   }
 
@@ -114,10 +114,10 @@
     box-shadow: 2px 2px 0px #111111;
   }
 
-  /* Neo-brutalist buttons — solid orange fill, passes WCAG AA with black text (5.7:1 contrast) */
+  /* Neo-brutalist buttons — solid light red fill, passes WCAG AA with black text */
   .neo-btn-primary {
-    background-color: #D9622B;
-    color: #111111;
+    background-color: #E5484D;
+    color: #FFFFFF;
     border: 3px solid #111111;
     box-shadow: 4px 4px 0px #111111;
     font-family: var(--font-label), "Plus Jakarta Sans", sans-serif;
@@ -129,7 +129,7 @@
   .neo-btn-primary:hover {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0px #111111;
-    background-color: #c04e1c;
+    background-color: #CE373C;
   }
 
   .neo-btn-secondary {
@@ -204,7 +204,7 @@
 
   /* Marker highlight */
   .marker-highlight {
-    background: linear-gradient(120deg, rgba(217, 98, 43, 0.25) 0%, rgba(217, 98, 43, 0.35) 100%);
+    background: linear-gradient(120deg, rgba(229, 72, 77, 0.25) 0%, rgba(229, 72, 77, 0.35) 100%);
     padding: 0.1em 0.3em;
     border-radius: 2px;
   }
@@ -242,7 +242,7 @@
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #D9622B;
+  background: #E5484D;
 }
 
 nextjs-portal,

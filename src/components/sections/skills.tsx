@@ -45,20 +45,20 @@ export function Skills() {
           variants={fadeUpVariants}
           className="space-y-4"
         >
-          {/* Sticker Label with Square Icon and Italic Muted Orange Text */}
+          {/* Sticker Label with Square Icon and Italic Light Red Text */}
           <div className="flex items-center gap-2.5">
             <span className="sticker-badge bg-[#111111] text-white -rotate-1">
               <SquareCode className="w-3.5 h-3.5 text-[#FFFFFF]" />
               STACK
             </span>
-            <span className="font-body italic text-[#D9622B] text-sm font-semibold">
+            <span className="font-body italic text-[#E5484D] text-sm font-semibold">
               / what I reach for
             </span>
           </div>
 
           {/* Section Headline with ONE italic accent word (build) */}
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#111111] leading-[1.08] tracking-tight">
-            The stack I <span className="italic text-[#D9622B]">build</span> with.
+            The stack I <span className="italic text-[#E5484D]">build</span> with.
           </h2>
         </motion.div>
 

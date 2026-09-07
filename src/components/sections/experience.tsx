@@ -35,7 +35,7 @@ export function Experience() {
               <Briefcase className="w-3.5 h-3.5 text-[#FFFFFF]" />
               EXPERIENCE
             </span>
-            <span className="font-body italic text-[#D9622B] text-sm font-semibold">
+            <span className="font-body italic text-[#E5484D] text-sm font-semibold">
               / on the job
             </span>
           </div>
@@ -43,7 +43,7 @@ export function Experience() {
           {/* Section Headline with ONE italic accent word (worked) */}
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#111111] leading-[1.08] tracking-tight">
             Where I&apos;ve{" "}
-            <span className="italic text-[#D9622B]">worked.</span>
+            <span className="italic text-[#E5484D]">worked.</span>
           </h2>
         </motion.div>
 

@@ -26,10 +26,10 @@ export function Hero() {
               </span>
             </div>
 
-            {/* Headline with ONE accent word (matters) in italic orange */}
+            {/* Headline with ONE accent word (matters) in italic light red */}
             <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] xl:text-[4.75rem] font-extrabold leading-[1.05] tracking-tight text-[#111111]">
               Engineering that doesn&apos;t break when it{" "}
-              <span className="italic text-[#D9622B]">matters.</span>
+              <span className="italic text-[#E5484D]">matters.</span>
             </h1>
 
             {/* Subhead */}

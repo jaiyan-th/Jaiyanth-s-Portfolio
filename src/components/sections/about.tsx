@@ -26,7 +26,7 @@ export function About() {
                 <User className="w-3.5 h-3.5 text-[#FFFFFF]" />
                 ABOUT
               </span>
-              <span className="font-body italic text-[#D9622B] text-sm font-semibold">
+              <span className="font-body italic text-[#E5484D] text-sm font-semibold">
                 / the story so far
               </span>
             </div>
@@ -34,7 +34,7 @@ export function About() {
             {/* Section Headline with ONE italic accent word (story) */}
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#111111] leading-[1.08] tracking-tight">
               From signal to system to{" "}
-              <span className="italic text-[#D9622B]">story.</span>
+              <span className="italic text-[#E5484D]">story.</span>
             </h2>
 
             {/* Bio Copy */}

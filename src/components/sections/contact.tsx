@@ -127,7 +127,7 @@ export function Contact() {
                 <Send className="w-3.5 h-3.5 text-[#FFFFFF]" />
                 CONTACT
               </span>
-              <span className="font-body italic text-[#D9622B] text-sm font-semibold">
+              <span className="font-body italic text-[#E5484D] text-sm font-semibold">
                 / start here
               </span>
             </div>
@@ -135,7 +135,7 @@ export function Contact() {
             {/* Section Headline with ONE italic accent word (talk) */}
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#111111] leading-[1.08] tracking-tight">
               Let&apos;s{" "}
-              <span className="italic text-[#D9622B]">talk.</span>
+              <span className="italic text-[#E5484D]">talk.</span>
             </h2>
             <p className="font-body text-base sm:text-lg lg:text-[1.2rem] text-[#444444] max-w-2xl xl:max-w-3xl">
               Open for full-time engineering roles, internship opportunities, and technical collaboration.

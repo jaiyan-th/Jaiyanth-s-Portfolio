@@ -36,8 +36,8 @@ export function Marquee({ items = DEFAULT_ITEMS, className = "" }: MarqueeProps)
         <div className="flex items-center gap-8 pr-8 font-heading text-sm sm:text-base font-extrabold tracking-wider uppercase shrink-0">
           {items.map((text, idx) => (
             <div key={`track1-${idx}`} className="flex items-center gap-8">
-              <span className="hover:text-[#D9622B] transition-colors cursor-default">{text}</span>
-              <span className="w-2 h-2 rounded-full bg-[#D9622B] shrink-0" aria-hidden="true" />
+              <span className="hover:text-[#E5484D] transition-colors cursor-default">{text}</span>
+              <span className="w-2 h-2 rounded-full bg-[#E5484D] shrink-0" aria-hidden="true" />
             </div>
           ))}
         </div>
@@ -49,8 +49,8 @@ export function Marquee({ items = DEFAULT_ITEMS, className = "" }: MarqueeProps)
         >
           {items.map((text, idx) => (
             <div key={`track2-${idx}`} className="flex items-center gap-8">
-              <span className="hover:text-[#D9622B] transition-colors cursor-default">{text}</span>
-              <span className="w-2 h-2 rounded-full bg-[#D9622B] shrink-0" aria-hidden="true" />
+              <span className="hover:text-[#E5484D] transition-colors cursor-default">{text}</span>
+              <span className="w-2 h-2 rounded-full bg-[#E5484D] shrink-0" aria-hidden="true" />
             </div>
           ))}
         </div>

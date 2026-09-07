@@ -11,14 +11,14 @@ import { SectionContainer } from "@/components/layout/section-container";
 const PROJECT_CONFIGS: Record<string, { sticker: string; stickerBg: string; rotation: string; copy: string; stackText: string }> = {
   "fake-news-detector": {
     sticker: "APPLIED AI · RAG",
-    stickerBg: "bg-[#D9622B] text-white",
+    stickerBg: "bg-[#E5484D] text-white",
     rotation: "-rotate-2",
     copy: "A RAG-powered fact-checking pipeline that cross-references incoming articles against a curated evidence base and surfaces a retrieval-grounded trust verdict.",
     stackText: "Python, Flask, Supabase, Vector Database, RAG",
   },
   "up-skill": {
     sticker: "APPLIED AI · CAREER",
-    stickerBg: "bg-[#D9622B] text-white",
+    stickerBg: "bg-[#E5484D] text-white",
     rotation: "rotate-2",
     copy: "An AI career assistant that scores resumes ATS-style, runs mock interviews, maps skill gaps, and proposes personalized learning paths.",
     stackText: "Flask, Supabase, Stitch, NLP, Groq",
@@ -32,7 +32,7 @@ const PROJECT_CONFIGS: Record<string, { sticker: string; stickerBg: string; rota
   },
   "secure-document-vault": {
     sticker: "FULL-STACK · SECURITY",
-    stickerBg: "bg-[#D9622B] text-white",
+    stickerBg: "bg-[#E5484D] text-white",
     rotation: "rotate-1",
     copy: "A zero-trust encrypted document vault with AES-256-GCM authenticated encryption, role-based access control, chunked streaming, and immutable audit logging.",
     stackText: "Python, FastAPI, SQLAlchemy, PostgreSQL, AES-256-GCM",
@@ -133,7 +133,7 @@ export function Work() {
               <FolderGit2 className="w-3.5 h-3.5 text-[#FFFFFF]" />
               WORK
             </span>
-            <span className="font-body italic text-[#D9622B] text-sm font-semibold">
+            <span className="font-body italic text-[#E5484D] text-sm font-semibold">
               / proof of work
             </span>
           </div>
@@ -141,7 +141,7 @@ export function Work() {
           {/* Section Headline with ONE italic accent word (shipped) */}
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#111111] leading-[1.08] tracking-tight">
             Things I&apos;ve built and{" "}
-            <span className="italic text-[#D9622B]">shipped.</span>
+            <span className="italic text-[#E5484D]">shipped.</span>
           </h2>
         </motion.div>
 
