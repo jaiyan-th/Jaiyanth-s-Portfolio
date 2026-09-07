@@ -4,6 +4,7 @@ import * as React from "react";
 import { motion } from "motion/react";
 import { SquareCode } from "lucide-react";
 import { fadeUpVariants } from "@/lib/motion";
+import { SectionContainer } from "@/components/layout/section-container";
 
 const SKILL_CATEGORIES = [
   {
@@ -35,7 +36,7 @@ const SKILL_CATEGORIES = [
 export function Skills() {
   return (
     <section id="skills" className="relative bg-[#FAF3EE] text-[#111111] border-b-[3px] border-[#111111] py-16 md:py-24 scroll-mt-20">
-      <div className="max-w-6xl mx-auto px-6 space-y-14">
+      <SectionContainer className="space-y-14">
         {/* Header Block */}
         <motion.div
           initial="hidden"
@@ -101,7 +102,7 @@ export function Skills() {
             IEEE Published · 4 Production-Ready Projects Shipped
           </p>
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 }

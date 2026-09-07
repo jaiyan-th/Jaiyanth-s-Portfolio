@@ -29,7 +29,7 @@ export function Marquee({ items = DEFAULT_ITEMS, className = "" }: MarqueeProps)
   return (
     <aside
       aria-label="Core technologies and skills ticker"
-      className={`w-full overflow-hidden bg-white text-[#111111] border-b-[3px] border-[#111111] py-3.5 select-none ${className}`}
+      className={`w-full max-w-full overflow-hidden overflow-x-clip bg-white text-[#111111] border-b-[3px] border-[#111111] py-3.5 select-none ${className}`}
     >
       <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
         {/* Track 1 */}

@@ -5,11 +5,12 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { User } from "lucide-react";
 import { fadeUpVariants } from "@/lib/motion";
+import { SectionContainer } from "@/components/layout/section-container";
 
 export function About() {
   return (
     <section id="about" className="relative bg-[#FAF3EE] text-[#111111] border-b-[3px] border-[#111111] min-h-[calc(100vh-5rem)] flex flex-col justify-center py-20 md:py-28 scroll-mt-20">
-      <div className="max-w-6xl mx-auto px-6">
+      <SectionContainer>
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           {/* Left Column: Eyebrow, Plain Black Headline, Bio */}
           <motion.div
@@ -78,7 +79,7 @@ export function About() {
             </div>
           </motion.div>
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 }

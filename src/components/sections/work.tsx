@@ -6,6 +6,7 @@ import { ArrowUpRight, FolderGit2 } from "lucide-react";
 import { PROJECTS } from "@/data/portfolio";
 import { motion } from "motion/react";
 import { fadeUpVariants } from "@/lib/motion";
+import { SectionContainer } from "@/components/layout/section-container";
 
 const PROJECT_CONFIGS: Record<string, { sticker: string; stickerBg: string; rotation: string; copy: string; stackText: string }> = {
   "fake-news-detector": {
@@ -117,7 +118,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 export function Work() {
   return (
     <section id="work" className="relative bg-[#FAF3EE] text-[#111111] border-b-[3px] border-[#111111] py-16 md:py-24 scroll-mt-20">
-      <div className="max-w-6xl mx-auto px-6 space-y-12">
+      <SectionContainer className="space-y-12">
         {/* Section Header */}
         <motion.div
           initial="hidden"
@@ -182,7 +183,7 @@ export function Work() {
             </a>
           </div>
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 }

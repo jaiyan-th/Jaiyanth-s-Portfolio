@@ -5,6 +5,7 @@ import { ArrowUpRight, FileText } from "lucide-react";
 import { RESEARCH } from "@/data/portfolio";
 import { motion } from "motion/react";
 import { fadeUpVariants } from "@/lib/motion";
+import { SectionContainer } from "@/components/layout/section-container";
 
 export function Research() {
   const keywords = [
@@ -17,7 +18,7 @@ export function Research() {
 
   return (
     <section id="achievements" className="relative bg-[#FAF3EE] text-[#111111] border-b-[3px] border-[#111111] py-16 md:py-24 scroll-mt-20">
-      <div className="max-w-6xl mx-auto px-6 space-y-12">
+      <SectionContainer className="space-y-12">
         {/* Section Header: Plain bold black headline, no italic, no color */}
         <motion.div
           initial="hidden"
@@ -101,7 +102,7 @@ export function Research() {
             {keywords.join(", ")}
           </div>
         </motion.div>
-      </div>
+      </SectionContainer>
     </section>
   );
 }

@@ -60,12 +60,15 @@
     text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
     background-color: #FAF3EE;
+    max-width: 100%;
+    overflow-x: clip;
   }
   body {
     background-color: #FAF3EE;
     color: #111111;
     font-family: var(--font-body), "Lora", Georgia, serif;
     line-height: 1.65;
+    max-width: 100%;
     overflow-x: clip;
   }
 
@@ -175,6 +178,28 @@
     font-size: 0.75rem;
     font-weight: 600;
     line-height: 1.2;
+  }
+
+  /* Shared Standard Container */
+  .container-main {
+    width: 100%;
+    max-width: 72rem; /* 1152px = max-w-6xl */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-main {
+      padding-left: 1.5rem; /* px-6 */
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 768px) {
+    .container-main {
+      padding-left: 2rem; /* px-8 */
+      padding-right: 2rem;
+    }
   }
 
   /* Marker highlight */

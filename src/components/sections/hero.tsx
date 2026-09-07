@@ -4,11 +4,12 @@ import * as React from "react";
 import { motion } from "motion/react";
 import { MapPin, Target, Layers, Sparkles } from "lucide-react";
 import { fadeUpVariants } from "@/lib/motion";
+import { SectionContainer } from "@/components/layout/section-container";
 
 export function Hero() {
   return (
     <section id="hero" className="relative bg-[#FAF3EE] text-[#111111] pt-16 pb-16 sm:pt-20 sm:pb-20 lg:pt-24 lg:pb-24 border-b-[3px] border-[#111111] scroll-mt-20">
-      <div className="max-w-6xl mx-auto px-6">
+      <SectionContainer>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
           {/* Main Hero Copy (Left 8 cols) */}
           <motion.div
@@ -122,7 +123,7 @@ export function Hero() {
             </div>
           </motion.div>
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 }

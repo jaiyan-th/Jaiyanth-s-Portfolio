@@ -4,6 +4,7 @@ import * as React from "react";
 import { motion } from "motion/react";
 import { Award } from "lucide-react";
 import { fadeUpVariants } from "@/lib/motion";
+import { SectionContainer } from "@/components/layout/section-container";
 
 const CERTIFICATIONS = [
   {
@@ -35,7 +36,7 @@ const CERTIFICATIONS = [
 export function Certifications() {
   return (
     <section id="certifications" className="relative bg-[#FAF3EE] text-[#111111] border-b-[3px] border-[#111111] py-16 md:py-24 scroll-mt-20">
-      <div className="max-w-6xl mx-auto px-6 space-y-12">
+      <SectionContainer className="space-y-12">
         {/* Section Header: Plain bold black headline, no italic, no color */}
         <motion.div
           initial="hidden"
@@ -89,7 +90,7 @@ export function Certifications() {
             </motion.div>
           ))}
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 }

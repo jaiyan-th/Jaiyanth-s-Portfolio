@@ -4,6 +4,8 @@ import * as React from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 
+import { SectionContainer } from "@/components/layout/section-container";
+
 export function FloatingNav() {
   const [active, setActive] = React.useState<string>("#hero");
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
@@ -52,21 +54,21 @@ export function FloatingNav() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#FAF3EE]/95 backdrop-blur-md border-b-[3px] border-[#111111] px-6 py-3.5 transition-colors">
-      <nav aria-label="Main Navigation" className="max-w-6xl mx-auto flex items-center justify-between">
+    <header className="sticky top-0 z-50 bg-[#FAF3EE]/95 backdrop-blur-md border-b-[3px] border-[#111111] py-3.5 transition-colors">
+      <SectionContainer as="nav" aria-label="Main Navigation" className="flex items-center justify-between">
         {/* Left: Brand (Clean logo + wordmark only, no stray badge) */}
         <a
           href="#hero"
           onClick={(e) => handleNavClick(e, "#hero")}
-          className="group cursor-pointer flex items-center"
+          className="group cursor-pointer flex items-center shrink-0"
         >
-          <span className="font-heading text-xl font-extrabold tracking-tight text-[#111111] group-hover:text-[#D9622B] transition-colors">
+          <span className="font-heading text-xl font-extrabold tracking-tight text-[#111111] group-hover:text-[#D9622B] transition-colors whitespace-nowrap">
             JAIYANTH B
           </span>
         </a>
 
         {/* Center Nav Links (Orange underline for active, hover orange) */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-6">
           {navItems.map((item) => {
             const isActive = active === item.href;
             return (
@@ -95,17 +97,17 @@ export function FloatingNav() {
             GET IN TOUCH
           </a>
 
-          {/* Mobile Hamburger Toggle */}
+          {/* Mobile/Tablet Hamburger Toggle */}
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-            className="md:hidden p-2 border-2 border-[#111111] bg-white shadow-[2px_2px_0px_#111111] text-[#111111]"
+            className="lg:hidden p-2 border-2 border-[#111111] bg-white shadow-[2px_2px_0px_#111111] text-[#111111]"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
-      </nav>
+      </SectionContainer>
 
       {/* Mobile Drawer Menu */}
       <AnimatePresence>
@@ -115,9 +117,9 @@ export function FloatingNav() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden mt-3 pt-3 border-t-2 border-[#111111] bg-[#FAF3EE] px-2 py-4"
+            className="lg:hidden mt-3 pt-3 border-t-2 border-[#111111] bg-[#FAF3EE] py-4"
           >
-            <div className="flex flex-col space-y-3">
+            <SectionContainer className="flex flex-col space-y-3">
               {navItems.map((item) => {
                 const isActive = active === item.href;
                 return (
@@ -143,7 +145,7 @@ export function FloatingNav() {
               >
                 GET IN TOUCH
               </a>
-            </div>
+            </SectionContainer>
           </motion.div>
         )}
       </AnimatePresence>

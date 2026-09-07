@@ -5,6 +5,7 @@ import { ArrowUpRight, Mail, MapPin, Send } from "lucide-react";
 import { IDENTITY } from "@/data/portfolio";
 import { motion } from "motion/react";
 import { fadeUpVariants } from "@/lib/motion";
+import { SectionContainer } from "@/components/layout/section-container";
 
 export function Contact() {
   const [formData, setFormData] = React.useState({
@@ -110,8 +111,8 @@ export function Contact() {
 
   return (
     <div className="relative bg-[#FAF3EE]">
-      <section id="contact" className="relative px-6 py-16 md:py-24 text-[#111111] scroll-mt-20">
-        <div className="max-w-6xl mx-auto space-y-12">
+      <section id="contact" className="relative py-16 md:py-24 text-[#111111] scroll-mt-20">
+        <SectionContainer className="space-y-12">
           {/* Section Header: Plain bold black headline, no italic, no color */}
           <motion.div
             initial="hidden"
@@ -304,12 +305,12 @@ export function Contact() {
               </div>
             </motion.div>
           </div>
-        </div>
+        </SectionContainer>
       </section>
 
       {/* Expressive Neo-Brutalist Footer */}
-      <footer className="border-t-[3px] border-[#111111] px-6 py-10 bg-[#FAF3EE] text-[#111111]">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 font-label-caps text-xs">
+      <footer className="border-t-[3px] border-[#111111] py-10 bg-[#FAF3EE] text-[#111111]">
+        <SectionContainer className="flex flex-col sm:flex-row items-center justify-between gap-6 font-label-caps text-xs">
           <div>
             <span className="font-heading font-extrabold text-sm text-[#111111]">
               Jaiyanth B — AI &amp; Full-Stack Engineer
@@ -343,7 +344,7 @@ export function Contact() {
               <ArrowUpRight className="w-3 h-3" />
             </a>
           </div>
-        </div>
+        </SectionContainer>
       </footer>
     </div>
   );
