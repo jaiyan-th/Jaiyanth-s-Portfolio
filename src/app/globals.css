@@ -187,6 +187,7 @@
   /* Continuous horizontal Marquee ticker */
   .animate-marquee {
     animation: marquee-ticker 28s linear infinite;
+    will-change: transform;
   }
   @media (prefers-reduced-motion: reduce) {
     .animate-marquee {

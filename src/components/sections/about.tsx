@@ -65,7 +65,6 @@ export function About() {
                   className="object-cover object-top filter grayscale contrast-105 hover:grayscale-0 transition-all duration-300"
                   sizes="(max-width: 640px) 90vw, (max-width: 1024px) 380px, 400px"
                   priority
-                  unoptimized
                 />
               </div>
 

@@ -67,7 +67,7 @@ export default async function ProjectPage({ params }: Params) {
             <span className="font-label-caps text-xs text-[#6B6B6B] font-bold block">
               ENGINEERING CASE STUDY
             </span>
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl text-[#111111] font-black leading-tight tracking-tight">
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl text-[#111111] font-extrabold leading-tight tracking-tight">
               {project.title}
             </h1>
           </div>
@@ -138,7 +138,7 @@ export default async function ProjectPage({ params }: Params) {
               fill
               className="object-cover"
               priority
-              unoptimized
+              sizes="(max-width: 768px) 100vw, 960px"
             />
           </div>
         </div>

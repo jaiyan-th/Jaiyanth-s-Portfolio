@@ -125,7 +125,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
             {/* Scrollable Content */}
             <div className="mt-2 flex-1 overflow-y-auto pr-2 space-y-8">
               <div>
-                <h2 id="dialog-title" className="font-heading text-3xl sm:text-4xl text-[#111111] tracking-tight font-black leading-tight">
+                <h2 id="dialog-title" className="font-heading text-3xl sm:text-4xl text-[#111111] tracking-tight font-extrabold leading-tight">
                   {project.title}
                 </h2>
                 <p className="mt-3 font-body text-base text-[#333333] leading-relaxed max-w-2xl">
@@ -140,7 +140,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                     src={project.image}
                     alt={`${project.title} screenshot`}
                     fill
-                    unoptimized
+                    sizes="(max-width: 768px) 100vw, 800px"
                     className="object-cover"
                     priority
                   />

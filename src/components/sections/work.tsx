@@ -73,7 +73,6 @@ function ProjectCard({ project, index }: ProjectCardProps) {
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority={index === 0}
-              unoptimized
             />
           </div>
         </div>

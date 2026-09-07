@@ -89,7 +89,7 @@ export function Experience() {
                   className="border-[1.5px] border-[#111111] p-3.5 bg-[#FAF3EE] flex items-center gap-3.5"
                 >
                   {/* Numeral in Black (#111111), not red */}
-                  <span className="font-heading text-2xl font-black text-[#111111]">
+                  <span className="font-heading text-2xl font-extrabold text-[#111111]">
                     {stage.num}
                   </span>
                   <span className="font-body text-xs sm:text-sm font-semibold text-[#111111] leading-snug">
