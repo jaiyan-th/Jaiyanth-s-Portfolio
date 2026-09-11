@@ -27,8 +27,8 @@ export default async function OG() {
               width: 56,
               height: 56,
               borderRadius: 999,
-              background: "#FF6A3D",
-              color: "#000000",
+              background: "#A3E635",
+              color: "#0A0A0A",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -46,7 +46,7 @@ export default async function OG() {
           <div style={{ fontSize: 84, fontWeight: 700, letterSpacing: -4, lineHeight: 0.95 }}>
             Engineering intelligent
           </div>
-          <div style={{ fontSize: 84, fontWeight: 700, letterSpacing: -4, lineHeight: 0.95, color: "#FF6A3D" }}>
+          <div style={{ fontSize: 84, fontWeight: 700, letterSpacing: -4, lineHeight: 0.95, color: "#A3E635" }}>
             products from signal to system.
           </div>
         </div>
