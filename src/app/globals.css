@@ -25,29 +25,31 @@
   --color-surface-secondary: var(--surface-secondary);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
-  --color-line: var(--line);
-  --color-line-solid: var(--line-solid);
+  --color-border-color: var(--border-color);
+  --color-line: var(--border-color);
+  --color-line-solid: var(--border-color);
   --color-shadow-color: var(--shadow-color);
   --color-accent: var(--accent);
   --color-accent-secondary: var(--accent);
 
   --color-card: var(--surface);
   --color-card-foreground: var(--text-primary);
-  --color-border: var(--line);
-  --color-input: var(--line);
+  --color-border: var(--border-color);
+  --color-input: var(--border-color);
   --color-ring: var(--accent);
 }
 
 :root {
-  /* Light Theme */
+  /* Light Theme (Cream canvas, solid black #111111 borders, black hard shadows 4px 4px 0) */
   --canvas: #FAF3EE;
   --surface: #FFFFFF;
   --surface-secondary: #F3EBE3;
   --text-primary: #111111;
   --text-secondary: #52525B;
-  --line: rgba(17, 17, 17, 0.18);
+  --border-color: #111111;
+  --line: #111111;
   --line-solid: #111111;
-  --shadow-color: rgba(17, 17, 17, 0.9);
+  --shadow-color: #111111;
   --accent: #A3E635;
   --accent-secondary: #A3E635;
   --accent-2: #A3E635;
@@ -56,15 +58,16 @@
 }
 
 .dark {
-  /* Dark Theme */
+  /* Dark Theme (Near-black canvas, solid off-white #F5F5F0 borders, white hard shadows 4px 4px 0 rgba(255,255,255,0.9)) */
   --canvas: #0A0A0A;
   --surface: #141414;
   --surface-secondary: #1A1A1A;
   --text-primary: #F5F5F0;
   --text-secondary: #9CA3AF;
-  --line: rgba(255, 255, 255, 0.2);
-  --line-solid: rgba(255, 255, 255, 0.85);
-  --shadow-color: rgba(255, 255, 255, 0.15);
+  --border-color: #F5F5F0;
+  --line: #F5F5F0;
+  --line-solid: #F5F5F0;
+  --shadow-color: rgba(255, 255, 255, 0.9);
   --accent: #A3E635;
   --accent-secondary: #A3E635;
   --accent-2: #A3E635;
@@ -74,7 +77,7 @@
 
 @layer base {
   * {
-    border-color: var(--line);
+    border-color: var(--border-color);
   }
   html {
     -webkit-text-size-adjust: 100%;
@@ -127,29 +130,29 @@
     font-weight: 700;
   }
 
-  /* Neo-brutalist cards with theme-aware border and shadow */
+  /* Neo-brutalist cards with theme-aware 3px border and 4px 4px 0 hard shadow */
   .neo-card {
     background-color: var(--surface);
-    border: 2px solid var(--line);
+    border: 3px solid var(--border-color);
     box-shadow: 4px 4px 0px var(--shadow-color);
     transition: transform 150ms ease-out, box-shadow 150ms ease-out, background-color 200ms ease, border-color 200ms ease;
   }
   .neo-card-interactive:hover {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px var(--line-solid);
+    box-shadow: 2px 2px 0px var(--shadow-color);
   }
 
-  /* Neo-brutalist buttons — solid lime green fill, black text */
+  /* Neo-brutalist buttons — solid lime green fill, black text, theme-aware border & shadow */
   .neo-btn-primary {
     background-color: #A3E635;
     color: #0A0A0A;
-    border: 2px solid var(--line-solid);
+    border: 2px solid var(--border-color);
     box-shadow: 4px 4px 0px var(--shadow-color);
     font-family: var(--font-label), "Plus Jakarta Sans", sans-serif;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    transition: transform 150ms ease-out, box-shadow 150ms ease-out, background-color 150ms ease-out;
+    transition: transform 150ms ease-out, box-shadow 150ms ease-out, background-color 150ms ease-out, border-color 200ms ease;
   }
   .neo-btn-primary:hover {
     transform: translate(2px, 2px);
@@ -160,7 +163,7 @@
   .neo-btn-secondary {
     background-color: var(--surface-secondary);
     color: var(--text-primary);
-    border: 2px solid var(--line);
+    border: 2px solid var(--border-color);
     box-shadow: 4px 4px 0px var(--shadow-color);
     font-family: var(--font-label), "Plus Jakarta Sans", sans-serif;
     font-weight: 800;
@@ -172,12 +175,12 @@
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0px var(--shadow-color);
     background-color: var(--surface);
-    border-color: var(--line-solid);
+    border-color: var(--border-color);
   }
 
-  /* Sticker badges */
+  /* Sticker badges with theme-aware border & hard shadow */
   .sticker-badge {
-    border: 2px solid var(--line-solid);
+    border: 2px solid var(--border-color);
     font-family: var(--font-label), "Plus Jakarta Sans", sans-serif;
     font-size: 0.7rem;
     font-weight: 800;
@@ -194,9 +197,9 @@
     transform: rotate(0deg) scale(1.04) !important;
   }
 
-  /* Quiet skill pills */
+  /* Quiet skill pills with theme-aware thin border */
   .skill-pill {
-    border: 1.5px solid var(--line);
+    border: 1.5px solid var(--border-color);
     background-color: transparent;
     color: var(--text-primary);
     padding: 0.25rem 0.65rem;
