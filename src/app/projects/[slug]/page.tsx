@@ -72,7 +72,7 @@ export default async function ProjectPage({ params }: Params) {
             </h1>
           </div>
 
-          <p className="font-body text-lg sm:text-xl text-[#9CA3AF] leading-relaxed max-w-[760px]">
+          <p className="font-body text-lg sm:text-xl text-[#E5E5E0] leading-relaxed max-w-[760px]">
             {project.summary}
           </p>
 
@@ -154,7 +154,7 @@ export default async function ProjectPage({ params }: Params) {
             </span>
             <span className="font-mono-code text-xs text-[#9CA3AF] font-bold">CONTEXT</span>
           </div>
-          <p className="font-body text-base sm:text-lg text-[#9CA3AF] leading-relaxed">
+          <p className="font-body text-base sm:text-lg text-[#E5E5E0] leading-relaxed">
             {project.caseStudy.overview}
           </p>
           <div className="border-[1.5px] border-white/20 bg-[#1A1A1A] p-5 space-y-1.5">
@@ -175,7 +175,7 @@ export default async function ProjectPage({ params }: Params) {
             </span>
             <span className="font-mono-code text-xs text-[#9CA3AF] font-bold">ENGINEERING</span>
           </div>
-          <p className="font-body text-base sm:text-lg text-[#9CA3AF] leading-relaxed">
+          <p className="font-body text-base sm:text-lg text-[#E5E5E0] leading-relaxed">
             {project.caseStudy.approach}
           </p>
           <div className="border-[1.5px] border-white/20 bg-[#1A1A1A] p-5 space-y-1.5">
@@ -222,7 +222,7 @@ export default async function ProjectPage({ params }: Params) {
             <h3 className="font-heading text-xl font-bold text-[#F5F5F0]">
               Technical Challenges
             </h3>
-            <p className="font-body text-sm sm:text-base text-[#9CA3AF] leading-relaxed">
+            <p className="font-body text-sm sm:text-base text-[#E5E5E0] leading-relaxed">
               {project.caseStudy.challenges}
             </p>
           </div>
@@ -236,7 +236,7 @@ export default async function ProjectPage({ params }: Params) {
             <h3 className="font-heading text-xl font-bold text-[#F5F5F0]">
               Engineering Learnings
             </h3>
-            <p className="font-body text-sm sm:text-base text-[#9CA3AF] leading-relaxed">
+            <p className="font-body text-sm sm:text-base text-[#E5E5E0] leading-relaxed">
               {project.caseStudy.learnings}
             </p>
           </div>

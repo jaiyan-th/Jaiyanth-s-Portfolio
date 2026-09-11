@@ -33,7 +33,7 @@ export function Hero() {
             </h1>
 
             {/* Subhead */}
-            <p className="font-body text-lg sm:text-xl lg:text-[1.3rem] text-[#9CA3AF] leading-relaxed max-w-2xl xl:max-w-3xl font-normal">
+            <p className="font-body text-lg sm:text-xl lg:text-[1.3rem] text-[#E5E5E0] leading-relaxed max-w-2xl xl:max-w-3xl font-normal">
               Applied AI, full-stack systems, and structured APIs — built to actually work when someone else has to rely on them.
             </p>
 

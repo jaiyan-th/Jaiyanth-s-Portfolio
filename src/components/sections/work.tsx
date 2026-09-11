@@ -97,7 +97,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
               {project.title}
             </h3>
 
-            <p className="font-body text-base sm:text-lg lg:text-[1.15rem] text-[#9CA3AF] leading-relaxed pt-1">
+            <p className="font-body text-base sm:text-lg lg:text-[1.15rem] text-[#E5E5E0] leading-relaxed pt-1">
               {config.copy}
             </p>
           </div>
@@ -162,7 +162,7 @@ export function Work() {
 
         {/* Section Close Line & Links */}
         <div className="neo-card p-6 bg-[#141414] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="font-body text-sm sm:text-base text-[#9CA3AF] font-medium">
+          <p className="font-body text-sm sm:text-base text-[#E5E5E0] font-medium">
             Explore all repositories on GitHub or get in touch for custom engineering engagements.
           </p>
           <div className="flex items-center gap-4 shrink-0 font-label-caps text-xs">

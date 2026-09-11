@@ -137,7 +137,7 @@ export function Contact() {
               Let&apos;s{" "}
               <span className="italic text-[#A3E635]">talk.</span>
             </h2>
-            <p className="font-body text-base sm:text-lg lg:text-[1.2rem] text-[#9CA3AF] max-w-2xl xl:max-w-3xl">
+            <p className="font-body text-base sm:text-lg lg:text-[1.2rem] text-[#E5E5E0] max-w-2xl xl:max-w-3xl">
               Open for full-time engineering roles, internship opportunities, and technical collaboration.
             </p>
           </motion.div>

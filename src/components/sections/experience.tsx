@@ -68,7 +68,7 @@ export function Experience() {
           </div>
 
           {/* Role Copy */}
-          <p className="font-body text-base sm:text-lg lg:text-[1.15rem] text-[#9CA3AF] leading-relaxed max-w-4xl">
+          <p className="font-body text-base sm:text-lg lg:text-[1.15rem] text-[#E5E5E0] leading-relaxed max-w-4xl">
             Built applied-AI prototypes that needed to work, not just demo. Shipped RAG and LLM workflows, integrated third-party REST APIs cleanly, and practiced the unglamorous engineering habits — debugging, testing, prompt iteration, team feedback — that make AI systems dependable in production.
           </p>
 

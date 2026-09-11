@@ -106,16 +106,16 @@
     font-weight: 700;
   }
 
-  /* Neo-brutalist cards with hard shadow */
+  /* Neo-brutalist cards with light-gray/white border and shadow */
   .neo-card {
     background-color: #141414;
-    border: 2.5px solid rgba(255, 255, 255, 0.85);
-    box-shadow: 4px 4px 0px rgba(163, 230, 53, 0.35);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.15);
     transition: transform 150ms ease-out, box-shadow 150ms ease-out;
   }
   .neo-card-interactive:hover {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px #A3E635;
+    box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.35);
   }
 
   /* Neo-brutalist buttons — solid lime green fill, black text (13.6:1 contrast) */
@@ -139,8 +139,8 @@
   .neo-btn-secondary {
     background-color: #1A1A1A;
     color: #F5F5F0;
-    border: 2px solid rgba(255, 255, 255, 0.85);
-    box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.15);
     font-family: var(--font-label), "Plus Jakarta Sans", sans-serif;
     font-weight: 800;
     text-transform: uppercase;
@@ -149,9 +149,9 @@
   }
   .neo-btn-secondary:hover {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px #A3E635;
+    box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.35);
     background-color: #242424;
-    border-color: #A3E635;
+    border-color: rgba(255, 255, 255, 0.85);
   }
 
   /* Sticker badges */

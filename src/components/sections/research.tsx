@@ -90,7 +90,7 @@ export function Research() {
           </div>
 
           {/* Abstract (body text) */}
-          <p className="font-body text-base sm:text-lg lg:text-[1.15rem] text-[#9CA3AF] leading-relaxed max-w-4xl">
+          <p className="font-body text-base sm:text-lg lg:text-[1.15rem] text-[#E5E5E0] leading-relaxed max-w-4xl">
             A preventive-healthcare framework that combines image recognition with a conversational AI layer to surface early wellness signals, guide users through structured follow-up questions, and route them toward appropriate care — emphasizing explainability, low-friction interaction, and clinician-friendly summaries.
           </p>
 

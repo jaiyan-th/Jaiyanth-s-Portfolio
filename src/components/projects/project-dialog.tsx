@@ -128,7 +128,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                 <h2 id="dialog-title" className="font-heading text-3xl sm:text-4xl text-[#F5F5F0] tracking-tight font-extrabold leading-tight">
                   {project.title}
                 </h2>
-                <p className="mt-3 font-body text-base text-[#9CA3AF] leading-relaxed max-w-2xl">
+                <p className="mt-3 font-body text-base text-[#E5E5E0] leading-relaxed max-w-2xl">
                   {project.summary}
                 </p>
               </div>
@@ -170,7 +170,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                   <span className="font-label-caps text-xs text-[#F5F5F0] font-bold block">
                     ENGINEERING FOCUS
                   </span>
-                  <p className="font-body text-sm text-[#9CA3AF] leading-relaxed font-semibold">
+                  <p className="font-body text-sm text-[#E5E5E0] leading-relaxed font-semibold">
                     {project.engineeringFocus}
                   </p>
                 </div>
@@ -270,7 +270,7 @@ function CaseBlock({ label, index, children }: { label: string; index: string; c
           {index} · {label}
         </span>
       </div>
-      <p className="font-body text-sm text-[#9CA3AF] leading-relaxed">
+      <p className="font-body text-sm text-[#E5E5E0] leading-relaxed">
         {children}
       </p>
     </div>

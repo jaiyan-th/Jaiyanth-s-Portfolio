@@ -38,7 +38,7 @@ export function About() {
             </h2>
 
             {/* Bio Copy */}
-            <div className="space-y-4 font-body text-base sm:text-lg lg:text-[1.15rem] text-[#9CA3AF] leading-relaxed max-w-2xl xl:max-w-3xl">
+            <div className="space-y-4 font-body text-base sm:text-lg lg:text-[1.15rem] text-[#E5E5E0] leading-relaxed max-w-2xl xl:max-w-3xl">
               <p>
                 I&apos;m a final-year Computer Science &amp; Business Systems student focused on applied AI and full-stack engineering. My work sits between research and production — RAG pipelines, conversational systems, structured APIs, and end-to-end products that hold up under real use.
               </p>
