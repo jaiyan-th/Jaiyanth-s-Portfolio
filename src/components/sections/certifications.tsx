@@ -36,8 +36,8 @@ const CERTIFICATIONS = [
 export function Certifications() {
   return (
     <section id="certifications" className="relative bg-[#0A0A0A] text-[#F5F5F0] border-b-[3px] border-white/20 py-16 md:py-24 scroll-mt-20">
-      <SectionContainer className="space-y-12">
-        {/* Section Header: Plain bold headline, no italic, no color */}
+      <SectionContainer className="space-y-14">
+        {/* Header Block */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -58,13 +58,12 @@ export function Certifications() {
 
           {/* Section Headline with ONE italic accent word (verified) */}
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#F5F5F0] leading-[1.08] tracking-tight">
-            Certifications,{" "}
-            <span className="italic text-[#A3E635]">verified.</span>
+            Certifications, <span className="italic text-[#A3E635]">verified.</span>
           </h2>
         </motion.div>
 
-        {/* Grid of Thick-Bordered Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        {/* Flat Grid: 2 rows x 2 columns, NO card borders, NO shadows, matching Skills */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 lg:gap-y-14">
           {CERTIFICATIONS.map((cert, idx) => (
             <motion.div
               key={cert.index}
@@ -72,23 +71,38 @@ export function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="neo-card p-6 sm:p-8 bg-[#141414] space-y-4 flex flex-col justify-between min-h-[160px]"
+              className="space-y-3"
             >
-              {/* Issuer Bold + Plain Small-Caps Muted Year Text (No border, no fill) */}
-              <div className="flex items-baseline justify-between border-b-2 border-white/20 pb-3">
-                <span className="font-heading text-lg sm:text-xl lg:text-2xl font-extrabold text-[#F5F5F0]">
-                  {cert.issuer}
-                </span>
-                <span className="font-label-caps text-xs sm:text-sm text-[#9CA3AF] tracking-wider font-semibold">
-                  {cert.year}
-                </span>
+              {/* Issuer Label + Year + Thin Accent Underline Rule */}
+              <div>
+                <div className="flex items-center justify-between">
+                  <h3 className="font-label-caps text-xs sm:text-sm text-[#F5F5F0] font-extrabold tracking-wider uppercase">
+                    {cert.issuer}
+                  </h3>
+                  <span className="font-mono-code text-xs text-[#9CA3AF] font-bold">
+                    {cert.year}
+                  </span>
+                </div>
+                <div className="w-12 h-[2.5px] bg-[#A3E635] mt-2 mb-3.5" />
               </div>
 
-              <p className="font-body text-base sm:text-lg font-semibold text-[#F5F5F0] leading-snug">
-                {cert.name}
-              </p>
+              {/* Certification as Individual Pill Badge: matching skill pills */}
+              <div className="flex flex-wrap gap-2.5 pt-1">
+                <span
+                  className="border-[1.5px] border-white/20 bg-transparent text-[#F5F5F0] hover:border-[#A3E635] hover:text-[#A3E635] transition-colors px-3.5 py-1.5 font-sans text-xs sm:text-[13px] font-semibold rounded-none inline-block"
+                >
+                  {cert.name}
+                </span>
+              </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Bottom Line Under Hairline Divider */}
+        <div className="border-t border-white/20 pt-8 text-center">
+          <p className="font-label-caps text-xs text-[#9CA3AF] tracking-widest uppercase font-semibold">
+            4 Industry Credentials Verified · Cloud, AI &amp; Full-Stack
+          </p>
         </div>
       </SectionContainer>
     </section>
