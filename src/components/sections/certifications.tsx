@@ -35,8 +35,8 @@ const CERTIFICATIONS = [
 
 export function Certifications() {
   return (
-    <section id="certifications" className="relative bg-[#0A0A0A] text-[#F5F5F0] border-b-[3px] border-white/20 py-16 md:py-24 scroll-mt-20">
-      <SectionContainer className="space-y-14">
+    <section id="certifications" className="relative bg-[#0A0A0A] text-[#F5F5F0] border-b-[3px] border-white/20 py-20 md:py-28 scroll-mt-20">
+      <SectionContainer className="space-y-16">
         {/* Header Block */}
         <motion.div
           initial="hidden"
@@ -51,7 +51,7 @@ export function Certifications() {
               <Award className="w-3.5 h-3.5 text-[#0A0A0A]" />
               CREDENTIALS
             </span>
-            <span className="font-body italic text-[#A3E635] text-sm font-semibold">
+            <span className="font-body italic text-[#A3E635] text-sm sm:text-base font-semibold">
               / on record
             </span>
           </div>
@@ -62,8 +62,8 @@ export function Certifications() {
           </h2>
         </motion.div>
 
-        {/* Flat Grid: 2 rows x 2 columns, NO card borders, NO shadows, matching Skills */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 lg:gap-y-14">
+        {/* Flat Grid: 2 rows x 2 columns, enlarged like skills */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-14 lg:gap-y-16">
           {CERTIFICATIONS.map((cert, idx) => (
             <motion.div
               key={cert.index}
@@ -71,25 +71,25 @@ export function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="space-y-3"
+              className="space-y-4"
             >
-              {/* Issuer Label + Year + Thin Accent Underline Rule */}
+              {/* Issuer Label + Year + Bold Accent Underline Rule */}
               <div>
                 <div className="flex items-center justify-between">
-                  <h3 className="font-label-caps text-xs sm:text-sm text-[#F5F5F0] font-extrabold tracking-wider uppercase">
+                  <h3 className="font-label-caps text-base sm:text-lg md:text-xl text-[#F5F5F0] font-extrabold tracking-wider uppercase">
                     {cert.issuer}
                   </h3>
-                  <span className="font-mono-code text-xs text-[#9CA3AF] font-bold">
+                  <span className="font-mono-code text-sm sm:text-base text-[#9CA3AF] font-bold">
                     {cert.year}
                   </span>
                 </div>
-                <div className="w-12 h-[2.5px] bg-[#A3E635] mt-2 mb-3.5" />
+                <div className="w-20 h-[3.5px] bg-[#A3E635] mt-2.5 mb-4" />
               </div>
 
-              {/* Certification as Individual Pill Badge: matching skill pills */}
-              <div className="flex flex-wrap gap-2.5 pt-1">
+              {/* Certification as Enlarged Pill Badge */}
+              <div className="flex flex-wrap gap-3 pt-1">
                 <span
-                  className="border-[1.5px] border-white/20 bg-transparent text-[#F5F5F0] hover:border-[#A3E635] hover:text-[#A3E635] transition-colors px-3.5 py-1.5 font-sans text-xs sm:text-[13px] font-semibold rounded-none inline-block"
+                  className="border-2 border-white/20 hover:border-[#A3E635] bg-transparent text-[#F5F5F0] hover:text-[#A3E635] transition-colors px-6 py-3.5 font-sans text-base sm:text-lg md:text-xl font-bold rounded-none inline-block leading-snug"
                 >
                   {cert.name}
                 </span>
@@ -100,7 +100,7 @@ export function Certifications() {
 
         {/* Bottom Line Under Hairline Divider */}
         <div className="border-t border-white/20 pt-8 text-center">
-          <p className="font-label-caps text-xs text-[#9CA3AF] tracking-widest uppercase font-semibold">
+          <p className="font-label-caps text-xs sm:text-sm text-[#9CA3AF] tracking-widest uppercase font-semibold">
             4 Industry Credentials Verified · Cloud, AI &amp; Full-Stack
           </p>
         </div>
