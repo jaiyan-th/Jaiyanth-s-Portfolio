@@ -35,8 +35,8 @@ const SKILL_CATEGORIES = [
 
 export function Skills() {
   return (
-    <section id="skills" className="relative bg-[#0A0A0A] text-[#F5F5F0] border-b-[3px] border-white/20 py-16 md:py-24 scroll-mt-20">
-      <SectionContainer className="space-y-14">
+    <section id="skills" className="relative bg-[#0A0A0A] text-[#F5F5F0] border-b-[3px] border-white/20 py-20 md:py-28 scroll-mt-20">
+      <SectionContainer className="space-y-16">
         {/* Header Block */}
         <motion.div
           initial="hidden"
@@ -51,7 +51,7 @@ export function Skills() {
               <SquareCode className="w-3.5 h-3.5 text-[#0A0A0A]" />
               STACK
             </span>
-            <span className="font-body italic text-[#A3E635] text-sm font-semibold">
+            <span className="font-body italic text-[#A3E635] text-sm sm:text-base font-semibold">
               / what I reach for
             </span>
           </div>
@@ -62,8 +62,8 @@ export function Skills() {
           </h2>
         </motion.div>
 
-        {/* Flat Grid: 2 rows x 3 columns, NO card borders, NO shadows, NO rotation, NO numbering */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 lg:gap-y-14">
+        {/* Flat Grid: 2 rows x 3 columns, enlarged like skills */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 lg:gap-x-14 gap-y-12 lg:gap-y-16">
           {SKILL_CATEGORIES.map((category, idx) => (
             <motion.div
               key={category.title}
@@ -71,22 +71,22 @@ export function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.4, delay: idx * 0.04 }}
-              className="space-y-3"
+              className="space-y-4"
             >
               {/* Category Label + Thin Accent Underline Rule */}
               <div>
-                <h3 className="font-label-caps text-xs sm:text-sm text-[#F5F5F0] font-extrabold tracking-wider">
+                <h3 className="font-label-caps text-sm sm:text-[15px] md:text-base text-[#F5F5F0] font-extrabold tracking-wider uppercase">
                   {category.title}
                 </h3>
-                <div className="w-12 h-[2.5px] bg-[#A3E635] mt-2 mb-3.5" />
+                <div className="w-16 h-[3px] bg-[#A3E635] mt-2 mb-4" />
               </div>
 
-              {/* Skills as Individual Pill Badges: 1.5px light border, transparent bg, off-white text, hover lime */}
-              <div className="flex flex-wrap gap-2.5 pt-1">
+              {/* Skills as Individual Pill Badges: enlarged padding and text */}
+              <div className="flex flex-wrap gap-2.5 sm:gap-3 pt-1">
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="border-[1.5px] border-white/20 bg-transparent text-[#F5F5F0] hover:border-[#A3E635] hover:text-[#A3E635] transition-colors px-3.5 py-1.5 font-sans text-xs sm:text-[13px] font-semibold rounded-none inline-block"
+                    className="border-[1.5px] border-white/20 hover:border-[#A3E635] bg-transparent text-[#F5F5F0] hover:text-[#A3E635] transition-colors px-4 py-2 sm:px-4.5 sm:py-2.5 font-sans text-xs sm:text-sm md:text-[15px] font-semibold rounded-none inline-block leading-snug"
                   >
                     {skill}
                   </span>
@@ -98,7 +98,7 @@ export function Skills() {
 
         {/* Bottom Line Under Hairline Divider */}
         <div className="border-t border-white/20 pt-8 text-center">
-          <p className="font-label-caps text-xs text-[#9CA3AF] tracking-widest uppercase font-semibold">
+          <p className="font-label-caps text-xs sm:text-sm text-[#9CA3AF] tracking-widest uppercase font-semibold">
             IEEE Published · 4 Production-Ready Projects Shipped
           </p>
         </div>
