@@ -35,9 +35,9 @@ const CERTIFICATIONS = [
 
 export function Certifications() {
   return (
-    <section id="certifications" className="relative bg-[#FAF3EE] text-[#111111] border-b-[3px] border-[#111111] py-16 md:py-24 scroll-mt-20">
+    <section id="certifications" className="relative bg-[#0A0A0A] text-[#F5F5F0] border-b-[3px] border-white/20 py-16 md:py-24 scroll-mt-20">
       <SectionContainer className="space-y-12">
-        {/* Section Header: Plain bold black headline, no italic, no color */}
+        {/* Section Header: Plain bold headline, no italic, no color */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -47,19 +47,19 @@ export function Certifications() {
         >
           {/* Sticker Badge + Beside Subtitle */}
           <div className="flex items-center gap-2.5">
-            <span className="sticker-badge bg-[#111111] text-white -rotate-1">
-              <Award className="w-3.5 h-3.5 text-[#FFFFFF]" />
+            <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] -rotate-1">
+              <Award className="w-3.5 h-3.5 text-[#0A0A0A]" />
               CREDENTIALS
             </span>
-            <span className="font-body italic text-[#E5484D] text-sm font-semibold">
+            <span className="font-body italic text-[#A3E635] text-sm font-semibold">
               / on record
             </span>
           </div>
 
           {/* Section Headline with ONE italic accent word (verified) */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#111111] leading-[1.08] tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#F5F5F0] leading-[1.08] tracking-tight">
             Certifications,{" "}
-            <span className="italic text-[#E5484D]">verified.</span>
+            <span className="italic text-[#A3E635]">verified.</span>
           </h2>
         </motion.div>
 
@@ -72,19 +72,19 @@ export function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="neo-card p-6 sm:p-8 bg-white space-y-4 flex flex-col justify-between min-h-[160px]"
+              className="neo-card p-6 sm:p-8 bg-[#141414] space-y-4 flex flex-col justify-between min-h-[160px]"
             >
               {/* Issuer Bold + Plain Small-Caps Muted Year Text (No border, no fill) */}
-              <div className="flex items-baseline justify-between border-b-2 border-[#111111] pb-3">
-                <span className="font-heading text-lg sm:text-xl lg:text-2xl font-extrabold text-[#111111]">
+              <div className="flex items-baseline justify-between border-b-2 border-white/20 pb-3">
+                <span className="font-heading text-lg sm:text-xl lg:text-2xl font-extrabold text-[#F5F5F0]">
                   {cert.issuer}
                 </span>
-                <span className="font-label-caps text-xs sm:text-sm text-[#6B6B6B] tracking-wider font-semibold">
+                <span className="font-label-caps text-xs sm:text-sm text-[#9CA3AF] tracking-wider font-semibold">
                   {cert.year}
                 </span>
               </div>
 
-              <p className="font-body text-base sm:text-lg font-semibold text-[#222222] leading-snug">
+              <p className="font-body text-base sm:text-lg font-semibold text-[#F5F5F0] leading-snug">
                 {cert.name}
               </p>
             </motion.div>

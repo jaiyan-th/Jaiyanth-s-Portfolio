@@ -54,7 +54,7 @@ export function FloatingNav() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#FAF3EE]/95 backdrop-blur-md border-b-[3px] border-[#111111] py-3.5 transition-colors">
+    <header className="sticky top-0 z-50 bg-[#0A0A0A]/95 backdrop-blur-md border-b-[3px] border-white/20 py-3.5 transition-colors">
       <SectionContainer as="nav" aria-label="Main Navigation" className="flex items-center justify-between">
         {/* Left: Brand (Clean logo + wordmark only, no stray badge) */}
         <a
@@ -62,12 +62,12 @@ export function FloatingNav() {
           onClick={(e) => handleNavClick(e, "#hero")}
           className="group cursor-pointer flex items-center shrink-0"
         >
-          <span className="font-heading text-xl font-extrabold tracking-tight text-[#111111] group-hover:text-[#E5484D] transition-colors whitespace-nowrap">
+          <span className="font-heading text-xl font-extrabold tracking-tight text-[#F5F5F0] group-hover:text-[#A3E635] transition-colors whitespace-nowrap">
             JAIYANTH B
           </span>
         </a>
 
-        {/* Center Nav Links (Light red underline for active, hover light red) */}
+        {/* Center Nav Links (Lime green underline for active, hover lime green) */}
         <div className="hidden lg:flex items-center gap-6">
           {navItems.map((item) => {
             const isActive = active === item.href;
@@ -78,8 +78,8 @@ export function FloatingNav() {
                 onClick={(e) => handleNavClick(e, item.href)}
                 className={`font-label-caps text-xs tracking-wider transition-colors relative py-1 cursor-pointer ${
                   isActive
-                    ? "text-[#111111] font-extrabold border-b-2 border-[#E5484D]"
-                    : "text-[#6B6B6B] hover:text-[#E5484D]"
+                    ? "text-[#F5F5F0] font-extrabold border-b-2 border-[#A3E635]"
+                    : "text-[#9CA3AF] hover:text-[#A3E635]"
                 }`}
               >
                 {item.label}
@@ -88,11 +88,11 @@ export function FloatingNav() {
           })}
         </div>
 
-        {/* Right CTA (Solid light red fill, hard shadow, press-down hover) */}
+        {/* Right CTA (Solid lime green fill, black text, hard shadow) */}
         <div className="flex items-center gap-3">
           <a
             href="#contact"
-            className="hidden sm:inline-flex items-center justify-center font-label-caps text-xs px-4 py-2 border-[2.5px] border-[#111111] bg-[#E5484D] text-white shadow-[3px_3px_0px_#111111] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0px_#111111] transition-all cursor-pointer font-extrabold tracking-wider"
+            className="neo-btn-primary hidden sm:inline-flex items-center justify-center font-label-caps text-xs px-4 py-2 border-[2px] border-white/90 cursor-pointer font-extrabold tracking-wider"
           >
             GET IN TOUCH
           </a>
@@ -102,7 +102,7 @@ export function FloatingNav() {
             type="button"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-            className="lg:hidden p-2 border-2 border-[#111111] bg-white shadow-[2px_2px_0px_#111111] text-[#111111]"
+            className="lg:hidden p-2 border-2 border-white/20 bg-[#141414] shadow-[2px_2px_0px_rgba(255,255,255,0.2)] text-[#F5F5F0]"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -117,7 +117,7 @@ export function FloatingNav() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden mt-3 pt-3 border-t-2 border-[#111111] bg-[#FAF3EE] py-4"
+            className="lg:hidden mt-3 pt-3 border-t-2 border-white/20 bg-[#0A0A0A] py-4"
           >
             <SectionContainer className="flex flex-col space-y-3">
               {navItems.map((item) => {
@@ -131,7 +131,7 @@ export function FloatingNav() {
                       handleNavClick(e, item.href);
                     }}
                     className={`font-label-caps text-sm tracking-wider py-2 transition-colors ${
-                      isActive ? "text-[#E5484D] font-extrabold" : "text-[#6B6B6B]"
+                      isActive ? "text-[#A3E635] font-extrabold" : "text-[#9CA3AF]"
                     }`}
                   >
                     {item.label}
@@ -141,7 +141,7 @@ export function FloatingNav() {
               <a
                 href="#contact"
                 onClick={() => setIsOpen(false)}
-                className="inline-flex items-center justify-center font-label-caps text-xs py-2.5 border-2 border-[#111111] bg-[#E5484D] text-white shadow-[3px_3px_0px_#111111] font-extrabold mt-2"
+                className="neo-btn-primary inline-flex items-center justify-center font-label-caps text-xs py-2.5 border-2 border-white/90 font-extrabold mt-2"
               >
                 GET IN TOUCH
               </a>

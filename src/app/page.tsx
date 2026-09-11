@@ -11,7 +11,7 @@ import { Contact } from "@/components/sections/contact";
 
 export default function Home() {
   return (
-    <div className="bg-[#FAF3EE] min-h-screen text-[#111111]">
+    <div className="bg-[#0A0A0A] min-h-screen text-[#F5F5F0]">
       <FloatingNav />
       <main id="main" className="relative w-full max-w-full overflow-x-clip">
         <Hero />

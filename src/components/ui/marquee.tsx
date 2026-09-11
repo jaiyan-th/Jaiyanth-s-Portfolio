@@ -29,15 +29,15 @@ export function Marquee({ items = DEFAULT_ITEMS, className = "" }: MarqueeProps)
   return (
     <aside
       aria-label="Core technologies and skills ticker"
-      className={`w-full max-w-full overflow-hidden overflow-x-clip bg-white text-[#111111] border-b-[3px] border-[#111111] py-3.5 select-none ${className}`}
+      className={`w-full max-w-full overflow-hidden overflow-x-clip bg-[#141414] text-[#F5F5F0] border-b-[3px] border-white/20 py-3.5 select-none ${className}`}
     >
       <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
         {/* Track 1 */}
         <div className="flex items-center gap-8 pr-8 font-heading text-sm sm:text-base font-extrabold tracking-wider uppercase shrink-0">
           {items.map((text, idx) => (
             <div key={`track1-${idx}`} className="flex items-center gap-8">
-              <span className="hover:text-[#E5484D] transition-colors cursor-default">{text}</span>
-              <span className="w-2 h-2 rounded-full bg-[#E5484D] shrink-0" aria-hidden="true" />
+              <span className="hover:text-[#A3E635] transition-colors cursor-default">{text}</span>
+              <span className="w-2 h-2 rounded-full bg-[#A3E635] shrink-0" aria-hidden="true" />
             </div>
           ))}
         </div>
@@ -49,8 +49,8 @@ export function Marquee({ items = DEFAULT_ITEMS, className = "" }: MarqueeProps)
         >
           {items.map((text, idx) => (
             <div key={`track2-${idx}`} className="flex items-center gap-8">
-              <span className="hover:text-[#E5484D] transition-colors cursor-default">{text}</span>
-              <span className="w-2 h-2 rounded-full bg-[#E5484D] shrink-0" aria-hidden="true" />
+              <span className="hover:text-[#A3E635] transition-colors cursor-default">{text}</span>
+              <span className="w-2 h-2 rounded-full bg-[#A3E635] shrink-0" aria-hidden="true" />
             </div>
           ))}
         </div>

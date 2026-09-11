@@ -94,7 +94,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#FAF3EE",
+  themeColor: "#0A0A0A",
 };
 
 const personJsonLd = {
@@ -133,13 +133,13 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${bricolageGrotesque.variable} ${lora.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} antialiased bg-[#FAF3EE] text-[#111111] font-body`}
+        className={`${bricolageGrotesque.variable} ${lora.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} antialiased bg-[#0A0A0A] text-[#F5F5F0] font-body`}
       >
         <ThemeProvider>
           <ScrollProgress />
           <a
             href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#E5484D] focus:text-white focus:text-sm focus:font-bold focus:border-2 focus:border-black"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#A3E635] focus:text-[#0A0A0A] focus:text-sm focus:font-bold focus:border-2 focus:border-white"
           >
             Skip to content
           </a>

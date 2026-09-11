@@ -35,7 +35,7 @@ const SKILL_CATEGORIES = [
 
 export function Skills() {
   return (
-    <section id="skills" className="relative bg-[#FAF3EE] text-[#111111] border-b-[3px] border-[#111111] py-16 md:py-24 scroll-mt-20">
+    <section id="skills" className="relative bg-[#0A0A0A] text-[#F5F5F0] border-b-[3px] border-white/20 py-16 md:py-24 scroll-mt-20">
       <SectionContainer className="space-y-14">
         {/* Header Block */}
         <motion.div
@@ -45,20 +45,20 @@ export function Skills() {
           variants={fadeUpVariants}
           className="space-y-4"
         >
-          {/* Sticker Label with Square Icon and Italic Light Red Text */}
+          {/* Sticker Label with Square Icon and Italic Lime Green Text */}
           <div className="flex items-center gap-2.5">
-            <span className="sticker-badge bg-[#111111] text-white -rotate-1">
-              <SquareCode className="w-3.5 h-3.5 text-[#FFFFFF]" />
+            <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] -rotate-1">
+              <SquareCode className="w-3.5 h-3.5 text-[#0A0A0A]" />
               STACK
             </span>
-            <span className="font-body italic text-[#E5484D] text-sm font-semibold">
+            <span className="font-body italic text-[#A3E635] text-sm font-semibold">
               / what I reach for
             </span>
           </div>
 
           {/* Section Headline with ONE italic accent word (build) */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#111111] leading-[1.08] tracking-tight">
-            The stack I <span className="italic text-[#E5484D]">build</span> with.
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#F5F5F0] leading-[1.08] tracking-tight">
+            The stack I <span className="italic text-[#A3E635]">build</span> with.
           </h2>
         </motion.div>
 
@@ -73,20 +73,20 @@ export function Skills() {
               transition={{ duration: 0.4, delay: idx * 0.04 }}
               className="space-y-3"
             >
-              {/* Category Label + Thin Black Underline Rule */}
+              {/* Category Label + Thin Accent Underline Rule */}
               <div>
-                <h3 className="font-label-caps text-xs sm:text-sm text-[#111111] font-extrabold tracking-wider">
+                <h3 className="font-label-caps text-xs sm:text-sm text-[#F5F5F0] font-extrabold tracking-wider">
                   {category.title}
                 </h3>
-                <div className="w-12 h-[2.5px] bg-[#111111] mt-2 mb-3.5" />
+                <div className="w-12 h-[2.5px] bg-[#A3E635] mt-2 mb-3.5" />
               </div>
 
-              {/* Skills as Individual Pill Badges: 1.5px border, transparent bg, plain sans text */}
+              {/* Skills as Individual Pill Badges: 1.5px light border, transparent bg, off-white text, hover lime */}
               <div className="flex flex-wrap gap-2.5 pt-1">
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="border-[1.5px] border-[#111111] bg-transparent text-[#111111] px-3.5 py-1.5 font-sans text-xs sm:text-[13px] font-semibold rounded-none inline-block"
+                    className="border-[1.5px] border-white/20 bg-transparent text-[#F5F5F0] hover:border-[#A3E635] hover:text-[#A3E635] transition-colors px-3.5 py-1.5 font-sans text-xs sm:text-[13px] font-semibold rounded-none inline-block"
                   >
                     {skill}
                   </span>
@@ -97,8 +97,8 @@ export function Skills() {
         </div>
 
         {/* Bottom Line Under Hairline Divider */}
-        <div className="border-t border-[#111111]/20 pt-8 text-center">
-          <p className="font-label-caps text-xs text-[#6B6B6B] tracking-widest uppercase font-semibold">
+        <div className="border-t border-white/20 pt-8 text-center">
+          <p className="font-label-caps text-xs text-[#9CA3AF] tracking-widest uppercase font-semibold">
             IEEE Published · 4 Production-Ready Projects Shipped
           </p>
         </div>

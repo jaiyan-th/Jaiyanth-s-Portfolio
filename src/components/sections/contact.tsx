@@ -110,10 +110,10 @@ export function Contact() {
   };
 
   return (
-    <div className="relative bg-[#FAF3EE]">
-      <section id="contact" className="relative py-16 md:py-24 text-[#111111] scroll-mt-20">
+    <div className="relative bg-[#0A0A0A]">
+      <section id="contact" className="relative py-16 md:py-24 text-[#F5F5F0] scroll-mt-20">
         <SectionContainer className="space-y-12">
-          {/* Section Header: Plain bold black headline, no italic, no color */}
+          {/* Section Header: Plain bold headline, no italic, no color */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -123,21 +123,21 @@ export function Contact() {
           >
             {/* Sticker Badge + Beside Subtitle */}
             <div className="flex items-center gap-2.5">
-              <span className="sticker-badge bg-[#111111] text-white -rotate-1">
-                <Send className="w-3.5 h-3.5 text-[#FFFFFF]" />
+              <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] -rotate-1">
+                <Send className="w-3.5 h-3.5 text-[#0A0A0A]" />
                 CONTACT
               </span>
-              <span className="font-body italic text-[#E5484D] text-sm font-semibold">
+              <span className="font-body italic text-[#A3E635] text-sm font-semibold">
                 / start here
               </span>
             </div>
 
             {/* Section Headline with ONE italic accent word (talk) */}
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#111111] leading-[1.08] tracking-tight">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#F5F5F0] leading-[1.08] tracking-tight">
               Let&apos;s{" "}
-              <span className="italic text-[#E5484D]">talk.</span>
+              <span className="italic text-[#A3E635]">talk.</span>
             </h2>
-            <p className="font-body text-base sm:text-lg lg:text-[1.2rem] text-[#444444] max-w-2xl xl:max-w-3xl">
+            <p className="font-body text-base sm:text-lg lg:text-[1.2rem] text-[#9CA3AF] max-w-2xl xl:max-w-3xl">
               Open for full-time engineering roles, internship opportunities, and technical collaboration.
             </p>
           </motion.div>
@@ -151,44 +151,44 @@ export function Contact() {
               transition={{ duration: 0.45 }}
               className="lg:col-span-5"
             >
-              <div className="neo-card p-6 sm:p-8 lg:p-10 bg-white space-y-6">
-                <div className="flex items-center justify-between border-b-2 border-[#111111] pb-3.5">
-                  <span className="font-label-caps text-xs sm:text-[13px] text-[#555555]">
+              <div className="neo-card p-6 sm:p-8 lg:p-10 bg-[#141414] space-y-6">
+                <div className="flex items-center justify-between border-b-2 border-white/20 pb-3.5">
+                  <span className="font-label-caps text-xs sm:text-[13px] text-[#9CA3AF]">
                     DIRECT CONTACT
                   </span>
-                  <span className="sticker-badge bg-[#111111] text-white text-[10px] sm:text-[11px] py-0.5 px-2.5 rotate-1">
+                  <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] text-[10px] sm:text-[11px] py-0.5 px-2.5 rotate-1">
                     AVAILABLE 2026
                   </span>
                 </div>
 
                 <div className="space-y-5 font-body text-sm sm:text-base">
                   <div>
-                    <span className="font-label-caps text-[11px] sm:text-xs text-[#777777] block mb-1.5">
+                    <span className="font-label-caps text-[11px] sm:text-xs text-[#9CA3AF] block mb-1.5">
                       EMAIL
                     </span>
                     <a
                       href="mailto:jaiyanthofficial@gmail.com"
-                      className="font-mono-code text-sm sm:text-base font-bold text-[#111111] hover:opacity-75 transition-opacity break-all inline-flex items-center gap-1.5"
+                      className="font-mono-code text-sm sm:text-base font-bold text-[#F5F5F0] hover:text-[#A3E635] transition-colors break-all inline-flex items-center gap-1.5"
                     >
-                      <Mail className="w-4 h-4 text-[#111111]" />
+                      <Mail className="w-4 h-4 text-[#A3E635]" />
                       jaiyanthofficial@gmail.com
                     </a>
                   </div>
 
-                  <div className="border-t-[1.5px] border-[#111111]/20 pt-4">
-                    <span className="font-label-caps text-[11px] sm:text-xs text-[#777777] block mb-1.5">
+                  <div className="border-t-[1.5px] border-white/20 pt-4">
+                    <span className="font-label-caps text-[11px] sm:text-xs text-[#9CA3AF] block mb-1.5">
                       LOCATION
                     </span>
-                    <p className="font-body text-sm sm:text-base font-semibold text-[#111111] flex items-center gap-1.5">
-                      <MapPin className="w-4 h-4 text-[#111111]" />
+                    <p className="font-body text-sm sm:text-base font-semibold text-[#F5F5F0] flex items-center gap-1.5">
+                      <MapPin className="w-4 h-4 text-[#A3E635]" />
                       Karur, Tamil Nadu, India
                     </p>
                   </div>
                 </div>
 
                 {/* Online Profiles Links */}
-                <div className="border-t-2 border-[#111111] pt-4">
-                  <span className="font-label-caps text-[10px] text-[#777777] block mb-3">
+                <div className="border-t-2 border-white/20 pt-4">
+                  <span className="font-label-caps text-[10px] text-[#9CA3AF] block mb-3">
                     ONLINE PROFILES
                   </span>
                   <div className="flex items-center gap-4">
@@ -223,11 +223,11 @@ export function Contact() {
               transition={{ duration: 0.45, delay: 0.08 }}
               className="lg:col-span-7"
             >
-              <div className="neo-card p-6 sm:p-8 lg:p-10 bg-white">
+              <div className="neo-card p-6 sm:p-8 lg:p-10 bg-[#141414]">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name-input" className="block font-label-caps text-[11px] text-[#111111] mb-2 font-bold">
+                      <label htmlFor="name-input" className="block font-label-caps text-[11px] text-[#F5F5F0] mb-2 font-bold">
                         Your name
                       </label>
                       <input
@@ -237,12 +237,12 @@ export function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Jane Doe"
-                        className="w-full bg-transparent border-0 border-b-[3px] border-[#111111] pb-2 font-body text-sm sm:text-base text-[#111111] placeholder:text-[#888888] focus:outline-none focus:border-[#111111] transition-colors rounded-none"
+                        className="w-full bg-transparent border-0 border-b-[3px] border-white/30 pb-2 font-body text-sm sm:text-base text-[#F5F5F0] placeholder:text-[#9CA3AF]/60 focus:outline-none focus:border-[#A3E635] transition-colors rounded-none"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="email-input" className="block font-label-caps text-[11px] text-[#111111] mb-2 font-bold">
+                      <label htmlFor="email-input" className="block font-label-caps text-[11px] text-[#F5F5F0] mb-2 font-bold">
                         Your email
                       </label>
                       <input
@@ -252,13 +252,13 @@ export function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="jane@example.com"
-                        className="w-full bg-transparent border-0 border-b-[3px] border-[#111111] pb-2 font-body text-sm sm:text-base text-[#111111] placeholder:text-[#888888] focus:outline-none focus:border-[#111111] transition-colors rounded-none"
+                        className="w-full bg-transparent border-0 border-b-[3px] border-white/30 pb-2 font-body text-sm sm:text-base text-[#F5F5F0] placeholder:text-[#9CA3AF]/60 focus:outline-none focus:border-[#A3E635] transition-colors rounded-none"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="subject-input" className="block font-label-caps text-[11px] text-[#111111] mb-2 font-bold">
+                    <label htmlFor="subject-input" className="block font-label-caps text-[11px] text-[#F5F5F0] mb-2 font-bold">
                       Subject
                     </label>
                     <input
@@ -268,12 +268,12 @@ export function Contact() {
                       value={formData.subject}
                       onChange={handleChange}
                       placeholder="Project inquiry / Full-time role"
-                      className="w-full bg-transparent border-0 border-b-[3px] border-[#111111] pb-2 font-body text-sm sm:text-base text-[#111111] placeholder:text-[#888888] focus:outline-none focus:border-[#111111] transition-colors rounded-none"
+                      className="w-full bg-transparent border-0 border-b-[3px] border-white/30 pb-2 font-body text-sm sm:text-base text-[#F5F5F0] placeholder:text-[#9CA3AF]/60 focus:outline-none focus:border-[#A3E635] transition-colors rounded-none"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message-input" className="block font-label-caps text-[11px] text-[#111111] mb-2 font-bold">
+                    <label htmlFor="message-input" className="block font-label-caps text-[11px] text-[#F5F5F0] mb-2 font-bold">
                       Message
                     </label>
                     <textarea
@@ -283,20 +283,20 @@ export function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Tell me about your team, system goals, or timeline..."
-                      className="w-full bg-transparent border-0 border-b-[3px] border-[#111111] pb-2 font-body text-sm sm:text-base text-[#111111] placeholder:text-[#888888] focus:outline-none focus:border-[#111111] resize-none transition-colors rounded-none"
+                      className="w-full bg-transparent border-0 border-b-[3px] border-white/30 pb-2 font-body text-sm sm:text-base text-[#F5F5F0] placeholder:text-[#9CA3AF]/60 focus:outline-none focus:border-[#A3E635] resize-none transition-colors rounded-none"
                     />
                   </div>
 
                   <div className="pt-2 flex flex-wrap items-center justify-between gap-4">
-                    <span className="font-label-caps text-[11px] text-[#666666] tracking-wider">
+                    <span className="font-label-caps text-[11px] text-[#9CA3AF] tracking-wider">
                       {statusMessage || "Response time under 48h"}
                     </span>
 
-                    {/* Primary CTA button: solid orange fill */}
+                    {/* Primary CTA button: solid lime green fill, dark text */}
                     <button
                       type="submit"
                       disabled={status === "submitting"}
-                      className="neo-btn-primary px-8 py-3.5 text-xs inline-flex items-center justify-center cursor-pointer font-extrabold tracking-wider text-[#111111]"
+                      className="neo-btn-primary px-8 py-3.5 text-xs inline-flex items-center justify-center cursor-pointer font-extrabold tracking-wider"
                     >
                       {status === "submitting" ? "Sending..." : "Send message"}
                     </button>
@@ -309,36 +309,36 @@ export function Contact() {
       </section>
 
       {/* Expressive Neo-Brutalist Footer */}
-      <footer className="border-t-[3px] border-[#111111] py-10 bg-[#FAF3EE] text-[#111111]">
+      <footer className="border-t-[3px] border-white/20 py-10 bg-[#0A0A0A] text-[#F5F5F0]">
         <SectionContainer className="flex flex-col sm:flex-row items-center justify-between gap-6 font-label-caps text-xs">
           <div>
-            <span className="font-heading font-extrabold text-sm text-[#111111]">
+            <span className="font-heading font-extrabold text-sm text-[#F5F5F0]">
               Jaiyanth B — AI &amp; Full-Stack Engineer
             </span>
           </div>
 
           <div className="flex items-center gap-6 font-bold">
-            <a href="#about" className="hover:text-[#111111] hover:underline transition-colors">
+            <a href="#about" className="hover:text-[#A3E635] hover:underline transition-colors">
               About
             </a>
-            <a href="#work" className="hover:text-[#111111] hover:underline transition-colors">
+            <a href="#work" className="hover:text-[#A3E635] hover:underline transition-colors">
               Work
             </a>
-            <a href="#contact" className="hover:text-[#111111] hover:underline transition-colors">
+            <a href="#contact" className="hover:text-[#A3E635] hover:underline transition-colors">
               Contact
             </a>
           </div>
 
-          <div className="flex items-center gap-4 text-[#555555]">
+          <div className="flex items-center gap-4 text-[#9CA3AF]">
             <span>© 2026 Jaiyanth B. All rights reserved.</span>
-            <a href="#hero" className="hover:text-[#111111] font-bold transition-colors">
+            <a href="#hero" className="hover:text-[#A3E635] font-bold transition-colors">
               Back to top ↑
             </a>
             <a
               href="https://github.com/jaiyan-th/Jaiyanth-s-Portfolio"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#111111] font-bold transition-colors inline-flex items-center gap-0.5"
+              className="hover:text-[#A3E635] font-bold transition-colors inline-flex items-center gap-0.5"
             >
               <span>GitHub repo</span>
               <ArrowUpRight className="w-3 h-3" />

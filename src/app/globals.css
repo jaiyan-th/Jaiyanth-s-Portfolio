@@ -4,11 +4,14 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================================
-   EXPRESSIVE NEO-BRUTALIST DESIGN SYSTEM
-   Background: #FAF3EE (cream)
-   Text: #111111 (near-black, hard contrast)
-   Accent: #E5484D (light red as the SINGLE accent color site-wide)
-   Borders: #111111 (3-4px solid black with 4px 4px hard shadow)
+   EXPRESSIVE NEO-BRUTALIST DESIGN SYSTEM (DARK + LIME GREEN)
+   Background: #0A0A0A (near-black)
+   Surface: #141414 (card surface)
+   Text: #F5F5F0 (off-white, high contrast)
+   Muted Text: #9CA3AF (mid-gray)
+   Accent: #A3E635 (lime green as the SINGLE accent color site-wide)
+   Borders: rgba(255, 255, 255, 0.2) / solid white/light-gray
+   Hard Shadow: 4px 4px 0px rgba(163, 230, 53, 0.3) or rgba(255, 255, 255, 0.15)
    ============================================================ */
 
 @theme inline {
@@ -37,21 +40,21 @@
 }
 
 :root {
-  --canvas: #FAF3EE;
-  --surface: #FFFFFF;
-  --text-primary: #111111;
-  --text-secondary: #444444;
-  --line: #111111;
-  --accent: #E5484D;
-  --accent-secondary: #E5484D;
-  --accent-2: #E5484D;
+  --canvas: #0A0A0A;
+  --surface: #141414;
+  --text-primary: #F5F5F0;
+  --text-secondary: #9CA3AF;
+  --line: rgba(255, 255, 255, 0.2);
+  --accent: #A3E635;
+  --accent-secondary: #A3E635;
+  --accent-2: #A3E635;
 
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 @layer base {
   * {
-    border-color: #111111;
+    border-color: rgba(255, 255, 255, 0.2);
   }
   html {
     -webkit-text-size-adjust: 100%;
@@ -59,13 +62,14 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
-    background-color: #FAF3EE;
+    background-color: #0A0A0A;
+    color: #F5F5F0;
     max-width: 100%;
     overflow-x: clip;
   }
   body {
-    background-color: #FAF3EE;
-    color: #111111;
+    background-color: #0A0A0A;
+    color: #F5F5F0;
     font-family: var(--font-body), "Lora", Georgia, serif;
     line-height: 1.65;
     max-width: 100%;
@@ -73,12 +77,12 @@
   }
 
   ::selection {
-    background: #E5484D;
-    color: #FFFFFF;
+    background: #A3E635;
+    color: #0A0A0A;
   }
 
   :focus-visible {
-    outline: 2px solid #111111;
+    outline: 2px solid #A3E635;
     outline-offset: 2px;
   }
 }
@@ -104,22 +108,22 @@
 
   /* Neo-brutalist cards with hard shadow */
   .neo-card {
-    background-color: #FFFFFF;
-    border: 3px solid #111111;
-    box-shadow: 4px 4px 0px #111111;
+    background-color: #141414;
+    border: 2.5px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 4px 4px 0px rgba(163, 230, 53, 0.35);
     transition: transform 150ms ease-out, box-shadow 150ms ease-out;
   }
   .neo-card-interactive:hover {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px #111111;
+    box-shadow: 2px 2px 0px #A3E635;
   }
 
-  /* Neo-brutalist buttons — solid light red fill, passes WCAG AA with black text */
+  /* Neo-brutalist buttons — solid lime green fill, black text (13.6:1 contrast) */
   .neo-btn-primary {
-    background-color: #E5484D;
-    color: #FFFFFF;
-    border: 3px solid #111111;
-    box-shadow: 4px 4px 0px #111111;
+    background-color: #A3E635;
+    color: #0A0A0A;
+    border: 2.5px solid #0A0A0A;
+    box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.85);
     font-family: var(--font-label), "Plus Jakarta Sans", sans-serif;
     font-weight: 800;
     text-transform: uppercase;
@@ -128,30 +132,31 @@
   }
   .neo-btn-primary:hover {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px #111111;
-    background-color: #CE373C;
+    box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.85);
+    background-color: #BEF264;
   }
 
   .neo-btn-secondary {
-    background-color: #FAF3EE;
-    color: #111111;
-    border: 3px solid #111111;
-    box-shadow: 4px 4px 0px #111111;
+    background-color: #1A1A1A;
+    color: #F5F5F0;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.2);
     font-family: var(--font-label), "Plus Jakarta Sans", sans-serif;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    transition: transform 150ms ease-out, box-shadow 150ms ease-out;
+    transition: transform 150ms ease-out, box-shadow 150ms ease-out, background-color 150ms ease-out, border-color 150ms ease-out;
   }
   .neo-btn-secondary:hover {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px #111111;
-    background-color: #FFFFFF;
+    box-shadow: 2px 2px 0px #A3E635;
+    background-color: #242424;
+    border-color: #A3E635;
   }
 
   /* Sticker badges */
   .sticker-badge {
-    border: 2px solid #111111;
+    border: 2px solid rgba(255, 255, 255, 0.85);
     font-family: var(--font-label), "Plus Jakarta Sans", sans-serif;
     font-size: 0.7rem;
     font-weight: 800;
@@ -161,50 +166,55 @@
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    box-shadow: 2px 2px 0px #111111;
+    box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.25);
     transition: transform 150ms ease-out;
   }
   .sticker-badge:hover {
     transform: rotate(0deg) scale(1.04) !important;
   }
 
-  /* Quiet skill pills (no shadow, no rotation, no color fill) */
+  /* Quiet skill pills (thin light-gray border, transparent background, off-white text) */
   .skill-pill {
-    border: 1.5px solid #111111;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
     background-color: transparent;
-    color: #111111;
+    color: #F5F5F0;
     padding: 0.25rem 0.65rem;
     font-family: var(--font-mono), "JetBrains Mono", monospace;
     font-size: 0.75rem;
     font-weight: 600;
     line-height: 1.2;
+    transition: border-color 150ms ease-out, color 150ms ease-out;
+  }
+  .skill-pill:hover {
+    border-color: #A3E635;
+    color: #A3E635;
   }
 
   /* Shared Standard Container */
   .container-main {
     width: 100%;
-    max-width: 72rem; /* 1152px = max-w-6xl */
+    max-width: 72rem;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* px-4 */
+    padding-left: 1rem;
     padding-right: 1rem;
   }
   @media (min-width: 640px) {
     .container-main {
-      padding-left: 1.5rem; /* px-6 */
+      padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
   @media (min-width: 768px) {
     .container-main {
-      padding-left: 2rem; /* px-8 */
+      padding-left: 2rem;
       padding-right: 2rem;
     }
   }
 
   /* Marker highlight */
   .marker-highlight {
-    background: linear-gradient(120deg, rgba(229, 72, 77, 0.25) 0%, rgba(229, 72, 77, 0.35) 100%);
+    background: linear-gradient(120deg, rgba(163, 230, 53, 0.25) 0%, rgba(163, 230, 53, 0.35) 100%);
     padding: 0.1em 0.3em;
     border-radius: 2px;
   }
@@ -238,11 +248,11 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(17, 17, 17, 0.25);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #E5484D;
+  background: #A3E635;
 }
 
 nextjs-portal,
