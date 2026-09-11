@@ -4,14 +4,10 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================================
-   EXPRESSIVE NEO-BRUTALIST DESIGN SYSTEM (DARK + LIME GREEN)
-   Background: #0A0A0A (near-black)
-   Surface: #141414 (card surface)
-   Text: #F5F5F0 (off-white, high contrast)
-   Muted Text: #9CA3AF (mid-gray)
-   Accent: #A3E635 (lime green as the SINGLE accent color site-wide)
-   Borders: rgba(255, 255, 255, 0.2) / solid white/light-gray
-   Hard Shadow: 4px 4px 0px rgba(163, 230, 53, 0.3) or rgba(255, 255, 255, 0.15)
+   EXPRESSIVE NEO-BRUTALIST DESIGN SYSTEM (LIGHT & DARK THEMES)
+   Light: Warm cream canvas (#FAF3EE), white cards, near-black text
+   Dark: Near-black canvas (#0A0A0A), dark cards (#141414), off-white text
+   Accent: Lime Green (#A3E635) across both themes for iconic identity
    ============================================================ */
 
 @theme inline {
@@ -26,9 +22,12 @@
 
   --color-canvas: var(--canvas);
   --color-surface: var(--surface);
+  --color-surface-secondary: var(--surface-secondary);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-line: var(--line);
+  --color-line-solid: var(--line-solid);
+  --color-shadow-color: var(--shadow-color);
   --color-accent: var(--accent);
   --color-accent-secondary: var(--accent);
 
@@ -40,11 +39,32 @@
 }
 
 :root {
+  /* Light Theme */
+  --canvas: #FAF3EE;
+  --surface: #FFFFFF;
+  --surface-secondary: #F3EBE3;
+  --text-primary: #111111;
+  --text-secondary: #52525B;
+  --line: rgba(17, 17, 17, 0.18);
+  --line-solid: #111111;
+  --shadow-color: rgba(17, 17, 17, 0.9);
+  --accent: #A3E635;
+  --accent-secondary: #A3E635;
+  --accent-2: #A3E635;
+
+  color-scheme: light;
+}
+
+.dark {
+  /* Dark Theme */
   --canvas: #0A0A0A;
   --surface: #141414;
+  --surface-secondary: #1A1A1A;
   --text-primary: #F5F5F0;
   --text-secondary: #9CA3AF;
   --line: rgba(255, 255, 255, 0.2);
+  --line-solid: rgba(255, 255, 255, 0.85);
+  --shadow-color: rgba(255, 255, 255, 0.15);
   --accent: #A3E635;
   --accent-secondary: #A3E635;
   --accent-2: #A3E635;
@@ -54,7 +74,7 @@
 
 @layer base {
   * {
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--line);
   }
   html {
     -webkit-text-size-adjust: 100%;
@@ -62,18 +82,19 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
-    background-color: #0A0A0A;
-    color: #F5F5F0;
+    background-color: var(--canvas);
+    color: var(--text-primary);
     max-width: 100%;
     overflow-x: clip;
   }
   body {
-    background-color: #0A0A0A;
-    color: #F5F5F0;
+    background-color: var(--canvas);
+    color: var(--text-primary);
     font-family: var(--font-body), "Lora", Georgia, serif;
     line-height: 1.65;
     max-width: 100%;
     overflow-x: clip;
+    transition: background-color 200ms ease, color 200ms ease;
   }
 
   ::selection {
@@ -106,24 +127,24 @@
     font-weight: 700;
   }
 
-  /* Neo-brutalist cards with light-gray/white border and shadow */
+  /* Neo-brutalist cards with theme-aware border and shadow */
   .neo-card {
-    background-color: #141414;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.15);
-    transition: transform 150ms ease-out, box-shadow 150ms ease-out;
+    background-color: var(--surface);
+    border: 2px solid var(--line);
+    box-shadow: 4px 4px 0px var(--shadow-color);
+    transition: transform 150ms ease-out, box-shadow 150ms ease-out, background-color 200ms ease, border-color 200ms ease;
   }
   .neo-card-interactive:hover {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.35);
+    box-shadow: 2px 2px 0px var(--line-solid);
   }
 
-  /* Neo-brutalist buttons — solid lime green fill, black text (13.6:1 contrast) */
+  /* Neo-brutalist buttons — solid lime green fill, black text */
   .neo-btn-primary {
     background-color: #A3E635;
     color: #0A0A0A;
-    border: 2.5px solid #0A0A0A;
-    box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.85);
+    border: 2px solid var(--line-solid);
+    box-shadow: 4px 4px 0px var(--shadow-color);
     font-family: var(--font-label), "Plus Jakarta Sans", sans-serif;
     font-weight: 800;
     text-transform: uppercase;
@@ -132,31 +153,31 @@
   }
   .neo-btn-primary:hover {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.85);
+    box-shadow: 2px 2px 0px var(--shadow-color);
     background-color: #BEF264;
   }
 
   .neo-btn-secondary {
-    background-color: #1A1A1A;
-    color: #F5F5F0;
-    border: 2px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.15);
+    background-color: var(--surface-secondary);
+    color: var(--text-primary);
+    border: 2px solid var(--line);
+    box-shadow: 4px 4px 0px var(--shadow-color);
     font-family: var(--font-label), "Plus Jakarta Sans", sans-serif;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    transition: transform 150ms ease-out, box-shadow 150ms ease-out, background-color 150ms ease-out, border-color 150ms ease-out;
+    transition: transform 150ms ease-out, box-shadow 150ms ease-out, background-color 200ms ease, border-color 200ms ease;
   }
   .neo-btn-secondary:hover {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.35);
-    background-color: #242424;
-    border-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 2px 2px 0px var(--shadow-color);
+    background-color: var(--surface);
+    border-color: var(--line-solid);
   }
 
   /* Sticker badges */
   .sticker-badge {
-    border: 2px solid rgba(255, 255, 255, 0.85);
+    border: 2px solid var(--line-solid);
     font-family: var(--font-label), "Plus Jakarta Sans", sans-serif;
     font-size: 0.7rem;
     font-weight: 800;
@@ -166,18 +187,18 @@
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.25);
+    box-shadow: 2px 2px 0px var(--shadow-color);
     transition: transform 150ms ease-out;
   }
   .sticker-badge:hover {
     transform: rotate(0deg) scale(1.04) !important;
   }
 
-  /* Quiet skill pills (thin light-gray border, transparent background, off-white text) */
+  /* Quiet skill pills */
   .skill-pill {
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    border: 1.5px solid var(--line);
     background-color: transparent;
-    color: #F5F5F0;
+    color: var(--text-primary);
     padding: 0.25rem 0.65rem;
     font-family: var(--font-mono), "JetBrains Mono", monospace;
     font-size: 0.75rem;
@@ -248,7 +269,7 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--line);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {

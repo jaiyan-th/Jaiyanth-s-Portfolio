@@ -35,7 +35,7 @@ const SKILL_CATEGORIES = [
 
 export function Skills() {
   return (
-    <section id="skills" className="relative bg-[#0A0A0A] text-[#F5F5F0] border-b-[3px] border-white/20 py-20 md:py-28 scroll-mt-20">
+    <section id="skills" className="relative bg-canvas text-foreground border-b-[3px] border-line py-20 md:py-28 scroll-mt-20 transition-colors">
       <SectionContainer className="space-y-16">
         {/* Header Block */}
         <motion.div
@@ -57,7 +57,7 @@ export function Skills() {
           </div>
 
           {/* Section Headline with ONE italic accent word (build) */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#F5F5F0] leading-[1.08] tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-foreground leading-[1.08] tracking-tight">
             The stack I <span className="italic text-[#A3E635]">build</span> with.
           </h2>
         </motion.div>
@@ -75,7 +75,7 @@ export function Skills() {
             >
               {/* Category Label + Thin Accent Underline Rule */}
               <div>
-                <h3 className="font-label-caps text-sm sm:text-[15px] md:text-base text-[#F5F5F0] font-extrabold tracking-wider uppercase">
+                <h3 className="font-label-caps text-sm sm:text-[15px] md:text-base text-foreground font-extrabold tracking-wider uppercase">
                   {category.title}
                 </h3>
                 <div className="w-16 h-[3px] bg-[#A3E635] mt-2 mb-4" />
@@ -86,7 +86,7 @@ export function Skills() {
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="border-[1.5px] border-white/20 hover:border-[#A3E635] bg-transparent text-[#F5F5F0] hover:text-[#A3E635] transition-colors px-4 py-2 sm:px-4.5 sm:py-2.5 font-sans text-xs sm:text-sm md:text-[15px] font-semibold rounded-none inline-block leading-snug"
+                    className="border-[1.5px] border-line hover:border-[#A3E635] bg-transparent text-foreground hover:text-[#A3E635] transition-colors px-4 py-2 sm:px-4.5 sm:py-2.5 font-sans text-xs sm:text-sm md:text-[15px] font-semibold rounded-none inline-block leading-snug"
                   >
                     {skill}
                   </span>
@@ -97,8 +97,8 @@ export function Skills() {
         </div>
 
         {/* Bottom Line Under Hairline Divider */}
-        <div className="border-t border-white/20 pt-8 text-center">
-          <p className="font-label-caps text-xs sm:text-sm text-[#9CA3AF] tracking-widest uppercase font-semibold">
+        <div className="border-t border-line pt-8 text-center">
+          <p className="font-label-caps text-xs sm:text-sm text-text-secondary tracking-widest uppercase font-semibold">
             IEEE Published · 4 Production-Ready Projects Shipped
           </p>
         </div>

@@ -110,8 +110,8 @@ export function Contact() {
   };
 
   return (
-    <div className="relative bg-[#0A0A0A]">
-      <section id="contact" className="relative py-16 md:py-24 text-[#F5F5F0] scroll-mt-20">
+    <div className="relative bg-canvas text-foreground transition-colors">
+      <section id="contact" className="relative py-16 md:py-24 text-foreground scroll-mt-20">
         <SectionContainer className="space-y-12">
           {/* Section Header: Plain bold headline, no italic, no color */}
           <motion.div
@@ -133,11 +133,11 @@ export function Contact() {
             </div>
 
             {/* Section Headline with ONE italic accent word (talk) */}
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#F5F5F0] leading-[1.08] tracking-tight">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-foreground leading-[1.08] tracking-tight">
               Let&apos;s{" "}
               <span className="italic text-[#A3E635]">talk.</span>
             </h2>
-            <p className="font-body text-base sm:text-lg lg:text-[1.2rem] text-[#E5E5E0] max-w-2xl xl:max-w-3xl">
+            <p className="font-body text-base sm:text-lg lg:text-[1.2rem] text-text-secondary max-w-2xl xl:max-w-3xl">
               Open for full-time engineering roles, internship opportunities, and technical collaboration.
             </p>
           </motion.div>
@@ -151,9 +151,9 @@ export function Contact() {
               transition={{ duration: 0.45 }}
               className="lg:col-span-5"
             >
-              <div className="neo-card p-6 sm:p-8 lg:p-10 bg-[#141414] space-y-6">
-                <div className="flex items-center justify-between border-b-2 border-white/20 pb-3.5">
-                  <span className="font-label-caps text-xs sm:text-[13px] text-[#9CA3AF]">
+              <div className="neo-card p-6 sm:p-8 lg:p-10 space-y-6">
+                <div className="flex items-center justify-between border-b-2 border-line pb-3.5">
+                  <span className="font-label-caps text-xs sm:text-[13px] text-text-secondary">
                     DIRECT CONTACT
                   </span>
                   <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] text-[10px] sm:text-[11px] py-0.5 px-2.5 rotate-1">
@@ -163,23 +163,23 @@ export function Contact() {
 
                 <div className="space-y-5 font-body text-sm sm:text-base">
                   <div>
-                    <span className="font-label-caps text-[11px] sm:text-xs text-[#9CA3AF] block mb-1.5">
+                    <span className="font-label-caps text-[11px] sm:text-xs text-text-secondary block mb-1.5">
                       EMAIL
                     </span>
                     <a
                       href="mailto:jaiyanthofficial@gmail.com"
-                      className="font-mono-code text-sm sm:text-base font-bold text-[#F5F5F0] hover:text-[#A3E635] transition-colors break-all inline-flex items-center gap-1.5"
+                      className="font-mono-code text-sm sm:text-base font-bold text-foreground hover:text-[#A3E635] transition-colors break-all inline-flex items-center gap-1.5"
                     >
                       <Mail className="w-4 h-4 text-[#A3E635]" />
                       jaiyanthofficial@gmail.com
                     </a>
                   </div>
 
-                  <div className="border-t-[1.5px] border-white/20 pt-4">
-                    <span className="font-label-caps text-[11px] sm:text-xs text-[#9CA3AF] block mb-1.5">
+                  <div className="border-t-[1.5px] border-line pt-4">
+                    <span className="font-label-caps text-[11px] sm:text-xs text-text-secondary block mb-1.5">
                       LOCATION
                     </span>
-                    <p className="font-body text-sm sm:text-base font-semibold text-[#F5F5F0] flex items-center gap-1.5">
+                    <p className="font-body text-sm sm:text-base font-semibold text-foreground flex items-center gap-1.5">
                       <MapPin className="w-4 h-4 text-[#A3E635]" />
                       Karur, Tamil Nadu, India
                     </p>
@@ -187,8 +187,8 @@ export function Contact() {
                 </div>
 
                 {/* Online Profiles Links */}
-                <div className="border-t-2 border-white/20 pt-4">
-                  <span className="font-label-caps text-[10px] text-[#9CA3AF] block mb-3">
+                <div className="border-t-2 border-line pt-4">
+                  <span className="font-label-caps text-[10px] text-text-secondary block mb-3">
                     ONLINE PROFILES
                   </span>
                   <div className="flex items-center gap-4">
@@ -223,11 +223,11 @@ export function Contact() {
               transition={{ duration: 0.45, delay: 0.08 }}
               className="lg:col-span-7"
             >
-              <div className="neo-card p-6 sm:p-8 lg:p-10 bg-[#141414]">
+              <div className="neo-card p-6 sm:p-8 lg:p-10">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name-input" className="block font-label-caps text-[11px] text-[#F5F5F0] mb-2 font-bold">
+                      <label htmlFor="name-input" className="block font-label-caps text-[11px] text-foreground mb-2 font-bold">
                         Your name
                       </label>
                       <input
@@ -237,12 +237,12 @@ export function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Jane Doe"
-                        className="w-full bg-transparent border-0 border-b-[3px] border-white/30 pb-2 font-body text-sm sm:text-base text-[#F5F5F0] placeholder:text-[#9CA3AF]/60 focus:outline-none focus:border-[#A3E635] transition-colors rounded-none"
+                        className="w-full bg-transparent border-0 border-b-[3px] border-line pb-2 font-body text-sm sm:text-base text-foreground placeholder:text-text-secondary/60 focus:outline-none focus:border-[#A3E635] transition-colors rounded-none"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="email-input" className="block font-label-caps text-[11px] text-[#F5F5F0] mb-2 font-bold">
+                      <label htmlFor="email-input" className="block font-label-caps text-[11px] text-foreground mb-2 font-bold">
                         Your email
                       </label>
                       <input
@@ -252,13 +252,13 @@ export function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="jane@example.com"
-                        className="w-full bg-transparent border-0 border-b-[3px] border-white/30 pb-2 font-body text-sm sm:text-base text-[#F5F5F0] placeholder:text-[#9CA3AF]/60 focus:outline-none focus:border-[#A3E635] transition-colors rounded-none"
+                        className="w-full bg-transparent border-0 border-b-[3px] border-line pb-2 font-body text-sm sm:text-base text-foreground placeholder:text-text-secondary/60 focus:outline-none focus:border-[#A3E635] transition-colors rounded-none"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="subject-input" className="block font-label-caps text-[11px] text-[#F5F5F0] mb-2 font-bold">
+                    <label htmlFor="subject-input" className="block font-label-caps text-[11px] text-foreground mb-2 font-bold">
                       Subject
                     </label>
                     <input
@@ -268,12 +268,12 @@ export function Contact() {
                       value={formData.subject}
                       onChange={handleChange}
                       placeholder="Project inquiry / Full-time role"
-                      className="w-full bg-transparent border-0 border-b-[3px] border-white/30 pb-2 font-body text-sm sm:text-base text-[#F5F5F0] placeholder:text-[#9CA3AF]/60 focus:outline-none focus:border-[#A3E635] transition-colors rounded-none"
+                      className="w-full bg-transparent border-0 border-b-[3px] border-line pb-2 font-body text-sm sm:text-base text-foreground placeholder:text-text-secondary/60 focus:outline-none focus:border-[#A3E635] transition-colors rounded-none"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message-input" className="block font-label-caps text-[11px] text-[#F5F5F0] mb-2 font-bold">
+                    <label htmlFor="message-input" className="block font-label-caps text-[11px] text-foreground mb-2 font-bold">
                       Message
                     </label>
                     <textarea
@@ -283,12 +283,12 @@ export function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Tell me about your team, system goals, or timeline..."
-                      className="w-full bg-transparent border-0 border-b-[3px] border-white/30 pb-2 font-body text-sm sm:text-base text-[#F5F5F0] placeholder:text-[#9CA3AF]/60 focus:outline-none focus:border-[#A3E635] resize-none transition-colors rounded-none"
+                      className="w-full bg-transparent border-0 border-b-[3px] border-line pb-2 font-body text-sm sm:text-base text-foreground placeholder:text-text-secondary/60 focus:outline-none focus:border-[#A3E635] resize-none transition-colors rounded-none"
                     />
                   </div>
 
                   <div className="pt-2 flex flex-wrap items-center justify-between gap-4">
-                    <span className="font-label-caps text-[11px] text-[#9CA3AF] tracking-wider">
+                    <span className="font-label-caps text-[11px] text-text-secondary tracking-wider">
                       {statusMessage || "Response time under 48h"}
                     </span>
 
@@ -309,10 +309,10 @@ export function Contact() {
       </section>
 
       {/* Expressive Neo-Brutalist Footer */}
-      <footer className="border-t-[3px] border-white/20 py-10 bg-[#0A0A0A] text-[#F5F5F0]">
+      <footer className="border-t-[3px] border-line py-10 bg-canvas text-foreground transition-colors">
         <SectionContainer className="flex flex-col sm:flex-row items-center justify-between gap-6 font-label-caps text-xs">
           <div>
-            <span className="font-heading font-extrabold text-sm text-[#F5F5F0]">
+            <span className="font-heading font-extrabold text-sm text-foreground">
               Jaiyanth B — AI &amp; Full-Stack Engineer
             </span>
           </div>
@@ -329,7 +329,7 @@ export function Contact() {
             </a>
           </div>
 
-          <div className="flex items-center gap-4 text-[#9CA3AF]">
+          <div className="flex items-center gap-4 text-text-secondary">
             <span>© 2026 Jaiyanth B. All rights reserved.</span>
             <a href="#hero" className="hover:text-[#A3E635] font-bold transition-colors">
               Back to top ↑

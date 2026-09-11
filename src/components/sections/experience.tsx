@@ -19,7 +19,7 @@ const PIPELINE_STAGES = [
 
 export function Experience() {
   return (
-    <section id="experience" className="relative bg-[#0A0A0A] text-[#F5F5F0] border-b-[3px] border-white/20 py-16 md:py-24 scroll-mt-20">
+    <section id="experience" className="relative bg-canvas text-foreground border-b-[3px] border-line py-16 md:py-24 scroll-mt-20 transition-colors">
       <SectionContainer className="space-y-12">
         {/* Section Header: Plain bold headline, no italic, no color */}
         <motion.div
@@ -41,7 +41,7 @@ export function Experience() {
           </div>
 
           {/* Section Headline with ONE italic accent word (worked) */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#F5F5F0] leading-[1.08] tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-foreground leading-[1.08] tracking-tight">
             Where I&apos;ve{" "}
             <span className="italic text-[#A3E635]">worked.</span>
           </h2>
@@ -53,32 +53,32 @@ export function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-30px" }}
           transition={{ duration: 0.45 }}
-          className="neo-card p-6 sm:p-10 lg:p-12 bg-[#141414] space-y-8"
+          className="neo-card p-6 sm:p-10 lg:p-12 space-y-8"
         >
           {/* Header Line */}
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-white/20 pb-4">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-line pb-4">
             <div className="flex items-center gap-3">
-              <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F5F5F0]">
+              <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground">
                 AI Intern — Brainery Spot Technology
               </h3>
             </div>
-            <span className="sticker-badge bg-[#1A1A1A] text-[#A3E635] border-[1.5px] border-white/20 text-xs sm:text-[13px] py-1 px-3.5">
+            <span className="sticker-badge bg-surface-secondary text-[#A3E635] border-[1.5px] border-line text-xs sm:text-[13px] py-1 px-3.5">
               Jun–Jul 2025 · Completed
             </span>
           </div>
 
           {/* Role Copy */}
-          <p className="font-body text-base sm:text-lg lg:text-[1.15rem] text-[#E5E5E0] leading-relaxed max-w-4xl">
+          <p className="font-body text-base sm:text-lg lg:text-[1.15rem] text-text-secondary leading-relaxed max-w-4xl">
             Built applied-AI prototypes that needed to work, not just demo. Shipped RAG and LLM workflows, integrated third-party REST APIs cleanly, and practiced the unglamorous engineering habits — debugging, testing, prompt iteration, team feedback — that make AI systems dependable in production.
           </p>
 
           {/* 8-Stage Pipeline with Numerals */}
-          <div className="border-t-2 border-white/20 pt-6 space-y-4">
+          <div className="border-t-2 border-line pt-6 space-y-4">
             <div className="flex items-center justify-between">
-              <span className="font-label-caps text-xs sm:text-[13px] text-[#F5F5F0] font-bold">
+              <span className="font-label-caps text-xs sm:text-[13px] text-foreground font-bold">
                 ENGINEERING PIPELINE
               </span>
-              <span className="font-mono-code text-xs sm:text-[13px] font-bold text-[#9CA3AF]">
+              <span className="font-mono-code text-xs sm:text-[13px] font-bold text-text-secondary">
                 8 STAGES
               </span>
             </div>
@@ -87,12 +87,12 @@ export function Experience() {
               {PIPELINE_STAGES.map((stage) => (
                 <div
                   key={stage.num}
-                  className="border-[1.5px] border-white/20 p-4 bg-[#1A1A1A] flex items-center gap-4"
+                  className="border-[1.5px] border-line p-4 bg-surface-secondary flex items-center gap-4"
                 >
-                  <span className="font-heading text-2xl sm:text-3xl font-extrabold text-[#F5F5F0]">
+                  <span className="font-heading text-2xl sm:text-3xl font-extrabold text-foreground">
                     {stage.num}
                   </span>
-                  <span className="font-body text-xs sm:text-sm font-semibold text-[#F5F5F0] leading-snug">
+                  <span className="font-body text-xs sm:text-sm font-semibold text-foreground leading-snug">
                     {stage.text}
                   </span>
                 </div>

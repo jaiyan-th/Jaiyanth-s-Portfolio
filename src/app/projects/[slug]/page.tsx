@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PROJECTS, SITE } from "@/data/portfolio";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Github, CheckCircle2 } from "lucide-react";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -37,23 +38,24 @@ export default async function ProjectPage({ params }: Params) {
   const nextProject = PROJECTS[(projectIndex + 1) % PROJECTS.length];
 
   return (
-    <main className="min-h-screen bg-[#0A0A0A] text-[#F5F5F0]">
+    <main className="min-h-screen bg-canvas text-foreground transition-colors">
       {/* 1. Header & Navigation */}
-      <header className="border-b-[3px] border-white/20 px-6 py-6 bg-[#141414]">
+      <header className="border-b-[3px] border-line px-6 py-6 bg-surface">
         <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-4 font-label-caps text-xs">
           <Link
             href="/#work"
-            className="inline-flex items-center gap-2 text-[#F5F5F0] hover:text-[#A3E635] transition-colors font-bold"
+            className="inline-flex items-center gap-2 text-foreground hover:text-[#A3E635] transition-colors font-bold"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>BACK TO WORK</span>
           </Link>
 
           <div className="flex items-center gap-3">
+            <ThemeToggle />
             <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] text-[10px] -rotate-1">
               {project.category}
             </span>
-            <span className="font-mono-code font-bold text-xs text-[#9CA3AF]">
+            <span className="font-mono-code font-bold text-xs text-text-secondary">
               0{project.number} / 0{PROJECTS.length}
             </span>
           </div>
@@ -61,41 +63,41 @@ export default async function ProjectPage({ params }: Params) {
       </header>
 
       {/* 2. Hero Section */}
-      <section className="px-6 py-12 md:py-20 border-b-[3px] border-white/20">
+      <section className="px-6 py-12 md:py-20 border-b-[3px] border-line">
         <div className="max-w-5xl mx-auto space-y-8">
           <div className="space-y-3">
-            <span className="font-label-caps text-xs text-[#9CA3AF] font-bold block">
+            <span className="font-label-caps text-xs text-text-secondary font-bold block">
               ENGINEERING CASE STUDY
             </span>
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl text-[#F5F5F0] font-extrabold leading-tight tracking-tight">
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl text-foreground font-extrabold leading-tight tracking-tight">
               {project.title}
             </h1>
           </div>
 
-          <p className="font-body text-lg sm:text-xl text-[#E5E5E0] leading-relaxed max-w-[760px]">
+          <p className="font-body text-lg sm:text-xl text-text-secondary leading-relaxed max-w-[760px]">
             {project.summary}
           </p>
 
           {/* Metadata Specs */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t-2 border-white/20">
-            <div className="border-[1.5px] border-white/20 p-3.5 bg-[#141414] shadow-[2px_2px_0px_rgba(255,255,255,0.2)]">
-              <span className="font-label-caps text-[10px] text-[#9CA3AF] block mb-1">FOCUS</span>
-              <span className="font-body text-xs sm:text-sm text-[#F5F5F0] font-bold">{project.engineeringFocus}</span>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t-2 border-line">
+            <div className="border-[1.5px] border-line p-3.5 bg-surface shadow-[2px_2px_0px_var(--shadow-color)]">
+              <span className="font-label-caps text-[10px] text-text-secondary block mb-1">FOCUS</span>
+              <span className="font-body text-xs sm:text-sm text-foreground font-bold">{project.engineeringFocus}</span>
             </div>
-            <div className="border-[1.5px] border-white/20 p-3.5 bg-[#141414] shadow-[2px_2px_0px_rgba(255,255,255,0.2)]">
-              <span className="font-label-caps text-[10px] text-[#9CA3AF] block mb-1">CATEGORY</span>
-              <span className="font-body text-xs sm:text-sm text-[#F5F5F0] font-bold">{project.category}</span>
+            <div className="border-[1.5px] border-line p-3.5 bg-surface shadow-[2px_2px_0px_var(--shadow-color)]">
+              <span className="font-label-caps text-[10px] text-text-secondary block mb-1">CATEGORY</span>
+              <span className="font-body text-xs sm:text-sm text-foreground font-bold">{project.category}</span>
             </div>
-            <div className="border-[1.5px] border-white/20 p-3.5 bg-[#141414] shadow-[2px_2px_0px_rgba(255,255,255,0.2)]">
-              <span className="font-label-caps text-[10px] text-[#9CA3AF] block mb-1">STATUS</span>
-              <span className="font-body text-xs sm:text-sm text-[#F5F5F0] font-bold flex items-center gap-1.5">
+            <div className="border-[1.5px] border-line p-3.5 bg-surface shadow-[2px_2px_0px_var(--shadow-color)]">
+              <span className="font-label-caps text-[10px] text-text-secondary block mb-1">STATUS</span>
+              <span className="font-body text-xs sm:text-sm text-foreground font-bold flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-[#A3E635]" />
                 Production Live
               </span>
             </div>
-            <div className="border-[1.5px] border-white/20 p-3.5 bg-[#141414] shadow-[2px_2px_0px_rgba(255,255,255,0.2)]">
-              <span className="font-label-caps text-[10px] text-[#9CA3AF] block mb-1">YEAR</span>
-              <span className="font-mono-code text-xs sm:text-sm text-[#F5F5F0] font-bold">2025–2026</span>
+            <div className="border-[1.5px] border-line p-3.5 bg-surface shadow-[2px_2px_0px_var(--shadow-color)]">
+              <span className="font-label-caps text-[10px] text-text-secondary block mb-1">YEAR</span>
+              <span className="font-mono-code text-xs sm:text-sm text-foreground font-bold">2025–2026</span>
             </div>
           </div>
 
@@ -130,8 +132,8 @@ export default async function ProjectPage({ params }: Params) {
 
       {/* 3. Main Showcase Image */}
       <section className="px-6 py-12 max-w-5xl mx-auto">
-        <div className="relative aspect-[16/9] w-full overflow-hidden neo-card bg-[#141414] p-2">
-          <div className="relative w-full h-full border-2 border-white/20">
+        <div className="relative aspect-[16/9] w-full overflow-hidden neo-card p-2">
+          <div className="relative w-full h-full border-2 border-line">
             <Image
               src={project.image || "/images/projects/fake-news-detector.jpg"}
               alt={`${project.title} Interface Preview`}
@@ -147,63 +149,63 @@ export default async function ProjectPage({ params }: Params) {
       {/* 4. Case Study Body */}
       <section className="px-6 pb-24 max-w-5xl mx-auto space-y-12">
         {/* Context & Problem */}
-        <div className="neo-card p-6 sm:p-8 bg-[#141414] space-y-5">
-          <div className="flex items-center justify-between border-b-2 border-white/20 pb-3">
-            <span className="font-label-caps text-xs text-[#F5F5F0] font-bold">
+        <div className="neo-card p-6 sm:p-8 space-y-5">
+          <div className="flex items-center justify-between border-b-2 border-line pb-3">
+            <span className="font-label-caps text-xs text-foreground font-bold">
               01 · OVERVIEW &amp; PROBLEM
             </span>
-            <span className="font-mono-code text-xs text-[#9CA3AF] font-bold">CONTEXT</span>
+            <span className="font-mono-code text-xs text-text-secondary font-bold">CONTEXT</span>
           </div>
-          <p className="font-body text-base sm:text-lg text-[#E5E5E0] leading-relaxed">
+          <p className="font-body text-base sm:text-lg text-text-secondary leading-relaxed">
             {project.caseStudy.overview}
           </p>
-          <div className="border-[1.5px] border-white/20 bg-[#1A1A1A] p-5 space-y-1.5">
-            <span className="font-label-caps text-xs text-[#F5F5F0] font-bold block">
+          <div className="border-[1.5px] border-line bg-surface-secondary p-5 space-y-1.5">
+            <span className="font-label-caps text-xs text-foreground font-bold block">
               CORE CHALLENGE
             </span>
-            <p className="font-body text-sm sm:text-base text-[#F5F5F0] leading-relaxed font-semibold">
+            <p className="font-body text-sm sm:text-base text-foreground leading-relaxed font-semibold">
               {project.caseStudy.problem}
             </p>
           </div>
         </div>
 
         {/* Architecture & Engineering */}
-        <div className="neo-card p-6 sm:p-8 bg-[#141414] space-y-5">
-          <div className="flex items-center justify-between border-b-2 border-white/20 pb-3">
-            <span className="font-label-caps text-xs text-[#F5F5F0] font-bold">
+        <div className="neo-card p-6 sm:p-8 space-y-5">
+          <div className="flex items-center justify-between border-b-2 border-line pb-3">
+            <span className="font-label-caps text-xs text-foreground font-bold">
               02 · ARCHITECTURE &amp; PIPELINE
             </span>
-            <span className="font-mono-code text-xs text-[#9CA3AF] font-bold">ENGINEERING</span>
+            <span className="font-mono-code text-xs text-text-secondary font-bold">ENGINEERING</span>
           </div>
-          <p className="font-body text-base sm:text-lg text-[#E5E5E0] leading-relaxed">
+          <p className="font-body text-base sm:text-lg text-text-secondary leading-relaxed">
             {project.caseStudy.approach}
           </p>
-          <div className="border-[1.5px] border-white/20 bg-[#1A1A1A] p-5 space-y-1.5">
-            <span className="font-label-caps text-xs text-[#F5F5F0] font-bold block">
+          <div className="border-[1.5px] border-line bg-surface-secondary p-5 space-y-1.5">
+            <span className="font-label-caps text-xs text-foreground font-bold block">
               EXECUTION MODEL
             </span>
-            <p className="font-body text-sm sm:text-base text-[#F5F5F0] leading-relaxed font-semibold">
+            <p className="font-body text-sm sm:text-base text-foreground leading-relaxed font-semibold">
               {project.caseStudy.architecture}
             </p>
           </div>
         </div>
 
         {/* Key Features */}
-        <div className="neo-card p-6 sm:p-8 bg-[#141414] space-y-5">
-          <div className="flex items-center justify-between border-b-2 border-white/20 pb-3">
-            <span className="font-label-caps text-xs text-[#F5F5F0] font-bold">
+        <div className="neo-card p-6 sm:p-8 space-y-5">
+          <div className="flex items-center justify-between border-b-2 border-line pb-3">
+            <span className="font-label-caps text-xs text-foreground font-bold">
               03 · KEY CAPABILITIES
             </span>
-            <span className="font-mono-code text-xs text-[#9CA3AF] font-bold">FEATURES</span>
+            <span className="font-mono-code text-xs text-text-secondary font-bold">FEATURES</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {project.caseStudy.features.map((feature) => (
               <div
                 key={feature}
-                className="border-[1.5px] border-white/20 bg-[#1A1A1A] p-4 flex items-start gap-3"
+                className="border-[1.5px] border-line bg-surface-secondary p-4 flex items-start gap-3"
               >
                 <CheckCircle2 className="w-4 h-4 text-[#A3E635] mt-0.5 shrink-0" />
-                <span className="font-body text-xs sm:text-sm text-[#F5F5F0] font-semibold">
+                <span className="font-body text-xs sm:text-sm text-foreground font-semibold">
                   {feature}
                 </span>
               </div>
@@ -213,40 +215,40 @@ export default async function ProjectPage({ params }: Params) {
 
         {/* Challenges & Learnings */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="neo-card p-6 sm:p-8 bg-[#141414] space-y-3">
-            <div className="border-b-2 border-white/20 pb-2">
-              <span className="font-label-caps text-xs text-[#9CA3AF] font-bold">
+          <div className="neo-card p-6 sm:p-8 space-y-3">
+            <div className="border-b-2 border-line pb-2">
+              <span className="font-label-caps text-xs text-text-secondary font-bold">
                 04 · TRADE-OFFS &amp; HURDLES
               </span>
             </div>
-            <h3 className="font-heading text-xl font-bold text-[#F5F5F0]">
+            <h3 className="font-heading text-xl font-bold text-foreground">
               Technical Challenges
             </h3>
-            <p className="font-body text-sm sm:text-base text-[#E5E5E0] leading-relaxed">
+            <p className="font-body text-sm sm:text-base text-text-secondary leading-relaxed">
               {project.caseStudy.challenges}
             </p>
           </div>
 
-          <div className="neo-card p-6 sm:p-8 bg-[#141414] space-y-3">
-            <div className="border-b-2 border-white/20 pb-2">
-              <span className="font-label-caps text-xs text-[#F5F5F0] font-bold">
+          <div className="neo-card p-6 sm:p-8 space-y-3">
+            <div className="border-b-2 border-line pb-2">
+              <span className="font-label-caps text-xs text-foreground font-bold">
                 05 · TAKEAWAYS
               </span>
             </div>
-            <h3 className="font-heading text-xl font-bold text-[#F5F5F0]">
+            <h3 className="font-heading text-xl font-bold text-foreground">
               Engineering Learnings
             </h3>
-            <p className="font-body text-sm sm:text-base text-[#E5E5E0] leading-relaxed">
+            <p className="font-body text-sm sm:text-base text-text-secondary leading-relaxed">
               {project.caseStudy.learnings}
             </p>
           </div>
         </div>
 
         {/* Next Project Footer */}
-        <div className="neo-card p-6 sm:p-8 bg-[#141414] flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="neo-card p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <Link
             href="/#work"
-            className="font-label-caps text-xs text-[#F5F5F0] hover:text-[#A3E635] hover:underline transition-all inline-flex items-center gap-2 font-bold"
+            className="font-label-caps text-xs text-foreground hover:text-[#A3E635] hover:underline transition-all inline-flex items-center gap-2 font-bold"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>ALL PROJECTS</span>
@@ -257,10 +259,10 @@ export default async function ProjectPage({ params }: Params) {
             className="neo-btn-secondary px-5 py-3 text-xs inline-flex items-center gap-3 font-bold"
           >
             <div>
-              <span className="text-[9px] text-[#9CA3AF] block">NEXT CASE STUDY</span>
-              <span className="text-sm font-extrabold text-[#F5F5F0]">{nextProject.title}</span>
+              <span className="text-[9px] text-text-secondary block">NEXT CASE STUDY</span>
+              <span className="text-sm font-extrabold text-foreground">{nextProject.title}</span>
             </div>
-            <ArrowRight className="w-4 h-4 text-[#F5F5F0]" />
+            <ArrowRight className="w-4 h-4 text-foreground" />
           </Link>
         </div>
       </section>

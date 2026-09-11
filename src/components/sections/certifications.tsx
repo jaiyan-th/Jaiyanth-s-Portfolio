@@ -35,7 +35,7 @@ const CERTIFICATIONS = [
 
 export function Certifications() {
   return (
-    <section id="certifications" className="relative bg-[#0A0A0A] text-[#F5F5F0] border-b-[3px] border-white/20 py-20 md:py-28 scroll-mt-20">
+    <section id="certifications" className="relative bg-canvas text-foreground border-b-[3px] border-line py-20 md:py-28 scroll-mt-20 transition-colors">
       <SectionContainer className="space-y-16">
         {/* Header Block */}
         <motion.div
@@ -57,7 +57,7 @@ export function Certifications() {
           </div>
 
           {/* Section Headline with ONE italic accent word (verified) */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#F5F5F0] leading-[1.08] tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-foreground leading-[1.08] tracking-tight">
             Certifications, <span className="italic text-[#A3E635]">verified.</span>
           </h2>
         </motion.div>
@@ -76,10 +76,10 @@ export function Certifications() {
               {/* Issuer Label + Year + Bold Accent Underline Rule */}
               <div>
                 <div className="flex items-center justify-between">
-                  <h3 className="font-label-caps text-base sm:text-lg md:text-xl text-[#F5F5F0] font-extrabold tracking-wider uppercase">
+                  <h3 className="font-label-caps text-base sm:text-lg md:text-xl text-foreground font-extrabold tracking-wider uppercase">
                     {cert.issuer}
                   </h3>
-                  <span className="font-mono-code text-sm sm:text-base text-[#9CA3AF] font-bold">
+                  <span className="font-mono-code text-sm sm:text-base text-text-secondary font-bold">
                     {cert.year}
                   </span>
                 </div>
@@ -89,7 +89,7 @@ export function Certifications() {
               {/* Certification as Enlarged Pill Badge */}
               <div className="flex flex-wrap gap-3 pt-1">
                 <span
-                  className="border-2 border-white/20 hover:border-[#A3E635] bg-transparent text-[#F5F5F0] hover:text-[#A3E635] transition-colors px-6 py-3.5 font-sans text-base sm:text-lg md:text-xl font-bold rounded-none inline-block leading-snug"
+                  className="border-2 border-line hover:border-[#A3E635] bg-transparent text-foreground hover:text-[#A3E635] transition-colors px-6 py-3.5 font-sans text-base sm:text-lg md:text-xl font-bold rounded-none inline-block leading-snug"
                 >
                   {cert.name}
                 </span>
@@ -99,8 +99,8 @@ export function Certifications() {
         </div>
 
         {/* Bottom Line Under Hairline Divider */}
-        <div className="border-t border-white/20 pt-8 text-center">
-          <p className="font-label-caps text-xs sm:text-sm text-[#9CA3AF] tracking-widest uppercase font-semibold">
+        <div className="border-t border-line pt-8 text-center">
+          <p className="font-label-caps text-xs sm:text-sm text-text-secondary tracking-widest uppercase font-semibold">
             4 Industry Credentials Verified · Cloud, AI &amp; Full-Stack
           </p>
         </div>

@@ -99,15 +99,15 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.98, y: 8 }}
             transition={{ duration: DURATION.modal, ease: EASE.primary }}
-            className="relative z-10 my-auto flex max-h-[90vh] w-full max-w-4xl flex-col border-[3px] border-white/80 bg-[#0A0A0A] p-6 sm:p-10 shadow-[8px_8px_0px_rgba(163,230,53,0.35)] text-[#F5F5F0] overflow-hidden"
+            className="relative z-10 my-auto flex max-h-[90vh] w-full max-w-4xl flex-col border-[3px] border-line-solid bg-canvas p-6 sm:p-10 shadow-[8px_8px_0px_var(--shadow-color)] text-foreground overflow-hidden"
           >
             {/* Header bar */}
-            <div className="border-b-[3px] border-white/20 -m-6 sm:-m-10 mb-6 p-6 sm:px-10 flex items-center justify-between bg-[#141414]">
+            <div className="border-b-[3px] border-line -m-6 sm:-m-10 mb-6 p-6 sm:px-10 flex items-center justify-between bg-surface">
               <div className="flex items-center gap-3">
                 <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] -rotate-1 text-[10px]">
                   {project.category}
                 </span>
-                <span className="font-mono-code text-xs font-bold text-[#9CA3AF]">
+                <span className="font-mono-code text-xs font-bold text-text-secondary">
                   PROJECT 0{project.number}
                 </span>
               </div>
@@ -116,7 +116,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                 type="button"
                 onClick={onClose}
                 aria-label="Close dialog"
-                className="flex h-8 w-8 items-center justify-center border-2 border-white/20 bg-[#1A1A1A] text-[#F5F5F0] shadow-[2px_2px_0px_rgba(255,255,255,0.2)] hover:bg-[#A3E635] hover:text-[#0A0A0A] transition-colors cursor-pointer font-bold"
+                className="flex h-8 w-8 items-center justify-center border-2 border-line bg-surface-secondary text-foreground shadow-[2px_2px_0px_var(--shadow-color)] hover:bg-[#A3E635] hover:text-[#0A0A0A] transition-colors cursor-pointer font-bold"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -125,16 +125,16 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
             {/* Scrollable Content */}
             <div className="mt-2 flex-1 overflow-y-auto pr-2 space-y-8">
               <div>
-                <h2 id="dialog-title" className="font-heading text-3xl sm:text-4xl text-[#F5F5F0] tracking-tight font-extrabold leading-tight">
+                <h2 id="dialog-title" className="font-heading text-3xl sm:text-4xl text-foreground tracking-tight font-extrabold leading-tight">
                   {project.title}
                 </h2>
-                <p className="mt-3 font-body text-base text-[#E5E5E0] leading-relaxed max-w-2xl">
+                <p className="mt-3 font-body text-base text-text-secondary leading-relaxed max-w-2xl">
                   {project.summary}
                 </p>
               </div>
 
               {/* Visual */}
-              <div className="relative aspect-[16/9] w-full overflow-hidden border-2 border-white/20 bg-[#141414]">
+              <div className="relative aspect-[16/9] w-full overflow-hidden border-2 border-line bg-surface">
                 {project.image ? (
                   <Image
                     src={project.image}
@@ -151,8 +151,8 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
 
               {/* Meta grid */}
               <div className="grid gap-6 md:grid-cols-12">
-                <div className="md:col-span-4 neo-card p-5 bg-[#141414] space-y-3">
-                  <span className="font-label-caps text-xs text-[#F5F5F0] font-bold block">
+                <div className="md:col-span-4 neo-card p-5 space-y-3">
+                  <span className="font-label-caps text-xs text-foreground font-bold block">
                     TECH STACK
                   </span>
                   <div className="flex flex-wrap gap-1.5">
@@ -166,11 +166,11 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                     ))}
                   </div>
                 </div>
-                <div className="md:col-span-8 neo-card p-5 bg-[#141414] space-y-2">
-                  <span className="font-label-caps text-xs text-[#F5F5F0] font-bold block">
+                <div className="md:col-span-8 neo-card p-5 space-y-2">
+                  <span className="font-label-caps text-xs text-foreground font-bold block">
                     ENGINEERING FOCUS
                   </span>
-                  <p className="font-body text-sm text-[#E5E5E0] leading-relaxed font-semibold">
+                  <p className="font-body text-sm text-text-secondary leading-relaxed font-semibold">
                     {project.engineeringFocus}
                   </p>
                 </div>
@@ -193,15 +193,15 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
               </div>
 
               {/* Features */}
-              <div className="neo-card p-6 bg-[#141414] space-y-4">
-                <span className="font-label-caps text-xs text-[#F5F5F0] font-bold block">
+              <div className="neo-card p-6 space-y-4">
+                <span className="font-label-caps text-xs text-foreground font-bold block">
                   05 · KEY CAPABILITIES
                 </span>
                 <ul className="grid gap-3 md:grid-cols-2">
                   {project.caseStudy.features.map((f) => (
                     <li
                       key={f}
-                      className="flex items-start gap-3 border-[1.5px] border-white/20 bg-[#1A1A1A] p-3 text-xs sm:text-sm text-[#F5F5F0] font-semibold"
+                      className="flex items-start gap-3 border-[1.5px] border-line bg-surface-secondary p-3 text-xs sm:text-sm text-foreground font-semibold"
                     >
                       <span
                         aria-hidden
@@ -224,8 +224,8 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
               </div>
 
               {/* Actions */}
-              <div className="flex flex-wrap items-center justify-between gap-4 border-t-2 border-white/20 pt-6">
-                <span className="font-label-caps text-xs text-[#9CA3AF] font-bold">
+              <div className="flex flex-wrap items-center justify-between gap-4 border-t-2 border-line pt-6">
+                <span className="font-label-caps text-xs text-text-secondary font-bold">
                   VERIFIED APPLICATION
                 </span>
 
@@ -264,13 +264,13 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
 
 function CaseBlock({ label, index, children }: { label: string; index: string; children: React.ReactNode }) {
   return (
-    <div className="md:col-span-6 neo-card p-6 bg-[#141414] space-y-2">
-      <div className="flex items-center justify-between border-b-2 border-white/20 pb-2 mb-2">
-        <span className="font-label-caps text-xs text-[#F5F5F0] font-bold">
+    <div className="md:col-span-6 neo-card p-6 space-y-2">
+      <div className="flex items-center justify-between border-b-2 border-line pb-2 mb-2">
+        <span className="font-label-caps text-xs text-foreground font-bold">
           {index} · {label}
         </span>
       </div>
-      <p className="font-body text-sm text-[#E5E5E0] leading-relaxed">
+      <p className="font-body text-sm text-text-secondary leading-relaxed">
         {children}
       </p>
     </div>

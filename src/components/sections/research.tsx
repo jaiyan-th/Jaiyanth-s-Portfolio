@@ -17,7 +17,7 @@ export function Research() {
   ];
 
   return (
-    <section id="achievements" className="relative bg-[#0A0A0A] text-[#F5F5F0] border-b-[3px] border-white/20 py-16 md:py-24 scroll-mt-20">
+    <section id="achievements" className="relative bg-canvas text-foreground border-b-[3px] border-line py-16 md:py-24 scroll-mt-20 transition-colors">
       <SectionContainer className="space-y-12">
         {/* Section Header: Plain bold headline, no italic, no color */}
         <motion.div
@@ -39,7 +39,7 @@ export function Research() {
           </div>
 
           {/* Section Headline with ONE italic accent word (print) */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#F5F5F0] leading-[1.08] tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-foreground leading-[1.08] tracking-tight">
             Research that made it to{" "}
             <span className="italic text-[#A3E635]">print.</span>
           </h2>
@@ -51,7 +51,7 @@ export function Research() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-30px" }}
           transition={{ duration: 0.45 }}
-          className="neo-card p-6 sm:p-10 lg:p-12 bg-[#141414] relative space-y-7"
+          className="neo-card p-6 sm:p-10 lg:p-12 relative space-y-7"
         >
           {/* Rotated sticker badge in corner: "PUBLISHED" */}
           <div className="absolute -top-3.5 right-6">
@@ -61,8 +61,8 @@ export function Research() {
           </div>
 
           {/* Details line (small caps) */}
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-white/20 pb-4">
-            <span className="font-label-caps text-xs sm:text-[13px] text-[#9CA3AF]">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-line pb-4">
+            <span className="font-label-caps text-xs sm:text-[13px] text-text-secondary">
               ICETSIS 2026 · BAHRAIN · MAY 2026 · IEEE BAHRAIN SECTION
             </span>
             {RESEARCH.certificateUrl && (
@@ -70,7 +70,7 @@ export function Research() {
                 href={RESEARCH.certificateUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-label-caps text-xs sm:text-[13px] text-[#F5F5F0] hover:text-[#A3E635] hover:underline inline-flex items-center gap-1 font-bold"
+                className="font-label-caps text-xs sm:text-[13px] text-foreground hover:text-[#A3E635] hover:underline inline-flex items-center gap-1 font-bold"
               >
                 <span>VIEW CERTIFICATE</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -80,23 +80,23 @@ export function Research() {
 
           {/* Relocated original detail: small caps line above paper title */}
           <div>
-            <span className="font-label-caps text-xs sm:text-[13px] text-[#9CA3AF] block mb-2">
+            <span className="font-label-caps text-xs sm:text-[13px] text-text-secondary block mb-2">
               CO-AUTHORED IEEE PAPER · PEER-REVIEWED AND ACCEPTED
             </span>
             {/* Paper Title (bold headline) */}
-            <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F5F5F0] leading-tight">
+            <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground leading-tight">
               An AI Intelligence Wellness Framework Integrating Image Recognition and Conversational AI for Preventive Healthcare
             </h3>
           </div>
 
           {/* Abstract (body text) */}
-          <p className="font-body text-base sm:text-lg lg:text-[1.15rem] text-[#E5E5E0] leading-relaxed max-w-4xl">
+          <p className="font-body text-base sm:text-lg lg:text-[1.15rem] text-text-secondary leading-relaxed max-w-4xl">
             A preventive-healthcare framework that combines image recognition with a conversational AI layer to surface early wellness signals, guide users through structured follow-up questions, and route them toward appropriate care — emphasizing explainability, low-friction interaction, and clinician-friendly summaries.
           </p>
 
           {/* Keywords as plain text list */}
-          <div className="border-t-2 border-white/15 pt-4 text-xs sm:text-sm font-mono-code text-[#9CA3AF]">
-            <span className="font-label-caps text-[10px] text-[#F5F5F0] font-bold mr-2 uppercase">
+          <div className="border-t-2 border-line pt-4 text-xs sm:text-sm font-mono-code text-text-secondary">
+            <span className="font-label-caps text-[10px] text-foreground font-bold mr-2 uppercase">
               KEYWORDS:
             </span>
             {keywords.join(", ")}

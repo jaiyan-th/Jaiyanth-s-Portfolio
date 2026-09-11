@@ -128,12 +128,17 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('jb-theme')||'dark';document.documentElement.classList.add(t);document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t;}catch(e){}})()`,
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
       <body
-        className={`${bricolageGrotesque.variable} ${lora.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} antialiased bg-[#0A0A0A] text-[#F5F5F0] font-body`}
+        className={`${bricolageGrotesque.variable} ${lora.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} antialiased bg-canvas text-foreground font-body`}
       >
         <ThemeProvider>
           <ScrollProgress />

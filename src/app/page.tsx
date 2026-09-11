@@ -11,7 +11,7 @@ import { Contact } from "@/components/sections/contact";
 
 export default function Home() {
   return (
-    <div className="bg-[#0A0A0A] min-h-screen text-[#F5F5F0]">
+    <div className="bg-canvas min-h-screen text-foreground transition-colors duration-200">
       <FloatingNav />
       <main id="main" className="relative w-full max-w-full overflow-x-clip">
         <Hero />

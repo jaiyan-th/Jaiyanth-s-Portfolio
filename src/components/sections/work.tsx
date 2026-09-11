@@ -55,7 +55,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
   };
 
   return (
-    <div className="neo-card neo-card-interactive p-6 sm:p-8 lg:p-10 bg-[#141414] space-y-6">
+    <div className="neo-card neo-card-interactive p-6 sm:p-8 lg:p-10 space-y-6">
       <div className={`flex flex-col ${isReversed ? "lg:flex-row-reverse" : "lg:flex-row"} gap-8 lg:gap-10 items-start`}>
         {/* Screenshot / Image Frame */}
         <div className="w-full lg:w-[50%] shrink-0 relative">
@@ -66,7 +66,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
             </span>
           </div>
 
-          <div className="relative aspect-[16/10] w-full overflow-hidden border-2 border-white/20 bg-[#1A1A1A]">
+          <div className="relative aspect-[16/10] w-full overflow-hidden border-2 border-line bg-surface-secondary">
             <Image
               src={project.image || "/images/projects/fake-news-detector.jpg"}
               alt={`${project.title} Interface`}
@@ -82,29 +82,29 @@ function ProjectCard({ project, index }: ProjectCardProps) {
         <div className="w-full lg:w-[50%] flex flex-col justify-between space-y-5">
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <span className="font-mono-code text-xs sm:text-[13px] font-bold text-[#9CA3AF]">
+              <span className="font-mono-code text-xs sm:text-[13px] font-bold text-text-secondary">
                 PROJECT 0{index + 1}
               </span>
               <Link
                 href={`/projects/${project.slug}`}
-                className="font-label-caps text-xs sm:text-[13px] text-[#F5F5F0] hover:text-[#A3E635] hover:underline inline-flex items-center gap-0.5 font-bold"
+                className="font-label-caps text-xs sm:text-[13px] text-foreground hover:text-[#A3E635] hover:underline inline-flex items-center gap-0.5 font-bold"
               >
                 CASE STUDY <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>
 
-            <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F5F5F0] tracking-tight">
+            <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground tracking-tight">
               {project.title}
             </h3>
 
-            <p className="font-body text-base sm:text-lg lg:text-[1.15rem] text-[#E5E5E0] leading-relaxed pt-1">
+            <p className="font-body text-base sm:text-lg lg:text-[1.15rem] text-text-secondary leading-relaxed pt-1">
               {config.copy}
             </p>
           </div>
 
           {/* Plain text tech stack */}
-          <div className="border-t-2 border-white/15 pt-3 font-mono-code text-xs sm:text-[13px] text-[#9CA3AF]">
-            <span className="font-label-caps text-[11px] sm:text-xs text-[#F5F5F0] font-bold mr-2 uppercase">
+          <div className="border-t-2 border-line pt-3 font-mono-code text-xs sm:text-[13px] text-text-secondary">
+            <span className="font-label-caps text-[11px] sm:text-xs text-foreground font-bold mr-2 uppercase">
               STACK:
             </span>
             {config.stackText}
@@ -117,7 +117,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 
 export function Work() {
   return (
-    <section id="work" className="relative bg-[#0A0A0A] text-[#F5F5F0] border-b-[3px] border-white/20 py-16 md:py-24 scroll-mt-20">
+    <section id="work" className="relative bg-canvas text-foreground border-b-[3px] border-line py-16 md:py-24 scroll-mt-20 transition-colors">
       <SectionContainer className="space-y-12">
         {/* Section Header */}
         <motion.div
@@ -139,7 +139,7 @@ export function Work() {
           </div>
 
           {/* Section Headline with ONE italic accent word (shipped) */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-[#F5F5F0] leading-[1.08] tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-foreground leading-[1.08] tracking-tight">
             Things I&apos;ve built and{" "}
             <span className="italic text-[#A3E635]">shipped.</span>
           </h2>
@@ -161,8 +161,8 @@ export function Work() {
         </div>
 
         {/* Section Close Line & Links */}
-        <div className="neo-card p-6 bg-[#141414] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="font-body text-sm sm:text-base text-[#E5E5E0] font-medium">
+        <div className="neo-card p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="font-body text-sm sm:text-base text-text-secondary font-medium">
             Explore all repositories on GitHub or get in touch for custom engineering engagements.
           </p>
           <div className="flex items-center gap-4 shrink-0 font-label-caps text-xs">
