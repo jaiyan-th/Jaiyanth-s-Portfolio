@@ -8,7 +8,6 @@ import { ThemeToggle } from "@/components/theme/theme-toggle";
 
 const navItems = [
   { label: "ABOUT", href: "#about" },
-  { label: "STACK", href: "#skills" },
   { label: "WORK", href: "#work" },
   { label: "EXPERIENCE", href: "#experience" },
   { label: "RESEARCH", href: "#achievements" },
@@ -22,7 +21,7 @@ export function FloatingNav() {
   React.useEffect(() => {
     const handleScroll = () => {
       const scrollPos = window.scrollY + 120;
-      const sections = ["contact", "certifications", "achievements", "experience", "work", "skills", "about", "hero"];
+      const sections = ["contact", "certifications", "achievements", "experience", "work", "about", "hero"];
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
         if (el) {

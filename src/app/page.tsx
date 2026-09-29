@@ -2,7 +2,6 @@ import { FloatingNav } from "@/components/layout/floating-nav";
 import { Hero } from "@/components/sections/hero";
 import { Marquee } from "@/components/ui/marquee";
 import { About } from "@/components/sections/about";
-import { Skills } from "@/components/sections/skills";
 import { Work } from "@/components/sections/work";
 import { Experience } from "@/components/sections/experience";
 import { Achievements } from "@/components/sections/achievements";
@@ -17,7 +16,6 @@ export default function Home() {
         <Hero />
         <Marquee />
         <About />
-        <Skills />
         <Work />
         <Experience />
         <Achievements />

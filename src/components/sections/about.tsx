@@ -1,9 +1,8 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
 import { motion } from "motion/react";
-import { User } from "lucide-react";
+import { User, Cpu, ShieldCheck, Terminal } from "lucide-react";
 import { fadeUpVariants } from "@/lib/motion";
 import { SectionContainer } from "@/components/layout/section-container";
 
@@ -48,7 +47,7 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* Right Column: ONLY Profile Photo, full height anchor */}
+          {/* Right Column: Engineering Principles & Focus (replaces photo) */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -56,25 +55,55 @@ export function About() {
             transition={{ duration: 0.45, delay: 0.1 }}
             className="lg:col-span-5 flex justify-center lg:justify-end"
           >
-            <div className="w-full max-w-[400px] sm:max-w-[430px] lg:max-w-[450px] neo-card p-3.5 sm:p-4 space-y-3">
-              {/* Portrait Aspect Ratio 4:5, not clipped */}
-              <div className="relative w-full aspect-[4/5] overflow-hidden border-2 border-line bg-surface-secondary">
-                <Image
-                  src="/images/jaiyanth-profile.jpg"
-                  alt="Jaiyanth B — AI & Full-Stack Engineer"
-                  fill
-                  className="object-cover object-top filter grayscale contrast-105 hover:grayscale-0 transition-all duration-300"
-                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 430px, 450px"
-                  priority
-                />
+            <div className="w-full max-w-[440px] neo-card p-6 sm:p-7 space-y-5">
+              {/* Card top tag */}
+              <div className="flex items-center justify-between border-b-2 border-line pb-3.5">
+                <span className="font-label-caps text-xs sm:text-[13px] tracking-wider text-text-secondary">
+                  HOW I BUILD
+                </span>
+                <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] text-[11px] py-0.5 px-2.5 rotate-1">
+                  PRINCIPLES
+                </span>
               </div>
 
-              {/* Photo Caption Tag */}
-              <div className="pt-1.5 pb-1 px-1 flex items-center justify-between font-label-caps text-xs sm:text-[13px] text-foreground">
-                <span className="font-bold tracking-wider">JAIYANTH B</span>
-                <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] text-[10px] sm:text-[11px] py-0.5 px-2.5">
-                  ENGINEER
-                </span>
+              {/* Principles list */}
+              <div className="divide-y-[1.5px] divide-line">
+                <div className="pt-3 pb-3.5">
+                  <div className="flex items-center gap-2 font-label-caps text-xs text-foreground font-bold mb-1">
+                    <Cpu className="w-3.5 h-3.5 text-[#A3E635]" />
+                    <span>PRODUCTION-FIRST AI</span>
+                  </div>
+                  <p className="font-body text-xs sm:text-sm text-text-secondary leading-relaxed">
+                    Grounded RAG pipelines, verifiable context retrieval, and defensive prompting built to handle ambiguous input and real user load.
+                  </p>
+                </div>
+
+                <div className="pt-3 pb-3.5">
+                  <div className="flex items-center gap-2 font-label-caps text-xs text-foreground font-bold mb-1">
+                    <Terminal className="w-3.5 h-3.5 text-[#A3E635]" />
+                    <span>END-TO-END ARCHITECTURE</span>
+                  </div>
+                  <p className="font-body text-xs sm:text-sm text-text-secondary leading-relaxed">
+                    Bridging backend data pipelines, relational schemas, high-throughput APIs, and responsive, accessible interfaces.
+                  </p>
+                </div>
+
+                <div className="pt-3 pb-3.5">
+                  <div className="flex items-center gap-2 font-label-caps text-xs text-foreground font-bold mb-1">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#A3E635]" />
+                    <span>SECURITY &amp; RIGOUR</span>
+                  </div>
+                  <p className="font-body text-xs sm:text-sm text-text-secondary leading-relaxed">
+                    Zero-trust data isolation, authenticated encryption, and deterministic logic where mission-critical accuracy matters.
+                  </p>
+                </div>
+
+                <div className="pt-3.5">
+                  <div className="flex items-center justify-between text-xs font-mono-code font-bold text-foreground">
+                    <span>STATUS: 2026 GRADUATE</span>
+                    <span className="text-[#A3E635]">OPEN TO ROLES</span>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
