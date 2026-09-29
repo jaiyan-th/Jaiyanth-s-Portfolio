@@ -7,7 +7,7 @@
    EXPRESSIVE NEO-BRUTALIST DESIGN SYSTEM (LIGHT & DARK THEMES)
    Light: Warm cream canvas (#FAF3EE), white cards, near-black text
    Dark: Near-black canvas (#0A0A0A), dark cards (#141414), off-white text
-   Accent: Lime Green (#A3E635) across both themes for iconic identity
+   Accent: Crimson Red (#b3122b) across both themes for iconic identity
    ============================================================ */
 
 @theme inline {
@@ -50,9 +50,9 @@
   --line: #111111;
   --line-solid: #111111;
   --shadow-color: #111111;
-  --accent: #A3E635;
-  --accent-secondary: #A3E635;
-  --accent-2: #A3E635;
+  --accent: #b3122b;
+  --accent-secondary: #b3122b;
+  --accent-2: #b3122b;
 
   color-scheme: light;
 }
@@ -68,9 +68,9 @@
   --line: #F5F5F0;
   --line-solid: #F5F5F0;
   --shadow-color: rgba(255, 255, 255, 0.9);
-  --accent: #A3E635;
-  --accent-secondary: #A3E635;
-  --accent-2: #A3E635;
+  --accent: #b3122b;
+  --accent-secondary: #b3122b;
+  --accent-2: #b3122b;
 
   color-scheme: dark;
 }
@@ -101,12 +101,12 @@
   }
 
   ::selection {
-    background: #A3E635;
-    color: #0A0A0A;
+    background: #b3122b;
+    color: #ffffff;
   }
 
   :focus-visible {
-    outline: 2px solid #A3E635;
+    outline: 2px solid #b3122b;
     outline-offset: 2px;
   }
 }
@@ -142,9 +142,9 @@
     box-shadow: 2px 2px 0px var(--shadow-color);
   }
 
-  /* Neo-brutalist buttons — solid lime green fill, black text, theme-aware border & shadow */
+  /* Neo-brutalist buttons — solid white fill, black text (image 1 UI), hover crimson accent */
   .neo-btn-primary {
-    background-color: #A3E635;
+    background-color: #FFFFFF;
     color: #0A0A0A;
     border: 2px solid var(--border-color);
     box-shadow: 4px 4px 0px var(--shadow-color);
@@ -152,12 +152,14 @@
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    transition: transform 150ms ease-out, box-shadow 150ms ease-out, background-color 150ms ease-out, border-color 200ms ease;
+    transition: transform 150ms ease-out, box-shadow 150ms ease-out, background-color 150ms ease-out, border-color 200ms ease, color 150ms ease-out;
   }
   .neo-btn-primary:hover {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0px var(--shadow-color);
-    background-color: #BEF264;
+    background-color: #b3122b;
+    color: #FFFFFF;
+    border-color: #b3122b;
   }
 
   .neo-btn-secondary {
@@ -210,8 +212,8 @@
     transition: border-color 150ms ease-out, color 150ms ease-out;
   }
   .skill-pill:hover {
-    border-color: #A3E635;
-    color: #A3E635;
+    border-color: #b3122b;
+    color: #b3122b;
   }
 
   /* Shared Standard Container */
@@ -238,7 +240,7 @@
 
   /* Marker highlight */
   .marker-highlight {
-    background: linear-gradient(120deg, rgba(163, 230, 53, 0.25) 0%, rgba(163, 230, 53, 0.35) 100%);
+    background: linear-gradient(120deg, rgba(179, 18, 43, 0.25) 0%, rgba(179, 18, 43, 0.35) 100%);
     padding: 0.1em 0.3em;
     border-radius: 2px;
   }
@@ -276,7 +278,7 @@
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #A3E635;
+  background: #b3122b;
 }
 
 nextjs-portal,

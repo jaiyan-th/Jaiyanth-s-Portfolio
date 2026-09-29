@@ -104,7 +104,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
             {/* Header bar */}
             <div className="border-b-[3px] border-line -m-6 sm:-m-10 mb-6 p-6 sm:px-10 flex items-center justify-between bg-surface">
               <div className="flex items-center gap-3">
-                <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] -rotate-1 text-[10px]">
+                <span className="sticker-badge bg-[#b3122b] text-white -rotate-1 text-[10px]">
                   {project.category}
                 </span>
                 <span className="font-mono-code text-xs font-bold text-text-secondary">
@@ -116,7 +116,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                 type="button"
                 onClick={onClose}
                 aria-label="Close dialog"
-                className="flex h-8 w-8 items-center justify-center border-2 border-line bg-surface-secondary text-foreground shadow-[2px_2px_0px_var(--shadow-color)] hover:bg-[#A3E635] hover:text-[#0A0A0A] transition-colors cursor-pointer font-bold"
+                className="flex h-8 w-8 items-center justify-center border-2 border-line bg-surface-secondary text-foreground shadow-[2px_2px_0px_var(--shadow-color)] hover:bg-[#b3122b] hover:text-white transition-colors cursor-pointer font-bold"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -205,7 +205,7 @@ export function ProjectDialog({ slug, onClose }: ProjectDialogProps) {
                     >
                       <span
                         aria-hidden
-                        className="mt-1.5 h-2 w-2 flex-shrink-0 bg-[#A3E635]"
+                        className="mt-1.5 h-2 w-2 flex-shrink-0 bg-[#b3122b]"
                       />
                       <span>{f}</span>
                     </li>

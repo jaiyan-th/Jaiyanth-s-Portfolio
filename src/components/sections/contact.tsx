@@ -123,11 +123,11 @@ export function Contact() {
           >
             {/* Sticker Badge + Beside Subtitle */}
             <div className="flex items-center gap-2.5">
-              <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] -rotate-1">
-                <Send className="w-3.5 h-3.5 text-[#0A0A0A]" />
+              <span className="sticker-badge bg-[#b3122b] text-white -rotate-1">
+                <Send className="w-3.5 h-3.5 text-white" />
                 CONTACT
               </span>
-              <span className="font-body italic text-[#A3E635] text-sm font-semibold">
+              <span className="font-body italic text-[#b3122b] text-sm font-semibold">
                 / start here
               </span>
             </div>
@@ -135,7 +135,7 @@ export function Contact() {
             {/* Section Headline with ONE italic accent word (talk) */}
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-foreground leading-[1.08] tracking-tight">
               Let&apos;s{" "}
-              <span className="italic text-[#A3E635]">talk.</span>
+              <span className="italic text-[#b3122b]">talk.</span>
             </h2>
             <p className="font-body text-base sm:text-lg lg:text-[1.2rem] text-text-secondary max-w-2xl xl:max-w-3xl">
               Open for full-time engineering roles, internship opportunities, and technical collaboration.
@@ -156,7 +156,7 @@ export function Contact() {
                   <span className="font-label-caps text-xs sm:text-[13px] text-text-secondary">
                     DIRECT CONTACT
                   </span>
-                  <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] text-[10px] sm:text-[11px] py-0.5 px-2.5 rotate-1">
+                  <span className="sticker-badge bg-[#b3122b] text-white text-[10px] sm:text-[11px] py-0.5 px-2.5 rotate-1">
                     AVAILABLE 2026
                   </span>
                 </div>
@@ -168,9 +168,9 @@ export function Contact() {
                     </span>
                     <a
                       href="mailto:jaiyanthofficial@gmail.com"
-                      className="font-mono-code text-sm sm:text-base font-bold text-foreground hover:text-[#A3E635] transition-colors break-all inline-flex items-center gap-1.5"
+                      className="font-mono-code text-sm sm:text-base font-bold text-foreground hover:text-[#b3122b] transition-colors break-all inline-flex items-center gap-1.5"
                     >
-                      <Mail className="w-4 h-4 text-[#A3E635]" />
+                      <Mail className="w-4 h-4 text-[#b3122b]" />
                       jaiyanthofficial@gmail.com
                     </a>
                   </div>
@@ -180,7 +180,7 @@ export function Contact() {
                       LOCATION
                     </span>
                     <p className="font-body text-sm sm:text-base font-semibold text-foreground flex items-center gap-1.5">
-                      <MapPin className="w-4 h-4 text-[#A3E635]" />
+                      <MapPin className="w-4 h-4 text-[#b3122b]" />
                       Karur, Tamil Nadu, India
                     </p>
                   </div>
@@ -237,7 +237,7 @@ export function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Jane Doe"
-                        className="w-full bg-transparent border-0 border-b-[3px] border-line pb-2 font-body text-sm sm:text-base text-foreground placeholder:text-text-secondary/60 focus:outline-none focus:border-[#A3E635] transition-colors rounded-none"
+                        className="w-full bg-transparent border-0 border-b-[3px] border-line pb-2 font-body text-sm sm:text-base text-foreground placeholder:text-text-secondary/60 focus:outline-none focus:border-[#b3122b] transition-colors rounded-none"
                       />
                     </div>
 
@@ -252,7 +252,7 @@ export function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="jane@example.com"
-                        className="w-full bg-transparent border-0 border-b-[3px] border-line pb-2 font-body text-sm sm:text-base text-foreground placeholder:text-text-secondary/60 focus:outline-none focus:border-[#A3E635] transition-colors rounded-none"
+                        className="w-full bg-transparent border-0 border-b-[3px] border-line pb-2 font-body text-sm sm:text-base text-foreground placeholder:text-text-secondary/60 focus:outline-none focus:border-[#b3122b] transition-colors rounded-none"
                       />
                     </div>
                   </div>
@@ -268,7 +268,7 @@ export function Contact() {
                       value={formData.subject}
                       onChange={handleChange}
                       placeholder="Project inquiry / Full-time role"
-                      className="w-full bg-transparent border-0 border-b-[3px] border-line pb-2 font-body text-sm sm:text-base text-foreground placeholder:text-text-secondary/60 focus:outline-none focus:border-[#A3E635] transition-colors rounded-none"
+                      className="w-full bg-transparent border-0 border-b-[3px] border-line pb-2 font-body text-sm sm:text-base text-foreground placeholder:text-text-secondary/60 focus:outline-none focus:border-[#b3122b] transition-colors rounded-none"
                     />
                   </div>
 
@@ -283,7 +283,7 @@ export function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Tell me about your team, system goals, or timeline..."
-                      className="w-full bg-transparent border-0 border-b-[3px] border-line pb-2 font-body text-sm sm:text-base text-foreground placeholder:text-text-secondary/60 focus:outline-none focus:border-[#A3E635] resize-none transition-colors rounded-none"
+                      className="w-full bg-transparent border-0 border-b-[3px] border-line pb-2 font-body text-sm sm:text-base text-foreground placeholder:text-text-secondary/60 focus:outline-none focus:border-[#b3122b] resize-none transition-colors rounded-none"
                     />
                   </div>
 
@@ -292,7 +292,7 @@ export function Contact() {
                       {statusMessage || "Response time under 48h"}
                     </span>
 
-                    {/* Primary CTA button: solid lime green fill, dark text */}
+                    {/* Primary CTA button: solid white fill (image 1 UI), hover crimson accent */}
                     <button
                       type="submit"
                       disabled={status === "submitting"}
@@ -318,27 +318,27 @@ export function Contact() {
           </div>
 
           <div className="flex items-center gap-6 font-bold">
-            <a href="#about" className="hover:text-[#A3E635] hover:underline transition-colors">
+            <a href="#about" className="hover:text-[#b3122b] hover:underline transition-colors">
               About
             </a>
-            <a href="#work" className="hover:text-[#A3E635] hover:underline transition-colors">
+            <a href="#work" className="hover:text-[#b3122b] hover:underline transition-colors">
               Work
             </a>
-            <a href="#contact" className="hover:text-[#A3E635] hover:underline transition-colors">
+            <a href="#contact" className="hover:text-[#b3122b] hover:underline transition-colors">
               Contact
             </a>
           </div>
 
           <div className="flex items-center gap-4 text-text-secondary">
             <span>© 2026 Jaiyanth B. All rights reserved.</span>
-            <a href="#hero" className="hover:text-[#A3E635] font-bold transition-colors">
+            <a href="#hero" className="hover:text-[#b3122b] font-bold transition-colors">
               Back to top ↑
             </a>
             <a
               href="https://github.com/jaiyan-th/Jaiyanth-s-Portfolio"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#A3E635] font-bold transition-colors inline-flex items-center gap-0.5"
+              className="hover:text-[#b3122b] font-bold transition-colors inline-flex items-center gap-0.5"
             >
               <span>GitHub repo</span>
               <ArrowUpRight className="w-3 h-3" />

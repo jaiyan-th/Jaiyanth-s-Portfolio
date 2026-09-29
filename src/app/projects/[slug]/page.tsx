@@ -44,7 +44,7 @@ export default async function ProjectPage({ params }: Params) {
         <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-4 font-label-caps text-xs">
           <Link
             href="/#work"
-            className="inline-flex items-center gap-2 text-foreground hover:text-[#A3E635] transition-colors font-bold"
+            className="inline-flex items-center gap-2 text-foreground hover:text-[#b3122b] transition-colors font-bold"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>BACK TO WORK</span>
@@ -52,7 +52,7 @@ export default async function ProjectPage({ params }: Params) {
 
           <div className="flex items-center gap-3">
             <ThemeToggle />
-            <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] text-[10px] -rotate-1">
+            <span className="sticker-badge bg-[#b3122b] text-white text-[10px] -rotate-1">
               {project.category}
             </span>
             <span className="font-mono-code font-bold text-xs text-text-secondary">
@@ -91,7 +91,7 @@ export default async function ProjectPage({ params }: Params) {
             <div className="border-[1.5px] border-line p-3.5 bg-surface shadow-[2px_2px_0px_var(--shadow-color)]">
               <span className="font-label-caps text-[10px] text-text-secondary block mb-1">STATUS</span>
               <span className="font-body text-xs sm:text-sm text-foreground font-bold flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#A3E635]" />
+                <span className="w-2 h-2 rounded-full bg-[#b3122b]" />
                 Production Live
               </span>
             </div>
@@ -204,7 +204,7 @@ export default async function ProjectPage({ params }: Params) {
                 key={feature}
                 className="border-[1.5px] border-line bg-surface-secondary p-4 flex items-start gap-3"
               >
-                <CheckCircle2 className="w-4 h-4 text-[#A3E635] mt-0.5 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#b3122b] mt-0.5 shrink-0" />
                 <span className="font-body text-xs sm:text-sm text-foreground font-semibold">
                   {feature}
                 </span>
@@ -248,7 +248,7 @@ export default async function ProjectPage({ params }: Params) {
         <div className="neo-card p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <Link
             href="/#work"
-            className="font-label-caps text-xs text-foreground hover:text-[#A3E635] hover:underline transition-all inline-flex items-center gap-2 font-bold"
+            className="font-label-caps text-xs text-foreground hover:text-[#b3122b] hover:underline transition-all inline-flex items-center gap-2 font-bold"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>ALL PROJECTS</span>

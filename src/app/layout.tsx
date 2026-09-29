@@ -144,7 +144,7 @@ export default function RootLayout({
           <ScrollProgress />
           <a
             href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#A3E635] focus:text-[#0A0A0A] focus:text-sm focus:font-bold focus:border-2 focus:border-white"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#b3122b] focus:text-white focus:text-sm focus:font-bold focus:border-2 focus:border-white"
           >
             Skip to content
           </a>

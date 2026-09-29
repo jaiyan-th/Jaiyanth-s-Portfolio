@@ -21,11 +21,11 @@ export function About() {
           >
             {/* Sticker Badge + Beside Subtitle */}
             <div className="flex items-center gap-2.5">
-              <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] -rotate-1">
-                <User className="w-3.5 h-3.5 text-[#0A0A0A]" />
+              <span className="sticker-badge bg-[#b3122b] text-white -rotate-1">
+                <User className="w-3.5 h-3.5 text-white" />
                 ABOUT
               </span>
-              <span className="font-body italic text-[#A3E635] text-sm font-semibold">
+              <span className="font-body italic text-[#b3122b] text-sm font-semibold">
                 / the story so far
               </span>
             </div>
@@ -33,7 +33,7 @@ export function About() {
             {/* Section Headline with ONE italic accent word (story) */}
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-foreground leading-[1.08] tracking-tight">
               From signal to system to{" "}
-              <span className="italic text-[#A3E635]">story.</span>
+              <span className="italic text-[#b3122b]">story.</span>
             </h2>
 
             {/* Bio Copy */}
@@ -61,7 +61,7 @@ export function About() {
                 <span className="font-label-caps text-xs sm:text-[13px] tracking-wider text-text-secondary">
                   HOW I BUILD
                 </span>
-                <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] text-[11px] py-0.5 px-2.5 rotate-1">
+                <span className="sticker-badge bg-[#b3122b] text-white text-[11px] py-0.5 px-2.5 rotate-1">
                   PRINCIPLES
                 </span>
               </div>
@@ -70,7 +70,7 @@ export function About() {
               <div className="divide-y-[1.5px] divide-line">
                 <div className="pt-3 pb-3.5">
                   <div className="flex items-center gap-2 font-label-caps text-xs text-foreground font-bold mb-1">
-                    <Cpu className="w-3.5 h-3.5 text-[#A3E635]" />
+                    <Cpu className="w-3.5 h-3.5 text-[#b3122b]" />
                     <span>PRODUCTION-FIRST AI</span>
                   </div>
                   <p className="font-body text-xs sm:text-sm text-text-secondary leading-relaxed">
@@ -80,7 +80,7 @@ export function About() {
 
                 <div className="pt-3 pb-3.5">
                   <div className="flex items-center gap-2 font-label-caps text-xs text-foreground font-bold mb-1">
-                    <Terminal className="w-3.5 h-3.5 text-[#A3E635]" />
+                    <Terminal className="w-3.5 h-3.5 text-[#b3122b]" />
                     <span>END-TO-END ARCHITECTURE</span>
                   </div>
                   <p className="font-body text-xs sm:text-sm text-text-secondary leading-relaxed">
@@ -90,7 +90,7 @@ export function About() {
 
                 <div className="pt-3 pb-3.5">
                   <div className="flex items-center gap-2 font-label-caps text-xs text-foreground font-bold mb-1">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[#A3E635]" />
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#b3122b]" />
                     <span>SECURITY &amp; RIGOUR</span>
                   </div>
                   <p className="font-body text-xs sm:text-sm text-text-secondary leading-relaxed">
@@ -101,7 +101,7 @@ export function About() {
                 <div className="pt-3.5">
                   <div className="flex items-center justify-between text-xs font-mono-code font-bold text-foreground">
                     <span>STATUS: 2026 GRADUATE</span>
-                    <span className="text-[#A3E635]">OPEN TO ROLES</span>
+                    <span className="text-[#b3122b]">OPEN TO ROLES</span>
                   </div>
                 </div>
               </div>

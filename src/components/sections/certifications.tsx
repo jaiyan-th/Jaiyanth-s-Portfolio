@@ -47,18 +47,18 @@ export function Certifications() {
         >
           {/* Sticker Badge + Beside Subtitle */}
           <div className="flex items-center gap-2.5">
-            <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] -rotate-1">
-              <Award className="w-3.5 h-3.5 text-[#0A0A0A]" />
+            <span className="sticker-badge bg-[#b3122b] text-white -rotate-1">
+              <Award className="w-3.5 h-3.5 text-white" />
               CREDENTIALS
             </span>
-            <span className="font-body italic text-[#A3E635] text-sm sm:text-base font-semibold">
+            <span className="font-body italic text-[#b3122b] text-sm sm:text-base font-semibold">
               / on record
             </span>
           </div>
 
           {/* Section Headline with ONE italic accent word (verified) */}
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-foreground leading-[1.08] tracking-tight">
-            Certifications, <span className="italic text-[#A3E635]">verified.</span>
+            Certifications, <span className="italic text-[#b3122b]">verified.</span>
           </h2>
         </motion.div>
 
@@ -83,13 +83,13 @@ export function Certifications() {
                     {cert.year}
                   </span>
                 </div>
-                <div className="w-20 h-[3.5px] bg-[#A3E635] mt-2.5 mb-4" />
+                <div className="w-20 h-[3.5px] bg-[#b3122b] mt-2.5 mb-4" />
               </div>
 
               {/* Certification as Enlarged Pill Badge */}
               <div className="flex flex-wrap gap-3 pt-1">
                 <span
-                  className="border-2 border-line hover:border-[#A3E635] bg-transparent text-foreground hover:text-[#A3E635] transition-colors px-6 py-3.5 font-sans text-base sm:text-lg md:text-xl font-bold rounded-none inline-block leading-snug"
+                  className="border-2 border-line hover:border-[#b3122b] bg-transparent text-foreground hover:text-[#b3122b] transition-colors px-6 py-3.5 font-sans text-base sm:text-lg md:text-xl font-bold rounded-none inline-block leading-snug"
                 >
                   {cert.name}
                 </span>

@@ -20,16 +20,16 @@ export function Hero() {
           >
             {/* Rotated sticker badge near headline */}
             <div className="inline-block">
-              <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] -rotate-2 text-xs sm:text-sm py-1.5 px-3">
-                <span className="w-2 h-2 rounded-full bg-[#0A0A0A] animate-pulse" />
+              <span className="sticker-badge bg-[#b3122b] text-white -rotate-2 text-xs sm:text-sm py-1.5 px-3">
+                <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                 AVAILABLE FOR NEW ROLES
               </span>
             </div>
 
-            {/* Headline with ONE accent word (matters) in italic lime green */}
+            {/* Headline with ONE accent word (matters) in italic crimson red */}
             <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] xl:text-[4.75rem] font-extrabold leading-[1.05] tracking-tight text-foreground">
               Engineering that doesn&apos;t break when it{" "}
-              <span className="italic text-[#A3E635]">matters.</span>
+              <span className="italic text-[#b3122b]">matters.</span>
             </h1>
 
             {/* Subhead */}
@@ -47,7 +47,7 @@ export function Hero() {
               </a>
               <a
                 href="#work"
-                className="font-body text-base sm:text-lg font-semibold text-foreground underline underline-offset-4 decoration-2 decoration-foreground hover:text-[#A3E635] hover:decoration-[#A3E635] transition-colors inline-flex items-center gap-1.5"
+                className="font-body text-base sm:text-lg font-semibold text-foreground underline underline-offset-4 decoration-2 decoration-foreground hover:text-[#b3122b] hover:decoration-[#b3122b] transition-colors inline-flex items-center gap-1.5"
               >
                 See the work →
               </a>
@@ -67,7 +67,7 @@ export function Hero() {
                 <span className="font-label-caps text-xs sm:text-[13px] tracking-wider text-text-secondary">
                   QUICK SNAPSHOT
                 </span>
-                <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] text-[11px] py-0.5 px-2.5 rotate-1">
+                <span className="sticker-badge bg-[#b3122b] text-white text-[11px] py-0.5 px-2.5 rotate-1">
                   2026
                 </span>
               </div>
@@ -77,7 +77,7 @@ export function Hero() {
                 {/* Location */}
                 <div className="pt-4 pb-4 sm:pt-4.5 sm:pb-4.5">
                   <div className="flex items-center gap-1.5 font-label-caps text-[11px] sm:text-xs text-text-secondary mb-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#A3E635]" />
+                    <MapPin className="w-3.5 h-3.5 text-[#b3122b]" />
                     <span>LOCATION</span>
                   </div>
                   <p className="font-body text-sm sm:text-base font-semibold text-foreground leading-snug">
@@ -88,7 +88,7 @@ export function Hero() {
                 {/* Focus */}
                 <div className="pt-4 pb-4 sm:pt-4.5 sm:pb-4.5">
                   <div className="flex items-center gap-1.5 font-label-caps text-[11px] sm:text-xs text-text-secondary mb-1.5">
-                    <Target className="w-3.5 h-3.5 text-[#A3E635]" />
+                    <Target className="w-3.5 h-3.5 text-[#b3122b]" />
                     <span>FOCUS</span>
                   </div>
                   <p className="font-body text-sm sm:text-base font-semibold text-foreground leading-snug">
@@ -99,7 +99,7 @@ export function Hero() {
                 {/* Stack */}
                 <div className="pt-4 pb-4 sm:pt-4.5 sm:pb-4.5">
                   <div className="flex items-center gap-1.5 font-label-caps text-[11px] sm:text-xs text-text-secondary mb-1.5">
-                    <Layers className="w-3.5 h-3.5 text-[#A3E635]" />
+                    <Layers className="w-3.5 h-3.5 text-[#b3122b]" />
                     <span>STACK</span>
                   </div>
                   <p className="font-mono-code text-xs sm:text-sm font-bold text-foreground leading-relaxed">
@@ -110,7 +110,7 @@ export function Hero() {
                 {/* Status */}
                 <div className="pt-4 sm:pt-4.5">
                   <div className="flex items-center gap-1.5 font-label-caps text-[11px] sm:text-xs text-text-secondary mb-2">
-                    <Sparkles className="w-3.5 h-3.5 text-[#A3E635]" />
+                    <Sparkles className="w-3.5 h-3.5 text-[#b3122b]" />
                     <span>STATUS</span>
                   </div>
                   <div className="bg-surface-secondary border-[1.5px] border-line px-4 py-3">

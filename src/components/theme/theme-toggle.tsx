@@ -21,7 +21,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       {!mounted ? (
         <span className="w-4 h-4 block" />
       ) : isDark ? (
-        <Sun className="w-4 h-4 text-[#A3E635] transition-transform duration-200 hover:rotate-45" />
+        <Sun className="w-4 h-4 text-[#b3122b] transition-transform duration-200 hover:rotate-45" />
       ) : (
         <Moon className="w-4 h-4 text-[#111111] transition-transform duration-200 hover:-rotate-12" />
       )}

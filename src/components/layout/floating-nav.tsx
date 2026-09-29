@@ -61,7 +61,7 @@ export function FloatingNav() {
           onClick={(e) => handleNavClick(e, "#hero")}
           className="group cursor-pointer flex items-center shrink-0"
         >
-          <span className="font-heading text-xl font-extrabold tracking-tight text-foreground group-hover:text-[#A3E635] transition-colors whitespace-nowrap">
+          <span className="font-heading text-xl font-extrabold tracking-tight text-foreground group-hover:text-[#b3122b] transition-colors whitespace-nowrap">
             JAIYANTH B
           </span>
         </a>
@@ -77,8 +77,8 @@ export function FloatingNav() {
                 onClick={(e) => handleNavClick(e, item.href)}
                 className={`font-label-caps text-xs tracking-wider transition-colors relative py-1 cursor-pointer ${
                   isActive
-                    ? "text-foreground font-extrabold border-b-2 border-[#A3E635]"
-                    : "text-text-secondary hover:text-[#A3E635]"
+                    ? "text-foreground font-extrabold border-b-2 border-[#b3122b]"
+                    : "text-text-secondary hover:text-[#b3122b]"
                 }`}
               >
                 {item.label}
@@ -132,7 +132,7 @@ export function FloatingNav() {
                       handleNavClick(e, item.href);
                     }}
                     className={`font-label-caps text-sm tracking-wider py-2 transition-colors ${
-                      isActive ? "text-[#A3E635] font-extrabold" : "text-text-secondary"
+                      isActive ? "text-[#b3122b] font-extrabold" : "text-text-secondary"
                     }`}
                   >
                     {item.label}

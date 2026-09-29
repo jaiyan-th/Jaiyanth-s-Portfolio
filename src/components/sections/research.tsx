@@ -29,11 +29,11 @@ export function Research() {
         >
           {/* Sticker Badge + Beside Subtitle */}
           <div className="flex items-center gap-2.5">
-            <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] -rotate-1">
-              <FileText className="w-3.5 h-3.5 text-[#0A0A0A]" />
+            <span className="sticker-badge bg-[#b3122b] text-white -rotate-1">
+              <FileText className="w-3.5 h-3.5 text-white" />
               RESEARCH
             </span>
-            <span className="font-body italic text-[#A3E635] text-sm font-semibold">
+            <span className="font-body italic text-[#b3122b] text-sm font-semibold">
               / peer-reviewed
             </span>
           </div>
@@ -41,7 +41,7 @@ export function Research() {
           {/* Section Headline with ONE italic accent word (print) */}
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-foreground leading-[1.08] tracking-tight">
             Research that made it to{" "}
-            <span className="italic text-[#A3E635]">print.</span>
+            <span className="italic text-[#b3122b]">print.</span>
           </h2>
         </motion.div>
 
@@ -55,7 +55,7 @@ export function Research() {
         >
           {/* Rotated sticker badge in corner: "PUBLISHED" */}
           <div className="absolute -top-3.5 right-6">
-            <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] rotate-2 text-xs sm:text-sm py-1 px-3.5">
+            <span className="sticker-badge bg-[#b3122b] text-white rotate-2 text-xs sm:text-sm py-1 px-3.5">
               PUBLISHED
             </span>
           </div>
@@ -70,7 +70,7 @@ export function Research() {
                 href={RESEARCH.certificateUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-label-caps text-xs sm:text-[13px] text-foreground hover:text-[#A3E635] hover:underline inline-flex items-center gap-1 font-bold"
+                className="font-label-caps text-xs sm:text-[13px] text-foreground hover:text-[#b3122b] hover:underline inline-flex items-center gap-1 font-bold"
               >
                 <span>VIEW CERTIFICATE</span>
                 <ArrowUpRight className="w-4 h-4" />

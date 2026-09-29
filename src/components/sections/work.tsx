@@ -11,28 +11,28 @@ import { SectionContainer } from "@/components/layout/section-container";
 const PROJECT_CONFIGS: Record<string, { sticker: string; stickerBg: string; rotation: string; copy: string; stackText: string }> = {
   "fake-news-detector": {
     sticker: "APPLIED AI · RAG",
-    stickerBg: "bg-[#A3E635] text-[#0A0A0A]",
+    stickerBg: "bg-[#b3122b] text-white",
     rotation: "-rotate-2",
     copy: "A RAG-powered fact-checking pipeline that cross-references incoming articles against a curated evidence base and surfaces a retrieval-grounded trust verdict.",
     stackText: "Python, Flask, Supabase, Vector Database, RAG",
   },
   "up-skill": {
     sticker: "APPLIED AI · CAREER",
-    stickerBg: "bg-[#A3E635] text-[#0A0A0A]",
+    stickerBg: "bg-[#b3122b] text-white",
     rotation: "rotate-2",
     copy: "An AI career assistant that scores resumes ATS-style, runs mock interviews, maps skill gaps, and proposes personalized learning paths.",
     stackText: "Flask, Supabase, Stitch, NLP, Groq",
   },
   "car-rent": {
     sticker: "FULL-STACK · PLATFORM",
-    stickerBg: "bg-[#A3E635] text-[#0A0A0A]",
+    stickerBg: "bg-[#b3122b] text-white",
     rotation: "-rotate-1",
     copy: "A full-stack rental platform covering vehicle discovery, booking, reviews, payments, and secure authentication, with REST APIs and relational data modeling.",
     stackText: "Next.js, React, TypeScript, NestJS, Prisma ORM",
   },
   "secure-document-vault": {
     sticker: "FULL-STACK · SECURITY",
-    stickerBg: "bg-[#A3E635] text-[#0A0A0A]",
+    stickerBg: "bg-[#b3122b] text-white",
     rotation: "rotate-1",
     copy: "A zero-trust encrypted document vault with AES-256-GCM authenticated encryption, role-based access control, chunked streaming, and immutable audit logging.",
     stackText: "Python, FastAPI, SQLAlchemy, PostgreSQL, AES-256-GCM",
@@ -48,7 +48,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
   const isReversed = index % 2 !== 0;
   const config = PROJECT_CONFIGS[project.slug] || {
     sticker: project.category.toUpperCase(),
-    stickerBg: "bg-[#A3E635] text-[#0A0A0A]",
+    stickerBg: "bg-[#b3122b] text-white",
     rotation: index % 2 === 0 ? "-rotate-2" : "rotate-2",
     copy: project.summary,
     stackText: project.stack.join(", "),
@@ -87,7 +87,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
               </span>
               <Link
                 href={`/projects/${project.slug}`}
-                className="font-label-caps text-xs sm:text-[13px] text-foreground hover:text-[#A3E635] hover:underline inline-flex items-center gap-0.5 font-bold"
+                className="font-label-caps text-xs sm:text-[13px] text-foreground hover:text-[#b3122b] hover:underline inline-flex items-center gap-0.5 font-bold"
               >
                 CASE STUDY <ArrowUpRight className="w-4 h-4" />
               </Link>
@@ -129,11 +129,11 @@ export function Work() {
         >
           {/* Sticker Badge + Beside Subtitle */}
           <div className="flex items-center gap-2.5">
-            <span className="sticker-badge bg-[#A3E635] text-[#0A0A0A] -rotate-1">
-              <FolderGit2 className="w-3.5 h-3.5 text-[#0A0A0A]" />
+            <span className="sticker-badge bg-[#b3122b] text-white -rotate-1">
+              <FolderGit2 className="w-3.5 h-3.5 text-white" />
               WORK
             </span>
-            <span className="font-body italic text-[#A3E635] text-sm font-semibold">
+            <span className="font-body italic text-[#b3122b] text-sm font-semibold">
               / proof of work
             </span>
           </div>
@@ -141,7 +141,7 @@ export function Work() {
           {/* Section Headline with ONE italic accent word (shipped) */}
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-foreground leading-[1.08] tracking-tight">
             Things I&apos;ve built and{" "}
-            <span className="italic text-[#A3E635]">shipped.</span>
+            <span className="italic text-[#b3122b]">shipped.</span>
           </h2>
         </motion.div>
 
