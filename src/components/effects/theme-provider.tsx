@@ -23,6 +23,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       ? (localStorage.getItem(STORAGE_KEY) as Theme | null)
       : null);
     const initial: Theme = stored ?? "dark";
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setThemeState(initial);
     applyTheme(initial);
     setMounted(true);

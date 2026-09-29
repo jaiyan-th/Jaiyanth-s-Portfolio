@@ -42,6 +42,7 @@ export function TrustGauge({
 
   React.useEffect(() => {
     if (typeof window === "undefined") return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   }, []);
 
