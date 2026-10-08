@@ -56,9 +56,9 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 
   return (
     <div className="neo-card neo-card-interactive p-6 sm:p-8 lg:p-10 space-y-6">
-      <div className={`flex flex-col ${isReversed ? "lg:flex-row-reverse" : "lg:flex-row"} gap-8 lg:gap-10 items-start`}>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
         {/* Screenshot / Image Frame */}
-        <div className="w-full lg:w-[50%] shrink-0 relative">
+        <div className={`w-full relative ${isReversed ? "lg:order-2" : "lg:order-1"}`}>
           {/* Rotated sticker badge on screenshot */}
           <div className="absolute top-3 left-3 z-10">
             <span className={`sticker-badge ${config.stickerBg} ${config.rotation}`}>
@@ -79,7 +79,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
         </div>
 
         {/* Content Side */}
-        <div className="w-full lg:w-[50%] flex flex-col justify-between space-y-5">
+        <div className={`w-full flex flex-col justify-between space-y-5 ${isReversed ? "lg:order-1" : "lg:order-2"}`}>
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <span className="font-mono-code text-xs sm:text-[13px] font-bold text-text-secondary">
@@ -123,7 +123,7 @@ export function Work() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-40px" }}
+          viewport={{ once: true, amount: 0.15 }}
           variants={fadeUpVariants}
           className="space-y-4"
         >
@@ -152,7 +152,7 @@ export function Work() {
               key={project.slug}
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.45, delay: idx * 0.06 }}
             >
               <ProjectCard project={project} index={idx} />

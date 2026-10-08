@@ -117,7 +117,7 @@ export function Contact() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-40px" }}
+            viewport={{ once: true, amount: 0.15 }}
             variants={fadeUpVariants}
             className="space-y-4"
           >
@@ -142,12 +142,12 @@ export function Contact() {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             {/* Direct Contact Block (Left 5 cols) */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.45 }}
               className="lg:col-span-5"
             >
@@ -219,7 +219,7 @@ export function Contact() {
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.45, delay: 0.08 }}
               className="lg:col-span-7"
             >

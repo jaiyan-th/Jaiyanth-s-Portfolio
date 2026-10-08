@@ -35,13 +35,13 @@ const CERTIFICATIONS = [
 
 export function Certifications() {
   return (
-    <section id="certifications" className="relative bg-canvas text-foreground border-b-[3px] border-line py-20 md:py-28 scroll-mt-20 transition-colors">
-      <SectionContainer className="space-y-16">
+    <section id="certifications" className="relative bg-canvas text-foreground border-b-[3px] border-line py-16 md:py-24 scroll-mt-20 transition-colors">
+      <SectionContainer className="space-y-12">
         {/* Header Block */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-40px" }}
+          viewport={{ once: true, amount: 0.15 }}
           variants={fadeUpVariants}
           className="space-y-4"
         >
@@ -62,44 +62,37 @@ export function Certifications() {
           </h2>
         </motion.div>
 
-        {/* Flat Grid: 2 rows x 2 columns, enlarged like skills */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-14 lg:gap-y-16">
+        {/* 2x2 Grid of Neo-Cards matching design spec */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {CERTIFICATIONS.map((cert, idx) => (
             <motion.div
               key={cert.index}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="space-y-4"
+              className="neo-card p-6 sm:p-7 space-y-4"
             >
-              {/* Issuer Label + Year + Bold Accent Underline Rule */}
-              <div>
-                <div className="flex items-center justify-between">
-                  <h3 className="font-label-caps text-base sm:text-lg md:text-xl text-foreground font-extrabold tracking-wider uppercase">
-                    {cert.issuer}
-                  </h3>
-                  <span className="font-mono-code text-sm sm:text-base text-text-secondary font-bold">
-                    {cert.year}
-                  </span>
-                </div>
-                <div className="w-20 h-[3.5px] bg-[#b3122b] mt-2.5 mb-4" />
-              </div>
-
-              {/* Certification as Enlarged Pill Badge */}
-              <div className="flex flex-wrap gap-3 pt-1">
-                <span
-                  className="border-2 border-line hover:border-[#b3122b] bg-transparent text-foreground hover:text-[#b3122b] transition-colors px-6 py-3.5 font-sans text-base sm:text-lg md:text-xl font-bold rounded-none inline-block leading-snug"
-                >
-                  {cert.name}
+              {/* Issuer Label + Year with divider */}
+              <div className="flex items-center justify-between border-b-2 border-line pb-3">
+                <h3 className="font-label-caps text-xs sm:text-[13px] text-text-secondary font-bold tracking-wider uppercase">
+                  {cert.issuer}
+                </h3>
+                <span className="font-mono-code text-xs sm:text-sm text-text-secondary font-bold">
+                  {cert.year}
                 </span>
               </div>
+
+              {/* Certification Name */}
+              <p className="font-heading text-lg sm:text-xl font-extrabold text-foreground leading-snug">
+                {cert.name}
+              </p>
             </motion.div>
           ))}
         </div>
 
         {/* Bottom Line Under Hairline Divider */}
-        <div className="border-t border-line pt-8 text-center">
+        <div className="border-t border-line pt-6 text-center">
           <p className="font-label-caps text-xs sm:text-sm text-text-secondary tracking-widest uppercase font-semibold">
             4 Industry Credentials Verified · Cloud, AI &amp; Full-Stack
           </p>

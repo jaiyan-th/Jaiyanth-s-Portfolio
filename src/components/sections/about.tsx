@@ -8,16 +8,16 @@ import { SectionContainer } from "@/components/layout/section-container";
 
 export function About() {
   return (
-    <section id="about" className="relative bg-canvas text-foreground border-b-[3px] border-line min-h-[calc(100vh-5rem)] flex flex-col justify-center py-20 md:py-28 scroll-mt-20 transition-colors">
+    <section id="about" className="relative bg-canvas text-foreground border-b-[3px] border-line py-16 md:py-24 scroll-mt-20 transition-colors">
       <SectionContainer>
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           {/* Left Column: Eyebrow, Plain Black Headline, Bio */}
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-40px" }}
-            variants={fadeUpVariants}
-            className="lg:col-span-7 space-y-6"
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.45 }}
+            className="lg:col-span-7 xl:col-span-7 space-y-6"
           >
             {/* Sticker Badge + Beside Subtitle */}
             <div className="flex items-center gap-2.5">
@@ -51,11 +51,11 @@ export function About() {
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
+            viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.45, delay: 0.1 }}
-            className="lg:col-span-5 flex justify-center lg:justify-end"
+            className="lg:col-span-5 xl:col-span-5 w-full"
           >
-            <div className="w-full max-w-[440px] neo-card p-6 sm:p-7 space-y-5">
+            <div className="w-full neo-card p-6 sm:p-7 space-y-5">
               {/* Card top tag */}
               <div className="flex items-center justify-between border-b-2 border-line pb-3.5">
                 <span className="font-label-caps text-xs sm:text-[13px] tracking-wider text-text-secondary">

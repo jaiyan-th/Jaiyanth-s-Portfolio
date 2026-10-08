@@ -23,7 +23,7 @@ export function Research() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-40px" }}
+          viewport={{ once: true, amount: 0.15 }}
           variants={fadeUpVariants}
           className="space-y-4"
         >
@@ -49,7 +49,7 @@ export function Research() {
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-30px" }}
+          viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.45 }}
           className="neo-card p-6 sm:p-10 lg:p-12 relative space-y-7"
         >

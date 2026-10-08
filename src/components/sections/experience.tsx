@@ -51,7 +51,7 @@ export function Experience() {
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-30px" }}
+          viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.45 }}
           className="neo-card p-6 sm:p-10 lg:p-12 space-y-8"
         >
@@ -87,9 +87,9 @@ export function Experience() {
               {PIPELINE_STAGES.map((stage) => (
                 <div
                   key={stage.num}
-                  className="border-[1.5px] border-line p-4 bg-surface-secondary flex items-center gap-4"
+                  className="border-[1.5px] border-line p-4 bg-surface-secondary flex items-center gap-3.5 min-h-[72px]"
                 >
-                  <span className="font-heading text-2xl sm:text-3xl font-extrabold text-foreground">
+                  <span className="font-heading text-2xl sm:text-3xl font-extrabold text-foreground w-9 sm:w-10 shrink-0">
                     {stage.num}
                   </span>
                   <span className="font-body text-xs sm:text-sm font-semibold text-foreground leading-snug">

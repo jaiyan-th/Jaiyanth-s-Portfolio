@@ -10,13 +10,13 @@ export function Hero() {
   return (
     <section id="hero" className="relative bg-canvas text-foreground pt-16 pb-16 sm:pt-20 sm:pb-20 lg:pt-24 lg:pb-24 border-b-[3px] border-line scroll-mt-20 transition-colors">
       <SectionContainer>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Main Hero Copy (Left 7-8 cols) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+          {/* Main Hero Copy (Left 7 cols) */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeUpVariants}
-            className="lg:col-span-7 xl:col-span-8 space-y-7 sm:space-y-8"
+            className="lg:col-span-7 xl:col-span-7 space-y-7 sm:space-y-8"
           >
             {/* Rotated sticker badge near headline */}
             <div className="inline-block">
@@ -54,12 +54,12 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* Asymmetrically Placed Stat Card (Right 5-4 cols) */}
+          {/* Asymmetrically Placed Stat Card (Right 5 cols) */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="lg:col-span-5 xl:col-span-4 w-full"
+            className="lg:col-span-5 xl:col-span-5 w-full"
           >
             <div className="neo-card p-6 sm:p-7 lg:p-8 relative w-full">
               {/* Card top tape / tag */}
