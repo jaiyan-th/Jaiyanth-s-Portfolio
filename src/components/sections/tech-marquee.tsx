@@ -10,7 +10,7 @@ export function TechMarquee() {
   return (
     <section
       id="tech"
-      aria-label="05 Previously trusted by / Stack"
+      aria-label="04 Previously trusted by / Stack"
       className="relative py-24 sm:py-32 border-t border-[#E5E3DB] overflow-hidden bg-[var(--canvas)]"
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12 mb-12 sm:mb-16">
@@ -24,7 +24,7 @@ export function TechMarquee() {
         >
           <div className="flex items-baseline gap-4">
             <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase font-semibold">
-              05
+              04
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-[#0A0A0A]">
               Previously trusted by / Core Stack

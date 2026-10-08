@@ -4,7 +4,6 @@ import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { SelectedWork } from "@/components/sections/selected-work";
 import { WhyWork } from "@/components/sections/why-work";
-import { HowIWork } from "@/components/sections/how-i-work";
 import { TechMarquee } from "@/components/sections/tech-marquee";
 import { ContactCta } from "@/components/sections/contact-cta";
 import { Footer } from "@/components/layout/footer";
@@ -31,7 +30,7 @@ export default function Home() {
         {/* Hero Section with Quick Snapshot Card */}
         <Hero />
 
-        {/* 01 About Jaiyanth B (Featuring Official B&W Portrait) */}
+        {/* 01 About Jaiyanth B (Featuring Official B&W Portrait Centered on Right) */}
         <About />
 
         {/* 02 Selected Work (All 5 Featured-Style Project Cards) */}
@@ -40,10 +39,7 @@ export default function Home() {
         {/* 03 Why Work With Me */}
         <WhyWork />
 
-        {/* 04 How I Work */}
-        <HowIWork />
-
-        {/* 05 Tech / Trusted By Marquee */}
+        {/* 04 Tech / Trusted By Marquee */}
         <TechMarquee />
 
         {/* Get In Touch Marquee & Contact CTA */}

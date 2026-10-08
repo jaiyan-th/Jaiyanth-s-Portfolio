@@ -2,18 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  Brain,
-  CheckCircle2,
-  Code2,
-  Cpu,
-  GraduationCap,
-  MapPin,
-  ShieldCheck,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { IDENTITY } from "@/data/content";
 
 export function About() {
@@ -45,103 +34,14 @@ export function About() {
           </span>
         </motion.div>
 
-        {/* Main Content Grid: Left Photo & Specs + Right Narrative */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Portrait Photograph + Meta Snapshot */}
+        {/* Main Content Grid: Left Narrative + Right Vertically Centered Photo */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left Column: Editorial Narrative & Principles */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 flex flex-col gap-6"
-          >
-            {/* The Attached Portrait Photo Container */}
-            <div className="relative group w-full overflow-hidden rounded-2xl border border-[#E5E3DB] bg-white p-3 shadow-sm transition-all duration-300 hover:border-[#0A0A0A]/40">
-              <div className="relative w-full aspect-square overflow-hidden rounded-xl bg-[#F5F4F0]">
-                <Image
-                  src="/images/jaiyanth-about.jpg"
-                  alt="Jaiyanth B — Applied AI & Full-Stack Engineer"
-                  fill
-                  priority
-                  className="object-cover object-center filter grayscale transition-all duration-700 group-hover:scale-[1.02]"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 420px"
-                />
-
-                {/* Live Status Overlay Badge */}
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between p-2.5 rounded-lg bg-black/75 backdrop-blur-md border border-white/20 text-white text-xs">
-                  <div className="flex items-center gap-2">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1FB46A] opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1FB46A]" />
-                    </span>
-                    <span className="font-medium text-[11px] text-[#EDEBE6]">
-                      Open to full-time roles
-                    </span>
-                  </div>
-                  <span className="font-mono text-[10px] text-gray-300">
-                    2026
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Quick Specs / Background Card */}
-            <div className="p-6 rounded-2xl border border-[#E5E3DB] bg-white shadow-xs space-y-4">
-              <div className="flex items-center justify-between pb-3 border-b border-[#E5E3DB]">
-                <span className="text-xs font-mono uppercase tracking-wider text-[#6F6E6A] font-semibold">
-                  Profile Details
-                </span>
-                <span className="text-xs font-mono text-[#0A0A0A] font-medium">
-                  Jaiyanth B
-                </span>
-              </div>
-
-              <div className="space-y-3 text-xs">
-                <div className="flex items-start gap-2.5">
-                  <MapPin className="w-4 h-4 text-[#FF3355] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-mono text-[10px] uppercase text-[#6F6E6A] block">
-                      Location
-                    </span>
-                    <span className="font-medium text-[#0A0A0A]">
-                      Karur, Tamil Nadu, India · Working Worldwide
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-2.5">
-                  <GraduationCap className="w-4 h-4 text-[#FF3355] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-mono text-[10px] uppercase text-[#6F6E6A] block">
-                      Education
-                    </span>
-                    <span className="font-medium text-[#0A0A0A]">
-                      B.Tech in Computer Science & Business Systems
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-2.5">
-                  <Sparkles className="w-4 h-4 text-[#FF3355] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-mono text-[10px] uppercase text-[#6F6E6A] block">
-                      Research Publication
-                    </span>
-                    <span className="font-medium text-[#0A0A0A]">
-                      IEEE ICETSIS Bahrain 2026 Co-Author
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Column: Editorial Narrative & Principles */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 flex flex-col justify-between"
           >
             <div>
@@ -243,6 +143,44 @@ export function About() {
                 <span>LinkedIn</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Portrait Photograph (Vertically Centered From Top and Bottom) */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 flex items-center justify-center w-full"
+          >
+            <div className="relative group w-full max-w-[420px] overflow-hidden rounded-2xl border border-[#E5E3DB] bg-white p-3 shadow-md transition-all duration-300 hover:border-[#0A0A0A]/40 hover:shadow-lg">
+              <div className="relative w-full aspect-square overflow-hidden rounded-xl bg-[#F5F4F0]">
+                <Image
+                  src="/images/jaiyanth-about.jpg"
+                  alt="Jaiyanth B — Applied AI & Full-Stack Engineer"
+                  fill
+                  priority
+                  className="object-cover object-center filter grayscale transition-all duration-700 group-hover:scale-[1.02]"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 420px"
+                />
+
+                {/* Live Status Overlay Badge */}
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between p-2.5 rounded-lg bg-black/75 backdrop-blur-md border border-white/20 text-white text-xs">
+                  <div className="flex items-center gap-2">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1FB46A] opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1FB46A]" />
+                    </span>
+                    <span className="font-medium text-[11px] text-[#EDEBE6]">
+                      Open to full-time roles
+                    </span>
+                  </div>
+                  <span className="font-mono text-[10px] text-gray-300">
+                    2026
+                  </span>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
