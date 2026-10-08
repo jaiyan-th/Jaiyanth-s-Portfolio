@@ -152,80 +152,84 @@ export function Hero() {
               </motion.div>
             </div>
 
-            {/* Right Column: Quick Snapshot Card (Modeled 1:1 After User Image) */}
+            {/* Right Column: Quick Snapshot Card (Themed 1:1 to Portfolio UI Palette) */}
             <motion.div
               variants={itemVariants}
               className="lg:col-span-5 xl:col-span-5 flex justify-center lg:justify-end w-full pt-6 lg:pt-0"
             >
-              <div className="relative w-full max-w-[400px]">
-                {/* Offset white border/backdrop line (editorial shadow layer) */}
+              <div className="relative w-full max-w-[460px]">
+                {/* Offset stone border/backdrop line (editorial shadow layer) */}
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 translate-x-2 translate-y-2 rounded-xl bg-white border border-[#E5E3DB] pointer-events-none"
+                  className="absolute inset-0 translate-x-2 translate-y-2 rounded-2xl bg-[#F5F4F0] border border-[#E5E3DB] pointer-events-none"
                 />
 
-                {/* Main Dark Card Surface */}
-                <div className="relative rounded-xl border border-white/20 bg-[#141414] p-6 text-white shadow-xl">
-                  {/* Card Header: QUICK SNAPSHOT + 2026 Badge */}
-                  <div className="flex items-center justify-between pb-4 border-b border-white/15">
-                    <span className="font-mono text-xs tracking-wider uppercase text-[#9E9E9E] font-semibold">
+                {/* Main Card Surface Matched to Light UI Palette */}
+                <div className="relative rounded-2xl border border-[#E5E3DB] bg-white p-7 sm:p-8 text-[#0A0A0A] shadow-md transition-shadow hover:shadow-lg">
+                  {/* Card Header: QUICK SNAPSHOT + Coral 2026 Badge */}
+                  <div className="flex items-center justify-between pb-4 sm:pb-5 border-b border-[#E5E3DB]">
+                    <span className="font-mono text-xs tracking-wider uppercase text-[#6F6E6A] font-semibold">
                       QUICK SNAPSHOT
                     </span>
-                    <span className="px-2.5 py-0.5 rounded-[4px] bg-[#CCFF00] text-black font-mono font-bold text-xs">
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#FF3355]/10 text-[#FF3355] border border-[#FF3355]/20 font-mono font-bold text-xs">
                       2026
                     </span>
                   </div>
 
                   {/* LOCATION */}
-                  <div className="py-4 border-b border-white/15">
+                  <div className="py-4 sm:py-5 border-b border-[#E5E3DB]">
                     <div className="flex items-center gap-2 mb-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-[#CCFF00]" />
-                      <span className="font-mono text-[10px] tracking-widest text-[#CCFF00] font-semibold uppercase">
+                      <MapPin className="w-3.5 h-3.5 text-[#FF3355]" />
+                      <span className="font-mono text-[10px] tracking-widest text-[#FF3355] font-semibold uppercase">
                         LOCATION
                       </span>
                     </div>
-                    <p className="text-sm font-medium text-[#EDEBE6] tracking-tight pl-5">
+                    <p className="text-sm sm:text-base font-medium text-[#0A0A0A] tracking-tight pl-5">
                       Karur, Tamil Nadu, India
                     </p>
                   </div>
 
                   {/* FOCUS */}
-                  <div className="py-4 border-b border-white/15">
+                  <div className="py-4 sm:py-5 border-b border-[#E5E3DB]">
                     <div className="flex items-center gap-2 mb-1.5">
-                      <Target className="w-3.5 h-3.5 text-[#CCFF00]" />
-                      <span className="font-mono text-[10px] tracking-widest text-[#CCFF00] font-semibold uppercase">
+                      <Target className="w-3.5 h-3.5 text-[#FF3355]" />
+                      <span className="font-mono text-[10px] tracking-widest text-[#FF3355] font-semibold uppercase">
                         FOCUS
                       </span>
                     </div>
-                    <p className="text-sm font-medium text-[#EDEBE6] tracking-tight pl-5">
+                    <p className="text-sm sm:text-base font-medium text-[#0A0A0A] tracking-tight pl-5">
                       Applied AI · Full-Stack Engineering
                     </p>
                   </div>
 
                   {/* STACK */}
-                  <div className="py-4 border-b border-white/15">
+                  <div className="py-4 sm:py-5 border-b border-[#E5E3DB]">
                     <div className="flex items-center gap-2 mb-1.5">
-                      <Layers className="w-3.5 h-3.5 text-[#CCFF00]" />
-                      <span className="font-mono text-[10px] tracking-widest text-[#CCFF00] font-semibold uppercase">
+                      <Layers className="w-3.5 h-3.5 text-[#FF3355]" />
+                      <span className="font-mono text-[10px] tracking-widest text-[#FF3355] font-semibold uppercase">
                         STACK
                       </span>
                     </div>
-                    <p className="font-mono text-xs text-[#EDEBE6] pl-5 leading-relaxed font-normal">
+                    <p className="font-mono text-xs sm:text-[13px] text-[#0A0A0A] pl-5 leading-relaxed font-medium">
                       Python · SQL · LangChain · LLM Integration
                     </p>
                   </div>
 
                   {/* STATUS */}
-                  <div className="pt-4">
+                  <div className="pt-4 sm:pt-5">
                     <div className="flex items-center gap-2 mb-2">
-                      <Sparkles className="w-3.5 h-3.5 text-[#CCFF00]" />
-                      <span className="font-mono text-[10px] tracking-widest text-[#CCFF00] font-semibold uppercase">
+                      <Sparkles className="w-3.5 h-3.5 text-[#FF3355]" />
+                      <span className="font-mono text-[10px] tracking-widest text-[#FF3355] font-semibold uppercase">
                         STATUS
                       </span>
                     </div>
                     <div className="pl-5">
-                      <div className="w-full px-3.5 py-2.5 rounded-md border border-white/30 bg-[#1F1F1F] text-xs font-medium text-[#EDEBE6] tracking-tight">
-                        Open to full-time & internship roles
+                      <div className="w-full px-4 py-3 rounded-xl border border-[#E5E3DB] bg-[#F5F4F0] text-xs sm:text-sm font-medium text-[#0A0A0A] tracking-tight flex items-center gap-2.5">
+                        <span className="relative flex h-2 w-2 shrink-0">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1FB46A] opacity-75" />
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1FB46A]" />
+                        </span>
+                        <span>Open to full-time & internship roles</span>
                       </div>
                     </div>
                   </div>
