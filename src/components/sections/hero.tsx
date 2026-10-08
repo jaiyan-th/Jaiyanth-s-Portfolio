@@ -133,7 +133,7 @@ export function Hero() {
               >
                 {/* Primary Button */}
                 <a
-                  href="#featured-case"
+                  href="#work"
                   className="inline-flex items-center gap-2 px-6 sm:px-7 py-3.5 bg-[#0A0A0A] text-white text-sm sm:text-base font-medium rounded-full hover:bg-[#FF3355] transition-all duration-200 group shadow-xs"
                 >
                   <span>Explore Work</span>

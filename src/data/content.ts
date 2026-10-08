@@ -78,8 +78,8 @@ export const IDENTITY = {
 
 export const NAV_LINKS = [
   { label: "Home", href: "#hero" },
-  { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
+  { label: "Work", href: "#work" },
 ] as const;
 
 export const HERO_CONTENT = {

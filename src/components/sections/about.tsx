@@ -20,7 +20,7 @@ export function About() {
   return (
     <section
       id="about"
-      aria-label="03 About Jaiyanth B"
+      aria-label="01 About Jaiyanth B"
       className="relative py-24 sm:py-32 border-t border-[#E5E3DB] bg-[var(--canvas)] scroll-mt-20"
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
@@ -34,7 +34,7 @@ export function About() {
         >
           <div className="flex items-baseline gap-4">
             <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase font-semibold">
-              03
+              01
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-[#0A0A0A]">
               About

@@ -32,10 +32,42 @@ interface SelectedProjectCard {
   liveUrl?: string;
   repoUrl?: string;
   isExternal?: boolean;
-  visualType: "upskill" | "carrent" | "vault" | "paper";
+  visualType: "fakenews" | "upskill" | "carrent" | "vault" | "paper";
 }
 
 const PROJECTS_DATA: SelectedProjectCard[] = [
+  {
+    id: "fake-news-detector",
+    index: "P. 01",
+    title: "Fake News Detector — Grounded RAG Fact Verification",
+    category: "Applied AI · RAG Architecture",
+    year: "2025–26",
+    summary:
+      "An autonomous fact-checking pipeline that retrieves semantically indexed news evidence from vector stores to score claims with strict source attribution and provenance.",
+    highlights: [
+      "Grounded RAG pipeline cross-referencing incoming claims against vectorized news evidence with zero model hallucination.",
+      "High-throughput semantic retrieval layer using embeddings and vector search for sub-second claim resolution.",
+      "Full-stack architecture backed by Flask and Supabase with traceable provenance, cited URLs, and confidence calibration.",
+    ],
+    metrics: [
+      { label: "Resolution Latency", value: "< 850ms" },
+      { label: "Verification Precision", value: "94.2%" },
+      { label: "Vector Search", value: "Qdrant" },
+    ],
+    stack: [
+      "Python",
+      "Flask",
+      "LangChain",
+      "Qdrant Vector DB",
+      "RAG",
+      "Supabase",
+      "News API",
+      "Embeddings",
+    ],
+    liveUrl: "https://fake-news-detecter-kopi.onrender.com/",
+    repoUrl: "https://github.com/jaiyan-th/Fake-News-Detecter",
+    visualType: "fakenews",
+  },
   {
     id: "up-skill",
     index: "P. 02",
@@ -368,6 +400,7 @@ export function SelectedWork() {
                         <div className="flex items-center gap-2">
                           <span className="w-2.5 h-2.5 rounded-full bg-[#1FB46A]" />
                           <span className="font-mono text-[11px] text-[#6F6E6A] uppercase tracking-wider">
+                            {item.visualType === "fakenews" && "Grounded RAG Pipeline"}
                             {item.visualType === "upskill" && "Agent Routing Graph"}
                             {item.visualType === "carrent" && "Reservation Timeline Engine"}
                             {item.visualType === "vault" && "Cryptographic Stream"}
@@ -381,6 +414,43 @@ export function SelectedWork() {
 
                       {/* Center Node Visuals Tailored Per Project */}
                       <div className="my-auto py-6 z-10 flex flex-col items-center justify-center w-full">
+                        {item.visualType === "fakenews" && (
+                          <div className="w-full space-y-3">
+                            <div className="p-3 rounded-lg bg-white border border-[#E5E3DB] flex items-center justify-between shadow-2xs">
+                              <div className="flex items-center gap-2">
+                                <FileText className="w-4 h-4 text-[#FF3355]" />
+                                <span className="font-mono text-xs text-[#0A0A0A]">Incoming Breaking Claim</span>
+                              </div>
+                              <span className="text-[10px] font-mono text-[#6F6E6A]">RAW TEXT</span>
+                            </div>
+
+                            <div className="flex justify-center">
+                              <span className="font-mono text-[10px] text-[#6F6E6A]">↓ high-dimensional embedding</span>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-2">
+                              <div className="p-2.5 rounded-lg bg-white border border-[#E5E3DB] shadow-2xs text-center">
+                                <Database className="w-3.5 h-3.5 text-[#0A0A0A] mx-auto mb-1" />
+                                <span className="block text-[11px] font-mono font-medium text-[#0A0A0A]">Qdrant Vector DB</span>
+                                <span className="text-[9px] font-mono text-[#6F6E6A]">Cosine Similarity</span>
+                              </div>
+                              <div className="p-2.5 rounded-lg bg-white border border-[#E5E3DB] shadow-2xs text-center">
+                                <Network className="w-3.5 h-3.5 text-[#0A0A0A] mx-auto mb-1" />
+                                <span className="block text-[11px] font-mono font-medium text-[#0A0A0A]">Evidence Nodes</span>
+                                <span className="text-[9px] font-mono text-[#6F6E6A]">Cited Provenance</span>
+                              </div>
+                            </div>
+
+                            <div className="p-3 rounded-lg bg-white border border-[#E5E3DB] flex items-center justify-between shadow-2xs">
+                              <div className="flex items-center gap-2">
+                                <CheckCircle2 className="w-4 h-4 text-[#1FB46A]" />
+                                <span className="font-mono text-xs text-[#0A0A0A]">Grounded Verdict</span>
+                              </div>
+                              <span className="text-xs font-mono font-bold text-[#1FB46A]">VERIFIED 94.2%</span>
+                            </div>
+                          </div>
+                        )}
+
                         {item.visualType === "upskill" && (
                           <div className="w-full space-y-3">
                             <div className="p-3 rounded-lg bg-white border border-[#E5E3DB] flex items-center justify-between shadow-2xs">
