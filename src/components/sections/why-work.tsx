@@ -8,31 +8,31 @@ export function WhyWork() {
     <section
       id="about"
       aria-label="03 Why work with me"
-      className="relative py-24 sm:py-32 border-t border-[var(--border-line)]"
+      className="relative py-24 sm:py-32 border-t border-[#E5E3DB] bg-[var(--canvas)]"
     >
-      <div className="w-full max-w-[1340px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 sm:mb-16 pb-6 border-b border-[var(--border-line)]"
+          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 sm:mb-16 pb-6 border-b border-[#E5E3DB]"
         >
           <div className="flex items-baseline gap-4">
-            <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase">
+            <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase font-semibold">
               03
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-[#0A0A0A]">
               Why Work With Me?
             </h2>
           </div>
-          <span className="text-xs font-mono uppercase tracking-widest text-[var(--text-muted)] mt-2 sm:mt-0">
-            Principles & Engineering Rigour
+          <span className="text-xs font-mono uppercase tracking-widest text-[#6F6E6A] mt-2 sm:mt-0">
+            Strategy & Craft
           </span>
         </motion.div>
 
-        {/* Section Big Editorial Statement */}
+        {/* Section Editorial Statement Matching Sandeep */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -40,13 +40,16 @@ export function WhyWork() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-4xl mb-16 sm:mb-20"
         >
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight text-foreground leading-tight">
-            Engineers who can hold both the probability of AI and the determinism of software.
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight text-[#0A0A0A] leading-tight mb-4">
+            Engineers who can hold both ends — applied AI & full-stack systems, are rare.
           </h3>
+          <p className="text-base sm:text-lg text-[#6F6E6A] font-normal leading-relaxed max-w-3xl">
+            I work best where the stakes are real and the data is dense. My job is to remove the friction, so the next decision comes faster.
+          </p>
         </motion.div>
 
         {/* Three Labeled Points (A, B, C) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-8">
           {WHY_WORK_WITH_ME.map((point, index) => (
             <motion.div
               key={point.letter}
@@ -58,34 +61,34 @@ export function WhyWork() {
                 delay: index * 0.1,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="group flex flex-col justify-between p-8 rounded-xl border border-[var(--border-line)] bg-[var(--surface)] hover:border-[#FF3355]/40 transition-all duration-300 shadow-xs"
+              className="group flex flex-col justify-between p-8 rounded-2xl border border-[#E5E3DB] bg-white hover:border-[#0A0A0A]/40 transition-all duration-300 shadow-2xs"
             >
               <div>
                 {/* Labeled Letter Identifier (A, B, C) */}
-                <div className="flex items-center justify-between mb-8 pb-4 border-b border-[var(--border-line)]">
+                <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#E5E3DB]">
                   <span className="font-mono text-xl sm:text-2xl font-bold text-[#FF3355]">
                     {point.letter}
                   </span>
-                  <span className="w-2 h-2 rounded-full bg-[var(--border-line)] group-hover:bg-[#FF3355] transition-colors" />
+                  <span className="w-2 h-2 rounded-full bg-[#E5E3DB] group-hover:bg-[#FF3355] transition-colors" />
                 </div>
 
                 {/* Point Title */}
-                <h4 className="text-lg sm:text-xl font-medium tracking-tight text-foreground mb-4 group-hover:text-[#FF3355] transition-colors">
+                <h4 className="text-lg sm:text-xl font-medium tracking-tight text-[#0A0A0A] mb-4 group-hover:text-[#FF3355] transition-colors">
                   {point.title}
                 </h4>
 
                 {/* Point Description */}
-                <p className="text-sm text-[var(--text-muted)] leading-relaxed font-light mb-8">
+                <p className="text-sm text-[#6F6E6A] leading-relaxed font-normal mb-8">
                   {point.description}
                 </p>
               </div>
 
               {/* Tag Badges */}
-              <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[var(--border-line)]">
+              <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[#E5E3DB]">
                 {point.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-[11px] font-mono px-2 py-0.5 rounded bg-[var(--surface-muted)] text-[var(--text-muted)]"
+                    className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-[#F5F4F0] text-[#6F6E6A] border border-[#E5E3DB]"
                   >
                     {tag}
                   </span>

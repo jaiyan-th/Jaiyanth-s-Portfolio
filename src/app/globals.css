@@ -1,17 +1,18 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 /* ============================================================
-   MINIMAL EDITORIAL DESIGN SYSTEM (DARK-FIRST)
-   Palette:
-   - Dark canvas: #0F0F0F / #111111
-   - Primary text: warm off-white #EDEBE6
-   - Muted text: gray #8A8A85
-   - Accent: hot coral-red #FF3355
-   - Dividers: 1px rgba(255,255,255,0.15)
-   - Light canvas: #F2F0EB, near-black #111111 text, muted #6E6E6A
+   SANDEEP.DESIGN EDITORIAL DESIGN SYSTEM (LIGHT PALETTE)
+   Palette extracted directly from sandeep.design:
+   - Canvas: #ECEAE3 (warm stone)
+   - Surface: #F5F4F0
+   - Surface Elevated / Card: #FFFFFF
+   - Primary text: #0A0A0A
+   - Secondary text: #2A2A2A
+   - Muted text: #6F6E6A
+   - Accent: #FF3355
+   - Borders & Lines: #E5E3DB
+   - Status Green: #1FB46A
    ============================================================ */
 
 @theme inline {
@@ -30,35 +31,21 @@
 }
 
 :root {
-  /* Light Theme */
-  --canvas: #F5F4F0;
-  --surface: #FFFFFF;
-  --surface-muted: #E8E5DD;
+  --canvas: #ECEAE3;
+  --surface: #F5F4F0;
+  --surface-card: #FFFFFF;
+  --surface-muted: #E5E3DB;
   --text-primary: #0A0A0A;
+  --text-secondary: #2A2A2A;
   --text-muted: #6F6E6A;
-  --border-line: rgba(0, 0, 0, 0.1);
-  --nav-bg: rgba(245, 244, 240, 0.85);
+  --border-line: #E5E3DB;
+  --nav-bg: rgba(236, 234, 227, 0.88);
   --accent: #FF3355;
   --btn-solid-bg: #0A0A0A;
-  --btn-solid-text: #ECEAE3;
+  --btn-solid-text: #FFFFFF;
+  --status-green: #1FB46A;
 
   color-scheme: light;
-}
-
-.dark {
-  /* Dark Theme (Matches sandeep.design exact palette) */
-  --canvas: #0E0E0F;
-  --surface: #141415;
-  --surface-muted: #1A1A1C;
-  --text-primary: #ECEAE3;
-  --text-muted: #6F6E6A;
-  --border-line: #212121;
-  --nav-bg: rgba(14, 14, 15, 0.85);
-  --accent: #FF3355;
-  --btn-solid-bg: #ECEAE3;
-  --btn-solid-text: #0E0E0F;
-
-  color-scheme: dark;
 }
 
 @layer base {
@@ -80,7 +67,6 @@
     line-height: 1.6;
     max-width: 100%;
     overflow-x: clip;
-    transition: background-color 200ms ease, color 200ms ease;
   }
 
   ::selection {
@@ -98,24 +84,24 @@
   /* Editorial Large Typography */
   .hero-headline {
     font-family: var(--font-sans), sans-serif;
-    font-size: clamp(3.75rem, 8.5vw, 8.75rem); /* clamp 64px - 140px */
+    font-size: clamp(3.25rem, 7.5vw, 7.5rem);
     font-weight: 500;
     letter-spacing: -0.04em;
-    line-height: 0.95;
+    line-height: 0.98;
   }
 
   .section-title {
     font-family: var(--font-sans), sans-serif;
-    font-size: clamp(2.25rem, 5vw, 4.5rem);
+    font-size: clamp(2rem, 4.5vw, 4rem);
     font-weight: 500;
     letter-spacing: -0.035em;
     line-height: 1.05;
   }
 
   .subtext-editorial {
-    font-size: clamp(1.15rem, 1.8vw, 1.375rem); /* 20px - 22px */
-    font-weight: 300;
-    line-height: 1.65;
+    font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+    font-weight: 400;
+    line-height: 1.6;
     color: var(--text-muted);
   }
 
@@ -123,7 +109,7 @@
   .btn-editorial-solid {
     background-color: var(--btn-solid-bg);
     color: var(--btn-solid-text);
-    border-radius: 0;
+    border-radius: 9999px;
     font-weight: 500;
     letter-spacing: -0.01em;
     transition: transform 140ms ease, opacity 140ms ease, background-color 140ms ease;
@@ -136,12 +122,6 @@
   /* Thin Divider Lines */
   .divider-line {
     border-color: var(--border-line);
-  }
-
-  /* Grain Texture Overlay for Placeholder */
-  .grain-placeholder {
-    background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.4) 100%),
-      repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.015) 2px, rgba(255, 255, 255, 0.015) 4px);
   }
 
   /* Marquee Keyframes & Utilities */
@@ -163,7 +143,7 @@
   .animate-marquee-fast {
     display: flex;
     width: max-content;
-    animation: marquee 26s linear infinite;
+    animation: marquee 24s linear infinite;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -192,4 +172,3 @@ nextjs-portal,
 [data-nextjs-toast-errors-parent] {
   display: none !important;
 }
-

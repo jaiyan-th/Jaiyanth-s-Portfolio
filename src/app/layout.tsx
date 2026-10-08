@@ -108,20 +108,14 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('jb-theme')||'dark';document.documentElement.classList.add(t);document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t;}catch(e){}})()`,
-          }}
-        />
-        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-canvas text-foreground selection:bg-[#FF3355] selection:text-white`}
+        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-[var(--canvas)] text-[var(--text-primary)] selection:bg-[#FF3355] selection:text-white`}
       >
-        <ThemeProvider>
-          <ScrollProgress />
+        <ScrollProgress />
           <a
             href="#main"
             className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#FF3355] focus:text-white focus:text-sm focus:font-medium"
@@ -130,7 +124,6 @@ export default function RootLayout({
           </a>
           {children}
           <Toaster />
-        </ThemeProvider>
         <Analytics />
         <SpeedInsights />
       </body>

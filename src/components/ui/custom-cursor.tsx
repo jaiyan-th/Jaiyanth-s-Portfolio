@@ -55,7 +55,7 @@ export function CustomCursor() {
         height={isPointer ? "22" : "16"}
         viewBox="0 0 24 24"
         fill="currentColor"
-        className={`transition-all duration-150 ease-out text-[#EDEBE6] dark:text-[#EDEBE6] text-black drop-shadow-[0_0_8px_rgba(255,51,85,0.4)] ${
+        className={`transition-all duration-150 ease-out text-[#0A0A0A] drop-shadow-[0_0_8px_rgba(255,51,85,0.3)] ${
           isPointer ? "rotate-45 scale-125 text-[#FF3355]" : "rotate-0 scale-100"
         }`}
       >

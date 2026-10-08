@@ -2,7 +2,7 @@
 
 import { motion, type Variants } from "motion/react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { HERO_CONTENT, IDENTITY } from "@/data/content";
+import { IDENTITY } from "@/data/content";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -16,7 +16,7 @@ const containerVariants: Variants = {
 };
 
 const wordVariants: Variants = {
-  hidden: { y: 36, opacity: 0 },
+  hidden: { y: 32, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
@@ -28,7 +28,7 @@ const wordVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { y: 24, opacity: 0 },
+  hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
@@ -39,14 +39,26 @@ const itemVariants: Variants = {
   },
 };
 
+const headlineWords = [
+  "Applied",
+  "AI",
+  "engineering",
+  "for",
+  "complex",
+  "systems",
+  "that",
+  "feel",
+  "obvious",
+];
+
 export function Hero() {
   return (
     <section
       id="hero"
       aria-label="Hero Introduction"
-      className="relative pt-32 sm:pt-40 pb-20 md:pb-28 overflow-hidden"
+      className="relative pt-32 sm:pt-40 pb-20 md:pb-28 overflow-hidden bg-[var(--canvas)]"
     >
-      <div className="w-full max-w-[1340px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -58,30 +70,30 @@ export function Hero() {
             variants={itemVariants}
             className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-8 sm:mb-10"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono tracking-wider uppercase border border-[var(--border-line)] bg-[var(--surface-muted)]/50 text-[var(--text-muted)]">
-              <span>{HERO_CONTENT.badgeYear}</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono tracking-wider uppercase border border-[#E5E3DB] bg-white text-[#6F6E6A] shadow-2xs">
+              <span>Portfolio '26</span>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium border border-[var(--border-line)] bg-[var(--surface-muted)]/50 text-foreground">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-medium border border-[#E5E3DB] bg-white text-[#0A0A0A] shadow-2xs">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF3355] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF3355]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1FB46A] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1FB46A]" />
               </span>
-              <span>{HERO_CONTENT.badgeStatus}</span>
+              <span>Open to work</span>
             </div>
           </motion.div>
 
-          {/* Large Headline with Staggered Word Fade-Up */}
-          <h1 className="hero-headline text-foreground mb-6 sm:mb-8 font-normal tracking-tight">
-            <span className="flex flex-wrap gap-x-3 sm:gap-x-5 gap-y-1">
-              {HERO_CONTENT.headlineWords.map((word, i) => {
-                const isAccent = word.includes("AI");
+          {/* Large Headline Matching Sandeep Typography */}
+          <h1 className="hero-headline text-[#0A0A0A] mb-6 sm:mb-8 font-normal tracking-tight">
+            <span className="flex flex-wrap gap-x-3 sm:gap-x-4 gap-y-1">
+              {headlineWords.map((word, i) => {
+                const isAccent = word === "AI";
                 return (
                   <motion.span
                     key={`${word}-${i}`}
                     variants={wordVariants}
                     className={`inline-block ${
-                      isAccent ? "text-[#FF3355] font-medium" : "text-foreground"
+                      isAccent ? "text-[#FF3355] font-medium" : "text-[#0A0A0A]"
                     }`}
                   >
                     {word}
@@ -91,68 +103,68 @@ export function Hero() {
             </span>
           </h1>
 
-          {/* 2-line Subtext */}
+          {/* Subtext */}
           <motion.p
             variants={itemVariants}
-            className="subtext-editorial max-w-2xl text-[var(--text-muted)] mb-10 sm:mb-12 font-light text-lg sm:text-xl leading-relaxed"
+            className="subtext-editorial max-w-2xl text-[#6F6E6A] mb-10 sm:mb-12 font-normal text-lg sm:text-xl leading-relaxed"
           >
-            {HERO_CONTENT.subtext}
+            Engineering intelligent products from signal to system. Specializing in RAG pipelines, production LLM integration, Python, SQL, and resilient full-stack architectures.
           </motion.p>
 
-          {/* Action Buttons: Primary + Text Link */}
+          {/* Action Buttons: Primary Solid Black Pill + Text Link */}
           <motion.div
             variants={itemVariants}
             className="flex flex-wrap items-center gap-4 sm:gap-6"
           >
             {/* Primary Button */}
             <a
-              href={HERO_CONTENT.ctaPrimary.href}
-              className="inline-flex items-center gap-2 px-6 sm:px-7 py-3.5 bg-foreground text-background text-sm sm:text-base font-medium rounded-full hover:bg-[#FF3355] hover:text-white transition-all duration-200 group shadow-sm"
+              href="#featured-case"
+              className="inline-flex items-center gap-2 px-6 sm:px-7 py-3.5 bg-[#0A0A0A] text-white text-sm sm:text-base font-medium rounded-full hover:bg-[#FF3355] transition-all duration-200 group shadow-xs"
             >
-              <span>{HERO_CONTENT.ctaPrimary.label}</span>
+              <span>Explore Work</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
             </a>
 
-            {/* Secondary Text Link Button */}
+            {/* Secondary Text Link */}
             <a
-              href={HERO_CONTENT.ctaSecondary.href}
-              className="inline-flex items-center gap-1.5 py-3 text-sm sm:text-base font-medium text-foreground hover:text-[#FF3355] transition-colors duration-200 group relative"
+              href="#contact"
+              className="inline-flex items-center gap-1.5 py-3 text-sm sm:text-base font-medium text-[#0A0A0A] hover:text-[#FF3355] transition-colors duration-200 group relative"
             >
-              <span>{HERO_CONTENT.ctaSecondary.label}</span>
+              <span>Get in touch</span>
               <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              <span className="absolute bottom-1.5 left-0 right-0 h-px bg-[var(--border-line)] group-hover:bg-[#FF3355] transition-colors" />
+              <span className="absolute bottom-1.5 left-0 right-0 h-px bg-[#E5E3DB] group-hover:bg-[#FF3355] transition-colors" />
             </a>
           </motion.div>
 
           {/* Quick Meta Footer Row */}
           <motion.div
             variants={itemVariants}
-            className="w-full mt-16 sm:mt-24 pt-8 border-t border-[var(--border-line)] grid grid-cols-2 sm:grid-cols-4 gap-6 text-xs text-[var(--text-muted)]"
+            className="w-full mt-16 sm:mt-24 pt-8 border-t border-[#E5E3DB] grid grid-cols-2 sm:grid-cols-4 gap-6 text-xs text-[#6F6E6A]"
           >
             <div>
-              <p className="uppercase tracking-widest text-[10px] font-mono text-[var(--text-muted)] mb-1">
+              <p className="uppercase tracking-widest text-[10px] font-mono text-[#6F6E6A] mb-1">
                 Domain
               </p>
-              <p className="font-medium text-foreground">Applied AI · RAG · Full-Stack</p>
+              <p className="font-medium text-[#0A0A0A]">Applied AI · RAG · Full-Stack</p>
             </div>
             <div>
-              <p className="uppercase tracking-widest text-[10px] font-mono text-[var(--text-muted)] mb-1">
+              <p className="uppercase tracking-widest text-[10px] font-mono text-[#6F6E6A] mb-1">
                 Core Stack
               </p>
-              <p className="font-medium text-foreground">Python · Next.js · LangChain</p>
+              <p className="font-medium text-[#0A0A0A]">Python · Next.js · LangChain</p>
             </div>
             <div>
-              <p className="uppercase tracking-widest text-[10px] font-mono text-[var(--text-muted)] mb-1">
+              <p className="uppercase tracking-widest text-[10px] font-mono text-[#6F6E6A] mb-1">
                 Location
               </p>
-              <p className="font-medium text-foreground">{IDENTITY.location}</p>
+              <p className="font-medium text-[#0A0A0A]">{IDENTITY.location}</p>
             </div>
             <div>
-              <p className="uppercase tracking-widest text-[10px] font-mono text-[var(--text-muted)] mb-1">
+              <p className="uppercase tracking-widest text-[10px] font-mono text-[#6F6E6A] mb-1">
                 Status
               </p>
-              <p className="font-medium text-[#FF3355] flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FF3355] inline-block" />
+              <p className="font-medium text-[#0A0A0A] flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#1FB46A] inline-block" />
                 Available for Roles
               </p>
             </div>
