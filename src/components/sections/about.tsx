@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { IDENTITY } from "@/data/content";
 
 export function About() {
@@ -67,68 +67,15 @@ export function About() {
                   I also co-authored a peer-reviewed research paper accepted at IEEE ICETSIS 2026 Bahrain, focusing on multimodal diagnostic triage by uniting clinical computer vision with explainable conversational flows.
                 </p>
               </div>
-
-              {/* 3 Core Values / Pillars */}
-              <div className="space-y-4 mb-10 pt-8 border-t border-[#E5E3DB]">
-                <h4 className="text-xs font-mono uppercase tracking-widest text-[#0A0A0A] font-semibold mb-4">
-                  How I Approach Systems
-                </h4>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="p-4 rounded-xl bg-white border border-[#E5E3DB] shadow-2xs">
-                    <span className="font-mono text-xs text-[#FF3355] font-bold block mb-1">
-                      01
-                    </span>
-                    <h5 className="font-medium text-sm text-[#0A0A0A] mb-1.5">
-                      Grounded Provenance
-                    </h5>
-                    <p className="text-xs text-[#6F6E6A] leading-relaxed">
-                      Zero hallucination tolerance. Every verdict cross-references verified sources with cited URLs.
-                    </p>
-                  </div>
-
-                  <div className="p-4 rounded-xl bg-white border border-[#E5E3DB] shadow-2xs">
-                    <span className="font-mono text-xs text-[#FF3355] font-bold block mb-1">
-                      02
-                    </span>
-                    <h5 className="font-medium text-sm text-[#0A0A0A] mb-1.5">
-                      Sub-Second Latency
-                    </h5>
-                    <p className="text-xs text-[#6F6E6A] leading-relaxed">
-                      High-throughput vector search and streaming memory footprints capped under 25MB.
-                    </p>
-                  </div>
-
-                  <div className="p-4 rounded-xl bg-white border border-[#E5E3DB] shadow-2xs">
-                    <span className="font-mono text-xs text-[#FF3355] font-bold block mb-1">
-                      03
-                    </span>
-                    <h5 className="font-medium text-sm text-[#0A0A0A] mb-1.5">
-                      Full-Stack Invariants
-                    </h5>
-                    <p className="text-xs text-[#6F6E6A] leading-relaxed">
-                      Atomic transactions, row-level locks, and type-safe schemas across Python, Next.js, and SQL.
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            {/* CTAs & External Links */}
+            {/* External Links */}
             <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-[#E5E3DB]">
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-6 sm:px-7 py-3.5 bg-[#0A0A0A] text-white text-sm font-medium rounded-full hover:bg-[#FF3355] transition-colors group shadow-xs"
-              >
-                <span>Get in touch</span>
-                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-              </a>
-
               <a
                 href={IDENTITY.githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full border border-[#E5E3DB] bg-white text-[#0A0A0A] text-sm font-medium hover:border-[#FF3355] hover:text-[#FF3355] transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[#E5E3DB] bg-white text-[#0A0A0A] text-sm font-medium hover:border-[#FF3355] hover:text-[#FF3355] transition-colors"
               >
                 <span>GitHub Profile</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -138,7 +85,7 @@ export function About() {
                 href={IDENTITY.linkedinUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full border border-[#E5E3DB] bg-white text-[#0A0A0A] text-sm font-medium hover:border-[#FF3355] hover:text-[#FF3355] transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[#E5E3DB] bg-white text-[#0A0A0A] text-sm font-medium hover:border-[#FF3355] hover:text-[#FF3355] transition-colors"
               >
                 <span>LinkedIn</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
