@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { IDENTITY, NAV_LINKS } from "@/data/content";
 
@@ -9,6 +9,7 @@ export function FloatingNav() {
   const [active, setActive] = React.useState<string>("#hero");
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
   const [scrolled, setScrolled] = React.useState<boolean>(false);
+  const shouldReduceMotion = useReducedMotion();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +40,6 @@ export function FloatingNav() {
   ) => {
     if (href.startsWith("#")) {
       if (window.location.pathname !== "/") {
-        // Allow link navigation to /#id
         window.location.href = `/${href}`;
         return;
       }
@@ -58,27 +58,30 @@ export function FloatingNav() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#ECEAE3]/90 backdrop-blur-md border-b border-[#E5E3DB] py-3.5 shadow-xs"
+          ? "bg-[#EDEAE3]/90 backdrop-blur-md border-b border-[#E6E3DC] py-3.5 shadow-[0_8px_30px_rgba(0,0,0,0.04)]"
           : "bg-transparent border-b border-transparent py-5"
       }`}
     >
-      <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12 flex items-center justify-between">
-        {/* Left: Brand Logo & Name */}
+      <div className="w-full max-w-[1100px] mx-auto px-6 sm:px-8 xl:px-0 flex items-center justify-between">
+        {/* Left: Pink Dot (8px) + Brand Name (16px) */}
         <a
           href="#hero"
           onClick={(e) => handleNavClick(e, "#hero")}
-          className="group flex items-center gap-2.5 font-medium text-base tracking-tight text-[#0A0A0A] transition-colors"
+          className="group flex items-center gap-2.5 font-medium text-[16px] tracking-tight text-[#0A0A0A] transition-colors"
         >
-          <span className="w-2 h-2 rounded-full bg-[#FF3355] inline-block transition-transform duration-300 group-hover:scale-125" />
-          <span className="hover:text-[#FF3355] transition-colors font-medium">
+          <span className="w-2 h-2 rounded-full bg-[#FF3B5C] inline-block transition-transform duration-300 group-hover:scale-125" />
+          <span className="hover:text-[#FF3B5C] transition-colors font-medium">
             {IDENTITY.name}
           </span>
         </a>
 
-        {/* Center: Links (Home, Work, About) */}
-        <nav
+        {/* Right: White Floating Pill Nav */}
+        <motion.nav
+          initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           aria-label="Main Navigation"
-          className="hidden md:flex items-center gap-7 bg-white px-5 py-2 rounded-full border border-[#E5E3DB] shadow-xs"
+          className="hidden md:flex items-center gap-7 bg-[#FFFFFF] px-6 py-2.5 rounded-full border border-[#E6E3DC] shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
         >
           {NAV_LINKS.map((item) => {
             const isActive = active === item.href;
@@ -87,24 +90,24 @@ export function FloatingNav() {
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={`text-[13px] tracking-wide uppercase transition-colors relative py-0.5 ${
+                className={`text-[13px] tracking-[0.04em] uppercase transition-colors relative py-1 ${
                   isActive
-                    ? "text-[#0A0A0A] font-semibold"
-                    : "text-[#6F6E6A] hover:text-[#0A0A0A]"
+                    ? "text-[#0A0A0A] font-medium"
+                    : "text-[#6B6B6B] hover:text-[#0A0A0A]"
                 }`}
               >
                 {item.label}
                 {isActive && (
                   <motion.span
                     layoutId="nav-underline"
-                    className="absolute -bottom-1 left-0 right-0 h-[1.5px] bg-[#FF3355]"
+                    className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-[#FF3B5C]"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
               </a>
             );
           })}
-        </nav>
+        </motion.nav>
 
         {/* Mobile Hamburger on Right */}
         <div className="flex md:hidden items-center">
@@ -112,7 +115,7 @@ export function FloatingNav() {
             type="button"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
-            className="p-2 border border-[#E5E3DB] bg-white rounded-md text-[#0A0A0A] hover:text-[#FF3355] transition-colors"
+            className="p-2 border border-[#E6E3DC] bg-[#FFFFFF] rounded-md text-[#0A0A0A] hover:text-[#FF3B5C] transition-colors shadow-2xs"
           >
             {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
@@ -127,7 +130,7 @@ export function FloatingNav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-b border-[#E5E3DB] bg-[#ECEAE3]/98 backdrop-blur-xl px-6 py-6 shadow-xl"
+            className="md:hidden border-b border-[#E6E3DC] bg-[#EDEAE3]/98 backdrop-blur-xl px-6 py-6 shadow-xl"
           >
             <div className="flex flex-col space-y-4">
               {NAV_LINKS.map((item) => {
@@ -137,15 +140,15 @@ export function FloatingNav() {
                     key={item.href}
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className={`text-[16px] py-1 transition-colors flex items-center justify-between ${
+                    className={`text-[15px] py-1 transition-colors flex items-center justify-between uppercase tracking-[0.04em] ${
                       isActive
-                        ? "text-[#FF3355] font-semibold"
-                        : "text-[#6F6E6A] hover:text-[#0A0A0A]"
+                        ? "text-[#FF3B5C] font-semibold"
+                        : "text-[#6B6B6B] hover:text-[#0A0A0A]"
                     }`}
                   >
                     <span>{item.label}</span>
                     {isActive && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#FF3355]" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#FF3B5C]" />
                     )}
                   </a>
                 );

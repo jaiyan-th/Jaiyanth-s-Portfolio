@@ -15,9 +15,14 @@ export function CustomCursor() {
 
     const handleMouseMove = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
+      const target = e.target as HTMLElement | null;
+      if (target && target.closest("[data-bubble-footer]")) {
+        setIsVisible(false);
+        return;
+      }
+
       if (!isVisible) setIsVisible(true);
 
-      const target = e.target as HTMLElement | null;
       if (target && (target.tagName === "A" || target.tagName === "BUTTON" || target.closest("a, button, input, textarea"))) {
         setIsPointer(true);
       } else {

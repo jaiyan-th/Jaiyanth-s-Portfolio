@@ -31,19 +31,19 @@
 }
 
 :root {
-  --canvas: #ECEAE3;
-  --surface: #F5F4F0;
+  --canvas: #EDEAE3;
+  --surface: #F5F3EE;
   --surface-card: #FFFFFF;
-  --surface-muted: #E5E3DB;
+  --surface-muted: #E6E3DC;
   --text-primary: #0A0A0A;
-  --text-secondary: #2A2A2A;
-  --text-muted: #6F6E6A;
-  --border-line: #E5E3DB;
-  --nav-bg: rgba(236, 234, 227, 0.88);
-  --accent: #FF3355;
+  --text-secondary: #6B6B6B;
+  --text-muted: #6B6B6B;
+  --border-line: #E6E3DC;
+  --nav-bg: rgba(237, 234, 227, 0.9);
+  --accent: #FF3B5C;
   --btn-solid-bg: #0A0A0A;
   --btn-solid-text: #FFFFFF;
-  --status-green: #1FB46A;
+  --status-green: #1FB866;
 
   color-scheme: light;
 }
@@ -70,12 +70,12 @@
   }
 
   ::selection {
-    background: #FF3355;
+    background: #FF3B5C;
     color: #FFFFFF;
   }
 
   :focus-visible {
-    outline: 1.5px solid #FF3355;
+    outline: 1.5px solid #FF3B5C;
     outline-offset: 3px;
   }
 }
