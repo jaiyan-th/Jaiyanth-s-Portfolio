@@ -7,7 +7,7 @@ export function HowIWork() {
   return (
     <section
       id="process"
-      aria-label="04 How I work"
+      aria-label="05 How I work"
       className="relative py-24 sm:py-32 border-t border-[#E5E3DB] bg-[var(--canvas)]"
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
@@ -21,7 +21,7 @@ export function HowIWork() {
         >
           <div className="flex items-baseline gap-4">
             <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase font-semibold">
-              04
+              05
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-[#0A0A0A]">
               How I work?

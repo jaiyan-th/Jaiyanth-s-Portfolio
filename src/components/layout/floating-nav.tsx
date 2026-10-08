@@ -38,6 +38,11 @@ export function FloatingNav() {
     href: string
   ) => {
     if (href.startsWith("#")) {
+      if (window.location.pathname !== "/") {
+        // Allow link navigation to /#id
+        window.location.href = `/${href}`;
+        return;
+      }
       e.preventDefault();
       const targetId = href.replace("#", "");
       const elem = document.getElementById(targetId);

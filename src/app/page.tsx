@@ -3,6 +3,7 @@ import { FloatingNav } from "@/components/layout/floating-nav";
 import { Hero } from "@/components/sections/hero";
 import { FeaturedCase } from "@/components/sections/featured-case";
 import { SelectedWork } from "@/components/sections/selected-work";
+import { About } from "@/components/sections/about";
 import { WhyWork } from "@/components/sections/why-work";
 import { HowIWork } from "@/components/sections/how-i-work";
 import { TechMarquee } from "@/components/sections/tech-marquee";
@@ -28,22 +29,25 @@ export default function Home() {
 
       {/* Main Content Sections */}
       <main id="main" className="relative w-full max-w-full overflow-x-clip">
-        {/* Hero Section */}
+        {/* Hero Section with Quick Snapshot Card */}
         <Hero />
 
         {/* 01 Featured Case */}
         <FeaturedCase />
 
-        {/* 02 Selected Work */}
+        {/* 02 Selected Work (Rich Featured-Style Cards) */}
         <SelectedWork />
 
-        {/* 03 Why Work With Me */}
+        {/* 03 About Jaiyanth B (Featuring Official B&W Portrait) */}
+        <About />
+
+        {/* 04 Why Work With Me */}
         <WhyWork />
 
-        {/* 04 How I Work */}
+        {/* 05 How I Work */}
         <HowIWork />
 
-        {/* 05 Tech / Trusted By Marquee */}
+        {/* 06 Tech / Trusted By Marquee */}
         <TechMarquee />
 
         {/* Get In Touch Marquee & Contact CTA */}
