@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowUpRight, Github } from "lucide-react";
 import { SELECTED_WORK } from "@/data/content";
@@ -40,6 +41,11 @@ export function SelectedWork() {
         <div className="divide-y divide-[#E5E3DB]">
           {SELECTED_WORK.map((item, index) => {
             const isHovered = hoveredId === item.id;
+            const projectLink =
+              item.id === "preventive-ai-paper"
+                ? item.liveUrl || "#"
+                : `/work/${item.id}`;
+            const isInternal = !projectLink.startsWith("http");
 
             return (
               <motion.div
@@ -75,7 +81,13 @@ export function SelectedWork() {
                   <div className="md:col-span-6 transition-transform duration-300 group-hover:translate-x-1.5">
                     <div className="flex items-center gap-3 mb-1.5">
                       <h3 className="text-lg sm:text-xl font-medium text-[#0A0A0A] group-hover:text-[#FF3355] transition-colors duration-200">
-                        {item.title}
+                        {isInternal ? (
+                          <Link href={projectLink}>{item.title}</Link>
+                        ) : (
+                          <a href={projectLink} target="_blank" rel="noreferrer">
+                            {item.title}
+                          </a>
+                        )}
                       </h3>
                       {item.accentNote && (
                         <span className="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-[#F5F4F0] text-[#6F6E6A] border border-[#E5E3DB]">
@@ -124,9 +136,17 @@ export function SelectedWork() {
                       </a>
                     )}
 
-                    {item.liveUrl && (
+                    {isInternal ? (
+                      <Link
+                        href={projectLink}
+                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium border border-[#E5E3DB] bg-[#F5F4F0] text-[#0A0A0A] group-hover:border-[#0A0A0A] group-hover:bg-[#0A0A0A] group-hover:text-white transition-all duration-200"
+                      >
+                        <span>View</span>
+                        <ArrowUpRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </Link>
+                    ) : (
                       <a
-                        href={item.liveUrl}
+                        href={projectLink}
                         target="_blank"
                         rel="noreferrer"
                         className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium border border-[#E5E3DB] bg-[#F5F4F0] text-[#0A0A0A] group-hover:border-[#0A0A0A] group-hover:bg-[#0A0A0A] group-hover:text-white transition-all duration-200"

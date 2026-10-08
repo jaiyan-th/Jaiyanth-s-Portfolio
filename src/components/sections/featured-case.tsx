@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowUpRight, Cpu, Database, Network } from "lucide-react";
 import { FEATURED_CASE } from "@/data/content";
@@ -58,7 +59,12 @@ export function FeaturedCase() {
 
                   {/* Project Title */}
                   <h3 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A0A0A] mb-4 leading-tight">
-                    {FEATURED_CASE.title}
+                    <Link
+                      href="/work/fake-news-detector"
+                      className="hover:text-[#FF3355] transition-colors"
+                    >
+                      {FEATURED_CASE.title}
+                    </Link>
                   </h3>
 
                   {/* Summary */}
@@ -112,15 +118,13 @@ export function FeaturedCase() {
 
                 {/* Actions: Read More + Source Repository */}
                 <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-[#E5E3DB]">
-                  <a
-                    href={FEATURED_CASE.liveUrl}
-                    target="_blank"
-                    rel="noreferrer"
+                  <Link
+                    href="/work/fake-news-detector"
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0A0A0A] text-white text-sm font-medium hover:bg-[#FF3355] transition-colors group shadow-xs"
                   >
                     <span>Read More</span>
                     <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </a>
+                  </Link>
 
                   <a
                     href={FEATURED_CASE.repoUrl}
