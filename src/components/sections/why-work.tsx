@@ -13,10 +13,10 @@ export function WhyWork() {
       <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, amount: 0.2, margin: "0px 0px -60px 0px" }}
+          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-10 sm:mb-12 pb-6 border-b border-[#E5E3DB]"
         >
           <div className="flex items-baseline gap-4">
@@ -34,10 +34,10 @@ export function WhyWork() {
 
         {/* Section Editorial Statement Matching Sandeep */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 36 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, amount: 0.2, margin: "0px 0px -60px 0px" }}
+          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-4xl mb-16 sm:mb-20"
         >
           <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight text-[#0A0A0A] leading-tight mb-4">
@@ -53,12 +53,12 @@ export function WhyWork() {
           {WHY_WORK_WITH_ME.map((point, index) => (
             <motion.div
               key={point.letter}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
+              viewport={{ once: true, amount: 0.15, margin: "0px 0px -60px 0px" }}
               transition={{
-                duration: 0.6,
-                delay: index * 0.1,
+                duration: 0.7,
+                delay: index * 0.12,
                 ease: [0.16, 1, 0.3, 1],
               }}
               className="group flex flex-col justify-between p-8 rounded-2xl border border-[#E5E3DB] bg-white hover:border-[#0A0A0A]/40 transition-all duration-300 shadow-2xs"

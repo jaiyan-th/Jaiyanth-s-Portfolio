@@ -126,9 +126,9 @@ export function BubbleFooter() {
         radius,
         isPinker,
         baseOpacity,
-        scaleProgress: 1, // Ready immediately
+        scaleProgress: prefersReducedMotion ? 1 : 0, // Starts at 0, animates 0 -> 1 on scroll into view
         targetScale: 1,
-        entryDelay: prefersReducedMotion ? 0 : (i / BUBBLE_COUNT) * 0.4,
+        entryDelay: prefersReducedMotion ? 0 : (i / BUBBLE_COUNT) * 0.45,
       });
 
       World.add(world, body);
@@ -184,23 +184,27 @@ export function BubbleFooter() {
     container.addEventListener("mouseenter", handleMouseEnter);
     container.addEventListener("mouseleave", handleMouseLeave);
 
-    // Entry scaling animation timer
-    let entryStartTime = performance.now();
+    // Entry scaling animation triggers upon scrolling into view
+    let hasTriggeredEntry = false;
+    let entryStartTime = 0;
 
-    // IntersectionObserver to pause physics when offscreen
+    // IntersectionObserver to pause physics when offscreen and trigger entry scale on view
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           isVisible = true;
+          if (!hasTriggeredEntry) {
+            hasTriggeredEntry = true;
+            entryStartTime = performance.now();
+          }
           if (animId === null && !prefersReducedMotion) {
             animId = requestAnimationFrame(render);
           }
         } else {
-          // Only mark invisible if the element really exited viewport
           isVisible = false;
         }
       },
-      { threshold: 0.01 }
+      { threshold: 0.1 }
     );
     observer.observe(container);
 
@@ -247,17 +251,19 @@ export function BubbleFooter() {
       ctx.clearRect(0, 0, width, height);
 
       // Draw Bubbles
-      const elapsed = Math.max(0, (time - entryStartTime) / 1000);
+      const elapsed =
+        entryStartTime > 0 ? Math.max(0, (time - entryStartTime) / 1000) : 0;
 
       for (const b of bubbles) {
         // Scale entry progression
         if (!prefersReducedMotion && b.scaleProgress < 1) {
-          if (elapsed > b.entryDelay) {
+          if (hasTriggeredEntry && elapsed > b.entryDelay) {
             const t = Math.min(1, Math.max(0, (elapsed - b.entryDelay) / 0.6));
             // easeOutBack formula
             const c1 = 1.70158;
             const c3 = c1 + 1;
-            b.scaleProgress = 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
+            b.scaleProgress =
+              1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
           }
         } else {
           b.scaleProgress = 1;
@@ -359,7 +365,10 @@ export function BubbleFooter() {
   }, []);
 
   return (
-    <div className="w-full max-w-[1100px] mx-auto px-6 sm:px-8 xl:px-0 mb-16">
+    <div
+      id="contact"
+      className="w-full max-w-[1100px] mx-auto px-6 sm:px-8 xl:px-0 mb-16 scroll-mt-24"
+    >
       {/* 70vh Rounded Bubble Physics Container */}
       <div
         ref={containerRef}

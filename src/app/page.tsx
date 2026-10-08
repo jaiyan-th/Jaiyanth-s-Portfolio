@@ -7,7 +7,6 @@ import { Experience } from "@/components/sections/experience";
 import { Research } from "@/components/sections/research";
 import { WhyWork } from "@/components/sections/why-work";
 import { TechMarquee } from "@/components/sections/tech-marquee";
-import { ContactCta } from "@/components/sections/contact-cta";
 import { Footer } from "@/components/layout/footer";
 import { CustomCursor } from "@/components/ui/custom-cursor";
 import { VerticalTab } from "@/components/ui/vertical-tab";
@@ -49,12 +48,9 @@ export default function Home() {
 
         {/* 06 Tech / Trusted By Marquee */}
         <TechMarquee />
-
-        {/* Get In Touch Marquee & Contact CTA */}
-        <ContactCta />
       </main>
 
-      {/* Detailed Editorial Footer */}
+      {/* Interactive Matter.js Bubble Footer with AI CTA */}
       <Footer />
     </div>
   );

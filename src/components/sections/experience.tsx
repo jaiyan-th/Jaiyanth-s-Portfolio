@@ -53,10 +53,10 @@ export function Experience() {
       <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, amount: 0.2, margin: "0px 0px -60px 0px" }}
+          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-10 sm:mb-12 pb-6 border-b border-[#E5E3DB]"
         >
           <div className="flex items-baseline gap-4">
@@ -74,10 +74,10 @@ export function Experience() {
 
         {/* Featured Internship Card */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, amount: 0.15, margin: "0px 0px -80px 0px" }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           className="rounded-2xl border border-[#E5E3DB] bg-white p-6 sm:p-10 lg:p-12 shadow-sm transition-all duration-300 hover:border-[#0A0A0A]/30 hover:shadow-md"
         >
           {/* Card Top Meta Bar */}

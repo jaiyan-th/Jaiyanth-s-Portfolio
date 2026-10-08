@@ -16,10 +16,10 @@ export function TechMarquee() {
       <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12 mb-8 sm:mb-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, amount: 0.2, margin: "0px 0px -60px 0px" }}
+          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-6 border-b border-[#E5E3DB]"
         >
           <div className="flex items-baseline gap-4">
@@ -37,7 +37,13 @@ export function TechMarquee() {
       </div>
 
       {/* Infinite Horizontal Marquee */}
-      <div className="relative w-full overflow-hidden group py-4">
+      <motion.div
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15, margin: "0px 0px -60px 0px" }}
+        transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+        className="relative w-full overflow-hidden group py-4"
+      >
         {/* Edge Gradient Masks for Soft Fade */}
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 sm:w-40 z-10 bg-gradient-to-r from-[#ECEAE3] to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 sm:w-40 z-10 bg-gradient-to-l from-[#ECEAE3] to-transparent" />
@@ -59,7 +65,7 @@ export function TechMarquee() {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

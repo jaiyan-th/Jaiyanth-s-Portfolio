@@ -15,16 +15,23 @@ export function FloatingNav() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 30);
 
-      const scrollPos = window.scrollY + 160;
+      // Top of page safeguard
+      if (window.scrollY < 80) {
+        setActive("#hero");
+        return;
+      }
+
+      // Precise viewport detection for active nav tab
       const sectionIds = ["research", "experience", "work", "about", "hero"];
+      const targetPoint = 200; // Position below navbar where section is considered active
+
       for (const id of sectionIds) {
         const el = document.getElementById(id);
         if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= targetPoint && rect.bottom > targetPoint) {
             setActive(`#${id}`);
-            break;
+            return;
           }
         }
       }
