@@ -54,25 +54,25 @@ export function Research() {
       desc: "Accepted at the International Conference on Emerging Trends in Smart Industry and Systems, technically sponsored by IEEE Bahrain Section.",
     },
     {
-      icon: GraduationCap,
-      badge: "UNDERGRADUATE DEGREE",
-      title: "B.Tech Computer Science & Business Systems",
-      venue: "2022 – 2026 · Tamil Nadu, India",
-      desc: "Rigorous curriculum combining computational systems, applied machine learning, database internals, and software architecture.",
+      icon: Sparkles,
+      badge: "UNIVERSITY OF BAHRAIN",
+      title: "Technical Paper Presentation",
+      venue: "Sakhir, Bahrain · May 2026",
+      desc: "Multimodal AI wellness triage paper accepted for technical presentation before international engineering and academic researchers.",
     },
     {
-      icon: Briefcase,
-      badge: "INDUSTRY EXPERIENCE",
-      title: "AI Engineering Intern",
-      venue: "Brainery Spot Technology · Jun – Jul 2025",
-      desc: "Engineered production-grade RAG retrieval engines, LLM reasoning workflows, and resilient REST APIs with end-to-end testing.",
+      icon: CheckCircle2,
+      badge: "CLINICAL REASONING",
+      title: "Explainable Healthcare Framework",
+      venue: "Preventive AI Architecture",
+      desc: "Integrates computer vision feature extraction with conversational symptom triage for calibrated clinical referral summaries.",
     },
   ];
 
   return (
     <section
       id="research"
-      aria-label="03 Research, Publications & Achievements"
+      aria-label="04 Research, Publications & Achievements"
       className="relative py-14 sm:py-18 border-t border-[#E5E3DB] bg-[var(--canvas)] scroll-mt-20"
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
@@ -86,10 +86,10 @@ export function Research() {
         >
           <div className="flex items-baseline gap-4">
             <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase font-semibold">
-              03
+              04
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-[#0A0A0A]">
-              Research & Achievements
+              Research & Publication
             </h2>
           </div>
           <span className="text-xs font-mono uppercase tracking-widest text-[#6F6E6A] mt-2 sm:mt-0">

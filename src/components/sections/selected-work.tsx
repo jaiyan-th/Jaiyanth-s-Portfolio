@@ -160,37 +160,6 @@ const PROJECTS_DATA: SelectedProjectCard[] = [
     repoUrl: "https://github.com/jaiyan-th/Secure-Digital-Document-Vault",
     visualType: "vault",
   },
-  {
-    id: "preventive-ai-paper",
-    index: "P. 05",
-    title: "Preventive Healthcare Multimodal AI Framework",
-    category: "AI Research · IEEE Paper",
-    year: "2026",
-    summary:
-      "IEEE Bahrain (ICETSIS 2026) co-authored research paper integrating image recognition with conversational clinical triage for explainable clinic routing.",
-    highlights: [
-      "Peer-reviewed research co-authored and presented at IEEE ICETSIS 2026 Bahrain.",
-      "Multimodal fusion architecture uniting clinical visual features with conversational symptom triage for explainable diagnosis.",
-      "Decision-support framework incorporating strict clinical safety boundaries and calibrated referral confidence.",
-    ],
-    metrics: [
-      { label: "Publication", value: "IEEE 2026" },
-      { label: "Framework", value: "Multimodal AI" },
-      { label: "Decision Engine", value: "Explainable" },
-    ],
-    stack: [
-      "Computer Vision",
-      "Conversational AI",
-      "Clinical Triage",
-      "Research Methodology",
-    ],
-    liveUrl:
-      "https://drive.google.com/file/d/1ro5v9Cb1Un-pj2ZEiKdZVDEPDeOpfEU_/view?usp=sharing",
-    repoUrl:
-      "https://drive.google.com/file/d/1ro5v9Cb1Un-pj2ZEiKdZVDEPDeOpfEU_/view?usp=sharing",
-    isExternal: true,
-    visualType: "paper",
-  },
 ];
 
 export function SelectedWork() {
@@ -218,7 +187,7 @@ export function SelectedWork() {
             </h2>
           </div>
           <span className="text-xs font-mono uppercase tracking-widest text-[#6F6E6A] mt-2 sm:mt-0">
-            Engineered Systems & Publications
+            Engineered Systems & Full-Stack Products
           </span>
         </motion.div>
 

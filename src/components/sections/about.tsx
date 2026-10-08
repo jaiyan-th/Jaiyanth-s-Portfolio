@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, GraduationCap } from "lucide-react";
 import { IDENTITY } from "@/data/content";
 
 export function About() {
@@ -66,6 +66,29 @@ export function About() {
                 <p>
                   I also co-authored a peer-reviewed research paper accepted at IEEE ICETSIS 2026 Bahrain, focusing on multimodal diagnostic triage by uniting clinical computer vision with explainable conversational flows.
                 </p>
+              </div>
+
+              {/* Education Credential Card */}
+              <div className="p-4 sm:p-5 rounded-2xl border border-[#E5E3DB] bg-white flex items-start gap-4 mb-8 shadow-2xs">
+                <div className="w-10 h-10 rounded-xl bg-[#ECEAE3] flex items-center justify-center text-[#FF3355] shrink-0 mt-0.5">
+                  <GraduationCap className="w-5 h-5" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
+                    <span className="font-mono text-xs uppercase tracking-wider text-[#FF3355] font-semibold">
+                      Education
+                    </span>
+                    <span className="font-mono text-xs text-[#6F6E6A]">
+                      2022 – 2026
+                    </span>
+                  </div>
+                  <h4 className="text-base sm:text-lg font-medium text-[#0A0A0A] mb-1">
+                    B.Tech in Computer Science & Business Systems
+                  </h4>
+                  <p className="text-xs sm:text-sm text-[#6F6E6A] leading-relaxed">
+                    Specializing in Applied AI systems, full-stack product engineering, and secure data architectures.
+                  </p>
+                </div>
               </div>
             </div>
 
