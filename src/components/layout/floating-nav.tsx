@@ -15,7 +15,7 @@ export function FloatingNav() {
       setScrolled(window.scrollY > 30);
 
       const scrollPos = window.scrollY + 160;
-      const sectionIds = ["work", "about", "hero"];
+      const sectionIds = ["research", "work", "about", "hero"];
       for (const id of sectionIds) {
         const el = document.getElementById(id);
         if (el) {

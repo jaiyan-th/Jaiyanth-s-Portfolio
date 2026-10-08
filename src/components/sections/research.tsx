@@ -1,108 +1,240 @@
 "use client";
 
-import * as React from "react";
-import { ArrowUpRight, FileText } from "lucide-react";
-import { RESEARCH } from "@/data/portfolio";
+import Link from "next/link";
 import { motion } from "motion/react";
-import { fadeUpVariants } from "@/lib/motion";
-import { SectionContainer } from "@/components/layout/section-container";
+import {
+  FileText,
+  ArrowUpRight,
+  ArrowRight,
+  GraduationCap,
+  Briefcase,
+  Award,
+  Sparkles,
+  CheckCircle2,
+} from "lucide-react";
+import { RESEARCH } from "@/data/portfolio";
 
 export function Research() {
   const keywords = [
-    "Image recognition",
+    "Image Recognition",
     "Conversational AI",
-    "Preventive healthcare",
-    "Research collaboration",
-    "Technical presentation",
+    "Preventive Healthcare",
+    "Multimodal Fusion",
+    "Clinical Safety Invariants",
+    "Explainable AI",
+  ];
+
+  const highlights = [
+    {
+      index: "01",
+      title: "Multimodal Signal Capture",
+      description:
+        "Computer-vision input layer extracts visual wellness indicators from patient data, normalized for downstream clinical reasoning.",
+    },
+    {
+      index: "02",
+      title: "Structured Conversational Triage",
+      description:
+        "Deterministic dialogue trees and conversational AI ask targeted follow-up questions, eliminating ambiguity before care recommendations.",
+    },
+    {
+      index: "03",
+      title: "Traceable Clinical Summaries",
+      description:
+        "Every output links directly to cited visual features and patient dialogue, generating explainable summaries tailored for healthcare practitioners.",
+    },
+  ];
+
+  const credentials = [
+    {
+      icon: Award,
+      badge: "IEEE BAHRAIN SECTION",
+      title: "Peer-Reviewed Research Co-Author",
+      venue: "ICETSIS 2026 · May 2026",
+      desc: "Accepted at the International Conference on Emerging Trends in Smart Industry and Systems, technically sponsored by IEEE Bahrain Section.",
+    },
+    {
+      icon: GraduationCap,
+      badge: "UNDERGRADUATE DEGREE",
+      title: "B.Tech Computer Science & Business Systems",
+      venue: "2022 – 2026 · Tamil Nadu, India",
+      desc: "Rigorous curriculum combining computational systems, applied machine learning, database internals, and software architecture.",
+    },
+    {
+      icon: Briefcase,
+      badge: "INDUSTRY EXPERIENCE",
+      title: "AI Engineering Intern",
+      venue: "Brainery Spot Technology · Jun – Jul 2025",
+      desc: "Engineered production-grade RAG retrieval engines, LLM reasoning workflows, and resilient REST APIs with end-to-end testing.",
+    },
   ];
 
   return (
-    <section id="achievements" className="relative bg-canvas text-foreground border-b-[3px] border-line py-16 md:py-24 scroll-mt-20 transition-colors">
-      <SectionContainer className="space-y-12">
-        {/* Section Header: Plain bold headline, no italic, no color */}
+    <section
+      id="research"
+      aria-label="03 Research, Publications & Achievements"
+      className="relative py-24 sm:py-32 border-t border-[#E5E3DB] bg-[var(--canvas)] scroll-mt-20"
+    >
+      <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
+        {/* Section Header */}
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          variants={fadeUpVariants}
-          className="space-y-4"
-        >
-          {/* Sticker Badge + Beside Subtitle */}
-          <div className="flex items-center gap-2.5">
-            <span className="sticker-badge bg-[#b3122b] text-white -rotate-1">
-              <FileText className="w-3.5 h-3.5 text-white" />
-              RESEARCH
-            </span>
-            <span className="font-body italic text-[#b3122b] text-sm font-semibold">
-              / peer-reviewed
-            </span>
-          </div>
-
-          {/* Section Headline with ONE italic accent word (print) */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-foreground leading-[1.08] tracking-tight">
-            Research that made it to{" "}
-            <span className="italic text-[#b3122b]">print.</span>
-          </h2>
-        </motion.div>
-
-        {/* Large Thick-Bordered Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.45 }}
-          className="neo-card p-6 sm:p-10 lg:p-12 relative space-y-7"
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-16 sm:mb-20 pb-6 border-b border-[#E5E3DB]"
         >
-          {/* Rotated sticker badge in corner: "PUBLISHED" */}
-          <div className="absolute -top-3.5 right-6">
-            <span className="sticker-badge bg-[#b3122b] text-white rotate-2 text-xs sm:text-sm py-1 px-3.5">
-              PUBLISHED
+          <div className="flex items-baseline gap-4">
+            <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase font-semibold">
+              03
             </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-[#0A0A0A]">
+              Research & Achievements
+            </h2>
           </div>
+          <span className="text-xs font-mono uppercase tracking-widest text-[#6F6E6A] mt-2 sm:mt-0">
+            Peer-Reviewed Academic Publication · IEEE ICETSIS 2026
+          </span>
+        </motion.div>
 
-          {/* Details line (small caps) */}
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-line pb-4">
-            <span className="font-label-caps text-xs sm:text-[13px] text-text-secondary">
-              ICETSIS 2026 · BAHRAIN · MAY 2026 · IEEE BAHRAIN SECTION
-            </span>
-            {RESEARCH.certificateUrl && (
-              <a
-                href={RESEARCH.certificateUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-label-caps text-xs sm:text-[13px] text-foreground hover:text-[#b3122b] hover:underline inline-flex items-center gap-1 font-bold"
+        {/* Featured Publication Hero Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="rounded-2xl border border-[#E5E3DB] bg-white p-6 sm:p-10 lg:p-12 shadow-sm mb-12 transition-all duration-300 hover:border-[#0A0A0A]/30 hover:shadow-md"
+        >
+          {/* Card Top Meta Bar */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 mb-8 border-b border-[#E5E3DB]">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-[#FF3355]/10 text-[#FF3355] border border-[#FF3355]/20">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FF3355] animate-pulse" />
+                Published & Peer-Reviewed
+              </span>
+              <span className="text-xs font-mono uppercase tracking-widest text-[#6F6E6A]">
+                ICETSIS 2026 · IEEE Bahrain Section · May 2026
+              </span>
+            </div>
+
+            {/* Direct Action Links */}
+            <div className="flex flex-wrap items-center gap-3">
+              {RESEARCH.certificateUrl && (
+                <a
+                  href={RESEARCH.certificateUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#E5E3DB] bg-white text-xs font-mono font-medium text-[#0A0A0A] hover:border-[#FF3355] hover:text-[#FF3355] transition-colors"
+                >
+                  <FileText className="w-3.5 h-3.5 text-[#FF3355]" />
+                  <span>View Certificate</span>
+                  <ArrowUpRight className="w-3 h-3" />
+                </a>
+              )}
+              <Link
+                href="/work/preventive-ai-paper"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0A0A0A] text-white text-xs font-mono font-medium hover:bg-[#FF3355] transition-colors"
               >
-                <span>VIEW CERTIFICATE</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-            )}
+                <span>Read Case Study</span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
           </div>
 
-          {/* Relocated original detail: small caps line above paper title */}
-          <div>
-            <span className="font-label-caps text-xs sm:text-[13px] text-text-secondary block mb-2">
-              CO-AUTHORED IEEE PAPER · PEER-REVIEWED AND ACCEPTED
+          {/* Paper Title & Eyebrow */}
+          <div className="mb-8">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#FF3355] block mb-3 font-semibold">
+              Co-Authored Research Paper
             </span>
-            {/* Paper Title (bold headline) */}
-            <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground leading-tight">
-              An AI Intelligence Wellness Framework Integrating Image Recognition and Conversational AI for Preventive Healthcare
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-normal tracking-tight text-[#0A0A0A] leading-tight">
+              {RESEARCH.title}
             </h3>
           </div>
 
-          {/* Abstract (body text) */}
-          <p className="font-body text-base sm:text-lg lg:text-[1.15rem] text-text-secondary leading-relaxed max-w-4xl">
-            A preventive-healthcare framework that combines image recognition with a conversational AI layer to surface early wellness signals, guide users through structured follow-up questions, and route them toward appropriate care — emphasizing explainability, low-friction interaction, and clinician-friendly summaries.
-          </p>
+          {/* Paper Abstract */}
+          <div className="mb-10 text-base sm:text-lg text-[#6F6E6A] leading-relaxed max-w-4xl">
+            <p>{RESEARCH.abstract}</p>
+          </div>
 
-          {/* Keywords as plain text list */}
-          <div className="border-t-2 border-line pt-4 text-xs sm:text-sm font-mono-code text-text-secondary">
-            <span className="font-label-caps text-[10px] text-foreground font-bold mr-2 uppercase">
-              KEYWORDS:
+          {/* 3 Research Highlights Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-[#E5E3DB] mb-10">
+            {highlights.map((item) => (
+              <div
+                key={item.index}
+                className="p-5 rounded-xl bg-[#FBFBFA] border border-[#E5E3DB]/80 flex flex-col justify-between"
+              >
+                <div>
+                  <span className="font-mono text-xs text-[#FF3355] font-bold block mb-2">
+                    {item.index}
+                  </span>
+                  <h4 className="font-medium text-base text-[#0A0A0A] mb-2">
+                    {item.title}
+                  </h4>
+                  <p className="text-sm text-[#6F6E6A] leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Research Domain Keywords */}
+          <div className="pt-6 border-t border-[#E5E3DB] flex flex-wrap items-center gap-2">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#6F6E6A] mr-2">
+              Keywords:
             </span>
-            {keywords.join(", ")}
+            {keywords.map((kw) => (
+              <span
+                key={kw}
+                className="px-3 py-1 rounded-full text-xs font-mono text-[#0A0A0A] bg-[#ECEAE3] border border-[#E5E3DB]"
+              >
+                {kw}
+              </span>
+            ))}
           </div>
         </motion.div>
-      </SectionContainer>
+
+        {/* Supporting Credentials & Achievements Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {credentials.map((cred, idx) => {
+            const Icon = cred.icon;
+            return (
+              <motion.div
+                key={cred.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{
+                  duration: 0.6,
+                  delay: idx * 0.1,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="p-6 sm:p-7 rounded-2xl bg-white border border-[#E5E3DB] shadow-xs hover:border-[#0A0A0A]/30 transition-all flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-mono uppercase tracking-widest text-[#FF3355] font-semibold">
+                      {cred.badge}
+                    </span>
+                    <div className="w-8 h-8 rounded-lg bg-[#ECEAE3] flex items-center justify-center text-[#0A0A0A]">
+                      <Icon className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <h4 className="text-lg font-medium text-[#0A0A0A] mb-1">
+                    {cred.title}
+                  </h4>
+                  <span className="text-xs font-mono text-[#6F6E6A] block mb-3">
+                    {cred.venue}
+                  </span>
+                  <p className="text-sm text-[#6F6E6A] leading-relaxed">
+                    {cred.desc}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 }

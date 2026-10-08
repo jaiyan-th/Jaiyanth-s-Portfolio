@@ -3,6 +3,7 @@ import { FloatingNav } from "@/components/layout/floating-nav";
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { SelectedWork } from "@/components/sections/selected-work";
+import { Research } from "@/components/sections/research";
 import { WhyWork } from "@/components/sections/why-work";
 import { TechMarquee } from "@/components/sections/tech-marquee";
 import { ContactCta } from "@/components/sections/contact-cta";
@@ -33,13 +34,16 @@ export default function Home() {
         {/* 01 About Jaiyanth B (Featuring Official B&W Portrait Centered on Right) */}
         <About />
 
-        {/* 02 Selected Work (All 5 Featured-Style Project Cards) */}
+        {/* 02 Selected Work (Featured Project Cards) */}
         <SelectedWork />
 
-        {/* 03 Why Work With Me */}
+        {/* 03 Research & Academic Publications as Achievement */}
+        <Research />
+
+        {/* 04 Why Work With Me */}
         <WhyWork />
 
-        {/* 04 Tech / Trusted By Marquee */}
+        {/* 05 Tech / Trusted By Marquee */}
         <TechMarquee />
 
         {/* Get In Touch Marquee & Contact CTA */}
