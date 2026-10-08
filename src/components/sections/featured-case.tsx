@@ -68,14 +68,16 @@ export function FeaturedCase() {
 
                   {/* Key Highlights List (3 short bullets) */}
                   <div className="mb-8">
-                    <h4 className="text-xs font-mono uppercase tracking-widest text-foreground mb-4">
+                    <h4 className="text-xs font-mono uppercase tracking-widest text-[var(--text-muted)] mb-4">
                       Key Highlights
                     </h4>
-                    <ul className="space-y-3.5">
+                    <ul className="space-y-3 font-light text-sm sm:text-base text-[var(--text-primary)]">
                       {FEATURED_CASE.highlights.map((highlight, idx) => (
-                        <li key={idx} className="flex items-start gap-3 text-sm sm:text-base text-[var(--text-muted)]">
-                          <CheckCircle2 className="w-4 h-4 text-[#FF3355] shrink-0 mt-1" />
-                          <span>{highlight}</span>
+                        <li key={idx} className="flex items-start gap-2.5">
+                          <span className="text-[#FF3355] font-bold select-none">・</span>
+                          <span className="text-[var(--text-muted)] leading-relaxed">
+                            {highlight}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -108,15 +110,15 @@ export function FeaturedCase() {
                   </div>
                 </div>
 
-                {/* Actions: Live Demo + Repository + Read More */}
+                {/* Actions: Read More + Source Repository */}
                 <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-[var(--border-line)]">
                   <a
                     href={FEATURED_CASE.liveUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FF3355] text-white text-sm font-medium hover:bg-[#e02b4c] transition-colors group"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#FF3355] text-white text-sm font-medium hover:bg-[#e02b4c] transition-colors group"
                   >
-                    <span>Read More & View Live</span>
+                    <span>Read More</span>
                     <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </a>
 
@@ -124,7 +126,7 @@ export function FeaturedCase() {
                     href={FEATURED_CASE.repoUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[var(--border-line)] text-foreground text-sm font-medium hover:border-[#FF3355] hover:text-[#FF3355] transition-colors"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[var(--border-line)] text-foreground text-sm font-medium hover:border-[#FF3355] hover:text-[#FF3355] transition-colors"
                   >
                     <span>Source Repository</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />

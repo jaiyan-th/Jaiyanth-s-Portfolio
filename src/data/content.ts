@@ -181,24 +181,24 @@ export const SELECTED_WORK: SelectedWorkItem[] = [
 export const WHY_WORK_WITH_ME: WhyWorkPoint[] = [
   {
     letter: "A",
-    title: "Production-First AI Systems",
+    title: "Production-First AI Systems, Not Just Demos",
     description:
-      "[PLACEHOLDER] I don't build toys or stop at notebook demos. I architect production-hardened RAG pipelines, deterministic prompt workflows, sub-second semantic retrieval, and low-latency LLM integrations designed to perform reliably on live user workloads.",
-    tags: ["RAG Pipelines", "Vector Search", "LLM Integration", "Prompt Engineering"],
+      "[PLACEHOLDER] I build around how people query, evaluate, and trust AI outputs, creating RAG pipelines and semantic retrieval that ground every answer in verifiable evidence instead of model hallucination.",
+    tags: ["Grounded RAG", "Vector Search", "LLM Integration", "Prompt Engineering"],
   },
   {
     letter: "B",
-    title: "End-to-End Full-Stack Ownership",
+    title: "Systems First, Screens Second: End-to-End Ownership",
     description:
-      "[PLACEHOLDER] From typed frontend interfaces with micro-interactions to scalable backend microservices, relational schemas, caching tiers, and cryptographic safeguards—I deliver complete, cohesive software without architectural handoffs.",
+      "[PLACEHOLDER] I start with the data contracts, schema constraints, and API boundaries behind the product, then shape the user interface around it so the system stays resilient, scalable, and easy to maintain.",
     tags: ["Next.js & React", "FastAPI & NestJS", "SQL & Supabase", "System Architecture"],
   },
   {
     letter: "C",
-    title: "Rigour, Taste & Velocity",
+    title: "Density Is Not the Enemy: Rigour & Velocity",
     description:
-      "[PLACEHOLDER] High engineering standards paired with design sensitivity: strict TypeScript types, 1px precision alignment, accessibility standards (WCAG), and responsive resilience down to 360px. Every deliverable feels fast, intuitive, and enduring.",
-    tags: ["Semantic HTML", "WCAG AA", "Fluid Motion", "Clean Code"],
+      "[PLACEHOLDER] I don't simplify by stripping critical capabilities. I organize dense system telemetry, probabilistic signals, and complex workflows so teams and users can scan, understand, and act with confidence.",
+    tags: ["Type Safety", "WCAG AA", "Micro-Interactions", "Clean Code"],
   },
 ];
 
@@ -206,31 +206,31 @@ export const WHY_WORK_WITH_ME: WhyWorkPoint[] = [
 export const HOW_I_WORK: HowIWorkStep[] = [
   {
     step: "H. 01",
-    title: "Discover & Frame",
+    title: "Discovery in the Open: Signal & Framing",
     description:
-      "[PLACEHOLDER] Deconstruct ambiguous requirements into measurable signals, user jobs-to-be-done, latency budgets, and edge-case constraints before writing code.",
-    deliverable: "System specification & signal blueprint",
+      "[PLACEHOLDER] I keep discovery collaborative and transparent, mapping raw data signals, user workflows, latency budgets, and edge constraints before committing to code.",
+    deliverable: "Signal blueprint & user outcomes spec",
   },
   {
     step: "H. 02",
-    title: "System Architecture",
+    title: "Decisions Documented, Not Just Designed",
     description:
-      "[PLACEHOLDER] Model clean API boundaries, vector storage schemas, state machines, and relational constraints ensuring strong types and data integrity.",
+      "[PLACEHOLDER] I make architectural reasoning and schema invariants visible, modeling type-safe API boundaries and vector schemas that scale without friction.",
     deliverable: "Interface contracts & schema migration plan",
   },
   {
     step: "H. 03",
-    title: "Build & Benchmark",
+    title: "Clear Contracts, Fewer Gaps",
     description:
-      "[PLACEHOLDER] Code with modern full-stack tools and LLM orchestration frameworks, verifying retrieval precision, token consumption, and failure modes under stress.",
-    deliverable: "Tested prototype with benchmark telemetry",
+      "[PLACEHOLDER] I code with production reality in mind, implementing strict DTO validation, comprehensive test coverage, and token benchmark instrumentation.",
+    deliverable: "Verified implementation with telemetry benchmarks",
   },
   {
     step: "H. 04",
-    title: "Deploy & Refine",
+    title: "Support Where It Matters",
     description:
-      "[PLACEHOLDER] Ship production builds to cloud platforms with automated CI/CD, telemetry instrumentation, responsive polish, and continuous evaluation.",
-    deliverable: "Live production deployment with uptime guarantees",
+      "[PLACEHOLDER] I stay close to the live deployment, monitoring retrieval fidelity, error boundaries, and user interactions so the software thrives under real traffic.",
+    deliverable: "Live cloud deployment with automated CI/CD",
   },
 ];
 

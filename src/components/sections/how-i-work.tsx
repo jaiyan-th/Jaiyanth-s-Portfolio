@@ -17,19 +17,35 @@ export function HowIWork() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 sm:mb-16 pb-6 border-b border-[var(--border-line)]"
+          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 pb-6 border-b border-[var(--border-line)]"
         >
           <div className="flex items-baseline gap-4">
             <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase">
               04
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-foreground">
-              How I Work
+              How I work?
             </h2>
           </div>
           <span className="text-xs font-mono uppercase tracking-widest text-[var(--text-muted)] mt-2 sm:mt-0">
-            Methodology & Execution Pipeline
+            Process & Delivery
           </span>
+        </motion.div>
+
+        {/* Section Subhead & Supporting Text */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-3xl mb-14 sm:mb-16"
+        >
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-medium text-foreground tracking-tight mb-3">
+            What working together actually looks like.
+          </h3>
+          <p className="text-base sm:text-lg text-[var(--text-muted)] font-light leading-relaxed">
+            I work closely with teams when there’s a team, and own the process end-to-end when working independently, staying close to the product, constraints, and engineering decisions.
+          </p>
         </motion.div>
 
         {/* Four Steps Grid (H. 01 – H. 04) */}

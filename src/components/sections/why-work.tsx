@@ -24,7 +24,7 @@ export function WhyWork() {
               03
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-foreground">
-              Why Work With Me
+              Why Work With Me?
             </h2>
           </div>
           <span className="text-xs font-mono uppercase tracking-widest text-[var(--text-muted)] mt-2 sm:mt-0">
@@ -41,7 +41,7 @@ export function WhyWork() {
           className="max-w-4xl mb-16 sm:mb-20"
         >
           <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight text-foreground leading-tight">
-            Bridging the chasm between experimental AI reasoning and dependable, low-latency software.
+            Engineers who can hold both the probability of AI and the determinism of software.
           </h3>
         </motion.div>
 
