@@ -1,0 +1,100 @@
+"use client";
+
+import { motion } from "motion/react";
+import { WHY_WORK_WITH_ME } from "@/data/content";
+
+export function WhyWork() {
+  return (
+    <section
+      id="about"
+      aria-label="03 Why work with me"
+      className="relative py-24 sm:py-32 border-t border-[var(--border-line)]"
+    >
+      <div className="w-full max-w-[1340px] mx-auto px-6 sm:px-10 lg:px-12">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 sm:mb-16 pb-6 border-b border-[var(--border-line)]"
+        >
+          <div className="flex items-baseline gap-4">
+            <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase">
+              03
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-foreground">
+              Why Work With Me
+            </h2>
+          </div>
+          <span className="text-xs font-mono uppercase tracking-widest text-[var(--text-muted)] mt-2 sm:mt-0">
+            Principles & Engineering Rigour
+          </span>
+        </motion.div>
+
+        {/* Section Big Editorial Statement */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-4xl mb-16 sm:mb-20"
+        >
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight text-foreground leading-tight">
+            Bridging the chasm between experimental AI reasoning and dependable, low-latency software.
+          </h3>
+        </motion.div>
+
+        {/* Three Labeled Points (A, B, C) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          {WHY_WORK_WITH_ME.map((point, index) => (
+            <motion.div
+              key={point.letter}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="group flex flex-col justify-between p-8 rounded-xl border border-[var(--border-line)] bg-[var(--surface)] hover:border-[#FF3355]/40 transition-all duration-300 shadow-xs"
+            >
+              <div>
+                {/* Labeled Letter Identifier (A, B, C) */}
+                <div className="flex items-center justify-between mb-8 pb-4 border-b border-[var(--border-line)]">
+                  <span className="font-mono text-xl sm:text-2xl font-bold text-[#FF3355]">
+                    {point.letter}
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-[var(--border-line)] group-hover:bg-[#FF3355] transition-colors" />
+                </div>
+
+                {/* Point Title */}
+                <h4 className="text-lg sm:text-xl font-medium tracking-tight text-foreground mb-4 group-hover:text-[#FF3355] transition-colors">
+                  {point.title}
+                </h4>
+
+                {/* Point Description */}
+                <p className="text-sm text-[var(--text-muted)] leading-relaxed font-light mb-8">
+                  {point.description}
+                </p>
+              </div>
+
+              {/* Tag Badges */}
+              <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[var(--border-line)]">
+                {point.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[11px] font-mono px-2 py-0.5 rounded bg-[var(--surface-muted)] text-[var(--text-muted)]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

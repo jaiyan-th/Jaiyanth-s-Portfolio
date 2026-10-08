@@ -2,151 +2,172 @@
 
 import * as React from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Menu, X } from "lucide-react";
-import { SectionContainer } from "@/components/layout/section-container";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
-
-const navItems = [
-  { label: "ABOUT", href: "#about" },
-  { label: "WORK", href: "#work" },
-  { label: "EXPERIENCE", href: "#experience" },
-  { label: "RESEARCH", href: "#achievements" },
-  { label: "CERTIFICATIONS", href: "#certifications" },
-];
+import { IDENTITY, NAV_LINKS } from "@/data/content";
 
 export function FloatingNav() {
   const [active, setActive] = React.useState<string>("#hero");
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
+  const [scrolled, setScrolled] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     const handleScroll = () => {
-      const scrollPos = window.scrollY + 120;
-      const sections = ["contact", "certifications", "achievements", "experience", "work", "about", "hero"];
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
+      setScrolled(window.scrollY > 30);
+
+      const scrollPos = window.scrollY + 160;
+      const sectionIds = ["about", "work", "hero"];
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
         if (el) {
           const top = el.offsetTop;
           const height = el.offsetHeight;
           if (scrollPos >= top && scrollPos < top + height) {
-            setActive(`#${sectionId}`);
+            setActive(`#${id}`);
             break;
           }
         }
       }
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const targetId = href.replace("#", "");
-    const elem = document.getElementById(targetId);
-    if (elem) {
-      try {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const targetId = href.replace("#", "");
+      const elem = document.getElementById(targetId);
+      if (elem) {
         elem.scrollIntoView({ behavior: "smooth" });
         setActive(href);
-      } catch {}
-    } else {
-      setActive(href);
+        setIsOpen(false);
+      }
     }
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-canvas/95 backdrop-blur-md border-b-[3px] border-line py-3.5 transition-colors">
-      <SectionContainer as="nav" aria-label="Main Navigation" className="flex items-center justify-between">
-        {/* Left: Brand */}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[var(--nav-bg)] backdrop-blur-md border-b border-[var(--border-line)] py-3.5 shadow-xs"
+          : "bg-transparent border-b border-transparent py-5"
+      }`}
+    >
+      <div className="w-full max-w-[1340px] mx-auto px-6 sm:px-10 lg:px-12 flex items-center justify-between">
+        {/* Left: Brand Logo & Name */}
         <a
           href="#hero"
           onClick={(e) => handleNavClick(e, "#hero")}
-          className="group cursor-pointer flex items-center shrink-0"
+          className="group flex items-center gap-2.5 font-medium text-base tracking-tight text-foreground transition-colors"
         >
-          <span className="font-heading text-xl font-extrabold tracking-tight text-foreground group-hover:text-[#b3122b] transition-colors whitespace-nowrap">
-            JAIYANTH B
+          <span className="w-2 h-2 rounded-full bg-[#FF3355] inline-block transition-transform duration-300 group-hover:scale-125" />
+          <span className="hover:text-[#FF3355] transition-colors">
+            {IDENTITY.name}
           </span>
         </a>
 
-        {/* Center Nav Links */}
-        <div className="hidden lg:flex items-center gap-6">
-          {navItems.map((item) => {
+        {/* Center: Links (Home, Work, About) */}
+        <nav
+          aria-label="Main Navigation"
+          className="hidden md:flex items-center gap-8 bg-[var(--surface-muted)]/40 backdrop-blur-md px-5 py-2 rounded-full border border-[var(--border-line)]"
+        >
+          {NAV_LINKS.map((item) => {
             const isActive = active === item.href;
             return (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={`font-label-caps text-xs tracking-wider transition-colors relative py-1 cursor-pointer ${
+                className={`text-[13px] tracking-wide uppercase transition-colors relative py-0.5 ${
                   isActive
-                    ? "text-foreground font-extrabold border-b-2 border-[#b3122b]"
-                    : "text-text-secondary hover:text-[#b3122b]"
+                    ? "text-[#FF3355] font-medium"
+                    : "text-[var(--text-muted)] hover:text-foreground"
                 }`}
               >
                 {item.label}
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-underline"
+                    className="absolute -bottom-1 left-0 right-0 h-[1.5px] bg-[#FF3355]"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
               </a>
             );
           })}
-        </div>
+        </nav>
 
-        {/* Right Area: Theme Toggle + CTA Button */}
-        <div className="flex items-center gap-2.5 sm:gap-3">
-          <ThemeToggle />
-
+        {/* Right: Book a Call CTA + Theme toggle + Mobile Hamburger */}
+        <div className="flex items-center gap-3 sm:gap-4">
           <a
-            href="#contact"
-            className="neo-btn-primary hidden sm:inline-flex items-center justify-center font-label-caps text-xs px-4 py-2 border-[2px] border-line-solid cursor-pointer font-extrabold tracking-wider"
+            href={IDENTITY.bookingUrl}
+            className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-[13px] font-medium text-foreground border border-[var(--border-line)] rounded-full hover:border-[#FF3355] hover:text-[#FF3355] transition-all duration-200 group"
           >
-            GET IN TOUCH
+            <span>Book a Call</span>
+            <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
 
-          {/* Mobile/Tablet Hamburger Toggle */}
+          <ThemeToggle />
+
+          {/* Mobile hamburger */}
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-            className="lg:hidden p-2 border-2 border-line bg-surface shadow-[2px_2px_0px_var(--shadow-color)] text-foreground"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            className="md:hidden p-2 border border-[var(--border-line)] rounded-md text-foreground hover:text-[#FF3355] transition-colors"
           >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
         </div>
-      </SectionContainer>
+      </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden mt-3 pt-3 border-t-2 border-line bg-canvas py-4"
+            className="md:hidden border-b border-[var(--border-line)] bg-[var(--surface)]/98 backdrop-blur-xl px-6 py-6 shadow-xl"
           >
-            <SectionContainer className="flex flex-col space-y-3">
-              {navItems.map((item) => {
+            <div className="flex flex-col space-y-4">
+              {NAV_LINKS.map((item) => {
                 const isActive = active === item.href;
                 return (
                   <a
                     key={item.href}
                     href={item.href}
-                    onClick={(e) => {
-                      setIsOpen(false);
-                      handleNavClick(e, item.href);
-                    }}
-                    className={`font-label-caps text-sm tracking-wider py-2 transition-colors ${
-                      isActive ? "text-[#b3122b] font-extrabold" : "text-text-secondary"
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className={`text-[16px] py-1 transition-colors flex items-center justify-between ${
+                      isActive
+                        ? "text-[#FF3355] font-semibold"
+                        : "text-[var(--text-muted)] hover:text-foreground"
                     }`}
                   >
-                    {item.label}
+                    <span>{item.label}</span>
+                    {isActive && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#FF3355]" />
+                    )}
                   </a>
                 );
               })}
-              <a
-                href="#contact"
-                onClick={() => setIsOpen(false)}
-                className="neo-btn-primary inline-flex items-center justify-center font-label-caps text-xs py-2.5 border-2 border-line-solid font-extrabold mt-2"
-              >
-                GET IN TOUCH
-              </a>
-            </SectionContainer>
+              <div className="pt-2 border-t border-[var(--border-line)]">
+                <a
+                  href={IDENTITY.bookingUrl}
+                  onClick={() => setIsOpen(false)}
+                  className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-md bg-[#FF3355] text-white text-[14px] font-medium"
+                >
+                  <span>Book a Call</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

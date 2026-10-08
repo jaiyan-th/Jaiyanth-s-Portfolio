@@ -1,10 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import {
-  Bricolage_Grotesque,
-  Lora,
-  Plus_Jakarta_Sans,
-  JetBrains_Mono,
-} from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/effects/theme-provider";
@@ -13,32 +8,17 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE } from "@/data/portfolio";
 
-const bricolageGrotesque = Bricolage_Grotesque({
-  variable: "--font-heading",
+const inter = Inter({
+  variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["700", "800"],
-  display: "swap",
-});
-
-const lora = Lora({
-  variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-label",
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "700"],
   display: "swap",
 });
 
@@ -138,13 +118,13 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${bricolageGrotesque.variable} ${lora.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} antialiased bg-canvas text-foreground font-body`}
+        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-canvas text-foreground selection:bg-[#FF3355] selection:text-white`}
       >
         <ThemeProvider>
           <ScrollProgress />
           <a
             href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#b3122b] focus:text-white focus:text-sm focus:font-bold focus:border-2 focus:border-white"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#FF3355] focus:text-white focus:text-sm focus:font-medium"
           >
             Skip to content
           </a>

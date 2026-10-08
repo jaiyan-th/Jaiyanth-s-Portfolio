@@ -1,129 +1,164 @@
 "use client";
 
-import * as React from "react";
-import { motion } from "motion/react";
-import { MapPin, Target, Layers, Sparkles } from "lucide-react";
-import { fadeUpVariants } from "@/lib/motion";
-import { SectionContainer } from "@/components/layout/section-container";
+import { motion, type Variants } from "motion/react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { HERO_CONTENT, IDENTITY } from "@/data/content";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const wordVariants: Variants = {
+  hidden: { y: 36, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.75,
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { y: 24, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.7,
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+    },
+  },
+};
 
 export function Hero() {
   return (
-    <section id="hero" className="relative bg-canvas text-foreground pt-16 pb-16 sm:pt-20 sm:pb-20 lg:pt-24 lg:pb-24 border-b-[3px] border-line scroll-mt-20 transition-colors">
-      <SectionContainer>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-          {/* Main Hero Copy (Left 7 cols) */}
+    <section
+      id="hero"
+      aria-label="Hero Introduction"
+      className="relative pt-32 sm:pt-40 pb-20 md:pb-28 overflow-hidden"
+    >
+      <div className="w-full max-w-[1340px] mx-auto px-6 sm:px-10 lg:px-12">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col items-start max-w-5xl"
+        >
+          {/* Pill Badge Row */}
           <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeUpVariants}
-            className="lg:col-span-7 xl:col-span-7 space-y-7 sm:space-y-8"
+            variants={itemVariants}
+            className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-8 sm:mb-10"
           >
-            {/* Rotated sticker badge near headline */}
-            <div className="inline-block">
-              <span className="sticker-badge bg-[#b3122b] text-white -rotate-2 text-xs sm:text-sm py-1.5 px-3">
-                <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                AVAILABLE FOR NEW ROLES
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono tracking-wider uppercase border border-[var(--border-line)] bg-[var(--surface-muted)]/50 text-[var(--text-muted)]">
+              <span>{HERO_CONTENT.badgeYear}</span>
+            </div>
+
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium border border-[var(--border-line)] bg-[var(--surface-muted)]/50 text-foreground">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF3355] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF3355]" />
               </span>
-            </div>
-
-            {/* Headline with ONE accent word (matters) in italic crimson red */}
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] xl:text-[4.75rem] font-extrabold leading-[1.05] tracking-tight text-foreground">
-              Engineering that doesn&apos;t break when it{" "}
-              <span className="italic text-[#b3122b]">matters.</span>
-            </h1>
-
-            {/* Subhead */}
-            <p className="font-body text-lg sm:text-xl lg:text-[1.3rem] text-text-secondary leading-relaxed max-w-2xl xl:max-w-3xl font-normal">
-              Applied AI, full-stack systems, and structured APIs — built to actually work when someone else has to rely on them.
-            </p>
-
-            {/* CTAs */}
-            <div className="pt-2 sm:pt-4 flex flex-wrap items-center gap-6">
-              <a
-                href="#contact"
-                className="neo-btn-primary px-8 py-4 sm:px-9 sm:py-4.5 inline-flex items-center justify-center text-sm sm:text-base font-bold cursor-pointer"
-              >
-                GET IN TOUCH
-              </a>
-              <a
-                href="#work"
-                className="font-body text-base sm:text-lg font-semibold text-foreground underline underline-offset-4 decoration-2 decoration-foreground hover:text-[#b3122b] hover:decoration-[#b3122b] transition-colors inline-flex items-center gap-1.5"
-              >
-                See the work →
-              </a>
+              <span>{HERO_CONTENT.badgeStatus}</span>
             </div>
           </motion.div>
 
-          {/* Asymmetrically Placed Stat Card (Right 5 cols) */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="lg:col-span-5 xl:col-span-5 w-full"
+          {/* Large Headline with Staggered Word Fade-Up */}
+          <h1 className="hero-headline text-foreground mb-6 sm:mb-8 font-normal tracking-tight">
+            <span className="flex flex-wrap gap-x-3 sm:gap-x-5 gap-y-1">
+              {HERO_CONTENT.headlineWords.map((word, i) => {
+                const isAccent = word.includes("AI");
+                return (
+                  <motion.span
+                    key={`${word}-${i}`}
+                    variants={wordVariants}
+                    className={`inline-block ${
+                      isAccent ? "text-[#FF3355] font-medium" : "text-foreground"
+                    }`}
+                  >
+                    {word}
+                  </motion.span>
+                );
+              })}
+            </span>
+          </h1>
+
+          {/* 2-line Subtext */}
+          <motion.p
+            variants={itemVariants}
+            className="subtext-editorial max-w-2xl text-[var(--text-muted)] mb-10 sm:mb-12 font-light text-lg sm:text-xl leading-relaxed"
           >
-            <div className="neo-card p-6 sm:p-7 lg:p-8 relative w-full">
-              {/* Card top tape / tag */}
-              <div className="flex items-center justify-between border-b-2 border-line pb-3.5">
-                <span className="font-label-caps text-xs sm:text-[13px] tracking-wider text-text-secondary">
-                  QUICK SNAPSHOT
-                </span>
-                <span className="sticker-badge bg-[#b3122b] text-white text-[11px] py-0.5 px-2.5 rotate-1">
-                  2026
-                </span>
-              </div>
+            {HERO_CONTENT.subtext}
+          </motion.p>
 
-              {/* Field rows with identical vertical spacing and exact midpoint dividers */}
-              <div className="divide-y-[1.5px] divide-line">
-                {/* Location */}
-                <div className="pt-4 pb-4 sm:pt-4.5 sm:pb-4.5">
-                  <div className="flex items-center gap-1.5 font-label-caps text-[11px] sm:text-xs text-text-secondary mb-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#b3122b]" />
-                    <span>LOCATION</span>
-                  </div>
-                  <p className="font-body text-sm sm:text-base font-semibold text-foreground leading-snug">
-                    Karur, Tamil Nadu, India
-                  </p>
-                </div>
+          {/* Action Buttons: Primary + Text Link */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap items-center gap-4 sm:gap-6"
+          >
+            {/* Primary Button */}
+            <a
+              href={HERO_CONTENT.ctaPrimary.href}
+              className="inline-flex items-center gap-2 px-6 sm:px-7 py-3.5 bg-foreground text-background text-sm sm:text-base font-medium rounded-full hover:bg-[#FF3355] hover:text-white transition-all duration-200 group shadow-sm"
+            >
+              <span>{HERO_CONTENT.ctaPrimary.label}</span>
+              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+            </a>
 
-                {/* Focus */}
-                <div className="pt-4 pb-4 sm:pt-4.5 sm:pb-4.5">
-                  <div className="flex items-center gap-1.5 font-label-caps text-[11px] sm:text-xs text-text-secondary mb-1.5">
-                    <Target className="w-3.5 h-3.5 text-[#b3122b]" />
-                    <span>FOCUS</span>
-                  </div>
-                  <p className="font-body text-sm sm:text-base font-semibold text-foreground leading-snug">
-                    Applied AI · Full-Stack Engineering
-                  </p>
-                </div>
+            {/* Secondary Text Link Button */}
+            <a
+              href={HERO_CONTENT.ctaSecondary.href}
+              className="inline-flex items-center gap-1.5 py-3 text-sm sm:text-base font-medium text-foreground hover:text-[#FF3355] transition-colors duration-200 group relative"
+            >
+              <span>{HERO_CONTENT.ctaSecondary.label}</span>
+              <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <span className="absolute bottom-1.5 left-0 right-0 h-px bg-[var(--border-line)] group-hover:bg-[#FF3355] transition-colors" />
+            </a>
+          </motion.div>
 
-                {/* Stack */}
-                <div className="pt-4 pb-4 sm:pt-4.5 sm:pb-4.5">
-                  <div className="flex items-center gap-1.5 font-label-caps text-[11px] sm:text-xs text-text-secondary mb-1.5">
-                    <Layers className="w-3.5 h-3.5 text-[#b3122b]" />
-                    <span>STACK</span>
-                  </div>
-                  <p className="font-mono-code text-xs sm:text-sm font-bold text-foreground leading-relaxed">
-                    Python · SQL · LangChain · LLM Integration
-                  </p>
-                </div>
-
-                {/* Status */}
-                <div className="pt-4 sm:pt-4.5">
-                  <div className="flex items-center gap-1.5 font-label-caps text-[11px] sm:text-xs text-text-secondary mb-2">
-                    <Sparkles className="w-3.5 h-3.5 text-[#b3122b]" />
-                    <span>STATUS</span>
-                  </div>
-                  <div className="bg-surface-secondary border-[1.5px] border-line px-4 py-3">
-                    <p className="font-body text-xs sm:text-sm font-semibold text-foreground leading-snug">
-                      Open to full-time &amp; internship roles
-                    </p>
-                  </div>
-                </div>
-              </div>
+          {/* Quick Meta Footer Row */}
+          <motion.div
+            variants={itemVariants}
+            className="w-full mt-16 sm:mt-24 pt-8 border-t border-[var(--border-line)] grid grid-cols-2 sm:grid-cols-4 gap-6 text-xs text-[var(--text-muted)]"
+          >
+            <div>
+              <p className="uppercase tracking-widest text-[10px] font-mono text-[var(--text-muted)] mb-1">
+                Domain
+              </p>
+              <p className="font-medium text-foreground">Applied AI · RAG · Full-Stack</p>
+            </div>
+            <div>
+              <p className="uppercase tracking-widest text-[10px] font-mono text-[var(--text-muted)] mb-1">
+                Core Stack
+              </p>
+              <p className="font-medium text-foreground">Python · Next.js · LangChain</p>
+            </div>
+            <div>
+              <p className="uppercase tracking-widest text-[10px] font-mono text-[var(--text-muted)] mb-1">
+                Location
+              </p>
+              <p className="font-medium text-foreground">{IDENTITY.location}</p>
+            </div>
+            <div>
+              <p className="uppercase tracking-widest text-[10px] font-mono text-[var(--text-muted)] mb-1">
+                Status
+              </p>
+              <p className="font-medium text-[#FF3355] flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FF3355] inline-block" />
+                Available for Roles
+              </p>
             </div>
           </motion.div>
-        </div>
-      </SectionContainer>
+        </motion.div>
+      </div>
     </section>
   );
 }

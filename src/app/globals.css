@@ -4,81 +4,64 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================================
-   EXPRESSIVE NEO-BRUTALIST DESIGN SYSTEM (LIGHT & DARK THEMES)
-   Light: Warm cream canvas (#FAF3EE), white cards, near-black text
-   Dark: Near-black canvas (#0A0A0A), dark cards (#141414), off-white text
-   Accent: Crimson Red (#b3122b) across both themes for iconic identity
+   MINIMAL EDITORIAL DESIGN SYSTEM (DARK-FIRST)
+   Palette:
+   - Dark canvas: #0F0F0F / #111111
+   - Primary text: warm off-white #EDEBE6
+   - Muted text: gray #8A8A85
+   - Accent: hot coral-red #FF3355
+   - Dividers: 1px rgba(255,255,255,0.15)
+   - Light canvas: #F2F0EB, near-black #111111 text, muted #6E6E6A
    ============================================================ */
 
 @theme inline {
   --color-background: var(--canvas);
   --color-foreground: var(--text-primary);
-  --font-sans: var(--font-body);
-  --font-serif: var(--font-body);
-  --font-display: var(--font-heading);
-  --font-heading: var(--font-heading);
+  --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
-  --font-label: var(--font-label);
 
   --color-canvas: var(--canvas);
   --color-surface: var(--surface);
-  --color-surface-secondary: var(--surface-secondary);
+  --color-surface-muted: var(--surface-muted);
   --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-border-color: var(--border-color);
-  --color-line: var(--border-color);
-  --color-line-solid: var(--border-color);
-  --color-shadow-color: var(--shadow-color);
+  --color-text-muted: var(--text-muted);
+  --color-border-line: var(--border-line);
   --color-accent: var(--accent);
-  --color-accent-secondary: var(--accent);
-
-  --color-card: var(--surface);
-  --color-card-foreground: var(--text-primary);
-  --color-border: var(--border-color);
-  --color-input: var(--border-color);
-  --color-ring: var(--accent);
 }
 
 :root {
-  /* Light Theme (Cream canvas, solid black #111111 borders, black hard shadows 4px 4px 0) */
-  --canvas: #FAF3EE;
+  /* Light Theme */
+  --canvas: #F2F0EB;
   --surface: #FFFFFF;
-  --surface-secondary: #F3EBE3;
+  --surface-muted: #E8E5DD;
   --text-primary: #111111;
-  --text-secondary: #52525B;
-  --border-color: #111111;
-  --line: #111111;
-  --line-solid: #111111;
-  --shadow-color: #111111;
-  --accent: #b3122b;
-  --accent-secondary: #b3122b;
-  --accent-2: #b3122b;
+  --text-muted: #6E6E6A;
+  --border-line: rgba(0, 0, 0, 0.12);
+  --nav-bg: rgba(242, 240, 235, 0.82);
+  --accent: #FF3355;
+  --btn-solid-bg: #111111;
+  --btn-solid-text: #F2F0EB;
 
   color-scheme: light;
 }
 
 .dark {
-  /* Dark Theme (Near-black canvas, solid off-white #F5F5F0 borders, white hard shadows 4px 4px 0 rgba(255,255,255,0.9)) */
-  --canvas: #0A0A0A;
+  /* Dark Theme (Default) */
+  --canvas: #0F0F0F;
   --surface: #141414;
-  --surface-secondary: #1A1A1A;
-  --text-primary: #F5F5F0;
-  --text-secondary: #9CA3AF;
-  --border-color: #F5F5F0;
-  --line: #F5F5F0;
-  --line-solid: #F5F5F0;
-  --shadow-color: rgba(255, 255, 255, 0.9);
-  --accent: #b3122b;
-  --accent-secondary: #b3122b;
-  --accent-2: #b3122b;
+  --surface-muted: #1A1A1A;
+  --text-primary: #EDEBE6;
+  --text-muted: #8A8A85;
+  --border-line: rgba(255, 255, 255, 0.15);
+  --nav-bg: rgba(15, 15, 15, 0.82);
+  --accent: #FF3355;
+  --btn-solid-bg: #EDEBE6;
+  --btn-solid-text: #0F0F0F;
 
   color-scheme: dark;
 }
 
 @layer base {
-  * {
-    border-color: var(--border-color);
-  }
   html {
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
@@ -93,192 +76,115 @@
   body {
     background-color: var(--canvas);
     color: var(--text-primary);
-    font-family: var(--font-body), "Lora", Georgia, serif;
-    line-height: 1.65;
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
     max-width: 100%;
     overflow-x: clip;
     transition: background-color 200ms ease, color 200ms ease;
   }
 
   ::selection {
-    background: #b3122b;
-    color: #ffffff;
+    background: #FF3355;
+    color: #FFFFFF;
   }
 
   :focus-visible {
-    outline: 2px solid #b3122b;
-    outline-offset: 2px;
+    outline: 1.5px solid #FF3355;
+    outline-offset: 3px;
   }
 }
 
 @layer utilities {
-  .font-heading,
-  .font-display {
-    font-family: var(--font-heading), "Bricolage Grotesque", sans-serif;
-  }
-  .font-body {
-    font-family: var(--font-body), "Lora", Georgia, serif;
-  }
-  .font-mono-code {
-    font-family: var(--font-mono), "JetBrains Mono", monospace;
-  }
-  .font-label-caps {
-    font-family: var(--font-label), "Plus Jakarta Sans", sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 700;
+  /* Editorial Large Typography */
+  .hero-headline {
+    font-family: var(--font-sans), sans-serif;
+    font-size: clamp(3.75rem, 8.5vw, 8.75rem); /* clamp 64px - 140px */
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
   }
 
-  /* Neo-brutalist cards with theme-aware 3px border and 4px 4px 0 hard shadow */
-  .neo-card {
-    background-color: var(--surface);
-    border: 3px solid var(--border-color);
-    box-shadow: 4px 4px 0px var(--shadow-color);
-    transition: transform 150ms ease-out, box-shadow 150ms ease-out, background-color 200ms ease, border-color 200ms ease;
-  }
-  .neo-card-interactive:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px var(--shadow-color);
+  .section-title {
+    font-family: var(--font-sans), sans-serif;
+    font-size: clamp(2.25rem, 5vw, 4.5rem);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
   }
 
-  /* Neo-brutalist buttons — solid white fill, black text (image 1 UI), hover crimson accent */
-  .neo-btn-primary {
-    background-color: #FFFFFF;
-    color: #0A0A0A;
-    border: 2px solid var(--border-color);
-    box-shadow: 4px 4px 0px var(--shadow-color);
-    font-family: var(--font-label), "Plus Jakarta Sans", sans-serif;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: transform 150ms ease-out, box-shadow 150ms ease-out, background-color 150ms ease-out, border-color 200ms ease, color 150ms ease-out;
-  }
-  .neo-btn-primary:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px var(--shadow-color);
-    background-color: #b3122b;
-    color: #FFFFFF;
-    border-color: #b3122b;
+  .subtext-editorial {
+    font-size: clamp(1.15rem, 1.8vw, 1.375rem); /* 20px - 22px */
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--text-muted);
   }
 
-  .neo-btn-secondary {
-    background-color: var(--surface-secondary);
-    color: var(--text-primary);
-    border: 2px solid var(--border-color);
-    box-shadow: 4px 4px 0px var(--shadow-color);
-    font-family: var(--font-label), "Plus Jakarta Sans", sans-serif;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: transform 150ms ease-out, box-shadow 150ms ease-out, background-color 200ms ease, border-color 200ms ease;
+  /* Editorial Solid CTA Button */
+  .btn-editorial-solid {
+    background-color: var(--btn-solid-bg);
+    color: var(--btn-solid-text);
+    border-radius: 0;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    transition: transform 140ms ease, opacity 140ms ease, background-color 140ms ease;
   }
-  .neo-btn-secondary:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px var(--shadow-color);
-    background-color: var(--surface);
-    border-color: var(--border-color);
+  .btn-editorial-solid:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
   }
 
-  /* Sticker badges with theme-aware border & hard shadow */
-  .sticker-badge {
-    border: 2px solid var(--border-color);
-    font-family: var(--font-label), "Plus Jakarta Sans", sans-serif;
-    font-size: 0.7rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    padding: 0.25rem 0.6rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    box-shadow: 2px 2px 0px var(--shadow-color);
-    transition: transform 150ms ease-out;
-  }
-  .sticker-badge:hover {
-    transform: rotate(0deg) scale(1.04) !important;
+  /* Thin Divider Lines */
+  .divider-line {
+    border-color: var(--border-line);
   }
 
-  /* Quiet skill pills with theme-aware thin border */
-  .skill-pill {
-    border: 1.5px solid var(--border-color);
-    background-color: transparent;
-    color: var(--text-primary);
-    padding: 0.25rem 0.65rem;
-    font-family: var(--font-mono), "JetBrains Mono", monospace;
-    font-size: 0.75rem;
-    font-weight: 600;
-    line-height: 1.2;
-    transition: border-color 150ms ease-out, color 150ms ease-out;
-  }
-  .skill-pill:hover {
-    border-color: #b3122b;
-    color: #b3122b;
+  /* Grain Texture Overlay for Placeholder */
+  .grain-placeholder {
+    background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.4) 100%),
+      repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.015) 2px, rgba(255, 255, 255, 0.015) 4px);
   }
 
-  /* Shared Standard Container */
-  .container-main {
-    width: 100%;
-    max-width: 72rem;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  @media (min-width: 640px) {
-    .container-main {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
+  /* Marquee Keyframes & Utilities */
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
     }
-  }
-  @media (min-width: 768px) {
-    .container-main {
-      padding-left: 2rem;
-      padding-right: 2rem;
+    100% {
+      transform: translateX(-50%);
     }
   }
 
-  /* Marker highlight */
-  .marker-highlight {
-    background: linear-gradient(120deg, rgba(179, 18, 43, 0.25) 0%, rgba(179, 18, 43, 0.35) 100%);
-    padding: 0.1em 0.3em;
-    border-radius: 2px;
-  }
-
-  /* Continuous horizontal Marquee ticker */
   .animate-marquee {
-    animation: marquee-ticker 28s linear infinite;
-    will-change: transform;
+    display: flex;
+    width: max-content;
+    animation: marquee 36s linear infinite;
   }
-  @media (prefers-reduced-motion: reduce) {
-    .animate-marquee {
-      animation: none;
-    }
-  }
-}
 
-@keyframes marquee-ticker {
-  0% {
-    transform: translateX(0%);
+  .animate-marquee-fast {
+    display: flex;
+    width: max-content;
+    animation: marquee 26s linear infinite;
   }
-  100% {
-    transform: translateX(-50%);
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee,
+    .animate-marquee-fast {
+      animation: none !important;
+    }
   }
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--line);
-  border-radius: 9999px;
+  background: var(--border-line);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #b3122b;
+  background: #FF3355;
 }
 
 nextjs-portal,
@@ -286,3 +192,4 @@ nextjs-portal,
 [data-nextjs-toast-errors-parent] {
   display: none !important;
 }
+
