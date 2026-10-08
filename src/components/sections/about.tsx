@@ -34,8 +34,8 @@ export function About() {
           </span>
         </motion.div>
 
-        {/* Main Content Grid: Left Narrative + Right Vertically Centered Photo */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        {/* Main Content Grid: Left Narrative + Right Photo Aligned Straight to Engineering Philosophy */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Editorial Narrative & Principles */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -146,13 +146,13 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* Right Column: Portrait Photograph (Vertically Centered From Top and Bottom) */}
+          {/* Right Column: Portrait Photograph (Aligned Straight to Top Right with Engineering Philosophy) */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 flex items-center justify-center w-full"
+            className="lg:col-span-5 flex items-start justify-center lg:justify-end w-full"
           >
             <div className="relative group w-full max-w-[420px] overflow-hidden rounded-2xl border border-[#E5E3DB] bg-white p-3 shadow-md transition-all duration-300 hover:border-[#0A0A0A]/40 hover:shadow-lg">
               <div className="relative w-full aspect-square overflow-hidden rounded-xl bg-[#F5F4F0]">
@@ -164,22 +164,6 @@ export function About() {
                   className="object-cover object-center filter grayscale transition-all duration-700 group-hover:scale-[1.02]"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 420px"
                 />
-
-                {/* Live Status Overlay Badge */}
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between p-2.5 rounded-lg bg-black/75 backdrop-blur-md border border-white/20 text-white text-xs">
-                  <div className="flex items-center gap-2">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1FB46A] opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1FB46A]" />
-                    </span>
-                    <span className="font-medium text-[11px] text-[#EDEBE6]">
-                      Open to full-time roles
-                    </span>
-                  </div>
-                  <span className="font-mono text-[10px] text-gray-300">
-                    2026
-                  </span>
-                </div>
               </div>
             </div>
           </motion.div>
