@@ -11,9 +11,9 @@ export function TechMarquee() {
     <section
       id="tech"
       aria-label="05 Previously trusted by / Stack"
-      className="relative py-24 sm:py-32 border-t border-[#E5E3DB] overflow-hidden bg-[var(--canvas)]"
+      className="relative py-14 sm:py-18 border-t border-[#E5E3DB] overflow-hidden bg-[var(--canvas)]"
     >
-      <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12 mb-12 sm:mb-16">
+      <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12 mb-8 sm:mb-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}

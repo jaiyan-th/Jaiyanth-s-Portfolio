@@ -10,7 +10,7 @@ export function About() {
     <section
       id="about"
       aria-label="01 About Jaiyanth B"
-      className="relative py-24 sm:py-32 border-t border-[#E5E3DB] bg-[var(--canvas)] scroll-mt-20"
+      className="relative py-14 sm:py-18 border-t border-[#E5E3DB] bg-[var(--canvas)] scroll-mt-20"
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
         {/* Section Header */}
@@ -19,7 +19,7 @@ export function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-16 sm:mb-20 pb-6 border-b border-[#E5E3DB]"
+          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-10 sm:mb-12 pb-6 border-b border-[#E5E3DB]"
         >
           <div className="flex items-baseline gap-4">
             <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase font-semibold">
@@ -34,8 +34,8 @@ export function About() {
           </span>
         </motion.div>
 
-        {/* Main Content Grid: Left Narrative + Right Photo Aligned Straight to Engineering Philosophy */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        {/* Main Content Grid: Left Narrative + Right Photo Centered */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Editorial Narrative & Principles */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -93,13 +93,13 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* Right Column: Portrait Photograph (Aligned Straight to Top Right with Engineering Philosophy) */}
+          {/* Right Column: Portrait Photograph (Centered) */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 flex items-start justify-center lg:justify-end w-full"
+            className="lg:col-span-5 flex items-center justify-center w-full"
           >
             <div className="relative group w-full max-w-[420px] overflow-hidden rounded-2xl border border-[#E5E3DB] bg-white p-3 shadow-md transition-all duration-300 hover:border-[#0A0A0A]/40 hover:shadow-lg">
               <div className="relative w-full aspect-square overflow-hidden rounded-xl bg-[#F5F4F0]">

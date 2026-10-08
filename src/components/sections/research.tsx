@@ -73,7 +73,7 @@ export function Research() {
     <section
       id="research"
       aria-label="03 Research, Publications & Achievements"
-      className="relative py-24 sm:py-32 border-t border-[#E5E3DB] bg-[var(--canvas)] scroll-mt-20"
+      className="relative py-14 sm:py-18 border-t border-[#E5E3DB] bg-[var(--canvas)] scroll-mt-20"
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
         {/* Section Header */}
@@ -82,7 +82,7 @@ export function Research() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-16 sm:mb-20 pb-6 border-b border-[#E5E3DB]"
+          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-10 sm:mb-12 pb-6 border-b border-[#E5E3DB]"
         >
           <div className="flex items-baseline gap-4">
             <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase font-semibold">
@@ -103,7 +103,7 @@ export function Research() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="rounded-2xl border border-[#E5E3DB] bg-white p-6 sm:p-10 lg:p-12 shadow-sm mb-12 transition-all duration-300 hover:border-[#0A0A0A]/30 hover:shadow-md"
+          className="rounded-2xl border border-[#E5E3DB] bg-white p-6 sm:p-10 lg:p-12 shadow-sm mb-8 sm:mb-10 transition-all duration-300 hover:border-[#0A0A0A]/30 hover:shadow-md"
         >
           {/* Card Top Meta Bar */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 mb-8 border-b border-[#E5E3DB]">

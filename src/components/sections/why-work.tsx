@@ -8,7 +8,7 @@ export function WhyWork() {
     <section
       id="why-work"
       aria-label="04 Why work with me"
-      className="relative py-24 sm:py-32 border-t border-[#E5E3DB] bg-[var(--canvas)]"
+      className="relative py-14 sm:py-18 border-t border-[#E5E3DB] bg-[var(--canvas)]"
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
         {/* Section Header */}
@@ -17,7 +17,7 @@ export function WhyWork() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 sm:mb-16 pb-6 border-b border-[#E5E3DB]"
+          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-10 sm:mb-12 pb-6 border-b border-[#E5E3DB]"
         >
           <div className="flex items-baseline gap-4">
             <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase font-semibold">

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { IDENTITY, NAV_LINKS } from "@/data/content";
 
 export function FloatingNav() {
@@ -106,22 +106,13 @@ export function FloatingNav() {
           })}
         </nav>
 
-        {/* Right: Book a Call CTA + Mobile Hamburger */}
-        <div className="flex items-center gap-3">
-          <a
-            href={IDENTITY.bookingUrl}
-            className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-[13px] font-medium bg-[#0A0A0A] text-white rounded-full hover:bg-[#FF3355] transition-all duration-200 group shadow-xs"
-          >
-            <span>Book a Call</span>
-            <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
-
-          {/* Mobile hamburger */}
+        {/* Mobile Hamburger on Right */}
+        <div className="flex md:hidden items-center">
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
-            className="md:hidden p-2 border border-[#E5E3DB] bg-white rounded-md text-[#0A0A0A] hover:text-[#FF3355] transition-colors"
+            className="p-2 border border-[#E5E3DB] bg-white rounded-md text-[#0A0A0A] hover:text-[#FF3355] transition-colors"
           >
             {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
@@ -159,16 +150,6 @@ export function FloatingNav() {
                   </a>
                 );
               })}
-              <div className="pt-2 border-t border-[#E5E3DB]">
-                <a
-                  href={IDENTITY.bookingUrl}
-                  onClick={() => setIsOpen(false)}
-                  className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-[#0A0A0A] text-white text-[14px] font-medium"
-                >
-                  <span>Book a Call</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </a>
-              </div>
             </div>
           </motion.div>
         )}

@@ -24,10 +24,10 @@ export function ContactCta() {
     <section
       id="contact"
       aria-label="Get in touch"
-      className="relative py-20 sm:py-28 border-t border-[#E5E3DB] overflow-hidden bg-[var(--canvas)]"
+      className="relative py-14 sm:py-18 border-t border-[#E5E3DB] overflow-hidden bg-[var(--canvas)]"
     >
       {/* Huge Looping Marquee Headline in Sandeep Light Style */}
-      <div className="relative w-full overflow-hidden group mb-14 sm:mb-20 select-none">
+      <div className="relative w-full overflow-hidden group mb-8 sm:mb-10 select-none">
         <div className="flex w-max animate-marquee-fast group-hover:[animation-play-state:paused]">
           <span className="text-4xl sm:text-6xl md:text-8xl font-medium tracking-tighter text-[#0A0A0A]/20 hover:text-[#0A0A0A]/60 transition-colors mr-6">
             {marqueeText}

@@ -63,7 +63,7 @@ export function Hero() {
     <section
       id="hero"
       aria-label="Hero Introduction"
-      className="relative pt-32 sm:pt-40 pb-20 md:pb-28 overflow-hidden bg-[var(--canvas)]"
+      className="relative pt-28 sm:pt-36 pb-12 sm:pb-16 overflow-hidden bg-[var(--canvas)]"
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
         <motion.div
