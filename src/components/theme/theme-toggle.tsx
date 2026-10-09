@@ -11,7 +11,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
     <button
       type="button"
       onClick={toggle}
-      className={`h-8 w-8 p-0 flex items-center justify-center border border-[var(--border-line)] bg-transparent text-foreground hover:border-[var(--text-primary)] hover:text-[#FF3355] transition-all cursor-pointer rounded-none shrink-0 ${className}`}
+      className={`h-8 w-8 p-0 flex items-center justify-center border border-[var(--border-line)] bg-transparent text-foreground hover:border-[var(--text-primary)] hover:text-accent transition-all cursor-pointer rounded-none shrink-0 ${className}`}
       aria-label={mounted ? `Switch to ${isDark ? "light" : "dark"} theme` : "Toggle theme"}
       title={mounted ? `Switch to ${isDark ? "light" : "dark"} theme` : "Toggle theme"}
     >

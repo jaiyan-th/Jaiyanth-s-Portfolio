@@ -21,7 +21,7 @@ export function WhyWork() {
           className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-10 sm:mb-12 pb-6 border-b border-[#E5E3DB]"
         >
           <div className="flex items-baseline gap-4">
-            <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase font-semibold">
+            <span className="font-mono text-xs sm:text-sm text-accent-hover tracking-widest uppercase font-semibold">
               05
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-[#0A0A0A]">
@@ -73,14 +73,14 @@ export function WhyWork() {
               <div>
                 {/* Labeled Letter Identifier (A, B, C) */}
                 <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#E5E3DB]">
-                  <span className="font-mono text-xl sm:text-2xl font-bold text-[#FF3355]">
+                  <span className="font-mono text-xl sm:text-2xl font-bold text-accent">
                     {point.letter}
                   </span>
-                  <span className="w-2 h-2 rounded-full bg-[#E5E3DB] group-hover:bg-[#FF3355] transition-colors" />
+                  <span className="w-2 h-2 rounded-full bg-[#E5E3DB] group-hover:bg-accent transition-colors" />
                 </div>
 
                 {/* Point Title */}
-                <h4 className="text-lg sm:text-xl font-medium tracking-tight text-[#0A0A0A] mb-4 group-hover:text-[#FF3355] transition-colors">
+                <h4 className="text-lg sm:text-xl font-medium tracking-tight text-[#0A0A0A] mb-4 group-hover:text-accent transition-colors">
                   {point.title}
                 </h4>
 

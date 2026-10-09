@@ -296,8 +296,8 @@ export function BubbleFooter() {
 
         if (b.isPinker) {
           grad.addColorStop(0, `rgba(255, 255, 255, ${b.baseOpacity})`);
-          grad.addColorStop(0.6, `rgba(255, 215, 228, ${b.baseOpacity * 0.9})`);
-          grad.addColorStop(1, `rgba(255, 155, 180, ${b.baseOpacity * 0.75})`);
+          grad.addColorStop(0.6, `rgba(253, 229, 224, ${b.baseOpacity * 0.85})`);
+          grad.addColorStop(1, `rgba(229, 52, 27, ${b.baseOpacity * 0.25})`);
         } else {
           grad.addColorStop(0, `rgba(255, 255, 255, ${b.baseOpacity})`);
           grad.addColorStop(0.65, `rgba(245, 238, 235, ${b.baseOpacity * 0.85})`);
@@ -315,7 +315,7 @@ export function BubbleFooter() {
         // Subtle outer border
         ctx.beginPath();
         ctx.arc(0, 0, currentRadius, 0, Math.PI * 2);
-        ctx.strokeStyle = b.isPinker ? "rgba(255, 140, 170, 0.5)" : "rgba(215, 205, 200, 0.6)";
+        ctx.strokeStyle = b.isPinker ? "rgba(229, 52, 27, 0.25)" : "rgba(215, 205, 200, 0.6)";
         ctx.lineWidth = 1;
         ctx.stroke();
 
@@ -391,7 +391,7 @@ export function BubbleFooter() {
             {/* Header: Exact copy requested */}
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-normal tracking-[-0.025em] text-[#0A0A0A] leading-tight mb-8">
               Building something with{" "}
-              <span className="text-[#FF3B5C] font-medium">AI</span>?
+              <span className="text-accent font-medium">AI</span>?
               <br />
               Let&apos;s talk.
             </h2>
@@ -403,7 +403,7 @@ export function BubbleFooter() {
                 href={`mailto:${IDENTITY.email}`}
                 onMouseEnter={() => setIsBtnHovered(true)}
                 onMouseLeave={() => setIsBtnHovered(false)}
-                className="inline-flex items-center gap-2 h-[52px] px-8 rounded-full bg-[#0A0A0A] text-white text-[15px] font-medium transition-all duration-200 hover:scale-[1.02] hover:bg-[#FF3B5C] shadow-md"
+                className="inline-flex items-center gap-2 h-[52px] px-8 rounded-full bg-[#0A0A0A] text-white text-[15px] font-medium transition-all duration-200 hover:scale-[1.02] hover:bg-accent-hover shadow-md"
               >
                 <Mail className="w-4 h-4" />
                 <span>Email me</span>
@@ -414,7 +414,7 @@ export function BubbleFooter() {
                 href={IDENTITY.bookingUrl}
                 onMouseEnter={() => setIsBtnHovered(true)}
                 onMouseLeave={() => setIsBtnHovered(false)}
-                className="inline-flex items-center gap-2 h-[52px] px-8 rounded-full bg-[#FFFFFF] border border-[#E6E3DC] text-[#0A0A0A] text-[15px] font-medium transition-all duration-200 hover:scale-[1.02] hover:border-[#FF3B5C] hover:text-[#FF3B5C] shadow-2xs"
+                className="inline-flex items-center gap-2 h-[52px] px-8 rounded-full bg-[#FFFFFF] border border-[#E6E3DC] text-[#0A0A0A] text-[15px] font-medium transition-all duration-200 hover:scale-[1.02] hover:border-accent hover:text-accent shadow-2xs"
               >
                 <span>Hire me</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -423,7 +423,7 @@ export function BubbleFooter() {
           </div>
         </div>
 
-        {/* Custom Pink Crosshair Cursor (Active only inside this section on desktop) */}
+        {/* Custom Accent Crosshair Cursor (Active only inside this section on desktop) */}
         {!isMobile && isInside && (
           <div
             aria-hidden="true"
@@ -435,8 +435,8 @@ export function BubbleFooter() {
               position: "absolute",
             }}
           >
-            <div className="relative w-5 h-5 rounded-full border border-[#FF3B5C] flex items-center justify-center">
-              <span className="w-1 h-1 rounded-full bg-[#FF3B5C]" />
+            <div className="relative w-5 h-5 rounded-full border border-accent flex items-center justify-center">
+              <span className="w-1 h-1 rounded-full bg-accent" />
             </div>
           </div>
         )}

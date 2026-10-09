@@ -23,7 +23,7 @@ export function TechMarquee() {
           className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-6 border-b border-[#E5E3DB]"
         >
           <div className="flex items-baseline gap-4">
-            <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase font-semibold">
+            <span className="font-mono text-xs sm:text-sm text-accent-hover tracking-widest uppercase font-semibold">
               06
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-[#0A0A0A]">
@@ -55,7 +55,7 @@ export function TechMarquee() {
               key={`${item.name}-${idx}`}
               className="mx-3 sm:gap-3 flex items-center gap-3 px-5 py-3 rounded-full border border-[#E5E3DB] bg-white text-[#0A0A0A] hover:border-[#0A0A0A] transition-colors duration-200 shadow-2xs"
             >
-              <span className="w-2 h-2 rounded-full bg-[#FF3355]" />
+              <span className="w-2 h-2 rounded-full bg-accent" />
               <span className="font-medium text-sm sm:text-base tracking-tight whitespace-nowrap">
                 {item.name}
               </span>

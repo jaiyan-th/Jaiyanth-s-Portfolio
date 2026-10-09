@@ -114,7 +114,7 @@ export function SnapshotCard() {
           <span className="font-mono text-[11px] tracking-[0.12em] uppercase text-[#6B6B6B] font-semibold">
             QUICK SNAPSHOT
           </span>
-          <span className="px-2.5 py-0.5 rounded-full bg-[#FFE3E8] text-[#FF3B5C] border border-[#FF3B5C]/20 font-mono font-bold text-xs">
+          <span className="px-2.5 py-0.5 rounded-full bg-accent-tint text-accent-hover border border-accent/20 font-mono font-bold text-xs">
             2026
           </span>
         </motion.div>
@@ -128,8 +128,8 @@ export function SnapshotCard() {
           className="py-5 border-b border-[#E6E3DC]"
         >
           <div className="flex items-center gap-2 mb-1.5">
-            <MapPin className="w-3.5 h-3.5 text-[#FF3B5C]" />
-            <span className="font-mono text-[10px] tracking-widest text-[#FF3B5C] font-semibold uppercase">
+            <MapPin className="w-3.5 h-3.5 text-accent" />
+            <span className="font-mono text-[10px] tracking-widest text-accent-hover font-semibold uppercase">
               LOCATION
             </span>
           </div>
@@ -147,8 +147,8 @@ export function SnapshotCard() {
           className="py-5 border-b border-[#E6E3DC]"
         >
           <div className="flex items-center gap-2 mb-1.5">
-            <Target className="w-3.5 h-3.5 text-[#FF3B5C]" />
-            <span className="font-mono text-[10px] tracking-widest text-[#FF3B5C] font-semibold uppercase">
+            <Target className="w-3.5 h-3.5 text-accent" />
+            <span className="font-mono text-[10px] tracking-widest text-accent-hover font-semibold uppercase">
               FOCUS
             </span>
           </div>
@@ -166,8 +166,8 @@ export function SnapshotCard() {
           className="py-5 border-b border-[#E6E3DC]"
         >
           <div className="flex items-center gap-2 mb-1.5">
-            <Layers className="w-3.5 h-3.5 text-[#FF3B5C]" />
-            <span className="font-mono text-[10px] tracking-widest text-[#FF3B5C] font-semibold uppercase">
+            <Layers className="w-3.5 h-3.5 text-accent" />
+            <span className="font-mono text-[10px] tracking-widest text-accent-hover font-semibold uppercase">
               STACK
             </span>
           </div>
@@ -185,8 +185,8 @@ export function SnapshotCard() {
           className="pt-5"
         >
           <div className="flex items-center gap-2 mb-2">
-            <Sparkles className="w-3.5 h-3.5 text-[#FF3B5C]" />
-            <span className="font-mono text-[10px] tracking-widest text-[#FF3B5C] font-semibold uppercase">
+            <Sparkles className="w-3.5 h-3.5 text-accent" />
+            <span className="font-mono text-[10px] tracking-widest text-accent-hover font-semibold uppercase">
               STATUS
             </span>
           </div>

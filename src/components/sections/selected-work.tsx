@@ -427,7 +427,7 @@ export function ProjectRow({
         onMouseEnter={onPointerEnter}
         onFocus={() => rowRef.current && onFocus(rowRef.current)}
         onBlur={onBlur}
-        className="group block py-7 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF3B5C] focus-visible:ring-offset-2 transition-colors duration-150"
+        className="group block py-7 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 transition-colors duration-150"
       >
         {/* Desktop 5-Column Grid */}
         <div className="hidden md:flex items-baseline justify-between w-full">
@@ -440,7 +440,7 @@ export function ProjectRow({
           <div className="max-w-[440px] shrink-0">
             <h3
               className={`text-[25px] font-normal leading-[1.2] tracking-[-0.01em] transition-colors duration-200 ${
-                isHovered ? "text-[#FF3B5C]" : "text-[#0A0A0A]"
+                isHovered ? "text-accent" : "text-[#0A0A0A]"
               }`}
             >
               {project.title}
@@ -481,7 +481,7 @@ export function ProjectRow({
             </div>
           </div>
 
-          <h3 className="text-xl font-normal leading-snug tracking-tight text-[#0A0A0A] mb-2 group-hover:text-[#FF3B5C] transition-colors duration-200">
+          <h3 className="text-xl font-normal leading-snug tracking-tight text-[#0A0A0A] mb-2 group-hover:text-accent transition-colors duration-200">
             {project.title}
           </h3>
 

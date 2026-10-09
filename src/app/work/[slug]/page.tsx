@@ -47,7 +47,7 @@ export default async function WorkDetailPage({ params }: Params) {
   if (!project) notFound();
 
   return (
-    <div className="min-h-screen bg-[var(--canvas)] text-[#0A0A0A] transition-colors selection:bg-[#FF3355] selection:text-white">
+    <div className="min-h-screen bg-[var(--canvas)] text-[#0A0A0A] transition-colors selection:bg-accent/20 selection:text-inherit">
       <SmoothScroll />
       <CustomCursor />
       <FloatingNav />
@@ -132,7 +132,7 @@ export default async function WorkDetailPage({ params }: Params) {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-xs font-mono font-medium text-[#0A0A0A] hover:text-[#FF3355] transition-colors inline-flex items-center gap-1 group"
+                      className="text-xs font-mono font-medium text-[#0A0A0A] hover:text-accent transition-colors inline-flex items-center gap-1 group"
                     >
                       <span>Live Demo</span>
                       <ArrowUpRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -143,7 +143,7 @@ export default async function WorkDetailPage({ params }: Params) {
                       href={project.repoUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-xs font-mono font-medium text-[#0A0A0A] hover:text-[#FF3355] transition-colors inline-flex items-center gap-1 group"
+                      className="text-xs font-mono font-medium text-[#0A0A0A] hover:text-accent transition-colors inline-flex items-center gap-1 group"
                     >
                       <span>GitHub</span>
                       <ArrowUpRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -160,7 +160,7 @@ export default async function WorkDetailPage({ params }: Params) {
           <section className="py-16 sm:py-24 border-t border-[#E5E3DB]">
             {/* Section Number Header */}
             <div className="flex items-baseline gap-4 mb-10 pb-6 border-b border-[#E5E3DB]">
-              <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase font-semibold">
+              <span className="font-mono text-xs sm:text-sm text-accent-hover tracking-widest uppercase font-semibold">
                 01
               </span>
               <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-[#0A0A0A]">
@@ -186,7 +186,7 @@ export default async function WorkDetailPage({ params }: Params) {
                     className="p-6 sm:p-7 rounded-2xl border border-[#E5E3DB] bg-white shadow-2xs flex flex-col justify-between"
                   >
                     <div>
-                      <span className="w-2 h-2 rounded-full bg-[#FF3355] block mb-4" />
+                      <span className="w-2 h-2 rounded-full bg-accent block mb-4" />
                       <h4 className="text-base font-medium text-[#0A0A0A] mb-2">
                         {c.title}
                       </h4>
@@ -200,7 +200,7 @@ export default async function WorkDetailPage({ params }: Params) {
 
               {/* Highlighted Problem Callout Box */}
               <div className="p-8 sm:p-10 rounded-2xl border border-[#E5E3DB] bg-[#F5F4F0] relative overflow-hidden">
-                <span className="text-xs font-mono uppercase tracking-widest text-[#FF3355] block mb-3 font-semibold">
+                <span className="text-xs font-mono uppercase tracking-widest text-accent-hover block mb-3 font-semibold">
                   Highlighted Problem
                 </span>
                 <p className="text-lg sm:text-2xl font-medium text-[#0A0A0A] leading-snug">
@@ -219,7 +219,7 @@ export default async function WorkDetailPage({ params }: Params) {
                       key={scope.id}
                       className="p-6 rounded-2xl border border-[#E5E3DB] bg-white shadow-2xs"
                     >
-                      <span className="font-mono text-xs font-semibold text-[#FF3355] block mb-3">
+                      <span className="font-mono text-xs font-semibold text-accent-hover block mb-3">
                         {scope.id}
                       </span>
                       <h5 className="text-base font-medium text-[#0A0A0A] mb-2">
@@ -240,7 +240,7 @@ export default async function WorkDetailPage({ params }: Params) {
               ============================================================ */}
           <section className="py-16 sm:py-24 border-t border-[#E5E3DB]">
             <div className="flex items-baseline gap-4 mb-10 pb-6 border-b border-[#E5E3DB]">
-              <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase font-semibold">
+              <span className="font-mono text-xs sm:text-sm text-accent-hover tracking-widest uppercase font-semibold">
                 02
               </span>
               <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-[#0A0A0A]">
@@ -261,7 +261,7 @@ export default async function WorkDetailPage({ params }: Params) {
 
               {/* Approach Heading & Detail */}
               <div className="p-8 sm:p-10 rounded-2xl border border-[#E5E3DB] bg-white shadow-2xs">
-                <span className="text-xs font-mono uppercase tracking-widest text-[#FF3355] block mb-3 font-semibold">
+                <span className="text-xs font-mono uppercase tracking-widest text-accent-hover block mb-3 font-semibold">
                   Approach
                 </span>
                 <h4 className="text-xl sm:text-2xl font-medium text-[#0A0A0A] mb-4">
@@ -279,7 +279,7 @@ export default async function WorkDetailPage({ params }: Params) {
                     key={ch.id}
                     className="p-6 sm:p-7 rounded-2xl border border-[#E5E3DB] bg-white shadow-2xs"
                   >
-                    <span className="font-mono text-xs font-semibold text-[#FF3355] block mb-3">
+                    <span className="font-mono text-xs font-semibold text-accent-hover block mb-3">
                       {ch.id}
                     </span>
                     <h5 className="text-base font-medium text-[#0A0A0A] mb-2">
@@ -301,7 +301,7 @@ export default async function WorkDetailPage({ params }: Params) {
                   <ul className="space-y-3 text-sm text-[#6F6E6A]">
                     {project.problem.users.map((u, i) => (
                       <li key={i} className="flex items-start gap-2.5">
-                        <span className="text-[#FF3355] font-bold select-none">・</span>
+                        <span className="text-accent font-bold select-none">・</span>
                         <span>{u}</span>
                       </li>
                     ))}
@@ -330,7 +330,7 @@ export default async function WorkDetailPage({ params }: Params) {
               ============================================================ */}
           <section className="py-16 sm:py-24 border-t border-[#E5E3DB]">
             <div className="flex items-baseline gap-4 mb-10 pb-6 border-b border-[#E5E3DB]">
-              <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase font-semibold">
+              <span className="font-mono text-xs sm:text-sm text-accent-hover tracking-widest uppercase font-semibold">
                 03
               </span>
               <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-[#0A0A0A]">
@@ -379,7 +379,7 @@ export default async function WorkDetailPage({ params }: Params) {
                     className="py-6 first:pt-6 last:pb-0 grid grid-cols-1 md:grid-cols-12 gap-4 items-start"
                   >
                     <div className="md:col-span-3">
-                      <span className="font-mono text-xs font-semibold text-[#FF3355] block">
+                      <span className="font-mono text-xs font-semibold text-accent-hover block">
                         {st.step}
                       </span>
                       <h5 className="text-base font-medium text-[#0A0A0A] mt-1">
@@ -402,7 +402,7 @@ export default async function WorkDetailPage({ params }: Params) {
               ============================================================ */}
           <section className="py-16 sm:py-24 border-t border-[#E5E3DB]">
             <div className="flex items-baseline gap-4 mb-10 pb-6 border-b border-[#E5E3DB]">
-              <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase font-semibold">
+              <span className="font-mono text-xs sm:text-sm text-accent-hover tracking-widest uppercase font-semibold">
                 04
               </span>
               <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-[#0A0A0A]">
@@ -437,7 +437,7 @@ export default async function WorkDetailPage({ params }: Params) {
                     <ul className="space-y-2 pt-4 border-t border-[#E5E3DB]">
                       {pil.points.map((pt, pIdx) => (
                         <li key={pIdx} className="text-xs font-mono text-[#0A0A0A] flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#FF3355]" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                           <span>{pt}</span>
                         </li>
                       ))}
@@ -453,7 +453,7 @@ export default async function WorkDetailPage({ params }: Params) {
               ============================================================ */}
           <section className="py-16 sm:py-24 border-t border-[#E5E3DB]">
             <div className="flex items-baseline gap-4 mb-10 pb-6 border-b border-[#E5E3DB]">
-              <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase font-semibold">
+              <span className="font-mono text-xs sm:text-sm text-accent-hover tracking-widest uppercase font-semibold">
                 05
               </span>
               <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-[#0A0A0A]">
@@ -535,7 +535,7 @@ export default async function WorkDetailPage({ params }: Params) {
               </span>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                 <div>
-                  <h3 className="text-2xl sm:text-4xl font-medium text-[#0A0A0A] group-hover:text-[#FF3355] transition-colors leading-tight mb-2">
+                  <h3 className="text-2xl sm:text-4xl font-medium text-[#0A0A0A] group-hover:text-accent transition-colors leading-tight mb-2">
                     {project.nextProject.title}
                   </h3>
                   <span className="text-xs font-mono text-[#6F6E6A]">

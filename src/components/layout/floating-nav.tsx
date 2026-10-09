@@ -70,14 +70,14 @@ export function FloatingNav() {
       }`}
     >
       <div className="w-full max-w-[1100px] mx-auto px-6 sm:px-8 xl:px-0 flex items-center justify-between">
-        {/* Left: Pink Dot (8px) + Brand Name (16px) */}
+        {/* Left: Accent Dot (8px) + Brand Name (16px) */}
         <a
           href="#hero"
           onClick={(e) => handleNavClick(e, "#hero")}
           className="group flex items-center gap-2.5 font-medium text-[16px] tracking-tight text-[#0A0A0A] transition-colors"
         >
-          <span className="w-2 h-2 rounded-full bg-[#FF3B5C] inline-block transition-transform duration-300 group-hover:scale-125" />
-          <span className="hover:text-[#FF3B5C] transition-colors font-medium">
+          <span className="w-2 h-2 rounded-full bg-accent inline-block transition-transform duration-300 group-hover:scale-125" />
+          <span className="hover:text-accent transition-colors font-medium">
             {IDENTITY.name}
           </span>
         </a>
@@ -107,7 +107,7 @@ export function FloatingNav() {
                 {isActive && (
                   <motion.span
                     layoutId="nav-underline"
-                    className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-[#FF3B5C]"
+                    className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-accent"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -122,7 +122,7 @@ export function FloatingNav() {
             type="button"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
-            className="p-2 border border-[#E6E3DC] bg-[#FFFFFF] rounded-md text-[#0A0A0A] hover:text-[#FF3B5C] transition-colors shadow-2xs"
+            className="p-2 border border-[#E6E3DC] bg-[#FFFFFF] rounded-md text-[#0A0A0A] hover:text-accent transition-colors shadow-2xs"
           >
             {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
@@ -149,13 +149,13 @@ export function FloatingNav() {
                     onClick={(e) => handleNavClick(e, item.href)}
                     className={`text-[15px] py-1 transition-colors flex items-center justify-between uppercase tracking-[0.04em] ${
                       isActive
-                        ? "text-[#FF3B5C] font-semibold"
+                        ? "text-accent font-semibold"
                         : "text-[#6B6B6B] hover:text-[#0A0A0A]"
                     }`}
                   >
                     <span>{item.label}</span>
                     {isActive && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#FF3B5C]" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                     )}
                   </a>
                 );

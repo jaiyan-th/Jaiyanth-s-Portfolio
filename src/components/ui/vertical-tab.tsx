@@ -15,7 +15,7 @@ export function VerticalTab() {
           transform: "rotate(90deg) translate(0, 0)",
         }}
       >
-        <span className="w-1.5 h-1.5 rounded-full bg-[#FF3355] animate-pulse" />
+        <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
         <span>Available for new roles</span>
       </div>
     </aside>

@@ -22,7 +22,7 @@ export function About() {
           className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-10 sm:mb-12 pb-6 border-b border-[#E5E3DB]"
         >
           <div className="flex items-baseline gap-4">
-            <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase font-semibold">
+            <span className="font-mono text-xs sm:text-sm text-accent-hover tracking-widest uppercase font-semibold">
               01
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-[#0A0A0A]">
@@ -46,7 +46,7 @@ export function About() {
           >
             <div>
               {/* Eyebrow */}
-              <span className="text-xs font-mono uppercase tracking-widest text-[#FF3355] block mb-3 font-semibold">
+              <span className="text-xs font-mono uppercase tracking-widest text-accent-hover block mb-3 font-semibold">
                 Engineering Philosophy
               </span>
 
@@ -70,12 +70,12 @@ export function About() {
 
               {/* Education Credential Card */}
               <div className="p-4 sm:p-5 rounded-2xl border border-[#E5E3DB] bg-white flex items-start gap-4 mb-8 shadow-2xs">
-                <div className="w-10 h-10 rounded-xl bg-[#ECEAE3] flex items-center justify-center text-[#FF3355] shrink-0 mt-0.5">
+                <div className="w-10 h-10 rounded-xl bg-[#ECEAE3] flex items-center justify-center text-accent shrink-0 mt-0.5">
                   <GraduationCap className="w-5 h-5" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
-                    <span className="font-mono text-xs uppercase tracking-wider text-[#FF3355] font-semibold">
+                    <span className="font-mono text-xs uppercase tracking-wider text-accent-hover font-semibold">
                       Education
                     </span>
                     <span className="font-mono text-xs text-[#6F6E6A]">
@@ -98,7 +98,7 @@ export function About() {
                 href={IDENTITY.github}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[#E5E3DB] bg-white text-[#0A0A0A] text-sm font-medium hover:border-[#FF3355] hover:text-[#FF3355] transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[#E5E3DB] bg-white text-[#0A0A0A] text-sm font-medium hover:border-accent hover:text-accent transition-colors"
               >
                 <span>GitHub Profile</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -108,7 +108,7 @@ export function About() {
                 href={IDENTITY.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[#E5E3DB] bg-white text-[#0A0A0A] text-sm font-medium hover:border-[#FF3355] hover:text-[#FF3355] transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[#E5E3DB] bg-white text-[#0A0A0A] text-sm font-medium hover:border-accent hover:text-accent transition-colors"
               >
                 <span>LinkedIn</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />

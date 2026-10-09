@@ -41,7 +41,7 @@ export function ContactCta() {
       <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 pt-8 border-t border-[#E5E3DB]">
           <div>
-            <span className="font-mono text-xs uppercase tracking-widest text-[#FF3355] block mb-3 font-semibold">
+            <span className="font-mono text-xs uppercase tracking-widest text-accent-hover block mb-3 font-semibold">
               get in touch
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-[#0A0A0A] max-w-xl tracking-tight leading-snug">
@@ -60,7 +60,7 @@ export function ContactCta() {
               {/* Direct Email Link - Solid Black Pill */}
               <a
                 href={`mailto:${IDENTITY.email}`}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0A0A0A] text-white text-sm font-medium hover:bg-[#FF3355] transition-colors group shadow-xs"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0A0A0A] text-white text-sm font-medium hover:bg-accent-hover transition-colors group shadow-xs"
               >
                 <Mail className="w-4 h-4" />
                 <span>Email me</span>
@@ -94,7 +94,7 @@ export function ContactCta() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="GitHub profile"
-                  className="p-3 rounded-full border border-[#E5E3DB] bg-white text-[#0A0A0A] hover:border-[#0A0A0A] hover:text-[#FF3355] transition-colors shadow-2xs"
+                  className="p-3 rounded-full border border-[#E5E3DB] bg-white text-[#0A0A0A] hover:border-[#0A0A0A] hover:text-accent transition-colors shadow-2xs"
                 >
                   <Github className="w-4 h-4" />
                 </a>
@@ -104,7 +104,7 @@ export function ContactCta() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="LinkedIn profile"
-                  className="p-3 rounded-full border border-[#E5E3DB] bg-white text-[#0A0A0A] hover:border-[#0A0A0A] hover:text-[#FF3355] transition-colors shadow-2xs"
+                  className="p-3 rounded-full border border-[#E5E3DB] bg-white text-[#0A0A0A] hover:border-[#0A0A0A] hover:text-accent transition-colors shadow-2xs"
                 >
                   <Linkedin className="w-4 h-4" />
                 </a>
@@ -114,7 +114,7 @@ export function ContactCta() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Resume link"
-                  className="p-3 rounded-full border border-[#E5E3DB] bg-white text-[#0A0A0A] hover:border-[#0A0A0A] hover:text-[#FF3355] transition-colors shadow-2xs"
+                  className="p-3 rounded-full border border-[#E5E3DB] bg-white text-[#0A0A0A] hover:border-[#0A0A0A] hover:text-accent transition-colors shadow-2xs"
                 >
                   <FileText className="w-4 h-4" />
                 </a>

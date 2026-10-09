@@ -20,7 +20,7 @@ export function HowIWork() {
           className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 pb-6 border-b border-[#E5E3DB]"
         >
           <div className="flex items-baseline gap-4">
-            <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase font-semibold">
+            <span className="font-mono text-xs sm:text-sm text-accent-hover tracking-widest uppercase font-semibold">
               04
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-[#0A0A0A]">
@@ -66,7 +66,7 @@ export function HowIWork() {
               <div>
                 {/* Step Marker */}
                 <div className="flex items-center justify-between mb-6 pb-3 border-b border-[#E5E3DB]">
-                  <span className="font-mono text-sm font-semibold text-[#FF3355]">
+                  <span className="font-mono text-sm font-semibold text-accent-hover">
                     {item.step}
                   </span>
                   <span className="text-[10px] font-mono text-[#6F6E6A] uppercase">
@@ -75,7 +75,7 @@ export function HowIWork() {
                 </div>
 
                 {/* Step Title */}
-                <h4 className="text-base sm:text-lg font-medium tracking-tight text-[#0A0A0A] mb-3 group-hover:text-[#FF3355] transition-colors">
+                <h4 className="text-base sm:text-lg font-medium tracking-tight text-[#0A0A0A] mb-3 group-hover:text-accent transition-colors">
                   {item.title}
                 </h4>
 

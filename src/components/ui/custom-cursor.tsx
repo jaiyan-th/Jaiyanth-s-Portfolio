@@ -60,8 +60,8 @@ export function CustomCursor() {
         height={isPointer ? "22" : "16"}
         viewBox="0 0 24 24"
         fill="currentColor"
-        className={`transition-all duration-150 ease-out text-[#0A0A0A] drop-shadow-[0_0_8px_rgba(255,51,85,0.3)] ${
-          isPointer ? "rotate-45 scale-125 text-[#FF3355]" : "rotate-0 scale-100"
+        className={`transition-all duration-150 ease-out text-[#0A0A0A] drop-shadow-[0_0_8px_rgba(229,52,27,0.3)] ${
+          isPointer ? "rotate-45 scale-125 text-accent" : "rotate-0 scale-100"
         }`}
       >
         <path d="M12 0C12 7 7 12 0 12C7 12 12 17 12 24C12 17 17 12 24 12C17 12 12 7 12 0Z" />

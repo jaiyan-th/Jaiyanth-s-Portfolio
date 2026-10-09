@@ -124,7 +124,7 @@ export function Hero() {
                   >
                     <span>{line.text}</span>
                     {line.hasAI && (
-                      <span className="text-[#FF3B5C] font-medium">AI</span>
+                      <span className="text-accent font-medium">AI</span>
                     )}
                     {line.endText && <span>{line.endText}</span>}
                   </motion.div>
@@ -156,7 +156,7 @@ export function Hero() {
               {/* Primary Black Pill */}
               <a
                 href="#work"
-                className="group relative inline-flex items-center gap-2.5 h-[52px] px-[28px] rounded-full bg-[#0A0A0A] text-white text-[15px] font-medium transition-all duration-200 hover:scale-[1.02] hover:bg-[#FF3B5C] active:scale-[0.98] shadow-xs"
+                className="group relative inline-flex items-center gap-2.5 h-[52px] px-[28px] rounded-full bg-[#0A0A0A] text-white text-[15px] font-medium transition-all duration-200 hover:scale-[1.02] hover:bg-accent-hover active:scale-[0.98] shadow-xs"
               >
                 <span>Explore Work</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -165,12 +165,12 @@ export function Hero() {
               {/* Secondary Text Link with animated underline from left */}
               <a
                 href="#contact"
-                className="group relative inline-flex items-center gap-1.5 py-3 text-[15px] font-medium text-[#0A0A0A] hover:text-[#FF3B5C] transition-colors duration-200"
+                className="group relative inline-flex items-center gap-1.5 py-3 text-[15px] font-medium text-[#0A0A0A] hover:text-accent transition-colors duration-200"
               >
                 <span>Get in touch</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 {/* Thin Underline that grows from left */}
-                <span className="absolute bottom-1.5 left-0 w-0 h-px bg-[#FF3B5C] transition-all duration-300 group-hover:w-full" />
+                <span className="absolute bottom-1.5 left-0 w-0 h-px bg-accent transition-all duration-300 group-hover:w-full" />
               </a>
             </motion.div>
           </div>

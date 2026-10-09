@@ -21,7 +21,7 @@ export default function WorkIndexPage() {
   );
 
   return (
-    <div className="min-h-screen bg-[var(--canvas)] text-[#0A0A0A] transition-colors selection:bg-[#FF3355] selection:text-white">
+    <div className="min-h-screen bg-[var(--canvas)] text-[#0A0A0A] transition-colors selection:bg-accent/20 selection:text-inherit">
       <SmoothScroll />
       <CustomCursor />
       <FloatingNav />
@@ -30,7 +30,7 @@ export default function WorkIndexPage() {
         <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
           {/* Work Page Header */}
           <div className="mb-16 sm:mb-24">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#FF3355] block mb-3 font-semibold">
+            <span className="text-xs font-mono uppercase tracking-widest text-accent-hover block mb-3 font-semibold">
               Work & Projects
             </span>
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-normal tracking-tight text-[#0A0A0A] leading-tight max-w-4xl mb-6">
@@ -51,7 +51,7 @@ export default function WorkIndexPage() {
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start md:items-center">
                   {/* Column 1: Index Number */}
                   <div className="md:col-span-1">
-                    <span className="font-mono text-xs sm:text-sm text-[#FF3355] font-semibold tracking-wider">
+                    <span className="font-mono text-xs sm:text-sm text-accent-hover font-semibold tracking-wider">
                       {item.number}
                     </span>
                   </div>
@@ -61,7 +61,7 @@ export default function WorkIndexPage() {
                     <div className="flex items-center gap-3 mb-2">
                       <Link
                         href={`/work/${item.slug}`}
-                        className="text-xl sm:text-2xl font-medium text-[#0A0A0A] group-hover:text-[#FF3355] transition-colors"
+                        className="text-xl sm:text-2xl font-medium text-[#0A0A0A] group-hover:text-accent transition-colors"
                       >
                         {item.title}
                       </Link>
@@ -99,7 +99,7 @@ export default function WorkIndexPage() {
                         target="_blank"
                         rel="noreferrer"
                         aria-label="Repository"
-                        className="p-2.5 rounded-full border border-[#E5E3DB] bg-[#F5F4F0] text-[#6F6E6A] hover:text-[#0A0A0A] hover:border-[#FF3355] transition-colors"
+                        className="p-2.5 rounded-full border border-[#E5E3DB] bg-[#F5F4F0] text-[#6F6E6A] hover:text-[#0A0A0A] hover:border-accent transition-colors"
                       >
                         <Github className="w-4 h-4" />
                       </a>

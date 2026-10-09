@@ -60,7 +60,7 @@ export function Experience() {
           className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-10 sm:mb-12 pb-6 border-b border-[#E5E3DB]"
         >
           <div className="flex items-baseline gap-4">
-            <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase font-semibold">
+            <span className="font-mono text-xs sm:text-sm text-accent-hover tracking-widest uppercase font-semibold">
               03
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-[#0A0A0A]">
@@ -83,8 +83,8 @@ export function Experience() {
           {/* Card Top Meta Bar */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 mb-8 border-b border-[#E5E3DB]">
             <div className="flex flex-wrap items-center gap-3">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-[#FF3355]/10 text-[#FF3355] border border-[#FF3355]/20">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FF3355]" />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-accent-tint text-accent-hover border border-accent/20">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                 Industry Internship
               </span>
               <span className="text-xs font-mono uppercase tracking-widest text-[#6F6E6A]">
@@ -93,14 +93,14 @@ export function Experience() {
             </div>
 
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono border border-[#E5E3DB] bg-[#ECEAE3] text-[#0A0A0A]">
-              <Briefcase className="w-3.5 h-3.5 text-[#FF3355]" />
+              <Briefcase className="w-3.5 h-3.5 text-accent" />
               <span>Full-Stack & Applied AI</span>
             </div>
           </div>
 
           {/* Role & Company Headline */}
           <div className="mb-8">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#FF3355] block mb-3 font-semibold">
+            <span className="text-xs font-mono uppercase tracking-widest text-accent-hover block mb-3 font-semibold">
               {EXPERIENCE.organisation}
             </span>
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-normal tracking-tight text-[#0A0A0A] leading-tight">
@@ -123,7 +123,7 @@ export function Experience() {
                 className="p-5 rounded-xl bg-[#FBFBFA] border border-[#E5E3DB]/80 flex flex-col justify-between"
               >
                 <div>
-                  <span className="font-mono text-xs text-[#FF3355] font-bold block mb-2">
+                  <span className="font-mono text-xs text-accent-hover font-bold block mb-2">
                     {item.index}
                   </span>
                   <h4 className="font-medium text-base text-[#0A0A0A] mb-2">
