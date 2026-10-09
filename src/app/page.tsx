@@ -5,6 +5,7 @@ import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { SelectedWork } from "@/components/sections/selected-work";
 import { Experience } from "@/components/sections/experience";
+import { ScrollExpandPanel } from "@/components/sections/scroll-expand-panel";
 import { Research } from "@/components/sections/research";
 import { WhyWork } from "@/components/sections/why-work";
 import { TechMarquee } from "@/components/sections/tech-marquee";
@@ -42,6 +43,9 @@ export default function Home() {
 
         {/* 02 Selected Work (4 Engineering Projects) */}
         <SelectedWork />
+
+        {/* Scroll-Driven Expand Panel Test Component */}
+        <ScrollExpandPanel />
 
         {/* 03 Experience (Brainery Spot Technology AI Internship) */}
         <Experience />

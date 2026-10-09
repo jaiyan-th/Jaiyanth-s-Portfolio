@@ -95,7 +95,7 @@ export function About() {
             {/* External Links */}
             <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-[#E5E3DB]">
               <a
-                href={IDENTITY.githubUrl}
+                href={IDENTITY.github}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[#E5E3DB] bg-white text-[#0A0A0A] text-sm font-medium hover:border-[#FF3355] hover:text-[#FF3355] transition-colors"
@@ -105,7 +105,7 @@ export function About() {
               </a>
 
               <a
-                href={IDENTITY.linkedinUrl}
+                href={IDENTITY.linkedin}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[#E5E3DB] bg-white text-[#0A0A0A] text-sm font-medium hover:border-[#FF3355] hover:text-[#FF3355] transition-colors"
