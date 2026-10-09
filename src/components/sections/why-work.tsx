@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { RevealHeading } from "@/components/ui/reveal-heading";
 import { WHY_WORK_WITH_ME } from "@/data/content";
 
 export function WhyWork() {
@@ -40,8 +41,14 @@ export function WhyWork() {
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-4xl mb-16 sm:mb-20"
         >
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight text-[#0A0A0A] leading-tight mb-4">
-            Engineers who can hold both ends — applied AI & full-stack systems, are rare.
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight leading-tight mb-4">
+            <RevealHeading
+              lines={[
+                { text: "Engineers who can hold both ends —" },
+                { text: "", accent: "applied AI", afterAccent: " & full-stack systems," },
+                { text: "are rare." },
+              ]}
+            />
           </h3>
           <p className="text-base sm:text-lg text-[#6F6E6A] font-normal leading-relaxed max-w-3xl">
             I work best where the stakes are real and the data is dense. My job is to remove the friction, so the next decision comes faster.

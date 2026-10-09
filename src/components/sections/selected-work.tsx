@@ -1,25 +1,18 @@
 "use client";
 
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { motion } from "motion/react";
+import Image from "next/image";
 import {
-  ArrowUpRight,
-  Bot,
-  BrainCircuit,
-  Calendar,
-  CheckCircle2,
-  Cpu,
-  Database,
-  FileText,
-  Key,
-  Layers,
-  Lock,
-  Network,
-  ShieldCheck,
-  Sparkles,
-} from "lucide-react";
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useSpring,
+  useReducedMotion,
+} from "motion/react";
+import { ArrowUpRight } from "lucide-react";
 
-interface SelectedProjectCard {
+export interface SelectedProjectCard {
   id: string;
   index: string;
   title: string;
@@ -29,13 +22,13 @@ interface SelectedProjectCard {
   highlights: string[];
   metrics: Array<{ label: string; value: string }>;
   stack: string[];
+  image: string;
   liveUrl?: string;
   repoUrl?: string;
   isExternal?: boolean;
-  visualType: "fakenews" | "upskill" | "carrent" | "vault" | "paper";
 }
 
-const PROJECTS_DATA: SelectedProjectCard[] = [
+export const PROJECTS_DATA: SelectedProjectCard[] = [
   {
     id: "fake-news-detector",
     index: "P. 01",
@@ -64,9 +57,9 @@ const PROJECTS_DATA: SelectedProjectCard[] = [
       "News API",
       "Embeddings",
     ],
+    image: "/images/projects/fake-news-detector.jpg",
     liveUrl: "https://fake-news-detecter-kopi.onrender.com/",
     repoUrl: "https://github.com/jaiyan-th/Fake-News-Detecter",
-    visualType: "fakenews",
   },
   {
     id: "up-skill",
@@ -95,10 +88,10 @@ const PROJECTS_DATA: SelectedProjectCard[] = [
       "Supabase",
       "Embeddings",
     ],
+    image: "/images/projects/up-skill.jpg",
     liveUrl: "https://upskill-ai-personalized-skill-and-career-w0px.onrender.com/",
     repoUrl:
       "https://github.com/jaiyan-th/UpSkill-AI-Personalized-Skill-and-Career-Assistant",
-    visualType: "upskill",
   },
   {
     id: "car-rent",
@@ -126,9 +119,9 @@ const PROJECTS_DATA: SelectedProjectCard[] = [
       "Prisma ORM",
       "PostgreSQL",
     ],
+    image: "/images/projects/car-rent.jpg",
     liveUrl: "https://car-rent-main-fcdo.onrender.com/",
     repoUrl: "https://github.com/jaiyan-th/Car-Rent-Main",
-    visualType: "carrent",
   },
   {
     id: "secure-vault",
@@ -156,419 +149,364 @@ const PROJECTS_DATA: SelectedProjectCard[] = [
       "AES-256-GCM",
       "Argon2",
     ],
+    image: "/images/projects/document-vault.jpg",
     liveUrl: "https://jaiy-vault.onrender.com",
     repoUrl: "https://github.com/jaiyan-th/Secure-Digital-Document-Vault",
-    visualType: "vault",
   },
 ];
 
+/**
+ * 02 Selected Work Section (Editorial List Layout)
+ */
 export function SelectedWork() {
   return (
     <section
       id="work"
       aria-label="02 Selected Work"
-      className="relative py-14 sm:py-18 border-t border-[#E5E3DB] bg-transparent"
+      className="relative py-20 sm:py-24 bg-transparent"
     >
-      <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2, margin: "0px 0px -60px 0px" }}
-          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-10 sm:mb-12 pb-6 border-b border-[#E5E3DB]"
-        >
-          <div className="flex items-baseline gap-4">
-            <span className="font-mono text-xs sm:text-sm text-[#FF3355] tracking-widest uppercase font-semibold">
-              02
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-[#0A0A0A]">
-              Selected
-            </h2>
-          </div>
-          <span className="text-xs font-mono uppercase tracking-widest text-[#6F6E6A] mt-2 sm:mt-0">
-            Engineered Systems & Full-Stack Products
+      <div className="w-full max-w-[1100px] mx-auto px-6 sm:px-8 xl:px-0">
+        {/* Section label row with hairline */}
+        <div className="flex items-center justify-between pb-3.5 border-b border-[#E6E3DC]">
+          <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#6F6E6A]">
+            02 — SELECTED
           </span>
-        </motion.div>
-
-        {/* Rich Featured-Case Style Cards for All Selected Projects */}
-        <div className="space-y-8 sm:space-y-10">
-          {PROJECTS_DATA.map((item, index) => {
-            const projectLink = item.isExternal
-              ? item.liveUrl || "#"
-              : `/work/${item.id}`;
-
-            return (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 44 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15, margin: "0px 0px -80px 0px" }}
-                transition={{
-                  duration: 0.75,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="w-full rounded-2xl border border-[#E5E3DB] bg-white p-6 sm:p-10 lg:p-12 shadow-sm transition-all duration-300 hover:border-[#0A0A0A]/40"
-              >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                  {/* Left Column: Details, Highlights, Metrics, Stack, CTAs */}
-                  <div className="lg:col-span-7 flex flex-col justify-between">
-                    <div>
-                      {/* Category Pill + Index + Year */}
-                      <div className="flex flex-wrap items-center gap-3 mb-4">
-                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono uppercase tracking-wider bg-[#FF3355]/10 text-[#FF3355] border border-[#FF3355]/20 font-semibold">
-                          {item.category}
-                        </span>
-                        <span className="text-xs font-mono text-[#0A0A0A] font-semibold">
-                          {item.index}
-                        </span>
-                        <span className="text-xs font-mono text-[#6F6E6A]">
-                          {item.year}
-                        </span>
-                      </div>
-
-                      {/* Project Title */}
-                      <h3 className="text-2xl sm:text-3xl font-medium tracking-tight text-[#0A0A0A] mb-4 leading-tight">
-                        {item.isExternal ? (
-                          <a
-                            href={projectLink}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="hover:text-[#FF3355] transition-colors inline-flex items-center gap-2"
-                          >
-                            <span>{item.title}</span>
-                            <ArrowUpRight className="w-5 h-5 text-[#6F6E6A]" />
-                          </a>
-                        ) : (
-                          <Link
-                            href={projectLink}
-                            className="hover:text-[#FF3355] transition-colors"
-                          >
-                            {item.title}
-                          </Link>
-                        )}
-                      </h3>
-
-                      {/* Summary */}
-                      <p className="text-[#6F6E6A] text-base sm:text-lg mb-8 leading-relaxed font-normal">
-                        {item.summary}
-                      </p>
-
-                      {/* Key Highlights List */}
-                      <div className="mb-8">
-                        <h4 className="text-xs font-mono uppercase tracking-widest text-[#6F6E6A] mb-4">
-                          Key Highlights
-                        </h4>
-                        <ul className="space-y-3 font-normal text-sm sm:text-base text-[#0A0A0A]">
-                          {item.highlights.map((highlight, idx) => (
-                            <li key={idx} className="flex items-start gap-2.5">
-                              <span className="text-[#FF3355] font-bold select-none">
-                                ・
-                              </span>
-                              <span className="text-[#2A2A2A] leading-relaxed">
-                                {highlight}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      {/* Metrics Badges */}
-                      <div className="grid grid-cols-3 gap-3 mb-8 pt-6 border-t border-[#E5E3DB]">
-                        {item.metrics.map((metric, i) => (
-                          <div
-                            key={i}
-                            className="p-3 rounded-lg bg-[#F5F4F0] border border-[#E5E3DB]"
-                          >
-                            <p className="text-base sm:text-lg font-medium text-[#0A0A0A] tracking-tight truncate">
-                              {metric.value}
-                            </p>
-                            <p className="text-[11px] font-mono text-[#6F6E6A] uppercase tracking-wider">
-                              {metric.label}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Tech Stack Pills */}
-                      <div className="flex flex-wrap gap-2 mb-8">
-                        {item.stack.map((tech) => (
-                          <span
-                            key={tech}
-                            className="text-xs font-mono px-2.5 py-1 rounded-md bg-[#F5F4F0] text-[#6F6E6A] border border-[#E5E3DB]"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Actions: Primary CTA + Source Repository / Live Demo */}
-                    <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-[#E5E3DB]">
-                      {item.isExternal ? (
-                        <a
-                          href={item.liveUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0A0A0A] text-white text-sm font-medium hover:bg-[#FF3355] transition-colors group shadow-xs"
-                        >
-                          <span>Read Research Paper</span>
-                          <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                        </a>
-                      ) : (
-                        <Link
-                          href={projectLink}
-                          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0A0A0A] text-white text-sm font-medium hover:bg-[#FF3355] transition-colors group shadow-xs"
-                        >
-                          <span>Read Case Study</span>
-                          <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                        </Link>
-                      )}
-
-                      {item.liveUrl && !item.isExternal && (
-                        <a
-                          href={item.liveUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[#E5E3DB] bg-[#F5F4F0] text-[#0A0A0A] text-sm font-medium hover:border-[#FF3355] hover:text-[#FF3355] transition-colors"
-                        >
-                          <span>Live Demo</span>
-                          <ArrowUpRight className="w-3.5 h-3.5" />
-                        </a>
-                      )}
-
-                      {item.repoUrl && !item.isExternal && (
-                        <a
-                          href={item.repoUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[#E5E3DB] bg-[#F5F4F0] text-[#0A0A0A] text-sm font-medium hover:border-[#FF3355] hover:text-[#FF3355] transition-colors"
-                        >
-                          <span>Source Repository</span>
-                          <ArrowUpRight className="w-3.5 h-3.5" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Right Column: Architectural Visual Diagram */}
-                  <div className="lg:col-span-5 flex items-center justify-center">
-                    <div className="w-full h-full min-h-[340px] sm:min-h-[400px] rounded-xl border border-[#E5E3DB] bg-[#F5F4F0] p-6 flex flex-col justify-between relative overflow-hidden">
-                      {/* Background grid accent */}
-                      <div
-                        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-                        style={{
-                          backgroundImage: `radial-gradient(#0A0A0A 1px, transparent 1px)`,
-                          backgroundSize: "16px 16px",
-                        }}
-                      />
-
-                      {/* Top Bar of the Visual Box */}
-                      <div className="flex items-center justify-between pb-3 border-b border-[#E5E3DB] z-10">
-                        <div className="flex items-center gap-2">
-                          <span className="w-2.5 h-2.5 rounded-full bg-[#1FB46A]" />
-                          <span className="font-mono text-[11px] text-[#6F6E6A] uppercase tracking-wider">
-                            {item.visualType === "fakenews" && "Grounded RAG Pipeline"}
-                            {item.visualType === "upskill" && "Agent Routing Graph"}
-                            {item.visualType === "carrent" && "Reservation Timeline Engine"}
-                            {item.visualType === "vault" && "Cryptographic Stream"}
-                            {item.visualType === "paper" && "Multimodal Triage Matrix"}
-                          </span>
-                        </div>
-                        <span className="text-[11px] font-mono text-[#0A0A0A] font-semibold">
-                          SYS · {item.index}
-                        </span>
-                      </div>
-
-                      {/* Center Node Visuals Tailored Per Project */}
-                      <div className="my-auto py-6 z-10 flex flex-col items-center justify-center w-full">
-                        {item.visualType === "fakenews" && (
-                          <div className="w-full space-y-3">
-                            <div className="p-3 rounded-lg bg-white border border-[#E5E3DB] flex items-center justify-between shadow-2xs">
-                              <div className="flex items-center gap-2">
-                                <FileText className="w-4 h-4 text-[#FF3355]" />
-                                <span className="font-mono text-xs text-[#0A0A0A]">Incoming Breaking Claim</span>
-                              </div>
-                              <span className="text-[10px] font-mono text-[#6F6E6A]">RAW TEXT</span>
-                            </div>
-
-                            <div className="flex justify-center">
-                              <span className="font-mono text-[10px] text-[#6F6E6A]">↓ high-dimensional embedding</span>
-                            </div>
-
-                            <div className="grid grid-cols-2 gap-2">
-                              <div className="p-2.5 rounded-lg bg-white border border-[#E5E3DB] shadow-2xs text-center">
-                                <Database className="w-3.5 h-3.5 text-[#0A0A0A] mx-auto mb-1" />
-                                <span className="block text-[11px] font-mono font-medium text-[#0A0A0A]">Qdrant Vector DB</span>
-                                <span className="text-[9px] font-mono text-[#6F6E6A]">Cosine Similarity</span>
-                              </div>
-                              <div className="p-2.5 rounded-lg bg-white border border-[#E5E3DB] shadow-2xs text-center">
-                                <Network className="w-3.5 h-3.5 text-[#0A0A0A] mx-auto mb-1" />
-                                <span className="block text-[11px] font-mono font-medium text-[#0A0A0A]">Evidence Nodes</span>
-                                <span className="text-[9px] font-mono text-[#6F6E6A]">Cited Provenance</span>
-                              </div>
-                            </div>
-
-                            <div className="p-3 rounded-lg bg-white border border-[#E5E3DB] flex items-center justify-between shadow-2xs">
-                              <div className="flex items-center gap-2">
-                                <CheckCircle2 className="w-4 h-4 text-[#1FB46A]" />
-                                <span className="font-mono text-xs text-[#0A0A0A]">Grounded Verdict</span>
-                              </div>
-                              <span className="text-xs font-mono font-bold text-[#1FB46A]">VERIFIED 94.2%</span>
-                            </div>
-                          </div>
-                        )}
-
-                        {item.visualType === "upskill" && (
-                          <div className="w-full space-y-3">
-                            <div className="p-3 rounded-lg bg-white border border-[#E5E3DB] flex items-center justify-between shadow-2xs">
-                              <div className="flex items-center gap-2.5">
-                                <FileText className="w-4 h-4 text-[#FF3355]" />
-                                <span className="font-mono text-xs text-[#0A0A0A]">Resume AST & Skills Vector</span>
-                              </div>
-                              <span className="text-[10px] font-mono text-[#1FB46A]">PARSED</span>
-                            </div>
-
-                            <div className="flex justify-center">
-                              <span className="font-mono text-[10px] text-[#6F6E6A]">↓ multi-agent dispatch</span>
-                            </div>
-
-                            <div className="grid grid-cols-2 gap-2">
-                              <div className="p-2.5 rounded-lg bg-white border border-[#E5E3DB] text-center shadow-2xs">
-                                <Cpu className="w-3.5 h-3.5 text-[#0A0A0A] mx-auto mb-1" />
-                                <span className="block text-[11px] font-mono font-medium text-[#0A0A0A]">Groq Llama-3 70B</span>
-                                <span className="text-[9px] font-mono text-[#6F6E6A]">&lt;600ms dialogue</span>
-                              </div>
-                              <div className="p-2.5 rounded-lg bg-white border border-[#E5E3DB] text-center shadow-2xs">
-                                <BrainCircuit className="w-3.5 h-3.5 text-[#0A0A0A] mx-auto mb-1" />
-                                <span className="block text-[11px] font-mono font-medium text-[#0A0A0A]">Mistral 7B</span>
-                                <span className="text-[9px] font-mono text-[#6F6E6A]">evaluator logic</span>
-                              </div>
-                            </div>
-
-                            <div className="p-3 rounded-lg bg-white border border-[#E5E3DB] flex items-center justify-between shadow-2xs">
-                              <div className="flex items-center gap-2">
-                                <CheckCircle2 className="w-4 h-4 text-[#1FB46A]" />
-                                <span className="font-mono text-xs text-[#0A0A0A]">Calibrated Match Verdict</span>
-                              </div>
-                              <span className="text-xs font-mono font-bold text-[#FF3355]">91.8%</span>
-                            </div>
-                          </div>
-                        )}
-
-                        {item.visualType === "carrent" && (
-                          <div className="w-full space-y-3">
-                            <div className="p-3 rounded-lg bg-white border border-[#E5E3DB] shadow-2xs">
-                              <div className="flex items-center justify-between mb-2">
-                                <div className="flex items-center gap-2">
-                                  <Calendar className="w-4 h-4 text-[#FF3355]" />
-                                  <span className="font-mono text-xs text-[#0A0A0A]">Booking Window Interval</span>
-                                </div>
-                                <span className="text-[10px] font-mono text-[#1FB46A]">ATOMIC</span>
-                              </div>
-                              <div className="w-full h-2 rounded-full bg-[#F5F4F0] overflow-hidden flex">
-                                <div className="w-1/4 bg-[#E5E3DB]" />
-                                <div className="w-1/2 bg-[#0A0A0A]" />
-                                <div className="w-1/4 bg-[#E5E3DB]" />
-                              </div>
-                            </div>
-
-                            <div className="grid grid-cols-2 gap-2">
-                              <div className="p-2.5 rounded-lg bg-white border border-[#E5E3DB] shadow-2xs">
-                                <Database className="w-3.5 h-3.5 text-[#0A0A0A] mb-1" />
-                                <span className="block text-[11px] font-mono font-medium text-[#0A0A0A]">Prisma Engine</span>
-                                <span className="text-[9px] font-mono text-[#6F6E6A]">Row-level lock</span>
-                              </div>
-                              <div className="p-2.5 rounded-lg bg-white border border-[#E5E3DB] shadow-2xs">
-                                <Lock className="w-3.5 h-3.5 text-[#0A0A0A] mb-1" />
-                                <span className="block text-[11px] font-mono font-medium text-[#0A0A0A]">Isolation</span>
-                                <span className="text-[9px] font-mono text-[#6F6E6A]">Repeatable read</span>
-                              </div>
-                            </div>
-
-                            <div className="p-3 rounded-lg bg-white border border-[#E5E3DB] flex items-center justify-between shadow-2xs">
-                              <span className="font-mono text-xs text-[#0A0A0A]">Double-booking Guarantee</span>
-                              <span className="text-xs font-mono font-bold text-[#1FB46A]">0 OVERLAP</span>
-                            </div>
-                          </div>
-                        )}
-
-                        {item.visualType === "vault" && (
-                          <div className="w-full space-y-3">
-                            <div className="p-3 rounded-lg bg-white border border-[#E5E3DB] flex items-center justify-between shadow-2xs">
-                              <div className="flex items-center gap-2">
-                                <FileText className="w-4 h-4 text-[#6F6E6A]" />
-                                <span className="font-mono text-xs text-[#0A0A0A]">Plaintext Payload Stream</span>
-                              </div>
-                              <span className="text-[10px] font-mono text-[#6F6E6A]">&lt; 25MB RAM</span>
-                            </div>
-
-                            <div className="p-3 rounded-lg bg-[#0A0A0A] text-white border border-black shadow-2xs space-y-1.5">
-                              <div className="flex items-center justify-between">
-                                <span className="text-[11px] font-mono text-[#CCFF00] flex items-center gap-1.5">
-                                  <Key className="w-3 h-3" /> Argon2id KDF
-                                </span>
-                                <span className="text-[10px] font-mono text-gray-400">Memory-Hard</span>
-                              </div>
-                              <div className="flex items-center justify-between pt-1 border-t border-white/15">
-                                <span className="text-[11px] font-mono text-white flex items-center gap-1.5">
-                                  <Lock className="w-3 h-3 text-[#FF3355]" /> AES-256-GCM
-                                </span>
-                                <span className="text-[10px] font-mono text-[#1FB46A]">Tag Verified</span>
-                              </div>
-                            </div>
-
-                            <div className="p-3 rounded-lg bg-white border border-[#E5E3DB] flex items-center justify-between shadow-2xs">
-                              <div className="flex items-center gap-2">
-                                <ShieldCheck className="w-4 h-4 text-[#1FB46A]" />
-                                <span className="font-mono text-xs text-[#0A0A0A]">Tamper-Proof Audit DB</span>
-                              </div>
-                              <span className="text-[10px] font-mono text-[#1FB46A]">IMMUTABLE</span>
-                            </div>
-                          </div>
-                        )}
-
-                        {item.visualType === "paper" && (
-                          <div className="w-full space-y-3">
-                            <div className="p-3 rounded-lg bg-white border border-[#E5E3DB] flex items-center justify-between shadow-2xs">
-                              <span className="font-mono text-xs text-[#0A0A0A]">IEEE ICETSIS Bahrain 2026</span>
-                              <span className="text-[10px] font-mono font-bold text-[#FF3355] bg-[#FF3355]/10 px-2 py-0.5 rounded-full">
-                                RESEARCH
-                              </span>
-                            </div>
-
-                            <div className="grid grid-cols-2 gap-2">
-                              <div className="p-2.5 rounded-lg bg-white border border-[#E5E3DB] text-center shadow-2xs">
-                                <span className="block text-[11px] font-mono font-medium text-[#0A0A0A]">Visual Features</span>
-                                <span className="text-[9px] font-mono text-[#6F6E6A]">Clinical Image CNN</span>
-                              </div>
-                              <div className="p-2.5 rounded-lg bg-white border border-[#E5E3DB] text-center shadow-2xs">
-                                <span className="block text-[11px] font-mono font-medium text-[#0A0A0A]">Dialogue Triage</span>
-                                <span className="text-[9px] font-mono text-[#6F6E6A]">Conversational NLP</span>
-                              </div>
-                            </div>
-
-                            <div className="p-3 rounded-lg bg-white border border-[#E5E3DB] flex items-center justify-between shadow-2xs">
-                              <span className="font-mono text-xs text-[#0A0A0A]">Explainable Clinic Route</span>
-                              <span className="text-xs font-mono font-bold text-[#1FB46A]">HIGH CONFIDENCE</span>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Bottom Status Bar */}
-                      <div className="pt-3 border-t border-[#E5E3DB] flex items-center justify-between text-[11px] font-mono text-[#6F6E6A] z-10">
-                        <span>Status: Verified In Production</span>
-                        <span className="text-[#0A0A0A] font-medium">{item.category.split("·")[0]}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+          <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#6F6E6A] hidden sm:inline">
+            ENGINEERED SYSTEMS & FULL-STACK PRODUCTS
+          </span>
         </div>
+
+        {/* Editorial Projects List */}
+        <ProjectsList projects={PROJECTS_DATA} />
       </div>
     </section>
+  );
+}
+
+/**
+ * ProjectsList Component
+ * Handles container cursor tracking, shared floating preview positioning, and keyboard focus.
+ */
+interface ProjectsListProps {
+  projects: SelectedProjectCard[];
+}
+
+export function ProjectsList({ projects }: ProjectsListProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [isFinePointer, setIsFinePointer] = useState(false);
+
+  const shouldReduceMotion = useReducedMotion();
+
+  // Motion value for vertical cursor position
+  const yMotion = useMotionValue(0);
+  const smoothY = useSpring(yMotion, {
+    stiffness: 150,
+    damping: 22,
+    mass: 0.6,
+  });
+
+  // Check fine pointer (desktop) vs touch device
+  useEffect(() => {
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
+    setIsFinePointer(!isTouch);
+  }, []);
+
+  // Update cursor position inside list container
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement> | React.MouseEvent<HTMLDivElement>) => {
+    if (!isFinePointer || !containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const cursorY = e.clientY - rect.top;
+
+    // Approximate preview height = width / (16/10) ~ 220px
+    const previewHeight = 220;
+    const clampedY = Math.max(
+      0,
+      Math.min(rect.height - previewHeight, cursorY - previewHeight / 2)
+    );
+    yMotion.set(clampedY);
+  };
+
+  const handlePointerLeave = () => {
+    setHoveredIndex(null);
+  };
+
+  const handleRowFocus = (index: number, rowEl: HTMLElement) => {
+    if (!containerRef.current) return;
+    const containerRect = containerRef.current.getBoundingClientRect();
+    const rowRect = rowEl.getBoundingClientRect();
+    const rowCenterY = rowRect.top - containerRect.top + rowRect.height / 2;
+    const previewHeight = 220;
+    const clampedY = Math.max(
+      0,
+      Math.min(containerRect.height - previewHeight, rowCenterY - previewHeight / 2)
+    );
+    yMotion.set(clampedY);
+    setHoveredIndex(index);
+  };
+
+  const handleRowBlur = () => {
+    setHoveredIndex(null);
+  };
+
+  const activeProject = hoveredIndex !== null ? projects[hoveredIndex] : null;
+
+  return (
+    <div
+      ref={containerRef}
+      onPointerMove={handlePointerMove}
+      onMouseMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
+      onMouseLeave={handlePointerLeave}
+      className="relative w-full"
+    >
+      {/* Hidden Preloader for all preview images */}
+      <div className="hidden" aria-hidden="true">
+        {projects.map((p) => (
+          <Image
+            key={p.id}
+            src={p.image}
+            alt=""
+            width={440}
+            height={275}
+            priority
+          />
+        ))}
+      </div>
+
+      {/* Shared Floating Preview Canvas (Desktop only) */}
+      {isFinePointer && (
+        <ProjectPreview
+          activeProject={activeProject}
+          y={shouldReduceMotion ? yMotion : smoothY}
+          shouldReduceMotion={Boolean(shouldReduceMotion)}
+        />
+      )}
+
+      {/* Rows */}
+      <div className="divide-y divide-[#E6E3DC]">
+        {projects.map((project, idx) => (
+          <ProjectRow
+            key={project.id}
+            project={project}
+            index={idx}
+            isHovered={hoveredIndex === idx}
+            onPointerEnter={() => isFinePointer && setHoveredIndex(idx)}
+            onFocus={(el) => handleRowFocus(idx, el)}
+            onBlur={handleRowBlur}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/**
+ * ProjectPreview Component
+ * A single shared floating canvas that smoothly trails cursor Y,
+ * scales on entry/exit, and cross-fades images between active projects.
+ */
+interface ProjectPreviewProps {
+  activeProject: SelectedProjectCard | null;
+  y: any;
+  shouldReduceMotion: boolean;
+}
+
+export function ProjectPreview({
+  activeProject,
+  y,
+  shouldReduceMotion,
+}: ProjectPreviewProps) {
+  const isVisible = activeProject !== null;
+
+  return (
+    <motion.div
+      style={{
+        top: 0,
+        y,
+        left: "51%",
+      }}
+      initial={{ opacity: 0, scale: 0.92 }}
+      animate={{
+        opacity: isVisible ? 1 : 0,
+        scale: isVisible ? 1 : shouldReduceMotion ? 1 : 0.96,
+      }}
+      transition={{
+        duration: isVisible ? 0.35 : 0.25,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className="absolute pointer-events-none z-20 hidden md:block w-[clamp(280px,28vw,440px)] aspect-[16/10] overflow-hidden bg-[#E6E3DC] shadow-[0_20px_50px_rgba(0,0,0,0.12)] border border-[#E6E3DC]"
+    >
+      <AnimatePresence mode="popLayout" initial={false}>
+        {activeProject && (
+          <motion.div
+            key={activeProject.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{
+              opacity: 0.25,
+              transition: { duration: 0.3 },
+            }}
+            transition={{ duration: 0.3 }}
+            className="absolute inset-0 w-full h-full"
+          >
+            {activeProject.image ? (
+              <Image
+                src={activeProject.image}
+                alt={activeProject.title}
+                fill
+                sizes="(max-width: 1200px) 28vw, 440px"
+                className="object-cover"
+                priority
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center bg-[#E6E3DC] text-[#6F6E6A] font-mono text-xs">
+                {activeProject.index}
+              </div>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
+
+/**
+ * ProjectRow Component
+ * Editorial 5-column layout on desktop, stacked on mobile with inline image.
+ */
+interface ProjectRowProps {
+  project: SelectedProjectCard;
+  index: number;
+  isHovered: boolean;
+  onPointerEnter: () => void;
+  onFocus: (el: HTMLElement) => void;
+  onBlur: () => void;
+}
+
+export function ProjectRow({
+  project,
+  index,
+  isHovered,
+  onPointerEnter,
+  onFocus,
+  onBlur,
+}: ProjectRowProps) {
+  const rowRef = useRef<HTMLAnchorElement>(null);
+  const href = project.isExternal ? project.liveUrl || "#" : `/work/${project.id}`;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.08,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className="relative"
+    >
+      {/* Animated Hairline Draw-in */}
+      <motion.div
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 0.6,
+          delay: index * 0.08,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="absolute bottom-0 left-0 right-0 h-[1px] bg-[#E6E3DC] origin-left pointer-events-none"
+      />
+
+      <Link
+        ref={rowRef}
+        href={href}
+        onPointerEnter={onPointerEnter}
+        onMouseEnter={onPointerEnter}
+        onFocus={() => rowRef.current && onFocus(rowRef.current)}
+        onBlur={onBlur}
+        className="group block py-7 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF3B5C] focus-visible:ring-offset-2 transition-colors duration-150"
+      >
+        {/* Desktop 5-Column Grid */}
+        <div className="hidden md:flex items-baseline justify-between w-full">
+          {/* Col 1: Index (~84px) */}
+          <div className="w-[84px] shrink-0 font-mono text-[12px] text-[#6F6E6A]">
+            {project.index}
+          </div>
+
+          {/* Col 2: Title & Description (max-width ~440px) */}
+          <div className="max-w-[440px] shrink-0">
+            <h3
+              className={`text-[25px] font-normal leading-[1.2] tracking-[-0.01em] transition-colors duration-200 ${
+                isHovered ? "text-[#FF3B5C]" : "text-[#0A0A0A]"
+              }`}
+            >
+              {project.title}
+            </h3>
+            <p className="text-[13px] leading-[1.5] text-[#6B6B6B] mt-2.5 line-clamp-3">
+              {project.summary}
+            </p>
+          </div>
+
+          {/* Col 3: Flexible Spacer (Where floating hover preview appears) */}
+          <div className="flex-1 min-w-[20px]" />
+
+          {/* Col 4: Category label (~160px from the right) */}
+          <div className="w-[160px] shrink-0 text-left text-[12px] uppercase tracking-[0.04em] text-[#6F6E6A]">
+            {project.category}
+          </div>
+
+          {/* Col 5: Year & Arrow at far right edge */}
+          <div className="w-[76px] shrink-0 flex items-center justify-end gap-1.5 text-[13px] text-[#6F6E6A]">
+            <span>{project.year}</span>
+            <ArrowUpRight
+              className={`w-3 h-3 transition-all duration-200 ${
+                isHovered
+                  ? "translate-x-[3px] -translate-y-[3px] text-[#0A0A0A]"
+                  : "text-[#6F6E6A]"
+              }`}
+            />
+          </div>
+        </div>
+
+        {/* Mobile Layout (< 768px): Stacked with inline image */}
+        <div className="block md:hidden">
+          <div className="flex items-center justify-between font-mono text-[11px] text-[#6F6E6A] mb-1.5">
+            <span>{project.index}</span>
+            <div className="flex items-center gap-1">
+              <span>{project.year}</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </div>
+          </div>
+
+          <h3 className="text-xl font-normal leading-snug tracking-tight text-[#0A0A0A] mb-2 group-hover:text-[#FF3B5C] transition-colors duration-200">
+            {project.title}
+          </h3>
+
+          <p className="text-xs leading-relaxed text-[#6B6B6B] mb-3">
+            {project.summary}
+          </p>
+
+          {/* Mobile Inline Image */}
+          {project.image && (
+            <div className="relative w-full aspect-[16/10] overflow-hidden mb-3 border border-[#E6E3DC] bg-[#E6E3DC]">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 400px"
+                className="object-cover"
+              />
+            </div>
+          )}
+
+          <div className="text-[11px] uppercase tracking-wider text-[#6F6E6A]">
+            {project.category}
+          </div>
+        </div>
+      </Link>
+    </motion.div>
   );
 }
