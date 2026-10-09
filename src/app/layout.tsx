@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/effects/theme-provider";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { CursorSphere } from "@/components/canvas/cursor-sphere";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE } from "@/data/portfolio";
@@ -115,6 +116,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-[var(--canvas)] text-[var(--text-primary)] selection:bg-[#FF3355] selection:text-white`}
       >
+        <CursorSphere />
         <ScrollProgress />
           <a
             href="#main"

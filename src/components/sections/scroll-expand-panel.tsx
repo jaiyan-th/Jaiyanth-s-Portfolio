@@ -73,11 +73,14 @@ export function ScrollExpandPanel({
   if (shouldReduceMotion) {
     return (
       <section
+        ref={containerRef}
+        data-cursor-theme="dark"
         className={`relative h-[100dvh] w-full flex items-center justify-center overflow-hidden ${className}`}
         aria-hidden="true"
         role="presentation"
       >
         <div
+          data-cursor-theme="dark"
           className="w-full h-full"
           style={{ backgroundColor: color }}
         />
@@ -95,6 +98,7 @@ export function ScrollExpandPanel({
       {/* Sticky viewport-height stage */}
       <div className="sticky top-0 h-[100dvh] w-full flex items-center justify-center overflow-hidden pointer-events-none">
         <motion.div
+          data-cursor-theme="dark"
           style={{
             width,
             height,
