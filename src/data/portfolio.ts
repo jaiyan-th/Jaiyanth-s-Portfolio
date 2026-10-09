@@ -23,9 +23,8 @@ export const IDENTITY = {
   githubPending: false,
   linkedin: "https://www.linkedin.com/in/jaiyan-th/",
   linkedinPending: false,
-  heroStatement: "Engineering intelligent products from signal to system.",
-  heroSupporting:
-    "I build applied AI workflows, full-stack products, structured APIs, data-driven systems, and thoughtful interfaces that turn complex problems into useful software.",
+  heroStatement: "Applied AI engineering for systems that make sense.",
+  heroSupporting: "I’m an engineer who makes complex things feel obvious.",
 } as const;
 
 export const NAV_ITEMS: NavItem[] = [

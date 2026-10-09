@@ -24,8 +24,8 @@ export function Hero() {
   // 3 distinct lines for line-by-line reveal
   const headlineLines = [
     { text: "Applied ", hasAI: true, endText: " engineering" },
-    { text: "for complex systems", hasAI: false, endText: "" },
-    { text: "that feel obvious", hasAI: false, endText: "" },
+    { text: "for systems", hasAI: false, endText: "" },
+    { text: "that make sense", hasAI: false, endText: "" },
   ];
 
   const badgeVariants = {
@@ -140,9 +140,7 @@ export function Hero() {
               animate="visible"
               className="text-[#6B6B6B] text-[20px] leading-[1.7] max-w-[560px] mb-10 font-normal"
             >
-              Engineering intelligent products from signal to system.
-              Specializing in RAG pipelines, production LLM integration, Python,
-              SQL, and resilient full-stack architectures.
+              I’m an engineer who makes complex things feel obvious.
             </motion.p>
 
             {/* 4. Buttons: Black pill "Explore Work →" (52px height, padding 0 28px) + Text link */}
