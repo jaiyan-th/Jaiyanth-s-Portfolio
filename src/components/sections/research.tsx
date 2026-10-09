@@ -73,7 +73,7 @@ export function Research() {
     <section
       id="research"
       aria-label="04 Research, Publications & Achievements"
-      className="relative py-14 sm:py-18 border-t border-[#E5E3DB] bg-[var(--canvas)] scroll-mt-20"
+      className="relative py-14 sm:py-18 border-t border-[#E5E3DB] bg-transparent scroll-mt-20"
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
         {/* Section Header */}

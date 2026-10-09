@@ -1,5 +1,6 @@
 import { SmoothScroll } from "@/components/effects/smooth-scroll";
 import { FloatingNav } from "@/components/layout/floating-nav";
+import { DottedSphere } from "@/components/canvas/dotted-sphere";
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { SelectedWork } from "@/components/sections/selected-work";
@@ -26,8 +27,13 @@ export default function Home() {
       {/* Fixed Navbar */}
       <FloatingNav />
 
+      {/* Ambient Red Dotted Sphere (Visible on cursor move or scroll throughout portfolio) */}
+      <div className="fixed top-12 sm:top-14 right-[-40px] sm:right-6 lg:right-24 z-0 pointer-events-none select-none">
+        <DottedSphere />
+      </div>
+
       {/* Main Content Sections */}
-      <main id="main" className="relative w-full max-w-full overflow-x-clip">
+      <main id="main" className="relative w-full max-w-full overflow-x-clip z-10">
         {/* Hero Section with Quick Snapshot Card */}
         <Hero />
 

@@ -8,7 +8,7 @@ export function WhyWork() {
     <section
       id="why-work"
       aria-label="05 Why work with me"
-      className="relative py-14 sm:py-18 border-t border-[#E5E3DB] bg-[var(--canvas)]"
+      className="relative py-14 sm:py-18 border-t border-[#E5E3DB] bg-transparent"
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
         {/* Section Header */}

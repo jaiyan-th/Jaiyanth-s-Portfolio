@@ -48,7 +48,7 @@ export function Experience() {
     <section
       id="experience"
       aria-label="03 Work Experience & Internship"
-      className="relative py-14 sm:py-18 border-t border-[#E5E3DB] bg-[var(--canvas)] scroll-mt-20"
+      className="relative py-14 sm:py-18 border-t border-[#E5E3DB] bg-transparent scroll-mt-20"
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
         {/* Section Header */}

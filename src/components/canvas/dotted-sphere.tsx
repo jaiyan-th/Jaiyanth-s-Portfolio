@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface DottedSphereProps {
   className?: string;
@@ -21,6 +21,9 @@ interface Point3D {
 export function DottedSphere({ className = "" }: DottedSphereProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  // Dynamic visibility: visible when scrolling or moving cursor, disappears fully when idle
+  const [isVisibleOnInteraction, setIsVisibleOnInteraction] = useState(true);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -65,7 +68,6 @@ export function DottedSphere({ className = "" }: DottedSphereProps) {
       }
     }
 
-    let isVisible = true;
     let animId: number | null = null;
     let width = container.clientWidth || 460;
     let height = container.clientHeight || 460;
@@ -101,8 +103,29 @@ export function DottedSphere({ className = "" }: DottedSphereProps) {
     });
     resizeObserver.observe(container);
 
-    // Mouse events on window for smooth tilt following
+    // Interaction timer: visible on cursor move or scroll, disappears fully after 1.2s idle
+    let idleTimer: NodeJS.Timeout | null = null;
+
+    const triggerInteraction = () => {
+      setIsVisibleOnInteraction(true);
+      if (animId === null && !prefersReducedMotion) {
+        lastTime = performance.now();
+        animId = requestAnimationFrame(render);
+      }
+      if (idleTimer) clearTimeout(idleTimer);
+      idleTimer = setTimeout(() => {
+        setIsVisibleOnInteraction(false);
+      }, 1200);
+    };
+
+    // Initial timeout: show briefly on load, then disappear if user does not interact
+    idleTimer = setTimeout(() => {
+      setIsVisibleOnInteraction(false);
+    }, 2200);
+
+    // Mouse move tracking
     const handleMouseMove = (e: MouseEvent) => {
+      triggerInteraction();
       const rect = canvas.getBoundingClientRect();
       mouseCanvasX = e.clientX - rect.left;
       mouseCanvasY = e.clientY - rect.top;
@@ -121,23 +144,23 @@ export function DottedSphere({ className = "" }: DottedSphereProps) {
       targetTiltY = 0;
     };
 
+    let lastScrollY = window.scrollY;
+    const handleScrollOrWheel = () => {
+      triggerInteraction();
+      const currentScroll = window.scrollY;
+      const delta = currentScroll - lastScrollY;
+      lastScrollY = currentScroll;
+      // Add a slight spin impulse on scroll
+      rotationY += delta * 0.0015;
+    };
+
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
     window.addEventListener("mouseleave", handleMouseLeave, { passive: true });
+    window.addEventListener("scroll", handleScrollOrWheel, { passive: true });
+    window.addEventListener("wheel", triggerInteraction, { passive: true });
+    window.addEventListener("touchmove", triggerInteraction, { passive: true });
 
-    // IntersectionObserver to pause when offscreen
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        isVisible = entry.isIntersecting;
-        if (isVisible && !prefersReducedMotion && animId === null) {
-          lastTime = performance.now();
-          animId = requestAnimationFrame(render);
-        }
-      },
-      { threshold: 0.05 }
-    );
-    observer.observe(canvas);
-
-    // Single Frame Render (used for reduced-motion and animated loop)
+    // Single Frame Render
     const drawFrame = () => {
       ctx.clearRect(0, 0, width, height);
 
@@ -205,12 +228,7 @@ export function DottedSphere({ className = "" }: DottedSphereProps) {
       const dt = Math.min((time - lastTime) / 1000, 0.1);
       lastTime = time;
 
-      if (!isVisible) {
-        animId = null;
-        return;
-      }
-
-      // Slow Y rotation: ~0.15 rad/s
+      // Slow continuous Y rotation: ~0.15 rad/s
       rotationY += 0.15 * dt;
 
       // Lerp tilts (0.06)
@@ -230,11 +248,14 @@ export function DottedSphere({ className = "" }: DottedSphereProps) {
 
     return () => {
       if (animId !== null) cancelAnimationFrame(animId);
-      observer.disconnect();
+      if (idleTimer) clearTimeout(idleTimer);
       resizeObserver.disconnect();
       mediaQuery.removeEventListener("change", handleMotionChange);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("scroll", handleScrollOrWheel);
+      window.removeEventListener("wheel", triggerInteraction);
+      window.removeEventListener("touchmove", triggerInteraction);
     };
   }, []);
 
@@ -242,7 +263,13 @@ export function DottedSphere({ className = "" }: DottedSphereProps) {
     <div
       ref={containerRef}
       aria-hidden="true"
-      className={`relative w-[380px] h-[380px] sm:w-[460px] sm:h-[460px] pointer-events-none select-none ${className}`}
+      style={{
+        opacity: isVisibleOnInteraction ? 1 : 0,
+        transition: isVisibleOnInteraction
+          ? "opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1)"
+          : "opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1)",
+      }}
+      className={`relative w-[340px] h-[340px] sm:w-[440px] sm:h-[440px] lg:w-[480px] lg:h-[480px] pointer-events-none select-none ${className}`}
     >
       <canvas ref={canvasRef} className="w-full h-full block" />
     </div>

@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { DottedSphere } from "@/components/canvas/dotted-sphere";
 import { SnapshotCard } from "./snapshot-card";
 
 export function Hero() {
@@ -21,7 +20,6 @@ export function Hero() {
 
   // Parallax calculations (clamped)
   const h1TranslateX = shouldReduceMotion ? 0 : Math.max(-60, -scrollY * 0.15);
-  const sphereTranslateY = shouldReduceMotion ? 0 : -scrollY * 0.22;
 
   // 3 distinct lines for line-by-line reveal
   const headlineLines = [
@@ -72,18 +70,8 @@ export function Hero() {
     <section
       id="hero"
       aria-label="Hero Introduction"
-      className="relative min-h-[92vh] flex items-center pt-28 sm:pt-36 pb-12 sm:pb-16 overflow-hidden bg-[var(--canvas)]"
+      className="relative min-h-[92vh] flex items-center pt-28 sm:pt-36 pb-12 sm:pb-16 bg-transparent"
     >
-      {/* Background Interactive Dotted Sphere (Placed behind H1/card on top right) */}
-      <div
-        style={{
-          transform: `translate3d(0, ${sphereTranslateY}px, 0)`,
-        }}
-        className="absolute top-12 sm:top-8 right-[-40px] sm:right-6 lg:right-24 z-0 pointer-events-none transition-transform duration-75 ease-out"
-      >
-        <DottedSphere />
-      </div>
-
       <div className="relative z-10 w-full max-w-[1100px] mx-auto px-6 sm:px-8 xl:px-0">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* Left Column (~58%) */}
