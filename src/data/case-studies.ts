@@ -965,6 +965,235 @@ export const CASE_STUDIES: Record<string, CaseStudyItem> = {
     },
 
     nextProject: {
+      slug: "preventive-ai-paper",
+      title: "Preventive Healthcare Multimodal AI Framework",
+      category: "AI Research · IEEE Paper",
+    },
+  },
+
+  "preventive-ai-paper": {
+    slug: "preventive-ai-paper",
+    number: "05",
+    tag: "PEER-REVIEWED RESEARCH · IEEE ICETSIS 2026",
+    category: "AI Research · Multimodal Healthcare",
+    year: "2026",
+    domain: "Computer Vision & Conversational AI",
+    title: "Preventive Healthcare Multimodal AI Framework",
+    subtitle:
+      "Integrating visual symptom detection with conversational triage for explainable, clinician-auditable healthcare routing.",
+    role: "Co-Author & AI Systems Researcher",
+    duration: "Academic Research",
+    status: "Accepted & Peer-Reviewed",
+    liveUrl: "https://drive.google.com/file/d/1ro5v9Cb1Un-pj2ZEiKdZVDEPDeOpfEU_/view?usp=sharing",
+    repoUrl: "https://drive.google.com/file/d/1ro5v9Cb1Un-pj2ZEiKdZVDEPDeOpfEU_/view?usp=sharing",
+    stack: [
+      "Computer Vision",
+      "Conversational AI",
+      "Multimodal Fusion",
+      "Clinical Safety Guardrails",
+      "Explainable AI",
+      "IEEE ICETSIS 2026",
+    ],
+
+    // 01 Context
+    context: {
+      title: "What is the Preventive Healthcare Framework?",
+      description:
+        "A peer-reviewed research framework accepted at IEEE ICETSIS 2026 (Bahrain) that addresses the vulnerability of single-modal clinical triage. By uniting visual feature extraction with an active conversational AI layer, the system surfaces early wellness signals, eliminates diagnostic ambiguity through calibrated follow-up dialogue, and routes users toward appropriate clinical care with explainable, clinician-auditable summaries.",
+      characteristics: [
+        {
+          title: "Multimodal Signal Capture",
+          desc: "A computer-vision input pipeline extracts visual wellness indicators from patient data, normalized for downstream clinical reasoning.",
+        },
+        {
+          title: "Structured Conversational Triage",
+          desc: "Targeted follow-up inquiry dialogues remove ambiguity before care recommendations are surfaced, preventing premature classification.",
+        },
+        {
+          title: "Explainable Clinician Summaries",
+          desc: "Outputs trace directly back to observable visual markers and patient dialogue tokens, delivering transparent clinical rationale rather than opaque black-box scores.",
+        },
+      ],
+      highlightedProblem:
+        "Single-modal healthcare AI either misses critical patient context or yields high false-positive rates; uniting visual detection with conversational validation creates dependable clinical triage.",
+      roleScope: [
+        {
+          id: "01",
+          title: "Literature Review",
+          desc: "Synthesized clinical safety invariants and state-of-the-art multimodal triage architectures.",
+        },
+        {
+          id: "02",
+          title: "Framework Architecture",
+          desc: "Designed the dual-stage pipeline uniting computer vision feature tensors with conversational dialogue trees.",
+        },
+        {
+          id: "03",
+          title: "Explainability Layer",
+          desc: "Engineered structured clinical summary schemas with strict source attribution and confidence calibration.",
+        },
+        {
+          id: "04",
+          title: "Paper Co-Authoring",
+          desc: "Co-authored methodology sections, drafted architectural schematics, and prepared presentation materials.",
+        },
+      ],
+    },
+
+    // 02 Users & Problem
+    problem: {
+      question:
+        "How can we build an AI-assisted triage pipeline that combines computer vision and conversational AI without compromising clinical safety or explainability?",
+      approachHeading: "Dual-Stage Multimodal Verification",
+      approachDetail:
+        "We decoupled initial signal detection from triage routing. First, deep computer-vision networks process uploaded wellness images to detect visual indicators. Second, an intelligent conversational agent initiates structured follow-up dialogues to assess symptom history, duration, and severity before synthesizing a clinician-auditable summary.",
+      challenges: [
+        {
+          id: "01",
+          title: "Eliminating Ambiguity",
+          desc: "Visual markers alone lack temporal and symptomatic context; dynamic conversational inquiry resolves critical gaps.",
+        },
+        {
+          id: "02",
+          title: "Rejecting Black-Box Output",
+          desc: "Healthcare professionals reject opaque confidence percentages; every recommendation requires cited visual and dialogue evidence.",
+        },
+        {
+          id: "03",
+          title: "Clinical Safety Boundaries",
+          desc: "Preventing AI from generating definitive diagnostic claims, strictly confining output to preventive guidance and routing.",
+        },
+      ],
+      users: [
+        "Primary care clinics requiring pre-intake triage summaries",
+        "Patients seeking early preventive wellness assessment",
+        "Clinical informatics and healthcare AI researchers",
+      ],
+      keyChallenges: [
+        "Preventing hallucinated or unsupported diagnostic claims",
+        "Calibrating risk stratification across subjective patient responses",
+        "Formatting summaries into standard clinician-reviewable formats",
+      ],
+    },
+
+    // 03 System Architecture & Workflow
+    architecture: {
+      heading: "Multimodal Intake & Conversational Verification Pipeline",
+      subheading:
+        "An end-to-end architecture bridging computer vision feature extraction with safety-constrained conversational reasoning.",
+      phases: [
+        {
+          id: "PHASE 01",
+          title: "Visual Intake",
+          desc: "Image normalization, resolution verification, and tensor pre-processing.",
+        },
+        {
+          id: "PHASE 02",
+          title: "Feature Extraction",
+          desc: "Deep visual networks identify salient wellness indicators and output confidence ranges.",
+        },
+        {
+          id: "PHASE 03",
+          title: "Conversational Triage",
+          desc: "Dialogue agent queries patients with safety-constrained follow-up questions.",
+        },
+        {
+          id: "PHASE 04",
+          title: "Clinician Synthesis",
+          desc: "Generates grounded case documentation with traceable signal attribution.",
+        },
+      ],
+      steps: [
+        {
+          step: "STEP 01",
+          title: "Image Acquisition & Tensor Normalization",
+          desc: "The client uploads image data; automated pre-processing normalizes lighting, aspect ratio, and resolution.",
+        },
+        {
+          step: "STEP 02",
+          title: "Computer Vision Feature Extraction",
+          desc: "Pre-trained vision backbones isolate candidate visual indicators and calculate feature bounding coordinates.",
+        },
+        {
+          step: "STEP 03",
+          title: "Dynamic Follow-Up Dialogue Generation",
+          desc: "The conversational layer evaluates detected indicators and formulates targeted questions assessing onset, sensation, and timeline.",
+        },
+        {
+          step: "STEP 04",
+          title: "Multimodal Signal Fusion & Calibration",
+          desc: "Fuses image feature tensors with verified dialogue tokens into a structured semantic case profile.",
+        },
+        {
+          step: "STEP 05",
+          title: "Explainable Clinical Summary Generation",
+          desc: "Produces structured clinician referral notes with explicit citations linking each observation to input data.",
+        },
+      ],
+    },
+
+    // 04 Implementation Details
+    implementation: {
+      heading: "Engineering Methodology & Safety Protocols",
+      subheading:
+        "Architecting safeguards for reliable medical informatics.",
+      pillars: [
+        {
+          title: "Multimodal Fusion Mechanism",
+          desc: "Harmonizes heterogeneous inputs (high-dimensional image embeddings and multi-turn dialogue tokens) into unified case representations.",
+          points: [
+            "Decoupled vision and NLP inference pipelines",
+            "Normalized cross-attention weighting",
+            "Stateful session memory for multi-turn dialogue",
+          ],
+        },
+        {
+          title: "Clinical Safety & Guardrails",
+          desc: "Hard boundary constraints enforce that the framework acts strictly as a preventive triage assistant, never a prescribing physician.",
+          points: [
+            "Prohibition on definitive diagnostic claims",
+            "Immediate escalation triggers for critical symptoms",
+            "Deterministic fallback options for ambiguous queries",
+          ],
+        },
+        {
+          title: "Clinician-Auditable Traceability",
+          desc: "Ensures every generated phrase in the case summary points directly back to an objective visual marker or user response.",
+          points: [
+            "Token-level rationale citations",
+            "Confidence interval reporting",
+            "Standardized SOAP-compatible intake format",
+          ],
+        },
+      ],
+    },
+
+    // 05 Impact & Learnings
+    impact: {
+      heading: "Academic Peer Review & Conference Presentation",
+      metrics: [
+        { value: "ICETSIS 2026", label: "IEEE Conference Acceptance" },
+        { value: "Bahrain", label: "Presentation Venue" },
+        { value: "May 2026", label: "Publication Date" },
+      ],
+      outcomes: [
+        "Accepted for peer-reviewed technical presentation at IEEE ICETSIS 2026 (Bahrain Section).",
+        "Established that multimodal conversational verification substantially reduces false-positive rates compared to vision-only triage.",
+        "Demonstrated an explainability-first architecture that provides clinician-auditable summaries.",
+      ],
+      learnings: [
+        {
+          title: "Multimodal verification outperforms single-modal classification",
+          desc: "Pairing visual feature detection with dynamic dialogue validation provides the context necessary to reduce false-positive triage classifications.",
+        },
+        {
+          title: "Explainability is essential for medical acceptance",
+          desc: "Clinicians will not trust opaque neural network scores. Providing transparent citations to visual and dialogue tokens is critical.",
+        },
+      ],
+    },
+
+    nextProject: {
       slug: "fake-news-detector",
       title: "Fake News Detector — Grounded RAG Fact Verification",
       category: "Applied AI · RAG Architecture",
