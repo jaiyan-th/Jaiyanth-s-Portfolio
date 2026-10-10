@@ -1,0 +1,242 @@
+/* ================================================
+   Ring3D — CSS 3D Carousel Styles
+   Uses design tokens from globals.css (--canvas,
+   --surface-card, --border-line, --ink, --accent, etc.)
+   ================================================ */
+
+/* ---------- Stage (perspective container) ---------- */
+.ring3d-stage {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  perspective: 1400px;
+  perspective-origin: 50% 35%;
+  overflow: visible;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+  outline: none;
+}
+
+/* Hide native cursor inside stage on fine-pointer devices only */
+@media (pointer: fine) {
+  .ring3d-stage {
+    cursor: none;
+  }
+}
+
+/* ---------- Ring (3D cylinder / arc) ---------- */
+.ring3d-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ---------- Card slot (positioned on cylinder) ---------- */
+.ring3d-card-slot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+}
+
+/* ---------- Float animation ---------- */
+.ring3d-float {
+  animation: ring3d-float-kf ease-in-out infinite;
+  width: 100%;
+  height: 100%;
+}
+
+.ring3d-float-paused {
+  animation-play-state: paused !important;
+}
+
+@keyframes ring3d-float-kf {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ---------- Card surface ---------- */
+.ring3d-card {
+  background: var(--surface-card, #fff);
+  border: 1px solid var(--border-line, #e6e3dc);
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* ---------- Dot-matrix decorative ---------- */
+.ring3d-dots {
+  width: 100%;
+  aspect-ratio: 2.2 / 1;
+  border-radius: 10px;
+  background-image: radial-gradient(
+    circle,
+    var(--border-line, #e6e3dc) 1px,
+    transparent 1px
+  );
+  background-size: 10px 10px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.ring3d-dots::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    ellipse at var(--glow-x, 40%) var(--glow-y, 40%),
+    var(--accent-tint, #fde5e0) 0%,
+    transparent 65%
+  );
+  opacity: 0.8;
+}
+
+/* ---------- Controls (arrows + counter) ---------- */
+.ring3d-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.ring3d-arrow-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-line, #e6e3dc);
+  background: var(--surface-card, #fff);
+  color: var(--text-primary, #0a0a0a);
+  font-family: var(--font-mono), monospace;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.ring3d-arrow-btn:hover:not(:disabled) {
+  border-color: var(--accent, #e5341b);
+  color: var(--accent, #e5341b);
+}
+
+.ring3d-arrow-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.ring3d-counter {
+  font-family: var(--font-mono), monospace;
+  font-size: 13px;
+  color: var(--text-secondary, #6b6b6b);
+  letter-spacing: 0.06em;
+  min-width: 56px;
+  text-align: center;
+}
+
+/* ---------- Single-card tilt stage ---------- */
+.ring3d-single-stage {
+  perspective: 1400px;
+  perspective-origin: 50% 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.ring3d-single-card {
+  width: min(88vw, 400px);
+}
+
+/* ---------- Custom cursor (desktop, inside stage) ---------- */
+.ring3d-cursor-el {
+  position: fixed;
+  pointer-events: none;
+  z-index: 100;
+  border-radius: 50%;
+  background: var(--ink, #0a0a0a);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  transition:
+    width 0.15s ease,
+    height 0.15s ease;
+  transform: translate(-50%, -50%);
+}
+
+/* ---------- Reduced-motion fallback ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .ring3d-stage,
+  .ring3d-single-stage {
+    perspective: none !important;
+    height: auto !important;
+    cursor: auto !important;
+  }
+
+  .ring3d-float {
+    animation: none !important;
+  }
+
+  .ring3d-reduced-row {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 16px 0;
+  }
+
+  .ring3d-reduced-row > * {
+    scroll-snap-align: center;
+    flex-shrink: 0;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 767px) {
+  .ring3d-stage {
+    height: 480px;
+    cursor: auto !important;
+  }
+
+  .ring3d-single-stage {
+    padding: 24px 0;
+  }
+
+  .ring3d-single-card {
+    width: min(78vw, 380px);
+  }
+}
+
+/* Touch devices: never use custom cursor */
+@media (pointer: coarse) {
+  .ring3d-stage {
+    cursor: auto !important;
+  }
+}
