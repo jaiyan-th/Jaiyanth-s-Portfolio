@@ -1,13 +1,27 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { SnapshotCard } from "./snapshot-card";
+import { LiveSignalField } from "@/components/canvas/live-signal-field";
 
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
   const [scrollY, setScrollY] = useState(0);
+  const [pointerStats, setPointerStats] = useState({
+    x: 0.172,
+    y: 0.091,
+    events: 599,
+    speed: 0,
+  });
+
+  const handlePointerStats = useCallback(
+    (stats: { x: number; y: number; events: number; speed: number }) => {
+      setPointerStats(stats);
+    },
+    []
+  );
 
   useEffect(() => {
     if (shouldReduceMotion) return;
@@ -70,13 +84,16 @@ export function Hero() {
     <section
       id="hero"
       aria-label="Hero Introduction"
-      className="relative min-h-[92vh] flex items-center pt-28 sm:pt-36 pb-12 sm:pb-16 bg-transparent"
+      className="relative min-h-[92vh] flex flex-col justify-between pt-28 sm:pt-36 pb-10 sm:pb-14 bg-transparent overflow-hidden"
     >
+      {/* Interactive Dot-Grid Signal Field (Velmax-inspired canvas effect) */}
+      <LiveSignalField onPointerStats={handlePointerStats} className="z-0" />
+
       <div className="relative z-10 w-full max-w-[1100px] mx-auto px-6 sm:px-8 xl:px-0">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* Left Column (~58%) */}
           <div className="lg:col-span-7 flex flex-col items-start">
-            {/* 1. Two Pill Badges (12px, white background, subtle shadow, 80ms stagger) */}
+            {/* 1. Two Pill Badges */}
             <div className="flex flex-wrap items-center gap-2.5 mb-10">
               <motion.div
                 custom={0}
@@ -103,7 +120,7 @@ export function Hero() {
               </motion.div>
             </div>
 
-            {/* 2. H1: 3 lines, line-by-line reveal, clamp(44px, 5.2vw, 68px), font-weight 400-500, line-height 1.05 */}
+            {/* 2. H1: 3 lines, line-by-line reveal */}
             <h1
               style={{
                 transform: `translate3d(${h1TranslateX}px, 0, 0)`,
@@ -132,7 +149,7 @@ export function Hero() {
               ))}
             </h1>
 
-            {/* 3. Paragraph: 20px, line-height 1.7, color #6B6B6B, max-width 560px */}
+            {/* 3. Paragraph: 20px, line-height 1.7 */}
             <motion.p
               custom={0.55}
               variants={fadeUpVariants}
@@ -143,7 +160,7 @@ export function Hero() {
               I’m an engineer who makes complex things feel obvious.
             </motion.p>
 
-            {/* 4. Buttons: Black pill "Explore Work →" (52px height, padding 0 28px) + Text link */}
+            {/* 4. Buttons */}
             <motion.div
               custom={0.68}
               variants={fadeUpVariants}
@@ -167,7 +184,6 @@ export function Hero() {
               >
                 <span>Get in touch</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                {/* Thin Underline that grows from left */}
                 <span className="absolute bottom-1.5 left-0 w-0 h-px bg-accent transition-all duration-300 group-hover:w-full" />
               </a>
             </motion.div>
@@ -178,6 +194,44 @@ export function Hero() {
             <SnapshotCard />
           </div>
         </div>
+
+        {/* Live Signal Telemetry Footer Strip (from Velmax recording) */}
+        <motion.div
+          custom={0.8}
+          variants={fadeUpVariants}
+          initial="hidden"
+          animate="visible"
+          className="mt-14 sm:mt-16 pt-5 border-t border-[#E6E3DC] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] font-mono text-[#6B6B6B]"
+        >
+          <div className="flex items-center gap-2 sm:gap-3">
+            <span className="font-semibold uppercase tracking-wider text-[#0A0A0A]">
+              FIG. 01 · LIVE SIGNAL FIELD
+            </span>
+            <span className="hidden sm:inline text-[#E6E3DC]">|</span>
+            <span className="hidden md:inline text-[#6B6B6B]">
+              MOVE YOUR CURSOR. THAT&apos;S A SIGNAL.
+            </span>
+          </div>
+
+          <div className="flex items-center gap-3 sm:gap-4 text-[#0A0A0A]">
+            <span>
+              X: <strong className="font-mono text-accent">{pointerStats.x.toFixed(3)}</strong>
+            </span>
+            <span>
+              Y: <strong className="font-mono text-accent">{pointerStats.y.toFixed(3)}</strong>
+            </span>
+            <span className="text-[#6B6B6B]">
+              EVENTS:{" "}
+              <strong className="font-mono text-[#0A0A0A]">
+                {String(pointerStats.events).padStart(6, "0")}
+              </strong>
+            </span>
+            <span className="hidden sm:inline-flex items-center gap-1.5 pl-2.5 border-l border-[#E6E3DC] text-[10px] uppercase tracking-wider text-accent-hover font-semibold">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+              PROCESSED LOCALLY
+            </span>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -142,7 +142,8 @@ export function Research() {
               return (
                 <div
                   key={item.step}
-                  className="p-5 rounded-xl bg-[#FAF9F5] border border-[#E6E3DC] hover:border-accent/30 hover:bg-white transition-all duration-200"
+                  data-draggable="true"
+                  className="p-5 rounded-xl bg-[#FAF9F5] border border-[#E6E3DC] hover:border-accent/30 hover:bg-white transition-all duration-200 cursor-grab active:cursor-grabbing"
                 >
                   <div className="flex items-center gap-2.5 mb-2.5">
                     <div className="w-7 h-7 rounded-lg bg-white border border-[#E6E3DC] flex items-center justify-center text-[#0A0A0A]">
