@@ -23,7 +23,7 @@ export function SnapshotCard() {
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    // Subtle 3D tilt (max 4deg)
+    // Subtle 3D tilt
     const rotateX = ((y - centerY) / centerY) * -4;
     const rotateY = ((x - centerX) / centerX) * 4;
     setTilt({ x: rotateX, y: rotateY });
@@ -55,7 +55,7 @@ export function SnapshotCard() {
       onMouseLeave={handleMouseLeave}
       className="relative w-full max-w-[460px] perspective-[1000px]"
     >
-      {/* Stacked offset back layer (8px right / 8px down, settles with 150ms delay) */}
+      {/* Neo-Brutalist Offset Yellow Shadow Layer */}
       <motion.div
         aria-hidden="true"
         initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 48, rotate: 3 }}
@@ -74,7 +74,7 @@ export function SnapshotCard() {
                 },
               }
         }
-        className="absolute inset-0 rounded-[20px] bg-[#F5F3EE] border border-[#E6E3DC] pointer-events-none"
+        className="absolute inset-0 rounded-[16px] bg-[#FFE600] border-2 border-[#0A0A0A] pointer-events-none"
       />
 
       {/* Main Front Card Surface */}
@@ -97,11 +97,8 @@ export function SnapshotCard() {
         }
         style={{
           transformStyle: "preserve-3d",
-          boxShadow: isHovered
-            ? "0 16px 40px rgba(0,0,0,0.08)"
-            : "0 8px 30px rgba(0,0,0,0.06)",
         }}
-        className="relative rounded-[20px] border border-[#E6E3DC] bg-[#FFFFFF] p-8 text-[#0A0A0A] transition-shadow duration-300"
+        className="relative rounded-[16px] border-2 border-[#0A0A0A] bg-white p-7 sm:p-8 text-[#0A0A0A] shadow-[5px_5px_0px_#0A0A0A] transition-all duration-200"
       >
         {/* Header: QUICK SNAPSHOT + 2026 Pill */}
         <motion.div
@@ -109,12 +106,12 @@ export function SnapshotCard() {
           variants={rowVariants}
           initial="hidden"
           animate="visible"
-          className="flex items-center justify-between pb-5 border-b border-[#E6E3DC]"
+          className="flex items-center justify-between pb-5 border-b-2 border-[#0A0A0A]"
         >
-          <span className="font-mono text-[11px] tracking-[0.12em] uppercase text-[#6B6B6B] font-semibold">
+          <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-[#0A0A0A] font-bold bg-[#F6F4EE] px-2.5 py-1 rounded border border-[#0A0A0A]">
             QUICK SNAPSHOT
           </span>
-          <span className="px-2.5 py-0.5 rounded-full bg-accent-tint text-accent-hover border border-accent/20 font-mono font-bold text-xs">
+          <span className="px-3 py-0.5 rounded-full bg-[#FFE600] text-[#0A0A0A] border-1.5 border-[#0A0A0A] shadow-[1.5px_1.5px_0px_#0A0A0A] font-mono font-extrabold text-xs">
             2026
           </span>
         </motion.div>
@@ -125,15 +122,15 @@ export function SnapshotCard() {
           variants={rowVariants}
           initial="hidden"
           animate="visible"
-          className="py-5 border-b border-[#E6E3DC]"
+          className="py-4 border-b border-[#0A0A0A]/20"
         >
-          <div className="flex items-center gap-2 mb-1.5">
-            <MapPin className="w-3.5 h-3.5 text-accent" />
-            <span className="font-mono text-[10px] tracking-widest text-accent-hover font-semibold uppercase">
+          <div className="flex items-center gap-2 mb-1">
+            <MapPin className="w-4 h-4 text-accent" />
+            <span className="font-mono text-[10px] tracking-widest text-[#525252] font-bold uppercase">
               LOCATION
             </span>
           </div>
-          <p className="text-base font-medium text-[#0A0A0A] tracking-tight pl-5.5">
+          <p className="text-base font-bold text-[#0A0A0A] tracking-tight pl-6">
             Karur, Tamil Nadu, India
           </p>
         </motion.div>
@@ -144,15 +141,15 @@ export function SnapshotCard() {
           variants={rowVariants}
           initial="hidden"
           animate="visible"
-          className="py-5 border-b border-[#E6E3DC]"
+          className="py-4 border-b border-[#0A0A0A]/20"
         >
-          <div className="flex items-center gap-2 mb-1.5">
-            <Target className="w-3.5 h-3.5 text-accent" />
-            <span className="font-mono text-[10px] tracking-widest text-accent-hover font-semibold uppercase">
+          <div className="flex items-center gap-2 mb-1">
+            <Target className="w-4 h-4 text-accent" />
+            <span className="font-mono text-[10px] tracking-widest text-[#525252] font-bold uppercase">
               FOCUS
             </span>
           </div>
-          <p className="text-base font-medium text-[#0A0A0A] tracking-tight pl-5.5">
+          <p className="text-base font-bold text-[#0A0A0A] tracking-tight pl-6">
             Applied AI Systems & High-Assurance Architecture
           </p>
         </motion.div>
@@ -163,15 +160,15 @@ export function SnapshotCard() {
           variants={rowVariants}
           initial="hidden"
           animate="visible"
-          className="py-5 border-b border-[#E6E3DC]"
+          className="py-4 border-b border-[#0A0A0A]/20"
         >
-          <div className="flex items-center gap-2 mb-1.5">
-            <Layers className="w-3.5 h-3.5 text-accent" />
-            <span className="font-mono text-[10px] tracking-widest text-accent-hover font-semibold uppercase">
+          <div className="flex items-center gap-2 mb-1">
+            <Layers className="w-4 h-4 text-accent" />
+            <span className="font-mono text-[10px] tracking-widest text-[#525252] font-bold uppercase">
               STACK
             </span>
           </div>
-          <p className="font-mono text-sm text-[#0A0A0A] pl-5.5">
+          <p className="font-mono text-sm font-semibold text-[#0A0A0A] pl-6">
             Python · Next.js · LangChain · FastAPI · SQL
           </p>
         </motion.div>
@@ -182,20 +179,20 @@ export function SnapshotCard() {
           variants={rowVariants}
           initial="hidden"
           animate="visible"
-          className="pt-5"
+          className="pt-4"
         >
           <div className="flex items-center gap-2 mb-2">
-            <Sparkles className="w-3.5 h-3.5 text-accent" />
-            <span className="font-mono text-[10px] tracking-widest text-accent-hover font-semibold uppercase">
+            <Sparkles className="w-4 h-4 text-accent" />
+            <span className="font-mono text-[10px] tracking-widest text-[#525252] font-bold uppercase">
               STATUS
             </span>
           </div>
-          <div className="rounded-[12px] bg-[#F5F3EE] p-3 pl-4 flex items-center gap-3">
+          <div className="rounded-xl bg-[#00E599]/20 border-2 border-[#0A0A0A] p-3 pl-4 flex items-center gap-3 shadow-[2.5px_2.5px_0px_#0A0A0A]">
             <span className="relative flex h-2.5 w-2.5 shrink-0">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1FB866] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#1FB866]" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00E599] opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#00E599] border border-black" />
             </span>
-            <span className="text-xs font-mono font-medium text-[#0A0A0A]">
+            <span className="text-xs font-mono font-bold text-[#0A0A0A]">
               Open to full-time & internship roles
             </span>
           </div>

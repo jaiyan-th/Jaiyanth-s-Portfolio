@@ -156,22 +156,27 @@ export const PROJECTS_DATA: SelectedProjectCard[] = [
 ];
 
 /**
- * 02 Selected Work Section (Editorial List Layout)
+ * 02 Selected Work Section (Neo-Brutalist List Layout)
  */
 export function SelectedWork() {
   return (
     <section
       id="work"
       aria-label="02 Selected Work"
-      className="relative py-20 sm:py-24 bg-transparent"
+      className="relative py-16 sm:py-24 border-t-2 border-[#0A0A0A] bg-transparent"
     >
       <div className="w-full max-w-[1100px] mx-auto px-6 sm:px-8 xl:px-0">
-        {/* Section label row with hairline */}
-        <div className="flex items-center justify-between pb-3.5 border-b border-[#E6E3DC]">
-          <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#6F6E6A]">
-            02 — SELECTED
-          </span>
-          <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#6F6E6A] hidden sm:inline">
+        {/* Section label row with bold border */}
+        <div className="flex items-center justify-between pb-4 border-b-2 border-[#0A0A0A] mb-2">
+          <div className="flex items-center gap-3">
+            <span className="neo-stamp px-2.5 py-0.5 rounded-md bg-[#FFE600] text-xs font-bold text-[#0A0A0A] tracking-wider uppercase">
+              02
+            </span>
+            <span className="font-extrabold text-xl sm:text-2xl tracking-tight text-[#0A0A0A]">
+              Selected Work
+            </span>
+          </div>
+          <span className="font-mono text-xs uppercase tracking-wider text-[#525252] font-bold hidden sm:inline">
             ENGINEERED SYSTEMS & FULL-STACK PRODUCTS
           </span>
         </div>
@@ -335,7 +340,7 @@ export function ProjectPreview({
         duration: isVisible ? 0.35 : 0.25,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="absolute pointer-events-none z-20 hidden md:block w-[clamp(280px,28vw,440px)] aspect-[16/10] overflow-hidden bg-[#E6E3DC] shadow-[0_20px_50px_rgba(0,0,0,0.12)] border border-[#E6E3DC]"
+      className="absolute pointer-events-none z-20 hidden md:block w-[clamp(280px,28vw,440px)] aspect-[16/10] overflow-hidden bg-white rounded-xl shadow-[8px_8px_0px_#0A0A0A] border-2 border-[#0A0A0A]"
     >
       <AnimatePresence mode="popLayout" initial={false}>
         {activeProject && (
@@ -360,7 +365,7 @@ export function ProjectPreview({
                 priority
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center bg-[#E6E3DC] text-[#6F6E6A] font-mono text-xs">
+              <div className="w-full h-full flex items-center justify-center bg-[#F6F4EE] text-[#0A0A0A] font-mono text-xs font-bold">
                 {activeProject.index}
               </div>
             )}
@@ -373,7 +378,7 @@ export function ProjectPreview({
 
 /**
  * ProjectRow Component
- * Editorial 5-column layout on desktop, stacked on mobile with inline image.
+ * Neo-Brutalist 5-column layout on desktop, stacked on mobile with inline image.
  */
 interface ProjectRowProps {
   project: SelectedProjectCard;
@@ -407,18 +412,8 @@ export function ProjectRow({
       }}
       className="relative"
     >
-      {/* Animated Hairline Draw-in */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ once: true }}
-        transition={{
-          duration: 0.6,
-          delay: index * 0.08,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-        className="absolute bottom-0 left-0 right-0 h-[1px] bg-[#E6E3DC] origin-left pointer-events-none"
-      />
+      {/* Neo-Brutalist Border Line */}
+      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#0A0A0A] pointer-events-none" />
 
       <Link
         ref={rowRef}
@@ -427,71 +422,79 @@ export function ProjectRow({
         onMouseEnter={onPointerEnter}
         onFocus={() => rowRef.current && onFocus(rowRef.current)}
         onBlur={onBlur}
-        className="group block py-7 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 transition-colors duration-150"
+        className="group block py-7 sm:py-8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 transition-all duration-150 hover:bg-[#FFE600]/10 px-2 sm:px-4 rounded-xl"
       >
         {/* Desktop 5-Column Grid */}
         <div className="hidden md:flex items-baseline justify-between w-full">
-          {/* Col 1: Index (~84px) */}
-          <div className="w-[84px] shrink-0 font-mono text-[12px] text-[#6F6E6A]">
-            {project.index}
+          {/* Col 1: Index Badge */}
+          <div className="w-[84px] shrink-0">
+            <span className="neo-badge px-2 py-0.5 rounded bg-white text-[#0A0A0A] border border-[#0A0A0A] shadow-[1.5px_1.5px_0px_#0A0A0A] text-[11px] font-bold">
+              {project.index}
+            </span>
           </div>
 
-          {/* Col 2: Title & Description (max-width ~440px) */}
+          {/* Col 2: Title & Description */}
           <div className="max-w-[440px] shrink-0">
             <h3
-              className={`text-[25px] font-normal leading-[1.2] tracking-[-0.01em] transition-colors duration-200 ${
+              className={`text-[25px] font-extrabold leading-[1.2] tracking-[-0.02em] transition-colors duration-200 ${
                 isHovered ? "text-accent" : "text-[#0A0A0A]"
               }`}
             >
               {project.title}
             </h3>
-            <p className="text-[13px] leading-[1.5] text-[#6B6B6B] mt-2.5 line-clamp-3">
+            <p className="text-[13px] leading-[1.6] text-[#525252] mt-2.5 line-clamp-3 font-medium">
               {project.summary}
             </p>
           </div>
 
-          {/* Col 3: Flexible Spacer (Where floating hover preview appears) */}
+          {/* Col 3: Flexible Spacer */}
           <div className="flex-1 min-w-[20px]" />
 
-          {/* Col 4: Category label (~160px from the right) */}
-          <div className="w-[160px] shrink-0 text-left text-[12px] uppercase tracking-[0.04em] text-[#6F6E6A]">
-            {project.category}
+          {/* Col 4: Category badge */}
+          <div className="w-[160px] shrink-0 text-left">
+            <span className="neo-badge px-2.5 py-0.5 rounded-full bg-[#FFE600] text-[#0A0A0A] text-[10px] tracking-wider uppercase">
+              {project.category}
+            </span>
           </div>
 
           {/* Col 5: Year & Arrow at far right edge */}
-          <div className="w-[76px] shrink-0 flex items-center justify-end gap-1.5 text-[13px] text-[#6F6E6A]">
-            <span>{project.year}</span>
-            <ArrowUpRight
-              className={`w-3 h-3 transition-all duration-200 ${
-                isHovered
-                  ? "translate-x-[3px] -translate-y-[3px] text-[#0A0A0A]"
-                  : "text-[#6F6E6A]"
-              }`}
-            />
+          <div className="w-[88px] shrink-0 flex items-center justify-end">
+            <div className="neo-badge px-2.5 py-0.5 rounded bg-white text-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A] flex items-center gap-1.5 text-xs font-bold">
+              <span>{project.year}</span>
+              <ArrowUpRight
+                className={`w-3.5 h-3.5 stroke-[2.5] transition-all duration-200 ${
+                  isHovered
+                    ? "translate-x-[2px] -translate-y-[2px] text-accent"
+                    : "text-[#0A0A0A]"
+                }`}
+              />
+            </div>
           </div>
         </div>
 
         {/* Mobile Layout (< 768px): Stacked with inline image */}
         <div className="block md:hidden">
-          <div className="flex items-center justify-between font-mono text-[11px] text-[#6F6E6A] mb-1.5">
-            <span>{project.index}</span>
-            <div className="flex items-center gap-1">
+          <div className="flex items-center justify-between font-mono text-[11px] text-[#0A0A0A] mb-2">
+            <span className="neo-badge px-2 py-0.5 rounded bg-[#FFE600] text-black">
+              {project.index}
+            </span>
+            <div className="neo-badge px-2 py-0.5 rounded bg-white text-black flex items-center gap-1">
               <span>{project.year}</span>
-              <ArrowUpRight className="w-3 h-3" />
+              <ArrowUpRight className="w-3 h-3 stroke-[2.5]" />
             </div>
           </div>
 
-          <h3 className="text-xl font-normal leading-snug tracking-tight text-[#0A0A0A] mb-2 group-hover:text-accent transition-colors duration-200">
+          <h3 className="text-xl font-bold leading-snug tracking-tight text-[#0A0A0A] mb-2 group-hover:text-accent transition-colors duration-200">
             {project.title}
           </h3>
 
-          <p className="text-xs leading-relaxed text-[#6B6B6B] mb-3">
+          <p className="text-xs leading-relaxed text-[#525252] mb-3 font-medium">
             {project.summary}
           </p>
 
           {/* Mobile Inline Image */}
           {project.image && (
-            <div className="relative w-full aspect-[16/10] overflow-hidden mb-3 border border-[#E6E3DC] bg-[#E6E3DC]">
+            <div className="relative w-full aspect-[16/10] overflow-hidden mb-3 border-2 border-[#0A0A0A] rounded-xl shadow-[4px_4px_0px_#0A0A0A] bg-white">
               <Image
                 src={project.image}
                 alt={project.title}
@@ -502,7 +505,7 @@ export function ProjectRow({
             </div>
           )}
 
-          <div className="text-[11px] uppercase tracking-wider text-[#6F6E6A]">
+          <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#525252]">
             {project.category}
           </div>
         </div>

@@ -2,17 +2,11 @@
 @import "tw-animate-css";
 
 /* ============================================================
-   EDITORIAL DESIGN SYSTEM (WARM STONE & ACCENT PALETTE)
-   - Canvas: #EDEAE3
-   - Surface: #F5F3EE
-   - Surface Elevated / Card: #FFFFFF
-   - Primary text (ink): #0A0A0A
-   - Secondary text: #6B6B6B
-   - Accent: #E5341B
-   - Accent Hover: #C92A14
-   - Accent Tint: #FDE5E0
-   - Borders & Lines: #E6E3DC
-   - Status Green: #1FB866
+   NEO-BRUTALIST DESIGN SYSTEM
+   - Bold 2px-3px dark borders (#0A0A0A)
+   - High-contrast hard drop shadows (no blur)
+   - Cyber Pop Accents: Canary Yellow (#FFE600), Mint (#00E599), Flame Red (#FF3B30)
+   - Canvas: Warm parchment with architectural grid
    ============================================================ */
 
 @theme inline {
@@ -31,28 +25,49 @@
   --color-accent-hover: var(--accent-hover);
   --color-accent-tint: var(--accent-tint);
   --color-ink: var(--ink);
+
+  /* Neo-Brutalist Palette */
+  --color-neo-yellow: var(--neo-yellow);
+  --color-neo-yellow-light: var(--neo-yellow-light);
+  --color-neo-red: var(--neo-red);
+  --color-neo-mint: var(--neo-mint);
+  --color-neo-blue: var(--neo-blue);
+  --color-neo-purple: var(--neo-purple);
+  --color-neo-black: var(--neo-black);
+  --color-neo-border: var(--neo-border);
 }
 
 :root {
-  --canvas: #EDEAE3;
-  --surface: #F5F3EE;
+  --canvas: #F6F4EE;
+  --surface: #FFFFFF;
   --surface-card: #FFFFFF;
-  --surface-muted: #E6E3DC;
+  --surface-muted: #EAE7DC;
   --text-primary: #0A0A0A;
-  --text-secondary: #6B6B6B;
-  --text-muted: #6B6B6B;
-  --border-line: #E6E3DC;
-  --nav-bg: rgba(237, 234, 227, 0.9);
+  --text-secondary: #525252;
+  --text-muted: #525252;
+  --border-line: #0A0A0A;
+  --nav-bg: rgba(246, 244, 238, 0.95);
   
-  /* Primary Accent Palette */
+  /* Primary Accents */
   --accent: #E5341B;
   --accent-hover: #C92A14;
-  --accent-tint: #FDE5E0;
+  --accent-tint: #FFE600;
   --ink: #0A0A0A;
 
-  --btn-solid-bg: #0A0A0A;
-  --btn-solid-text: #FFFFFF;
-  --status-green: #1FB866;
+  /* Neo-Brutalist Colors */
+  --neo-yellow: #FFE600;
+  --neo-yellow-light: #FFF58A;
+  --neo-red: #FF3B30;
+  --neo-mint: #00E599;
+  --neo-blue: #3B82F6;
+  --neo-purple: #A78BFA;
+  --neo-black: #0A0A0A;
+  --neo-white: #FFFFFF;
+  --neo-border: #0A0A0A;
+
+  --btn-solid-bg: #FFE600;
+  --btn-solid-text: #0A0A0A;
+  --status-green: #00E599;
 
   color-scheme: light;
 }
@@ -76,61 +91,88 @@
     line-height: 1.6;
     max-width: 100%;
     overflow-x: clip;
+    background-image: 
+      linear-gradient(to right, rgba(10, 10, 10, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(10, 10, 10, 0.04) 1px, transparent 1px);
+    background-size: 36px 36px;
   }
 
   ::selection {
-    background: rgba(229, 52, 27, 0.2);
-    color: inherit;
+    background: #FFE600;
+    color: #0A0A0A;
   }
 
   :focus-visible {
-    outline: 1.5px solid var(--accent);
+    outline: 2.5px solid #0A0A0A;
     outline-offset: 3px;
   }
 }
 
 @layer utilities {
-  /* Editorial Large Typography */
-  .hero-headline {
-    font-family: var(--font-sans), sans-serif;
-    font-size: clamp(2.5rem, 4.4vw, 4.65rem);
-    font-weight: 500;
-    letter-spacing: -0.035em;
-    line-height: 1.06;
+  /* Neo-Brutalist Tactile Containers & Cards */
+  .neo-box {
+    border: 2px solid var(--neo-black);
+    box-shadow: 4px 4px 0px var(--neo-black);
+    background-color: var(--neo-white);
+    transition: transform 140ms cubic-bezier(0.2, 0, 0, 1), box-shadow 140ms cubic-bezier(0.2, 0, 0, 1);
+  }
+  .neo-box:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px var(--neo-black);
+  }
+  .neo-box:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--neo-black);
   }
 
-  .section-title {
-    font-family: var(--font-sans), sans-serif;
-    font-size: clamp(2rem, 4.5vw, 4rem);
-    font-weight: 500;
-    letter-spacing: -0.035em;
-    line-height: 1.05;
+  .neo-box-lg {
+    border: 2.5px solid var(--neo-black);
+    box-shadow: 6px 6px 0px var(--neo-black);
+    background-color: var(--neo-white);
+    transition: transform 140ms cubic-bezier(0.2, 0, 0, 1), box-shadow 140ms cubic-bezier(0.2, 0, 0, 1);
+  }
+  .neo-box-lg:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0px var(--neo-black);
   }
 
-  .subtext-editorial {
-    font-size: clamp(1.1rem, 1.6vw, 1.35rem);
-    font-weight: 400;
-    line-height: 1.6;
-    color: var(--text-muted);
+  /* Neo-Brutalist Interactive Buttons */
+  .neo-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--neo-black);
+    box-shadow: 3.5px 3.5px 0px var(--neo-black);
+    font-weight: 700;
+    transition: transform 120ms cubic-bezier(0.2, 0, 0, 1), box-shadow 120ms cubic-bezier(0.2, 0, 0, 1), background-color 150ms ease;
+  }
+  .neo-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5.5px 5.5px 0px var(--neo-black);
+  }
+  .neo-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px var(--neo-black);
   }
 
-  /* Editorial Solid CTA Button */
-  .btn-editorial-solid {
-    background-color: var(--btn-solid-bg);
-    color: var(--btn-solid-text);
-    border-radius: 9999px;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    transition: transform 140ms ease, opacity 140ms ease, background-color 140ms ease;
-  }
-  .btn-editorial-solid:hover {
-    opacity: 0.92;
-    transform: translateY(-1px);
+  /* Neo-Brutalist Badges & Stamps */
+  .neo-badge {
+    display: inline-flex;
+    align-items: center;
+    border: 1.5px solid var(--neo-black);
+    box-shadow: 2px 2px 0px var(--neo-black);
+    font-family: var(--font-mono), monospace;
+    font-weight: 700;
   }
 
-  /* Thin Divider Lines */
-  .divider-line {
-    border-color: var(--border-line);
+  .neo-stamp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--neo-black);
+    box-shadow: 3px 3px 0px var(--neo-black);
+    font-family: var(--font-mono), monospace;
+    font-weight: 800;
   }
 
   /* Marquee Keyframes & Utilities */
@@ -164,16 +206,17 @@
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--canvas);
+  border-left: 2px solid var(--neo-black);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border-line);
+  background: var(--neo-black);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
+  background: var(--neo-yellow);
 }
 
 nextjs-portal,

@@ -74,27 +74,26 @@ export function CustomCursor() {
         transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
       }}
     >
-      {/* 1. If in DRAG mode: Expanding circular "← DRAG →" pill badge */}
+      {/* 1. If in DRAG mode: Neo-brutalist yellow disc */}
       {isDrag ? (
-        <div className="relative -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-14 h-14 rounded-full bg-[#0A0A0A] text-white border border-[#E6E3DC]/30 shadow-lg">
-          <span className="text-[10px] font-mono tracking-widest font-semibold uppercase text-accent-tint">
+        <div className="relative -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-14 h-14 rounded-full bg-[#FFE600] text-[#0A0A0A] border-2 border-[#0A0A0A] shadow-[3px_3px_0px_#0A0A0A]">
+          <span className="text-[10px] font-mono tracking-widest font-extrabold uppercase text-[#0A0A0A]">
             DRAG
           </span>
         </div>
       ) : isPointer ? (
-        /* 2. If hovering clickable element: Focused Accent Ring */
+        /* 2. If hovering clickable element: Precision Neo-Brutalist Focus Ring */
         <div className="relative -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-          <div className="w-8 h-8 rounded-full border border-accent/70 bg-accent/10 transition-all duration-150 scale-110" />
-          <div className="absolute w-1.5 h-1.5 rounded-full bg-accent" />
+          <div className="w-8 h-8 rounded-full border-2 border-[#0A0A0A] bg-[#FFE600]/30 shadow-[2px_2px_0px_#0A0A0A] transition-all duration-150 scale-110" />
+          <div className="absolute w-2 h-2 rounded-full bg-accent border border-black" />
         </div>
       ) : (
-        /* 3. Normal State: Clean Radar Reticle */
+        /* 3. Normal State: Precision Crosshair Reticle */
         <div className="relative -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-          <div className="w-5 h-5 rounded-full border border-[#0A0A0A]/25 dark:border-white/25" />
-          <div className="absolute w-1 h-1 rounded-full bg-accent" />
+          <div className="w-5 h-5 rounded-full border-1.5 border-[#0A0A0A]" />
+          <div className="absolute w-1.5 h-1.5 rounded-full bg-accent border border-black" />
         </div>
       )}
     </div>
   );
 }
-
