@@ -22,21 +22,21 @@ export function About() {
           className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-10 sm:mb-12 pb-6 border-b-2 border-[#0A0A0A]"
         >
           <div className="flex items-baseline gap-4">
-            <span className="neo-stamp px-2.5 py-0.5 rounded-md bg-[#FFE600] text-xs sm:text-sm text-[#0A0A0A] tracking-wider uppercase font-extrabold">
+            <span className="font-mono text-xs sm:text-sm text-accent tracking-widest uppercase font-semibold">
               01
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#0A0A0A]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-[#0A0A0A]">
               About
             </h2>
           </div>
-          <span className="text-xs font-mono uppercase tracking-widest text-[#525252] font-semibold mt-2 sm:mt-0">
+          <span className="text-xs font-mono uppercase tracking-widest text-[#666666] mt-2 sm:mt-0">
             Background, Story & Engineering Values
           </span>
         </motion.div>
 
         {/* Main Content Grid: Left Narrative + Right Photo Centered */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Editorial Narrative & Principles */}
+          {/* Left Column */}
           <motion.div
             initial={{ opacity: 0, y: 36 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -46,17 +46,17 @@ export function About() {
           >
             <div>
               {/* Eyebrow */}
-              <span className="inline-block px-2.5 py-1 rounded bg-[#0A0A0A] text-[#FFE600] text-xs font-mono uppercase tracking-wider mb-3 font-bold">
+              <span className="text-xs font-mono uppercase tracking-widest text-accent block mb-3 font-semibold">
                 Engineering Philosophy
               </span>
 
               {/* Large Headline */}
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#0A0A0A] leading-tight mb-8">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-normal tracking-tight text-[#0A0A0A] leading-tight mb-8">
                 Building systems where applied AI meets production reliability and verifiable data provenance.
               </h3>
 
               {/* Story Paragraphs */}
-              <div className="space-y-5 text-base sm:text-lg text-[#404040] leading-relaxed font-normal mb-10">
+              <div className="space-y-5 text-base sm:text-lg text-[#666666] leading-relaxed font-normal mb-10">
                 <p>
                   I&apos;m an Applied AI and Full-Stack Engineer who believes the most impactful software happens when you refuse to treat models as magic black boxes. Rather than wrapping raw LLM endpoints in thin veneers, I build the vector retrieval pipelines, context grounding layers, and strict database invariants that make AI trustworthy.
                 </p>
@@ -68,24 +68,24 @@ export function About() {
                 </p>
               </div>
 
-              {/* Education Credential Card */}
-              <div className="p-5 sm:p-6 rounded-xl border-2 border-[#0A0A0A] bg-white flex items-start gap-4 mb-8 shadow-[4px_4px_0px_#0A0A0A] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[6px_6px_0px_#0A0A0A] transition-all">
-                <div className="w-12 h-12 rounded-lg bg-[#FFE600] border-2 border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A] flex items-center justify-center text-[#0A0A0A] shrink-0 mt-0.5">
-                  <GraduationCap className="w-6 h-6 stroke-[2.5]" />
+              {/* Education Credential Card: Clean Outer Border with Shadow */}
+              <div className="p-5 sm:p-6 rounded-2xl border-2 border-[#0A0A0A] bg-white flex items-start gap-4 mb-8 shadow-[4px_4px_0px_#0A0A0A]">
+                <div className="w-10 h-10 rounded-xl bg-[#F5F3EE] border border-[#0A0A0A] flex items-center justify-center text-accent shrink-0 mt-0.5">
+                  <GraduationCap className="w-5 h-5" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
-                    <span className="font-mono text-xs uppercase tracking-wider text-[#0A0A0A] font-extrabold bg-[#00E599]/30 px-2 py-0.5 rounded border border-[#0A0A0A]">
+                    <span className="font-mono text-xs uppercase tracking-wider text-accent font-semibold">
                       Education
                     </span>
-                    <span className="font-mono text-xs font-bold text-[#525252]">
+                    <span className="font-mono text-xs text-[#666666]">
                       2022 – 2026
                     </span>
                   </div>
-                  <h4 className="text-base sm:text-lg font-bold text-[#0A0A0A] mb-1">
+                  <h4 className="text-base sm:text-lg font-medium text-[#0A0A0A] mb-1">
                     B.Tech in Computer Science & Business Systems
                   </h4>
-                  <p className="text-xs sm:text-sm text-[#525252] leading-relaxed font-medium">
+                  <p className="text-xs sm:text-sm text-[#666666] leading-relaxed">
                     Specializing in Applied AI systems, full-stack product engineering, and secure data architectures.
                   </p>
                 </div>
@@ -93,30 +93,30 @@ export function About() {
             </div>
 
             {/* External Links */}
-            <div className="flex flex-wrap items-center gap-4 pt-6 border-t-2 border-[#0A0A0A]">
+            <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-[#0A0A0A]">
               <a
                 href={IDENTITY.github}
                 target="_blank"
                 rel="noreferrer"
-                className="neo-btn px-5 py-2.5 rounded-xl bg-white text-[#0A0A0A] text-sm font-bold gap-2 hover:bg-[#FFE600]"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border-2 border-[#0A0A0A] bg-white text-[#0A0A0A] text-sm font-medium shadow-[3px_3px_0px_#0A0A0A] hover:bg-[#FFE600] transition-all"
               >
                 <span>GitHub Profile</span>
-                <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
 
               <a
                 href={IDENTITY.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="neo-btn px-5 py-2.5 rounded-xl bg-white text-[#0A0A0A] text-sm font-bold gap-2 hover:bg-[#FFE600]"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border-2 border-[#0A0A0A] bg-white text-[#0A0A0A] text-sm font-medium shadow-[3px_3px_0px_#0A0A0A] hover:bg-[#FFE600] transition-all"
               >
                 <span>LinkedIn</span>
-                <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
           </motion.div>
 
-          {/* Right Column: Portrait Photograph */}
+          {/* Right Column: Portrait Photograph with Outer Frame & Hard Shadow */}
           <motion.div
             initial={{ opacity: 0, y: 36, scale: 0.98 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -124,14 +124,14 @@ export function About() {
             transition={{ duration: 0.75, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 flex items-center justify-center w-full"
           >
-            <div className="relative group w-full max-w-[420px] rounded-2xl border-2 border-[#0A0A0A] bg-white p-3.5 shadow-[7px_7px_0px_#0A0A0A] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[10px_10px_0px_#0A0A0A] transition-all duration-200">
-              <div className="relative w-full aspect-square overflow-hidden rounded-xl border-2 border-[#0A0A0A] bg-[#F6F4EE]">
+            <div className="relative group w-full max-w-[420px] rounded-2xl border-2 border-[#0A0A0A] bg-white p-3 shadow-[6px_6px_0px_#0A0A0A] transition-all duration-200">
+              <div className="relative w-full aspect-square overflow-hidden rounded-xl bg-[#F5F3EE]">
                 <Image
                   src="/images/jaiyanth-about.jpg"
                   alt="Jaiyanth B — Applied AI & Full-Stack Engineer"
                   fill
                   priority
-                  className="object-cover object-center filter grayscale contrast-110 transition-all duration-700 group-hover:scale-[1.02]"
+                  className="object-cover object-center filter grayscale transition-all duration-700 group-hover:scale-[1.02]"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 420px"
                 />
               </div>

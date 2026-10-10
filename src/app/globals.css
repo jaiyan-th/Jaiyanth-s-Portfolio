@@ -2,11 +2,11 @@
 @import "tw-animate-css";
 
 /* ============================================================
-   NEO-BRUTALIST DESIGN SYSTEM
-   - Bold 2px-3px dark borders (#0A0A0A)
-   - High-contrast hard drop shadows (no blur)
-   - Cyber Pop Accents: Canary Yellow (#FFE600), Mint (#00E599), Flame Red (#FF3B30)
-   - Canvas: Warm parchment with architectural grid
+   CLEAN NEO-BRUTALIST DESIGN SYSTEM (OUTER FRAMES ONLY)
+   - Bold 2px dark outer borders (#0A0A0A)
+   - Solid hard drop shadows (no blur) on main outer cards & buttons
+   - Clean, breathable, minimal interiors (no micro-boxes or tag clutter)
+   - Canvas: Warm natural parchment
    ============================================================ */
 
 @theme inline {
@@ -25,49 +25,26 @@
   --color-accent-hover: var(--accent-hover);
   --color-accent-tint: var(--accent-tint);
   --color-ink: var(--ink);
-
-  /* Neo-Brutalist Palette */
-  --color-neo-yellow: var(--neo-yellow);
-  --color-neo-yellow-light: var(--neo-yellow-light);
-  --color-neo-red: var(--neo-red);
-  --color-neo-mint: var(--neo-mint);
-  --color-neo-blue: var(--neo-blue);
-  --color-neo-purple: var(--neo-purple);
-  --color-neo-black: var(--neo-black);
-  --color-neo-border: var(--neo-border);
 }
 
 :root {
-  --canvas: #F6F4EE;
+  --canvas: #F5F3EE;
   --surface: #FFFFFF;
   --surface-card: #FFFFFF;
-  --surface-muted: #EAE7DC;
+  --surface-muted: #E8E5DD;
   --text-primary: #0A0A0A;
-  --text-secondary: #525252;
-  --text-muted: #525252;
-  --border-line: #0A0A0A;
-  --nav-bg: rgba(246, 244, 238, 0.95);
+  --text-secondary: #666666;
+  --text-muted: #666666;
+  --border-line: #E2DFD7;
   
-  /* Primary Accents */
   --accent: #E5341B;
   --accent-hover: #C92A14;
-  --accent-tint: #FFE600;
+  --accent-tint: #FDE5E0;
   --ink: #0A0A0A;
 
-  /* Neo-Brutalist Colors */
   --neo-yellow: #FFE600;
-  --neo-yellow-light: #FFF58A;
-  --neo-red: #FF3B30;
-  --neo-mint: #00E599;
-  --neo-blue: #3B82F6;
-  --neo-purple: #A78BFA;
   --neo-black: #0A0A0A;
   --neo-white: #FFFFFF;
-  --neo-border: #0A0A0A;
-
-  --btn-solid-bg: #FFE600;
-  --btn-solid-text: #0A0A0A;
-  --status-green: #00E599;
 
   color-scheme: light;
 }
@@ -91,10 +68,6 @@
     line-height: 1.6;
     max-width: 100%;
     overflow-x: clip;
-    background-image: 
-      linear-gradient(to right, rgba(10, 10, 10, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(10, 10, 10, 0.04) 1px, transparent 1px);
-    background-size: 36px 36px;
   }
 
   ::selection {
@@ -103,79 +76,44 @@
   }
 
   :focus-visible {
-    outline: 2.5px solid #0A0A0A;
+    outline: 2px solid #0A0A0A;
     outline-offset: 3px;
   }
 }
 
 @layer utilities {
-  /* Neo-Brutalist Tactile Containers & Cards */
-  .neo-box {
-    border: 2px solid var(--neo-black);
-    box-shadow: 4px 4px 0px var(--neo-black);
-    background-color: var(--neo-white);
-    transition: transform 140ms cubic-bezier(0.2, 0, 0, 1), box-shadow 140ms cubic-bezier(0.2, 0, 0, 1);
+  /* Neo-Brutalist Outer Frame */
+  .neo-outer-card {
+    border: 2px solid #0A0A0A;
+    box-shadow: 6px 6px 0px #0A0A0A;
+    background-color: #FFFFFF;
+    transition: transform 160ms cubic-bezier(0.2, 0, 0, 1), box-shadow 160ms cubic-bezier(0.2, 0, 0, 1);
   }
-  .neo-box:hover {
+  .neo-outer-card:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0px var(--neo-black);
-  }
-  .neo-box:active {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px var(--neo-black);
+    box-shadow: 8px 8px 0px #0A0A0A;
   }
 
-  .neo-box-lg {
-    border: 2.5px solid var(--neo-black);
-    box-shadow: 6px 6px 0px var(--neo-black);
-    background-color: var(--neo-white);
-    transition: transform 140ms cubic-bezier(0.2, 0, 0, 1), box-shadow 140ms cubic-bezier(0.2, 0, 0, 1);
-  }
-  .neo-box-lg:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 9px 9px 0px var(--neo-black);
-  }
-
-  /* Neo-Brutalist Interactive Buttons */
+  /* Neo-Brutalist Buttons */
   .neo-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--neo-black);
-    box-shadow: 3.5px 3.5px 0px var(--neo-black);
-    font-weight: 700;
-    transition: transform 120ms cubic-bezier(0.2, 0, 0, 1), box-shadow 120ms cubic-bezier(0.2, 0, 0, 1), background-color 150ms ease;
+    border: 2px solid #0A0A0A;
+    box-shadow: 3.5px 3.5px 0px #0A0A0A;
+    font-weight: 600;
+    transition: transform 120ms ease, box-shadow 120ms ease, background-color 150ms ease;
   }
   .neo-btn:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 5.5px 5.5px 0px var(--neo-black);
+    transform: translate(-1.5px, -1.5px);
+    box-shadow: 5px 5px 0px #0A0A0A;
   }
   .neo-btn:active {
     transform: translate(2px, 2px);
-    box-shadow: 1px 1px 0px var(--neo-black);
+    box-shadow: 1px 1px 0px #0A0A0A;
   }
 
-  /* Neo-Brutalist Badges & Stamps */
-  .neo-badge {
-    display: inline-flex;
-    align-items: center;
-    border: 1.5px solid var(--neo-black);
-    box-shadow: 2px 2px 0px var(--neo-black);
-    font-family: var(--font-mono), monospace;
-    font-weight: 700;
-  }
-
-  .neo-stamp {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid var(--neo-black);
-    box-shadow: 3px 3px 0px var(--neo-black);
-    font-family: var(--font-mono), monospace;
-    font-weight: 800;
-  }
-
-  /* Marquee Keyframes & Utilities */
+  /* Marquee Keyframes */
   @keyframes marquee {
     0% {
       transform: translateX(0%);
@@ -191,32 +129,21 @@
     animation: marquee 36s linear infinite;
   }
 
-  .animate-marquee-fast {
-    display: flex;
-    width: max-content;
-    animation: marquee 24s linear infinite;
-  }
-
   @media (prefers-reduced-motion: reduce) {
-    .animate-marquee,
-    .animate-marquee-fast {
+    .animate-marquee {
       animation: none !important;
     }
   }
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: var(--canvas);
-  border-left: 2px solid var(--neo-black);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--neo-black);
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--neo-yellow);
+  background: #0A0A0A;
 }
 
 nextjs-portal,

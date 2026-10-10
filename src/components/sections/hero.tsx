@@ -92,14 +92,14 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* Left Column (~58%) */}
           <div className="lg:col-span-7 flex flex-col items-start">
-            {/* 1. Two Neo-Brutalist Sticker Badges */}
-            <div className="flex flex-wrap items-center gap-3 mb-8">
+            {/* 1. Clean Badges */}
+            <div className="flex flex-wrap items-center gap-2.5 mb-8">
               <motion.div
                 custom={0}
                 variants={badgeVariants}
                 initial="hidden"
                 animate="visible"
-                className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-md text-xs font-mono font-bold border-2 border-[#0A0A0A] bg-[#FFFFFF] text-[#0A0A0A] shadow-[2.5px_2.5px_0px_#0A0A0A] -rotate-1 hover:rotate-0 transition-transform"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium border border-[#0A0A0A] bg-white text-[#0A0A0A]"
               >
                 <span>PORTFOLIO &apos;26</span>
               </motion.div>
@@ -109,27 +109,27 @@ export function Hero() {
                 variants={badgeVariants}
                 initial="hidden"
                 animate="visible"
-                className="inline-flex items-center gap-2 px-3.5 py-1 rounded-md text-xs font-mono font-bold border-2 border-[#0A0A0A] bg-[#00E599] text-[#0A0A0A] shadow-[2.5px_2.5px_0px_#0A0A0A] rotate-1 hover:rotate-0 transition-transform"
+                className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-medium border border-[#0A0A0A] bg-white text-[#0A0A0A]"
               >
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0A0A0A] opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0A0A0A]" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1FB866] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1FB866]" />
                 </span>
                 <span>Open to work</span>
               </motion.div>
             </div>
 
-            {/* 2. H1: 3 lines with Neo-Brutalist AI Stamp */}
+            {/* 2. H1: Clean, powerful typography */}
             <h1
               style={{
                 transform: `translate3d(${h1TranslateX}px, 0, 0)`,
               }}
-              className="mb-7 tracking-[-0.035em] font-extrabold text-[#0A0A0A] transition-transform duration-75 ease-out select-none"
+              className="mb-7 tracking-[-0.03em] font-normal text-[#0A0A0A] transition-transform duration-75 ease-out select-none"
             >
               {headlineLines.map((line, idx) => (
                 <div
                   key={idx}
-                  className="overflow-hidden leading-[1.1] text-[clamp(34px,5.4vw,70px)] sm:text-[clamp(46px,5.4vw,70px)]"
+                  className="overflow-hidden leading-[1.08] text-[clamp(32px,5.2vw,68px)] sm:text-[clamp(44px,5.2vw,68px)]"
                 >
                   <motion.div
                     custom={idx}
@@ -140,9 +140,7 @@ export function Hero() {
                   >
                     <span>{line.text}</span>
                     {line.hasAI && (
-                      <span className="inline-block px-2.5 py-0.5 mx-1.5 bg-[#FFE600] border-2 border-[#0A0A0A] shadow-[3px_3px_0px_#0A0A0A] font-extrabold text-[#0A0A0A] rounded-lg -rotate-2 hover:rotate-0 transition-transform">
-                        AI
-                      </span>
+                      <span className="text-accent font-medium">AI</span>
                     )}
                     {line.endText && <span>{line.endText}</span>}
                   </motion.div>
@@ -150,41 +148,42 @@ export function Hero() {
               ))}
             </h1>
 
-            {/* 3. Paragraph: Crisp, clear text */}
+            {/* 3. Paragraph */}
             <motion.p
               custom={0.55}
               variants={fadeUpVariants}
               initial="hidden"
               animate="visible"
-              className="text-[#525252] text-[20px] leading-[1.65] max-w-[560px] mb-10 font-medium"
+              className="text-[#666666] text-[20px] leading-[1.65] max-w-[560px] mb-10 font-normal"
             >
               I’m an engineer who makes complex things feel obvious.
             </motion.p>
 
-            {/* 4. Neo-Brutalist Action Buttons */}
+            {/* 4. Action Buttons */}
             <motion.div
               custom={0.68}
               variants={fadeUpVariants}
               initial="hidden"
               animate="visible"
-              className="flex flex-wrap items-center gap-4 sm:gap-5"
+              className="flex flex-wrap items-center gap-5 sm:gap-6"
             >
-              {/* Primary Neo-Brutalist Button */}
+              {/* Primary Outer Neo-Brutalist Button */}
               <a
                 href="#work"
-                className="neo-btn h-[52px] px-[28px] rounded-xl bg-[#FFE600] text-[#0A0A0A] text-[15px] font-bold gap-2.5 hover:bg-[#FFF58A]"
+                className="neo-btn h-[52px] px-8 rounded-full bg-[#0A0A0A] text-white text-[15px] font-medium gap-2.5 hover:bg-accent hover:border-accent"
               >
                 <span>Explore Work</span>
-                <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+                <ArrowRight className="w-4 h-4" />
               </a>
 
-              {/* Secondary Neo-Brutalist Button */}
+              {/* Secondary Clean Text Link */}
               <a
                 href="#contact"
-                className="neo-btn h-[52px] px-[24px] rounded-xl bg-white text-[#0A0A0A] text-[15px] font-bold gap-2 hover:bg-[#FFE600]"
+                className="group relative inline-flex items-center gap-1.5 py-3 text-[15px] font-medium text-[#0A0A0A] hover:text-accent transition-colors duration-200"
               >
                 <span>Get in touch</span>
-                <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <span className="absolute bottom-1.5 left-0 w-0 h-[2px] bg-[#0A0A0A] transition-all duration-300 group-hover:w-full" />
               </a>
             </motion.div>
           </div>
@@ -201,33 +200,33 @@ export function Hero() {
           variants={fadeUpVariants}
           initial="hidden"
           animate="visible"
-          className="mt-14 sm:mt-16 pt-5 border-t-2 border-[#0A0A0A] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] font-mono text-[#525252]"
+          className="mt-14 sm:mt-16 pt-5 border-t-2 border-[#0A0A0A] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] font-mono text-[#666666]"
         >
           <div className="flex items-center gap-2 sm:gap-3">
-            <span className="neo-badge px-2 py-0.5 bg-white border border-[#0A0A0A] shadow-[1.5px_1.5px_0px_#0A0A0A] uppercase tracking-wider text-[#0A0A0A]">
+            <span className="font-semibold uppercase tracking-wider text-[#0A0A0A]">
               FIG. 01 · LIVE SIGNAL FIELD
             </span>
-            <span className="hidden sm:inline font-bold text-[#0A0A0A]">/</span>
-            <span className="hidden md:inline text-[#525252] font-medium">
+            <span className="hidden sm:inline text-[#0A0A0A]">|</span>
+            <span className="hidden md:inline text-[#666666]">
               MOVE YOUR CURSOR. THAT&apos;S A SIGNAL.
             </span>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 text-[#0A0A0A]">
-            <span className="neo-badge px-2 py-0.5 bg-white border border-black shadow-[1.5px_1.5px_0px_#0A0A0A]">
-              X: <strong className="font-mono text-accent ml-1">{pointerStats.x.toFixed(3)}</strong>
+          <div className="flex items-center gap-3 sm:gap-4 text-[#0A0A0A]">
+            <span>
+              X: <strong className="font-mono text-accent">{pointerStats.x.toFixed(3)}</strong>
             </span>
-            <span className="neo-badge px-2 py-0.5 bg-white border border-black shadow-[1.5px_1.5px_0px_#0A0A0A]">
-              Y: <strong className="font-mono text-accent ml-1">{pointerStats.y.toFixed(3)}</strong>
+            <span>
+              Y: <strong className="font-mono text-accent">{pointerStats.y.toFixed(3)}</strong>
             </span>
-            <span className="neo-badge px-2 py-0.5 bg-white border border-black shadow-[1.5px_1.5px_0px_#0A0A0A]">
+            <span className="text-[#666666]">
               EVENTS:{" "}
-              <strong className="font-mono text-[#0A0A0A] ml-1">
+              <strong className="font-mono text-[#0A0A0A]">
                 {String(pointerStats.events).padStart(6, "0")}
               </strong>
             </span>
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded border border-[#0A0A0A] bg-[#00E599]/30 text-[10px] uppercase tracking-wider text-[#0A0A0A] font-bold shadow-[1.5px_1.5px_0px_#0A0A0A]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0A0A0A] animate-pulse" />
+            <span className="hidden sm:inline-flex items-center gap-1.5 pl-2.5 border-l border-[#0A0A0A] text-[10px] uppercase tracking-wider text-accent font-semibold">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
               PROCESSED LOCALLY
             </span>
           </div>

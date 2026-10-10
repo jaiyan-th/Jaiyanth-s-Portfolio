@@ -15,13 +15,11 @@ export function FloatingNav() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 30);
 
-      // Top of page safeguard
       if (window.scrollY < 80) {
         setActive("#hero");
         return;
       }
 
-      // Precise viewport detection for active nav tab
       const sectionIds = ["research", "experience", "work", "about", "hero"];
       const targetPoint = 200;
 
@@ -65,30 +63,30 @@ export function FloatingNav() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? "bg-[#F6F4EE]/95 backdrop-blur-md border-b-2 border-[#0A0A0A] py-3 shadow-[0_4px_0px_rgba(10,10,10,0.06)]"
+          ? "bg-[#F5F3EE]/95 backdrop-blur-md border-b-2 border-[#0A0A0A] py-3.5"
           : "bg-transparent border-b border-transparent py-4 sm:py-5"
       }`}
     >
       <div className="w-full max-w-[1100px] mx-auto px-6 sm:px-8 xl:px-0 flex items-center justify-between">
-        {/* Left: Neo-Brutalist Brand Badge */}
+        {/* Left: Clean Brand Name with Accent Dot */}
         <a
           href="#hero"
           onClick={(e) => handleNavClick(e, "#hero")}
-          className="group inline-flex items-center gap-2.5 px-3 py-1.5 rounded-lg border-2 border-[#0A0A0A] bg-white shadow-[2.5px_2.5px_0px_#0A0A0A] hover:bg-[#FFE600] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3.5px_3.5px_0px_#0A0A0A] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#0A0A0A] transition-all duration-150"
+          className="group flex items-center gap-2.5 font-medium text-[16px] tracking-tight text-[#0A0A0A] transition-colors"
         >
-          <span className="w-2.5 h-2.5 rounded-sm bg-accent inline-block border border-[#0A0A0A]" />
-          <span className="font-mono font-bold text-sm tracking-tight text-[#0A0A0A]">
+          <span className="w-2.5 h-2.5 rounded-full bg-accent inline-block transition-transform duration-200 group-hover:scale-125" />
+          <span className="hover:text-accent transition-colors font-semibold">
             {IDENTITY.name}
           </span>
         </a>
 
-        {/* Right: Neo-Brutalist Floating Pill Nav */}
+        {/* Right: Clean Floating Nav Pill with Bold Outer Shadow */}
         <motion.nav
           initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           aria-label="Main Navigation"
-          className="hidden md:flex items-center gap-2 bg-[#FFFFFF] px-4 py-1.5 rounded-full border-2 border-[#0A0A0A] shadow-[4px_4px_0px_#0A0A0A]"
+          className="hidden md:flex items-center gap-6 bg-[#FFFFFF] px-6 py-2.5 rounded-full border-2 border-[#0A0A0A] shadow-[4px_4px_0px_#0A0A0A]"
         >
           {NAV_LINKS.map((item) => {
             const isActive = active === item.href;
@@ -97,13 +95,16 @@ export function FloatingNav() {
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={`text-[12px] font-mono tracking-wider uppercase px-3 py-1 rounded-full transition-all duration-150 font-bold ${
+                className={`text-[13px] font-mono tracking-wider uppercase transition-colors relative py-0.5 ${
                   isActive
-                    ? "bg-[#FFE600] text-[#0A0A0A] border border-[#0A0A0A] shadow-[1.5px_1.5px_0px_#0A0A0A]"
-                    : "text-[#525252] hover:text-[#0A0A0A] hover:bg-[#F6F4EE]"
+                    ? "text-[#0A0A0A] font-bold"
+                    : "text-[#666666] hover:text-[#0A0A0A] font-medium"
                 }`}
               >
                 {item.label}
+                {isActive && (
+                  <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-accent" />
+                )}
               </a>
             );
           })}
@@ -115,7 +116,7 @@ export function FloatingNav() {
             type="button"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
-            className="p-2 border-2 border-[#0A0A0A] bg-[#FFE600] rounded-lg text-[#0A0A0A] shadow-[2.5px_2.5px_0px_#0A0A0A] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#0A0A0A] transition-all"
+            className="p-2 border-2 border-[#0A0A0A] bg-white rounded-lg text-[#0A0A0A] shadow-[2.5px_2.5px_0px_#0A0A0A] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all"
           >
             {isOpen ? <X className="w-5 h-5 stroke-[2.5]" /> : <Menu className="w-5 h-5 stroke-[2.5]" />}
           </button>
@@ -130,9 +131,9 @@ export function FloatingNav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-b-2 border-[#0A0A0A] bg-[#F6F4EE] px-6 py-5 shadow-[0_8px_0px_rgba(10,10,10,0.1)] mt-2"
+            className="md:hidden border-b-2 border-[#0A0A0A] bg-[#F5F3EE] px-6 py-5 shadow-lg mt-2"
           >
-            <div className="flex flex-col space-y-2.5">
+            <div className="flex flex-col space-y-3">
               {NAV_LINKS.map((item) => {
                 const isActive = active === item.href;
                 return (
@@ -140,15 +141,15 @@ export function FloatingNav() {
                     key={item.href}
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className={`text-[14px] font-mono py-2 px-3 rounded-lg border-2 border-[#0A0A0A] transition-all flex items-center justify-between uppercase font-bold tracking-wider ${
+                    className={`text-[14px] font-mono py-1.5 transition-colors flex items-center justify-between uppercase tracking-wider ${
                       isActive
-                        ? "bg-[#FFE600] text-[#0A0A0A] shadow-[3px_3px_0px_#0A0A0A]"
-                        : "bg-white text-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A] hover:bg-[#FFE600]"
+                        ? "text-accent font-bold"
+                        : "text-[#666666] hover:text-[#0A0A0A] font-medium"
                     }`}
                   >
                     <span>{item.label}</span>
                     {isActive && (
-                      <span className="w-2 h-2 rounded-full bg-accent border border-black" />
+                      <span className="w-2 h-2 rounded-full bg-accent" />
                     )}
                   </a>
                 );

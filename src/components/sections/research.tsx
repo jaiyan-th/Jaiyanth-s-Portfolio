@@ -61,34 +61,34 @@ export function Research() {
           className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-10 pb-5 border-b-2 border-[#0A0A0A]"
         >
           <div className="flex items-baseline gap-4">
-            <span className="neo-stamp px-2.5 py-0.5 rounded-md bg-[#FFE600] text-xs sm:text-sm text-[#0A0A0A] tracking-wider uppercase font-extrabold">
+            <span className="font-mono text-xs sm:text-sm text-accent tracking-widest uppercase font-semibold">
               04
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0A0A0A]">
+            <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-[#0A0A0A]">
               Research & Publication
             </h2>
           </div>
-          <span className="text-xs font-mono uppercase tracking-widest text-[#525252] font-semibold mt-2 sm:mt-0">
+          <span className="text-xs font-mono uppercase tracking-widest text-[#666666] mt-2 sm:mt-0">
             IEEE ICETSIS 2026 · Peer-Reviewed Conference
           </span>
         </motion.div>
 
-        {/* Focused Paper Showcase Card */}
+        {/* Clean Unified Outer Card: Bold Border + Hard Shadow */}
         <motion.div
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="rounded-2xl border-2 border-[#0A0A0A] bg-white p-7 sm:p-10 shadow-[6px_6px_0px_#0A0A0A] hover:shadow-[8px_8px_0px_#0A0A0A] transition-all duration-200"
+          className="rounded-2xl border-2 border-[#0A0A0A] bg-white p-7 sm:p-10 shadow-[6px_6px_0px_#0A0A0A] transition-all duration-300"
         >
           {/* Top Meta Bar */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b-2 border-[#0A0A0A]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-[#E6E3DC]">
             <div className="flex flex-wrap items-center gap-3">
-              <span className="neo-badge px-3 py-1 rounded-md text-xs font-mono font-bold bg-[#00E599]/30 text-[#0A0A0A] border border-[#0A0A0A] shadow-[1.5px_1.5px_0px_#0A0A0A] flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-[#0A0A0A]" />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-accent-tint text-accent border border-accent/20">
+                <ShieldCheck className="w-3.5 h-3.5 text-accent" />
                 Published & Peer-Reviewed
               </span>
-              <span className="text-xs font-mono font-bold text-[#525252]">
+              <span className="text-xs font-mono text-[#666666]">
                 ICETSIS 2026 · IEEE Bahrain Section
               </span>
             </div>
@@ -100,38 +100,38 @@ export function Research() {
                   href={RESEARCH.certificateUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="neo-btn px-4 py-2 rounded-xl border-2 border-[#0A0A0A] bg-white text-xs font-mono font-bold text-[#0A0A0A] hover:bg-[#FFE600] gap-2"
+                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#0A0A0A] bg-white text-xs font-mono text-[#0A0A0A] hover:bg-[#F5F3EE] transition-colors"
                 >
-                  <FileText className="w-3.5 h-3.5 stroke-[2.5]" />
+                  <FileText className="w-3.5 h-3.5 text-accent" />
                   <span>Certificate</span>
-                  <ArrowUpRight className="w-3 h-3 stroke-[2.5]" />
+                  <ArrowUpRight className="w-3 h-3 text-[#666666]" />
                 </a>
               )}
               <Link
                 href="/work/preventive-ai-paper"
-                className="neo-btn px-4 py-2 rounded-xl bg-[#FFE600] text-[#0A0A0A] text-xs font-mono font-bold border-2 border-[#0A0A0A] hover:bg-[#FFF58A] gap-2 group"
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0A0A0A] text-white text-xs font-mono font-medium hover:bg-accent transition-colors group"
               >
                 <span>Read Case Study</span>
-                <ArrowRight className="w-3.5 h-3.5 stroke-[2.5] transition-transform duration-200 group-hover:translate-x-0.5" />
+                <ArrowRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5" />
               </Link>
             </div>
           </div>
 
           {/* Paper Title & Authorship */}
           <div className="mb-6">
-            <span className="text-xs font-mono uppercase tracking-widest text-accent font-extrabold block mb-2">
+            <span className="text-xs font-mono uppercase tracking-widest text-accent font-semibold block mb-2">
               Co-Authored Research Paper
             </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0A0A0A] leading-tight mb-3">
+            <h3 className="text-2xl sm:text-3xl font-medium tracking-tight text-[#0A0A0A] leading-tight mb-3">
               {RESEARCH.title}
             </h3>
-            <p className="text-xs font-mono font-bold text-[#525252]">
+            <p className="text-xs font-mono text-[#666666]">
               Co-Author: Jaiyanth B · University of Bahrain & IEEE Bahrain Section · Sakhir, Bahrain
             </p>
           </div>
 
           {/* Concise Summary */}
-          <p className="text-base text-[#525252] leading-relaxed mb-8 max-w-3xl font-medium">
+          <p className="text-base text-[#666666] leading-relaxed mb-8 max-w-3xl font-normal">
             {RESEARCH.abstract}
           </p>
 
@@ -143,17 +143,17 @@ export function Research() {
                 <div
                   key={item.step}
                   data-draggable="true"
-                  className="p-5 rounded-xl bg-white border-2 border-[#0A0A0A] shadow-[3px_3px_0px_#0A0A0A] hover:bg-[#FFE600]/15 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0px_#0A0A0A] transition-all duration-200 cursor-grab active:cursor-grabbing"
+                  className="p-5 rounded-xl bg-[#FAF9F5] border border-[#E6E3DC] hover:border-[#0A0A0A]/40 hover:bg-white transition-all duration-200 cursor-grab active:cursor-grabbing"
                 >
                   <div className="flex items-center gap-2.5 mb-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-[#FFE600] border-1.5 border-[#0A0A0A] shadow-[1.5px_1.5px_0px_#0A0A0A] flex items-center justify-center text-[#0A0A0A]">
-                      <Icon className="w-4 h-4 stroke-[2.5]" />
+                    <div className="w-7 h-7 rounded-lg bg-white border border-[#E6E3DC] flex items-center justify-center text-[#0A0A0A]">
+                      <Icon className="w-3.5 h-3.5 text-accent" />
                     </div>
-                    <h4 className="font-extrabold text-sm text-[#0A0A0A]">
+                    <h4 className="font-medium text-sm text-[#0A0A0A]">
                       {item.title}
                     </h4>
                   </div>
-                  <p className="text-xs text-[#525252] leading-relaxed font-medium">
+                  <p className="text-xs text-[#666666] leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
@@ -162,15 +162,15 @@ export function Research() {
           </div>
 
           {/* Bottom Row: Keywords & Deep Dive Link */}
-          <div className="pt-6 border-t-2 border-[#0A0A0A] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="pt-6 border-t border-[#E6E3DC] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs font-mono uppercase tracking-wider text-[#525252] font-bold mr-1">
+              <span className="text-xs font-mono uppercase tracking-wider text-[#666666] mr-1">
                 Domain:
               </span>
               {keywords.map((kw) => (
                 <span
                   key={kw}
-                  className="neo-badge px-2.5 py-1 rounded-md text-xs font-mono font-bold text-[#0A0A0A] bg-white border border-[#0A0A0A] shadow-[1.5px_1.5px_0px_#0A0A0A]"
+                  className="px-2.5 py-1 rounded-md text-xs font-mono text-[#0A0A0A] bg-[#FAF9F5] border border-[#E6E3DC]"
                 >
                   {kw}
                 </span>
@@ -179,10 +179,10 @@ export function Research() {
 
             <Link
               href="/work/preventive-ai-paper"
-              className="inline-flex items-center gap-1.5 text-xs font-mono text-[#0A0A0A] hover:text-accent font-bold group transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-mono text-[#0A0A0A] hover:text-accent font-medium group transition-colors"
             >
               <span>See full architecture & clinical pipeline inside case study</span>
-              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 text-accent stroke-[2.5]" />
+              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 text-accent" />
             </Link>
           </div>
         </motion.div>

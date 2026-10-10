@@ -389,12 +389,10 @@ export function BubbleFooter() {
         <div className="relative z-10 w-full h-full flex flex-col items-center justify-center text-center px-6 pointer-events-none">
           <div className="max-w-2xl pointer-events-auto">
             {/* Header */}
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-[-0.035em] text-[#0A0A0A] leading-tight mb-8">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-normal tracking-[-0.025em] text-[#0A0A0A] leading-tight mb-8">
               Building something with{" "}
-              <span className="inline-block px-2.5 py-0.5 mx-1.5 bg-[#FFE600] border-2 border-[#0A0A0A] shadow-[3px_3px_0px_#0A0A0A] text-[#0A0A0A] rounded-lg -rotate-1 font-extrabold">
-                AI
-              </span>
-              ?<br />
+              <span className="text-accent font-medium">AI</span>?
+              <br />
               Let&apos;s talk.
             </h2>
 
@@ -405,21 +403,21 @@ export function BubbleFooter() {
                 href={`mailto:${IDENTITY.email}`}
                 onMouseEnter={() => setIsBtnHovered(true)}
                 onMouseLeave={() => setIsBtnHovered(false)}
-                className="neo-btn h-[52px] px-8 rounded-xl bg-[#FFE600] text-[#0A0A0A] text-[15px] font-bold gap-2 hover:bg-[#FFF58A]"
+                className="neo-btn h-[52px] px-8 rounded-full bg-[#0A0A0A] text-white text-[15px] font-medium gap-2 hover:bg-accent hover:border-accent"
               >
-                <Mail className="w-4 h-4 stroke-[2.5]" />
+                <Mail className="w-4 h-4" />
                 <span>Email me</span>
               </a>
 
-              {/* Secondary Neo-Brutalist Button */}
+              {/* Secondary Button */}
               <a
                 href={IDENTITY.bookingUrl}
                 onMouseEnter={() => setIsBtnHovered(true)}
                 onMouseLeave={() => setIsBtnHovered(false)}
-                className="neo-btn h-[52px] px-8 rounded-xl bg-white text-[#0A0A0A] text-[15px] font-bold gap-2 hover:bg-[#FFE600]"
+                className="inline-flex items-center gap-2 h-[52px] px-8 rounded-full bg-white border-2 border-[#0A0A0A] text-[#0A0A0A] text-[15px] font-medium shadow-[3px_3px_0px_#0A0A0A] hover:bg-[#F5F3EE] transition-all"
               >
                 <span>Hire me</span>
-                <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+                <ArrowUpRight className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -437,22 +435,22 @@ export function BubbleFooter() {
               position: "absolute",
             }}
           >
-            <div className="relative w-6 h-6 rounded-full border-2 border-[#0A0A0A] bg-[#FFE600]/40 flex items-center justify-center shadow-[1.5px_1.5px_0px_#0A0A0A]">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent border border-black" />
+            <div className="relative w-5 h-5 rounded-full border border-accent flex items-center justify-center">
+              <span className="w-1 h-1 rounded-full bg-accent" />
             </div>
           </div>
         )}
       </div>
 
-      {/* Neo-Brutalist Footer Link Row */}
-      <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-[#525252] border-t-2 border-[#0A0A0A] mt-8">
+      {/* Clean Footer Link Row */}
+      <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-[#666666] border-t-2 border-[#0A0A0A] mt-8">
         {/* Navigation Pages */}
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="flex flex-wrap items-center gap-5">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="neo-badge px-2.5 py-1 rounded bg-white text-[#0A0A0A] hover:bg-[#FFE600] transition-colors uppercase tracking-[0.04em] font-bold"
+              className="hover:text-[#0A0A0A] transition-colors uppercase tracking-[0.04em]"
             >
               {link.label}
             </a>
@@ -460,36 +458,38 @@ export function BubbleFooter() {
         </div>
 
         {/* Social / External Links */}
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-center gap-5">
           <a
             href={IDENTITY.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="neo-badge px-2.5 py-1 rounded bg-white text-[#0A0A0A] hover:bg-[#FFE600] transition-colors font-bold"
+            className="hover:text-[#0A0A0A] transition-colors"
           >
             LinkedIn
           </a>
+          <span>·</span>
           <a
             href={IDENTITY.resumeUrl}
             target="_blank"
             rel="noreferrer"
-            className="neo-badge px-2.5 py-1 rounded bg-white text-[#0A0A0A] hover:bg-[#FFE600] transition-colors font-bold"
+            className="hover:text-[#0A0A0A] transition-colors"
           >
             Resume
           </a>
+          <span>·</span>
           <a
             href={IDENTITY.github}
             target="_blank"
             rel="noreferrer"
-            className="neo-badge px-2.5 py-1 rounded bg-white text-[#0A0A0A] hover:bg-[#FFE600] transition-colors font-bold"
+            className="hover:text-[#0A0A0A] transition-colors"
           >
             GitHub
           </a>
         </div>
 
-        {/* Status / Reply Badge */}
-        <div className="neo-badge px-2.5 py-1 rounded bg-[#00E599]/30 text-[#0A0A0A] flex items-center gap-2 font-bold shadow-[1.5px_1.5px_0px_#0A0A0A]">
-          <span className="w-2 h-2 rounded-full bg-[#00E599] border border-black" />
+        {/* Status */}
+        <div className="flex items-center gap-2 text-[#0A0A0A]">
+          <span className="w-2 h-2 rounded-full bg-[#1FB866]" />
           <span>Replies within 2hrs</span>
         </div>
       </div>
