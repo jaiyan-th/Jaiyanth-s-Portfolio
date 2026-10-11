@@ -70,7 +70,7 @@
   --space-3: clamp(1rem, 0.8rem + 1vw, 2rem);
   --space-4: clamp(1.5rem, 1rem + 2vw, 3rem);
   --space-5: clamp(2.5rem, 1.5rem + 4vw, 5rem);
-  --section-y: clamp(1.5rem, 1rem + 1vw, 2.25rem);
+  --section-y: clamp(2.25rem, 1.5rem + 1.2vw, 3.25rem);
 
   /* Fluid Type Scale */
   --text-hero: clamp(2.6rem, 1.4rem + 5vw, 6rem);
