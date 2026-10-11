@@ -120,8 +120,8 @@ export function Hero() {
 
             {/* 2. H1: Proportionally scaled Headline matching other pages */}
             <h1
-              style={{ marginBottom: "0.875rem" }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.65rem] xl:text-[3.15rem] font-extrabold tracking-[-0.035em] text-[#0A0A0A] select-none preserve-3d leading-[1.12]"
+              style={{ marginBottom: "1rem" }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.75rem] font-extrabold tracking-[-0.04em] text-[#0A0A0A] select-none preserve-3d leading-[1.02]"
             >
               {headlineLines.map((line, idx) => (
                 <div
