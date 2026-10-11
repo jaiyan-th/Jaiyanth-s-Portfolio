@@ -367,13 +367,13 @@ export function BubbleFooter() {
   return (
     <div
       id="contact"
-      className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 mb-16 scroll-mt-24"
+      className="w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12 mb-16 scroll-mt-24"
     >
       {/* 70vh Rounded Bubble Physics Container */}
       <div
         ref={containerRef}
         data-bubble-footer="true"
-        className="relative w-full h-[65vh] min-h-[500px] max-h-[680px] rounded-[24px] bg-white border-2 border-[#0A0A0A] shadow-[8px_8px_0px_#0A0A0A] overflow-hidden select-none"
+        className="relative w-full h-[65vh] min-h-[500px] max-h-[680px] rounded-[24px] bg-[#EAE8E1]/35 overflow-hidden select-none"
         style={{
           cursor: isMobile ? "auto" : "none",
         }}

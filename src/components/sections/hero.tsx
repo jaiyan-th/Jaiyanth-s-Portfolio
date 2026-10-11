@@ -88,28 +88,28 @@ export function Hero() {
       {/* Interactive Dot-Grid Signal Field */}
       <LiveSignalField onPointerStats={handlePointerStats} className="z-0" />
 
-      <div className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-          {/* Left Column (~58%) */}
-          <div className="lg:col-span-7 flex flex-col items-start">
-            {/* 1. Clean Neo-Brutalist Badges */}
-            <div className="flex flex-wrap items-center gap-2.5 mb-8">
-              <motion.div
+      <div className="relative z-10 w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 xl:gap-20 items-center">
+          {/* Left Column (~65%) */}
+          <div className="lg:col-span-7 xl:col-span-7 flex flex-col items-start">
+            {/* 1. Clean Inline Status (No boxes, no borders) */}
+            <div className="flex flex-wrap items-center gap-3 mb-8">
+              <motion.span
                 custom={0}
                 variants={badgeVariants}
                 initial="hidden"
                 animate="visible"
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-[#FFE600] text-[#0A0A0A] shadow-[2.5px_2.5px_0px_#0A0A0A]"
+                className="font-mono text-xs font-bold text-accent tracking-wider uppercase"
               >
-                <span>PORTFOLIO &apos;26</span>
-              </motion.div>
-
+                PORTFOLIO &apos;26
+              </motion.span>
+              <span className="text-[#888888] font-mono text-xs">/</span>
               <motion.div
                 custom={1}
                 variants={badgeVariants}
                 initial="hidden"
                 animate="visible"
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-white text-[#0A0A0A] shadow-[2.5px_2.5px_0px_#0A0A0A]"
+                className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[#0A0A0A]"
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1FB866] opacity-75" />
@@ -176,19 +176,20 @@ export function Hero() {
                 <ArrowRight className="w-4 h-4" />
               </a>
 
-              {/* Secondary Clean Neo-Brutalist Button */}
+              {/* Secondary Clean Text Link */}
               <a
                 href="#contact"
-                className="neo-btn h-[52px] px-7 rounded-full bg-white text-[#0A0A0A] text-[15px] font-medium gap-2 hover:bg-[#FFE600]"
+                className="group relative inline-flex items-center gap-1.5 py-3 text-[15px] font-medium text-[#0A0A0A] hover:text-accent transition-colors duration-200"
               >
                 <span>Get in touch</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <span className="absolute bottom-1.5 left-0 w-0 h-[2px] bg-[#0A0A0A] transition-all duration-300 group-hover:w-full" />
               </a>
             </motion.div>
           </div>
 
-          {/* Right Column: Snapshot Card */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end w-full pt-4 lg:pt-0">
+          {/* Right Column: Snapshot Metadata (Seamless, unboxed) */}
+          <div className="lg:col-span-5 xl:col-span-5 flex justify-start lg:justify-end w-full pt-6 lg:pt-0">
             <SnapshotCard />
           </div>
         </div>
@@ -199,7 +200,7 @@ export function Hero() {
           variants={fadeUpVariants}
           initial="hidden"
           animate="visible"
-          className="mt-14 sm:mt-16 pt-5 border-t-2 border-[#0A0A0A] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] font-mono text-[#666666]"
+          className="mt-14 sm:mt-16 pt-5 border-t border-[#E6E3DC] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] font-mono text-[#666666]"
         >
           <div className="flex items-center gap-2 sm:gap-3">
             <span className="font-semibold uppercase tracking-wider text-[#0A0A0A]">

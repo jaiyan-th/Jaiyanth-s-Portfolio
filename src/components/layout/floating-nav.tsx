@@ -63,11 +63,11 @@ export function FloatingNav() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? "bg-[#F5F3EE]/95 backdrop-blur-md border-b-2 border-[#0A0A0A] py-3.5"
+          ? "bg-[#F5F3EE]/95 backdrop-blur-md border-b border-[#E6E3DC] py-3.5"
           : "bg-transparent border-b border-transparent py-4 sm:py-5"
       }`}
     >
-      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 flex items-center justify-between">
+      <div className="w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
         {/* Left: Clean Brand Name with Accent Dot */}
         <a
           href="#hero"
@@ -80,13 +80,13 @@ export function FloatingNav() {
           </span>
         </a>
 
-        {/* Right: Clean Floating Nav Pill with Bold Outer Shadow */}
+        {/* Right: Clean Navigation Links (Unboxed, no borders) */}
         <motion.nav
           initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           aria-label="Main Navigation"
-          className="hidden md:flex items-center gap-6 bg-[#FFFFFF] px-6 py-2.5 rounded-full border-2 border-[#0A0A0A] shadow-[4px_4px_0px_#0A0A0A]"
+          className="hidden md:flex items-center gap-7 px-3 py-1.5"
         >
           {NAV_LINKS.map((item) => {
             const isActive = active === item.href;
@@ -95,7 +95,7 @@ export function FloatingNav() {
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={`text-[13px] font-mono tracking-wider uppercase transition-colors relative py-0.5 ${
+                className={`text-[13px] font-mono tracking-wider uppercase transition-colors relative py-1 ${
                   isActive
                     ? "text-[#0A0A0A] font-bold"
                     : "text-[#666666] hover:text-[#0A0A0A] font-medium"
@@ -103,7 +103,7 @@ export function FloatingNav() {
               >
                 {item.label}
                 {isActive && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-accent" />
+                  <span className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-accent" />
                 )}
               </a>
             );
@@ -116,7 +116,7 @@ export function FloatingNav() {
             type="button"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
-            className="p-2 border-2 border-[#0A0A0A] bg-white rounded-lg text-[#0A0A0A] shadow-[2.5px_2.5px_0px_#0A0A0A] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all"
+            className="p-2 text-[#0A0A0A] hover:text-accent transition-colors"
           >
             {isOpen ? <X className="w-5 h-5 stroke-[2.5]" /> : <Menu className="w-5 h-5 stroke-[2.5]" />}
           </button>
@@ -131,7 +131,7 @@ export function FloatingNav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-b-2 border-[#0A0A0A] bg-[#F5F3EE] px-6 py-5 shadow-lg mt-2"
+            className="md:hidden border-b border-[#E6E3DC] bg-[#F5F3EE] px-6 py-5 mt-2"
           >
             <div className="flex flex-col space-y-3">
               {NAV_LINKS.map((item) => {

@@ -10,16 +10,16 @@ export function About() {
     <section
       id="about"
       aria-label="01 About Jaiyanth B"
-      className="relative py-14 sm:py-20 border-t-2 border-[#0A0A0A] bg-transparent scroll-mt-20"
+      className="relative py-14 sm:py-20 border-t border-[#E6E3DC] bg-transparent scroll-mt-20"
     >
-      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+      <div className="w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2, margin: "0px 0px -60px 0px" }}
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-10 sm:mb-12 pb-6 border-b-2 border-[#0A0A0A]"
+          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-10 sm:mb-12 pb-6 border-b border-[#E6E3DC]"
         >
           <div className="flex items-baseline gap-4">
             <span className="font-mono text-xs sm:text-sm text-accent tracking-widest uppercase font-semibold">
@@ -68,9 +68,9 @@ export function About() {
                 </p>
               </div>
 
-              {/* Education Credential Card: Neo-Brutalist Hard Drop Shadow without content borders */}
-              <div className="p-5 sm:p-6 rounded-2xl bg-white flex items-start gap-4 mb-8 shadow-[5px_5px_0px_#0A0A0A]">
-                <div className="w-10 h-10 rounded-xl bg-[#FFE600] flex items-center justify-center text-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A] shrink-0 mt-0.5">
+              {/* Education Credential: Clean unboxed layout */}
+              <div className="flex items-start gap-4 mb-8">
+                <div className="w-10 h-10 rounded-xl bg-[#0A0A0A] flex items-center justify-center text-white shrink-0 mt-0.5">
                   <GraduationCap className="w-5 h-5" />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -93,7 +93,7 @@ export function About() {
             </div>
 
             {/* External Links */}
-            <div className="flex flex-wrap items-center gap-4 pt-6 border-t-2 border-[#0A0A0A]">
+            <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-[#E6E3DC]">
               <a
                 href={IDENTITY.github}
                 target="_blank"
@@ -116,7 +116,7 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* Right Column: Portrait Photograph with Neo-Brutalist Hard Shadow & no harsh borders */}
+          {/* Right Column: Portrait Photograph (Unboxed, clean) */}
           <motion.div
             initial={{ opacity: 0, y: 36, scale: 0.98 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -124,17 +124,15 @@ export function About() {
             transition={{ duration: 0.75, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 flex items-center justify-center w-full"
           >
-            <div className="relative group w-full max-w-[460px] xl:max-w-[500px] rounded-2xl bg-white p-3 shadow-[6px_6px_0px_#0A0A0A] transition-all duration-200">
-              <div className="relative w-full aspect-square overflow-hidden rounded-xl bg-[#F5F3EE]">
-                <Image
-                  src="/images/jaiyanth-about.jpg"
-                  alt="Jaiyanth B — Applied AI & Full-Stack Engineer"
-                  fill
-                  priority
-                  className="object-cover object-center filter grayscale transition-all duration-700 group-hover:scale-[1.02]"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 500px"
-                />
-              </div>
+            <div className="relative w-full max-w-[420px] xl:max-w-[460px] aspect-square overflow-hidden rounded-2xl bg-[#F5F3EE]">
+              <Image
+                src="/images/jaiyanth-about.jpg"
+                alt="Jaiyanth B — Applied AI & Full-Stack Engineer"
+                fill
+                priority
+                className="object-cover object-center filter grayscale transition-all duration-700 hover:scale-[1.02]"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 460px"
+              />
             </div>
           </motion.div>
         </div>

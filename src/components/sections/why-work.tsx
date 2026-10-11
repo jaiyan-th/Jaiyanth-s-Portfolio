@@ -24,16 +24,16 @@ export function WhyWork() {
     <section
       id="why-work"
       aria-label="05 Why work with me"
-      className="relative py-14 sm:py-20 border-t-2 border-[#0A0A0A] bg-transparent"
+      className="relative py-14 sm:py-20 border-t border-[#E6E3DC] bg-transparent"
     >
-      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+      <div className="w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2, margin: "0px 0px -60px 0px" }}
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-10 sm:mb-12 pb-6 border-b-2 border-[#0A0A0A]"
+          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-10 sm:mb-12 pb-6 border-b border-[#E6E3DC]"
         >
           <div className="flex items-baseline gap-4">
             <span className="font-mono text-xs sm:text-sm text-accent tracking-widest uppercase font-semibold">
@@ -70,8 +70,8 @@ export function WhyWork() {
           </p>
         </motion.div>
 
-        {/* Three Labeled Points (A, B, C) with Neo-Brutalist Hard Drop Shadow (No content borders) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        {/* Three Labeled Points (A, B, C) (Open, clean, no boxes, no borders) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
           {WHY_WORK_WITH_ME.map((point, index) => {
             const meta = CARD_METAS[index % CARD_METAS.length];
             return (
@@ -85,45 +85,29 @@ export function WhyWork() {
                   delay: index * 0.1,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="group flex flex-col justify-between p-7 sm:p-8 rounded-2xl bg-white shadow-[5px_5px_0px_#0A0A0A] hover:shadow-[8px_8px_0px_#0A0A0A] hover:-translate-y-1.5 transition-all duration-200"
+                className="flex flex-col justify-between"
               >
                 <div>
-                  {/* Neo-Brutalist Stamp & Tagline Header */}
-                  <div className="flex items-center justify-between mb-6 pb-2">
-                    <div className="flex items-center gap-3">
-                      <span
-                        className={`inline-flex items-center justify-center w-8 h-8 rounded-lg font-mono font-black text-sm tracking-tight shadow-[2px_2px_0px_#0A0A0A] ${meta.stampBg}`}
-                      >
-                        {point.letter}
-                      </span>
-                      <span className="font-mono text-[11px] font-bold tracking-wider uppercase text-[#0A0A0A]/70">
-                        {meta.tagline}
-                      </span>
-                    </div>
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#0A0A0A] opacity-30 group-hover:opacity-100 transition-opacity" />
+                  <div className="flex items-baseline gap-2 mb-3">
+                    <span className="font-mono text-base font-bold text-accent">
+                      /{point.letter}
+                    </span>
+                    <span className="font-mono text-[11px] font-bold tracking-wider uppercase text-[#666666]">
+                      {meta.tagline}
+                    </span>
                   </div>
 
-                  {/* Point Title */}
-                  <h4 className="text-xl sm:text-2xl font-bold tracking-tight text-[#0A0A0A] leading-snug mb-3 group-hover:text-accent transition-colors">
+                  <h4 className="text-xl sm:text-2xl font-bold tracking-tight text-[#0A0A0A] leading-snug mb-3">
                     {point.title}
                   </h4>
 
-                  {/* Point Description */}
-                  <p className="text-sm text-[#525252] leading-relaxed font-normal mb-6">
+                  <p className="text-sm sm:text-base text-[#525252] leading-relaxed font-normal mb-4">
                     {point.description}
                   </p>
                 </div>
 
-                {/* Neo-Brutal Tag Badges (No dividing border, hard drop shadows) */}
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {point.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[11px] font-mono font-bold px-3 py-1.5 rounded-md bg-[#F5F3EE] text-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A] hover:bg-[#FFE600] transition-colors duration-150"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div className="text-xs font-mono text-[#888888] pt-2">
+                  {point.tags.join(" · ")}
                 </div>
               </motion.div>
             );

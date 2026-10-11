@@ -48,16 +48,16 @@ export function Experience() {
     <section
       id="experience"
       aria-label="03 Work Experience & Internship"
-      className="relative py-16 sm:py-20 border-t-2 border-[#0A0A0A] bg-transparent scroll-mt-20"
+      className="relative py-16 sm:py-20 border-t border-[#E6E3DC] bg-transparent scroll-mt-20"
     >
-      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+      <div className="w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.div
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-10 pb-5 border-b-2 border-[#0A0A0A]"
+          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-10 pb-5 border-b border-[#E6E3DC]"
         >
           <div className="flex items-baseline gap-4">
             <span className="font-mono text-xs sm:text-sm text-accent tracking-widest uppercase font-semibold">
@@ -72,7 +72,7 @@ export function Experience() {
           </span>
         </motion.div>
 
-        {/* Unboxed Open Layout: No outer card border or content borders */}
+        {/* Unboxed Open Layout: No outer card border or content boxes */}
         <motion.div
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -95,12 +95,12 @@ export function Experience() {
               </h3>
             </div>
 
-            <div className="flex items-center gap-3">
-              <span className="text-xs font-mono font-semibold text-[#0A0A0A] bg-white px-3.5 py-1.5 rounded-full shadow-[2px_2px_0px_#0A0A0A]">
+            <div className="flex items-center gap-4 text-xs font-mono">
+              <span className="text-[#666666] font-medium">
                 {EXPERIENCE.period}
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-[#FFE600] text-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A]">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0A0A0A] animate-pulse" />
+              <span className="inline-flex items-center gap-1.5 font-bold text-[#0A0A0A]">
+                <span className="w-2 h-2 rounded-full bg-[#1FB866] animate-pulse" />
                 Completed
               </span>
             </div>
@@ -111,25 +111,19 @@ export function Experience() {
             Shipped applied-AI prototypes that needed to work reliably in production environments, not just in demos. Focused on vector RAG pipelines, multi-turn reasoning workflows with strict JSON validation, and clean RESTful API integrations.
           </p>
 
-          {/* 3 Core Focus Pillars with Neo-Brutalist Shadow (No content borders) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          {/* 3 Core Focus Pillars (Completely unboxed, no cards, no borders) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 mb-12">
             {focusAreas.map((area) => {
               const Icon = area.icon;
               return (
-                <div
-                  key={area.title}
-                  data-draggable="true"
-                  className="p-6 rounded-2xl bg-white shadow-[4px_4px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_#0A0A0A] hover:-translate-y-0.5 transition-all duration-200 cursor-grab active:cursor-grabbing"
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#FFE600] flex items-center justify-center text-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A]">
-                      <Icon className="w-4 h-4 text-[#0A0A0A]" />
-                    </div>
+                <div key={area.title} className="flex flex-col">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Icon className="w-4 h-4 text-accent shrink-0" />
                     <h4 className="font-bold text-base text-[#0A0A0A]">
                       {area.title}
                     </h4>
                   </div>
-                  <p className="text-xs sm:text-sm text-[#666666] leading-relaxed">
+                  <p className="text-sm text-[#666666] leading-relaxed">
                     {area.description}
                   </p>
                 </div>
@@ -138,7 +132,7 @@ export function Experience() {
           </div>
 
           {/* Bottom Row: Metrics & Stack */}
-          <div className="pt-6 border-t-2 border-[#0A0A0A] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <div className="pt-6 border-t border-[#E6E3DC] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             {/* 3 Metrics */}
             <div className="flex items-center gap-6 sm:gap-10">
               {metrics.map((m) => (
@@ -153,16 +147,14 @@ export function Experience() {
               ))}
             </div>
 
-            {/* Stack Badges (Neo-Brutalist shadow, no borders) */}
-            <div className="flex flex-wrap items-center gap-2">
-              {tools.map((tool) => (
-                <span
-                  key={tool}
-                  className="px-3 py-1.5 rounded-md text-xs font-mono font-bold text-[#0A0A0A] bg-white shadow-[2px_2px_0px_#0A0A0A]"
-                >
-                  {tool}
-                </span>
-              ))}
+            {/* Stack Tags (Clean inline typography, no boxes) */}
+            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs font-mono text-[#0A0A0A]">
+              <span className="text-[#888888] font-bold text-[11px] uppercase tracking-wider mr-1">
+                STACK:
+              </span>
+              <span className="font-medium text-[#0A0A0A]">
+                {tools.join(" · ")}
+              </span>
             </div>
           </div>
         </motion.div>

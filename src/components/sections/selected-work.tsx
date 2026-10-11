@@ -163,11 +163,11 @@ export function SelectedWork() {
     <section
       id="work"
       aria-label="02 Selected Work"
-      className="relative py-16 sm:py-24 border-t-2 border-[#0A0A0A] bg-transparent"
+      className="relative py-16 sm:py-24 border-t border-[#E6E3DC] bg-transparent"
     >
-      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+      <div className="w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section label row */}
-        <div className="flex items-center justify-between pb-4 border-b-2 border-[#0A0A0A] mb-2">
+        <div className="flex items-center justify-between pb-4 border-b border-[#E6E3DC] mb-2">
           <div className="flex items-baseline gap-4">
             <span className="font-mono text-xs sm:text-sm text-accent tracking-widest uppercase font-semibold">
               02
@@ -340,7 +340,7 @@ export function ProjectPreview({
         duration: isVisible ? 0.35 : 0.25,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="absolute pointer-events-none z-20 hidden md:block w-[clamp(280px,28vw,440px)] aspect-[16/10] overflow-hidden bg-white rounded-xl shadow-[8px_8px_0px_#0A0A0A] border-2 border-[#0A0A0A]"
+      className="absolute pointer-events-none z-20 hidden md:block w-[clamp(280px,28vw,440px)] aspect-[16/10] overflow-hidden bg-white rounded-2xl shadow-2xl"
     >
       <AnimatePresence mode="popLayout" initial={false}>
         {activeProject && (
@@ -412,8 +412,8 @@ export function ProjectRow({
       }}
       className="relative"
     >
-      {/* Neo-Brutalist Border Line */}
-      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#0A0A0A] pointer-events-none" />
+      {/* Row Separator Line */}
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-[#E6E3DC] pointer-events-none" />
 
       <Link
         ref={rowRef}
