@@ -72,13 +72,13 @@ export function Experience() {
           </span>
         </motion.div>
 
-        {/* Clean Unified Outer Card: Bold Border + Hard Shadow */}
+        {/* Unboxed Open Layout: No outer card border or drop shadow */}
         <motion.div
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="rounded-2xl border-2 border-[#0A0A0A] bg-white p-7 sm:p-10 shadow-[6px_6px_0px_#0A0A0A] transition-all duration-300"
+          className="w-full"
         >
           {/* Card Top: Company, Role, Period & Status */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-[#E6E3DC]">
@@ -96,7 +96,7 @@ export function Experience() {
             </div>
 
             <div className="flex items-center gap-3">
-              <span className="text-xs font-mono text-[#666666] bg-[#F5F3EE] px-3 py-1 rounded-full border border-[#E6E3DC]">
+              <span className="text-xs font-mono text-[#666666] bg-white px-3 py-1 rounded-full border border-[#E6E3DC]">
                 {EXPERIENCE.period}
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-accent-tint text-accent border border-accent/20">
@@ -119,10 +119,10 @@ export function Experience() {
                 <div
                   key={area.title}
                   data-draggable="true"
-                  className="p-5 rounded-xl bg-[#FAF9F5] border border-[#E6E3DC] hover:border-[#0A0A0A]/40 hover:bg-white transition-all duration-200 cursor-grab active:cursor-grabbing"
+                  className="p-5.5 rounded-xl bg-white border border-[#E6E3DC] hover:border-[#0A0A0A]/40 transition-all duration-200 cursor-grab active:cursor-grabbing"
                 >
                   <div className="flex items-center gap-2.5 mb-2.5">
-                    <div className="w-7 h-7 rounded-lg bg-white border border-[#E6E3DC] flex items-center justify-center text-[#0A0A0A]">
+                    <div className="w-7 h-7 rounded-lg bg-[#FAF9F5] border border-[#E6E3DC] flex items-center justify-center text-[#0A0A0A]">
                       <Icon className="w-3.5 h-3.5 text-accent" />
                     </div>
                     <h4 className="font-medium text-sm text-[#0A0A0A]">
@@ -158,7 +158,7 @@ export function Experience() {
               {tools.map((tool) => (
                 <span
                   key={tool}
-                  className="px-2.5 py-1 rounded-md text-xs font-mono text-[#0A0A0A] bg-[#FAF9F5] border border-[#E6E3DC]"
+                  className="px-2.5 py-1 rounded-md text-xs font-mono text-[#0A0A0A] bg-white border border-[#E6E3DC]"
                 >
                   {tool}
                 </span>
