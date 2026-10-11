@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { SnapshotCard } from "./snapshot-card";
@@ -12,20 +12,6 @@ export function Hero() {
   const [isMobile, setIsMobile] = useState(false);
   const exploreBtnRef = useRef<HTMLAnchorElement>(null);
   const [btnOffset, setBtnOffset] = useState({ x: 0, y: 0 });
-
-  const [pointerStats, setPointerStats] = useState({
-    x: 0.172,
-    y: 0.091,
-    events: 599,
-    speed: 0,
-  });
-
-  const handlePointerStats = useCallback(
-    (stats: { x: number; y: number; events: number; speed: number }) => {
-      setPointerStats(stats);
-    },
-    []
-  );
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -92,13 +78,13 @@ export function Hero() {
       id="hero"
       aria-label="Hero Introduction"
       style={{
-        paddingTop: "max(5.75rem, calc(4.75rem + env(safe-area-inset-top, 0px)))",
-        paddingBottom: "1.25rem",
+        paddingTop: "max(5.5rem, calc(4.5rem + env(safe-area-inset-top, 0px)))",
+        paddingBottom: "2rem",
       }}
-      className="relative min-h-[100svh] flex flex-col justify-between bg-transparent overflow-hidden perspective-1200"
+      className="relative min-h-[100svh] flex flex-col justify-center bg-transparent overflow-hidden perspective-1200"
     >
       {/* Interactive 3D Dot-Grid Signal Field */}
-      <LiveSignalField onPointerStats={handlePointerStats} className="z-0" />
+      <LiveSignalField className="z-0" />
 
       {/* Main Content Area Vertically Centered */}
       <div className="site-container relative z-10 w-full my-auto">
@@ -213,41 +199,6 @@ export function Hero() {
             }}
           >
             <SnapshotCard />
-          </div>
-        </div>
-
-        {/* Live Signal Telemetry Footer Strip (Single row on desktop, 2 rows on mobile) */}
-        <div
-          style={{ marginTop: "var(--space-3)" }}
-          className="pt-4 border-t border-[#E2DFD7] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 text-fluid-mono text-[#666666]"
-        >
-          <div className="flex items-center gap-2">
-            <span className="font-bold uppercase tracking-wider text-[#0A0A0A]">
-              FIG. 01 · LIVE SIGNAL FIELD
-            </span>
-            <span className="text-[#888888]">|</span>
-            <span className="text-[#666666] hidden md:inline">
-              MOVE YOUR CURSOR. THAT&apos;S A SIGNAL.
-            </span>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-[#0A0A0A]">
-            <span>
-              X: <strong className="font-mono text-[#E5341B]">{pointerStats.x.toFixed(3)}</strong>
-            </span>
-            <span>
-              Y: <strong className="font-mono text-[#E5341B]">{pointerStats.y.toFixed(3)}</strong>
-            </span>
-            <span className="text-[#666666]">
-              EVENTS:{" "}
-              <strong className="font-mono text-[#0A0A0A]">
-                {String(pointerStats.events).padStart(6, "0")}
-              </strong>
-            </span>
-            <span className="inline-flex items-center gap-1.5 pl-2.5 border-l border-[#0A0A0A] text-[11px] uppercase tracking-wider text-[#E5341B] font-bold">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E5341B] animate-pulse" />
-              PROCESSED LOCALLY
-            </span>
           </div>
         </div>
       </div>
