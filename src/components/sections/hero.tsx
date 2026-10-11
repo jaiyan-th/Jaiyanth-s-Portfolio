@@ -58,9 +58,8 @@ export function Hero() {
     setBtnOffset({ x: 0, y: 0 });
   };
 
-  // Parallax calculations (Headline slower, Info faster)
-  const headlineParallaxY = shouldReduceMotion || isMobile ? 0 : scrollY * 0.08;
-  const infoParallaxY = shouldReduceMotion || isMobile ? 0 : -scrollY * 0.12;
+  const headlineParallaxY = shouldReduceMotion || isMobile ? 0 : scrollY * 0.06;
+  const infoParallaxY = shouldReduceMotion || isMobile ? 0 : -scrollY * 0.08;
 
   const headlineLines = [
     { text: "Applied ", hasAI: true, endText: " engineering" },
@@ -68,13 +67,12 @@ export function Hero() {
     { text: "that make sense", hasAI: false, endText: "" },
   ];
 
-  // 3D Staggered line entrance: rotateX(-60deg) -> 0, translateZ(-80px) -> 0
   const lineVariants3D = {
     hidden: {
       opacity: 0,
-      rotateX: -60,
-      translateZ: -80,
-      y: 40,
+      rotateX: shouldReduceMotion || isMobile ? 0 : -35,
+      translateZ: shouldReduceMotion || isMobile ? 0 : -40,
+      y: 28,
     },
     visible: (idx: number) => ({
       opacity: 1,
@@ -82,8 +80,8 @@ export function Hero() {
       translateZ: 0,
       y: 0,
       transition: {
-        delay: shouldReduceMotion ? 0 : 0.12 + idx * 0.1,
-        duration: 0.8,
+        delay: shouldReduceMotion ? 0 : 0.08 + idx * 0.1,
+        duration: 0.75,
         ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
       },
     }),
@@ -93,14 +91,19 @@ export function Hero() {
     <section
       id="hero"
       aria-label="Hero Introduction"
-      className="relative min-h-[92vh] flex flex-col justify-between pt-28 sm:pt-36 pb-10 sm:pb-14 bg-transparent overflow-hidden perspective-1200"
+      style={{
+        paddingTop: "max(4.5rem, calc(3.5rem + env(safe-area-inset-top, 0px)))",
+        paddingBottom: "var(--space-3)",
+      }}
+      className="relative min-h-[100svh] flex flex-col justify-between bg-transparent overflow-hidden perspective-1200"
     >
       {/* Interactive 3D Dot-Grid Signal Field */}
       <LiveSignalField onPointerStats={handlePointerStats} className="z-0" />
 
-      <div className="relative z-10 w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 xl:gap-20 items-center">
-          {/* Left Column (~65%): Headline with Parallax depth */}
+      {/* Main Content Area Vertically Centered */}
+      <div className="site-container relative z-10 w-full my-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start">
+          {/* Left Column (~60-65%): Badges, Headline, Subtitle, CTA buttons */}
           <div
             className="lg:col-span-7 xl:col-span-7 flex flex-col items-start transition-transform duration-75 ease-out will-change-transform"
             style={{
@@ -112,7 +115,8 @@ export function Hero() {
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-wrap items-center gap-3 mb-8"
+              style={{ marginBottom: "var(--space-3)" }}
+              className="flex flex-wrap items-center gap-2.5 sm:gap-3"
             >
               <span className="neo-sticker bg-[#FFE45C] text-[#0A0A0A] font-bold">
                 PORTFOLIO &apos;26
@@ -127,14 +131,15 @@ export function Hero() {
               </div>
             </motion.div>
 
-            {/* 2. H1: 3D Staggered Flip Entrance (Weight 700-800, tight letter-spacing) */}
+            {/* 2. H1: Fluid Headline with tight leading & no overflow */}
             <h1
-              className="mb-8 tracking-[-0.035em] font-extrabold text-[#0A0A0A] select-none preserve-3d"
+              style={{ marginBottom: "var(--space-3)" }}
+              className="text-fluid-hero font-extrabold tracking-[-0.035em] text-[#0A0A0A] select-none preserve-3d"
             >
               {headlineLines.map((line, idx) => (
                 <div
                   key={idx}
-                  className="overflow-visible leading-[1.06] text-[clamp(34px,5.4vw,76px)] sm:text-[clamp(44px,5.4vw,76px)] perspective-1200"
+                  className="overflow-visible perspective-1200"
                 >
                   <motion.div
                     custom={idx}
@@ -143,38 +148,38 @@ export function Hero() {
                     animate="visible"
                     className="inline-block origin-bottom will-change-transform"
                   >
-                    <span>{line.text}</span>
+                    <span className="break-words">{line.text}</span>
                     {line.hasAI && (
-                      <span className="marker-highlight in-view font-extrabold">
+                      <span className="marker-highlight in-view font-extrabold mx-1">
                         AI
                       </span>
                     )}
-                    {line.endText && <span>{line.endText}</span>}
+                    {line.endText && <span className="break-words">{line.endText}</span>}
                   </motion.div>
                 </div>
               ))}
             </h1>
 
-            {/* 3. Subtitle with editorial layout indicator and animated slide */}
+            {/* 3. Subtitle with editorial layout indicator and fluid lead typography */}
             <motion.div
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: -16 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-              className="border-l-2 border-[#E5341B]/80 pl-4 sm:pl-5 mb-10 max-w-2xl"
+              transition={{ delay: 0.38, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              style={{ marginBottom: "var(--space-4)" }}
+              className="border-l-2 border-[#E5341B]/80 pl-3.5 sm:pl-4 max-w-2xl"
             >
-              <p className="text-[#555555] text-[18px] sm:text-[20px] leading-[1.6] font-normal">
+              <p className="text-fluid-lead text-[#555555] font-normal">
                 I’m an engineer who makes complex things feel obvious.
               </p>
             </motion.div>
 
-            {/* 4. Action Buttons (Magnetic "Explore Work" + Clean Link) */}
+            {/* 4. Action Buttons (min 48px height, wrap on mobile) */}
             <motion.div
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.52, duration: 0.6 }}
-              className="flex flex-wrap items-center gap-5 sm:gap-6"
+              transition={{ delay: 0.48, duration: 0.6 }}
+              className="flex flex-wrap items-center gap-3.5 sm:gap-5 w-full sm:w-auto"
             >
-              {/* Primary Black Pill with Magnetic Hover + Press Effect */}
               <a
                 ref={exploreBtnRef}
                 href="/#work"
@@ -183,27 +188,26 @@ export function Hero() {
                 style={{
                   transform: `translate3d(${btnOffset.x}px, ${btnOffset.y}px, 0)`,
                 }}
-                className="neo-black-btn h-[52px] px-8 rounded-full text-[15px] font-semibold gap-2.5 active:scale-[0.96]"
+                className="neo-black-btn min-h-[48px] px-7 sm:px-8 text-sm sm:text-base font-semibold gap-2.5 active:scale-[0.97] w-full sm:w-auto"
               >
                 <span>Explore Work</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 shrink-0" />
               </a>
 
-              {/* Secondary Clean Text Link */}
               <a
                 href="/#contact"
-                className="group relative inline-flex items-center gap-1.5 py-3 text-[15px] font-semibold text-[#0A0A0A] hover:text-[#E5341B] transition-colors duration-200"
+                className="group relative inline-flex items-center justify-center min-h-[48px] px-4 text-sm sm:text-base font-semibold text-[#0A0A0A] hover:text-[#E5341B] transition-colors duration-200"
               >
                 <span>Get in touch</span>
-                <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                <span className="absolute bottom-1.5 left-0 w-0 h-[2px] bg-[#E5341B] transition-all duration-300 group-hover:w-full" />
+                <ArrowUpRight className="w-4 h-4 ml-1.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <span className="absolute bottom-2 left-4 right-4 h-[2px] bg-[#E5341B] scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100" />
               </a>
             </motion.div>
           </div>
 
-          {/* Right Column: Snapshot Metadata (Parallax faster speed, unboxed) */}
+          {/* Right Column: Snapshot Card aligned to headline top on desktop, stacks below buttons on mobile */}
           <div
-            className="lg:col-span-5 xl:col-span-5 flex justify-start lg:justify-end w-full pt-6 lg:pt-0 transition-transform duration-75 ease-out will-change-transform"
+            className="lg:col-span-5 xl:col-span-5 w-full flex justify-start lg:justify-end lg:self-start transition-transform duration-75 ease-out will-change-transform mt-4 lg:mt-0"
             style={{
               transform: `translate3d(0, ${infoParallaxY}px, 0)`,
             }}
@@ -212,21 +216,22 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Live Signal Telemetry Footer Strip (Real-time cursor coordinates intact) */}
+        {/* Live Signal Telemetry Footer Strip (Single row on desktop, 2 rows on mobile) */}
         <div
-          className="mt-14 sm:mt-16 pt-5 border-t border-[#E2DFD7] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] font-mono text-[#666666]"
+          style={{ marginTop: "var(--space-4)" }}
+          className="pt-4 border-t border-[#E2DFD7] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 text-fluid-mono text-[#666666]"
         >
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2">
             <span className="font-bold uppercase tracking-wider text-[#0A0A0A]">
               FIG. 01 · LIVE SIGNAL FIELD
             </span>
-            <span className="hidden sm:inline text-[#0A0A0A]">|</span>
-            <span className="hidden md:inline text-[#666666]">
+            <span className="text-[#888888]">|</span>
+            <span className="text-[#666666] hidden md:inline">
               MOVE YOUR CURSOR. THAT&apos;S A SIGNAL.
             </span>
           </div>
 
-          <div className="flex items-center gap-3 sm:gap-4 text-[#0A0A0A]">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-[#0A0A0A]">
             <span>
               X: <strong className="font-mono text-[#E5341B]">{pointerStats.x.toFixed(3)}</strong>
             </span>
@@ -239,7 +244,7 @@ export function Hero() {
                 {String(pointerStats.events).padStart(6, "0")}
               </strong>
             </span>
-            <span className="hidden sm:inline-flex items-center gap-1.5 pl-2.5 border-l border-[#0A0A0A] text-[10px] uppercase tracking-wider text-[#E5341B] font-bold">
+            <span className="inline-flex items-center gap-1.5 pl-2.5 border-l border-[#0A0A0A] text-[11px] uppercase tracking-wider text-[#E5341B] font-bold">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E5341B] animate-pulse" />
               PROCESSED LOCALLY
             </span>

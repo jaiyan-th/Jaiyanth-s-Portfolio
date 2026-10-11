@@ -162,20 +162,20 @@ export function SelectedWork() {
     <section
       id="work"
       aria-label="02 Selected Work"
-      className="relative py-16 sm:py-24 border-t border-[#E2DFD7] bg-transparent perspective-1200"
+      className="relative section-padding border-t border-[#E2DFD7] bg-transparent perspective-1200"
     >
-      <div className="w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Section Header with Reusable Reveal & Animated Red Underline */}
-        <Reveal className="flex items-center justify-between pb-6 border-b border-[#E2DFD7] mb-4">
-          <div className="flex items-baseline gap-4">
-            <span className="font-mono text-base sm:text-lg text-[#E5341B] tracking-widest uppercase font-extrabold">
+      <div className="site-container">
+        {/* Section Header: On phones stack right label under title */}
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-5 border-b border-[#E2DFD7] mb-4 gap-2">
+          <div className="flex items-baseline gap-3 sm:gap-4">
+            <span className="text-fluid-mono text-[#E5341B] tracking-widest uppercase font-extrabold">
               02
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
+            <h2 className="text-fluid-h2 font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
               Selected Work
             </h2>
           </div>
-          <span className="font-mono text-xs uppercase tracking-wider text-[#666666] hidden sm:inline">
+          <span className="text-fluid-mono uppercase tracking-wider text-[#666666]">
             ENGINEERED SYSTEMS & FULL-STACK PRODUCTS
           </span>
         </Reveal>
@@ -209,7 +209,7 @@ export function ProjectsList({ projects }: ProjectsListProps) {
     const check = () => {
       setIsMobile(window.innerWidth < 768);
       const isTouch = window.matchMedia("(pointer: coarse)").matches;
-      setIsFinePointer(!isTouch && window.innerWidth >= 768);
+      setIsFinePointer(!isTouch && window.innerWidth >= 1024);
     };
     check();
     window.addEventListener("resize", check);
@@ -239,7 +239,7 @@ export function ProjectsList({ projects }: ProjectsListProps) {
       onMouseLeave={() => setHoveredIndex(null)}
       className="relative w-full preserve-3d"
     >
-      {/* Shared Floating Preview Canvas (Desktop only) */}
+      {/* Floating Preview Canvas (Desktop >=1024px only) */}
       {isFinePointer && (
         <ProjectPreview
           activeProject={activeProject}
@@ -248,7 +248,7 @@ export function ProjectsList({ projects }: ProjectsListProps) {
         />
       )}
 
-      {/* Rows with 3D Flip entrance & hover lift & dimming siblings */}
+      {/* Rows with 3D Flip entrance, hover lift & dimming siblings */}
       <div className="divide-y divide-[#E2DFD7]">
         {projects.map((project, idx) => (
           <ProjectRow
@@ -296,7 +296,7 @@ export function ProjectPreview({
         duration: isVisible ? 0.35 : 0.25,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="absolute pointer-events-none z-20 hidden md:block w-[clamp(280px,28vw,440px)] aspect-[16/10] overflow-hidden bg-white rounded-md hard-shadow"
+      className="absolute pointer-events-none z-20 hidden lg:block w-[clamp(280px,26vw,440px)] aspect-[16/10] overflow-hidden bg-white rounded-md hard-shadow"
     >
       <AnimatePresence mode="popLayout" initial={false}>
         {activeProject && (
@@ -316,7 +316,7 @@ export function ProjectPreview({
                 src={activeProject.image}
                 alt={activeProject.title}
                 fill
-                sizes="(max-width: 1200px) 28vw, 440px"
+                sizes="(max-width: 1200px) 26vw, 440px"
                 className="object-cover"
                 priority
               />
@@ -358,7 +358,7 @@ export function ProjectRow({
       initial={{
         opacity: 0,
         rotateX: isMobile || shouldReduceMotion ? 0 : -25,
-        y: 50,
+        y: 40,
       }}
       whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
@@ -376,47 +376,42 @@ export function ProjectRow({
         style={{
           transform:
             isHovered && !isMobile && !shouldReduceMotion
-              ? "translate3d(0, -3px, 24px)"
+              ? "translate3d(0, -3px, 20px)"
               : "translate3d(0, 0, 0)",
           opacity: anyHovered && !isHovered ? 0.45 : 1,
         }}
-        className={`group block py-7 sm:py-8 px-4 -mx-4 rounded-md transition-all duration-200 focus-visible:outline-none ${
+        className={`group block py-6 sm:py-7 lg:py-8 px-3 sm:px-4 -mx-3 sm:-mx-4 rounded-md transition-all duration-200 focus-visible:outline-none min-h-[64px] ${
           isHovered ? "bg-white hard-shadow" : "bg-transparent"
         }`}
       >
-        {/* Desktop 5-Column Grid */}
-        <div className="hidden md:flex items-baseline justify-between w-full">
-          {/* Col 1: Index */}
-          <div className="w-[84px] shrink-0 font-mono text-xs text-[#E5341B] font-bold">
+        {/* Desktop Layout (>=1024px): number | title + description | category | year/arrow */}
+        <div className="hidden lg:flex items-baseline justify-between w-full">
+          <div className="w-[72px] shrink-0 font-mono text-xs text-[#E5341B] font-bold">
             {project.index}
           </div>
 
-          {/* Col 2: Title & Description */}
-          <div className="max-w-xl lg:max-w-2xl xl:max-w-3xl shrink-0">
+          <div className="max-w-xl xl:max-w-2xl shrink-0">
             <h3
-              className={`text-[24px] font-bold leading-[1.2] tracking-[-0.02em] transition-colors duration-200 ${
+              className={`text-fluid-h3 font-bold leading-tight tracking-[-0.02em] transition-colors duration-200 ${
                 isHovered ? "text-[#E5341B]" : "text-[#0A0A0A]"
               }`}
             >
               {project.title}
             </h3>
-            <p className="text-[13px] leading-[1.55] text-[#555555] mt-2.5 line-clamp-3">
+            <p className="text-fluid-small text-[#555555] mt-2 line-clamp-2">
               {project.summary}
             </p>
           </div>
 
-          {/* Col 3: Flexible Spacer */}
-          <div className="flex-1 min-w-[20px]" />
+          <div className="flex-1 min-w-[16px]" />
 
-          {/* Col 4: Category Sticker */}
           <div className="w-[180px] shrink-0 text-left">
             <span className="neo-sticker bg-[#F2ECE4] text-[#0A0A0A] font-semibold">
               {project.category}
             </span>
           </div>
 
-          {/* Col 5: Year & Rotating Arrow at right edge */}
-          <div className="w-[76px] shrink-0 flex items-center justify-end gap-1.5 font-mono text-xs text-[#666666]">
+          <div className="w-[84px] shrink-0 flex items-center justify-end gap-1.5 font-mono text-xs text-[#666666]">
             <span>{project.year}</span>
             <ArrowUpRight
               className={`w-4 h-4 transition-transform duration-200 ${
@@ -428,29 +423,51 @@ export function ProjectRow({
           </div>
         </div>
 
-        {/* Mobile Layout (< 768px) */}
-        <div className="block md:hidden">
-          <div className="flex items-center justify-between font-mono text-[11px] text-[#666666] mb-1.5">
-            <span className="text-[#E5341B] font-bold">{project.index}</span>
-            <div className="flex items-center gap-1">
-              <span>{project.year}</span>
-              <ArrowUpRight
-                className={`w-3.5 h-3.5 transition-transform ${
-                  isHovered ? "rotate-45 text-[#E5341B]" : ""
-                }`}
-              />
+        {/* Tablet Layout (640px to 1023px): number + title on line 1, description on line 2, category & year on line 3 */}
+        <div className="hidden sm:block lg:hidden">
+          <div className="flex items-baseline justify-between gap-4 mb-2">
+            <div className="flex items-baseline gap-3">
+              <span className="font-mono text-xs text-[#E5341B] font-bold shrink-0">
+                {project.index}
+              </span>
+              <h3 className="text-fluid-h3 font-bold text-[#0A0A0A] group-hover:text-[#E5341B] transition-colors">
+                {project.title}
+              </h3>
             </div>
+            <ArrowUpRight className="w-4 h-4 shrink-0 text-[#666666] group-hover:text-[#E5341B] group-hover:rotate-45 transition-transform" />
           </div>
 
-          <h3 className="text-xl font-bold leading-snug tracking-tight text-[#0A0A0A] mb-2 group-hover:text-[#E5341B] transition-colors duration-200">
-            {project.title}
-          </h3>
-
-          <p className="text-sm text-[#555555] leading-relaxed mb-4 line-clamp-3">
+          <p className="text-fluid-small text-[#555555] mb-3 line-clamp-2">
             {project.summary}
           </p>
 
-          <span className="neo-sticker bg-[#F2ECE4] text-[#0A0A0A] text-[10px]">
+          <div className="flex items-center justify-between font-mono text-xs text-[#666666]">
+            <span className="neo-sticker bg-[#F2ECE4] text-[#0A0A0A]">
+              {project.category}
+            </span>
+            <span>{project.year}</span>
+          </div>
+        </div>
+
+        {/* Mobile Phones Layout (< 640px): Full row tappable, min 64px tall, arrow stays visible */}
+        <div className="block sm:hidden">
+          <div className="flex items-center justify-between font-mono text-xs text-[#666666] mb-1.5">
+            <span className="text-[#E5341B] font-bold">{project.index}</span>
+            <div className="flex items-center gap-1.5">
+              <span>{project.year}</span>
+              <ArrowUpRight className="w-4 h-4 text-[#E5341B]" />
+            </div>
+          </div>
+
+          <h3 className="text-lg font-bold leading-snug tracking-tight text-[#0A0A0A] mb-2 group-hover:text-[#E5341B] transition-colors">
+            {project.title}
+          </h3>
+
+          <p className="text-sm text-[#555555] leading-relaxed mb-3 line-clamp-2">
+            {project.summary}
+          </p>
+
+          <span className="neo-sticker bg-[#F2ECE4] text-[#0A0A0A] text-[11px]">
             {project.category}
           </span>
         </div>

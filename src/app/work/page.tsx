@@ -27,28 +27,28 @@ export default function WorkIndexPage() {
       <FloatingNav />
 
       <main className="pt-28 sm:pt-36 pb-20 overflow-x-clip">
-        <div className="w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="site-container">
           {/* Work Page Header */}
-          <div className="mb-16 sm:mb-24">
+          <div className="mb-14 sm:mb-20">
             <span className="neo-sticker bg-[#FFE45C] text-[#0A0A0A] font-bold mb-4">
               WORK & PROJECTS
             </span>
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-[-0.035em] text-[#0A0A0A] leading-tight max-w-4xl mb-6">
+            <h1 className="text-fluid-hero font-extrabold tracking-[-0.035em] text-[#0A0A0A] leading-tight max-w-4xl mb-6">
               Selected work across applied AI, RAG systems, and full-stack products
             </h1>
-            <p className="text-base sm:text-xl text-[#555555] font-normal leading-relaxed max-w-2xl">
+            <p className="text-fluid-lead text-[#555555] font-normal leading-relaxed max-w-2xl">
               Engineered systems built for correctness, low latency, and verifiable data provenance.
             </p>
           </div>
 
           {/* List of Case Studies */}
-          <div className="divide-y divide-[#E2DFD7] border-t border-b border-[#E2DFD7] mb-24">
+          <div className="divide-y divide-[#E2DFD7] border-t border-b border-[#E2DFD7] mb-20 sm:mb-24">
             {projects.map((item) => (
               <div
                 key={item.slug}
-                className="group relative py-10 sm:py-12 transition-all duration-300 hover:bg-white px-4 sm:px-8 -mx-4 sm:-mx-8 rounded-md hover:hard-shadow"
+                className="group relative py-8 sm:py-10 lg:py-12 transition-all duration-300 hover:bg-white px-4 sm:px-6 -mx-4 sm:-mx-6 rounded-md hover:hard-shadow min-h-[64px]"
               >
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start md:items-center">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-8 items-start md:items-center">
                   {/* Column 1: Index Number */}
                   <div className="md:col-span-1">
                     <span className="font-mono text-sm text-[#E5341B] font-extrabold tracking-wider">
@@ -61,12 +61,12 @@ export default function WorkIndexPage() {
                     <div className="flex items-center gap-3 mb-2">
                       <Link
                         href={`/work/${item.slug}`}
-                        className="text-xl sm:text-2xl font-bold text-[#0A0A0A] group-hover:text-[#E5341B] transition-colors tracking-tight"
+                        className="text-fluid-h3 font-bold text-[#0A0A0A] group-hover:text-[#E5341B] transition-colors tracking-tight"
                       >
                         {item.title}
                       </Link>
                     </div>
-                    <p className="text-sm text-[#555555] leading-relaxed mb-4">
+                    <p className="text-fluid-small text-[#555555] leading-relaxed mb-4">
                       {item.subtitle}
                     </p>
                     <div className="flex flex-wrap gap-2">
@@ -82,12 +82,12 @@ export default function WorkIndexPage() {
                   </div>
 
                   {/* Column 3: Category */}
-                  <div className="hidden md:block md:col-span-2 text-xs font-mono text-[#666666] font-semibold">
+                  <div className="hidden md:block md:col-span-2 text-fluid-mono text-[#666666] font-semibold">
                     {item.category}
                   </div>
 
                   {/* Column 4: Year */}
-                  <div className="hidden md:block md:col-span-1 text-xs font-mono text-[#666666] text-right font-medium">
+                  <div className="hidden md:block md:col-span-1 text-fluid-mono text-[#666666] text-right font-medium">
                     {item.year}
                   </div>
 
@@ -99,7 +99,7 @@ export default function WorkIndexPage() {
                         target="_blank"
                         rel="noreferrer"
                         aria-label="Repository"
-                        className="p-2.5 rounded-full bg-[#FAF3EE] text-[#0A0A0A] hover:bg-[#FFE45C] transition-colors"
+                        className="w-10 h-10 flex items-center justify-center rounded-full bg-[#FAF3EE] text-[#0A0A0A] hover:bg-[#FFE45C] transition-colors"
                       >
                         <Github className="w-4 h-4" />
                       </a>
@@ -107,7 +107,7 @@ export default function WorkIndexPage() {
 
                     <Link
                       href={`/work/${item.slug}`}
-                      className="neo-pill-btn px-5 py-2 text-xs font-bold"
+                      className="neo-pill-btn px-5 py-2 text-xs font-bold min-h-[44px]"
                     >
                       <span>Read Case</span>
                       <ArrowUpRight className="w-3.5 h-3.5 ml-1" />

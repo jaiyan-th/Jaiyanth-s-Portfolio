@@ -41,21 +41,21 @@ export function Research() {
       icon: Scan,
       title: "Multimodal Signal Capture",
       desc: "Computer vision input layer extracts early wellness indicators, normalized for clinical reasoning.",
-      rotateY: 8, // Carousel side card tilt
+      rotateY: 8,
     },
     {
       step: "02",
       icon: MessageSquare,
       title: "Conversational Triage",
       desc: "Deterministic dialogue trees eliminate ambiguity before surfacing care recommendations.",
-      rotateY: 0, // Carousel center card straight
+      rotateY: 0,
     },
     {
       step: "03",
       icon: ClipboardCheck,
       title: "Traceable Clinician Summaries",
       desc: "Every output links to cited visual features and dialogue turns for verifiable provenance.",
-      rotateY: -8, // Carousel side card tilt
+      rotateY: -8,
     },
   ];
 
@@ -63,31 +63,31 @@ export function Research() {
     <section
       id="research"
       aria-label="04 Research, Publications & Achievements"
-      className="relative py-16 sm:py-24 border-t border-[#E2DFD7] bg-transparent scroll-mt-20 perspective-1200"
+      className="relative section-padding border-t border-[#E2DFD7] bg-transparent scroll-mt-20 perspective-1200"
     >
-      <div className="w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Section Header with Reusable Reveal & Animated Red Underline */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 pb-6 border-b border-[#E2DFD7]">
-          <div className="flex items-baseline gap-4">
-            <span className="font-mono text-base sm:text-lg text-[#E5341B] tracking-widest uppercase font-extrabold">
+      <div className="site-container">
+        {/* Section Header: On phones stack right label under title */}
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#E2DFD7] gap-2">
+          <div className="flex items-baseline gap-3 sm:gap-4">
+            <span className="text-fluid-mono text-[#E5341B] tracking-widest uppercase font-extrabold">
               04
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
+            <h2 className="text-fluid-h2 font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
               Research & Publication
             </h2>
           </div>
-          <span className="text-xs font-mono uppercase tracking-widest text-[#666666] mt-2 sm:mt-0">
+          <span className="text-fluid-mono uppercase tracking-widest text-[#666666]">
             IEEE ICETSIS 2026 · Peer-Reviewed Conference
           </span>
         </Reveal>
 
-        {/* Unboxed Layout */}
+        {/* Unboxed Content */}
         <div className="w-full preserve-3d">
           {/* Top Meta Bar */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6">
-            <div className="flex flex-wrap items-center gap-3 text-xs font-mono">
+            <div className="flex flex-wrap items-center gap-2.5 text-fluid-mono">
               <span className="inline-flex items-center gap-1.5 font-bold text-[#0A0A0A]">
-                <ShieldCheck className="w-4 h-4 text-[#E5341B]" />
+                <ShieldCheck className="w-4 h-4 text-[#E5341B] shrink-0" />
                 <span className="neo-sticker bg-[#FFE45C] text-[#0A0A0A] font-bold">
                   Published & Peer-Reviewed
                 </span>
@@ -98,13 +98,13 @@ export function Research() {
             </div>
 
             {/* Allowed Outlined Pill Button + Black Pill Button */}
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               {RESEARCH.certificateUrl && (
                 <a
                   href={RESEARCH.certificateUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="neo-pill-btn h-9 px-4 text-xs font-mono font-bold gap-1.5"
+                  className="neo-pill-btn h-10 px-4 text-fluid-mono font-bold gap-1.5"
                 >
                   <FileText className="w-3.5 h-3.5 text-[#E5341B]" />
                   <span>Certificate</span>
@@ -113,7 +113,7 @@ export function Research() {
               )}
               <Link
                 href="/work/preventive-ai-paper"
-                className="neo-black-btn h-9 px-4 text-xs font-mono font-bold gap-1.5"
+                className="neo-black-btn h-10 px-4 text-fluid-mono font-bold gap-1.5"
               >
                 <span>Read Case Study</span>
                 <ArrowRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -123,27 +123,27 @@ export function Research() {
 
           {/* Paper Title & Authorship */}
           <div className="mb-6">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#E5341B] font-bold block mb-2">
+            <span className="text-fluid-mono uppercase tracking-widest text-[#E5341B] font-bold block mb-2">
               Co-Authored Research Paper
             </span>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-[-0.03em] text-[#0A0A0A] leading-tight mb-3">
+            <h3 className="text-fluid-h2 font-extrabold tracking-[-0.03em] text-[#0A0A0A] leading-tight mb-3">
               {RESEARCH.title}
             </h3>
-            <p className="text-xs font-mono text-[#666666] font-medium">
+            <p className="text-fluid-mono text-[#666666] font-medium">
               Co-Author: Jaiyanth B · University of Bahrain & IEEE Bahrain Section · Sakhir, Bahrain
             </p>
           </div>
 
           {/* Abstract Paragraph */}
-          <p className="text-base sm:text-lg text-[#555555] leading-relaxed mb-10 max-w-4xl font-normal">
+          <p className="text-fluid-body text-[#555555] leading-relaxed mb-8 sm:mb-12 max-w-4xl font-normal">
             {RESEARCH.abstract}
           </p>
 
-          {/* 3 Stat / Highlight Cards: 3D Carousel Feel (Side cards tilted, hover straightens all; disabled on mobile/reduced motion) */}
+          {/* 3 Stat Cards: Stays 3 across on tablets, stacks on phones */}
           <div
             onMouseEnter={() => setIsGridHovered(true)}
             onMouseLeave={() => setIsGridHovered(false)}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 mb-14 perspective-1200"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-14 perspective-1200"
           >
             {pillars.map((item, idx) => {
               const Icon = item.icon;
@@ -165,7 +165,7 @@ export function Research() {
                   style={{
                     transform: `rotateY(${activeRotateY}deg)`,
                   }}
-                  className="p-6 rounded-md bg-white hard-shadow flex flex-col justify-between transition-transform duration-300 ease-out will-change-transform"
+                  className="p-5 sm:p-6 rounded-md bg-white hard-shadow flex flex-col justify-between transition-transform duration-300 ease-out will-change-transform"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
@@ -179,7 +179,7 @@ export function Research() {
                     <h4 className="font-bold text-base text-[#0A0A0A] mb-2">
                       {item.title}
                     </h4>
-                    <p className="text-sm text-[#555555] leading-relaxed">
+                    <p className="text-fluid-small text-[#555555] leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -189,9 +189,9 @@ export function Research() {
           </div>
 
           {/* Bottom Row: Domain Keywords & Deep Dive */}
-          <div className="pt-8 border-t border-[#E2DFD7] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs font-mono text-[#0A0A0A]">
-              <span className="text-[#888888] font-bold text-[11px] uppercase tracking-wider mr-1">
+          <div className="pt-6 sm:pt-8 border-t border-[#E2DFD7] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-fluid-mono text-[#0A0A0A]">
+              <span className="text-[#888888] font-bold uppercase tracking-wider mr-1">
                 DOMAIN:
               </span>
               <span className="font-medium text-[#0A0A0A]">
@@ -201,7 +201,7 @@ export function Research() {
 
             <Link
               href="/work/preventive-ai-paper"
-              className="inline-flex items-center gap-1.5 text-xs font-mono text-[#0A0A0A] hover:text-[#E5341B] font-bold group transition-colors"
+              className="inline-flex items-center gap-1.5 text-fluid-mono text-[#0A0A0A] hover:text-[#E5341B] font-bold group transition-colors min-h-[44px]"
             >
               <span>See full architecture & clinical pipeline inside case study</span>
               <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 text-[#E5341B]" />

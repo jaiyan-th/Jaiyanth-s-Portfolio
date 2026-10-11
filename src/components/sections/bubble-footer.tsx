@@ -11,7 +11,7 @@ interface BubbleData {
   radius: number;
   isPinker: boolean;
   baseOpacity: number;
-  scaleProgress: number; // For entry scale animation 0 -> 1
+  scaleProgress: number;
   targetScale: number;
   entryDelay: number;
 }
@@ -20,7 +20,6 @@ export function BubbleFooter() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  // Custom Cursor state
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [isInside, setIsInside] = useState(false);
   const [isBtnHovered, setIsBtnHovered] = useState(false);
@@ -50,7 +49,6 @@ export function BubbleFooter() {
     let width = container.clientWidth || 1000;
     let height = container.clientHeight || 560;
 
-    // Matter.js Engine & World
     const matterModule = (Matter as any).default || Matter;
     const { Engine, World, Bodies, Body, Vector } = matterModule;
     if (!Engine || !World || !Bodies) {
@@ -62,7 +60,6 @@ export function BubbleFooter() {
     });
     const world = engine.world;
 
-    // Boundary walls
     const WALL_THICKNESS = 100;
     let ground = Bodies.rectangle(
       width / 2,
@@ -95,13 +92,12 @@ export function BubbleFooter() {
 
     World.add(world, [ground, ceiling, leftWall, rightWall]);
 
-    // Create bubbles
     const isSmallScreen = window.innerWidth < 768;
-    const BUBBLE_COUNT = isSmallScreen ? 24 : 48;
+    const BUBBLE_COUNT = isSmallScreen ? 20 : 44;
     const bubbles: BubbleData[] = [];
 
     for (let i = 0; i < BUBBLE_COUNT; i++) {
-      const radius = 16 + Math.random() * 32; // 16px to 48px
+      const radius = 16 + Math.random() * 32;
       const x = radius + Math.random() * (width - radius * 2);
       const y = radius + Math.random() * (height - radius * 2);
 
@@ -133,7 +129,6 @@ export function BubbleFooter() {
       World.add(world, body);
     }
 
-    // Set resolution with devicePixelRatio capped at 2
     const updateSize = () => {
       width = container.clientWidth || 1000;
       height = container.clientHeight || 560;
@@ -203,7 +198,6 @@ export function BubbleFooter() {
     );
     observer.observe(container);
 
-    // Render loop with bubble depth parallax
     const render = (time: number) => {
       if (!isVisible && !prefersReducedMotion) {
         animId = null;
@@ -261,8 +255,7 @@ export function BubbleFooter() {
         const currentRadius = Math.max(4, b.radius * scaleVal);
         const { x, y } = b.body.position;
 
-        // CTA bubble depth parallax: larger bubbles shift more based on cursor offset from center
-        const zDepth = (b.radius - 16) / 32; // 0 to 1
+        const zDepth = (b.radius - 16) / 32;
         const parallaxOffsetX =
           !prefersReducedMotion && !isSmallScreen && mouseX > -500
             ? (mouseX - width / 2) * zDepth * 0.04
@@ -275,13 +268,11 @@ export function BubbleFooter() {
         ctx.save();
         ctx.translate(x + parallaxOffsetX, y + parallaxOffsetY);
 
-        // 1. Soft Shadow
         ctx.shadowColor = "rgba(100, 80, 80, 0.12)";
         ctx.shadowBlur = 14;
         ctx.shadowOffsetY = 6;
         ctx.shadowOffsetX = 0;
 
-        // 2. Bubble Body with Radial Gradient
         const r0 = Math.max(0.1, currentRadius * 0.05);
         const r1 = Math.max(r0 + 1, currentRadius);
         const grad = ctx.createRadialGradient(
@@ -308,7 +299,6 @@ export function BubbleFooter() {
         ctx.fillStyle = grad;
         ctx.fill();
 
-        // 3. Reset shadow for outline
         ctx.shadowColor = "transparent";
 
         ctx.beginPath();
@@ -317,14 +307,12 @@ export function BubbleFooter() {
         ctx.lineWidth = 1;
         ctx.stroke();
 
-        // 4. Thin white inner rim
         ctx.beginPath();
         ctx.arc(0, 0, currentRadius - 1, 0, Math.PI * 2);
         ctx.strokeStyle = "rgba(255, 255, 255, 0.85)";
         ctx.lineWidth = 1;
         ctx.stroke();
 
-        // 5. Specular highlight ellipse (at upper-left)
         const specX = -currentRadius * 0.38;
         const specY = -currentRadius * 0.42;
         const specRx = Math.max(1, currentRadius * 0.24);
@@ -365,63 +353,59 @@ export function BubbleFooter() {
   return (
     <div
       id="contact"
-      className="w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12 mb-16 scroll-mt-24"
+      className="site-container mb-12 sm:mb-16 scroll-mt-24"
     >
-      {/* 70vh Rounded Bubble Physics Container */}
+      {/* Bubble Physics Container: min-h-[360px] on phones so it's not squashed */}
       <div
         ref={containerRef}
         data-bubble-footer="true"
-        className="relative w-full h-[65vh] min-h-[500px] max-h-[680px] rounded-[24px] bg-[#EAE8E1]/35 overflow-hidden select-none"
+        className="relative w-full h-[55vh] min-h-[360px] sm:min-h-[460px] max-h-[660px] rounded-[24px] bg-[#EAE8E1]/35 overflow-hidden select-none"
         style={{
           cursor: isMobile ? "auto" : "none",
         }}
       >
-        {/* Physics Canvas */}
         <canvas
           ref={canvasRef}
           aria-hidden="true"
           className="absolute inset-0 w-full h-full block z-0"
         />
 
-        {/* Center CTA Overlay with 3D Flip */}
-        <div className="relative z-10 w-full h-full flex flex-col items-center justify-center text-center px-6 pointer-events-none perspective-1200">
+        {/* Center CTA Overlay */}
+        <div className="relative z-10 w-full h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 pointer-events-none perspective-1200">
           <Reveal className="max-w-2xl pointer-events-auto preserve-3d">
-            {/* Header with 3D Text & Marker-Highlight */}
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-[-0.035em] text-[#0A0A0A] leading-tight mb-8">
+            <h2 className="text-fluid-h2 font-extrabold tracking-[-0.035em] text-[#0A0A0A] leading-tight mb-6 sm:mb-8">
               Building something with{" "}
-              <span className="marker-highlight font-extrabold">AI</span>?
+              <span className="marker-highlight in-view font-extrabold mx-1">AI</span>?
               <br />
               Let&apos;s talk.
             </h2>
 
-            {/* Action Buttons: Black Magnetic Pill + Allowed Outlined Pill with Hard Shadow */}
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              {/* Primary Black Pill with Press Effect */}
+            {/* Action Buttons: min 48px height, wrap on mobile */}
+            <div className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 w-full">
               <a
                 href={`mailto:${IDENTITY.email}`}
                 onMouseEnter={() => setIsBtnHovered(true)}
                 onMouseLeave={() => setIsBtnHovered(false)}
-                className="neo-black-btn h-[52px] px-8 rounded-full text-[15px] font-semibold gap-2.5 active:translate-y-0.5 active:shadow-none"
+                className="neo-black-btn min-h-[48px] px-7 sm:px-8 rounded-full text-sm sm:text-base font-semibold gap-2.5 active:translate-y-0.5 active:shadow-none w-full sm:w-auto"
               >
-                <Mail className="w-4 h-4" />
+                <Mail className="w-4 h-4 shrink-0" />
                 <span>Email me</span>
               </a>
 
-              {/* Secondary Outlined Pill: 2px solid #111 + 3px 3px 0 #111 hard shadow */}
               <a
                 href={IDENTITY.bookingUrl}
                 onMouseEnter={() => setIsBtnHovered(true)}
                 onMouseLeave={() => setIsBtnHovered(false)}
-                className="neo-pill-btn h-[52px] px-8 rounded-full text-[15px] font-semibold gap-2.5"
+                className="neo-pill-btn min-h-[48px] px-7 sm:px-8 rounded-full text-sm sm:text-base font-semibold gap-2.5 w-full sm:w-auto"
               >
                 <span>Hire me</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4 shrink-0" />
               </a>
             </div>
           </Reveal>
         </div>
 
-        {/* Custom Accent Crosshair Cursor */}
+        {/* Accent Crosshair Cursor */}
         {!isMobile && isInside && (
           <div
             aria-hidden="true"
@@ -440,15 +424,20 @@ export function BubbleFooter() {
         )}
       </div>
 
-      {/* Clean Footer Link Row */}
-      <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-[#666666] border-t-2 border-[#0A0A0A] mt-8">
+      {/* Clean Footer Row: 3 cols >=768px, stacked & centered on phones; 44px tap targets */}
+      <div
+        style={{
+          paddingBottom: "max(1.5rem, env(safe-area-inset-bottom, 1.5rem))",
+        }}
+        className="pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-fluid-mono text-[#666666] border-t-2 border-[#0A0A0A] mt-6 sm:mt-8 text-center md:text-left"
+      >
         {/* Navigation Pages */}
-        <div className="flex flex-wrap items-center gap-5">
+        <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-5">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="hover:text-[#0A0A0A] transition-colors uppercase tracking-[0.04em]"
+              className="hover:text-[#0A0A0A] transition-colors uppercase tracking-[0.04em] min-h-[44px] flex items-center"
             >
               {link.label}
             </a>
@@ -456,38 +445,38 @@ export function BubbleFooter() {
         </div>
 
         {/* Social / External Links */}
-        <div className="flex flex-wrap items-center gap-5">
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5">
           <a
             href={IDENTITY.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="hover:text-[#0A0A0A] transition-colors"
+            className="hover:text-[#0A0A0A] transition-colors min-h-[44px] flex items-center"
           >
             LinkedIn
           </a>
-          <span>·</span>
+          <span className="hidden sm:inline select-none">·</span>
           <a
             href={IDENTITY.resumeUrl}
             target="_blank"
             rel="noreferrer"
-            className="hover:text-[#0A0A0A] transition-colors"
+            className="hover:text-[#0A0A0A] transition-colors min-h-[44px] flex items-center"
           >
             Resume
           </a>
-          <span>·</span>
+          <span className="hidden sm:inline select-none">·</span>
           <a
             href={IDENTITY.github}
             target="_blank"
             rel="noreferrer"
-            className="hover:text-[#0A0A0A] transition-colors"
+            className="hover:text-[#0A0A0A] transition-colors min-h-[44px] flex items-center"
           >
             GitHub
           </a>
         </div>
 
         {/* Status */}
-        <div className="flex items-center gap-2 text-[#0A0A0A]">
-          <span className="w-2 h-2 rounded-full bg-[#1FB866]" />
+        <div className="flex items-center justify-center gap-2 text-[#0A0A0A] min-h-[44px]">
+          <span className="w-2 h-2 rounded-full bg-[#1FB866] shrink-0" />
           <span>Replies within 2hrs</span>
         </div>
       </div>
