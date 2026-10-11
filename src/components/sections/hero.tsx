@@ -78,16 +78,16 @@ export function Hero() {
       id="hero"
       aria-label="Hero Introduction"
       style={{
-        paddingTop: "max(5.5rem, calc(4.5rem + env(safe-area-inset-top, 0px)))",
-        paddingBottom: "2rem",
+        paddingTop: "max(4.25rem, calc(3.5rem + env(safe-area-inset-top, 0px)))",
+        paddingBottom: "2.5rem",
       }}
-      className="relative min-h-[100svh] flex flex-col justify-center bg-transparent overflow-hidden perspective-1200"
+      className="relative min-h-[100svh] flex flex-col justify-start bg-transparent overflow-hidden perspective-1200"
     >
       {/* Interactive 3D Dot-Grid Signal Field */}
       <LiveSignalField className="z-0" />
 
-      {/* Main Content Area Vertically Centered */}
-      <div className="site-container relative z-10 w-full my-auto">
+      {/* Main Content Area */}
+      <div className="site-container relative z-10 w-full mt-2 sm:mt-4 lg:mt-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start lg:items-center">
           {/* Left Column (~60-65%): Badges, Headline, Subtitle, CTA buttons */}
           <div
