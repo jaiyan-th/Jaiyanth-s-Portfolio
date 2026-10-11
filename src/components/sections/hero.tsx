@@ -156,7 +156,7 @@ export function Hero() {
               className="border-l-2 border-[#E5341B]/80 pl-3.5 sm:pl-4 max-w-xl"
             >
               <p className="text-sm sm:text-base md:text-lg text-[#555555] font-normal leading-relaxed">
-                I’m an engineer who makes complex things feel obvious.
+                I’m an engineer who makes complex things feel obvious — turning AI ideas into web apps people can actually use.
               </p>
             </motion.div>
 
