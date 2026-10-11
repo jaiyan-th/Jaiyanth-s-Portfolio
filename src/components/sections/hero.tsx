@@ -107,8 +107,13 @@ export function Hero() {
               transform: `translate3d(0, ${headlineParallaxY}px, 0)`,
             }}
           >
-            {/* 1. Flat Stickers (No borders, 1.5deg rotation) */}
-            <div className="flex flex-wrap items-center gap-3 mb-8">
+            {/* 1. Flat Stickers with animated entry */}
+            <motion.div
+              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+              className="flex flex-wrap items-center gap-3 mb-8"
+            >
               <span className="neo-sticker bg-[#FFE45C] text-[#0A0A0A] font-bold">
                 PORTFOLIO &apos;26
               </span>
@@ -120,11 +125,11 @@ export function Hero() {
                 </span>
                 <span>Open to work</span>
               </div>
-            </div>
+            </motion.div>
 
             {/* 2. H1: 3D Staggered Flip Entrance (Weight 700-800, tight letter-spacing) */}
             <h1
-              className="mb-7 tracking-[-0.035em] font-extrabold text-[#0A0A0A] select-none preserve-3d"
+              className="mb-8 tracking-[-0.035em] font-extrabold text-[#0A0A0A] select-none preserve-3d"
             >
               {headlineLines.map((line, idx) => (
                 <div
@@ -150,15 +155,17 @@ export function Hero() {
               ))}
             </h1>
 
-            {/* 3. Subtitle Paragraph */}
-            <motion.p
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.42, duration: 0.6 }}
-              className="text-[#555555] text-[20px] leading-[1.6] max-w-2xl mb-10 font-normal"
+            {/* 3. Subtitle with editorial layout indicator and animated slide */}
+            <motion.div
+              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: -16 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              className="border-l-2 border-[#E5341B]/80 pl-4 sm:pl-5 mb-10 max-w-2xl"
             >
-              I’m an engineer who makes complex things feel obvious.
-            </motion.p>
+              <p className="text-[#555555] text-[18px] sm:text-[20px] leading-[1.6] font-normal">
+                I’m an engineer who makes complex things feel obvious.
+              </p>
+            </motion.div>
 
             {/* 4. Action Buttons (Magnetic "Explore Work" + Clean Link) */}
             <motion.div
