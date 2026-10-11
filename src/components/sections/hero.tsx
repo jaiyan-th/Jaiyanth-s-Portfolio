@@ -48,7 +48,8 @@ export function Hero() {
   const infoParallaxY = shouldReduceMotion || isMobile ? 0 : -scrollY * 0.08;
 
   const headlineLines = [
-    { text: "Applied ", hasAI: true, endText: " engineering" },
+    { text: "Applied ", hasAI: true, endText: "" },
+    { text: "engineering", hasAI: false, endText: "" },
     { text: "for systems", hasAI: false, endText: "" },
     { text: "that make sense", hasAI: false, endText: "" },
   ];
@@ -79,9 +80,9 @@ export function Hero() {
       aria-label="Hero Introduction"
       style={{
         paddingTop: "max(4.25rem, calc(3.5rem + env(safe-area-inset-top, 0px)))",
-        paddingBottom: "2.5rem",
+        paddingBottom: "var(--section-y)",
       }}
-      className="relative min-h-[100svh] flex flex-col justify-start bg-transparent overflow-hidden perspective-1200"
+      className="relative flex flex-col justify-start bg-transparent overflow-hidden perspective-1200"
     >
       {/* Interactive 3D Dot-Grid Signal Field */}
       <LiveSignalField className="z-0" />
