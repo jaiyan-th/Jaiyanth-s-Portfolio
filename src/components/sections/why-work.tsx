@@ -4,6 +4,21 @@ import { motion } from "motion/react";
 import { RevealHeading } from "@/components/ui/reveal-heading";
 import { WHY_WORK_WITH_ME } from "@/data/content";
 
+const CARD_METAS = [
+  {
+    stampBg: "bg-[#FFE600] text-[#0A0A0A]",
+    tagline: "// 01 · PRODUCTION AI",
+  },
+  {
+    stampBg: "bg-[#00E599] text-[#0A0A0A]",
+    tagline: "// 02 · ARCHITECTURE",
+  },
+  {
+    stampBg: "bg-[#00F0FF] text-[#0A0A0A]",
+    tagline: "// 03 · RIGOUR & VELOCITY",
+  },
+];
+
 export function WhyWork() {
   return (
     <section
@@ -56,53 +71,63 @@ export function WhyWork() {
         </motion.div>
 
         {/* Three Labeled Points (A, B, C) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-8">
-          {WHY_WORK_WITH_ME.map((point, index) => (
-            <motion.div
-              key={point.letter}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15, margin: "0px 0px -60px 0px" }}
-              transition={{
-                duration: 0.7,
-                delay: index * 0.12,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="group flex flex-col justify-between p-7 sm:p-8 rounded-2xl border-2 border-[#0A0A0A] bg-white shadow-[5px_5px_0px_#0A0A0A] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[7px_7px_0px_#0A0A0A] transition-all duration-200"
-            >
-              <div>
-                {/* Labeled Letter Identifier */}
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E6E3DC]">
-                  <span className="font-mono text-2xl font-bold text-accent">
-                    {point.letter}
-                  </span>
-                  <span className="w-2 h-2 rounded-full bg-[#E6E3DC] group-hover:bg-accent transition-colors" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          {WHY_WORK_WITH_ME.map((point, index) => {
+            const meta = CARD_METAS[index % CARD_METAS.length];
+            return (
+              <motion.div
+                key={point.letter}
+                initial={{ opacity: 0, y: 36 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15, margin: "0px 0px -60px 0px" }}
+                transition={{
+                  duration: 0.65,
+                  delay: index * 0.1,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="group flex flex-col justify-between p-7 sm:p-8 rounded-2xl bg-white hover:-translate-y-1.5 transition-all duration-300"
+              >
+                <div>
+                  {/* Neo-Brutalist Stamp & Tagline Header */}
+                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E6E3DC]/80">
+                    <div className="flex items-center gap-3">
+                      <span
+                        className={`inline-flex items-center justify-center w-8 h-8 rounded-lg font-mono font-black text-sm tracking-tight ${meta.stampBg}`}
+                      >
+                        {point.letter}
+                      </span>
+                      <span className="font-mono text-[11px] font-bold tracking-wider uppercase text-[#0A0A0A]/60">
+                        {meta.tagline}
+                      </span>
+                    </div>
+                    <span className="w-2 h-2 rounded-full bg-[#E6E3DC] group-hover:bg-[#0A0A0A] transition-colors duration-200" />
+                  </div>
+
+                  {/* Point Title */}
+                  <h4 className="text-xl sm:text-2xl font-bold tracking-tight text-[#0A0A0A] leading-snug mb-3 group-hover:text-accent transition-colors">
+                    {point.title}
+                  </h4>
+
+                  {/* Point Description */}
+                  <p className="text-sm text-[#525252] leading-relaxed font-normal mb-6">
+                    {point.description}
+                  </p>
                 </div>
 
-                {/* Point Title */}
-                <h4 className="text-lg sm:text-xl font-medium tracking-tight text-[#0A0A0A] mb-3 group-hover:text-accent transition-colors">
-                  {point.title}
-                </h4>
-
-                {/* Point Description */}
-                <p className="text-sm text-[#666666] leading-relaxed font-normal mb-6">
-                  {point.description}
-                </p>
-              </div>
-
-              {/* Tag Badges */}
-              <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[#E6E3DC]">
-                {point.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-[#FAF9F5] text-[#666666] border border-[#E6E3DC]"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+                {/* Neo-Brutal Tag Badges */}
+                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[#E6E3DC]/80">
+                  {point.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-md bg-[#F5F3EE] text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white transition-colors duration-200"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

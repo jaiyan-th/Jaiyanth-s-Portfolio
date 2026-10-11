@@ -185,21 +185,21 @@ export const WHY_WORK_WITH_ME: WhyWorkPoint[] = [
     letter: "A",
     title: "Production-First AI Systems, Not Just Demos",
     description:
-      "[PLACEHOLDER] I build around how people query, evaluate, and trust AI outputs, creating RAG pipelines and semantic retrieval that ground every answer in verifiable evidence instead of model hallucination.",
+      "I build around how people query, evaluate, and trust AI outputs, creating RAG pipelines and semantic retrieval that ground every answer in verifiable evidence instead of model hallucination.",
     tags: ["Grounded RAG", "Vector Search", "LLM Integration", "Prompt Engineering"],
   },
   {
     letter: "B",
     title: "Systems First, Screens Second: End-to-End Ownership",
     description:
-      "[PLACEHOLDER] I start with the data contracts, schema constraints, and API boundaries behind the product, then shape the user interface around it so the system stays resilient, scalable, and easy to maintain.",
+      "I start with the data contracts, schema constraints, and API boundaries behind the product, then shape the user interface around it so the system stays resilient, scalable, and easy to maintain.",
     tags: ["Next.js & React", "FastAPI & NestJS", "SQL & Supabase", "System Architecture"],
   },
   {
     letter: "C",
     title: "Density Is Not the Enemy: Rigour & Velocity",
     description:
-      "[PLACEHOLDER] I don't simplify by stripping critical capabilities. I organize dense system telemetry, probabilistic signals, and complex workflows so teams and users can scan, understand, and act with confidence.",
+      "I don't simplify by stripping critical capabilities. I organize dense system telemetry, probabilistic signals, and complex workflows so teams and users can scan, understand, and act with confidence.",
     tags: ["Type Safety", "WCAG AA", "Micro-Interactions", "Clean Code"],
   },
 ];
