@@ -92,8 +92,8 @@ export function Hero() {
       id="hero"
       aria-label="Hero Introduction"
       style={{
-        paddingTop: "max(4.5rem, calc(3.5rem + env(safe-area-inset-top, 0px)))",
-        paddingBottom: "var(--space-3)",
+        paddingTop: "max(5.75rem, calc(4.75rem + env(safe-area-inset-top, 0px)))",
+        paddingBottom: "1.25rem",
       }}
       className="relative min-h-[100svh] flex flex-col justify-between bg-transparent overflow-hidden perspective-1200"
     >
@@ -115,7 +115,7 @@ export function Hero() {
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-              style={{ marginBottom: "var(--space-3)" }}
+              style={{ marginBottom: "0.75rem" }}
               className="flex flex-wrap items-center gap-2.5 sm:gap-3"
             >
               <span className="neo-sticker bg-[#FFE45C] text-[#0A0A0A] font-bold">
@@ -131,10 +131,10 @@ export function Hero() {
               </div>
             </motion.div>
 
-            {/* 2. H1: Fluid Headline with tight leading & no overflow */}
+            {/* 2. H1: Proportionally scaled Headline matching other pages */}
             <h1
-              style={{ marginBottom: "var(--space-3)" }}
-              className="text-fluid-hero font-extrabold tracking-[-0.035em] text-[#0A0A0A] select-none preserve-3d"
+              style={{ marginBottom: "0.875rem" }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.65rem] xl:text-[3.15rem] font-extrabold tracking-[-0.035em] text-[#0A0A0A] select-none preserve-3d leading-[1.12]"
             >
               {headlineLines.map((line, idx) => (
                 <div
@@ -160,15 +160,15 @@ export function Hero() {
               ))}
             </h1>
 
-            {/* 3. Subtitle with editorial layout indicator and fluid lead typography */}
+            {/* 3. Subtitle with editorial layout indicator and clean typography */}
             <motion.div
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: -16 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.38, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-              style={{ marginBottom: "var(--space-4)" }}
-              className="border-l-2 border-[#E5341B]/80 pl-3.5 sm:pl-4 max-w-2xl"
+              style={{ marginBottom: "1.25rem" }}
+              className="border-l-2 border-[#E5341B]/80 pl-3.5 sm:pl-4 max-w-xl"
             >
-              <p className="text-fluid-lead text-[#555555] font-normal">
+              <p className="text-sm sm:text-base md:text-lg text-[#555555] font-normal leading-relaxed">
                 I’m an engineer who makes complex things feel obvious.
               </p>
             </motion.div>
@@ -207,7 +207,7 @@ export function Hero() {
 
           {/* Right Column: Neo-Brutalist Snapshot Card */}
           <div
-            className="lg:col-span-5 xl:col-span-5 w-full flex flex-col justify-center transition-transform duration-75 ease-out will-change-transform mt-6 lg:mt-0"
+            className="lg:col-span-5 xl:col-span-5 w-full flex flex-col justify-center transition-transform duration-75 ease-out will-change-transform mt-4 lg:mt-0"
             style={{
               transform: `translate3d(0, ${infoParallaxY}px, 0)`,
             }}
