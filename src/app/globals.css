@@ -3,13 +3,12 @@
 
 /* ============================================================
    LIGHT NEO-BRUTALIST DESIGN SYSTEM (DEPTH = SIGNAL)
+   - Original canvas: Warm parchment #F5F3EE
    - Minimal border policy: Outlined pill buttons (2px solid #111 + 3px 3px 0 #111),
      single black divider above footer, keyboard focus outline (2px solid red).
-   - Hard offset shadows with ZERO blur: 6px 6px 0 rgba(17,17,17,0.12) at rest,
-     10px 10px 0 rgba(17,17,17,0.9) on hover.
-   - Flat color blocks: white (#FFF), soft cream (#F5F3EE), pale yellow (#FFE45C / #FFF3B0), pale red (#FFE3E0).
-   - Card border-radius: 6px on cards, pills preserved.
-   - 3D Scroll Perspective: 1200px perspective wrappers with preserve-3d.
+   - Hard offset shadows: box-shadow transition only (no transform in CSS).
+   - In-view animations for marker highlight & section draw line.
+   - Font mapping: --font-sans correctly bound to next/font var(--font-sans).
    ============================================================ */
 
 @theme inline {
@@ -31,10 +30,11 @@
 }
 
 :root {
-  --canvas: #FAF3EE;
+  /* Original warm canvas color */
+  --canvas: #F5F3EE;
   --surface: #FFFFFF;
   --surface-card: #FFFFFF;
-  --surface-muted: #F2ECE4;
+  --surface-muted: #E8E5DD;
   --text-primary: #0A0A0A;
   --text-secondary: #555555;
   --text-muted: #666666;
@@ -46,7 +46,7 @@
   --accent-tint: #FFE3E0;
   --ink: #0A0A0A;
 
-  /* Curated Pale Yellow Accent (Max 3 spots per page) */
+  /* Curated Pale Yellow Accent */
   --neo-yellow: #FFE45C;
   --neo-yellow-pale: #FFF3B0;
   --neo-red-pale: #FFE3E0;
@@ -89,6 +89,19 @@
   }
 }
 
+/* Hide native cursor ONLY for fine pointer devices when custom cursor is active */
+@media (pointer: fine) {
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none !important;
+  }
+  /* Exception for matter-js bubble footer */
+  html.has-custom-cursor [data-bubble-footer],
+  html.has-custom-cursor [data-bubble-footer] * {
+    cursor: auto !important;
+  }
+}
+
 @layer utilities {
   /* 3D Perspective Wrappers */
   .perspective-1200 {
@@ -102,14 +115,13 @@
     backface-visibility: hidden;
   }
 
-  /* Hard Offset Zero-Blur Shadows (No borders on cards) */
+  /* Hard Offset Zero-Blur Shadows (NO transform transition in CSS - transform lift handled via motion whileHover) */
   .hard-shadow {
     box-shadow: 6px 6px 0 rgba(17, 17, 17, 0.12);
     border-radius: 6px;
-    transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition: box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1);
   }
   .hard-shadow:hover {
-    transform: translate3d(-3px, -3px, 15px);
     box-shadow: 10px 10px 0 rgba(17, 17, 17, 0.9);
   }
 
@@ -158,7 +170,7 @@
     box-shadow: 0px 0px 0 transparent;
   }
 
-  /* Marker-Highlight Effect (Flat yellow #FFE45C block sweeping in behind word, no border) */
+  /* Marker-Highlight Effect (Starts hidden; animates ONLY when .in-view is added) */
   .marker-highlight {
     position: relative;
     display: inline-block;
@@ -173,19 +185,15 @@
     background-color: #FFE45C;
     z-index: -1;
     transform-origin: left center;
-    animation: markerSweep 600ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    transform: scaleX(0);
+    transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .marker-highlight.in-view::before,
+  .in-view .marker-highlight::before {
+    transform: scaleX(1);
   }
 
-  @keyframes markerSweep {
-    0% {
-      transform: scaleX(0);
-    }
-    100% {
-      transform: scaleX(1);
-    }
-  }
-
-  /* Flat Sticker Tags (Small flat sticker with 1deg to 2deg rotation, no border) */
+  /* Flat Sticker Tags (Small flat sticker with 1.5deg rotation, no border) */
   .neo-sticker {
     display: inline-flex;
     align-items: center;
@@ -208,14 +216,7 @@
     transform: rotate(0deg) scale(1.04);
   }
 
-  /* Cylinder Curve for Marquee */
-  .marquee-cylinder {
-    perspective: 1000px;
-    transform: rotateX(8deg);
-    transform-style: preserve-3d;
-  }
-
-  /* Animated Red Underline for Section Headers */
+  /* Animated Red Underline for Section Headers (Starts hidden; animates ONLY when .in-view is added) */
   .section-draw-line {
     position: relative;
   }
@@ -228,16 +229,12 @@
     width: 64px;
     background-color: #E5341B;
     transform-origin: left;
-    animation: drawUnderline 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    transform: scaleX(0);
+    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
   }
-
-  @keyframes drawUnderline {
-    0% {
-      transform: scaleX(0);
-    }
-    100% {
-      transform: scaleX(1);
-    }
+  .section-draw-line.in-view::after,
+  .in-view .section-draw-line::after {
+    transform: scaleX(1);
   }
 
   /* Marquee Keyframes */
@@ -261,12 +258,12 @@
       animation: none !important;
     }
     .marker-highlight::before {
-      animation: none !important;
       transform: scaleX(1) !important;
+      transition: none !important;
     }
     .section-draw-line::after {
-      animation: none !important;
       transform: scaleX(1) !important;
+      transition: none !important;
     }
     * {
       animation-duration: 0.001ms !important;

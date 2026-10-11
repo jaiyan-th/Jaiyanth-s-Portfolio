@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight, GraduationCap } from "lucide-react";
 import { IDENTITY } from "@/data/content";
+import { Reveal } from "@/components/ui/reveal";
 
 export function About() {
   const shouldReduceMotion = useReducedMotion();
@@ -19,7 +20,7 @@ export function About() {
     return () => window.removeEventListener("resize", check);
   }, []);
 
-  // 3D Tilt toward cursor for portrait photograph (max 8deg)
+  // 3D Tilt toward cursor for portrait photograph (max 8deg, disabled below 768px & reduced motion)
   const handlePhotoMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (isMobile || shouldReduceMotion || !photoContainerRef.current) return;
     const rect = photoContainerRef.current.getBoundingClientRect();
@@ -37,7 +38,7 @@ export function About() {
 
   // Staggered paragraph rising with rotateX(20deg) -> 0
   const paragraphVariants = {
-    hidden: { opacity: 0, rotateX: 20, y: 30, translateZ: -30 },
+    hidden: { opacity: 0, rotateX: shouldReduceMotion || isMobile ? 0 : 20, y: 24, translateZ: shouldReduceMotion || isMobile ? 0 : -30 },
     visible: (custom: number) => ({
       opacity: 1,
       rotateX: 0,
@@ -58,14 +59,8 @@ export function About() {
       className="relative py-16 sm:py-24 border-t border-[#E2DFD7] bg-transparent scroll-mt-20 perspective-1200"
     >
       <div className="w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Section Header with Animated Red Line Underline */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 pb-6 border-b border-[#E2DFD7]"
-        >
+        {/* Section Header with Reusable Reveal & Animated Red Line Underline */}
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 pb-6 border-b border-[#E2DFD7]">
           <div className="flex items-baseline gap-4">
             <span className="font-mono text-base sm:text-lg text-[#E5341B] tracking-widest uppercase font-extrabold">
               01
@@ -77,7 +72,7 @@ export function About() {
           <span className="text-xs font-mono uppercase tracking-widest text-[#666666] mt-2 sm:mt-0">
             Background, Story & Engineering Values
           </span>
-        </motion.div>
+        </Reveal>
 
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -129,10 +124,15 @@ export function About() {
 
               {/* Education Credential: Slides in from left on Z axis */}
               <motion.div
-                initial={{ opacity: 0, x: -36, translateZ: -60 }}
-                whileInView={{ opacity: 1, x: 0, translateZ: 0 }}
+                initial={
+                  shouldReduceMotion || isMobile
+                    ? { opacity: 0, y: 16 }
+                    : { opacity: 0, x: -36, translateZ: -60 }
+                }
+                whileInView={{ opacity: 1, x: 0, y: 0, translateZ: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={shouldReduceMotion || isMobile ? {} : { y: -2 }}
                 className="flex items-start gap-4 mb-8 p-4 rounded-md bg-white hard-shadow"
               >
                 <div className="w-10 h-10 rounded-md bg-[#0A0A0A] flex items-center justify-center text-white shrink-0 mt-0.5 shadow-[2px_2px_0px_#E5341B]">
@@ -157,7 +157,7 @@ export function About() {
               </motion.div>
             </div>
 
-            {/* Allowed Outlined Pill Buttons (2px solid #111 + hard shadow 3px 3px 0 #111) */}
+            {/* Allowed Outlined Pill Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-[#E2DFD7]">
               <a
                 href={IDENTITY.github}

@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState, useId } from "react";
+import { useEffect, useRef, useState } from "react";
 import Matter from "matter-js";
 import { ArrowUpRight, Mail } from "lucide-react";
 import { IDENTITY, NAV_LINKS } from "@/data/content";
+import { Reveal } from "@/components/ui/reveal";
 
 interface BubbleData {
   body: Matter.Body;
@@ -49,7 +50,7 @@ export function BubbleFooter() {
     let width = container.clientWidth || 1000;
     let height = container.clientHeight || 560;
 
-    // Matter.js Engine & World (safe extraction across ESM/CJS)
+    // Matter.js Engine & World
     const matterModule = (Matter as any).default || Matter;
     const { Engine, World, Bodies, Body, Vector } = matterModule;
     if (!Engine || !World || !Bodies) {
@@ -96,7 +97,7 @@ export function BubbleFooter() {
 
     // Create bubbles
     const isSmallScreen = window.innerWidth < 768;
-    const BUBBLE_COUNT = isSmallScreen ? 25 : 48;
+    const BUBBLE_COUNT = isSmallScreen ? 24 : 48;
     const bubbles: BubbleData[] = [];
 
     for (let i = 0; i < BUBBLE_COUNT; i++) {
@@ -111,13 +112,11 @@ export function BubbleFooter() {
         density: 0.001,
       });
 
-      // Random gentle initial drift velocity
       Body.setVelocity(body, {
         x: (Math.random() - 0.5) * 0.8,
         y: (Math.random() - 0.5) * 0.8,
       });
 
-      // 15% are slightly pinker
       const isPinker = Math.random() < 0.15;
       const baseOpacity = isPinker ? 0.95 : (Math.random() < 0.3 ? 0.8 : 0.92);
 
@@ -126,7 +125,7 @@ export function BubbleFooter() {
         radius,
         isPinker,
         baseOpacity,
-        scaleProgress: prefersReducedMotion ? 1 : 0, // Starts at 0, animates 0 -> 1 on scroll into view
+        scaleProgress: prefersReducedMotion ? 1 : 0,
         targetScale: 1,
         entryDelay: prefersReducedMotion ? 0 : (i / BUBBLE_COUNT) * 0.45,
       });
@@ -146,7 +145,6 @@ export function BubbleFooter() {
       canvas.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      // Reposition walls
       Body.setPosition(ground, { x: width / 2, y: height + WALL_THICKNESS / 2 });
       Body.setPosition(ceiling, { x: width / 2, y: -WALL_THICKNESS / 2 });
       Body.setPosition(leftWall, { x: -WALL_THICKNESS / 2, y: height / 2 });
@@ -159,7 +157,6 @@ export function BubbleFooter() {
     });
     resizeObserver.observe(container);
 
-    // Mouse coordinates in container
     let mouseX = -9999;
     let mouseY = -9999;
 
@@ -184,11 +181,9 @@ export function BubbleFooter() {
     container.addEventListener("mouseenter", handleMouseEnter);
     container.addEventListener("mouseleave", handleMouseLeave);
 
-    // Entry scaling animation triggers upon scrolling into view
     let hasTriggeredEntry = false;
     let entryStartTime = 0;
 
-    // IntersectionObserver to pause physics when offscreen and trigger entry scale on view
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -208,16 +203,14 @@ export function BubbleFooter() {
     );
     observer.observe(container);
 
-    // Render loop
+    // Render loop with bubble depth parallax
     const render = (time: number) => {
       if (!isVisible && !prefersReducedMotion) {
         animId = null;
         return;
       }
 
-      // Step Matter.js physics if not reduced motion
       if (!prefersReducedMotion) {
-        // Cursor repulsion within 120px
         if (mouseX > -500 && mouseY > -500) {
           const REPEL_RADIUS = 120;
           for (const b of bubbles) {
@@ -236,7 +229,6 @@ export function BubbleFooter() {
           }
         }
 
-        // Slight Brownian drift
         for (const b of bubbles) {
           Body.applyForce(b.body, b.body.position, {
             x: (Math.random() - 0.5) * 0.00003,
@@ -247,19 +239,15 @@ export function BubbleFooter() {
         Engine.update(engine, 1000 / 60);
       }
 
-      // Clear Canvas
       ctx.clearRect(0, 0, width, height);
 
-      // Draw Bubbles
       const elapsed =
         entryStartTime > 0 ? Math.max(0, (time - entryStartTime) / 1000) : 0;
 
       for (const b of bubbles) {
-        // Scale entry progression
         if (!prefersReducedMotion && b.scaleProgress < 1) {
           if (hasTriggeredEntry && elapsed > b.entryDelay) {
             const t = Math.min(1, Math.max(0, (elapsed - b.entryDelay) / 0.6));
-            // easeOutBack formula
             const c1 = 1.70158;
             const c3 = c1 + 1;
             b.scaleProgress =
@@ -273,8 +261,19 @@ export function BubbleFooter() {
         const currentRadius = Math.max(4, b.radius * scaleVal);
         const { x, y } = b.body.position;
 
+        // CTA bubble depth parallax: larger bubbles shift more based on cursor offset from center
+        const zDepth = (b.radius - 16) / 32; // 0 to 1
+        const parallaxOffsetX =
+          !prefersReducedMotion && !isSmallScreen && mouseX > -500
+            ? (mouseX - width / 2) * zDepth * 0.04
+            : 0;
+        const parallaxOffsetY =
+          !prefersReducedMotion && !isSmallScreen && mouseY > -500
+            ? (mouseY - height / 2) * zDepth * 0.04
+            : 0;
+
         ctx.save();
-        ctx.translate(x, y);
+        ctx.translate(x + parallaxOffsetX, y + parallaxOffsetY);
 
         // 1. Soft Shadow
         ctx.shadowColor = "rgba(100, 80, 80, 0.12)";
@@ -309,10 +308,9 @@ export function BubbleFooter() {
         ctx.fillStyle = grad;
         ctx.fill();
 
-        // 3. Reset shadow for inner elements & outline
+        // 3. Reset shadow for outline
         ctx.shadowColor = "transparent";
 
-        // Subtle outer border
         ctx.beginPath();
         ctx.arc(0, 0, currentRadius, 0, Math.PI * 2);
         ctx.strokeStyle = b.isPinker ? "rgba(229, 52, 27, 0.25)" : "rgba(215, 205, 200, 0.6)";
@@ -387,7 +385,7 @@ export function BubbleFooter() {
 
         {/* Center CTA Overlay with 3D Flip */}
         <div className="relative z-10 w-full h-full flex flex-col items-center justify-center text-center px-6 pointer-events-none perspective-1200">
-          <div className="max-w-2xl pointer-events-auto preserve-3d">
+          <Reveal className="max-w-2xl pointer-events-auto preserve-3d">
             {/* Header with 3D Text & Marker-Highlight */}
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-[-0.035em] text-[#0A0A0A] leading-tight mb-8">
               Building something with{" "}
@@ -398,7 +396,7 @@ export function BubbleFooter() {
 
             {/* Action Buttons: Black Magnetic Pill + Allowed Outlined Pill with Hard Shadow */}
             <div className="flex flex-wrap items-center justify-center gap-4">
-              {/* Primary Black Pill with Magnetic/Press Effect */}
+              {/* Primary Black Pill with Press Effect */}
               <a
                 href={`mailto:${IDENTITY.email}`}
                 onMouseEnter={() => setIsBtnHovered(true)}
@@ -420,7 +418,7 @@ export function BubbleFooter() {
                 <ArrowUpRight className="w-4 h-4" />
               </a>
             </div>
-          </div>
+          </Reveal>
         </div>
 
         {/* Custom Accent Crosshair Cursor */}

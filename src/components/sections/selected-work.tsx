@@ -11,6 +11,7 @@ import {
   useReducedMotion,
 } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
+import { Reveal } from "@/components/ui/reveal";
 
 export interface SelectedProjectCard {
   id: string;
@@ -164,8 +165,8 @@ export function SelectedWork() {
       className="relative py-16 sm:py-24 border-t border-[#E2DFD7] bg-transparent perspective-1200"
     >
       <div className="w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Section Header with Animated Red Underline */}
-        <div className="flex items-center justify-between pb-6 border-b border-[#E2DFD7] mb-4">
+        {/* Section Header with Reusable Reveal & Animated Red Underline */}
+        <Reveal className="flex items-center justify-between pb-6 border-b border-[#E2DFD7] mb-4">
           <div className="flex items-baseline gap-4">
             <span className="font-mono text-base sm:text-lg text-[#E5341B] tracking-widest uppercase font-extrabold">
               02
@@ -177,7 +178,7 @@ export function SelectedWork() {
           <span className="font-mono text-xs uppercase tracking-wider text-[#666666] hidden sm:inline">
             ENGINEERED SYSTEMS & FULL-STACK PRODUCTS
           </span>
-        </div>
+        </Reveal>
 
         {/* Editorial 3D Projects List */}
         <ProjectsList projects={PROJECTS_DATA} />
@@ -194,6 +195,7 @@ export function ProjectsList({ projects }: ProjectsListProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isFinePointer, setIsFinePointer] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
   const yMotion = useMotionValue(0);
@@ -204,8 +206,14 @@ export function ProjectsList({ projects }: ProjectsListProps) {
   });
 
   useEffect(() => {
-    const isTouch = window.matchMedia("(pointer: coarse)").matches;
-    setIsFinePointer(!isTouch);
+    const check = () => {
+      setIsMobile(window.innerWidth < 768);
+      const isTouch = window.matchMedia("(pointer: coarse)").matches;
+      setIsFinePointer(!isTouch && window.innerWidth >= 768);
+    };
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement> | React.MouseEvent<HTMLDivElement>) => {
@@ -240,7 +248,7 @@ export function ProjectsList({ projects }: ProjectsListProps) {
         />
       )}
 
-      {/* Rows with 3D Flip entrance & hover lift */}
+      {/* Rows with 3D Flip entrance & hover lift & dimming siblings */}
       <div className="divide-y divide-[#E2DFD7]">
         {projects.map((project, idx) => (
           <ProjectRow
@@ -249,6 +257,8 @@ export function ProjectsList({ projects }: ProjectsListProps) {
             index={idx}
             isHovered={hoveredIndex === idx}
             anyHovered={hoveredIndex !== null}
+            isMobile={isMobile}
+            shouldReduceMotion={Boolean(shouldReduceMotion)}
             onPointerEnter={() => isFinePointer && setHoveredIndex(idx)}
           />
         ))}
@@ -327,6 +337,8 @@ interface ProjectRowProps {
   index: number;
   isHovered: boolean;
   anyHovered: boolean;
+  isMobile: boolean;
+  shouldReduceMotion: boolean;
   onPointerEnter: () => void;
 }
 
@@ -335,18 +347,24 @@ export function ProjectRow({
   index,
   isHovered,
   anyHovered,
+  isMobile,
+  shouldReduceMotion,
   onPointerEnter,
 }: ProjectRowProps) {
   const href = project.isExternal ? project.liveUrl || "#" : `/work/${project.id}`;
 
   return (
     <motion.div
-      initial={{ opacity: 0, rotateX: -25, y: 60 }}
+      initial={{
+        opacity: 0,
+        rotateX: isMobile || shouldReduceMotion ? 0 : -25,
+        y: 50,
+      }}
       whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{
         duration: 0.65,
-        delay: index * 0.09,
+        delay: index * 0.08,
         ease: [0.22, 1, 0.36, 1],
       }}
       className="relative perspective-1200"
@@ -356,13 +374,14 @@ export function ProjectRow({
         onPointerEnter={onPointerEnter}
         onMouseEnter={onPointerEnter}
         style={{
-          transform: isHovered ? "translate3d(0, -3px, 30px)" : "translate3d(0, 0, 0)",
-          opacity: anyHovered && !isHovered ? 0.55 : 1,
+          transform:
+            isHovered && !isMobile && !shouldReduceMotion
+              ? "translate3d(0, -3px, 24px)"
+              : "translate3d(0, 0, 0)",
+          opacity: anyHovered && !isHovered ? 0.45 : 1,
         }}
         className={`group block py-7 sm:py-8 px-4 -mx-4 rounded-md transition-all duration-200 focus-visible:outline-none ${
-          isHovered
-            ? "bg-white hard-shadow"
-            : "bg-transparent"
+          isHovered ? "bg-white hard-shadow" : "bg-transparent"
         }`}
       >
         {/* Desktop 5-Column Grid */}

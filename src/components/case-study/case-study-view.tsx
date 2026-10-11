@@ -10,6 +10,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import type { CaseStudyItem } from "@/data/case-studies";
+import { Reveal } from "@/components/ui/reveal";
 
 interface CaseStudyViewProps {
   project: CaseStudyItem;
@@ -80,7 +81,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           {project.subtitle}
         </p>
 
-        {/* Meta Strip: Items Drop In with Staggered 3D Flip */}
+        {/* Meta Strip: Items Drop In with Staggered 3D Flip (disabled on mobile / reduced motion) */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 sm:p-8 rounded-md bg-white hard-shadow perspective-1200">
           {[
             { label: "Role", value: project.role },
@@ -127,8 +128,8 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
             <motion.div
               key={item.label}
               initial={
-                shouldReduceMotion
-                  ? { opacity: 1 }
+                shouldReduceMotion || isMobile
+                  ? { opacity: 0, y: 12 }
                   : { opacity: 0, rotateX: -60, y: -20 }
               }
               animate={{ opacity: 1, rotateX: 0, y: 0 }}
@@ -156,14 +157,14 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           01 CONTEXT
           ============================================================ */}
       <section className="py-16 sm:py-24 border-t border-[#E2DFD7] perspective-1200">
-        <div className="flex items-baseline gap-4 mb-10 pb-6 border-b border-[#E2DFD7]">
+        <Reveal className="flex items-baseline gap-4 mb-10 pb-6 border-b border-[#E2DFD7]">
           <span className="font-mono text-base sm:text-lg text-[#E5341B] tracking-widest uppercase font-extrabold">
             01
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
             Context
           </h2>
-        </div>
+        </Reveal>
 
         <div className="space-y-12">
           <div>
@@ -175,14 +176,14 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
             </p>
           </div>
 
-          {/* Context Cards: scale 0.92 -> 1, rotateY(-12deg) -> 0 */}
+          {/* Context Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 perspective-1200">
             {project.context.characteristics.map((c, i) => (
               <motion.div
                 key={i}
                 initial={
-                  shouldReduceMotion
-                    ? { opacity: 1 }
+                  shouldReduceMotion || isMobile
+                    ? { opacity: 0, y: 20 }
                     : { opacity: 0, scale: 0.92, rotateY: -12 }
                 }
                 whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
@@ -192,6 +193,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                   delay: i * 0.12,
                   ease: [0.22, 1, 0.36, 1],
                 }}
+                whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
                 className="p-6 sm:p-7 rounded-md bg-white hard-shadow flex flex-col justify-between"
               >
                 <div>
@@ -207,12 +209,12 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
             ))}
           </div>
 
-          {/* Highlighted Problem Quote: Slow Zoom translateZ(-120px) -> 0 with red highlight sweep */}
+          {/* Highlighted Problem Quote */}
           <motion.div
             initial={
-              shouldReduceMotion
-                ? { opacity: 1 }
-                : { opacity: 0, translateZ: -120, scale: 0.94 }
+              shouldReduceMotion || isMobile
+                ? { opacity: 0, y: 24 }
+                : { opacity: 0, translateZ: -80, scale: 0.96 }
             }
             whileInView={{ opacity: 1, translateZ: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -228,7 +230,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
             </p>
           </motion.div>
 
-          {/* Scope Cards: Stacked-Deck Reveal */}
+          {/* Scope Cards: Stacked Reveal */}
           <div>
             <h4 className="text-lg font-bold text-[#0A0A0A] mb-6">
               My Role & Engineering Scope
@@ -238,8 +240,8 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 <motion.div
                   key={scope.id}
                   initial={
-                    shouldReduceMotion
-                      ? { opacity: 1 }
+                    shouldReduceMotion || isMobile
+                      ? { opacity: 0, y: 20 }
                       : { opacity: 0, y: 30, rotateZ: (idx - 1.5) * 2 }
                   }
                   whileInView={{ opacity: 1, y: 0, rotateZ: 0 }}
@@ -249,6 +251,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                     delay: idx * 0.08,
                     ease: [0.22, 1, 0.36, 1],
                   }}
+                  whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
                   className="p-6 rounded-md bg-white hard-shadow flex flex-col justify-between"
                 >
                   <div>
@@ -273,14 +276,14 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           02 USERS & PROBLEM
           ============================================================ */}
       <section className="py-16 sm:py-24 border-t border-[#E2DFD7] perspective-1200">
-        <div className="flex items-baseline gap-4 mb-10 pb-6 border-b border-[#E2DFD7]">
+        <Reveal className="flex items-baseline gap-4 mb-10 pb-6 border-b border-[#E2DFD7]">
           <span className="font-mono text-base sm:text-lg text-[#E5341B] tracking-widest uppercase font-extrabold">
             02
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
             Users & Problem
           </h2>
-        </div>
+        </Reveal>
 
         <div className="space-y-12">
           <div>
@@ -314,6 +317,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
                 className="p-6 sm:p-7 rounded-md bg-white hard-shadow"
               >
                 <span className="neo-sticker bg-[#F2ECE4] text-[#E5341B] font-bold block mb-3 w-max">
@@ -366,14 +370,14 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           03 SYSTEM ARCHITECTURE & WORKFLOW
           ============================================================ */}
       <section className="py-16 sm:py-24 border-t border-[#E2DFD7] perspective-1200">
-        <div className="flex items-baseline gap-4 mb-10 pb-6 border-b border-[#E2DFD7]">
+        <Reveal className="flex items-baseline gap-4 mb-10 pb-6 border-b border-[#E2DFD7]">
           <span className="font-mono text-base sm:text-lg text-[#E5341B] tracking-widest uppercase font-extrabold">
             03
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
             System Architecture
           </h2>
-        </div>
+        </Reveal>
 
         <div className="space-y-12">
           <div>
@@ -394,6 +398,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
+                whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
                 className="p-6 rounded-md bg-white hard-shadow"
               >
                 <span className="text-[10px] font-mono uppercase tracking-wider text-[#888888] font-bold block mb-2">
@@ -409,7 +414,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
             ))}
           </div>
 
-          {/* Sequential Steps (01 to 05): Unfolds in 3D (rotateX -90deg -> 0) */}
+          {/* Sequential Steps (01 to 05): Unfolds in 3D (rotateX -90deg -> 0, disabled on mobile/reduced motion) */}
           <div className="p-8 sm:p-10 rounded-md bg-white hard-shadow divide-y divide-[#E2DFD7] perspective-1200">
             <h4 className="text-lg font-bold text-[#0A0A0A] pb-6">
               Execution Pipeline Walkthrough
@@ -418,8 +423,8 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
               <motion.div
                 key={st.step}
                 initial={
-                  shouldReduceMotion
-                    ? { opacity: 1 }
+                  shouldReduceMotion || isMobile
+                    ? { opacity: 0, y: 16 }
                     : { opacity: 0, rotateX: -90, y: 30 }
                 }
                 whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
@@ -454,14 +459,14 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           04 IMPLEMENTATION & SAFEGUARDS
           ============================================================ */}
       <section className="py-16 sm:py-24 border-t border-[#E2DFD7] perspective-1200">
-        <div className="flex items-baseline gap-4 mb-10 pb-6 border-b border-[#E2DFD7]">
+        <Reveal className="flex items-baseline gap-4 mb-10 pb-6 border-b border-[#E2DFD7]">
           <span className="font-mono text-base sm:text-lg text-[#E5341B] tracking-widest uppercase font-extrabold">
             04
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
             Implementation & Safeguards
           </h2>
-        </div>
+        </Reveal>
 
         <div className="space-y-10">
           <div>
@@ -481,6 +486,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: idx * 0.1 }}
+                whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
                 className="p-8 rounded-md bg-white hard-shadow flex flex-col justify-between"
               >
                 <div>
@@ -509,14 +515,14 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           05 IMPACT & LEARNINGS
           ============================================================ */}
       <section className="py-16 sm:py-24 border-t border-[#E2DFD7] perspective-1200">
-        <div className="flex items-baseline gap-4 mb-10 pb-6 border-b border-[#E2DFD7]">
+        <Reveal className="flex items-baseline gap-4 mb-10 pb-6 border-b border-[#E2DFD7]">
           <span className="font-mono text-base sm:text-lg text-[#E5341B] tracking-widest uppercase font-extrabold">
             05
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
             Impact & Learnings
           </h2>
-        </div>
+        </Reveal>
 
         <div className="space-y-12">
           <div>
@@ -529,10 +535,15 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
               {project.impact.metrics.map((m, idx) => (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, rotateX: -30, y: 20 }}
+                  initial={
+                    shouldReduceMotion || isMobile
+                      ? { opacity: 0, y: 16 }
+                      : { opacity: 0, rotateX: -30, y: 20 }
+                  }
                   whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
                   className="p-8 rounded-md bg-white hard-shadow text-center"
                 >
                   <p className="text-3xl sm:text-5xl font-extrabold text-[#0A0A0A] mb-2 tracking-tight">

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { RevealHeading } from "@/components/ui/reveal-heading";
 import { WHY_WORK_WITH_ME } from "@/data/content";
+import { Reveal } from "@/components/ui/reveal";
 
 const CARD_METAS = [
   {
@@ -51,14 +52,8 @@ export function WhyWork() {
       className="relative py-16 sm:py-24 border-t border-[#E2DFD7] bg-transparent perspective-1200"
     >
       <div className="w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Section Header with Animated Red Underline */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 pb-6 border-b border-[#E2DFD7]"
-        >
+        {/* Section Header with Reusable Reveal & Animated Red Underline */}
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 pb-6 border-b border-[#E2DFD7]">
           <div className="flex items-baseline gap-4">
             <span className="font-mono text-base sm:text-lg text-[#E5341B] tracking-widest uppercase font-extrabold">
               05
@@ -70,7 +65,7 @@ export function WhyWork() {
           <span className="text-xs font-mono uppercase tracking-widest text-[#666666] mt-2 sm:mt-0">
             Strategy & Craft
           </span>
-        </motion.div>
+        </Reveal>
 
         {/* Section Statement */}
         <motion.div
@@ -112,6 +107,7 @@ export function WhyWork() {
                   delay: index * 0.1,
                   ease: [0.22, 1, 0.36, 1],
                 }}
+                whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
                 style={{
                   transform: `translate3d(0, ${colParallaxY}px, 0)`,
                 }}
@@ -136,7 +132,7 @@ export function WhyWork() {
                   </p>
                 </div>
 
-                {/* Sticker Tags (Small flat sticker with 1deg rotation, no border) */}
+                {/* Sticker Tags */}
                 <div className="flex flex-wrap gap-2 pt-2 border-t border-[#E2DFD7]/60">
                   {point.tags.map((tag, tIdx) => (
                     <span

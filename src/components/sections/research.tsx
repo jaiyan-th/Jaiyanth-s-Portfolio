@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import {
@@ -13,10 +13,19 @@ import {
   ClipboardCheck,
 } from "lucide-react";
 import { RESEARCH } from "@/data/portfolio";
+import { Reveal } from "@/components/ui/reveal";
 
 export function Research() {
   const shouldReduceMotion = useReducedMotion();
   const [isGridHovered, setIsGridHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   const keywords = [
     "Image Recognition",
@@ -57,14 +66,8 @@ export function Research() {
       className="relative py-16 sm:py-24 border-t border-[#E2DFD7] bg-transparent scroll-mt-20 perspective-1200"
     >
       <div className="w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Section Header with Animated Red Underline */}
-        <motion.div
-          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 pb-6 border-b border-[#E2DFD7]"
-        >
+        {/* Section Header with Reusable Reveal & Animated Red Underline */}
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 pb-6 border-b border-[#E2DFD7]">
           <div className="flex items-baseline gap-4">
             <span className="font-mono text-base sm:text-lg text-[#E5341B] tracking-widest uppercase font-extrabold">
               04
@@ -76,7 +79,7 @@ export function Research() {
           <span className="text-xs font-mono uppercase tracking-widest text-[#666666] mt-2 sm:mt-0">
             IEEE ICETSIS 2026 · Peer-Reviewed Conference
           </span>
-        </motion.div>
+        </Reveal>
 
         {/* Unboxed Layout */}
         <div className="w-full preserve-3d">
@@ -136,7 +139,7 @@ export function Research() {
             {RESEARCH.abstract}
           </p>
 
-          {/* 3 Stat / Highlight Cards: 3D Carousel Feel (Side cards tilted, hover straightens all) */}
+          {/* 3 Stat / Highlight Cards: 3D Carousel Feel (Side cards tilted, hover straightens all; disabled on mobile/reduced motion) */}
           <div
             onMouseEnter={() => setIsGridHovered(true)}
             onMouseLeave={() => setIsGridHovered(false)}
@@ -144,7 +147,9 @@ export function Research() {
           >
             {pillars.map((item, idx) => {
               const Icon = item.icon;
-              const activeRotateY = isGridHovered || shouldReduceMotion ? 0 : item.rotateY;
+              const activeRotateY =
+                isGridHovered || shouldReduceMotion || isMobile ? 0 : item.rotateY;
+
               return (
                 <motion.div
                   key={item.step}
@@ -156,6 +161,7 @@ export function Research() {
                     delay: idx * 0.12,
                     ease: [0.22, 1, 0.36, 1],
                   }}
+                  whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
                   style={{
                     transform: `rotateY(${activeRotateY}deg)`,
                   }}

@@ -140,7 +140,7 @@ export function Hero() {
                   >
                     <span>{line.text}</span>
                     {line.hasAI && (
-                      <span className="marker-highlight font-extrabold">
+                      <span className="marker-highlight in-view font-extrabold">
                         AI
                       </span>
                     )}

@@ -4,16 +4,25 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
 import { Briefcase, Cpu, Terminal, Code2 } from "lucide-react";
 import { EXPERIENCE } from "@/data/portfolio";
+import { Reveal } from "@/components/ui/reveal";
 
 export function Experience() {
   const shouldReduceMotion = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
   const isStatsInView = useInView(statsRef, { once: true, amount: 0.3 });
 
-  // Count-up stats hook
+  // Count-up stats
   const [stat1, setStat1] = useState(0);
   const [stat2, setStat2] = useState(0);
   const [stat3, setStat3] = useState(0);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   useEffect(() => {
     if (!isStatsInView || shouldReduceMotion) {
@@ -88,14 +97,8 @@ export function Experience() {
       className="relative py-16 sm:py-24 border-t border-[#E2DFD7] bg-transparent scroll-mt-20 perspective-1200"
     >
       <div className="w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Section Header with Animated Red Underline */}
-        <motion.div
-          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 pb-6 border-b border-[#E2DFD7]"
-        >
+        {/* Section Header with Reusable Reveal & Animated Red Underline */}
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 pb-6 border-b border-[#E2DFD7]">
           <div className="flex items-baseline gap-4">
             <span className="font-mono text-base sm:text-lg text-[#E5341B] tracking-widest uppercase font-extrabold">
               03
@@ -107,7 +110,7 @@ export function Experience() {
           <span className="text-xs font-mono uppercase tracking-widest text-[#666666] mt-2 sm:mt-0">
             Applied AI & Industry Internship
           </span>
-        </motion.div>
+        </Reveal>
 
         {/* Experience Content */}
         <div className="w-full preserve-3d">
@@ -137,7 +140,7 @@ export function Experience() {
             </div>
           </div>
 
-          {/* Simple, Punchy Narrative */}
+          {/* Punchy Narrative */}
           <p className="text-base sm:text-lg text-[#555555] leading-relaxed mb-10 max-w-4xl font-normal">
             Shipped applied-AI prototypes that needed to work reliably in production environments, not just in demos. Focused on vector RAG pipelines, multi-turn reasoning workflows with strict JSON validation, and clean RESTful API integrations.
           </p>
@@ -150,17 +153,18 @@ export function Experience() {
                 <motion.div
                   key={area.title}
                   initial={
-                    shouldReduceMotion
-                      ? { opacity: 1 }
+                    shouldReduceMotion || isMobile
+                      ? { opacity: 0, y: 16 }
                       : { opacity: 0, rotateY: 15, x: 24 }
                   }
-                  whileInView={{ opacity: 1, rotateY: 0, x: 0 }}
+                  whileInView={{ opacity: 1, rotateY: 0, x: 0, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{
                     duration: 0.65,
                     delay: idx * 0.12,
                     ease: [0.22, 1, 0.36, 1],
                   }}
+                  whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
                   className="p-6 rounded-md bg-white hard-shadow flex flex-col justify-between"
                 >
                   <div>
@@ -190,7 +194,11 @@ export function Experience() {
             <div className="flex items-center gap-8 sm:gap-12">
               {/* Stat 1 */}
               <motion.div
-                initial={{ opacity: 0, rotateX: -45, y: 20 }}
+                initial={
+                  shouldReduceMotion || isMobile
+                    ? { opacity: 0, y: 10 }
+                    : { opacity: 0, rotateX: -45, y: 20 }
+                }
                 whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
@@ -206,7 +214,11 @@ export function Experience() {
 
               {/* Stat 2 */}
               <motion.div
-                initial={{ opacity: 0, rotateX: -45, y: 20 }}
+                initial={
+                  shouldReduceMotion || isMobile
+                    ? { opacity: 0, y: 10 }
+                    : { opacity: 0, rotateX: -45, y: 20 }
+                }
                 whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -222,7 +234,11 @@ export function Experience() {
 
               {/* Stat 3 */}
               <motion.div
-                initial={{ opacity: 0, rotateX: -45, y: 20 }}
+                initial={
+                  shouldReduceMotion || isMobile
+                    ? { opacity: 0, y: 10 }
+                    : { opacity: 0, rotateX: -45, y: 20 }
+                }
                 whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
