@@ -1,8 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { motion, useReducedMotion } from "motion/react";
-import { MapPin, Target, Layers, Sparkles } from "lucide-react";
+import { motion } from "motion/react";
 
 export function SnapshotCard() {
   const rowVariants = {
@@ -11,7 +9,7 @@ export function SnapshotCard() {
       opacity: 1,
       y: 0,
       transition: {
-        delay: 0.4 + custom * 0.07,
+        delay: 0.35 + custom * 0.08,
         duration: 0.5,
         ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
       },
@@ -28,11 +26,11 @@ export function SnapshotCard() {
         animate="visible"
         className="flex items-center gap-2.5 mb-7"
       >
-        <span className="w-2 h-2 rounded-full bg-accent inline-block" />
-        <span className="font-mono text-xs tracking-widest uppercase text-[#0A0A0A] font-bold">
+        <span className="w-2 h-2 rounded-full bg-[#E5341B] inline-block" />
+        <span className="neo-sticker bg-[#FFE45C] text-[#0A0A0A] font-extrabold tracking-wider">
           SYS.SNAPSHOT
         </span>
-        <span className="font-mono text-xs text-[#888888] font-medium">// 2026</span>
+        <span className="font-mono text-xs text-[#888888] font-semibold">// 2026</span>
       </motion.div>
 
       {/* Row 1: LOCATION */}
@@ -43,10 +41,10 @@ export function SnapshotCard() {
         animate="visible"
         className="mb-6"
       >
-        <span className="font-mono text-[11px] tracking-widest text-[#888888] uppercase block mb-1 font-semibold">
+        <span className="font-mono text-[11px] tracking-widest text-[#888888] uppercase block mb-1 font-bold">
           LOCATION
         </span>
-        <p className="text-base sm:text-lg font-semibold text-[#0A0A0A] tracking-tight">
+        <p className="text-base sm:text-lg font-bold text-[#0A0A0A] tracking-tight">
           Karur, Tamil Nadu, India
         </p>
       </motion.div>
@@ -59,15 +57,15 @@ export function SnapshotCard() {
         animate="visible"
         className="mb-6"
       >
-        <span className="font-mono text-[11px] tracking-widest text-[#888888] uppercase block mb-1 font-semibold">
+        <span className="font-mono text-[11px] tracking-widest text-[#888888] uppercase block mb-1 font-bold">
           FOCUS
         </span>
-        <p className="text-base sm:text-lg font-semibold text-[#0A0A0A] tracking-tight">
+        <p className="text-base sm:text-lg font-bold text-[#0A0A0A] tracking-tight">
           Applied AI Systems & High-Assurance Architecture
         </p>
       </motion.div>
 
-      {/* Row 3: STACK */}
+      {/* Row 3: CORE STACK */}
       <motion.div
         custom={3}
         variants={rowVariants}
@@ -75,10 +73,10 @@ export function SnapshotCard() {
         animate="visible"
         className="mb-6"
       >
-        <span className="font-mono text-[11px] tracking-widest text-[#888888] uppercase block mb-1 font-semibold">
+        <span className="font-mono text-[11px] tracking-widest text-[#888888] uppercase block mb-1 font-bold">
           CORE STACK
         </span>
-        <p className="font-mono text-sm text-[#0A0A0A] font-medium leading-relaxed">
+        <p className="font-mono text-sm text-[#0A0A0A] font-semibold leading-relaxed">
           Python · Next.js · LangChain · FastAPI · SQL
         </p>
       </motion.div>

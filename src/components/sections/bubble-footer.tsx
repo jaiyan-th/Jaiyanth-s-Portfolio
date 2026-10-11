@@ -385,36 +385,36 @@ export function BubbleFooter() {
           className="absolute inset-0 w-full h-full block z-0"
         />
 
-        {/* Center CTA Overlay */}
-        <div className="relative z-10 w-full h-full flex flex-col items-center justify-center text-center px-6 pointer-events-none">
-          <div className="max-w-2xl pointer-events-auto">
-            {/* Header */}
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-normal tracking-[-0.025em] text-[#0A0A0A] leading-tight mb-8">
+        {/* Center CTA Overlay with 3D Flip */}
+        <div className="relative z-10 w-full h-full flex flex-col items-center justify-center text-center px-6 pointer-events-none perspective-1200">
+          <div className="max-w-2xl pointer-events-auto preserve-3d">
+            {/* Header with 3D Text & Marker-Highlight */}
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-[-0.035em] text-[#0A0A0A] leading-tight mb-8">
               Building something with{" "}
-              <span className="text-accent font-medium">AI</span>?
+              <span className="marker-highlight font-extrabold">AI</span>?
               <br />
               Let&apos;s talk.
             </h2>
 
-            {/* Action Buttons */}
+            {/* Action Buttons: Black Magnetic Pill + Allowed Outlined Pill with Hard Shadow */}
             <div className="flex flex-wrap items-center justify-center gap-4">
-              {/* Primary Neo-Brutalist Button */}
+              {/* Primary Black Pill with Magnetic/Press Effect */}
               <a
                 href={`mailto:${IDENTITY.email}`}
                 onMouseEnter={() => setIsBtnHovered(true)}
                 onMouseLeave={() => setIsBtnHovered(false)}
-                className="neo-btn h-[52px] px-8 rounded-full bg-[#0A0A0A] text-white text-[15px] font-medium gap-2 hover:bg-accent hover:border-accent"
+                className="neo-black-btn h-[52px] px-8 rounded-full text-[15px] font-semibold gap-2.5 active:translate-y-0.5 active:shadow-none"
               >
                 <Mail className="w-4 h-4" />
                 <span>Email me</span>
               </a>
 
-              {/* Secondary Neo-Brutalist Button */}
+              {/* Secondary Outlined Pill: 2px solid #111 + 3px 3px 0 #111 hard shadow */}
               <a
                 href={IDENTITY.bookingUrl}
                 onMouseEnter={() => setIsBtnHovered(true)}
                 onMouseLeave={() => setIsBtnHovered(false)}
-                className="neo-btn h-[52px] px-8 rounded-full bg-white text-[#0A0A0A] text-[15px] font-medium gap-2 hover:bg-[#FFE600]"
+                className="neo-pill-btn h-[52px] px-8 rounded-full text-[15px] font-semibold gap-2.5"
               >
                 <span>Hire me</span>
                 <ArrowUpRight className="w-4 h-4" />

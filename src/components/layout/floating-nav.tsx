@@ -1,17 +1,37 @@
 "use client";
 
 import * as React from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { IDENTITY, NAV_LINKS } from "@/data/content";
 
 export function FloatingNav() {
+  const pathname = usePathname();
   const [active, setActive] = React.useState<string>("#hero");
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
   const [scrolled, setScrolled] = React.useState<boolean>(false);
   const shouldReduceMotion = useReducedMotion();
 
+  // Route-aware active state & scroll spy
   React.useEffect(() => {
+    // BUG FIX: On project and research detail pages, highlight correct tab
+    if (pathname) {
+      if (pathname.includes("preventive-ai-paper")) {
+        setActive("#research");
+        return;
+      }
+      if (pathname.startsWith("/work")) {
+        setActive("#work");
+        return;
+      }
+      if (pathname.startsWith("/about")) {
+        setActive("#about");
+        return;
+      }
+    }
+
+    // On home page, use scroll spy
     const handleScroll = () => {
       setScrolled(window.scrollY > 30);
 
@@ -36,15 +56,16 @@ export function FloatingNav() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
     if (href.startsWith("#")) {
-      if (window.location.pathname !== "/") {
+      if (pathname !== "/") {
         window.location.href = `/${href}`;
         return;
       }
@@ -63,24 +84,24 @@ export function FloatingNav() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? "bg-[#F5F3EE]/95 backdrop-blur-md border-b border-[#E6E3DC] py-3.5"
+          ? "bg-[#FAF3EE]/95 backdrop-blur-md border-b border-[#E2DFD7] py-3.5"
           : "bg-transparent border-b border-transparent py-4 sm:py-5"
       }`}
     >
       <div className="w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
-        {/* Left: Clean Brand Name with Accent Dot */}
+        {/* Left: Clean Brand Name with Red Dot */}
         <a
-          href="#hero"
+          href="/#hero"
           onClick={(e) => handleNavClick(e, "#hero")}
           className="group flex items-center gap-2.5 font-medium text-[16px] tracking-tight text-[#0A0A0A] transition-colors"
         >
-          <span className="w-2.5 h-2.5 rounded-full bg-accent inline-block transition-transform duration-200 group-hover:scale-125" />
-          <span className="hover:text-accent transition-colors font-semibold">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#E5341B] inline-block transition-transform duration-200 group-hover:scale-125" />
+          <span className="hover:text-[#E5341B] transition-colors font-semibold">
             {IDENTITY.name}
           </span>
         </a>
 
-        {/* Right: Clean Navigation Links (Unboxed, no borders) */}
+        {/* Right: Clean Navigation Links (Unboxed, no borders, Red Underline on Active) */}
         <motion.nav
           initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -103,7 +124,11 @@ export function FloatingNav() {
               >
                 {item.label}
                 {isActive && (
-                  <span className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-accent" />
+                  <motion.span
+                    layoutId="nav-underline"
+                    className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-[#E5341B]"
+                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                  />
                 )}
               </a>
             );
@@ -116,7 +141,7 @@ export function FloatingNav() {
             type="button"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
-            className="p-2 text-[#0A0A0A] hover:text-accent transition-colors"
+            className="p-2 text-[#0A0A0A] hover:text-[#E5341B] transition-colors"
           >
             {isOpen ? <X className="w-5 h-5 stroke-[2.5]" /> : <Menu className="w-5 h-5 stroke-[2.5]" />}
           </button>
@@ -131,7 +156,7 @@ export function FloatingNav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-b border-[#E6E3DC] bg-[#F5F3EE] px-6 py-5 mt-2"
+            className="md:hidden border-b border-[#E2DFD7] bg-[#FAF3EE] px-6 py-5 mt-2 shadow-md"
           >
             <div className="flex flex-col space-y-3">
               {NAV_LINKS.map((item) => {
@@ -143,13 +168,13 @@ export function FloatingNav() {
                     onClick={(e) => handleNavClick(e, item.href)}
                     className={`text-[14px] font-mono py-1.5 transition-colors flex items-center justify-between uppercase tracking-wider ${
                       isActive
-                        ? "text-accent font-bold"
+                        ? "text-[#E5341B] font-bold"
                         : "text-[#666666] hover:text-[#0A0A0A] font-medium"
                     }`}
                   >
                     <span>{item.label}</span>
                     {isActive && (
-                      <span className="w-2 h-2 rounded-full bg-accent" />
+                      <span className="w-2 h-2 rounded-full bg-[#E5341B]" />
                     )}
                   </a>
                 );

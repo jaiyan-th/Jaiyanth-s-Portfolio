@@ -13,6 +13,10 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
   const containerRef = useRef<HTMLDivElement | null>(null);
   const shouldReduceMotion = useReducedMotion();
 
+  // 3D tilt & scroll recede states
+  const [tilt, setTilt] = useState({ rotateX: 55, rotateY: 0, translateZ: 0 });
+  const [isMobile, setIsMobile] = useState(false);
+
   // Pointer state in container coordinates
   const mouseRef = useRef({
     x: -1000,
@@ -30,16 +34,30 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
   });
 
   const animFrameRef = useRef<number | null>(null);
-  const isIdleRef = useRef(false);
-  const idleTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const resetIdle = useCallback(() => {
-    isIdleRef.current = false;
-    if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
-    idleTimerRef.current = setTimeout(() => {
-      isIdleRef.current = true;
-    }, 2500);
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
+
+  // 3D Scroll recession & mouse tilt
+  useEffect(() => {
+    if (shouldReduceMotion || isMobile) return;
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      // Recede as user scrolls down
+      const recedeZ = Math.max(-180, -scrollY * 0.4);
+      setTilt((prev) => ({ ...prev, translateZ: recedeZ }));
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [shouldReduceMotion, isMobile]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -54,10 +72,10 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
     let dpr = 1;
 
     // Grid config
-    const spacing = 28;
-    const baseRadius = 1.25;
-    const maxRadius = 3.2;
-    const proximity = 150; // px radius of light influence
+    const spacing = 32;
+    const baseRadius = 1.15;
+    const maxRadius = 3.4;
+    const proximity = 160;
 
     const resize = () => {
       const rect = container.getBoundingClientRect();
@@ -70,46 +88,31 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
 
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      drawStatic();
+      ctx.scale(dpr, dpr);
     };
 
-    // Static draw for reduced motion or idle initial state
-    const drawStatic = () => {
-      ctx.clearRect(0, 0, width, height);
-      const isDark = document.documentElement.classList.contains("dark");
-      ctx.fillStyle = isDark ? "rgba(255, 255, 255, 0.12)" : "rgba(10, 10, 10, 0.12)";
+    resize();
+    const resizeObserver = new ResizeObserver(resize);
+    resizeObserver.observe(container);
 
-      const cols = Math.ceil(width / spacing);
-      const rows = Math.ceil(height / spacing);
-
-      for (let i = 0; i < cols; i++) {
-        for (let j = 0; j < rows; j++) {
-          const x = i * spacing + (spacing / 2);
-          const y = j * spacing + (spacing / 2);
-          ctx.beginPath();
-          ctx.arc(x, y, baseRadius, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      }
-    };
-
-    const handlePointerMove = (e: MouseEvent) => {
+    const onPointerMove = (e: PointerEvent) => {
       const rect = container.getBoundingClientRect();
       const currentX = e.clientX - rect.left;
       const currentY = e.clientY - rect.top;
 
       const now = performance.now();
       const dt = Math.max(1, now - mouseRef.current.lastTime);
-      const distMoved = Math.hypot(currentX - mouseRef.current.lastX, currentY - mouseRef.current.lastY);
-      const calculatedSpeed = (distMoved / dt) * 1000; // px/sec
+      const dx = currentX - mouseRef.current.lastX;
+      const dy = currentY - mouseRef.current.lastY;
+      const dist = Math.hypot(dx, dy);
+      const instantaneousSpeed = dist / dt;
 
-      mouseRef.current.targetX = currentX;
-      mouseRef.current.targetY = currentY;
-      mouseRef.current.speed = calculatedSpeed;
+      mouseRef.current.speed = mouseRef.current.speed * 0.7 + instantaneousSpeed * 0.3;
       mouseRef.current.lastX = currentX;
       mouseRef.current.lastY = currentY;
       mouseRef.current.lastTime = now;
+      mouseRef.current.targetX = currentX;
+      mouseRef.current.targetY = currentY;
       mouseRef.current.isInside = true;
       mouseRef.current.events += 1;
 
@@ -118,108 +121,73 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
       mouseRef.current.normalizedX = normX;
       mouseRef.current.normalizedY = normY;
 
+      // 3D subtle tilt toward cursor
+      if (!isMobile && !shouldReduceMotion) {
+        const tiltX = 55 + (normY - 0.5) * 8;
+        const tiltY = (normX - 0.5) * 12;
+        setTilt((prev) => ({ ...prev, rotateX: tiltX, rotateY: tiltY }));
+      }
+
       if (onPointerStats) {
         onPointerStats({
           x: normX,
           y: normY,
           events: mouseRef.current.events,
-          speed: calculatedSpeed,
+          speed: mouseRef.current.speed,
         });
       }
-
-      resetIdle();
     };
 
-    const handlePointerLeave = () => {
+    const onPointerLeave = () => {
       mouseRef.current.isInside = false;
       mouseRef.current.targetX = -1000;
       mouseRef.current.targetY = -1000;
-      resetIdle();
+      if (!isMobile && !shouldReduceMotion) {
+        setTilt((prev) => ({ ...prev, rotateX: 55, rotateY: 0 }));
+      }
     };
 
-    window.addEventListener("mousemove", handlePointerMove, { passive: true });
-    container.addEventListener("mouseleave", handlePointerLeave);
+    container.addEventListener("pointermove", onPointerMove, { passive: true });
+    container.addEventListener("pointerleave", onPointerLeave, { passive: true });
 
-    const observer = new ResizeObserver(() => {
-      resize();
-    });
-    observer.observe(container);
-    resize();
-
-    // Animation Loop
     const render = () => {
-      if (shouldReduceMotion) {
-        drawStatic();
-        return;
-      }
-
-      // Smooth lerp pointer tracking
-      const mouse = mouseRef.current;
-      mouse.x += (mouse.targetX - mouse.x) * 0.18;
-      mouse.y += (mouse.targetY - mouse.y) * 0.18;
+      // Lerp mouse
+      mouseRef.current.x += (mouseRef.current.targetX - mouseRef.current.x) * 0.15;
+      mouseRef.current.y += (mouseRef.current.targetY - mouseRef.current.y) * 0.15;
 
       ctx.clearRect(0, 0, width, height);
 
-      const isDark = document.documentElement.classList.contains("dark");
-      const baseAlpha = isDark ? 0.12 : 0.13;
-      const baseR = baseRadius;
+      const cols = Math.ceil(width / spacing) + 1;
+      const rows = Math.ceil(height / spacing) + 1;
+      const mx = mouseRef.current.x;
+      const my = mouseRef.current.y;
 
-      const cols = Math.ceil(width / spacing);
-      const rows = Math.ceil(height / spacing);
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const x = c * spacing;
+          const y = r * spacing;
 
-      const mx = mouse.x;
-      const my = mouse.y;
-
-      for (let i = 0; i < cols; i++) {
-        for (let j = 0; j < rows; j++) {
-          const originX = i * spacing + (spacing / 2);
-          const originY = j * spacing + (spacing / 2);
-
-          const dx = originX - mx;
-          const dy = originY - my;
+          const dx = mx - x;
+          const dy = my - y;
           const dist = Math.hypot(dx, dy);
 
-          let r = baseR;
-          let alpha = baseAlpha;
-          let drawX = originX;
-          let drawY = originY;
+          let radius = baseRadius;
+          let alpha = 0.14;
           let isAccent = false;
 
           if (dist < proximity) {
-            const proximityFactor = 1 - dist / proximity; // 0 to 1
-            const eased = proximityFactor * proximityFactor; // quadratic ease
-
-            // Scale & Opacity Ramp
-            r = baseR + eased * (maxRadius - baseR);
-            alpha = baseAlpha + eased * (0.9 - baseAlpha);
-
-            // Subtle magnetic wave displacement outwards
-            const push = eased * 4.5;
-            const angle = Math.atan2(dy, dx);
-            drawX += Math.cos(angle) * push;
-            drawY += Math.sin(angle) * push;
-
-            // Highlight core dots directly nearest the pointer with accent color (#E5341B)
-            if (dist < proximity * 0.42) {
-              isAccent = true;
-            }
+            const factor = 1 - dist / proximity;
+            const ease = factor * factor;
+            radius = baseRadius + (maxRadius - baseRadius) * ease;
+            alpha = 0.2 + ease * 0.7;
+            if (ease > 0.45) isAccent = true;
           }
 
           ctx.beginPath();
-          ctx.arc(drawX, drawY, r, 0, Math.PI * 2);
-
-          if (isAccent) {
-            ctx.fillStyle = `rgba(229, 52, 27, ${Math.min(1, alpha + 0.15)})`;
-          } else if (dist < proximity) {
-            ctx.fillStyle = isDark
-              ? `rgba(255, 255, 255, ${alpha})`
-              : `rgba(10, 10, 10, ${alpha})`;
-          } else {
-            ctx.fillStyle = isDark
-              ? `rgba(255, 255, 255, ${baseAlpha})`
-              : `rgba(10, 10, 10, ${baseAlpha})`;
-          }
-
+          ctx.arc(x, y, radius, 0, Math.PI * 2);
+          ctx.fillStyle = isAccent
+            ? `rgba(229, 52, 27, ${Math.min(1, alpha)})`
+            : `rgba(10, 10, 10, ${alpha})`;
           ctx.fill();
         }
       }
@@ -231,20 +199,33 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
 
     return () => {
       if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
-      if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
-      window.removeEventListener("mousemove", handlePointerMove);
-      container.removeEventListener("mouseleave", handlePointerLeave);
-      observer.disconnect();
+      resizeObserver.disconnect();
+      container.removeEventListener("pointermove", onPointerMove);
+      container.removeEventListener("pointerleave", onPointerLeave);
     };
-  }, [shouldReduceMotion, resetIdle, onPointerStats]);
+  }, [onPointerStats, isMobile, shouldReduceMotion]);
 
   return (
     <div
       ref={containerRef}
       aria-hidden="true"
-      className={`absolute inset-0 pointer-events-none overflow-hidden select-none ${className}`}
+      className={`absolute inset-0 w-full h-full pointer-events-auto select-none overflow-hidden ${className}`}
+      style={{
+        perspective: isMobile || shouldReduceMotion ? "none" : "1200px",
+        transformStyle: "preserve-3d",
+      }}
     >
-      <canvas ref={canvasRef} className="w-full h-full block" />
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full block origin-center transition-transform duration-100 ease-out will-change-transform"
+        style={{
+          transform:
+            isMobile || shouldReduceMotion
+              ? "none"
+              : `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg) translateZ(${tilt.translateZ}px) scale(1.15)`,
+          transformOrigin: "center 40%",
+        }}
+      />
     </div>
   );
 }
