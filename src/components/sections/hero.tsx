@@ -82,7 +82,7 @@ export function Hero() {
         paddingTop: "max(4.25rem, calc(3.5rem + env(safe-area-inset-top, 0px)))",
         paddingBottom: "var(--section-y)",
       }}
-      className="relative flex flex-col justify-start bg-transparent overflow-hidden perspective-1200"
+      className="relative min-h-[100svh] flex flex-col justify-start bg-transparent overflow-hidden perspective-1200"
     >
       {/* Interactive 3D Dot-Grid Signal Field */}
       <LiveSignalField className="z-0" />

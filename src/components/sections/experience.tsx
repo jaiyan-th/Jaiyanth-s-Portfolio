@@ -93,7 +93,7 @@ export function Experience() {
     <section
       id="experience"
       aria-label="03 Work Experience & Internship"
-      className="relative section-padding border-t border-[#E2DFD7] bg-transparent scroll-mt-20 perspective-1200"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#E2DFD7] bg-transparent scroll-mt-16 perspective-1200"
     >
       <div className="site-container">
         {/* Section Header: On phones stack right label under title */}

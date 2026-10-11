@@ -117,7 +117,7 @@ export function TechMarquee() {
     <section
       id="tech"
       aria-label="06 Previously trusted by / Stack"
-      className="relative section-padding border-t border-[#E2DFD7] overflow-hidden bg-transparent perspective-1200"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#E2DFD7] overflow-hidden bg-transparent scroll-mt-16 perspective-1200"
     >
       <div className="site-container mb-6 sm:mb-10">
         {/* Section Header: On phones stack right label under title */}
