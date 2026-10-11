@@ -102,7 +102,7 @@ export function Hero() {
 
       {/* Main Content Area Vertically Centered */}
       <div className="site-container relative z-10 w-full my-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start lg:items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start lg:items-center">
           {/* Left Column (~60-65%): Badges, Headline, Subtitle, CTA buttons */}
           <div
             className="lg:col-span-7 xl:col-span-7 flex flex-col items-start transition-transform duration-75 ease-out will-change-transform"
@@ -205,9 +205,9 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: Snapshot Card spanning full height to eliminate bottom gap */}
+          {/* Right Column: Neo-Brutalist Snapshot Card */}
           <div
-            className="lg:col-span-5 xl:col-span-5 w-full flex flex-col justify-start lg:justify-between transition-transform duration-75 ease-out will-change-transform mt-4 lg:mt-0 h-full"
+            className="lg:col-span-5 xl:col-span-5 w-full flex flex-col justify-center transition-transform duration-75 ease-out will-change-transform mt-6 lg:mt-0"
             style={{
               transform: `translate3d(0, ${infoParallaxY}px, 0)`,
             }}
