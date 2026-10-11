@@ -17,15 +17,14 @@ export function SnapshotCard() {
   };
 
   return (
-    <div className="w-full flex flex-col justify-start select-none">
+    <div className="w-full h-full flex flex-col justify-start lg:justify-between gap-3.5 lg:gap-0 select-none">
       {/* Header: Clean metadata tag with dividing line */}
       <motion.div
         custom={0}
         variants={rowVariants}
         initial="hidden"
         animate="visible"
-        style={{ paddingBottom: "var(--space-2)", marginBottom: "var(--space-2)" }}
-        className="flex items-center justify-between border-b border-[#E2DFD7]"
+        className="flex items-center justify-between pb-2.5 lg:pb-3 border-b border-[#E2DFD7]"
       >
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#E5341B] inline-block shrink-0" />
@@ -42,8 +41,7 @@ export function SnapshotCard() {
         variants={rowVariants}
         initial="hidden"
         animate="visible"
-        style={{ paddingBottom: "var(--space-2)", marginBottom: "var(--space-2)" }}
-        className="border-b border-[#E2DFD7]"
+        className="pb-2.5 lg:pb-3 border-b border-[#E2DFD7]"
       >
         <span className="text-fluid-mono tracking-widest text-[#888888] uppercase block mb-1 font-bold">
           LOCATION
@@ -59,8 +57,7 @@ export function SnapshotCard() {
         variants={rowVariants}
         initial="hidden"
         animate="visible"
-        style={{ paddingBottom: "var(--space-2)", marginBottom: "var(--space-2)" }}
-        className="border-b border-[#E2DFD7]"
+        className="pb-2.5 lg:pb-3 border-b border-[#E2DFD7]"
       >
         <span className="text-fluid-mono tracking-widest text-[#888888] uppercase block mb-1 font-bold">
           FOCUS
@@ -76,8 +73,7 @@ export function SnapshotCard() {
         variants={rowVariants}
         initial="hidden"
         animate="visible"
-        style={{ paddingBottom: "var(--space-1)", marginBottom: "var(--space-1)" }}
-        className="border-b border-[#E2DFD7]"
+        className="pb-2.5 lg:pb-3 border-b border-[#E2DFD7]"
       >
         <span className="text-fluid-mono tracking-widest text-[#888888] uppercase block mb-1 font-bold">
           CORE STACK
@@ -87,13 +83,13 @@ export function SnapshotCard() {
         </p>
       </motion.div>
 
-      {/* Row 4: STATUS */}
+      {/* Row 4: STATUS (aligned with left CTA buttons height) */}
       <motion.div
         custom={4}
         variants={rowVariants}
         initial="hidden"
         animate="visible"
-        className="flex items-center gap-2 text-fluid-mono font-bold text-[#0A0A0A]"
+        className="flex items-center gap-2 text-fluid-mono font-bold text-[#0A0A0A] min-h-[48px]"
       >
         <span className="relative flex h-2.5 w-2.5 shrink-0">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1FB866] opacity-75" />

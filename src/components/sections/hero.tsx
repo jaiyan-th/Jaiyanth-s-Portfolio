@@ -102,7 +102,7 @@ export function Hero() {
 
       {/* Main Content Area Vertically Centered */}
       <div className="site-container relative z-10 w-full my-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start lg:items-stretch">
           {/* Left Column (~60-65%): Badges, Headline, Subtitle, CTA buttons */}
           <div
             className="lg:col-span-7 xl:col-span-7 flex flex-col items-start transition-transform duration-75 ease-out will-change-transform"
@@ -205,9 +205,9 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: Snapshot Card aligned to headline top on desktop, stacks below buttons on mobile */}
+          {/* Right Column: Snapshot Card spanning full height to eliminate bottom gap */}
           <div
-            className="lg:col-span-5 xl:col-span-5 w-full flex justify-start lg:justify-end lg:self-start transition-transform duration-75 ease-out will-change-transform mt-4 lg:mt-0"
+            className="lg:col-span-5 xl:col-span-5 w-full flex flex-col justify-start lg:justify-between transition-transform duration-75 ease-out will-change-transform mt-4 lg:mt-0 h-full"
             style={{
               transform: `translate3d(0, ${infoParallaxY}px, 0)`,
             }}
@@ -218,7 +218,7 @@ export function Hero() {
 
         {/* Live Signal Telemetry Footer Strip (Single row on desktop, 2 rows on mobile) */}
         <div
-          style={{ marginTop: "var(--space-4)" }}
+          style={{ marginTop: "var(--space-3)" }}
           className="pt-4 border-t border-[#E2DFD7] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 text-fluid-mono text-[#666666]"
         >
           <div className="flex items-center gap-2">
