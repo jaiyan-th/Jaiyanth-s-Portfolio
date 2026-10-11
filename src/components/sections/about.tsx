@@ -12,7 +12,7 @@ export function About() {
       aria-label="01 About Jaiyanth B"
       className="relative py-14 sm:py-20 border-t-2 border-[#0A0A0A] bg-transparent scroll-mt-20"
     >
-      <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 32 }}
@@ -68,21 +68,21 @@ export function About() {
                 </p>
               </div>
 
-              {/* Education Credential Card: Clean Outer Border with Shadow */}
-              <div className="p-5 sm:p-6 rounded-2xl border-2 border-[#0A0A0A] bg-white flex items-start gap-4 mb-8 shadow-[4px_4px_0px_#0A0A0A]">
-                <div className="w-10 h-10 rounded-xl bg-[#F5F3EE] border border-[#0A0A0A] flex items-center justify-center text-accent shrink-0 mt-0.5">
+              {/* Education Credential Card: Neo-Brutalist Hard Drop Shadow without content borders */}
+              <div className="p-5 sm:p-6 rounded-2xl bg-white flex items-start gap-4 mb-8 shadow-[5px_5px_0px_#0A0A0A]">
+                <div className="w-10 h-10 rounded-xl bg-[#FFE600] flex items-center justify-center text-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A] shrink-0 mt-0.5">
                   <GraduationCap className="w-5 h-5" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
-                    <span className="font-mono text-xs uppercase tracking-wider text-accent font-semibold">
+                    <span className="font-mono text-xs uppercase tracking-wider text-accent font-bold">
                       Education
                     </span>
-                    <span className="font-mono text-xs text-[#666666]">
+                    <span className="font-mono text-xs text-[#666666] font-semibold">
                       2022 – 2026
                     </span>
                   </div>
-                  <h4 className="text-base sm:text-lg font-medium text-[#0A0A0A] mb-1">
+                  <h4 className="text-base sm:text-lg font-bold text-[#0A0A0A] mb-1">
                     B.Tech in Computer Science & Business Systems
                   </h4>
                   <p className="text-xs sm:text-sm text-[#666666] leading-relaxed">
@@ -93,12 +93,12 @@ export function About() {
             </div>
 
             {/* External Links */}
-            <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-[#0A0A0A]">
+            <div className="flex flex-wrap items-center gap-4 pt-6 border-t-2 border-[#0A0A0A]">
               <a
                 href={IDENTITY.github}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border-2 border-[#0A0A0A] bg-white text-[#0A0A0A] text-sm font-medium shadow-[3px_3px_0px_#0A0A0A] hover:bg-[#FFE600] transition-all"
+                className="neo-btn px-5 py-2.5 rounded-full bg-white text-[#0A0A0A] text-sm font-semibold hover:bg-[#FFE600]"
               >
                 <span>GitHub Profile</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -108,7 +108,7 @@ export function About() {
                 href={IDENTITY.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border-2 border-[#0A0A0A] bg-white text-[#0A0A0A] text-sm font-medium shadow-[3px_3px_0px_#0A0A0A] hover:bg-[#FFE600] transition-all"
+                className="neo-btn px-5 py-2.5 rounded-full bg-white text-[#0A0A0A] text-sm font-semibold hover:bg-[#FFE600]"
               >
                 <span>LinkedIn</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -116,7 +116,7 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* Right Column: Portrait Photograph with Outer Frame & Hard Shadow */}
+          {/* Right Column: Portrait Photograph with Neo-Brutalist Hard Shadow & no harsh borders */}
           <motion.div
             initial={{ opacity: 0, y: 36, scale: 0.98 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -124,7 +124,7 @@ export function About() {
             transition={{ duration: 0.75, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 flex items-center justify-center w-full"
           >
-            <div className="relative group w-full max-w-[420px] rounded-2xl border-2 border-[#0A0A0A] bg-white p-3 shadow-[6px_6px_0px_#0A0A0A] transition-all duration-200">
+            <div className="relative group w-full max-w-[460px] xl:max-w-[500px] rounded-2xl bg-white p-3 shadow-[6px_6px_0px_#0A0A0A] transition-all duration-200">
               <div className="relative w-full aspect-square overflow-hidden rounded-xl bg-[#F5F3EE]">
                 <Image
                   src="/images/jaiyanth-about.jpg"
@@ -132,7 +132,7 @@ export function About() {
                   fill
                   priority
                   className="object-cover object-center filter grayscale transition-all duration-700 group-hover:scale-[1.02]"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 420px"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 500px"
                 />
               </div>
             </div>

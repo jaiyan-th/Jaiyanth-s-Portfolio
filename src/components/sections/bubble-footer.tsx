@@ -367,7 +367,7 @@ export function BubbleFooter() {
   return (
     <div
       id="contact"
-      className="w-full max-w-[1100px] mx-auto px-6 sm:px-8 xl:px-0 mb-16 scroll-mt-24"
+      className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 mb-16 scroll-mt-24"
     >
       {/* 70vh Rounded Bubble Physics Container */}
       <div
@@ -409,12 +409,12 @@ export function BubbleFooter() {
                 <span>Email me</span>
               </a>
 
-              {/* Secondary Button */}
+              {/* Secondary Neo-Brutalist Button */}
               <a
                 href={IDENTITY.bookingUrl}
                 onMouseEnter={() => setIsBtnHovered(true)}
                 onMouseLeave={() => setIsBtnHovered(false)}
-                className="inline-flex items-center gap-2 h-[52px] px-8 rounded-full bg-white border-2 border-[#0A0A0A] text-[#0A0A0A] text-[15px] font-medium shadow-[3px_3px_0px_#0A0A0A] hover:bg-[#F5F3EE] transition-all"
+                className="neo-btn h-[52px] px-8 rounded-full bg-white text-[#0A0A0A] text-[15px] font-medium gap-2 hover:bg-[#FFE600]"
               >
                 <span>Hire me</span>
                 <ArrowUpRight className="w-4 h-4" />

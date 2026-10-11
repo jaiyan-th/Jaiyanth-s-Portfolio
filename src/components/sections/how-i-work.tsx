@@ -10,7 +10,7 @@ export function HowIWork() {
       aria-label="04 How I work"
       className="relative py-24 sm:py-32 border-t border-[#E5E3DB] bg-[var(--canvas)]"
     >
-      <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}

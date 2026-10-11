@@ -165,7 +165,7 @@ export function SelectedWork() {
       aria-label="02 Selected Work"
       className="relative py-16 sm:py-24 border-t-2 border-[#0A0A0A] bg-transparent"
     >
-      <div className="w-full max-w-[1100px] mx-auto px-6 sm:px-8 xl:px-0">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
         {/* Section label row */}
         <div className="flex items-center justify-between pb-4 border-b-2 border-[#0A0A0A] mb-2">
           <div className="flex items-baseline gap-4">
@@ -432,7 +432,7 @@ export function ProjectRow({
           </div>
 
           {/* Col 2: Title & Description */}
-          <div className="max-w-[440px] shrink-0">
+          <div className="max-w-xl lg:max-w-2xl xl:max-w-3xl shrink-0">
             <h3
               className={`text-[25px] font-normal leading-[1.2] tracking-[-0.01em] transition-colors duration-200 ${
                 isHovered ? "text-accent" : "text-[#0A0A0A]"

@@ -23,7 +23,7 @@ export function Footer() {
       <BubbleFooter />
 
       {/* Clean Copyright & Region Line */}
-      <div className="w-full max-w-[1100px] mx-auto px-6 sm:px-8 xl:px-0 flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 text-[11px] font-mono text-[#666666]">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 text-[11px] font-mono text-[#666666]">
         <span>copyright 2026 {IDENTITY.name}</span>
         <span>Based in India · Working Worldwide</span>
       </div>

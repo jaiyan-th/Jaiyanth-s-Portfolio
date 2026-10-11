@@ -18,7 +18,7 @@ export function SectionContainer({
 }: SectionContainerProps) {
   return (
     <Component
-      className={`w-full max-w-[1380px] mx-auto px-5 sm:px-8 md:px-10 lg:px-12 ${className}`}
+      className={`w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 ${className}`}
       {...props}
     >
       {children}

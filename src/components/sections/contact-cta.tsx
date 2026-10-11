@@ -38,7 +38,7 @@ export function ContactCta() {
         </div>
       </div>
 
-      <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 pt-8 border-t border-[#E5E3DB]">
           <div>
             <span className="font-mono text-xs uppercase tracking-widest text-accent-hover block mb-3 font-semibold">

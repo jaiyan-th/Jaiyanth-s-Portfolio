@@ -88,18 +88,18 @@ export function Hero() {
       {/* Interactive Dot-Grid Signal Field */}
       <LiveSignalField onPointerStats={handlePointerStats} className="z-0" />
 
-      <div className="relative z-10 w-full max-w-[1100px] mx-auto px-6 sm:px-8 xl:px-0">
+      <div className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* Left Column (~58%) */}
           <div className="lg:col-span-7 flex flex-col items-start">
-            {/* 1. Clean Badges */}
+            {/* 1. Clean Neo-Brutalist Badges */}
             <div className="flex flex-wrap items-center gap-2.5 mb-8">
               <motion.div
                 custom={0}
                 variants={badgeVariants}
                 initial="hidden"
                 animate="visible"
-                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium border border-[#0A0A0A] bg-white text-[#0A0A0A]"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-[#FFE600] text-[#0A0A0A] shadow-[2.5px_2.5px_0px_#0A0A0A]"
               >
                 <span>PORTFOLIO &apos;26</span>
               </motion.div>
@@ -109,7 +109,7 @@ export function Hero() {
                 variants={badgeVariants}
                 initial="hidden"
                 animate="visible"
-                className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-medium border border-[#0A0A0A] bg-white text-[#0A0A0A]"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-white text-[#0A0A0A] shadow-[2.5px_2.5px_0px_#0A0A0A]"
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1FB866] opacity-75" />
@@ -129,7 +129,7 @@ export function Hero() {
               {headlineLines.map((line, idx) => (
                 <div
                   key={idx}
-                  className="overflow-hidden leading-[1.08] text-[clamp(32px,5.2vw,68px)] sm:text-[clamp(44px,5.2vw,68px)]"
+                  className="overflow-hidden leading-[1.08] text-[clamp(32px,5.2vw,72px)] sm:text-[clamp(44px,5.2vw,72px)]"
                 >
                   <motion.div
                     custom={idx}
@@ -154,7 +154,7 @@ export function Hero() {
               variants={fadeUpVariants}
               initial="hidden"
               animate="visible"
-              className="text-[#666666] text-[20px] leading-[1.65] max-w-[560px] mb-10 font-normal"
+              className="text-[#666666] text-[20px] leading-[1.65] max-w-2xl mb-10 font-normal"
             >
               I’m an engineer who makes complex things feel obvious.
             </motion.p>
@@ -176,14 +176,13 @@ export function Hero() {
                 <ArrowRight className="w-4 h-4" />
               </a>
 
-              {/* Secondary Clean Text Link */}
+              {/* Secondary Clean Neo-Brutalist Button */}
               <a
                 href="#contact"
-                className="group relative inline-flex items-center gap-1.5 py-3 text-[15px] font-medium text-[#0A0A0A] hover:text-accent transition-colors duration-200"
+                className="neo-btn h-[52px] px-7 rounded-full bg-white text-[#0A0A0A] text-[15px] font-medium gap-2 hover:bg-[#FFE600]"
               >
                 <span>Get in touch</span>
-                <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                <span className="absolute bottom-1.5 left-0 w-0 h-[2px] bg-[#0A0A0A] transition-all duration-300 group-hover:w-full" />
+                <ArrowUpRight className="w-4 h-4" />
               </a>
             </motion.div>
           </div>

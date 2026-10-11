@@ -50,7 +50,7 @@ export function Experience() {
       aria-label="03 Work Experience & Internship"
       className="relative py-16 sm:py-20 border-t-2 border-[#0A0A0A] bg-transparent scroll-mt-20"
     >
-      <div className="w-full max-w-[1100px] mx-auto px-6 sm:px-8 xl:px-0">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
         {/* Section Header */}
         <motion.div
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
@@ -72,7 +72,7 @@ export function Experience() {
           </span>
         </motion.div>
 
-        {/* Unboxed Open Layout: No outer card border or drop shadow */}
+        {/* Unboxed Open Layout: No outer card border or content borders */}
         <motion.div
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,55 +81,55 @@ export function Experience() {
           className="w-full"
         >
           {/* Card Top: Company, Role, Period & Status */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-[#E6E3DC]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6">
             <div>
               <div className="flex items-center gap-2 mb-1.5">
                 <Briefcase className="w-4 h-4 text-accent" />
-                <span className="font-mono text-xs uppercase tracking-widest text-accent font-semibold">
+                <span className="font-mono text-xs uppercase tracking-widest text-accent font-bold">
                   {EXPERIENCE.organisation}
                 </span>
-                <span className="text-[#666666] text-xs font-mono">· Coimbatore, India</span>
+                <span className="text-[#666666] text-xs font-mono font-medium">· Coimbatore, India</span>
               </div>
-              <h3 className="text-2xl font-medium tracking-tight text-[#0A0A0A]">
+              <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#0A0A0A]">
                 {EXPERIENCE.role}
               </h3>
             </div>
 
             <div className="flex items-center gap-3">
-              <span className="text-xs font-mono text-[#666666] bg-white px-3 py-1 rounded-full border border-[#E6E3DC]">
+              <span className="text-xs font-mono font-semibold text-[#0A0A0A] bg-white px-3.5 py-1.5 rounded-full shadow-[2px_2px_0px_#0A0A0A]">
                 {EXPERIENCE.period}
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-accent-tint text-accent border border-accent/20">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-[#FFE600] text-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#0A0A0A] animate-pulse" />
                 Completed
               </span>
             </div>
           </div>
 
           {/* Simple, Punchy Narrative */}
-          <p className="text-base text-[#666666] leading-relaxed mb-8 max-w-3xl font-normal">
+          <p className="text-base sm:text-lg text-[#666666] leading-relaxed mb-8 max-w-4xl font-normal">
             Shipped applied-AI prototypes that needed to work reliably in production environments, not just in demos. Focused on vector RAG pipelines, multi-turn reasoning workflows with strict JSON validation, and clean RESTful API integrations.
           </p>
 
-          {/* 3 Core Focus Pillars */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+          {/* 3 Core Focus Pillars with Neo-Brutalist Shadow (No content borders) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {focusAreas.map((area) => {
               const Icon = area.icon;
               return (
                 <div
                   key={area.title}
                   data-draggable="true"
-                  className="p-5.5 rounded-xl bg-white border border-[#E6E3DC] hover:border-[#0A0A0A]/40 transition-all duration-200 cursor-grab active:cursor-grabbing"
+                  className="p-6 rounded-2xl bg-white shadow-[4px_4px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_#0A0A0A] hover:-translate-y-0.5 transition-all duration-200 cursor-grab active:cursor-grabbing"
                 >
-                  <div className="flex items-center gap-2.5 mb-2.5">
-                    <div className="w-7 h-7 rounded-lg bg-[#FAF9F5] border border-[#E6E3DC] flex items-center justify-center text-[#0A0A0A]">
-                      <Icon className="w-3.5 h-3.5 text-accent" />
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-8 h-8 rounded-lg bg-[#FFE600] flex items-center justify-center text-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A]">
+                      <Icon className="w-4 h-4 text-[#0A0A0A]" />
                     </div>
-                    <h4 className="font-medium text-sm text-[#0A0A0A]">
+                    <h4 className="font-bold text-base text-[#0A0A0A]">
                       {area.title}
                     </h4>
                   </div>
-                  <p className="text-xs text-[#666666] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#666666] leading-relaxed">
                     {area.description}
                   </p>
                 </div>
@@ -138,27 +138,27 @@ export function Experience() {
           </div>
 
           {/* Bottom Row: Metrics & Stack */}
-          <div className="pt-6 border-t border-[#E6E3DC] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <div className="pt-6 border-t-2 border-[#0A0A0A] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             {/* 3 Metrics */}
-            <div className="flex items-center gap-6 sm:gap-8">
+            <div className="flex items-center gap-6 sm:gap-10">
               {metrics.map((m) => (
                 <div key={m.label}>
-                  <div className="font-mono text-lg font-bold text-[#0A0A0A]">
+                  <div className="font-mono text-xl font-black text-[#0A0A0A]">
                     {m.value}
                   </div>
-                  <div className="text-[11px] font-mono uppercase tracking-wider text-[#666666]">
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-[#666666] font-semibold">
                     {m.label}
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* Stack Badges */}
+            {/* Stack Badges (Neo-Brutalist shadow, no borders) */}
             <div className="flex flex-wrap items-center gap-2">
               {tools.map((tool) => (
                 <span
                   key={tool}
-                  className="px-2.5 py-1 rounded-md text-xs font-mono text-[#0A0A0A] bg-white border border-[#E6E3DC]"
+                  className="px-3 py-1.5 rounded-md text-xs font-mono font-bold text-[#0A0A0A] bg-white shadow-[2px_2px_0px_#0A0A0A]"
                 >
                   {tool}
                 </span>

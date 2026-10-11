@@ -53,7 +53,7 @@ export default async function WorkDetailPage({ params }: Params) {
       <FloatingNav />
 
       <main className="pt-28 sm:pt-36 pb-20 overflow-x-clip">
-        <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
+        <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
           {/* Breadcrumb / Back Navigation */}
           <div className="mb-10 sm:mb-14">
             <Link

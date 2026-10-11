@@ -53,7 +53,7 @@ export function SnapshotCard() {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
-      className="relative w-full max-w-[460px] perspective-[1000px]"
+      className="relative w-full max-w-[490px] xl:max-w-[530px] perspective-[1000px]"
     >
       {/* Outer Offset Drop-Shadow Layer */}
       <motion.div
@@ -77,7 +77,7 @@ export function SnapshotCard() {
         className="absolute inset-0 rounded-[20px] bg-[#0A0A0A] pointer-events-none"
       />
 
-      {/* Main Front Card: Clean White Surface with 2px Outer Border */}
+      {/* Main Front Card */}
       <motion.div
         initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 40, rotate: 2 }}
         animate={
@@ -100,71 +100,71 @@ export function SnapshotCard() {
         }}
         className="relative rounded-[20px] border-2 border-[#0A0A0A] bg-white p-7 sm:p-8 text-[#0A0A0A] transition-all duration-200"
       >
-        {/* Header: Clean label + pill */}
+        {/* Header: Clean label + Neo-Brutalist badge */}
         <motion.div
           custom={0}
           variants={rowVariants}
           initial="hidden"
           animate="visible"
-          className="flex items-center justify-between pb-5 border-b border-[#E6E3DC]"
+          className="flex items-center justify-between pb-4"
         >
-          <span className="font-mono text-[11px] tracking-[0.12em] uppercase text-[#666666] font-semibold">
+          <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-[#666666] font-bold">
             QUICK SNAPSHOT
           </span>
-          <span className="px-2.5 py-0.5 rounded-full bg-[#F5F3EE] text-[#0A0A0A] border border-[#E6E3DC] font-mono font-medium text-xs">
+          <span className="px-2.5 py-0.5 rounded-full bg-[#FFE600] text-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A] font-mono font-bold text-xs">
             2026
           </span>
         </motion.div>
 
-        {/* Row 1: LOCATION */}
+        {/* Row 1: LOCATION (No dividing border on content) */}
         <motion.div
           custom={1}
           variants={rowVariants}
           initial="hidden"
           animate="visible"
-          className="py-4 border-b border-[#E6E3DC]"
+          className="py-3.5"
         >
           <div className="flex items-center gap-2 mb-1">
             <MapPin className="w-3.5 h-3.5 text-accent" />
-            <span className="font-mono text-[10px] tracking-widest text-accent font-semibold uppercase">
+            <span className="font-mono text-[10px] tracking-widest text-accent font-bold uppercase">
               LOCATION
             </span>
           </div>
-          <p className="text-base font-medium text-[#0A0A0A] tracking-tight pl-5.5">
+          <p className="text-base font-semibold text-[#0A0A0A] tracking-tight pl-5.5">
             Karur, Tamil Nadu, India
           </p>
         </motion.div>
 
-        {/* Row 2: FOCUS */}
+        {/* Row 2: FOCUS (No dividing border on content) */}
         <motion.div
           custom={2}
           variants={rowVariants}
           initial="hidden"
           animate="visible"
-          className="py-4 border-b border-[#E6E3DC]"
+          className="py-3.5"
         >
           <div className="flex items-center gap-2 mb-1">
             <Target className="w-3.5 h-3.5 text-accent" />
-            <span className="font-mono text-[10px] tracking-widest text-accent font-semibold uppercase">
+            <span className="font-mono text-[10px] tracking-widest text-accent font-bold uppercase">
               FOCUS
             </span>
           </div>
-          <p className="text-base font-medium text-[#0A0A0A] tracking-tight pl-5.5">
+          <p className="text-base font-semibold text-[#0A0A0A] tracking-tight pl-5.5">
             Applied AI Systems & High-Assurance Architecture
           </p>
         </motion.div>
 
-        {/* Row 3: STACK */}
+        {/* Row 3: STACK (No dividing border on content) */}
         <motion.div
           custom={3}
           variants={rowVariants}
           initial="hidden"
           animate="visible"
-          className="py-4 border-b border-[#E6E3DC]"
+          className="py-3.5"
         >
           <div className="flex items-center gap-2 mb-1">
             <Layers className="w-3.5 h-3.5 text-accent" />
-            <span className="font-mono text-[10px] tracking-widest text-accent font-semibold uppercase">
+            <span className="font-mono text-[10px] tracking-widest text-accent font-bold uppercase">
               STACK
             </span>
           </div>
@@ -173,26 +173,26 @@ export function SnapshotCard() {
           </p>
         </motion.div>
 
-        {/* Row 4: STATUS CHIP */}
+        {/* Row 4: STATUS CHIP (Neo-Brutalist shadow, clean borderless background) */}
         <motion.div
           custom={4}
           variants={rowVariants}
           initial="hidden"
           animate="visible"
-          className="pt-4"
+          className="pt-3.5"
         >
           <div className="flex items-center gap-2 mb-2">
             <Sparkles className="w-3.5 h-3.5 text-accent" />
-            <span className="font-mono text-[10px] tracking-widest text-accent font-semibold uppercase">
+            <span className="font-mono text-[10px] tracking-widest text-accent font-bold uppercase">
               STATUS
             </span>
           </div>
-          <div className="rounded-xl bg-[#F5F3EE] border border-[#E6E3DC] p-3 pl-4 flex items-center gap-3">
+          <div className="rounded-xl bg-[#F5F3EE] p-3 pl-4 flex items-center gap-3 shadow-[2.5px_2.5px_0px_#0A0A0A]">
             <span className="relative flex h-2 w-2 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1FB866] opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1FB866]" />
             </span>
-            <span className="text-xs font-mono font-medium text-[#0A0A0A]">
+            <span className="text-xs font-mono font-bold text-[#0A0A0A]">
               Open to full-time & internship roles
             </span>
           </div>

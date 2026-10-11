@@ -12,7 +12,7 @@ export function TechMarquee() {
       aria-label="06 Previously trusted by / Stack"
       className="relative py-14 sm:py-20 border-t-2 border-[#0A0A0A] overflow-hidden bg-transparent"
     >
-      <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12 mb-8 sm:mb-10">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 mb-8 sm:mb-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 32 }}
@@ -47,18 +47,18 @@ export function TechMarquee() {
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 sm:w-40 z-10 bg-gradient-to-r from-[var(--canvas)] to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 sm:w-40 z-10 bg-gradient-to-l from-[var(--canvas)] to-transparent" />
 
-        {/* Marquee Track with Outer-Border Chips */}
+        {/* Marquee Track with Neo-Brutalist Hard Shadow Chips (No harsh wireframe border) */}
         <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
           {marqueeItems.map((item, idx) => (
             <div
               key={`${item.name}-${idx}`}
-              className="mx-3 flex items-center gap-3 px-5 py-3 rounded-full border-2 border-[#0A0A0A] bg-white text-[#0A0A0A] shadow-[3px_3px_0px_#0A0A0A] hover:bg-[#FAF9F5] transition-all duration-150 cursor-default"
+              className="mx-3 flex items-center gap-3 px-5 py-3 rounded-full bg-white text-[#0A0A0A] shadow-[3.5px_3.5px_0px_#0A0A0A] hover:bg-[#FFE600] transition-all duration-150 cursor-default"
             >
               <span className="w-2 h-2 rounded-full bg-accent" />
-              <span className="font-medium text-sm sm:text-base tracking-tight whitespace-nowrap">
+              <span className="font-bold text-sm sm:text-base tracking-tight whitespace-nowrap">
                 {item.name}
               </span>
-              <span className="text-[10px] font-mono uppercase tracking-wider text-[#666666] border-l border-[#E6E3DC] pl-2.5">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-[#666666] font-semibold pl-2">
                 {item.category}
               </span>
             </div>

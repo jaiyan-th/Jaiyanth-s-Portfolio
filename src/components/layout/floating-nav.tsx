@@ -67,7 +67,7 @@ export function FloatingNav() {
           : "bg-transparent border-b border-transparent py-4 sm:py-5"
       }`}
     >
-      <div className="w-full max-w-[1100px] mx-auto px-6 sm:px-8 xl:px-0 flex items-center justify-between">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 flex items-center justify-between">
         {/* Left: Clean Brand Name with Accent Dot */}
         <a
           href="#hero"

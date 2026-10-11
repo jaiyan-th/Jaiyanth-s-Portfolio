@@ -27,7 +27,7 @@ export default function WorkIndexPage() {
       <FloatingNav />
 
       <main className="pt-28 sm:pt-36 pb-20 overflow-x-clip">
-        <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12">
+        <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
           {/* Work Page Header */}
           <div className="mb-16 sm:mb-24">
             <span className="text-xs font-mono uppercase tracking-widest text-accent-hover block mb-3 font-semibold">
