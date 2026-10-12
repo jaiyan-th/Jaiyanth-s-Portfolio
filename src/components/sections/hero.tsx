@@ -23,10 +23,22 @@ export function Hero() {
   useEffect(() => {
     if (shouldReduceMotion) return;
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      const lenis = (window as unknown as { __lenis?: { scroll: number } }).__lenis;
+      setScrollY(typeof lenis?.scroll === "number" ? lenis.scroll : window.scrollY);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    const lenis = (window as unknown as { __lenis?: { on: (event: string, cb: () => void) => void; off: (event: string, cb: () => void) => void } }).__lenis;
+    if (lenis?.on) {
+      lenis.on("scroll", handleScroll);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (lenis?.off) {
+        lenis.off("scroll", handleScroll);
+      }
+    };
   }, [shouldReduceMotion]);
 
   // Magnetic hover for "Explore Work" button

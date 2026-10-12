@@ -21,8 +21,15 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
 
   const [isMobile, setIsMobile] = useState(false);
 
-  // 3D subtle tilt ref (< 12deg) - replace setTilt state with refs
-  const tiltRef = useRef({ rotateX: 0, rotateY: 0, translateZ: 0 });
+  // 3D subtle tilt ref (< 12deg)
+  const tiltRef = useRef({ rotateX: 0, rotateY: 0, targetRotateX: 0, targetRotateY: 0 });
+
+  // Scroll state tracking for 60/120fps sync with Lenis and native scroll
+  const scrollStateRef = useRef({
+    current: 0,
+    target: 0,
+    velocity: 0,
+  });
 
   // Pointer state in container coordinates
   const mouseRef = useRef({
@@ -51,23 +58,6 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
-
-  // Subtle scroll recede (< 12deg tilt, no re-renders)
-  useEffect(() => {
-    if (shouldReduceMotion || isMobile) return;
-
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      tiltRef.current.translateZ = Math.max(-50, -scrollY * 0.15);
-      if (canvasRef.current) {
-        const { rotateX, rotateY, translateZ } = tiltRef.current;
-        canvasRef.current.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(${translateZ}px)`;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [shouldReduceMotion, isMobile]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -131,15 +121,10 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
       mouseRef.current.normalizedX = normX;
       mouseRef.current.normalizedY = normY;
 
-      // 3D subtle CSS tilt under 12deg applied directly via refs (no setTilt re-render)
+      // 3D subtle CSS tilt target under 12deg
       if (!isMobile && !shouldReduceMotion) {
-        const tiltX = Math.max(-8, Math.min(8, (normY - 0.5) * -7));
-        const tiltY = Math.max(-10, Math.min(10, (normX - 0.5) * 8));
-        tiltRef.current.rotateX = tiltX;
-        tiltRef.current.rotateY = tiltY;
-        if (canvasRef.current) {
-          canvasRef.current.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(${tiltRef.current.translateZ}px)`;
-        }
+        tiltRef.current.targetRotateX = Math.max(-8, Math.min(8, (normY - 0.5) * -7));
+        tiltRef.current.targetRotateY = Math.max(-10, Math.min(10, (normX - 0.5) * 8));
       }
 
       // Call onPointerStats via ref
@@ -158,27 +143,54 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
       mouseRef.current.targetX = -1000;
       mouseRef.current.targetY = -1000;
       if (!isMobile && !shouldReduceMotion) {
-        tiltRef.current.rotateX = 0;
-        tiltRef.current.rotateY = 0;
-        if (canvasRef.current) {
-          canvasRef.current.style.transform = `rotateX(0deg) rotateY(0deg) translateZ(${tiltRef.current.translateZ}px)`;
-        }
+        tiltRef.current.targetRotateX = 0;
+        tiltRef.current.targetRotateY = 0;
       }
     };
 
     container.addEventListener("pointermove", onPointerMove, { passive: true });
     container.addEventListener("pointerleave", onPointerLeave, { passive: true });
 
-    // Render loop with canvas-internal 3D depth projection
+    // Render loop with canvas-internal 3D depth projection & scroll wave dynamics
     const render = () => {
       if (!isIntersectingRef.current) {
         animFrameRef.current = null;
         return;
       }
 
-      // Lerp mouse
+      // 1. Lerp mouse position
       mouseRef.current.x += (mouseRef.current.targetX - mouseRef.current.x) * 0.16;
       mouseRef.current.y += (mouseRef.current.targetY - mouseRef.current.y) * 0.16;
+
+      // 2. Track scroll position smoothly (syncing Lenis smooth scroll and native scroll)
+      const lenis = (window as unknown as { __lenis?: { scroll: number; velocity: number } }).__lenis;
+      const targetScroll = typeof lenis?.scroll === "number" ? lenis.scroll : window.scrollY;
+      scrollStateRef.current.target = targetScroll;
+
+      const prevScroll = scrollStateRef.current.current;
+      scrollStateRef.current.current += (scrollStateRef.current.target - scrollStateRef.current.current) * 0.14;
+      const deltaScroll = scrollStateRef.current.current - prevScroll;
+      
+      const currentVelocity = typeof lenis?.velocity === "number" 
+        ? lenis.velocity 
+        : deltaScroll;
+      scrollStateRef.current.velocity = scrollStateRef.current.velocity * 0.75 + currentVelocity * 0.25;
+
+      const scrollY = scrollStateRef.current.current;
+      const scrollVel = scrollStateRef.current.velocity;
+
+      // 3. Smooth canvas 3D transform combining mouse tilt and scroll recede
+      if (!isMobile && !shouldReduceMotion && canvasRef.current) {
+        tiltRef.current.rotateX += (tiltRef.current.targetRotateX - tiltRef.current.rotateX) * 0.12;
+        tiltRef.current.rotateY += (tiltRef.current.targetRotateY - tiltRef.current.rotateY) * 0.12;
+
+        const scrollPitch = Math.min(10, scrollY * 0.018);
+        const scrollTranslateZ = Math.max(-100, -scrollY * 0.22);
+        const curRotateX = tiltRef.current.rotateX - scrollPitch;
+        const curRotateY = tiltRef.current.rotateY;
+
+        canvasRef.current.style.transform = `rotateX(${curRotateX.toFixed(2)}deg) rotateY(${curRotateY.toFixed(2)}deg) translateZ(${scrollTranslateZ.toFixed(2)}px)`;
+      }
 
       ctx.clearRect(0, 0, width, height);
 
@@ -189,14 +201,21 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
       const numRows = Math.ceil(height / 28) + 2;
       const numCols = Math.ceil(width / baseSpacing) + 6;
 
+      const now = performance.now();
+      const wavePhase = scrollY * 0.007 + now * 0.0012;
+      const waveIntensity = shouldReduceMotion ? 0 : Math.min(16, Math.abs(scrollVel) * 2.2 + 2.8);
+
       for (let r = 0; r < numRows; r++) {
         // Depth progress: 0 (horizon/top) to 1 (near foreground/bottom)
         const depthRatio = r / (numRows - 1);
         // Perspective foreshortening curve
         const zScale = 0.52 + 0.62 * Math.pow(depthRatio, 1.35);
 
-        // Projected Y position
-        const projY = height * (0.05 + 0.95 * Math.pow(depthRatio, 1.25));
+        // Perspective Parallax shift with scroll: near rows move slightly more than distant horizon rows
+        const scrollParallaxY = -scrollY * (0.08 + 0.16 * depthRatio);
+
+        // Base projected Y position
+        const baseProjY = height * (0.05 + 0.95 * Math.pow(depthRatio, 1.25)) + scrollParallaxY;
 
         // Spacing scales by depth
         const rowSpacing = baseSpacing * zScale;
@@ -204,13 +223,22 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
         const rowMaxRadius = maxRadius * zScale;
 
         for (let c = -numCols / 2; c <= numCols / 2; c++) {
-          const projX = centerX + c * rowSpacing;
+          let projX = centerX + c * rowSpacing;
+          let projY = baseProjY;
 
-          if (projX < -40 || projX > width + 40 || projY < -20 || projY > height + 20) {
+          // Dynamic wave ripple that reacts to scroll motion
+          if (!shouldReduceMotion) {
+            const wave = Math.sin(depthRatio * 5.2 + c * 0.22 - wavePhase);
+            const waveDisplacement = wave * waveIntensity * depthRatio;
+            projY += waveDisplacement;
+            projX += Math.cos(depthRatio * 4.2 + c * 0.25 - wavePhase * 0.8) * (waveDisplacement * 0.35);
+          }
+
+          if (projX < -40 || projX > width + 40 || projY < -30 || projY > height + 30) {
             continue;
           }
 
-          // Compute cursor proximity against the PROJECTED positions so red highlight stays under cursor
+          // Compute cursor proximity against the PROJECTED positions
           const dx = mx - projX;
           const dy = my - projY;
           const dist = Math.hypot(dx, dy);
@@ -218,6 +246,11 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
           let radius = rowBaseRadius;
           let alpha = 0.12 * zScale;
           let isAccent = false;
+
+          // Subtle energy glimmer during active scrolling
+          if (!shouldReduceMotion && Math.abs(scrollVel) > 0.4) {
+            alpha += Math.min(0.14, Math.abs(scrollVel) * 0.018) * zScale;
+          }
 
           if (dist < proximity) {
             const factor = 1 - dist / proximity;
@@ -262,7 +295,7 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
       container.removeEventListener("pointermove", onPointerMove);
       container.removeEventListener("pointerleave", onPointerLeave);
     };
-  }, [isMobile, shouldReduceMotion]); // onPointerStats is stored in ref, not in deps!
+  }, [isMobile, shouldReduceMotion]);
 
   return (
     <div
