@@ -88,7 +88,8 @@ export function Research() {
             <div className="flex flex-wrap items-center gap-2.5 text-fluid-mono">
               <span className="inline-flex items-center gap-1.5 font-bold text-[#0A0A0A]">
                 <ShieldCheck className="w-4 h-4 text-[#E5341B] shrink-0" />
-                <span className="neo-sticker bg-[#FFE45C] text-[#0A0A0A] font-bold">
+                <span className="neo-sticker bg-[#FFE45C] text-[#0A0A0A] font-extrabold border border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A] gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1FB866] animate-ping" />
                   Published & Peer-Reviewed
                 </span>
               </span>
@@ -104,19 +105,19 @@ export function Research() {
                   href={RESEARCH.certificateUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="neo-pill-btn h-10 px-4 text-fluid-mono font-bold gap-1.5"
+                  className="neo-pill-btn h-10 px-4 text-fluid-mono font-bold gap-1.5 group"
                 >
-                  <FileText className="w-3.5 h-3.5 text-[#E5341B]" />
+                  <FileText className="w-3.5 h-3.5 text-[#E5341B] transition-transform duration-200 group-hover:scale-110" />
                   <span>Certificate</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#0A0A0A]" />
+                  <ArrowUpRight className="w-3 h-3 text-[#0A0A0A] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
               )}
               <Link
                 href="/work/preventive-ai-paper"
-                className="neo-black-btn h-10 px-4 text-fluid-mono font-bold gap-1.5"
+                className="neo-black-btn h-10 px-4 text-fluid-mono font-bold gap-1.5 group"
               >
                 <span>Read Case Study</span>
-                <ArrowRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5" />
+                <ArrowRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-1" />
               </Link>
             </div>
           </div>
@@ -161,22 +162,22 @@ export function Research() {
                     delay: idx * 0.12,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
+                  whileHover={shouldReduceMotion || isMobile ? {} : { y: -5, scale: 1.015 }}
                   style={{
                     transform: `rotateY(${activeRotateY}deg)`,
                   }}
-                  className="p-5 sm:p-6 rounded-md bg-white hard-shadow flex flex-col justify-between transition-transform duration-300 ease-out will-change-transform"
+                  className="group p-5 sm:p-6 rounded-lg bg-white hard-shadow border border-[#0A0A0A]/10 hover:border-[#0A0A0A] hover:shadow-[8px_8px_0px_#0A0A0A] flex flex-col justify-between transition-all duration-300 ease-out will-change-transform cursor-default"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <div className="w-8 h-8 rounded-md bg-[#FAF3EE] flex items-center justify-center text-[#E5341B]">
-                        <Icon className="w-4 h-4 text-[#E5341B]" />
+                      <div className="w-9 h-9 rounded-md bg-[#FAF3EE] group-hover:bg-[#E5341B] group-hover:text-white flex items-center justify-center text-[#E5341B] transition-colors duration-200 shadow-[2px_2px_0px_rgba(0,0,0,0.1)]">
+                        <Icon className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
                       </div>
-                      <span className="font-mono text-xs text-[#E5341B] font-bold">
+                      <span className="font-mono text-xs text-[#E5341B] font-extrabold group-hover:scale-110 transition-transform">
                         {item.step}
                       </span>
                     </div>
-                    <h4 className="font-bold text-base text-[#0A0A0A] mb-2">
+                    <h4 className="font-bold text-base sm:text-lg text-[#0A0A0A] group-hover:text-[#E5341B] transition-colors mb-2">
                       {item.title}
                     </h4>
                     <p className="text-fluid-small text-[#555555] leading-relaxed">
@@ -190,21 +191,26 @@ export function Research() {
 
           {/* Bottom Row: Domain Keywords & Deep Dive */}
           <div className="pt-6 sm:pt-8 border-t border-[#E2DFD7] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-fluid-mono text-[#0A0A0A]">
+            <div className="flex flex-wrap items-center gap-2 text-fluid-mono text-[#0A0A0A]">
               <span className="text-[#888888] font-bold uppercase tracking-wider mr-1">
                 DOMAIN:
               </span>
-              <span className="font-medium text-[#0A0A0A]">
-                {keywords.join(" · ")}
-              </span>
+              {keywords.map((kw) => (
+                <span
+                  key={kw}
+                  className="inline-flex items-center px-2 py-0.5 rounded text-xs font-mono font-semibold bg-white border border-[#0A0A0A]/20 hover:border-[#0A0A0A] hover:bg-[#FFE45C] hover:scale-105 transition-all duration-150 cursor-default"
+                >
+                  {kw}
+                </span>
+              ))}
             </div>
 
             <Link
               href="/work/preventive-ai-paper"
               className="inline-flex items-center gap-1.5 text-fluid-mono text-[#0A0A0A] hover:text-[#E5341B] font-bold group transition-colors min-h-[44px]"
             >
-              <span>See full architecture & clinical pipeline inside case study</span>
-              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 text-[#E5341B]" />
+              <span>Explore Research Paper</span>
+              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
           </div>
         </div>

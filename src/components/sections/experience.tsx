@@ -163,21 +163,28 @@ export function Experience() {
                     delay: idx * 0.12,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
-                  className="p-5 sm:p-6 rounded-md bg-white hard-shadow flex flex-col justify-between"
+                  whileHover={shouldReduceMotion || isMobile ? {} : { y: -5, scale: 1.015 }}
+                  className="group p-5 sm:p-6 rounded-lg bg-white hard-shadow border border-[#0A0A0A]/10 hover:border-[#0A0A0A] hover:shadow-[8px_8px_0px_#0A0A0A] flex flex-col justify-between transition-all duration-200 cursor-default"
                 >
                   <div>
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="w-8 h-8 rounded-md bg-[#FAF3EE] flex items-center justify-center text-[#E5341B] shrink-0">
-                        <Icon className="w-4 h-4 text-[#E5341B]" />
+                    <div className="flex items-center justify-between mb-3.5">
+                      <div className="w-9 h-9 rounded-md bg-[#FAF3EE] group-hover:bg-[#E5341B] group-hover:text-white flex items-center justify-center text-[#E5341B] shrink-0 transition-colors duration-200 shadow-[2px_2px_0px_rgba(0,0,0,0.1)]">
+                        <Icon className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
                       </div>
-                      <h4 className="font-bold text-base text-[#0A0A0A]">
-                        {area.title}
-                      </h4>
+                      <span className="font-mono text-[10px] font-bold text-[#888888] group-hover:text-[#E5341B] tracking-widest uppercase transition-colors">
+                        0{idx + 1} // FOCUS
+                      </span>
                     </div>
+                    <h4 className="font-bold text-base sm:text-lg text-[#0A0A0A] group-hover:text-[#E5341B] transition-colors mb-2">
+                      {area.title}
+                    </h4>
                     <p className="text-fluid-small text-[#555555] leading-relaxed">
                       {area.description}
                     </p>
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-[#E2DFD7]/60 flex items-center justify-between">
+                    <span className="text-[11px] font-mono text-[#888888] font-medium">Production Verified</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#1FB866] animate-pulse" />
                   </div>
                 </motion.div>
               );
@@ -201,9 +208,9 @@ export function Experience() {
                 whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="flex flex-col"
+                className="group flex flex-col cursor-default"
               >
-                <div className="font-mono text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0A0A0A]">
+                <div className="font-mono text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0A0A0A] group-hover:text-[#E5341B] transition-colors">
                   {stat1}+
                 </div>
                 <div className="text-fluid-mono uppercase tracking-wider text-[#666666] font-semibold text-[11px] sm:text-xs">
@@ -221,9 +228,9 @@ export function Experience() {
                 whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="flex flex-col"
+                className="group flex flex-col cursor-default"
               >
-                <div className="font-mono text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0A0A0A]">
+                <div className="font-mono text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0A0A0A] group-hover:text-[#E5341B] transition-colors">
                   &lt; {stat2}ms
                 </div>
                 <div className="text-fluid-mono uppercase tracking-wider text-[#666666] font-semibold text-[11px] sm:text-xs">
@@ -241,9 +248,9 @@ export function Experience() {
                 whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="flex flex-col"
+                className="group flex flex-col cursor-default"
               >
-                <div className="font-mono text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0A0A0A]">
+                <div className="font-mono text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0A0A0A] group-hover:text-[#E5341B] transition-colors">
                   {stat3}%
                 </div>
                 <div className="text-fluid-mono uppercase tracking-wider text-[#666666] font-semibold text-[11px] sm:text-xs">
@@ -253,24 +260,17 @@ export function Experience() {
             </div>
 
             {/* Stack Line */}
-            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-fluid-mono text-[#0A0A0A]">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 text-fluid-mono text-[#0A0A0A]">
               <span className="text-[#888888] font-bold text-[11px] sm:text-xs uppercase tracking-wider mr-1">
                 STACK:
               </span>
               {tools.map((tool, idx) => (
-                <motion.span
+                <span
                   key={tool}
-                  initial={{ opacity: 0, x: -8 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.4 + idx * 0.05 }}
-                  className="font-medium text-[#0A0A0A]"
+                  className="inline-flex items-center px-2 py-0.5 rounded text-xs font-mono font-semibold bg-white border border-[#0A0A0A]/20 hover:border-[#0A0A0A] hover:bg-[#FFE45C] hover:scale-105 transition-all duration-150 cursor-default"
                 >
                   {tool}
-                  {idx < tools.length - 1 && (
-                    <span className="text-[#BBBBBB] ml-2 select-none">·</span>
-                  )}
-                </motion.span>
+                </span>
               ))}
             </div>
           </div>

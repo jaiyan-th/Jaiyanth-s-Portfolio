@@ -13,6 +13,8 @@ export function TechMarquee() {
 
   const marqueeItems = [...TECH_MARQUEE, ...TECH_MARQUEE, ...TECH_MARQUEE, ...TECH_MARQUEE];
 
+  const hoveredRef = useRef(false);
+
   useEffect(() => {
     if (shouldReduceMotion) return;
 
@@ -41,6 +43,11 @@ export function TechMarquee() {
     );
     observer.observe(container);
 
+    const handleMouseEnter = () => { hoveredRef.current = true; };
+    const handleMouseLeave = () => { hoveredRef.current = false; };
+    container.addEventListener("mouseenter", handleMouseEnter);
+    container.addEventListener("mouseleave", handleMouseLeave);
+
     const handleScroll = () => {
       const now = performance.now();
       const currentScrollY = window.scrollY;
@@ -66,7 +73,8 @@ export function TechMarquee() {
       currentSpeedBoost += (targetSpeedBoost - currentSpeedBoost) * 0.1;
       targetSpeedBoost += (1.0 - targetSpeedBoost) * 0.05;
 
-      const step = baseSpeed * currentSpeedBoost;
+      const hoverFactor = hoveredRef.current ? 0.3 : 1.0;
+      const step = baseSpeed * currentSpeedBoost * hoverFactor;
       currentX -= step;
 
       const halfWidth = track.scrollWidth / 2;
@@ -110,6 +118,8 @@ export function TechMarquee() {
       if (animId) cancelAnimationFrame(animId);
       observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
+      container.removeEventListener("mouseenter", handleMouseEnter);
+      container.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, [shouldReduceMotion]);
 
@@ -156,15 +166,15 @@ export function TechMarquee() {
               ref={(el) => {
                 itemsRef.current[idx] = el;
               }}
-              className="mx-4 sm:mx-6 lg:mx-8 flex items-baseline gap-2.5 sm:gap-3 cursor-default select-none will-change-transform origin-center transition-transform duration-75"
+              className="mx-2.5 sm:mx-4 lg:mx-5 flex items-center gap-2.5 sm:gap-3 px-3 py-1.5 rounded-md border border-transparent hover:border-[#0A0A0A] hover:bg-white hover:shadow-[3px_3px_0px_#0A0A0A] cursor-default select-none will-change-transform origin-center transition-all duration-150 group/chip"
             >
-              <span className="font-bold text-fluid-body tracking-tight text-[#0A0A0A]">
+              <span className="font-bold text-fluid-body tracking-tight text-[#0A0A0A] group-hover/chip:text-[#E5341B] transition-colors">
                 {item.name}
               </span>
-              <span className="text-fluid-mono uppercase tracking-wider text-[#888888] font-medium">
+              <span className="text-fluid-mono uppercase tracking-wider text-[#888888] font-medium text-xs">
                 /{item.category}
               </span>
-              <span className="text-[#E5341B]/40 ml-4 sm:ml-6 lg:ml-8 font-mono text-xs sm:text-sm select-none">✦</span>
+              <span className="text-[#E5341B]/40 ml-2 group-hover/chip:text-[#E5341B] group-hover/chip:rotate-90 font-mono text-xs sm:text-sm select-none transition-transform duration-300">✦</span>
             </div>
           ))}
         </div>

@@ -97,57 +97,60 @@ export function WhyWork() {
               shouldReduceMotion || !isLargeDesktop ? 0 : -scrollY * meta.speedFactor * 0.12;
 
             return (
-              <motion.div
-                key={point.letter}
-                initial={{ opacity: 0, y: 36 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{
-                  duration: 0.65,
-                  delay: index * 0.1,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                whileHover={shouldReduceMotion || !isLargeDesktop ? {} : { y: -3 }}
-                style={{
-                  transform: `translate3d(0, ${colParallaxY}px, 0)`,
-                }}
-                className="p-6 sm:p-7 rounded-md bg-white hard-shadow flex flex-col justify-between transition-transform duration-75 ease-out will-change-transform"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-xl font-extrabold text-[#E5341B]">
-                      /{point.letter}
-                    </span>
-                    <span className={`neo-sticker ${meta.stampBg} font-bold`}>
-                      {meta.tagline}
-                    </span>
+                <motion.div
+                  key={point.letter}
+                  initial={{ opacity: 0, y: 36 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{
+                    duration: 0.65,
+                    delay: index * 0.1,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  whileHover={shouldReduceMotion ? {} : { y: -8, scale: 1.015 }}
+                  style={{
+                    transform: `translate3d(0, ${colParallaxY}px, 0)`,
+                  }}
+                  className="group relative p-6 sm:p-7 rounded-md bg-white border border-[#0A0A0A] hard-shadow hover:shadow-[10px_10px_0px_#0A0A0A] flex flex-col justify-between transition-all duration-300 ease-out will-change-transform overflow-hidden"
+                >
+                  {/* Top Red Indicator stripe */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-[#E5341B] transition-colors duration-200" />
+
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-mono text-xl font-extrabold text-[#E5341B] group-hover:scale-110 transition-transform origin-left inline-block">
+                        /{point.letter}
+                      </span>
+                      <span className={`neo-sticker ${meta.stampBg} font-bold group-hover:rotate-1 transition-transform`}>
+                        {meta.tagline}
+                      </span>
+                    </div>
+
+                    <h4 className="text-fluid-h3 font-extrabold tracking-[-0.02em] text-[#0A0A0A] group-hover:text-[#E5341B] leading-snug mb-3 transition-colors duration-200">
+                      {point.title}
+                    </h4>
+
+                    <p className="text-fluid-body text-[#555555] leading-relaxed font-normal mb-6">
+                      {point.description}
+                    </p>
                   </div>
 
-                  <h4 className="text-fluid-h3 font-extrabold tracking-[-0.02em] text-[#0A0A0A] leading-snug mb-3">
-                    {point.title}
-                  </h4>
-
-                  <p className="text-fluid-body text-[#555555] leading-relaxed font-normal mb-6">
-                    {point.description}
-                  </p>
-                </div>
-
-                {/* Sticker Tags */}
-                <div className="flex flex-wrap gap-2 pt-2 border-t border-[#E2DFD7]/60">
-                  {point.tags.map((tag, tIdx) => (
-                    <span
-                      key={tag}
-                      className={`neo-sticker text-[11px] ${
-                        tIdx % 2 === 0
-                          ? "bg-[#F2ECE4] text-[#0A0A0A]"
-                          : "neo-sticker-alt bg-[#FAF3EE] text-[#555555]"
-                      }`}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
+                  {/* Sticker Tags */}
+                  <div className="flex flex-wrap gap-2 pt-2 border-t border-[#E2DFD7]/60">
+                    {point.tags.map((tag, tIdx) => (
+                      <span
+                        key={tag}
+                        className={`neo-sticker text-[11px] hover:scale-105 hover:bg-[#FFE45C] hover:text-[#0A0A0A] hover:border-[#0A0A0A] cursor-default transition-all duration-150 ${
+                          tIdx % 2 === 0
+                            ? "bg-[#F2ECE4] text-[#0A0A0A]"
+                            : "neo-sticker-alt bg-[#FAF3EE] text-[#555555]"
+                        }`}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
             );
           })}
         </div>

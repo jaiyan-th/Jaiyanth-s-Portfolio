@@ -302,14 +302,15 @@ export function ProjectPreview({
         {activeProject && (
           <motion.div
             key={activeProject.id}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
             exit={{
               opacity: 0.25,
-              transition: { duration: 0.3 },
+              scale: 0.96,
+              transition: { duration: 0.25 },
             }}
             transition={{ duration: 0.3 }}
-            className="absolute inset-0 w-full h-full"
+            className="absolute inset-0 w-full h-full border-2 border-[#0A0A0A] rounded-md overflow-hidden bg-white shadow-[8px_8px_0px_#0A0A0A]"
           >
             {activeProject.image ? (
               <Image
@@ -325,6 +326,15 @@ export function ProjectPreview({
                 {activeProject.index}
               </div>
             )}
+            {/* Overlay badge with project stack */}
+            <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between pointer-events-none">
+              <span className="neo-sticker bg-[#FFE45C] text-[#0A0A0A] font-extrabold text-[10px] border border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A]">
+                {activeProject.category}
+              </span>
+              <span className="font-mono text-[10px] font-bold text-white bg-[#0A0A0A] px-2 py-0.5 rounded shadow-[2px_2px_0px_#E5341B]">
+                {activeProject.year}
+              </span>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -357,8 +367,8 @@ export function ProjectRow({
     <motion.div
       initial={{
         opacity: 0,
-        rotateX: isMobile || shouldReduceMotion ? 0 : -25,
-        y: 40,
+        rotateX: isMobile || shouldReduceMotion ? 0 : -20,
+        y: 36,
       }}
       whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
@@ -378,22 +388,27 @@ export function ProjectRow({
             isHovered && !isMobile && !shouldReduceMotion
               ? "translate3d(0, -3px, 20px)"
               : "translate3d(0, 0, 0)",
-          opacity: anyHovered && !isHovered ? 0.45 : 1,
+          opacity: anyHovered && !isHovered ? 0.4 : 1,
         }}
-        className={`group block py-6 sm:py-7 lg:py-8 px-3 sm:px-4 -mx-3 sm:-mx-4 rounded-md transition-all duration-200 focus-visible:outline-none min-h-[64px] ${
-          isHovered ? "bg-white hard-shadow" : "bg-transparent"
+        className={`group block py-6 sm:py-7 lg:py-8 px-4 sm:px-5 -mx-4 sm:-mx-5 rounded-lg transition-all duration-200 focus-visible:outline-none min-h-[64px] border-l-4 ${
+          isHovered
+            ? "bg-white hard-shadow border-[#E5341B]"
+            : "bg-transparent border-transparent"
         }`}
       >
         {/* Desktop Layout (>=1024px): number | title + description | category | year/arrow */}
         <div className="hidden lg:flex items-baseline justify-between w-full">
-          <div className="w-[72px] shrink-0 font-mono text-xs text-[#E5341B] font-bold">
-            {project.index}
+          <div className="w-[72px] shrink-0 font-mono text-xs font-bold flex items-center gap-1.5 transition-colors duration-200 text-[#E5341B]">
+            <span className={`w-1.5 h-1.5 rounded-full bg-[#E5341B] transition-all duration-200 ${isHovered ? "scale-125 opacity-100" : "scale-0 opacity-0"}`} />
+            <span className={isHovered ? "translate-x-1 transition-transform" : "transition-transform"}>
+              {project.index}
+            </span>
           </div>
 
           <div className="max-w-xl xl:max-w-2xl shrink-0">
             <h3
-              className={`text-fluid-h3 font-bold leading-tight tracking-[-0.02em] transition-colors duration-200 ${
-                isHovered ? "text-[#E5341B]" : "text-[#0A0A0A]"
+              className={`text-fluid-h3 font-bold leading-tight tracking-[-0.02em] transition-all duration-200 ${
+                isHovered ? "text-[#E5341B] translate-x-1.5" : "text-[#0A0A0A]"
               }`}
             >
               {project.title}
@@ -406,20 +421,28 @@ export function ProjectRow({
           <div className="flex-1 min-w-[16px]" />
 
           <div className="w-[180px] shrink-0 text-left">
-            <span className="neo-sticker bg-[#F2ECE4] text-[#0A0A0A] font-semibold">
+            <span className={`neo-sticker font-semibold border border-transparent transition-all duration-200 ${
+              isHovered
+                ? "bg-[#FFE45C] text-[#0A0A0A] border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A]"
+                : "bg-[#F2ECE4] text-[#0A0A0A]"
+            }`}>
               {project.category}
             </span>
           </div>
 
-          <div className="w-[84px] shrink-0 flex items-center justify-end gap-1.5 font-mono text-xs text-[#666666]">
+          <div className="w-[84px] shrink-0 flex items-center justify-end gap-2 font-mono text-xs text-[#666666]">
             <span>{project.year}</span>
-            <ArrowUpRight
-              className={`w-4 h-4 transition-transform duration-200 ${
-                isHovered
-                  ? "rotate-45 text-[#E5341B] scale-110"
-                  : "text-[#666666]"
-              }`}
-            />
+            <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 ${
+              isHovered
+                ? "bg-[#0A0A0A] text-white shadow-[2px_2px_0px_#E5341B] scale-110"
+                : "bg-transparent text-[#666666]"
+            }`}>
+              <ArrowUpRight
+                className={`w-4 h-4 transition-transform duration-200 ${
+                  isHovered ? "rotate-45 text-white" : "text-[#666666]"
+                }`}
+              />
+            </div>
           </div>
         </div>
 
