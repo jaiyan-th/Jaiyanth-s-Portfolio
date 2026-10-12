@@ -29,6 +29,7 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
     current: 0,
     target: 0,
     velocity: 0,
+    energy: 0,
   });
 
   // Pointer state in container coordinates
@@ -72,8 +73,8 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
     let dpr = 1;
 
     // Grid config
-    const baseSpacing = 36;
-    const baseRadius = 1.2;
+    const baseSpacing = 32;
+    const baseRadius = 1.3;
     const maxRadius = 3.6;
     const proximity = 150;
 
@@ -94,6 +95,36 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
     resize();
     const resizeObserver = new ResizeObserver(resize);
     resizeObserver.observe(container);
+
+    // Active scroll input listener to inject instant wave energy
+    const onScrollActivity = (delta: number) => {
+      scrollStateRef.current.energy = Math.min(
+        1.8,
+        scrollStateRef.current.energy + Math.min(0.5, Math.abs(delta) * 0.012 + 0.22)
+      );
+    };
+
+    const handleWheel = (e: WheelEvent) => {
+      onScrollActivity(e.deltaY);
+    };
+
+    const handleWindowScroll = () => {
+      onScrollActivity(8);
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: true });
+    window.addEventListener("scroll", handleWindowScroll, { passive: true });
+
+    // Connect to Lenis if available
+    const lenisInst = (window as unknown as { __lenis?: { on: (event: string, cb: (e: { velocity: number }) => void) => void; off: (event: string, cb: (e: { velocity: number }) => void) => void } }).__lenis;
+    const handleLenisScroll = (e: { velocity: number }) => {
+      if (typeof e?.velocity === "number") {
+        onScrollActivity(e.velocity * 12);
+      }
+    };
+    if (lenisInst?.on) {
+      lenisInst.on("scroll", handleLenisScroll);
+    }
 
     const onPointerMove = (e: PointerEvent) => {
       const rect = container.getBoundingClientRect();
@@ -151,7 +182,7 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
     container.addEventListener("pointermove", onPointerMove, { passive: true });
     container.addEventListener("pointerleave", onPointerLeave, { passive: true });
 
-    // Render loop with canvas-internal 3D depth projection & scroll wave dynamics
+    // Render loop with canvas-internal 3D depth projection & dynamic illuminated scroll waves
     const render = () => {
       if (!isIntersectingRef.current) {
         animFrameRef.current = null;
@@ -162,7 +193,7 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
       mouseRef.current.x += (mouseRef.current.targetX - mouseRef.current.x) * 0.16;
       mouseRef.current.y += (mouseRef.current.targetY - mouseRef.current.y) * 0.16;
 
-      // 2. Track scroll position smoothly (syncing Lenis smooth scroll and native scroll)
+      // 2. Track scroll position and velocity
       const lenis = (window as unknown as { __lenis?: { scroll: number; velocity: number } }).__lenis;
       const targetScroll = typeof lenis?.scroll === "number" ? lenis.scroll : window.scrollY;
       scrollStateRef.current.target = targetScroll;
@@ -170,14 +201,20 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
       const prevScroll = scrollStateRef.current.current;
       scrollStateRef.current.current += (scrollStateRef.current.target - scrollStateRef.current.current) * 0.14;
       const deltaScroll = scrollStateRef.current.current - prevScroll;
-      
+
       const currentVelocity = typeof lenis?.velocity === "number" 
         ? lenis.velocity 
         : deltaScroll;
       scrollStateRef.current.velocity = scrollStateRef.current.velocity * 0.75 + currentVelocity * 0.25;
 
+      // Smoothly decay scroll energy
+      scrollStateRef.current.energy *= 0.935;
+      const scrollEnergy = Math.max(
+        scrollStateRef.current.energy,
+        Math.min(1.4, Math.abs(scrollStateRef.current.velocity) * 0.12)
+      );
+
       const scrollY = scrollStateRef.current.current;
-      const scrollVel = scrollStateRef.current.velocity;
 
       // 3. Smooth canvas 3D transform combining mouse tilt and scroll recede
       if (!isMobile && !shouldReduceMotion && canvasRef.current) {
@@ -198,12 +235,14 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
       const my = mouseRef.current.y;
       const centerX = width / 2;
 
-      const numRows = Math.ceil(height / 28) + 2;
+      const numRows = Math.ceil(height / 26) + 2;
       const numCols = Math.ceil(width / baseSpacing) + 6;
 
       const now = performance.now();
-      const wavePhase = scrollY * 0.007 + now * 0.0012;
-      const waveIntensity = shouldReduceMotion ? 0 : Math.min(16, Math.abs(scrollVel) * 2.2 + 2.8);
+      // Wave phase travels with scroll position + continuous idle flow
+      const wavePhase = scrollY * 0.009 + now * 0.0016;
+      // Wave intensity surges dramatically during active scrolling (up to 28px peak)
+      const waveIntensity = shouldReduceMotion ? 0 : 5.5 + scrollEnergy * 22;
 
       for (let r = 0; r < numRows; r++) {
         // Depth progress: 0 (horizon/top) to 1 (near foreground/bottom)
@@ -211,7 +250,7 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
         // Perspective foreshortening curve
         const zScale = 0.52 + 0.62 * Math.pow(depthRatio, 1.35);
 
-        // Perspective Parallax shift with scroll: near rows move slightly more than distant horizon rows
+        // Perspective Parallax shift with scroll
         const scrollParallaxY = -scrollY * (0.08 + 0.16 * depthRatio);
 
         // Base projected Y position
@@ -226,45 +265,61 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
           let projX = centerX + c * rowSpacing;
           let projY = baseProjY;
 
-          // Dynamic wave ripple that reacts to scroll motion
+          // 2D undulating wave equation
+          const wave = Math.sin(depthRatio * 5.8 + c * 0.26 - wavePhase);
+          const cosWave = Math.cos(depthRatio * 4.6 + c * 0.22 - wavePhase * 0.85);
+
           if (!shouldReduceMotion) {
-            const wave = Math.sin(depthRatio * 5.2 + c * 0.22 - wavePhase);
-            const waveDisplacement = wave * waveIntensity * depthRatio;
-            projY += waveDisplacement;
-            projX += Math.cos(depthRatio * 4.2 + c * 0.25 - wavePhase * 0.8) * (waveDisplacement * 0.35);
+            const waveDisplacementY = wave * waveIntensity * (0.35 + 0.65 * depthRatio);
+            const waveDisplacementX = cosWave * (waveIntensity * 0.35) * depthRatio;
+            projY += waveDisplacementY;
+            projX += waveDisplacementX;
           }
 
           if (projX < -40 || projX > width + 40 || projY < -30 || projY > height + 30) {
             continue;
           }
 
-          // Compute cursor proximity against the PROJECTED positions
+          // Wave crest illumination: crests of the wave light up dynamically!
+          const waveCrest = Math.max(0, (wave + 1) / 2); // 0 at trough, 1 at peak
+          const peakShine = Math.pow(waveCrest, 2.2);
+          const illumination = Math.min(1, peakShine * (0.12 + scrollEnergy * 0.88));
+
+          // Base dot sizing and dynamic illumination scaling
+          let radius = rowBaseRadius + (rowMaxRadius - rowBaseRadius) * (illumination * 0.92);
+          let alpha = 0.13 * zScale + illumination * 0.62;
+          let isAccent = false;
+          let isGlow = false;
+
+          // Illumination states on wave crests
+          if (illumination > 0.42) {
+            isAccent = true; // Signature Red glow along active wave crests
+          } else if (illumination > 0.22) {
+            isGlow = true; // Bold high-contrast accent along crest boundaries
+          }
+
+          // Cursor proximity influence (stacks smoothly with wave illumination)
           const dx = mx - projX;
           const dy = my - projY;
           const dist = Math.hypot(dx, dy);
 
-          let radius = rowBaseRadius;
-          let alpha = 0.12 * zScale;
-          let isAccent = false;
-
-          // Subtle energy glimmer during active scrolling
-          if (!shouldReduceMotion && Math.abs(scrollVel) > 0.4) {
-            alpha += Math.min(0.14, Math.abs(scrollVel) * 0.018) * zScale;
-          }
-
           if (dist < proximity) {
             const factor = 1 - dist / proximity;
             const ease = factor * factor;
-            radius = rowBaseRadius + (rowMaxRadius - rowBaseRadius) * ease;
-            alpha = 0.2 + ease * 0.75;
-            if (ease > 0.4) isAccent = true;
+            radius = Math.max(radius, rowBaseRadius + (rowMaxRadius - rowBaseRadius) * ease);
+            alpha = Math.max(alpha, 0.22 + ease * 0.78);
+            if (ease > 0.36) isAccent = true;
           }
 
           ctx.beginPath();
           ctx.arc(projX, projY, radius, 0, Math.PI * 2);
-          ctx.fillStyle = isAccent
-            ? `rgba(229, 52, 27, ${Math.min(1, alpha)})`
-            : `rgba(10, 10, 10, ${alpha})`;
+          if (isAccent) {
+            ctx.fillStyle = `rgba(229, 52, 27, ${Math.min(0.95, alpha)})`;
+          } else if (isGlow) {
+            ctx.fillStyle = `rgba(10, 10, 10, ${Math.min(0.65, alpha)})`;
+          } else {
+            ctx.fillStyle = `rgba(10, 10, 10, ${alpha})`;
+          }
           ctx.fill();
         }
       }
@@ -292,6 +347,11 @@ export function LiveSignalField({ className = "", onPointerStats }: LiveSignalFi
       if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
       intersectionObserver.disconnect();
       resizeObserver.disconnect();
+      window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("scroll", handleWindowScroll);
+      if (lenisInst?.off) {
+        lenisInst.off("scroll", handleLenisScroll);
+      }
       container.removeEventListener("pointermove", onPointerMove);
       container.removeEventListener("pointerleave", onPointerLeave);
     };
