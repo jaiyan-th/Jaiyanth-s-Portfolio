@@ -101,79 +101,81 @@ export function Hero() {
 
       {/* Main Content Area */}
       <div className="site-container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-14 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-14 items-stretch">
           {/* Left Column (50%): Badges, Headline, Subtitle, CTA buttons */}
           <div
-            className="w-full flex flex-col items-start transition-transform duration-75 ease-out will-change-transform"
+            className="w-full flex flex-col items-start justify-between transition-transform duration-75 ease-out will-change-transform"
             style={{
               transform: `translate3d(0, ${headlineParallaxY}px, 0)`,
             }}
           >
-            {/* 1. Refined Badges with animated entry */}
-            <motion.div
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-              style={{ marginBottom: "0.75rem" }}
-              className="flex flex-wrap items-center gap-2.5 sm:gap-3"
-            >
-              <span className="inline-flex items-center px-3 py-1 rounded-full bg-white border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold shadow-xs">
-                PORTFOLIO &apos;26
-              </span>
-              <span className="text-[#888888] font-mono text-xs">/</span>
-              <span className="font-mono text-xs text-[#666666] font-semibold tracking-wide uppercase">
-                Applied AI &amp; Full-Stack
-              </span>
-            </motion.div>
+            <div className="w-full flex flex-col items-start">
+              {/* 1. Refined Badges with animated entry */}
+              <motion.div
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+                style={{ marginBottom: "0.75rem" }}
+                className="flex flex-wrap items-center gap-2.5 sm:gap-3"
+              >
+                <span className="inline-flex items-center px-3 py-1 rounded-full bg-white border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold shadow-xs">
+                  PORTFOLIO &apos;26
+                </span>
+                <span className="text-[#888888] font-mono text-xs">/</span>
+                <span className="font-mono text-xs text-[#666666] font-semibold tracking-wide uppercase">
+                  Applied AI &amp; Full-Stack
+                </span>
+              </motion.div>
 
-            {/* 2. H1: Proportionally scaled Headline matching other pages */}
-            <h1
-              style={{ marginBottom: "0.75rem" }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.75rem] xl:text-[4.25rem] font-extrabold tracking-[-0.04em] text-[#0A0A0A] select-none preserve-3d leading-[1.04]"
-            >
-              {headlineLines.map((line, idx) => (
-                <div
-                  key={idx}
-                  className="overflow-visible perspective-1200"
-                >
-                  <motion.div
-                    custom={idx}
-                    variants={lineVariants3D}
-                    initial="hidden"
-                    animate="visible"
-                    className="inline-block origin-bottom will-change-transform"
+              {/* 2. H1: Proportionally scaled Headline matching other pages */}
+              <h1
+                style={{ marginBottom: "0.75rem" }}
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.75rem] xl:text-[4.25rem] font-extrabold tracking-[-0.04em] text-[#0A0A0A] select-none preserve-3d leading-[1.04]"
+              >
+                {headlineLines.map((line, idx) => (
+                  <div
+                    key={idx}
+                    className="overflow-visible perspective-1200"
                   >
-                    <span className="break-words">{line.text}</span>
-                    {line.hasAI && (
-                      <span className="marker-highlight in-view font-extrabold mx-1">
-                        AI
-                      </span>
-                    )}
-                    {line.endText && <span className="break-words">{line.endText}</span>}
-                  </motion.div>
-                </div>
-              ))}
-            </h1>
+                    <motion.div
+                      custom={idx}
+                      variants={lineVariants3D}
+                      initial="hidden"
+                      animate="visible"
+                      className="inline-block origin-bottom will-change-transform"
+                    >
+                      <span className="break-words">{line.text}</span>
+                      {line.hasAI && (
+                        <span className="marker-highlight in-view font-extrabold mx-1">
+                          AI
+                        </span>
+                      )}
+                      {line.endText && <span className="break-words">{line.endText}</span>}
+                    </motion.div>
+                  </div>
+                ))}
+              </h1>
 
-            {/* 3. Subtitle with editorial layout indicator and clean typography */}
-            <motion.div
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: -16 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.38, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-              style={{ marginBottom: "1.25rem" }}
-              className="border-l-2 border-[#E5341B]/80 pl-3.5 sm:pl-4 max-w-xl"
-            >
-              <p className="text-sm sm:text-base md:text-lg text-[#555555] font-normal leading-relaxed">
-                I’m an engineer who makes complex things feel obvious — turning AI ideas into web apps people can actually use.
-              </p>
-            </motion.div>
+              {/* 3. Subtitle with editorial layout indicator and clean typography */}
+              <motion.div
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.38, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+                style={{ marginBottom: "1.25rem" }}
+                className="border-l-2 border-[#E5341B]/80 pl-3.5 sm:pl-4 max-w-xl"
+              >
+                <p className="text-sm sm:text-base md:text-lg text-[#555555] font-normal leading-relaxed">
+                  I’m an engineer who makes complex things feel obvious — turning AI ideas into web apps people can actually use.
+                </p>
+              </motion.div>
+            </div>
 
             {/* 4. Action Buttons (min 48px height, wrap on mobile) */}
             <motion.div
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.48, duration: 0.6 }}
-              className="flex flex-wrap items-center gap-3.5 sm:gap-5 w-full sm:w-auto"
+              className="flex flex-wrap items-center gap-3.5 sm:gap-5 w-full sm:w-auto mt-4"
             >
               <a
                 ref={exploreBtnRef}
@@ -202,7 +204,7 @@ export function Hero() {
 
           {/* Right Column (50%): Profile Snapshot Card */}
           <div
-            className="w-full flex flex-col justify-start transition-transform duration-75 ease-out will-change-transform mt-6 lg:mt-0"
+            className="w-full h-full flex flex-col justify-between transition-transform duration-75 ease-out will-change-transform mt-6 lg:mt-0"
             style={{
               transform: `translate3d(0, ${headlineParallaxY}px, 0)`,
             }}
