@@ -91,20 +91,20 @@ export function Hero() {
       id="hero"
       aria-label="Hero Introduction"
       style={{
-        paddingTop: "max(3.25rem, calc(2.75rem + env(safe-area-inset-top, 0px)))",
-        paddingBottom: "var(--section-y)",
+        paddingTop: "max(3.75rem, calc(3.25rem + env(safe-area-inset-top, 0px)))",
+        paddingBottom: "max(2rem, calc(1.5rem + env(safe-area-inset-bottom, 0px)))",
       }}
-      className="relative min-h-[100svh] flex flex-col justify-start bg-transparent overflow-hidden perspective-1200"
+      className="relative min-h-[100svh] flex flex-col justify-center bg-transparent overflow-hidden perspective-1200"
     >
       {/* Interactive 3D Dot-Grid Signal Field */}
       <LiveSignalField className="z-0" />
 
       {/* Main Content Area */}
-      <div className="site-container relative z-10 w-full mt-1 sm:mt-2">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 xl:gap-10 items-start lg:items-center">
-          {/* Left Column (~60-65%): Badges, Headline, Subtitle, CTA buttons */}
+      <div className="site-container relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-14 items-start">
+          {/* Left Column (50%): Badges, Headline, Subtitle, CTA buttons */}
           <div
-            className="lg:col-span-7 xl:col-span-7 flex flex-col items-start transition-transform duration-75 ease-out will-change-transform"
+            className="w-full flex flex-col items-start transition-transform duration-75 ease-out will-change-transform"
             style={{
               transform: `translate3d(0, ${headlineParallaxY}px, 0)`,
             }}
@@ -114,26 +114,22 @@ export function Hero() {
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-              style={{ marginBottom: "0.5rem" }}
+              style={{ marginBottom: "0.75rem" }}
               className="flex flex-wrap items-center gap-2.5 sm:gap-3"
             >
               <span className="inline-flex items-center px-3 py-1 rounded-full bg-white border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold shadow-xs">
                 PORTFOLIO &apos;26
               </span>
               <span className="text-[#888888] font-mono text-xs">/</span>
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-white border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold gap-2 shadow-xs">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1FB866] opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1FB866]" />
-                </span>
-                <span>Open to work</span>
-              </div>
+              <span className="font-mono text-xs text-[#666666] font-semibold tracking-wide uppercase">
+                Applied AI &amp; Full-Stack
+              </span>
             </motion.div>
 
             {/* 2. H1: Proportionally scaled Headline matching other pages */}
             <h1
               style={{ marginBottom: "0.75rem" }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.75rem] font-extrabold tracking-[-0.04em] text-[#0A0A0A] select-none preserve-3d leading-[1.02]"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.75rem] xl:text-[4.25rem] font-extrabold tracking-[-0.04em] text-[#0A0A0A] select-none preserve-3d leading-[1.04]"
             >
               {headlineLines.map((line, idx) => (
                 <div
@@ -164,7 +160,7 @@ export function Hero() {
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: -16 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.38, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-              style={{ marginBottom: "1rem" }}
+              style={{ marginBottom: "1.25rem" }}
               className="border-l-2 border-[#E5341B]/80 pl-3.5 sm:pl-4 max-w-xl"
             >
               <p className="text-sm sm:text-base md:text-lg text-[#555555] font-normal leading-relaxed">
@@ -204,11 +200,11 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: Profile Snapshot Card */}
+          {/* Right Column (50%): Profile Snapshot Card */}
           <div
-            className="lg:col-span-5 xl:col-span-5 w-full flex flex-col justify-center transition-transform duration-75 ease-out will-change-transform mt-4 lg:mt-0"
+            className="w-full flex flex-col justify-start transition-transform duration-75 ease-out will-change-transform mt-6 lg:mt-0"
             style={{
-              transform: `translate3d(0, ${infoParallaxY}px, 0)`,
+              transform: `translate3d(0, ${headlineParallaxY}px, 0)`,
             }}
           >
             <SnapshotCard />
