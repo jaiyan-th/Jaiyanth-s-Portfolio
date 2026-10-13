@@ -118,7 +118,7 @@ export function Experience() {
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <Briefcase className="w-4 h-4 text-[#E5341B] shrink-0" />
-                <span className="neo-sticker bg-[#FFE45C] text-[#0A0A0A] font-bold">
+                <span className="inline-flex items-center px-3 py-0.5 rounded-full bg-[#FAF8F5] border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold">
                   {EXPERIENCE.organisation}
                 </span>
                 <span className="text-[#666666] text-fluid-mono font-medium">· Coimbatore, India</span>
@@ -164,11 +164,11 @@ export function Experience() {
                     ease: [0.22, 1, 0.36, 1],
                   }}
                   whileHover={shouldReduceMotion || isMobile ? {} : { y: -5, scale: 1.015 }}
-                  className="group p-5 sm:p-6 rounded-lg bg-white hard-shadow border border-[#0A0A0A]/10 hover:border-[#0A0A0A] hover:shadow-[8px_8px_0px_#0A0A0A] flex flex-col justify-between transition-all duration-200 cursor-default"
+                  className="group p-6 rounded-xl bg-white border border-[#E2DFD7] hover:border-[#0A0A0A]/30 shadow-sm hover:shadow-lg flex flex-col justify-between transition-all duration-300 cursor-default"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3.5">
-                      <div className="w-9 h-9 rounded-md bg-[#FAF3EE] group-hover:bg-[#E5341B] group-hover:text-white flex items-center justify-center text-[#E5341B] shrink-0 transition-colors duration-200 shadow-[2px_2px_0px_rgba(0,0,0,0.1)]">
+                      <div className="w-9 h-9 rounded-lg bg-[#FAF8F5] group-hover:bg-[#E5341B] group-hover:text-white flex items-center justify-center text-[#E5341B] shrink-0 transition-colors duration-200 shadow-xs">
                         <Icon className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
                       </div>
                       <span className="font-mono text-[10px] font-bold text-[#888888] group-hover:text-[#E5341B] tracking-widest uppercase transition-colors">
@@ -264,10 +264,10 @@ export function Experience() {
               <span className="text-[#888888] font-bold text-[11px] sm:text-xs uppercase tracking-wider mr-1">
                 STACK:
               </span>
-              {tools.map((tool, idx) => (
+              {tools.map((tool) => (
                 <span
                   key={tool}
-                  className="inline-flex items-center px-2 py-0.5 rounded text-xs font-mono font-semibold bg-white border border-[#0A0A0A]/20 hover:border-[#0A0A0A] hover:bg-[#FFE45C] hover:scale-105 transition-all duration-150 cursor-default"
+                  className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-white border border-[#E2DFD7] hover:border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white transition-all duration-150 cursor-default"
                 >
                   {tool}
                 </span>

@@ -56,17 +56,17 @@ export function CustomCursor() {
         lbl.textContent = label;
         lbl.style.display = "inline";
         inner.className =
-          "relative -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center transition-all duration-150 w-12 h-12 bg-[#0A0A0A] text-white shadow-[2px_2px_0px_#E5341B]";
+          "relative -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center transition-all duration-150 w-12 h-12 bg-[#0A0A0A] text-white shadow-md";
       } else if (isPointer) {
         lbl.textContent = "";
         lbl.style.display = "none";
         inner.className =
-          "relative -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center transition-all duration-150 w-8 h-8 rounded-full border border-[#E5341B] bg-[#FFE45C]/20";
+          "relative -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center transition-all duration-150 w-8 h-8 rounded-full border border-[#E5341B] bg-[#E5341B]/10";
       } else {
         lbl.textContent = "";
         lbl.style.display = "none";
         inner.className =
-          "relative -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center transition-all duration-150 w-5 h-5 rounded-full border border-[#0A0A0A]/40";
+          "relative -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center transition-all duration-150 w-5 h-5 rounded-full border border-[#0A0A0A]/30";
       }
     };
 

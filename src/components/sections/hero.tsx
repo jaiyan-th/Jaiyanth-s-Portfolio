@@ -109,7 +109,7 @@ export function Hero() {
               transform: `translate3d(0, ${headlineParallaxY}px, 0)`,
             }}
           >
-            {/* 1. Flat Stickers with animated entry */}
+            {/* 1. Refined Badges with animated entry */}
             <motion.div
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -117,11 +117,11 @@ export function Hero() {
               style={{ marginBottom: "0.75rem" }}
               className="flex flex-wrap items-center gap-2.5 sm:gap-3"
             >
-              <span className="neo-sticker bg-[#FFE45C] text-[#0A0A0A] font-bold">
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-white border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold shadow-xs">
                 PORTFOLIO &apos;26
               </span>
               <span className="text-[#888888] font-mono text-xs">/</span>
-              <div className="neo-sticker neo-sticker-alt bg-[#E8E5DD] text-[#0A0A0A] font-semibold gap-1.5">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-white border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold gap-2 shadow-xs">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1FB866] opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1FB866]" />
@@ -204,7 +204,7 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: Neo-Brutalist Snapshot Card */}
+          {/* Right Column: Profile Snapshot Card */}
           <div
             className="lg:col-span-5 xl:col-span-5 w-full flex flex-col justify-center transition-transform duration-75 ease-out will-change-transform mt-4 lg:mt-0"
             style={{

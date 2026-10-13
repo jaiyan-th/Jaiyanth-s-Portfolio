@@ -21,7 +21,7 @@ export default function WorkIndexPage() {
   );
 
   return (
-    <div className="min-h-screen bg-[var(--canvas)] text-[#0A0A0A] transition-colors selection:bg-[#FFE45C] selection:text-[#0A0A0A]">
+    <div className="min-h-screen bg-[var(--canvas)] text-[#0A0A0A] transition-colors selection:bg-[#0A0A0A] selection:text-white">
       <SmoothScroll />
       <CustomCursor />
       <FloatingNav />
@@ -30,7 +30,7 @@ export default function WorkIndexPage() {
         <div className="site-container">
           {/* Work Page Header */}
           <div className="mb-14 sm:mb-20">
-            <span className="neo-sticker bg-[#FFE45C] text-[#0A0A0A] font-bold mb-4">
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold mb-4 w-max">
               WORK & PROJECTS
             </span>
             <h1 className="text-fluid-hero font-extrabold tracking-[-0.035em] text-[#0A0A0A] leading-tight max-w-4xl mb-6">
@@ -46,7 +46,7 @@ export default function WorkIndexPage() {
             {projects.map((item) => (
               <div
                 key={item.slug}
-                className="group relative py-8 sm:py-10 lg:py-12 transition-all duration-300 hover:bg-white px-4 sm:px-6 -mx-4 sm:-mx-6 rounded-md hover:hard-shadow min-h-[64px]"
+                className="group relative py-8 sm:py-10 lg:py-12 transition-all duration-300 hover:bg-white px-4 sm:px-6 -mx-4 sm:-mx-6 rounded-xl hover:shadow-md min-h-[64px]"
               >
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-8 items-start md:items-center">
                   {/* Column 1: Index Number */}
@@ -73,7 +73,7 @@ export default function WorkIndexPage() {
                       {item.stack.slice(0, 5).map((tech) => (
                         <span
                           key={tech}
-                          className="neo-sticker bg-[#F2ECE4] text-[#0A0A0A]"
+                          className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#F2ECE4] text-[#555555] text-xs font-mono"
                         >
                           {tech}
                         </span>
@@ -99,7 +99,7 @@ export default function WorkIndexPage() {
                         target="_blank"
                         rel="noreferrer"
                         aria-label="Repository"
-                        className="w-10 h-10 flex items-center justify-center rounded-full bg-[#FAF3EE] text-[#0A0A0A] hover:bg-[#FFE45C] transition-colors"
+                        className="w-10 h-10 flex items-center justify-center rounded-full bg-white border border-[#E2DFD7] text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white hover:border-[#0A0A0A] transition-all shadow-xs"
                       >
                         <Github className="w-4 h-4" />
                       </a>

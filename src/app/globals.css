@@ -2,13 +2,11 @@
 @import "tw-animate-css";
 
 /* ============================================================
-   LIGHT NEO-BRUTALIST DESIGN SYSTEM (FLUID TOKENS & RESPONSIVE SCALING)
-   - Original canvas: Warm parchment #F5F3EE
-   - Minimal border policy: Outlined pill buttons (2px solid #111 + 3px 3px 0 #111),
-     single black divider above footer, keyboard focus outline (2px solid red).
-   - Hard offset shadows: box-shadow transition only (no transform in CSS).
-   - In-view animations for marker highlight & section draw line.
-   - Font mapping: --font-sans correctly bound to next/font var(--font-sans).
+   MODERN MINIMALIST DESIGN SYSTEM (FLUID TOKENS & RESPONSIVE SCALING)
+   - Canvas: Warm parchment #F5F3EE
+   - Refined border policy: Subtle elegant borders (#E2DFD7),
+     soft layered shadows, clean typography and smooth micro-interactions.
+   - Smooth elevation transitions with modern blur shadows.
    - Fluid spacing, typography, and container tokens for 360px -> 2560px.
    ============================================================ */
 
@@ -38,7 +36,7 @@
 }
 
 :root {
-  /* Original warm canvas color */
+  /* Warm canvas color */
   --canvas: #F5F3EE;
   --surface: #FFFFFF;
   --surface-card: #FFFFFF;
@@ -54,12 +52,10 @@
   --accent-tint: #FFE3E0;
   --ink: #0A0A0A;
 
-  /* Curated Pale Yellow Accent */
-  --neo-yellow: #FFE45C;
-  --neo-yellow-pale: #FFF3B0;
-  --neo-red-pale: #FFE3E0;
-  --neo-black: #111111;
-  --neo-white: #FFFFFF;
+  /* Modern neutral badges */
+  --badge-neutral: #EFECE6;
+  --badge-neutral-hover: #E5E1D8;
+  --badge-dark: #0A0A0A;
 
   /* ============================================================
      FLUID DESIGN TOKENS
@@ -119,8 +115,8 @@
   }
 
   ::selection {
-    background: #FFE45C;
-    color: #0A0A0A;
+    background: #0A0A0A;
+    color: #FFFFFF;
   }
 
   /* Accessibility Keyboard Focus: 2px solid red with 3px offset */
@@ -204,78 +200,86 @@
     backface-visibility: hidden;
   }
 
-  /* Hard Offset Zero-Blur Shadows (NO transform transition in CSS - transform lift handled via motion whileHover) */
+  /* Modern Refined Card Shadows with Multi-Layered Diffusion */
   .hard-shadow {
-    box-shadow: 6px 6px 0 rgba(17, 17, 17, 0.12);
-    border-radius: 6px;
-    transition: box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 4px 20px -2px rgba(10, 10, 10, 0.05), 0 2px 6px -1px rgba(10, 10, 10, 0.03);
+    border-radius: 12px;
+    border: 1px solid var(--border-line);
+    transition: box-shadow 250ms cubic-bezier(0.22, 1, 0.36, 1), border-color 200ms ease;
   }
   .hard-shadow:hover {
-    box-shadow: 10px 10px 0 rgba(17, 17, 17, 0.9);
+    box-shadow: 0 16px 36px -6px rgba(10, 10, 10, 0.09), 0 4px 12px -2px rgba(10, 10, 10, 0.04);
+    border-color: rgba(10, 10, 10, 0.2);
   }
 
-  /* Allowed Outlined Pill Buttons (min 44px height for accessibility) */
+  /* Refined Pill Buttons */
   .neo-pill-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 48px;
-    min-width: 48px;
-    border: 2px solid #111111;
+    min-height: 44px;
+    min-width: 44px;
+    border: 1px solid var(--border-line);
     border-radius: 9999px;
     background-color: #FFFFFF;
     color: #0A0A0A;
-    box-shadow: 3px 3px 0 #111111;
+    box-shadow: 0 1px 3px rgba(10, 10, 10, 0.04);
     font-weight: 600;
-    transition: transform 140ms ease, box-shadow 140ms ease, background-color 160ms ease;
+    transition: all 180ms cubic-bezier(0.22, 1, 0.36, 1);
   }
   .neo-pill-btn:hover {
-    transform: translate(-1.5px, -1.5px);
-    box-shadow: 4.5px 4.5px 0 #111111;
-    background-color: #FFE45C;
+    transform: translateY(-1.5px);
+    box-shadow: 0 6px 16px rgba(10, 10, 10, 0.08);
+    border-color: #0A0A0A;
+    background-color: #FAF8F5;
   }
   .neo-pill-btn:active {
-    transform: translate(2px, 2px);
-    box-shadow: 0px 0px 0 #111111;
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(10, 10, 10, 0.04);
   }
 
-  /* Solid Black Magnetic Pill Button (min 48px height) */
+  /* Solid Black Pill Button */
   .neo-black-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 48px;
-    min-width: 48px;
+    min-height: 44px;
+    min-width: 44px;
     border-radius: 9999px;
     background-color: #0A0A0A;
     color: #FFFFFF;
-    box-shadow: 3px 3px 0 rgba(17, 17, 17, 0.2);
+    box-shadow: 0 2px 8px rgba(10, 10, 10, 0.15);
     font-weight: 600;
-    transition: transform 140ms ease, box-shadow 140ms ease, background-color 160ms ease;
+    transition: all 180ms cubic-bezier(0.22, 1, 0.36, 1);
   }
   .neo-black-btn:hover {
-    transform: translate(-1.5px, -1.5px);
-    box-shadow: 5px 5px 0 rgba(17, 17, 17, 0.4);
+    transform: translateY(-1.5px);
+    box-shadow: 0 8px 24px rgba(229, 52, 27, 0.25);
     background-color: #E5341B;
   }
   .neo-black-btn:active {
-    transform: translate(2px, 2px);
-    box-shadow: 0px 0px 0 transparent;
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(10, 10, 10, 0.1);
   }
 
-  /* Marker-Highlight Effect */
+  /* Refined Accent Underline */
   .marker-highlight {
     position: relative;
     display: inline-block;
     z-index: 1;
-    padding: 0 4px;
+    padding: 0 2px;
     color: #0A0A0A;
   }
   .marker-highlight::before {
     content: "";
     position: absolute;
-    inset: 12% 0 8% 0;
-    background-color: #FFE45C;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: 2px;
+    background-color: #E5341B;
+    opacity: 0.85;
     z-index: -1;
     transform-origin: left center;
     transform: scaleX(0);
@@ -286,27 +290,34 @@
     transform: scaleX(1);
   }
 
-  /* Flat Sticker Tags (Never below 12px) */
+  /* Clean Refined Pill Badges */
   .neo-sticker {
     display: inline-flex;
     align-items: center;
-    border-radius: 4px;
-    padding: 3px 9px;
+    border-radius: 9999px;
+    padding: 3px 10px;
     font-family: var(--font-mono);
     font-size: var(--text-mono);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    transform: rotate(-1.5deg);
-    transition: transform 150ms ease;
+    transition: all 150ms ease;
   }
   .neo-sticker:hover {
-    transform: rotate(0deg) scale(1.04);
+    transform: translateY(-1px);
   }
   .neo-sticker-alt {
-    transform: rotate(1.5deg);
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    padding: 3px 10px;
+    font-family: var(--font-mono);
+    font-size: var(--text-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 150ms ease;
   }
   .neo-sticker-alt:hover {
-    transform: rotate(0deg) scale(1.04);
+    transform: translateY(-1px);
   }
 
   /* Animated Red Underline for Section Headers */

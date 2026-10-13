@@ -123,7 +123,7 @@ export function About() {
                 <div className="pointer-events-none absolute -inset-full bg-gradient-to-tr from-transparent via-white/20 to-transparent rotate-45 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out" />
               </div>
 
-              {/* Floating Neo-Stickers with 3D Pop */}
+              {/* Floating Glass Badges */}
               <motion.div
                 initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.8, x: -16 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
@@ -131,7 +131,7 @@ export function About() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="absolute -top-3 -left-3 z-20 pointer-events-none"
               >
-                <span className="neo-sticker bg-[#FFE45C] text-[#0A0A0A] font-extrabold shadow-[2px_2px_0px_#0A0A0A] border border-[#0A0A0A]">
+                <span className="backdrop-blur-md bg-white/95 border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold px-3.5 py-1 rounded-full shadow-md inline-block">
                   B.TECH CSBS &apos;26
                 </span>
               </motion.div>
@@ -143,7 +143,7 @@ export function About() {
                 transition={{ duration: 0.5, delay: 0.35 }}
                 className="absolute -bottom-3 -right-3 z-20 pointer-events-none"
               >
-                <span className="neo-sticker neo-sticker-alt bg-[#E8E5DD] text-[#0A0A0A] font-bold shadow-[2px_2px_0px_#0A0A0A] border border-[#0A0A0A] gap-1.5">
+                <span className="backdrop-blur-md bg-white/95 border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold px-3.5 py-1 rounded-full shadow-md gap-2 inline-flex items-center">
                   <span className="w-2 h-2 rounded-full bg-[#E5341B] animate-pulse" />
                   IEEE CO-AUTHOR
                 </span>
@@ -154,9 +154,9 @@ export function About() {
           {/* Text Column: 3/5 on desktop, order-2 on smaller screens */}
           <div className="lg:col-span-7 order-2 lg:order-1 flex flex-col justify-between preserve-3d">
             <div>
-              {/* Sticker Eyebrow */}
+              {/* Category Eyebrow */}
               <div className="mb-4">
-                <span className="neo-sticker bg-[#FFE45C] text-[#0A0A0A] font-bold border border-[#0A0A0A]">
+                <span className="px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold inline-block">
                   ENGINEERING PHILOSOPHY
                 </span>
               </div>
@@ -210,9 +210,9 @@ export function About() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={shouldReduceMotion || isMobile ? {} : { y: -3, scale: 1.01 }}
-                className="group flex items-start gap-4 mb-8 p-4 sm:p-5 rounded-md bg-white hard-shadow border border-transparent hover:border-[#E5341B]/40 transition-colors duration-200"
+                className="group flex items-start gap-4 mb-8 p-5 sm:p-6 rounded-xl bg-white border border-[#E2DFD7] shadow-sm hover:shadow-md hover:border-[#0A0A0A]/20 transition-all duration-200"
               >
-                <div className="w-10 h-10 rounded-md bg-[#0A0A0A] flex items-center justify-center text-white shrink-0 mt-0.5 shadow-[2px_2px_0px_#E5341B] group-hover:scale-110 group-hover:bg-[#E5341B] transition-all duration-200">
+                <div className="w-10 h-10 rounded-lg bg-[#0A0A0A] flex items-center justify-center text-white shrink-0 mt-0.5 group-hover:scale-110 group-hover:bg-[#E5341B] transition-all duration-200 shadow-sm">
                   <GraduationCap className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">

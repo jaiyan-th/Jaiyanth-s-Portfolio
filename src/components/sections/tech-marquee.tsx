@@ -166,7 +166,7 @@ export function TechMarquee() {
               ref={(el) => {
                 itemsRef.current[idx] = el;
               }}
-              className="mx-2.5 sm:mx-4 lg:mx-5 flex items-center gap-2.5 sm:gap-3 px-3 py-1.5 rounded-md border border-transparent hover:border-[#0A0A0A] hover:bg-white hover:shadow-[3px_3px_0px_#0A0A0A] cursor-default select-none will-change-transform origin-center transition-all duration-150 group/chip"
+              className="mx-2 sm:mx-3.5 lg:mx-4 flex items-center gap-2 sm:gap-2.5 px-3.5 py-1.5 rounded-full border border-transparent hover:border-[#E2DFD7] hover:bg-white hover:shadow-xs cursor-default select-none will-change-transform origin-center transition-all duration-150 group/chip"
             >
               <span className="font-bold text-fluid-body tracking-tight text-[#0A0A0A] group-hover/chip:text-[#E5341B] transition-colors">
                 {item.name}

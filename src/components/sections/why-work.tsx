@@ -8,17 +8,17 @@ import { Reveal } from "@/components/ui/reveal";
 
 const CARD_METAS = [
   {
-    stampBg: "bg-[#FFE45C] text-[#0A0A0A]",
+    stampBg: "bg-[#0A0A0A] text-white",
     tagline: "// 01 · PRODUCTION AI",
     speedFactor: 0.08,
   },
   {
-    stampBg: "bg-[#E8E5DD] text-[#0A0A0A]",
+    stampBg: "bg-[#EAE7DF] text-[#0A0A0A]",
     tagline: "// 02 · ARCHITECTURE",
     speedFactor: 0.14,
   },
   {
-    stampBg: "bg-[#FFE3E0] text-[#0A0A0A]",
+    stampBg: "bg-[#FFE8E5] text-[#E5341B]",
     tagline: "// 03 · RIGOUR & VELOCITY",
     speedFactor: 0.20,
   },
@@ -111,7 +111,7 @@ export function WhyWork() {
                   style={{
                     transform: `translate3d(0, ${colParallaxY}px, 0)`,
                   }}
-                  className="group relative p-6 sm:p-7 rounded-md bg-white border border-[#0A0A0A] hard-shadow hover:shadow-[10px_10px_0px_#0A0A0A] flex flex-col justify-between transition-all duration-300 ease-out will-change-transform overflow-hidden"
+                  className="group relative p-6 sm:p-8 rounded-2xl bg-white border border-[#E2DFD7] hover:border-[#0A0A0A]/30 shadow-sm hover:shadow-xl flex flex-col justify-between transition-all duration-300 ease-out will-change-transform overflow-hidden"
                 >
                   {/* Top Red Indicator stripe */}
                   <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-[#E5341B] transition-colors duration-200" />
@@ -121,7 +121,7 @@ export function WhyWork() {
                       <span className="font-mono text-xl font-extrabold text-[#E5341B] group-hover:scale-110 transition-transform origin-left inline-block">
                         /{point.letter}
                       </span>
-                      <span className={`neo-sticker ${meta.stampBg} font-bold group-hover:rotate-1 transition-transform`}>
+                      <span className={`inline-flex items-center px-3 py-1 rounded-full font-mono text-xs font-semibold ${meta.stampBg}`}>
                         {meta.tagline}
                       </span>
                     </div>
@@ -135,16 +135,12 @@ export function WhyWork() {
                     </p>
                   </div>
 
-                  {/* Sticker Tags */}
+                  {/* Refined Tags */}
                   <div className="flex flex-wrap gap-2 pt-2 border-t border-[#E2DFD7]/60">
-                    {point.tags.map((tag, tIdx) => (
+                    {point.tags.map((tag) => (
                       <span
                         key={tag}
-                        className={`neo-sticker text-[11px] hover:scale-105 hover:bg-[#FFE45C] hover:text-[#0A0A0A] hover:border-[#0A0A0A] cursor-default transition-all duration-150 ${
-                          tIdx % 2 === 0
-                            ? "bg-[#F2ECE4] text-[#0A0A0A]"
-                            : "neo-sticker-alt bg-[#FAF3EE] text-[#555555]"
-                        }`}
+                        className="inline-flex items-center px-2.5 py-1 rounded-full font-mono text-[11px] bg-[#F2ECE4] text-[#555555] hover:bg-[#0A0A0A] hover:text-white transition-colors duration-150 cursor-default"
                       >
                         {tag}
                       </span>

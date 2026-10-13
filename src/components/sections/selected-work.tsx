@@ -328,10 +328,10 @@ export function ProjectPreview({
             )}
             {/* Overlay badge with project stack */}
             <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between pointer-events-none">
-              <span className="neo-sticker bg-[#FFE45C] text-[#0A0A0A] font-extrabold text-[10px] border border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A]">
+              <span className="backdrop-blur-md bg-white/95 text-[#0A0A0A] font-semibold text-[11px] px-2.5 py-0.5 rounded-full shadow-sm border border-[#E2DFD7]">
                 {activeProject.category}
               </span>
-              <span className="font-mono text-[10px] font-bold text-white bg-[#0A0A0A] px-2 py-0.5 rounded shadow-[2px_2px_0px_#E5341B]">
+              <span className="font-mono text-[10px] font-bold text-white bg-[#0A0A0A] px-2.5 py-0.5 rounded-full shadow-sm">
                 {activeProject.year}
               </span>
             </div>
@@ -390,9 +390,9 @@ export function ProjectRow({
               : "translate3d(0, 0, 0)",
           opacity: anyHovered && !isHovered ? 0.4 : 1,
         }}
-        className={`group block py-6 sm:py-7 lg:py-8 px-4 sm:px-5 -mx-4 sm:-mx-5 rounded-lg transition-all duration-200 focus-visible:outline-none min-h-[64px] border-l-4 ${
+        className={`group block py-6 sm:py-7 lg:py-8 px-4 sm:px-5 -mx-4 sm:-mx-5 rounded-xl transition-all duration-200 focus-visible:outline-none min-h-[64px] border-l-4 ${
           isHovered
-            ? "bg-white hard-shadow border-[#E5341B]"
+            ? "bg-white shadow-md border-[#E5341B]"
             : "bg-transparent border-transparent"
         }`}
       >
@@ -421,10 +421,10 @@ export function ProjectRow({
           <div className="flex-1 min-w-[16px]" />
 
           <div className="w-[180px] shrink-0 text-left">
-            <span className={`neo-sticker font-semibold border border-transparent transition-all duration-200 ${
+            <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-medium transition-all duration-200 ${
               isHovered
-                ? "bg-[#FFE45C] text-[#0A0A0A] border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A]"
-                : "bg-[#F2ECE4] text-[#0A0A0A]"
+                ? "bg-[#0A0A0A] text-white"
+                : "bg-[#F2ECE4] text-[#555555]"
             }`}>
               {project.category}
             </span>
@@ -434,7 +434,7 @@ export function ProjectRow({
             <span>{project.year}</span>
             <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 ${
               isHovered
-                ? "bg-[#0A0A0A] text-white shadow-[2px_2px_0px_#E5341B] scale-110"
+                ? "bg-[#0A0A0A] text-white shadow-sm scale-110"
                 : "bg-transparent text-[#666666]"
             }`}>
               <ArrowUpRight
@@ -465,7 +465,7 @@ export function ProjectRow({
           </p>
 
           <div className="flex items-center justify-between font-mono text-xs text-[#666666]">
-            <span className="neo-sticker bg-[#F2ECE4] text-[#0A0A0A]">
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#F2ECE4] text-[#555555]">
               {project.category}
             </span>
             <span>{project.year}</span>
@@ -490,7 +490,7 @@ export function ProjectRow({
             {project.summary}
           </p>
 
-          <span className="neo-sticker bg-[#F2ECE4] text-[#0A0A0A] text-[11px]">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#F2ECE4] text-[#555555] text-[11px]">
             {project.category}
           </span>
         </div>

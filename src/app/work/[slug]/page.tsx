@@ -35,7 +35,7 @@ export default async function WorkDetailPage({ params }: Params) {
   if (!project) notFound();
 
   return (
-    <div className="min-h-screen bg-[var(--canvas)] text-[#0A0A0A] transition-colors selection:bg-[#FFE45C] selection:text-[#0A0A0A]">
+    <div className="min-h-screen bg-[var(--canvas)] text-[#0A0A0A] transition-colors selection:bg-[#0A0A0A] selection:text-white">
       <SmoothScroll />
       <CustomCursor />
       <FloatingNav />

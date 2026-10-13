@@ -60,7 +60,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
       <header className="mb-12 sm:mb-20 preserve-3d">
         {/* Stickers Row */}
         <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-6">
-          <span className="neo-sticker bg-[#FFE45C] text-[#0A0A0A] font-bold">
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold">
             {project.category}
           </span>
           <span className="text-fluid-mono text-[#666666] font-semibold">
@@ -296,8 +296,8 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           </div>
 
           {/* Approach Card */}
-          <div className="p-6 sm:p-8 rounded-md bg-white hard-shadow">
-            <span className="neo-sticker bg-[#FFE45C] text-[#0A0A0A] font-bold block mb-3 w-max">
+          <div className="p-6 sm:p-8 rounded-xl bg-white hard-shadow">
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAF8F5] border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold block mb-3 w-max">
               Approach
             </span>
             <h4 className="text-fluid-h3 font-bold text-[#0A0A0A] mb-3">

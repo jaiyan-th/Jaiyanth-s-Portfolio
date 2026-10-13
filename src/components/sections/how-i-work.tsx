@@ -56,10 +56,10 @@ export function HowIWork() {
                 delay: index * 0.08,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="p-6 rounded-md bg-white hard-shadow flex flex-col justify-between"
+              className="p-6 rounded-xl bg-white border border-[#E2DFD7] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
             >
               <div>
-                <span className="neo-sticker bg-[#F2ECE4] text-[#E5341B] font-bold block mb-4 w-max">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FFE8E5] text-[#E5341B] font-mono text-xs font-bold mb-4 w-max">
                   {item.step}
                 </span>
                 <h4 className="text-base font-bold text-[#0A0A0A] mb-2 leading-snug">

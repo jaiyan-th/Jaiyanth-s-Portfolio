@@ -32,18 +32,18 @@ export function SnapshotCard() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -2 }}
-      className="w-full rounded-xl bg-white border border-[#0A0A0A] overflow-hidden transition-all duration-200 select-none shadow-none"
+      className="w-full rounded-2xl bg-white border border-[#E2DFD7] overflow-hidden transition-all duration-300 select-none shadow-sm hover:shadow-md"
     >
-      {/* Clean Outline Window Header */}
-      <div className="bg-[#FAF7F2] border-b border-[#0A0A0A] px-4 sm:px-5 py-2.5 flex items-center justify-between">
+      {/* Refined Window Header */}
+      <div className="bg-[#FAF8F5] border-b border-[#E2DFD7] px-4 sm:px-5 py-3 flex items-center justify-between">
         <div className="flex items-center gap-2.5">
           {/* Terminal / Window dots */}
           <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#E5341B] border border-[#0A0A0A] inline-block shrink-0" />
-            <span className="w-2.5 h-2.5 rounded-full bg-[#FFE45C] border border-[#0A0A0A] inline-block shrink-0" />
-            <span className="w-2.5 h-2.5 rounded-full bg-[#1FB866] border border-[#0A0A0A] inline-block shrink-0" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56] inline-block shrink-0" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] inline-block shrink-0" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F] inline-block shrink-0" />
           </div>
-          <span className="neo-sticker bg-[#FFE45C] text-[#0A0A0A] font-extrabold tracking-wider text-[11px] px-2 py-0.5 border border-[#0A0A0A]">
+          <span className="font-mono text-[10px] tracking-wider font-bold px-2.5 py-0.5 rounded-full bg-[#0A0A0A] text-white">
             SYS.SNAPSHOT
           </span>
         </div>
@@ -72,7 +72,7 @@ export function SnapshotCard() {
             <p className="text-sm sm:text-base font-bold text-[#0A0A0A] tracking-tight">
               Karur, Tamil Nadu, India
             </p>
-            <span className="text-[10px] font-mono font-semibold px-1.5 py-0.5 bg-[#FAF7F2] border border-[#0A0A0A] rounded text-[#555555]">
+            <span className="text-[10px] font-mono font-medium px-2 py-0.5 bg-[#F2ECE4] rounded-full text-[#555555]">
               UTC+5:30
             </span>
           </div>
@@ -100,7 +100,7 @@ export function SnapshotCard() {
           </p>
         </motion.div>
 
-        {/* Row 3: CORE STACK - Clean Outline Badges */}
+        {/* Row 3: CORE STACK - Clean Badges */}
         <motion.div
           custom={3}
           variants={rowVariants}
@@ -118,10 +118,10 @@ export function SnapshotCard() {
             {STACK_TAGS.map((tag) => (
               <span
                 key={tag.name}
-                className={`inline-flex items-center px-2.5 py-1 rounded-md font-mono text-xs font-semibold border border-[#0A0A0A] transition-all duration-150 cursor-default ${
+                className={`inline-flex items-center px-2.5 py-1 rounded-full font-mono text-xs font-medium border transition-all duration-150 cursor-default ${
                   tag.highlight
-                    ? "bg-[#FFE45C] text-[#0A0A0A]"
-                    : "bg-[#FAF7F2] text-[#0A0A0A] hover:bg-[#FFE45C]"
+                    ? "bg-[#0A0A0A] text-white border-[#0A0A0A]"
+                    : "bg-[#FAF8F5] text-[#222222] border-[#E2DFD7] hover:border-[#0A0A0A] hover:bg-white"
                 }`}
               >
                 {tag.name}
@@ -130,24 +130,24 @@ export function SnapshotCard() {
           </div>
         </motion.div>
 
-        {/* Row 4: STATUS BANNER - Clean Outline */}
+        {/* Row 4: STATUS BANNER */}
         <motion.div
           custom={4}
           variants={rowVariants}
           initial="hidden"
           animate="visible"
-          className="flex items-center justify-between gap-3 p-2.5 sm:p-3 bg-[#EDFDF3] border border-[#0A0A0A] rounded-lg"
+          className="flex items-center justify-between gap-3 p-2.5 sm:p-3 bg-emerald-50/80 border border-emerald-200/80 rounded-xl"
         >
           <div className="flex items-center gap-2.5 min-w-0">
             <span className="relative flex h-2.5 w-2.5 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1FB866] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#1FB866] border border-[#0A0A0A]" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#1FB866]" />
             </span>
-            <span className="font-mono text-xs sm:text-sm font-bold text-[#065F46] tracking-wide truncate">
+            <span className="font-mono text-xs sm:text-sm font-semibold text-[#065F46] tracking-wide truncate">
               Open to new opportunities
             </span>
           </div>
-          <span className="hidden sm:inline-flex items-center text-[10px] sm:text-[11px] font-mono font-bold uppercase px-2 py-0.5 bg-white border border-[#0A0A0A] rounded text-[#0A0A0A] shrink-0">
+          <span className="hidden sm:inline-flex items-center text-[10px] sm:text-[11px] font-mono font-semibold uppercase px-2.5 py-0.5 bg-white border border-emerald-200 rounded-full text-[#065F46] shrink-0 shadow-xs">
             Available Q1/Q2
           </span>
         </motion.div>
