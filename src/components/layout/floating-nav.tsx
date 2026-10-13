@@ -107,20 +107,20 @@ export function FloatingNav() {
   return (
     <header
       style={{
-        paddingTop: "max(0.75rem, env(safe-area-inset-top, 0.75rem))",
+        paddingTop: "max(0.4rem, env(safe-area-inset-top, 0.4rem))",
       }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? "bg-[#F5F3EE]/95 backdrop-blur-md border-b border-[#E2DFD7] pb-3"
-          : "bg-transparent border-b border-transparent pb-3.5 sm:pb-4"
+          ? "bg-[#F5F3EE]/95 backdrop-blur-md border-b border-[#E2DFD7] pb-2"
+          : "bg-transparent border-b border-transparent pb-2 sm:pb-2.5"
       }`}
     >
       <div className="site-container flex items-center justify-between">
-        {/* Left: Clean Brand Name with Red Dot (min 48px tap height) */}
+        {/* Left: Clean Brand Name with Red Dot */}
         <a
           href="/#hero"
           onClick={(e) => handleNavClick(e, "#hero")}
-          className="group flex items-center gap-2.5 min-h-[48px] py-1 font-medium text-[16px] sm:text-[17px] tracking-tight text-[#0A0A0A] transition-colors focus-visible:outline-none"
+          className="group flex items-center gap-2.5 min-h-[40px] py-1 font-medium text-[15px] sm:text-[16px] tracking-tight text-[#0A0A0A] transition-colors focus-visible:outline-none"
         >
           <span className="w-2.5 h-2.5 rounded-full bg-[#E5341B] inline-block transition-transform duration-200 group-hover:scale-125 shrink-0" />
           <span className="hover:text-[#E5341B] transition-colors font-semibold">

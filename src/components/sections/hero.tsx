@@ -91,7 +91,7 @@ export function Hero() {
       id="hero"
       aria-label="Hero Introduction"
       style={{
-        paddingTop: "max(4.25rem, calc(3.5rem + env(safe-area-inset-top, 0px)))",
+        paddingTop: "max(3.25rem, calc(2.75rem + env(safe-area-inset-top, 0px)))",
         paddingBottom: "var(--section-y)",
       }}
       className="relative min-h-[100svh] flex flex-col justify-start bg-transparent overflow-hidden perspective-1200"
@@ -100,8 +100,8 @@ export function Hero() {
       <LiveSignalField className="z-0" />
 
       {/* Main Content Area */}
-      <div className="site-container relative z-10 w-full mt-2 sm:mt-4 lg:mt-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start lg:items-center">
+      <div className="site-container relative z-10 w-full mt-1 sm:mt-2">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 xl:gap-10 items-start lg:items-center">
           {/* Left Column (~60-65%): Badges, Headline, Subtitle, CTA buttons */}
           <div
             className="lg:col-span-7 xl:col-span-7 flex flex-col items-start transition-transform duration-75 ease-out will-change-transform"
@@ -114,7 +114,7 @@ export function Hero() {
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-              style={{ marginBottom: "0.75rem" }}
+              style={{ marginBottom: "0.5rem" }}
               className="flex flex-wrap items-center gap-2.5 sm:gap-3"
             >
               <span className="inline-flex items-center px-3 py-1 rounded-full bg-white border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold shadow-xs">
@@ -132,7 +132,7 @@ export function Hero() {
 
             {/* 2. H1: Proportionally scaled Headline matching other pages */}
             <h1
-              style={{ marginBottom: "1rem" }}
+              style={{ marginBottom: "0.75rem" }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.75rem] font-extrabold tracking-[-0.04em] text-[#0A0A0A] select-none preserve-3d leading-[1.02]"
             >
               {headlineLines.map((line, idx) => (
@@ -164,7 +164,7 @@ export function Hero() {
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: -16 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.38, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-              style={{ marginBottom: "1.25rem" }}
+              style={{ marginBottom: "1rem" }}
               className="border-l-2 border-[#E5341B]/80 pl-3.5 sm:pl-4 max-w-xl"
             >
               <p className="text-sm sm:text-base md:text-lg text-[#555555] font-normal leading-relaxed">
