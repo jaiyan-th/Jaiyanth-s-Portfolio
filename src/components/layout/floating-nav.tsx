@@ -111,7 +111,7 @@ export function FloatingNav() {
       }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? "bg-[#F5F3EE]/95 backdrop-blur-md border-b border-[#E2DFD7] pb-2"
+          ? "bg-[#F5F3EE]/95 backdrop-blur-md border-b border-[#0A0A0A]/18 pb-2"
           : "bg-transparent border-b border-transparent pb-2 sm:pb-2.5"
       }`}
     >
@@ -183,7 +183,7 @@ export function FloatingNav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-b border-[#E2DFD7] bg-[#F5F3EE] px-6 py-4 shadow-md"
+            className="md:hidden border-b border-[#0A0A0A]/18 bg-[#F5F3EE] px-6 py-4 shadow-md"
           >
             <div className="flex flex-col space-y-1">
               {NAV_LINKS.map((item) => {

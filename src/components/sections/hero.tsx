@@ -122,7 +122,7 @@ export function Hero() {
                 style={{ marginBottom: "0.75rem" }}
                 className="flex flex-wrap items-center gap-2.5 sm:gap-3"
               >
-                <span className="inline-flex items-center px-3 py-1 rounded-full bg-white border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold shadow-xs">
+                <span className="inline-flex items-center px-3 py-1 rounded-full bg-white border border-[#0A0A0A]/18 text-[#0A0A0A] font-mono text-xs font-semibold shadow-xs">
                   PORTFOLIO &apos;26
                 </span>
                 <span className="text-[#888888] font-mono text-xs">/</span>

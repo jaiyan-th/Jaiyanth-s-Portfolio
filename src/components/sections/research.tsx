@@ -63,11 +63,11 @@ export function Research() {
     <section
       id="research"
       aria-label="04 Research, Publications & Achievements"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#E2DFD7] bg-transparent scroll-mt-16 perspective-1200"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#0A0A0A]/18 bg-transparent scroll-mt-16 perspective-1200"
     >
       <div className="site-container">
         {/* Section Header: On phones stack right label under title */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#E2DFD7] gap-2">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#0A0A0A]/18 gap-2">
           <div className="flex items-baseline gap-3 sm:gap-4">
             <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-[#E5341B]/10 border border-[#E5341B]/30 text-[#E5341B] font-mono text-xs font-bold tracking-wider">
               04
@@ -82,7 +82,7 @@ export function Research() {
         </Reveal>
 
         {/* Highlighted Academic Feature Card */}
-        <div className="w-full rounded-2xl bg-white border border-[#E2DFD7] p-6 sm:p-10 shadow-sm relative overflow-hidden transition-all duration-300 hover:shadow-md hover:border-[#0A0A0A]/20 preserve-3d">
+        <div className="w-full rounded-2xl bg-white border border-[#0A0A0A]/20 p-6 sm:p-10 shadow-sm relative overflow-hidden transition-all duration-300 hover:shadow-md hover:border-[#0A0A0A]/40 preserve-3d">
           {/* Subtle Top Red Accent Line */}
           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E5341B] via-[#E5341B]/40 to-transparent" />
 
@@ -91,7 +91,7 @@ export function Research() {
             <div className="flex flex-wrap items-center gap-2.5 text-fluid-mono">
               <span className="inline-flex items-center gap-1.5 font-bold text-[#0A0A0A]">
                 <ShieldCheck className="w-4 h-4 text-[#E5341B] shrink-0" />
-                <span className="inline-flex items-center px-3 py-1 rounded-full bg-white border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold shadow-xs gap-2">
+                <span className="inline-flex items-center px-3 py-1 rounded-full bg-white border border-[#0A0A0A]/18 text-[#0A0A0A] font-mono text-xs font-semibold shadow-xs gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#1FB866] animate-ping" />
                   Published & Peer-Reviewed
                 </span>
@@ -169,7 +169,7 @@ export function Research() {
                   style={{
                     transform: `rotateY(${activeRotateY}deg)`,
                   }}
-                  className="group p-6 rounded-xl bg-white border border-[#E2DFD7] hover:border-[#0A0A0A]/30 shadow-sm hover:shadow-lg flex flex-col justify-between transition-all duration-300 ease-out will-change-transform cursor-default"
+                  className="group p-6 rounded-xl bg-white border border-[#0A0A0A]/18 hover:border-[#0A0A0A]/40 shadow-sm hover:shadow-lg flex flex-col justify-between transition-all duration-300 ease-out will-change-transform cursor-default"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
@@ -193,7 +193,7 @@ export function Research() {
           </div>
 
           {/* Bottom Row: Domain Keywords & Deep Dive */}
-          <div className="pt-6 sm:pt-8 border-t border-[#E2DFD7] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="pt-6 sm:pt-8 border-t border-[#0A0A0A]/18 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex flex-wrap items-center gap-2 text-fluid-mono text-[#0A0A0A]">
               <span className="text-[#888888] font-bold uppercase tracking-wider mr-1">
                 DOMAIN:
@@ -201,7 +201,7 @@ export function Research() {
               {keywords.map((kw) => (
                 <span
                   key={kw}
-                  className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-white border border-[#E2DFD7] hover:border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white transition-all duration-150 cursor-default"
+                  className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-white border border-[#0A0A0A]/18 hover:border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white transition-all duration-150 cursor-default"
                 >
                   {kw}
                 </span>

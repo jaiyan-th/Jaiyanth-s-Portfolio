@@ -359,7 +359,7 @@ export function BubbleFooter() {
       <div
         ref={containerRef}
         data-bubble-footer="true"
-        className="relative w-full h-[55vh] min-h-[360px] sm:min-h-[460px] max-h-[660px] rounded-[24px] bg-[#EAE8E1]/50 border border-[#E2DFD7] shadow-sm overflow-hidden select-none"
+        className="relative w-full h-[55vh] min-h-[360px] sm:min-h-[460px] max-h-[660px] rounded-[24px] bg-[#EAE8E1]/50 border border-[#0A0A0A]/20 shadow-sm overflow-hidden select-none"
         style={{
           cursor: isMobile ? "auto" : "none",
         }}

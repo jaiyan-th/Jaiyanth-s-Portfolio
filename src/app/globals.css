@@ -4,7 +4,7 @@
 /* ============================================================
    MODERN MINIMALIST DESIGN SYSTEM (FLUID TOKENS & RESPONSIVE SCALING)
    - Canvas: Warm parchment #F5F3EE
-   - Refined border policy: Subtle elegant borders (#E2DFD7),
+   - Refined border policy: Defined crisp borders (rgba(10, 10, 10, 0.22)),
      soft layered shadows, clean typography and smooth micro-interactions.
    - Smooth elevation transitions with modern blur shadows.
    - Fluid spacing, typography, and container tokens for 360px -> 2560px.
@@ -44,7 +44,7 @@
   --text-primary: #0A0A0A;
   --text-secondary: #555555;
   --text-muted: #666666;
-  --border-line: #E2DFD7;
+  --border-line: rgba(10, 10, 10, 0.22);
 
   /* Red Accent Identity */
   --accent: #E5341B;

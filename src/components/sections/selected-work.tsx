@@ -162,11 +162,11 @@ export function SelectedWork() {
     <section
       id="work"
       aria-label="02 Selected Work"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#E2DFD7] bg-transparent scroll-mt-16 perspective-1200"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#0A0A0A]/18 bg-transparent scroll-mt-16 perspective-1200"
     >
       <div className="site-container">
         {/* Section Header: On phones stack right label under title */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-5 border-b border-[#E2DFD7] mb-4 gap-2">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-5 border-b border-[#0A0A0A]/18 mb-4 gap-2">
           <div className="flex items-baseline gap-3 sm:gap-4">
             <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-[#E5341B]/10 border border-[#E5341B]/30 text-[#E5341B] font-mono text-xs font-bold tracking-wider">
               02
@@ -249,7 +249,7 @@ export function ProjectsList({ projects }: ProjectsListProps) {
       )}
 
       {/* Rows with 3D Flip entrance, hover lift & dimming siblings */}
-      <div className="divide-y divide-[#E2DFD7]">
+      <div className="divide-y divide-[#0A0A0A]/16">
         {projects.map((project, idx) => (
           <ProjectRow
             key={project.id}
@@ -328,7 +328,7 @@ export function ProjectPreview({
             )}
             {/* Overlay badge with project stack */}
             <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between pointer-events-none">
-              <span className="backdrop-blur-md bg-white/95 text-[#0A0A0A] font-semibold text-[11px] px-2.5 py-0.5 rounded-full shadow-sm border border-[#E2DFD7]">
+              <span className="backdrop-blur-md bg-white/95 text-[#0A0A0A] font-semibold text-[11px] px-2.5 py-0.5 rounded-full shadow-sm border border-[#0A0A0A]/18">
                 {activeProject.category}
               </span>
               <span className="font-mono text-[10px] font-bold text-white bg-[#0A0A0A] px-2.5 py-0.5 rounded-full shadow-sm">

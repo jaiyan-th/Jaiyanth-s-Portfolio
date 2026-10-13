@@ -127,11 +127,11 @@ export function TechMarquee() {
     <section
       id="tech"
       aria-label="06 Previously trusted by / Stack"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#E2DFD7] overflow-hidden bg-transparent scroll-mt-16 perspective-1200"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#0A0A0A]/18 overflow-hidden bg-transparent scroll-mt-16 perspective-1200"
     >
       <div className="site-container mb-6 sm:mb-10">
         {/* Section Header: On phones stack right label under title */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-5 border-b border-[#E2DFD7] gap-2">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-5 border-b border-[#0A0A0A]/18 gap-2">
           <div className="flex items-baseline gap-3 sm:gap-4">
             <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-[#E5341B]/10 border border-[#E5341B]/30 text-[#E5341B] font-mono text-xs font-bold tracking-wider">
               06
@@ -149,7 +149,7 @@ export function TechMarquee() {
       {/* Highlighted Ribbon Marquee Container */}
       <div
         ref={containerRef}
-        className="relative w-full overflow-hidden group py-6 sm:py-8 select-none bg-white/70 backdrop-blur-sm border-y border-[#E2DFD7] shadow-xs"
+        className="relative w-full overflow-hidden group py-6 sm:py-8 select-none bg-white/70 backdrop-blur-sm border-y border-[#0A0A0A]/18 shadow-xs"
       >
         {/* Edge Gradient Masks */}
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 lg:w-48 z-10 bg-gradient-to-r from-[var(--canvas)] to-transparent" />
@@ -166,7 +166,7 @@ export function TechMarquee() {
               ref={(el) => {
                 itemsRef.current[idx] = el;
               }}
-              className="mx-2 sm:mx-3.5 lg:mx-4 flex items-center gap-2 sm:gap-2.5 px-4 py-2 rounded-full bg-[#FAF8F5] border border-[#E2DFD7] hover:border-[#0A0A0A] hover:bg-white hover:shadow-sm cursor-default select-none will-change-transform origin-center transition-all duration-200 group/chip"
+              className="mx-2 sm:mx-3.5 lg:mx-4 flex items-center gap-2 sm:gap-2.5 px-4 py-2 rounded-full bg-[#FAF8F5] border border-[#0A0A0A]/18 hover:border-[#0A0A0A] hover:bg-white hover:shadow-sm cursor-default select-none will-change-transform origin-center transition-all duration-200 group/chip"
             >
               <span className="font-bold text-fluid-body tracking-tight text-[#0A0A0A] group-hover/chip:text-[#E5341B] transition-colors">
                 {item.name}

@@ -60,13 +60,13 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
       <header className="mb-12 sm:mb-20 preserve-3d">
         {/* Stickers Row */}
         <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-6">
-          <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold">
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#0A0A0A]/18 text-[#0A0A0A] font-mono text-xs font-semibold">
             {project.category}
           </span>
           <span className="text-fluid-mono text-[#666666] font-semibold">
             {project.year}
           </span>
-          <span className="text-fluid-mono text-[#666666] border-l border-[#E2DFD7] pl-3">
+          <span className="text-fluid-mono text-[#666666] border-l border-[#0A0A0A]/18 pl-3">
             {project.domain}
           </span>
         </div>
@@ -138,7 +138,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 delay: 0.15 + idx * 0.08,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="preserve-3d pb-3 sm:pb-0 border-b sm:border-b-0 border-[#E2DFD7]/60 last:border-b-0"
+              className="preserve-3d pb-3 sm:pb-0 border-b sm:border-b-0 border-[#0A0A0A]/16 last:border-b-0"
             >
               <span className="text-fluid-mono uppercase tracking-widest text-[#888888] block mb-1 font-semibold text-[11px] sm:text-xs">
                 {item.label}
@@ -156,8 +156,8 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
       {/* ============================================================
           01 CONTEXT
           ============================================================ */}
-      <section className="section-padding border-t border-[#E2DFD7] perspective-1200">
-        <Reveal className="flex items-baseline gap-4 mb-8 pb-5 border-b border-[#E2DFD7]">
+      <section className="section-padding border-t border-[#0A0A0A]/18 perspective-1200">
+        <Reveal className="flex items-baseline gap-4 mb-8 pb-5 border-b border-[#0A0A0A]/18">
           <span className="text-fluid-mono text-[#E5341B] tracking-widest uppercase font-extrabold">
             01
           </span>
@@ -275,8 +275,8 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
       {/* ============================================================
           02 USERS & PROBLEM
           ============================================================ */}
-      <section className="section-padding border-t border-[#E2DFD7] perspective-1200">
-        <Reveal className="flex items-baseline gap-4 mb-8 pb-5 border-b border-[#E2DFD7]">
+      <section className="section-padding border-t border-[#0A0A0A]/18 perspective-1200">
+        <Reveal className="flex items-baseline gap-4 mb-8 pb-5 border-b border-[#0A0A0A]/18">
           <span className="text-fluid-mono text-[#E5341B] tracking-widest uppercase font-extrabold">
             02
           </span>
@@ -297,7 +297,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
 
           {/* Approach Card */}
           <div className="p-6 sm:p-8 rounded-xl bg-white hard-shadow">
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAF8F5] border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold block mb-3 w-max">
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAF8F5] border border-[#0A0A0A]/18 text-[#0A0A0A] font-mono text-xs font-semibold block mb-3 w-max">
               Approach
             </span>
             <h4 className="text-fluid-h3 font-bold text-[#0A0A0A] mb-3">
@@ -369,8 +369,8 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
       {/* ============================================================
           03 SYSTEM ARCHITECTURE & WORKFLOW
           ============================================================ */}
-      <section className="section-padding border-t border-[#E2DFD7] perspective-1200">
-        <Reveal className="flex items-baseline gap-4 mb-8 pb-5 border-b border-[#E2DFD7]">
+      <section className="section-padding border-t border-[#0A0A0A]/18 perspective-1200">
+        <Reveal className="flex items-baseline gap-4 mb-8 pb-5 border-b border-[#0A0A0A]/18">
           <span className="text-fluid-mono text-[#E5341B] tracking-widest uppercase font-extrabold">
             03
           </span>
@@ -415,7 +415,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           </div>
 
           {/* Sequential Steps: 2 columns >=768px (step label | description), stacked on phones */}
-          <div className="p-6 sm:p-8 rounded-md bg-white hard-shadow divide-y divide-[#E2DFD7] perspective-1200">
+          <div className="p-6 sm:p-8 rounded-md bg-white hard-shadow divide-y divide-[#0A0A0A]/16 perspective-1200">
             <h4 className="text-fluid-h3 font-bold text-[#0A0A0A] pb-5">
               Execution Pipeline Walkthrough
             </h4>
@@ -458,8 +458,8 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
       {/* ============================================================
           04 IMPLEMENTATION & SAFEGUARDS
           ============================================================ */}
-      <section className="section-padding border-t border-[#E2DFD7] perspective-1200">
-        <Reveal className="flex items-baseline gap-4 mb-8 pb-5 border-b border-[#E2DFD7]">
+      <section className="section-padding border-t border-[#0A0A0A]/18 perspective-1200">
+        <Reveal className="flex items-baseline gap-4 mb-8 pb-5 border-b border-[#0A0A0A]/18">
           <span className="text-fluid-mono text-[#E5341B] tracking-widest uppercase font-extrabold">
             04
           </span>
@@ -498,7 +498,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                     {pil.desc}
                   </p>
                 </div>
-                <ul className="space-y-2 pt-4 border-t border-[#E2DFD7]">
+                <ul className="space-y-2 pt-4 border-t border-[#0A0A0A]/18">
                   {pil.points.map((pt, pIdx) => (
                     <li key={pIdx} className="text-fluid-mono text-[#0A0A0A] flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#E5341B] shrink-0" />
@@ -515,8 +515,8 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
       {/* ============================================================
           05 IMPACT & LEARNINGS
           ============================================================ */}
-      <section className="section-padding border-t border-[#E2DFD7] perspective-1200">
-        <Reveal className="flex items-baseline gap-4 mb-8 pb-5 border-b border-[#E2DFD7]">
+      <section className="section-padding border-t border-[#0A0A0A]/18 perspective-1200">
+        <Reveal className="flex items-baseline gap-4 mb-8 pb-5 border-b border-[#0A0A0A]/18">
           <span className="text-fluid-mono text-[#E5341B] tracking-widest uppercase font-extrabold">
             05
           </span>
@@ -598,7 +598,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
       {/* ============================================================
           NEXT PROJECT CALLOUT CARD
           ============================================================ */}
-      <section className="section-padding border-t border-[#E2DFD7] perspective-1200">
+      <section className="section-padding border-t border-[#0A0A0A]/18 perspective-1200">
         <Link
           ref={nextCardRef}
           href={`/work/${project.nextProject.slug}`}

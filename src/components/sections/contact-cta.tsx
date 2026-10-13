@@ -24,7 +24,7 @@ export function ContactCta() {
     <section
       id="contact"
       aria-label="Get in touch"
-      className="relative section-padding border-t border-[#E2DFD7] overflow-hidden bg-[var(--canvas)]"
+      className="relative section-padding border-t border-[#0A0A0A]/18 overflow-hidden bg-[var(--canvas)]"
     >
       {/* Looping Marquee Headline */}
       <div className="relative w-full overflow-hidden group mb-8 sm:mb-12 select-none">
@@ -39,9 +39,9 @@ export function ContactCta() {
       </div>
 
       <div className="site-container">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pt-8 border-t border-[#E2DFD7]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pt-8 border-t border-[#0A0A0A]/18">
           <div>
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold mb-4 w-max">
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#0A0A0A]/18 text-[#0A0A0A] font-mono text-xs font-semibold mb-4 w-max">
               GET IN TOUCH
             </span>
             <h2 className="text-fluid-h2 font-extrabold text-[#0A0A0A] max-w-xl tracking-tight leading-snug">
@@ -51,7 +51,7 @@ export function ContactCta() {
 
           {/* Email, Status, and Actions */}
           <div className="flex flex-col items-start md:items-end gap-4 w-full md:w-auto">
-            <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-white border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-medium gap-2 shadow-xs">
+            <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-white border border-[#0A0A0A]/18 text-[#0A0A0A] font-mono text-xs font-medium gap-2 shadow-xs">
               <span className="w-2 h-2 rounded-full bg-[#1FB46A] animate-pulse" />
               <span>Open to full-time/contract roles · Replies within 2 hrs</span>
             </div>
@@ -92,7 +92,7 @@ export function ContactCta() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="GitHub profile"
-                  className="w-11 h-11 flex items-center justify-center rounded-full bg-white border border-[#E2DFD7] text-[#0A0A0A] hover:border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white transition-all shadow-xs"
+                  className="w-11 h-11 flex items-center justify-center rounded-full bg-white border border-[#0A0A0A]/18 text-[#0A0A0A] hover:border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white transition-all shadow-xs"
                 >
                   <Github className="w-4 h-4" />
                 </a>
@@ -102,7 +102,7 @@ export function ContactCta() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="LinkedIn profile"
-                  className="w-11 h-11 flex items-center justify-center rounded-full bg-white border border-[#E2DFD7] text-[#0A0A0A] hover:border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white transition-all shadow-xs"
+                  className="w-11 h-11 flex items-center justify-center rounded-full bg-white border border-[#0A0A0A]/18 text-[#0A0A0A] hover:border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white transition-all shadow-xs"
                 >
                   <Linkedin className="w-4 h-4" />
                 </a>
@@ -112,7 +112,7 @@ export function ContactCta() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Resume link"
-                  className="w-11 h-11 flex items-center justify-center rounded-full bg-white border border-[#E2DFD7] text-[#0A0A0A] hover:border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white transition-all shadow-xs"
+                  className="w-11 h-11 flex items-center justify-center rounded-full bg-white border border-[#0A0A0A]/18 text-[#0A0A0A] hover:border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white transition-all shadow-xs"
                 >
                   <FileText className="w-4 h-4" />
                 </a>

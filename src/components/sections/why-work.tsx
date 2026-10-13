@@ -49,11 +49,11 @@ export function WhyWork() {
     <section
       id="why-work"
       aria-label="05 Why work with me"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#E2DFD7] bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#0A0A0A]/18 bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
     >
       <div className="site-container">
         {/* Section Header: On phones stack right label under title */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#E2DFD7] gap-2">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#0A0A0A]/18 gap-2">
           <div className="flex items-baseline gap-3 sm:gap-4">
             <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-[#E5341B]/10 border border-[#E5341B]/30 text-[#E5341B] font-mono text-xs font-bold tracking-wider">
               05
@@ -111,7 +111,7 @@ export function WhyWork() {
                   style={{
                     transform: `translate3d(0, ${colParallaxY}px, 0)`,
                   }}
-                  className="group relative p-6 sm:p-8 rounded-2xl bg-white border border-[#E2DFD7] hover:border-[#0A0A0A]/30 shadow-sm hover:shadow-xl flex flex-col justify-between transition-all duration-300 ease-out will-change-transform overflow-hidden"
+                  className="group relative p-6 sm:p-8 rounded-2xl bg-white border border-[#0A0A0A]/20 hover:border-[#0A0A0A]/40 shadow-sm hover:shadow-xl flex flex-col justify-between transition-all duration-300 ease-out will-change-transform overflow-hidden"
                 >
                   {/* Top Red Indicator stripe */}
                   <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-[#E5341B] transition-colors duration-200" />
@@ -121,7 +121,7 @@ export function WhyWork() {
                       <span className="font-mono text-xl font-extrabold text-[#E5341B] group-hover:scale-110 transition-transform origin-left inline-block">
                         /{point.letter}
                       </span>
-                      <span className={`inline-flex items-center px-3 py-1 rounded-full font-mono text-xs font-semibold ${meta.stampBg}`}>
+                      <span className={`inline-flex items-center px-3 py-1 rounded-full font-mono text-xs font-semibold ${meta.tagline}`}>
                         {meta.tagline}
                       </span>
                     </div>
@@ -136,7 +136,7 @@ export function WhyWork() {
                   </div>
 
                   {/* Refined Tags */}
-                  <div className="flex flex-wrap gap-2 pt-2 border-t border-[#E2DFD7]/60">
+                  <div className="flex flex-wrap gap-2 pt-2 border-t border-[#0A0A0A]/16">
                     {point.tags.map((tag) => (
                       <span
                         key={tag}

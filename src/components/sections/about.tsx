@@ -60,11 +60,11 @@ export function About() {
     <section
       id="about"
       aria-label="01 About Jaiyanth B"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#E2DFD7] bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#0A0A0A]/18 bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
     >
       <div className="site-container">
         {/* Section Header with Reusable Reveal: On phones stack right label under title */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#E2DFD7] gap-2">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#0A0A0A]/18 gap-2">
           <div className="flex items-baseline gap-3 sm:gap-4">
             <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-[#E5341B]/10 border border-[#E5341B]/30 text-[#E5341B] font-mono text-xs font-bold tracking-wider">
               01
@@ -131,7 +131,7 @@ export function About() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="absolute -top-3 -left-3 z-20 pointer-events-none"
               >
-                <span className="backdrop-blur-md bg-white/95 border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold px-3.5 py-1 rounded-full shadow-md inline-block">
+                <span className="backdrop-blur-md bg-white/95 border border-[#0A0A0A]/20 text-[#0A0A0A] font-mono text-xs font-semibold px-3.5 py-1 rounded-full shadow-md inline-block">
                   B.TECH CSBS &apos;26
                 </span>
               </motion.div>
@@ -143,7 +143,7 @@ export function About() {
                 transition={{ duration: 0.5, delay: 0.35 }}
                 className="absolute -bottom-3 -right-3 z-20 pointer-events-none"
               >
-                <span className="backdrop-blur-md bg-white/95 border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold px-3.5 py-1 rounded-full shadow-md gap-2 inline-flex items-center">
+                <span className="backdrop-blur-md bg-white/95 border border-[#0A0A0A]/20 text-[#0A0A0A] font-mono text-xs font-semibold px-3.5 py-1 rounded-full shadow-md gap-2 inline-flex items-center">
                   <span className="w-2 h-2 rounded-full bg-[#E5341B] animate-pulse" />
                   IEEE CO-AUTHOR
                 </span>
@@ -156,7 +156,7 @@ export function About() {
             <div>
               {/* Category Eyebrow */}
               <div className="mb-4">
-                <span className="px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold inline-block">
+                <span className="px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#0A0A0A]/18 text-[#0A0A0A] font-mono text-xs font-semibold inline-block">
                   ENGINEERING PHILOSOPHY
                 </span>
               </div>
@@ -169,7 +169,7 @@ export function About() {
               </h3>
 
               {/* Staggered Paragraphs rising with rotateX(20deg) */}
-              <div className="p-6 sm:p-7 rounded-2xl bg-white/90 backdrop-blur-sm border border-[#E2DFD7] shadow-xs mb-8 space-y-4 sm:space-y-5 text-fluid-body text-[#555555] leading-relaxed font-normal perspective-1200 relative overflow-hidden">
+              <div className="p-6 sm:p-7 rounded-2xl bg-white/90 backdrop-blur-sm border border-[#0A0A0A]/18 shadow-xs mb-8 space-y-4 sm:space-y-5 text-fluid-body text-[#555555] leading-relaxed font-normal perspective-1200 relative overflow-hidden">
                 <div className="absolute top-0 left-0 bottom-0 w-1 bg-gradient-to-b from-[#E5341B] via-[#E5341B]/40 to-transparent" />
                 <motion.p
                   custom={0}
@@ -211,7 +211,7 @@ export function About() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={shouldReduceMotion || isMobile ? {} : { y: -3, scale: 1.01 }}
-                className="group flex items-start gap-4 mb-8 p-5 sm:p-6 rounded-xl bg-white border border-[#E2DFD7] shadow-sm hover:shadow-md hover:border-[#0A0A0A]/20 transition-all duration-200"
+                className="group flex items-start gap-4 mb-8 p-5 sm:p-6 rounded-xl bg-white border border-[#0A0A0A]/18 shadow-sm hover:shadow-md hover:border-[#0A0A0A]/35 transition-all duration-200"
               >
                 <div className="w-10 h-10 rounded-lg bg-[#0A0A0A] flex items-center justify-center text-white shrink-0 mt-0.5 group-hover:scale-110 group-hover:bg-[#E5341B] transition-all duration-200 shadow-sm">
                   <GraduationCap className="w-5 h-5 text-white" />
@@ -238,7 +238,7 @@ export function About() {
             {/* Allowed Outlined Pill Buttons with --space-1 gap */}
             <div
               style={{ gap: "var(--space-1)" }}
-              className="flex flex-wrap items-center pt-6 border-t border-[#E2DFD7]"
+              className="flex flex-wrap items-center pt-6 border-t border-[#0A0A0A]/18"
             >
               <a
                 href={IDENTITY.github}

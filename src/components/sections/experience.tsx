@@ -93,11 +93,11 @@ export function Experience() {
     <section
       id="experience"
       aria-label="03 Work Experience & Internship"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#E2DFD7] bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#0A0A0A]/18 bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
     >
       <div className="site-container">
         {/* Section Header: On phones stack right label under title */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#E2DFD7] gap-2">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#0A0A0A]/18 gap-2">
           <div className="flex items-baseline gap-3 sm:gap-4">
             <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-[#E5341B]/10 border border-[#E5341B]/30 text-[#E5341B] font-mono text-xs font-bold tracking-wider">
               03
@@ -112,7 +112,7 @@ export function Experience() {
         </Reveal>
 
         {/* Experience Content wrapped in elevated Stage Card */}
-        <div className="w-full rounded-2xl bg-white border border-[#E2DFD7] p-6 sm:p-10 shadow-sm relative overflow-hidden transition-all duration-300 hover:shadow-md hover:border-[#0A0A0A]/20 preserve-3d">
+        <div className="w-full rounded-2xl bg-white border border-[#0A0A0A]/18 p-6 sm:p-10 shadow-sm relative overflow-hidden transition-all duration-300 hover:shadow-md hover:border-[#0A0A0A]/35 preserve-3d">
           {/* Subtle Top Red Accent Line */}
           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E5341B] via-[#E5341B]/40 to-transparent" />
 
@@ -121,7 +121,7 @@ export function Experience() {
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <Briefcase className="w-4 h-4 text-[#E5341B] shrink-0" />
-                <span className="inline-flex items-center px-3 py-0.5 rounded-full bg-[#FAF8F5] border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold">
+                <span className="inline-flex items-center px-3 py-0.5 rounded-full bg-[#FAF8F5] border border-[#0A0A0A]/15 text-[#0A0A0A] font-mono text-xs font-semibold">
                   {EXPERIENCE.organisation}
                 </span>
                 <span className="text-[#666666] text-fluid-mono font-medium">· Coimbatore, India</span>
@@ -167,7 +167,7 @@ export function Experience() {
                     ease: [0.22, 1, 0.36, 1],
                   }}
                   whileHover={shouldReduceMotion || isMobile ? {} : { y: -5, scale: 1.015 }}
-                  className="group p-6 rounded-xl bg-white border border-[#E2DFD7] hover:border-[#0A0A0A]/30 shadow-sm hover:shadow-lg flex flex-col justify-between transition-all duration-300 cursor-default"
+                  className="group p-6 rounded-xl bg-white border border-[#0A0A0A]/16 hover:border-[#0A0A0A]/40 shadow-sm hover:shadow-lg flex flex-col justify-between transition-all duration-300 cursor-default"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3.5">
@@ -185,7 +185,7 @@ export function Experience() {
                       {area.description}
                     </p>
                   </div>
-                  <div className="mt-4 pt-3 border-t border-[#E2DFD7]/60 flex items-center justify-between">
+                  <div className="mt-4 pt-3 border-t border-[#0A0A0A]/16 flex items-center justify-between">
                     <span className="text-[11px] font-mono text-[#888888] font-medium">Production Verified</span>
                     <span className="w-1.5 h-1.5 rounded-full bg-[#1FB866] animate-pulse" />
                   </div>
@@ -197,7 +197,7 @@ export function Experience() {
           {/* Stats Row & Stack: Stays 3 across down to 360px */}
           <div
             ref={statsRef}
-            className="pt-6 sm:pt-8 border-t border-[#E2DFD7] flex flex-col lg:flex-row lg:items-center justify-between gap-6 perspective-1200"
+            className="pt-6 sm:pt-8 border-t border-[#0A0A0A]/18 flex flex-col lg:flex-row lg:items-center justify-between gap-6 perspective-1200"
           >
             {/* 3 Stats: Stays 3 across even on 360px phones with auto spacing */}
             <div className="grid grid-cols-3 gap-3 sm:gap-8 max-w-lg">
@@ -270,7 +270,7 @@ export function Experience() {
               {tools.map((tool) => (
                 <span
                   key={tool}
-                  className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-white border border-[#E2DFD7] hover:border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white transition-all duration-150 cursor-default"
+                  className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-white border border-[#0A0A0A]/18 hover:border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white transition-all duration-150 cursor-default"
                 >
                   {tool}
                 </span>

@@ -30,7 +30,7 @@ export default function WorkIndexPage() {
         <div className="site-container">
           {/* Work Page Header */}
           <div className="mb-14 sm:mb-20">
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E2DFD7] text-[#0A0A0A] font-mono text-xs font-semibold mb-4 w-max">
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#0A0A0A]/18 text-[#0A0A0A] font-mono text-xs font-semibold mb-4 w-max">
               WORK & PROJECTS
             </span>
             <h1 className="text-fluid-hero font-extrabold tracking-[-0.035em] text-[#0A0A0A] leading-tight max-w-4xl mb-6">
@@ -42,7 +42,7 @@ export default function WorkIndexPage() {
           </div>
 
           {/* List of Case Studies */}
-          <div className="divide-y divide-[#E2DFD7] border-t border-b border-[#E2DFD7] mb-20 sm:mb-24">
+          <div className="divide-y divide-[#0A0A0A]/16 border-t border-b border-[#0A0A0A]/18 mb-20 sm:mb-24">
             {projects.map((item) => (
               <div
                 key={item.slug}
@@ -99,7 +99,7 @@ export default function WorkIndexPage() {
                         target="_blank"
                         rel="noreferrer"
                         aria-label="Repository"
-                        className="w-10 h-10 flex items-center justify-center rounded-full bg-white border border-[#E2DFD7] text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white hover:border-[#0A0A0A] transition-all shadow-xs"
+                        className="w-10 h-10 flex items-center justify-center rounded-full bg-white border border-[#0A0A0A]/18 text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white hover:border-[#0A0A0A] transition-all shadow-xs"
                       >
                         <Github className="w-4 h-4" />
                       </a>

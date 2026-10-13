@@ -9,11 +9,11 @@ export function HowIWork() {
     <section
       id="process"
       aria-label="04 How I work"
-      className="relative section-padding border-t border-[#E2DFD7] bg-[var(--canvas)] perspective-1200"
+      className="relative section-padding border-t border-[#0A0A0A]/18 bg-[var(--canvas)] perspective-1200"
     >
       <div className="site-container">
         {/* Section Header */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#E2DFD7] gap-2">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#0A0A0A]/18 gap-2">
           <div className="flex items-baseline gap-3 sm:gap-4">
             <span className="text-fluid-mono text-[#E5341B] tracking-widest uppercase font-extrabold">
               04
@@ -56,7 +56,7 @@ export function HowIWork() {
                 delay: index * 0.08,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="p-6 rounded-xl bg-white border border-[#E2DFD7] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+              className="p-6 rounded-xl bg-white border border-[#0A0A0A]/18 hover:border-[#0A0A0A]/40 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FFE8E5] text-[#E5341B] font-mono text-xs font-bold mb-4 w-max">
@@ -70,7 +70,7 @@ export function HowIWork() {
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-[#E2DFD7]/60">
+              <div className="pt-4 border-t border-[#0A0A0A]/16">
                 <span className="text-fluid-mono uppercase tracking-wider text-[#888888] font-bold block text-[11px] mb-1">
                   Deliverable
                 </span>
