@@ -17,9 +17,12 @@ export function SnapshotCard() {
     <motion.div
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -4, transition: { duration: 0.25 } }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      className="w-full h-full rounded-xl bg-white border border-[#E2DFD7] p-5 sm:p-6 lg:p-7 shadow-xs text-left flex flex-col justify-between"
+      className="group relative w-full h-full rounded-2xl bg-white/95 backdrop-blur-sm border border-[#E2DFD7] hover:border-[#0A0A0A]/30 p-5 sm:p-6 lg:p-7 shadow-sm hover:shadow-lg transition-all duration-300 text-left flex flex-col justify-between overflow-hidden"
     >
+      {/* Subtle Top Red Accent Line */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#E5341B]/60 to-transparent group-hover:via-[#E5341B] transition-colors duration-300" />
       {/* Top Row: Live Status & Location */}
       <div className="flex items-center justify-between gap-2 pb-3.5 sm:pb-4 border-b border-[#E2DFD7]/80">
         <div className="flex items-center gap-2">

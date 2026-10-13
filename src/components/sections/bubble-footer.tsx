@@ -359,7 +359,7 @@ export function BubbleFooter() {
       <div
         ref={containerRef}
         data-bubble-footer="true"
-        className="relative w-full h-[55vh] min-h-[360px] sm:min-h-[460px] max-h-[660px] rounded-[24px] bg-[#EAE8E1]/35 overflow-hidden select-none"
+        className="relative w-full h-[55vh] min-h-[360px] sm:min-h-[460px] max-h-[660px] rounded-[24px] bg-[#EAE8E1]/50 border border-[#E2DFD7] shadow-sm overflow-hidden select-none"
         style={{
           cursor: isMobile ? "auto" : "none",
         }}
@@ -369,6 +369,9 @@ export function BubbleFooter() {
           aria-hidden="true"
           className="absolute inset-0 w-full h-full block z-0"
         />
+
+        {/* Ambient Center CTA Glow */}
+        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-[#E5341B]/8 to-transparent blur-3xl opacity-75" />
 
         {/* Center CTA Overlay */}
         <div className="relative z-10 w-full h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 pointer-events-none perspective-1200">

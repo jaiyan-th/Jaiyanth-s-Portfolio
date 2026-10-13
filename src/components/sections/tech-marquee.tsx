@@ -133,7 +133,7 @@ export function TechMarquee() {
         {/* Section Header: On phones stack right label under title */}
         <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-5 border-b border-[#E2DFD7] gap-2">
           <div className="flex items-baseline gap-3 sm:gap-4">
-            <span className="text-fluid-mono text-[#E5341B] tracking-widest uppercase font-extrabold">
+            <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-[#E5341B]/10 border border-[#E5341B]/30 text-[#E5341B] font-mono text-xs font-bold tracking-wider">
               06
             </span>
             <h2 className="text-fluid-h2 font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
@@ -146,10 +146,10 @@ export function TechMarquee() {
         </Reveal>
       </div>
 
-      {/* True Curved Marquee Container */}
+      {/* Highlighted Ribbon Marquee Container */}
       <div
         ref={containerRef}
-        className="relative w-full overflow-hidden group py-6 sm:py-8 select-none"
+        className="relative w-full overflow-hidden group py-6 sm:py-8 select-none bg-white/70 backdrop-blur-sm border-y border-[#E2DFD7] shadow-xs"
       >
         {/* Edge Gradient Masks */}
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 lg:w-48 z-10 bg-gradient-to-r from-[var(--canvas)] to-transparent" />
@@ -166,7 +166,7 @@ export function TechMarquee() {
               ref={(el) => {
                 itemsRef.current[idx] = el;
               }}
-              className="mx-2 sm:mx-3.5 lg:mx-4 flex items-center gap-2 sm:gap-2.5 px-3.5 py-1.5 rounded-full border border-transparent hover:border-[#E2DFD7] hover:bg-white hover:shadow-xs cursor-default select-none will-change-transform origin-center transition-all duration-150 group/chip"
+              className="mx-2 sm:mx-3.5 lg:mx-4 flex items-center gap-2 sm:gap-2.5 px-4 py-2 rounded-full bg-[#FAF8F5] border border-[#E2DFD7] hover:border-[#0A0A0A] hover:bg-white hover:shadow-sm cursor-default select-none will-change-transform origin-center transition-all duration-200 group/chip"
             >
               <span className="font-bold text-fluid-body tracking-tight text-[#0A0A0A] group-hover/chip:text-[#E5341B] transition-colors">
                 {item.name}

@@ -93,13 +93,13 @@ export function Experience() {
     <section
       id="experience"
       aria-label="03 Work Experience & Internship"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#E2DFD7] bg-transparent scroll-mt-16 perspective-1200"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#E2DFD7] bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
     >
       <div className="site-container">
         {/* Section Header: On phones stack right label under title */}
         <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#E2DFD7] gap-2">
           <div className="flex items-baseline gap-3 sm:gap-4">
-            <span className="text-fluid-mono text-[#E5341B] tracking-widest uppercase font-extrabold">
+            <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-[#E5341B]/10 border border-[#E5341B]/30 text-[#E5341B] font-mono text-xs font-bold tracking-wider">
               03
             </span>
             <h2 className="text-fluid-h2 font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
@@ -111,8 +111,11 @@ export function Experience() {
           </span>
         </Reveal>
 
-        {/* Experience Content */}
-        <div className="w-full preserve-3d">
+        {/* Experience Content wrapped in elevated Stage Card */}
+        <div className="w-full rounded-2xl bg-white border border-[#E2DFD7] p-6 sm:p-10 shadow-sm relative overflow-hidden transition-all duration-300 hover:shadow-md hover:border-[#0A0A0A]/20 preserve-3d">
+          {/* Subtle Top Red Accent Line */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E5341B] via-[#E5341B]/40 to-transparent" />
+
           {/* Card Top: Company, Role, Period & Status */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6">
             <div>

@@ -69,7 +69,7 @@ export function Research() {
         {/* Section Header: On phones stack right label under title */}
         <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#E2DFD7] gap-2">
           <div className="flex items-baseline gap-3 sm:gap-4">
-            <span className="text-fluid-mono text-[#E5341B] tracking-widest uppercase font-extrabold">
+            <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-[#E5341B]/10 border border-[#E5341B]/30 text-[#E5341B] font-mono text-xs font-bold tracking-wider">
               04
             </span>
             <h2 className="text-fluid-h2 font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
@@ -81,8 +81,11 @@ export function Research() {
           </span>
         </Reveal>
 
-        {/* Unboxed Content */}
-        <div className="w-full preserve-3d">
+        {/* Highlighted Academic Feature Card */}
+        <div className="w-full rounded-2xl bg-white border border-[#E2DFD7] p-6 sm:p-10 shadow-sm relative overflow-hidden transition-all duration-300 hover:shadow-md hover:border-[#0A0A0A]/20 preserve-3d">
+          {/* Subtle Top Red Accent Line */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E5341B] via-[#E5341B]/40 to-transparent" />
+
           {/* Top Meta Bar */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6">
             <div className="flex flex-wrap items-center gap-2.5 text-fluid-mono">

@@ -99,6 +99,10 @@ export function Hero() {
       {/* Interactive 3D Dot-Grid Signal Field */}
       <LiveSignalField className="z-0" />
 
+      {/* Ambient Atmospheric Lighting Highlights */}
+      <div className="pointer-events-none absolute top-1/2 right-[5%] -translate-y-1/2 w-[480px] h-[480px] rounded-full bg-gradient-to-tr from-[#E5341B]/6 via-[#E5341B]/3 to-transparent blur-3xl opacity-75" />
+      <div className="pointer-events-none absolute top-1/4 left-[5%] w-[420px] h-[420px] rounded-full bg-gradient-to-br from-white/60 to-transparent blur-2xl opacity-60" />
+
       {/* Main Content Area */}
       <div className="site-container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-14 items-stretch">

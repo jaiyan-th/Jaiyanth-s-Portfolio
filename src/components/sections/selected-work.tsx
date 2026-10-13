@@ -168,7 +168,7 @@ export function SelectedWork() {
         {/* Section Header: On phones stack right label under title */}
         <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-5 border-b border-[#E2DFD7] mb-4 gap-2">
           <div className="flex items-baseline gap-3 sm:gap-4">
-            <span className="text-fluid-mono text-[#E5341B] tracking-widest uppercase font-extrabold">
+            <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-[#E5341B]/10 border border-[#E5341B]/30 text-[#E5341B] font-mono text-xs font-bold tracking-wider">
               02
             </span>
             <h2 className="text-fluid-h2 font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
@@ -310,7 +310,7 @@ export function ProjectPreview({
               transition: { duration: 0.25 },
             }}
             transition={{ duration: 0.3 }}
-            className="absolute inset-0 w-full h-full border-2 border-[#0A0A0A] rounded-md overflow-hidden bg-white shadow-[8px_8px_0px_#0A0A0A]"
+            className="absolute inset-0 w-full h-full border border-[#0A0A0A]/20 rounded-xl overflow-hidden bg-white shadow-2xl shadow-black/20"
           >
             {activeProject.image ? (
               <Image

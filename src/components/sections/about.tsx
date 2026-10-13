@@ -60,13 +60,13 @@ export function About() {
     <section
       id="about"
       aria-label="01 About Jaiyanth B"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#E2DFD7] bg-transparent scroll-mt-16 perspective-1200"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#E2DFD7] bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
     >
       <div className="site-container">
         {/* Section Header with Reusable Reveal: On phones stack right label under title */}
         <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#E2DFD7] gap-2">
           <div className="flex items-baseline gap-3 sm:gap-4">
-            <span className="text-fluid-mono text-[#E5341B] tracking-widest uppercase font-extrabold">
+            <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-[#E5341B]/10 border border-[#E5341B]/30 text-[#E5341B] font-mono text-xs font-bold tracking-wider">
               01
             </span>
             <h2 className="text-fluid-h2 font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
@@ -169,7 +169,8 @@ export function About() {
               </h3>
 
               {/* Staggered Paragraphs rising with rotateX(20deg) */}
-              <div className="space-y-4 sm:space-y-5 text-fluid-body text-[#555555] leading-relaxed font-normal mb-8 perspective-1200">
+              <div className="p-6 sm:p-7 rounded-2xl bg-white/90 backdrop-blur-sm border border-[#E2DFD7] shadow-xs mb-8 space-y-4 sm:space-y-5 text-fluid-body text-[#555555] leading-relaxed font-normal perspective-1200 relative overflow-hidden">
+                <div className="absolute top-0 left-0 bottom-0 w-1 bg-gradient-to-b from-[#E5341B] via-[#E5341B]/40 to-transparent" />
                 <motion.p
                   custom={0}
                   variants={paragraphVariants}
