@@ -100,7 +100,7 @@ export function Hero() {
       <LiveSignalField className="z-0" />
 
       {/* Main Content Area */}
-      <div className="site-container relative z-10 w-full">
+      <div className="site-container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-14 items-start">
           {/* Left Column (50%): Badges, Headline, Subtitle, CTA buttons */}
           <div

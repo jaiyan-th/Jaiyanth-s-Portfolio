@@ -134,7 +134,7 @@ export function FloatingNav() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           aria-label="Main Navigation"
-          className="hidden md:flex items-center gap-6 lg:gap-8 px-2 py-1"
+          className="hidden md:flex items-center gap-6 lg:gap-8 py-1"
         >
           {NAV_LINKS.map((item) => {
             const isActive = active === item.href;

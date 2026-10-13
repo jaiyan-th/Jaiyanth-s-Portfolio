@@ -78,15 +78,18 @@
   --text-mono: clamp(0.75rem, 0.72rem + 0.2vw, 0.875rem);
   --text-nav: clamp(0.8125rem, 0.78rem + 0.2vw, 0.9375rem);
 
-  /* Fluid Site Container */
-  --container: min(100% - 2 * clamp(1.25rem, 4vw, 4rem), 1440px);
+  /* Fluid Site Container tokens */
+  --container: min(100% - 2 * clamp(1.25rem, 4vw, 3.5rem), 1320px);
+  --container-max: 1320px;
+  --container-padding: clamp(1.25rem, 4vw, 3.5rem);
 
   color-scheme: light;
 }
 
 @media (min-width: 1800px) {
   :root {
-    --container: min(100% - 8rem, 1560px);
+    --container: min(100% - 7rem, 1480px);
+    --container-max: 1480px;
   }
 }
 
@@ -140,10 +143,13 @@
 }
 
 @layer utilities {
-  /* Unified Responsive Site Container */
+  /* Unified Responsive Site Container with Guaranteed Symmetrical Margins */
   .site-container {
-    width: var(--container);
+    width: 100%;
+    max-width: var(--container-max, 1320px);
     margin-inline: auto;
+    padding-inline: var(--container-padding, clamp(1.25rem, 4vw, 3.5rem));
+    box-sizing: border-box;
   }
 
   /* Section Padding */
