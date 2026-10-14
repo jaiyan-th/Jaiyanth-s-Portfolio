@@ -66,13 +66,13 @@ function RevealLineItem({
 
   if (shouldReduceMotion) {
     return (
-      <div className="block leading-[1.15]">
-        <span className="text-[#0A0A0A]">{line.text}</span>
+      <div className="block leading-[1.05]">
+        <span className="text-[#111111]">{line.text}</span>
         {line.accent && (
-          <span className="text-accent font-medium mx-1">{line.accent}</span>
+          <span className="font-serif italic text-accent font-normal mx-1">{line.accent}</span>
         )}
         {line.afterAccent && (
-          <span className="text-[#0A0A0A]">{line.afterAccent}</span>
+          <span className="text-[#111111]">{line.afterAccent}</span>
         )}
       </div>
     );
@@ -86,11 +86,11 @@ function RevealLineItem({
         y,
         willChange: "opacity, transform, color",
       }}
-      className="block leading-[1.15] transition-colors duration-75"
+      className="block leading-[1.05] transition-colors duration-75"
     >
       <span>{line.text}</span>
       {line.accent && (
-        <span className="text-accent font-medium mx-1">{line.accent}</span>
+        <span className="font-serif italic text-accent font-normal mx-1">{line.accent}</span>
       )}
       {line.afterAccent && <span>{line.afterAccent}</span>}
     </motion.div>

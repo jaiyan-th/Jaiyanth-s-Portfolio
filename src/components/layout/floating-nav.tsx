@@ -111,7 +111,7 @@ export function FloatingNav() {
       }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? "bg-[#F5F3EE]/95 backdrop-blur-md border-b border-[#0A0A0A]/18 pb-2"
+          ? "bg-[#F5F3EE]/95 backdrop-blur-md border-b border-[#E5E5E5] pb-2"
           : "bg-transparent border-b border-transparent pb-2 sm:pb-2.5"
       }`}
     >
@@ -120,15 +120,15 @@ export function FloatingNav() {
         <a
           href="/#hero"
           onClick={(e) => handleNavClick(e, "#hero")}
-          className="group flex items-center gap-2.5 min-h-[40px] py-1 font-medium text-[15px] sm:text-[16px] tracking-tight text-[#0A0A0A] transition-colors focus-visible:outline-none"
+          className="group flex items-center gap-2.5 min-h-[40px] py-1 font-sans text-[15px] font-medium tracking-tight text-[#111111] transition-colors focus-visible:outline-none"
         >
-          <span className="w-2.5 h-2.5 rounded-full bg-[#E5341B] inline-block transition-transform duration-200 group-hover:scale-125 shrink-0" />
-          <span className="hover:text-[#E5341B] transition-colors font-semibold">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#E8472B] inline-block transition-transform duration-200 group-hover:scale-125 shrink-0" />
+          <span className="group-hover:text-[#E8472B] transition-colors">
             {IDENTITY.name}
           </span>
         </a>
 
-        {/* Right: Clean Navigation Links using fluid nav typography */}
+        {/* Right: Clean Navigation Links (Inter, 14px, weight 500) */}
         <motion.nav
           initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -143,17 +143,17 @@ export function FloatingNav() {
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={`text-fluid-nav tracking-wider uppercase transition-colors relative py-2 min-h-[44px] flex items-center ${
+                className={`font-sans text-[14px] font-medium tracking-normal transition-colors relative py-2 min-h-[44px] flex items-center ${
                   isActive
-                    ? "text-[#0A0A0A] font-bold"
-                    : "text-[#666666] hover:text-[#0A0A0A] font-medium"
+                    ? "text-[#111111]"
+                    : "text-[#555555] hover:text-[#E8472B]"
                 }`}
               >
                 {item.label}
                 {isActive && (
                   <motion.span
                     layoutId="nav-underline"
-                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#E5341B]"
+                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#E8472B]"
                     transition={{ type: "spring", stiffness: 350, damping: 30 }}
                   />
                 )}
@@ -168,14 +168,14 @@ export function FloatingNav() {
             type="button"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
-            className="w-12 h-12 flex items-center justify-center text-[#0A0A0A] hover:text-[#E5341B] transition-colors focus-visible:outline-none"
+            className="w-12 h-12 flex items-center justify-center text-[#111111] hover:text-[#E8472B] transition-colors focus-visible:outline-none"
           >
             {isOpen ? <X className="w-6 h-6 stroke-[2.5]" /> : <Menu className="w-6 h-6 stroke-[2.5]" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer (48px tap targets, closes on route change) */}
+      {/* Mobile Drawer (Inter 14px 500 tap targets) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -183,7 +183,7 @@ export function FloatingNav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-b border-[#0A0A0A]/18 bg-[#F5F3EE] px-6 py-4 shadow-md"
+            className="md:hidden border-b border-[#E5E5E5] bg-[#F5F3EE] px-6 py-4 shadow-md"
           >
             <div className="flex flex-col space-y-1">
               {NAV_LINKS.map((item) => {
@@ -193,15 +193,15 @@ export function FloatingNav() {
                     key={item.href}
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className={`text-fluid-nav min-h-[48px] flex items-center justify-between uppercase tracking-wider py-2 transition-colors ${
+                    className={`font-sans text-[14px] font-medium min-h-[48px] flex items-center justify-between py-2 transition-colors ${
                       isActive
-                        ? "text-[#E5341B] font-bold"
-                        : "text-[#666666] hover:text-[#0A0A0A] font-medium"
+                        ? "text-[#E8472B]"
+                        : "text-[#555555] hover:text-[#E8472B]"
                     }`}
                   >
                     <span>{item.label}</span>
                     {isActive && (
-                      <span className="w-2 h-2 rounded-full bg-[#E5341B]" />
+                      <span className="w-2 h-2 rounded-full bg-[#E8472B]" />
                     )}
                   </a>
                 );

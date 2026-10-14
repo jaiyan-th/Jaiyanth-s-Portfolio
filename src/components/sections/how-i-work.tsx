@@ -3,26 +3,25 @@
 import { motion } from "motion/react";
 import { HOW_I_WORK } from "@/data/content";
 import { Reveal } from "@/components/ui/reveal";
+import { EyebrowPill } from "@/components/ui/eyebrow-pill";
 
 export function HowIWork() {
   return (
     <section
       id="process"
       aria-label="04 How I work"
-      className="relative section-padding border-t border-[#0A0A0A]/18 bg-[var(--canvas)] perspective-1200"
+      className="relative section-padding border-t border-border-line bg-[var(--canvas)] perspective-1200"
     >
       <div className="site-container">
         {/* Section Header */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#0A0A0A]/18 gap-2">
-          <div className="flex items-baseline gap-3 sm:gap-4">
-            <span className="text-fluid-mono text-[#E5341B] tracking-widest uppercase font-extrabold">
-              04
-            </span>
-            <h2 className="text-fluid-h2 font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
-              How I work?
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-6 border-b border-border-line gap-4">
+          <div className="space-y-3">
+            <EyebrowPill accent="PROCESS" text="HOW I WORK & DELIVER" />
+            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
+              How I <span className="font-serif italic text-accent font-normal accent-underline">Work</span>
             </h2>
           </div>
-          <span className="text-fluid-mono uppercase tracking-widest text-[#666666]">
+          <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted">
             Process & Delivery
           </span>
         </Reveal>
@@ -35,11 +34,8 @@ export function HowIWork() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-3xl mb-12 sm:mb-16"
         >
-          <h3 className="text-fluid-h3 font-extrabold text-[#0A0A0A] tracking-[-0.02em] mb-3">
-            What working together actually looks like.
-          </h3>
-          <p className="text-fluid-lead text-[#555555] font-normal leading-relaxed">
-            I work closely with teams when there’s a team, and own the process end-to-end when working independently, staying close to the product, constraints, and engineering decisions.
+          <p className="lead-intro font-sans text-base sm:text-lg text-text-muted leading-relaxed max-w-[60ch]">
+            What working together actually looks like — staying close to the product, constraints, and engineering decisions from signal discovery to production release.
           </p>
         </motion.div>
 
@@ -56,25 +52,25 @@ export function HowIWork() {
                 delay: index * 0.08,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="p-6 rounded-xl bg-white border border-[#0A0A0A]/18 hover:border-[#0A0A0A]/40 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-6 rounded-2xl bg-white border border-border-line hover:border-[#111111]/40 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FFE8E5] text-[#E5341B] font-mono text-xs font-bold mb-4 w-max">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FFE8E5] text-accent font-mono text-[11px] uppercase tracking-[0.08em] font-medium mb-4 w-max border border-accent/20">
                   {item.step}
                 </span>
-                <h4 className="text-base font-bold text-[#0A0A0A] mb-2 leading-snug">
+                <h3 className="font-serif font-normal text-xl sm:text-2xl text-[#111111] mb-2 leading-snug">
                   {item.title}
-                </h4>
-                <p className="text-fluid-small text-[#555555] leading-relaxed mb-6">
+                </h3>
+                <p className="font-sans text-sm text-text-muted leading-relaxed mb-6 font-normal">
                   {item.description}
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-[#0A0A0A]/16">
-                <span className="text-fluid-mono uppercase tracking-wider text-[#888888] font-bold block text-[11px] mb-1">
+              <div className="pt-4 border-t border-border-line">
+                <span className="font-mono uppercase tracking-[0.08em] text-text-muted font-medium block text-[11px] mb-1">
                   Deliverable
                 </span>
-                <span className="text-xs font-semibold text-[#0A0A0A]">
+                <span className="font-sans text-xs sm:text-sm font-medium text-[#111111]">
                   {item.deliverable}
                 </span>
               </div>

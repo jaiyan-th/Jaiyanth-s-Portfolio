@@ -5,24 +5,50 @@ import { motion, useReducedMotion } from "motion/react";
 import { RevealHeading } from "@/components/ui/reveal-heading";
 import { WHY_WORK_WITH_ME } from "@/data/content";
 import { Reveal } from "@/components/ui/reveal";
+import { EyebrowPill } from "@/components/ui/eyebrow-pill";
 
 const CARD_METAS = [
   {
-    stampBg: "bg-[#0A0A0A] text-white",
+    stampBg: "bg-[#111111] text-white",
     tagline: "// 01 · PRODUCTION AI",
     speedFactor: 0.08,
   },
   {
-    stampBg: "bg-[#EAE7DF] text-[#0A0A0A]",
+    stampBg: "bg-[#EAE7DF] text-[#111111]",
     tagline: "// 02 · ARCHITECTURE",
     speedFactor: 0.14,
   },
   {
-    stampBg: "bg-[#FFE8E5] text-[#E5341B]",
+    stampBg: "bg-[#FFE8E5] text-accent",
     tagline: "// 03 · RIGOUR & VELOCITY",
     speedFactor: 0.20,
   },
 ];
+
+const renderCardTitle = (title: string, index: number) => {
+  if (index === 0) {
+    return (
+      <>
+        Production-First AI Systems, Not Just{" "}
+        <span className="font-serif italic text-accent font-normal">Demos</span>
+      </>
+    );
+  }
+  if (index === 1) {
+    return (
+      <>
+        Systems First, Screens Second: End-to-End{" "}
+        <span className="font-serif italic text-accent font-normal">Ownership</span>
+      </>
+    );
+  }
+  return (
+    <>
+      Density Is Not the Enemy:{" "}
+      <span className="font-serif italic text-accent font-normal">Rigour</span> & Velocity
+    </>
+  );
+};
 
 export function WhyWork() {
   const shouldReduceMotion = useReducedMotion();
@@ -49,20 +75,18 @@ export function WhyWork() {
     <section
       id="why-work"
       aria-label="05 Why work with me"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#0A0A0A]/18 bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-border-line bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
     >
       <div className="site-container">
-        {/* Section Header: On phones stack right label under title */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#0A0A0A]/18 gap-2">
-          <div className="flex items-baseline gap-3 sm:gap-4">
-            <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-[#E5341B]/10 border border-[#E5341B]/30 text-[#E5341B] font-mono text-xs font-bold tracking-wider">
-              05
-            </span>
-            <h2 className="text-fluid-h2 font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
-              Why Work With Me?
+        {/* Section Header */}
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-border-line gap-4">
+          <div className="space-y-3">
+            <EyebrowPill accent="SKILLS" text="WHAT I USE" />
+            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
+              Why Work <span className="font-serif italic text-accent font-normal accent-underline">With Me</span>?
             </h2>
           </div>
-          <span className="text-fluid-mono uppercase tracking-widest text-[#666666]">
+          <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted">
             Strategy & Craft
           </span>
         </Reveal>
@@ -75,7 +99,7 @@ export function WhyWork() {
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-5xl mb-10 sm:mb-14"
         >
-          <h3 className="text-fluid-h2 font-extrabold tracking-[-0.03em] leading-tight mb-4 text-[#0A0A0A]">
+          <h3 className="font-serif font-normal text-fluid-h2 tracking-[-0.02em] leading-tight mb-5 text-[#111111]">
             <RevealHeading
               lines={[
                 { text: "Engineers who can hold both ends —" },
@@ -84,7 +108,7 @@ export function WhyWork() {
               ]}
             />
           </h3>
-          <p className="text-fluid-lead text-[#555555] font-normal leading-relaxed max-w-4xl">
+          <p className="lead-intro font-sans text-base sm:text-lg text-text-muted leading-relaxed max-w-[60ch]">
             I work best where the stakes are real and the data is dense. My job is to remove the friction, so the next decision comes faster.
           </p>
         </motion.div>
@@ -111,36 +135,36 @@ export function WhyWork() {
                   style={{
                     transform: `translate3d(0, ${colParallaxY}px, 0)`,
                   }}
-                  className="group relative p-6 sm:p-8 rounded-2xl bg-white border border-[#0A0A0A]/20 hover:border-[#0A0A0A]/40 shadow-sm hover:shadow-xl flex flex-col justify-between transition-all duration-300 ease-out will-change-transform overflow-hidden"
+                  className="group relative p-6 sm:p-8 rounded-2xl bg-white border border-border-line hover:border-[#111111]/40 shadow-sm hover:shadow-xl flex flex-col justify-between transition-all duration-300 ease-out will-change-transform overflow-hidden"
                 >
                   {/* Top Red Indicator stripe */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-[#E5341B] transition-colors duration-200" />
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-accent transition-colors duration-200" />
 
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <span className="font-mono text-xl font-extrabold text-[#E5341B] group-hover:scale-110 transition-transform origin-left inline-block">
+                      <span className="font-serif text-2xl font-normal text-accent group-hover:scale-110 transition-transform origin-left inline-block">
                         /{point.letter}
                       </span>
-                      <span className={`inline-flex items-center px-3 py-1 rounded-full font-mono text-xs font-semibold ${meta.tagline}`}>
+                      <span className={`inline-flex items-center px-3 py-1 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] font-medium ${meta.tagline}`}>
                         {meta.tagline}
                       </span>
                     </div>
 
-                    <h4 className="text-fluid-h3 font-extrabold tracking-[-0.02em] text-[#0A0A0A] group-hover:text-[#E5341B] leading-snug mb-3 transition-colors duration-200">
-                      {point.title}
+                    <h4 className="font-serif font-normal text-2xl sm:text-[28px] text-[#111111] group-hover:text-accent leading-snug mb-3 transition-colors duration-200">
+                      {renderCardTitle(point.title, index)}
                     </h4>
 
-                    <p className="text-fluid-body text-[#555555] leading-relaxed font-normal mb-6">
+                    <p className="font-sans text-sm sm:text-base text-text-muted leading-relaxed font-normal mb-6">
                       {point.description}
                     </p>
                   </div>
 
                   {/* Refined Tags */}
-                  <div className="flex flex-wrap gap-2 pt-2 border-t border-[#0A0A0A]/16">
+                  <div className="flex flex-wrap gap-2 pt-3 border-t border-border-line">
                     {point.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="inline-flex items-center px-2.5 py-1 rounded-full font-mono text-[11px] bg-[#F2ECE4] text-[#555555] hover:bg-[#0A0A0A] hover:text-white transition-colors duration-150 cursor-default"
+                        className="inline-flex items-center px-2.5 py-1 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] bg-[#F2ECE4]/70 text-text-muted border border-border-line hover:bg-[#111111] hover:text-white transition-colors duration-150 cursor-default"
                       >
                         {tag}
                       </span>

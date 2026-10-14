@@ -22,8 +22,8 @@ export function Footer() {
       <BubbleFooter />
 
       {/* Clean Copyright & Region Line */}
-      <div className="site-container flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 border-t border-[#0A0A0A] text-fluid-mono text-[#666666] text-center sm:text-left">
-        <span>copyright 2026 {IDENTITY.name}</span>
+      <div className="site-container flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 border-t border-border-line font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted text-center sm:text-left">
+        <span>© 2026 {IDENTITY.name}</span>
         <span>Based in India · Working Worldwide</span>
       </div>
     </footer>

@@ -12,6 +12,7 @@ import {
 } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
+import { EyebrowPill } from "@/components/ui/eyebrow-pill";
 
 export interface SelectedProjectCard {
   id: string;
@@ -162,23 +163,31 @@ export function SelectedWork() {
     <section
       id="work"
       aria-label="02 Selected Work"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#0A0A0A]/18 bg-transparent scroll-mt-16 perspective-1200"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#E5E5E5] bg-transparent scroll-mt-16 perspective-1200"
     >
       <div className="site-container">
-        {/* Section Header: On phones stack right label under title */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-5 border-b border-[#0A0A0A]/18 mb-4 gap-2">
-          <div className="flex items-baseline gap-3 sm:gap-4">
-            <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-[#E5341B]/10 border border-[#E5341B]/30 text-[#E5341B] font-mono text-xs font-bold tracking-wider">
-              02
-            </span>
-            <h2 className="text-fluid-h2 font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
-              Selected Work
+        {/* Section Header with Eyebrow Pill and Instrument Serif H2 */}
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-5 border-b border-[#E5E5E5] mb-6 gap-4">
+          <div className="flex flex-col gap-3">
+            <EyebrowPill accent="SELECTED WORK" text="2024–26" />
+            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
+              Selected{" "}
+              <span className="font-serif italic text-accent font-normal accent-underline">
+                Work
+              </span>
             </h2>
           </div>
-          <span className="text-fluid-mono uppercase tracking-wider text-[#666666]">
-            ENGINEERED SYSTEMS & FULL-STACK PRODUCTS
+          <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#555555]">
+            Engineered Systems &amp; Full-Stack Products
           </span>
         </Reveal>
+
+        {/* Section Intro Paragraph with 2px solid accent left vertical line */}
+        <div className="lead-intro mb-10 sm:mb-14">
+          <p>
+            Autonomous fact-verification pipelines, dual-LLM agentic career platforms, concurrency-safe reservation engines, and cryptographic vaults.
+          </p>
+        </div>
 
         {/* Editorial 3D Projects List */}
         <ProjectsList projects={PROJECTS_DATA} />
@@ -328,10 +337,10 @@ export function ProjectPreview({
             )}
             {/* Overlay badge with project stack */}
             <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between pointer-events-none">
-              <span className="backdrop-blur-md bg-white/95 text-[#0A0A0A] font-semibold text-[11px] px-2.5 py-0.5 rounded-full shadow-sm border border-[#0A0A0A]/18">
+              <span className="backdrop-blur-md bg-white/95 text-[#111111] font-mono font-medium text-[11px] uppercase tracking-[0.08em] px-2.5 py-0.5 rounded-full shadow-sm border border-[#E5E5E5]">
                 {activeProject.category}
               </span>
-              <span className="font-mono text-[10px] font-bold text-white bg-[#0A0A0A] px-2.5 py-0.5 rounded-full shadow-sm">
+              <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-medium text-white bg-[#111111] px-2.5 py-0.5 rounded-full shadow-sm">
                 {activeProject.year}
               </span>
             </div>
@@ -350,6 +359,42 @@ interface ProjectRowProps {
   isMobile: boolean;
   shouldReduceMotion: boolean;
   onPointerEnter: () => void;
+}
+
+function renderProjectTitle(id: string, defaultTitle: string) {
+  if (id === "fake-news-detector") {
+    return (
+      <>
+        Fake News Detector — Grounded RAG{" "}
+        <span className="font-serif italic text-accent font-normal">Verification</span>
+      </>
+    );
+  }
+  if (id === "up-skill") {
+    return (
+      <>
+        Up-Skill — AI Career &amp; Interview{" "}
+        <span className="font-serif italic text-accent font-normal">Intelligence</span>
+      </>
+    );
+  }
+  if (id === "car-rent") {
+    return (
+      <>
+        Car-Rent — Full-Stack Rental{" "}
+        <span className="font-serif italic text-accent font-normal">Platform</span>
+      </>
+    );
+  }
+  if (id === "document-vault") {
+    return (
+      <>
+        Secure Digital Document Vault — Cryptographic{" "}
+        <span className="font-serif italic text-accent font-normal">Storage</span>
+      </>
+    );
+  }
+  return defaultTitle;
 }
 
 export function ProjectRow({
@@ -392,14 +437,14 @@ export function ProjectRow({
         }}
         className={`group block py-6 sm:py-7 lg:py-8 px-4 sm:px-5 -mx-4 sm:-mx-5 rounded-xl transition-all duration-200 focus-visible:outline-none min-h-[64px] border-l-4 ${
           isHovered
-            ? "bg-white shadow-md border-[#E5341B]"
+            ? "bg-white shadow-md border-[#E8472B]"
             : "bg-transparent border-transparent"
         }`}
       >
         {/* Desktop Layout (>=1024px): number | title + description | category | year/arrow */}
         <div className="hidden lg:flex items-baseline justify-between w-full">
-          <div className="w-[72px] shrink-0 font-mono text-xs font-bold flex items-center gap-1.5 transition-colors duration-200 text-[#E5341B]">
-            <span className={`w-1.5 h-1.5 rounded-full bg-[#E5341B] transition-all duration-200 ${isHovered ? "scale-125 opacity-100" : "scale-0 opacity-0"}`} />
+          <div className="w-[72px] shrink-0 font-mono text-[11px] uppercase tracking-[0.08em] font-medium flex items-center gap-1.5 transition-colors duration-200 text-[#E8472B]">
+            <span className={`w-1.5 h-1.5 rounded-full bg-[#E8472B] transition-all duration-200 ${isHovered ? "scale-125 opacity-100" : "scale-0 opacity-0"}`} />
             <span className={isHovered ? "translate-x-1 transition-transform" : "transition-transform"}>
               {project.index}
             </span>
@@ -407,90 +452,90 @@ export function ProjectRow({
 
           <div className="max-w-xl xl:max-w-2xl shrink-0">
             <h3
-              className={`text-fluid-h3 font-bold leading-tight tracking-[-0.02em] transition-all duration-200 ${
-                isHovered ? "text-[#E5341B] translate-x-1.5" : "text-[#0A0A0A]"
+              className={`font-serif font-normal text-[24px] sm:text-[26px] lg:text-[28px] leading-snug tracking-[-0.015em] transition-all duration-200 ${
+                isHovered ? "text-[#E8472B] translate-x-1.5" : "text-[#111111]"
               }`}
             >
-              {project.title}
+              {renderProjectTitle(project.id, project.title)}
             </h3>
-            <p className="text-fluid-small text-[#555555] mt-2 line-clamp-2">
+            <p className="font-sans text-[14px] text-[#555555] mt-2 line-clamp-2 leading-relaxed">
               {project.summary}
             </p>
           </div>
 
           <div className="flex-1 min-w-[16px]" />
 
-          <div className="w-[180px] shrink-0 text-left">
-            <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-medium transition-all duration-200 ${
+          <div className="w-[200px] shrink-0 text-left">
+            <span className={`inline-flex items-center px-3 py-1 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] font-medium border transition-all duration-200 ${
               isHovered
-                ? "bg-[#0A0A0A] text-white"
-                : "bg-[#F2ECE4] text-[#555555]"
+                ? "bg-[#111111] text-white border-[#111111]"
+                : "bg-[#FAF8F5] text-[#555555] border-[#E5E5E5]"
             }`}>
               {project.category}
             </span>
           </div>
 
-          <div className="w-[84px] shrink-0 flex items-center justify-end gap-2 font-mono text-xs text-[#666666]">
+          <div className="w-[84px] shrink-0 flex items-center justify-end gap-2 font-mono text-[11px] uppercase tracking-[0.08em] text-[#555555]">
             <span>{project.year}</span>
             <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 ${
               isHovered
-                ? "bg-[#0A0A0A] text-white shadow-sm scale-110"
-                : "bg-transparent text-[#666666]"
+                ? "bg-[#111111] text-white shadow-sm scale-110"
+                : "bg-transparent text-[#555555]"
             }`}>
               <ArrowUpRight
                 className={`w-4 h-4 transition-transform duration-200 ${
-                  isHovered ? "rotate-45 text-white" : "text-[#666666]"
+                  isHovered ? "rotate-45 text-white" : "text-[#555555]"
                 }`}
               />
             </div>
           </div>
         </div>
 
-        {/* Tablet Layout (640px to 1023px): number + title on line 1, description on line 2, category & year on line 3 */}
+        {/* Tablet Layout (640px to 1023px) */}
         <div className="hidden sm:block lg:hidden">
           <div className="flex items-baseline justify-between gap-4 mb-2">
             <div className="flex items-baseline gap-3">
-              <span className="font-mono text-xs text-[#E5341B] font-bold shrink-0">
+              <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#E8472B] font-medium shrink-0">
                 {project.index}
               </span>
-              <h3 className="text-fluid-h3 font-bold text-[#0A0A0A] group-hover:text-[#E5341B] transition-colors">
-                {project.title}
+              <h3 className="font-serif font-normal text-2xl text-[#111111] group-hover:text-[#E8472B] transition-colors leading-snug">
+                {renderProjectTitle(project.id, project.title)}
               </h3>
             </div>
-            <ArrowUpRight className="w-4 h-4 shrink-0 text-[#666666] group-hover:text-[#E5341B] group-hover:rotate-45 transition-transform" />
+            <ArrowUpRight className="w-4 h-4 shrink-0 text-[#555555] group-hover:text-[#E8472B] group-hover:rotate-45 transition-transform" />
           </div>
 
-          <p className="text-fluid-small text-[#555555] mb-3 line-clamp-2">
+          <p className="font-sans text-[14px] text-[#555555] mb-3 line-clamp-2 leading-relaxed">
             {project.summary}
           </p>
 
-          <div className="flex items-center justify-between font-mono text-xs text-[#666666]">
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#F2ECE4] text-[#555555]">
+          <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.08em] text-[#555555]">
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAF8F5] border border-[#E5E5E5] text-[#555555]">
               {project.category}
             </span>
             <span>{project.year}</span>
           </div>
         </div>
 
-        {/* Mobile Phones Layout (< 640px): Full row tappable, min 64px tall, arrow stays visible */}
+        {/* Mobile Phones Layout (< 640px) */}
         <div className="block sm:hidden">
-          <div className="flex items-center justify-between font-mono text-xs text-[#666666] mb-1.5">
-            <span className="text-[#E5341B] font-bold">{project.index}</span>
+          <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.08em] text-[#555555] mb-1.5">
+            <span className="text-[#E8472B] font-medium">{project.index}</span>
             <div className="flex items-center gap-1.5">
               <span>{project.year}</span>
-              <ArrowUpRight className="w-4 h-4 text-[#E5341B]" />
+              <ArrowUpRight className="w-4 h-4 text-[#E8472B]" />
             </div>
           </div>
 
-          <h3 className="text-lg font-bold leading-snug tracking-tight text-[#0A0A0A] mb-2 group-hover:text-[#E5341B] transition-colors">
-            {project.title}
+          <h3 className="font-serif font-normal text-xl leading-snug text-[#111111] mb-2 group-hover:text-[#E8472B] transition-colors">
+            {renderProjectTitle(project.id, project.title)}
           </h3>
 
-          <p className="text-sm text-[#555555] leading-relaxed mb-3 line-clamp-2">
+          <p className="font-sans text-[13px] text-[#555555] leading-relaxed mb-3 line-clamp-2">
             {project.summary}
           </p>
 
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#F2ECE4] text-[#555555] text-[11px]">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAF8F5] border border-[#E5E5E5] text-[#555555] font-mono text-[11px] uppercase tracking-[0.08em]">
             {project.category}
           </span>
         </div>

@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import type { CaseStudyItem } from "@/data/case-studies";
 import { Reveal } from "@/components/ui/reveal";
+import { EyebrowPill } from "@/components/ui/eyebrow-pill";
 
 interface CaseStudyViewProps {
   project: CaseStudyItem;
@@ -47,9 +48,9 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
       <div className="mb-8 sm:mb-12">
         <Link
           href="/#work"
-          className="inline-flex items-center gap-2 text-fluid-mono uppercase tracking-widest text-[#666666] hover:text-[#E5341B] transition-colors group min-h-[44px]"
+          className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted hover:text-accent transition-colors group min-h-[44px]"
         >
-          <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1 text-[#E5341B]" />
+          <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1 text-accent" />
           <span>Back to all work</span>
         </Link>
       </div>
@@ -58,38 +59,27 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           HERO / TITLE SECTION
           ============================================================ */}
       <header className="mb-12 sm:mb-20 preserve-3d">
-        {/* Stickers Row */}
-        <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-6">
-          <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#0A0A0A]/18 text-[#0A0A0A] font-mono text-xs font-semibold">
-            {project.category}
-          </span>
-          <span className="text-fluid-mono text-[#666666] font-semibold">
-            {project.year}
-          </span>
-          <span className="text-fluid-mono text-[#666666] border-l border-[#0A0A0A]/18 pl-3">
-            {project.domain}
-          </span>
-        </div>
+        <EyebrowPill accent={project.category} text={`${project.year} · ${project.domain}`} className="mb-6" />
 
         {/* Display Title with overflow wrap */}
-        <h1 className="text-fluid-hero font-extrabold tracking-[-0.035em] text-[#0A0A0A] mb-6 leading-[1.05] break-words">
+        <h1 className="font-serif font-normal text-fluid-hero text-[#111111] mb-6 leading-[1.02] tracking-[-0.02em] break-words">
           {project.title}
         </h1>
 
         {/* Subtitle Statement */}
-        <p className="text-fluid-lead text-[#555555] font-normal leading-relaxed max-w-4xl mb-10 sm:mb-12">
+        <p className="lead-intro font-sans text-base sm:text-lg text-text-muted leading-relaxed max-w-4xl mb-10 sm:mb-12">
           {project.subtitle}
         </p>
 
         {/* Meta Strip: 4 columns >=1024px, 2 columns on tablets, 1 column on phones */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-5 sm:p-7 rounded-md bg-white hard-shadow perspective-1200">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-5 sm:p-7 rounded-2xl bg-white border border-border-line hard-shadow perspective-1200">
           {[
             { label: "Role", value: project.role },
             { label: "Duration", value: project.duration },
             {
               label: "Status",
               content: (
-                <span className="text-sm sm:text-base font-semibold text-[#0A0A0A] flex items-center gap-1.5">
+                <span className="font-sans text-sm sm:text-base font-medium text-[#111111] flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-[#1FB866] animate-pulse" />
                   {project.status}
                 </span>
@@ -104,10 +94,10 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-fluid-mono font-bold text-[#0A0A0A] hover:text-[#E5341B] transition-colors inline-flex items-center gap-1 group min-h-[44px]"
+                      className="font-mono text-[11px] uppercase tracking-[0.08em] font-medium text-[#111111] hover:text-accent transition-colors inline-flex items-center gap-1 group min-h-[44px]"
                     >
                       <span>Live Demo</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 text-[#E5341B]" />
+                      <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 text-accent" />
                     </a>
                   )}
                   {project.repoUrl && (
@@ -115,10 +105,10 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                       href={project.repoUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-fluid-mono font-bold text-[#0A0A0A] hover:text-[#E5341B] transition-colors inline-flex items-center gap-1 group min-h-[44px]"
+                      className="font-mono text-[11px] uppercase tracking-[0.08em] font-medium text-[#111111] hover:text-accent transition-colors inline-flex items-center gap-1 group min-h-[44px]"
                     >
                       <span>GitHub</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 text-[#E5341B]" />
+                      <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 text-accent" />
                     </a>
                   )}
                 </div>
@@ -138,13 +128,13 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 delay: 0.15 + idx * 0.08,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="preserve-3d pb-3 sm:pb-0 border-b sm:border-b-0 border-[#0A0A0A]/16 last:border-b-0"
+              className="preserve-3d pb-3 sm:pb-0 border-b sm:border-b-0 border-border-line last:border-b-0"
             >
-              <span className="text-fluid-mono uppercase tracking-widest text-[#888888] block mb-1 font-semibold text-[11px] sm:text-xs">
+              <span className="font-mono uppercase tracking-[0.08em] text-text-muted block mb-1 font-medium text-[11px]">
                 {item.label}
               </span>
               {item.content || (
-                <span className="text-fluid-small font-semibold text-[#0A0A0A]">
+                <span className="font-sans text-sm sm:text-base font-medium text-[#111111]">
                   {item.value}
                 </span>
               )}
@@ -156,22 +146,22 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
       {/* ============================================================
           01 CONTEXT
           ============================================================ */}
-      <section className="section-padding border-t border-[#0A0A0A]/18 perspective-1200">
-        <Reveal className="flex items-baseline gap-4 mb-8 pb-5 border-b border-[#0A0A0A]/18">
-          <span className="text-fluid-mono text-[#E5341B] tracking-widest uppercase font-extrabold">
-            01
-          </span>
-          <h2 className="text-fluid-h2 font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
-            Context
-          </h2>
+      <section className="section-padding border-t border-border-line perspective-1200">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 pb-5 border-b border-border-line gap-4">
+          <div className="space-y-3">
+            <EyebrowPill accent="01" text="CONTEXT & SCOPE" />
+            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
+              Context & <span className="font-serif italic text-accent font-normal accent-underline">Scope</span>
+            </h2>
+          </div>
         </Reveal>
 
         <div className="space-y-10 sm:space-y-12">
           <div>
-            <h3 className="text-fluid-h3 font-bold text-[#0A0A0A] mb-3">
+            <h3 className="font-serif font-normal text-2xl sm:text-3xl text-[#111111] mb-3 leading-snug">
               {project.context.title}
             </h3>
-            <p className="text-fluid-body text-[#555555] font-normal leading-relaxed max-w-4xl">
+            <p className="font-sans text-base text-text-muted font-normal leading-relaxed max-w-4xl">
               {project.context.description}
             </p>
           </div>
@@ -194,14 +184,14 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
-                className="p-5 sm:p-6 rounded-md bg-white hard-shadow flex flex-col justify-between"
+                className="p-5 sm:p-6 rounded-2xl bg-white border border-border-line hard-shadow flex flex-col justify-between"
               >
                 <div>
-                  <span className="w-2 h-2 rounded-full bg-[#E5341B] block mb-3" />
-                  <h4 className="text-base font-bold text-[#0A0A0A] mb-2">
+                  <span className="w-2 h-2 rounded-full bg-accent block mb-3" />
+                  <h4 className="font-serif font-normal text-lg sm:text-xl text-[#111111] mb-2 leading-snug">
                     {c.title}
                   </h4>
-                  <p className="text-fluid-small text-[#555555] leading-relaxed">
+                  <p className="font-sans text-sm text-text-muted leading-relaxed font-normal">
                     {c.desc}
                   </p>
                 </div>
@@ -219,20 +209,20 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
             whileInView={{ opacity: 1, translateZ: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-            className="p-6 sm:p-8 rounded-md bg-[#FAF3EE] relative overflow-hidden hard-shadow"
+            className="p-6 sm:p-8 rounded-2xl bg-[#FAF3EE] relative overflow-hidden border border-border-line hard-shadow"
           >
-            <div className="absolute top-0 left-0 w-1.5 h-full bg-[#E5341B]" />
-            <span className="text-fluid-mono uppercase tracking-widest text-[#E5341B] block mb-2 font-bold">
+            <div className="absolute top-0 left-0 w-1.5 h-full bg-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-accent block mb-2 font-medium">
               Highlighted Problem
             </span>
-            <p className="text-fluid-lead font-bold text-[#0A0A0A] leading-snug">
+            <p className="lead-intro font-serif font-normal text-xl sm:text-2xl text-[#111111] leading-snug">
               &ldquo;{project.context.highlightedProblem}&rdquo;
             </p>
           </motion.div>
 
           {/* Scope Cards: 4 cols >=1024px, 2 on tablets, 1 on phones */}
           <div>
-            <h4 className="text-fluid-h3 font-bold text-[#0A0A0A] mb-5">
+            <h4 className="font-serif font-normal text-2xl sm:text-3xl text-[#111111] mb-5 leading-snug">
               My Role & Engineering Scope
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 perspective-1200">
@@ -252,16 +242,16 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                     ease: [0.22, 1, 0.36, 1],
                   }}
                   whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
-                  className="p-5 sm:p-6 rounded-md bg-white hard-shadow flex flex-col justify-between"
+                  className="p-5 sm:p-6 rounded-2xl bg-white border border-border-line hard-shadow flex flex-col justify-between"
                 >
                   <div>
-                    <span className="neo-sticker bg-[#F2ECE4] text-[#E5341B] font-bold block mb-3 w-max">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-medium text-accent bg-[#FFE8E5] px-2.5 py-0.5 rounded-full border border-accent/20 block mb-3 w-max">
                       {scope.id}
                     </span>
-                    <h5 className="text-base font-bold text-[#0A0A0A] mb-2">
+                    <h5 className="font-serif font-normal text-base sm:text-lg text-[#111111] mb-2 leading-snug">
                       {scope.title}
                     </h5>
-                    <p className="text-fluid-small text-[#555555] leading-relaxed">
+                    <p className="font-sans text-sm text-text-muted leading-relaxed font-normal">
                       {scope.desc}
                     </p>
                   </div>
@@ -275,35 +265,35 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
       {/* ============================================================
           02 USERS & PROBLEM
           ============================================================ */}
-      <section className="section-padding border-t border-[#0A0A0A]/18 perspective-1200">
-        <Reveal className="flex items-baseline gap-4 mb-8 pb-5 border-b border-[#0A0A0A]/18">
-          <span className="text-fluid-mono text-[#E5341B] tracking-widest uppercase font-extrabold">
-            02
-          </span>
-          <h2 className="text-fluid-h2 font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
-            Users & Problem
-          </h2>
+      <section className="section-padding border-t border-border-line perspective-1200">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 pb-5 border-b border-border-line gap-4">
+          <div className="space-y-3">
+            <EyebrowPill accent="02" text="USERS & CHALLENGES" />
+            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
+              Users & <span className="font-serif italic text-accent font-normal accent-underline">Problem</span>
+            </h2>
+          </div>
         </Reveal>
 
         <div className="space-y-10 sm:space-y-12">
           <div>
-            <span className="text-fluid-mono uppercase tracking-widest text-[#888888] block mb-2 font-semibold">
+            <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted block mb-2 font-medium">
               The Core Engineering Question
             </span>
-            <h3 className="text-fluid-h2 font-bold text-[#0A0A0A] leading-tight max-w-4xl">
+            <h3 className="font-serif font-normal text-2xl sm:text-3xl lg:text-4xl text-[#111111] leading-tight max-w-4xl">
               {project.problem.question}
             </h3>
           </div>
 
           {/* Approach Card */}
-          <div className="p-6 sm:p-8 rounded-xl bg-white hard-shadow">
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAF8F5] border border-[#0A0A0A]/18 text-[#0A0A0A] font-mono text-xs font-semibold block mb-3 w-max">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-border-line hard-shadow">
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAF8F5] border border-border-line text-text-muted font-mono text-[11px] uppercase tracking-[0.08em] font-medium block mb-3 w-max">
               Approach
             </span>
-            <h4 className="text-fluid-h3 font-bold text-[#0A0A0A] mb-3">
+            <h4 className="font-serif font-normal text-xl sm:text-2xl text-[#111111] mb-3 leading-snug">
               {project.problem.approachHeading}
             </h4>
-            <p className="text-fluid-body text-[#555555] leading-relaxed">
+            <p className="font-sans text-base text-text-muted leading-relaxed font-normal">
               {project.problem.approachDetail}
             </p>
           </div>
@@ -318,15 +308,15 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
                 whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
-                className="p-5 sm:p-6 rounded-md bg-white hard-shadow"
+                className="p-5 sm:p-6 rounded-2xl bg-white border border-border-line hard-shadow"
               >
-                <span className="neo-sticker bg-[#F2ECE4] text-[#E5341B] font-bold block mb-3 w-max">
+                <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-medium text-accent bg-[#FFE8E5] px-2.5 py-0.5 rounded-full border border-accent/20 block mb-3 w-max">
                   {ch.id}
                 </span>
-                <h5 className="text-base font-bold text-[#0A0A0A] mb-2">
+                <h5 className="font-serif font-normal text-base sm:text-lg text-[#111111] mb-2 leading-snug">
                   {ch.title}
                 </h5>
-                <p className="text-fluid-small text-[#555555] leading-relaxed">
+                <p className="font-sans text-sm text-text-muted leading-relaxed font-normal">
                   {ch.desc}
                 </p>
               </motion.div>
@@ -335,25 +325,25 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
 
           {/* Target Users & Key Challenges: Stack on phones, 2 cols on >=768px */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-            <div className="p-6 sm:p-7 rounded-md bg-white hard-shadow">
-              <h4 className="text-base font-bold text-[#0A0A0A] mb-4">
+            <div className="p-6 sm:p-7 rounded-2xl bg-white border border-border-line hard-shadow">
+              <h4 className="font-serif font-normal text-xl sm:text-2xl text-[#111111] mb-4 leading-snug">
                 Target Users
               </h4>
-              <ul className="space-y-2.5 text-fluid-small text-[#555555]">
+              <ul className="space-y-2.5 font-sans text-sm text-text-muted">
                 {project.problem.users.map((u, i) => (
                   <li key={i} className="flex items-start gap-2.5">
-                    <span className="text-[#E5341B] font-bold select-none">・</span>
+                    <span className="text-accent font-medium select-none">・</span>
                     <span>{u}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="p-6 sm:p-7 rounded-md bg-white hard-shadow">
-              <h4 className="text-base font-bold text-[#0A0A0A] mb-4">
+            <div className="p-6 sm:p-7 rounded-2xl bg-white border border-border-line hard-shadow">
+              <h4 className="font-serif font-normal text-xl sm:text-2xl text-[#111111] mb-4 leading-snug">
                 Key Challenges Solved
               </h4>
-              <ul className="space-y-2.5 text-fluid-small text-[#555555]">
+              <ul className="space-y-2.5 font-sans text-sm text-text-muted">
                 {project.problem.keyChallenges.map((kc, i) => (
                   <li key={i} className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
@@ -369,22 +359,22 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
       {/* ============================================================
           03 SYSTEM ARCHITECTURE & WORKFLOW
           ============================================================ */}
-      <section className="section-padding border-t border-[#0A0A0A]/18 perspective-1200">
-        <Reveal className="flex items-baseline gap-4 mb-8 pb-5 border-b border-[#0A0A0A]/18">
-          <span className="text-fluid-mono text-[#E5341B] tracking-widest uppercase font-extrabold">
-            03
-          </span>
-          <h2 className="text-fluid-h2 font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
-            System Architecture
-          </h2>
+      <section className="section-padding border-t border-border-line perspective-1200">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 pb-5 border-b border-border-line gap-4">
+          <div className="space-y-3">
+            <EyebrowPill accent="03" text="ARCHITECTURE & PIPELINE" />
+            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
+              System <span className="font-serif italic text-accent font-normal accent-underline">Architecture</span>
+            </h2>
+          </div>
         </Reveal>
 
         <div className="space-y-10 sm:space-y-12">
           <div>
-            <h3 className="text-fluid-h2 font-bold text-[#0A0A0A] mb-2 leading-tight max-w-4xl">
+            <h3 className="font-serif font-normal text-2xl sm:text-3xl text-[#111111] mb-2 leading-tight max-w-4xl">
               {project.architecture.heading}
             </h3>
-            <p className="text-fluid-body text-[#666666]">
+            <p className="font-sans text-base text-text-muted font-normal">
               {project.architecture.subheading}
             </p>
           </div>
@@ -399,15 +389,15 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
                 whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
-                className="p-5 sm:p-6 rounded-md bg-white hard-shadow"
+                className="p-5 sm:p-6 rounded-2xl bg-white border border-border-line hard-shadow"
               >
-                <span className="text-fluid-mono uppercase tracking-wider text-[#888888] font-bold block mb-2 text-[11px]">
+                <span className="font-mono uppercase tracking-[0.08em] text-text-muted font-medium block mb-2 text-[11px]">
                   {ph.id}
                 </span>
-                <h5 className="text-base font-bold text-[#0A0A0A] mb-2">
+                <h5 className="font-serif font-normal text-base sm:text-lg text-[#111111] mb-2 leading-snug">
                   {ph.title}
                 </h5>
-                <p className="text-fluid-small text-[#555555] leading-relaxed">
+                <p className="font-sans text-sm text-text-muted leading-relaxed font-normal">
                   {ph.desc}
                 </p>
               </motion.div>
@@ -415,8 +405,8 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           </div>
 
           {/* Sequential Steps: 2 columns >=768px (step label | description), stacked on phones */}
-          <div className="p-6 sm:p-8 rounded-md bg-white hard-shadow divide-y divide-[#0A0A0A]/16 perspective-1200">
-            <h4 className="text-fluid-h3 font-bold text-[#0A0A0A] pb-5">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-border-line hard-shadow divide-y divide-border-line perspective-1200">
+            <h4 className="font-serif font-normal text-2xl sm:text-3xl text-[#111111] pb-5 leading-snug">
               Execution Pipeline Walkthrough
             </h4>
             {project.architecture.steps.map((st, idx) => (
@@ -437,15 +427,15 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 className="py-5 first:pt-5 last:pb-0 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-6 items-start origin-top preserve-3d"
               >
                 <div className="md:col-span-4">
-                  <span className="neo-sticker bg-[#F2ECE4] text-[#E5341B] font-bold block w-max">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-medium text-accent bg-[#FFE8E5] px-2.5 py-0.5 rounded-full border border-accent/20 block w-max">
                     {st.step}
                   </span>
-                  <h5 className="text-base font-bold text-[#0A0A0A] mt-2">
+                  <h5 className="font-serif font-normal text-base sm:text-lg text-[#111111] mt-2 leading-snug">
                     {st.title}
                   </h5>
                 </div>
                 <div className="md:col-span-8">
-                  <p className="text-fluid-body text-[#555555] leading-relaxed">
+                  <p className="font-sans text-sm sm:text-base text-text-muted leading-relaxed font-normal">
                     {st.desc}
                   </p>
                 </div>
@@ -458,22 +448,22 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
       {/* ============================================================
           04 IMPLEMENTATION & SAFEGUARDS
           ============================================================ */}
-      <section className="section-padding border-t border-[#0A0A0A]/18 perspective-1200">
-        <Reveal className="flex items-baseline gap-4 mb-8 pb-5 border-b border-[#0A0A0A]/18">
-          <span className="text-fluid-mono text-[#E5341B] tracking-widest uppercase font-extrabold">
-            04
-          </span>
-          <h2 className="text-fluid-h2 font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
-            Implementation & Safeguards
-          </h2>
+      <section className="section-padding border-t border-border-line perspective-1200">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 pb-5 border-b border-border-line gap-4">
+          <div className="space-y-3">
+            <EyebrowPill accent="04" text="PILLARS & SAFEGUARDS" />
+            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
+              Implementation & <span className="font-serif italic text-accent font-normal accent-underline">Safeguards</span>
+            </h2>
+          </div>
         </Reveal>
 
         <div className="space-y-8 sm:space-y-10">
           <div>
-            <h3 className="text-fluid-h2 font-bold text-[#0A0A0A] mb-2">
+            <h3 className="font-serif font-normal text-2xl sm:text-3xl text-[#111111] mb-2 leading-snug">
               {project.implementation.heading}
             </h3>
-            <p className="text-fluid-body text-[#666666]">
+            <p className="font-sans text-base text-text-muted font-normal">
               {project.implementation.subheading}
             </p>
           </div>
@@ -488,20 +478,20 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: idx * 0.1 }}
                 whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
-                className="p-6 sm:p-7 rounded-md bg-white hard-shadow flex flex-col justify-between"
+                className="p-6 sm:p-7 rounded-2xl bg-white border border-border-line hard-shadow flex flex-col justify-between"
               >
                 <div>
-                  <h4 className="text-base sm:text-lg font-bold text-[#0A0A0A] mb-2.5">
+                  <h4 className="font-serif font-normal text-xl sm:text-2xl text-[#111111] mb-2.5 leading-snug">
                     {pil.title}
                   </h4>
-                  <p className="text-fluid-small text-[#555555] leading-relaxed mb-5">
+                  <p className="font-sans text-sm text-text-muted leading-relaxed mb-5 font-normal">
                     {pil.desc}
                   </p>
                 </div>
-                <ul className="space-y-2 pt-4 border-t border-[#0A0A0A]/18">
+                <ul className="space-y-2 pt-4 border-t border-border-line">
                   {pil.points.map((pt, pIdx) => (
-                    <li key={pIdx} className="text-fluid-mono text-[#0A0A0A] flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#E5341B] shrink-0" />
+                    <li key={pIdx} className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#111111] flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
                       <span>{pt}</span>
                     </li>
                   ))}
@@ -515,19 +505,19 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
       {/* ============================================================
           05 IMPACT & LEARNINGS
           ============================================================ */}
-      <section className="section-padding border-t border-[#0A0A0A]/18 perspective-1200">
-        <Reveal className="flex items-baseline gap-4 mb-8 pb-5 border-b border-[#0A0A0A]/18">
-          <span className="text-fluid-mono text-[#E5341B] tracking-widest uppercase font-extrabold">
-            05
-          </span>
-          <h2 className="text-fluid-h2 font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
-            Impact & Learnings
-          </h2>
+      <section className="section-padding border-t border-border-line perspective-1200">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 pb-5 border-b border-border-line gap-4">
+          <div className="space-y-3">
+            <EyebrowPill accent="05" text="RESULTS & METRICS" />
+            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
+              Impact & <span className="font-serif italic text-accent font-normal accent-underline">Learnings</span>
+            </h2>
+          </div>
         </Reveal>
 
         <div className="space-y-10 sm:space-y-12">
           <div>
-            <h3 className="text-fluid-h2 font-bold text-[#0A0A0A] mb-6">
+            <h3 className="font-serif font-normal text-2xl sm:text-3xl text-[#111111] mb-6 leading-snug">
               {project.impact.heading}
             </h3>
 
@@ -545,12 +535,12 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
-                  className="p-6 sm:p-7 rounded-md bg-white hard-shadow text-center"
+                  className="p-6 sm:p-7 rounded-2xl bg-white border border-border-line hard-shadow text-center"
                 >
-                  <p className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0A0A0A] mb-2 tracking-tight">
+                  <p className="font-serif font-normal text-4xl sm:text-5xl lg:text-6xl text-[#111111] mb-2 tracking-tight">
                     {m.value}
                   </p>
-                  <p className="text-fluid-mono text-[#666666] uppercase tracking-wider font-semibold">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted font-medium">
                     {m.label}
                   </p>
                 </motion.div>
@@ -560,11 +550,11 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
 
           {/* Outcomes & Architectural Learnings: Stack below 1024px */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-            <div className="p-6 sm:p-7 rounded-md bg-white hard-shadow">
-              <h4 className="text-fluid-h3 font-bold text-[#0A0A0A] mb-4">
+            <div className="p-6 sm:p-7 rounded-2xl bg-white border border-border-line hard-shadow">
+              <h4 className="font-serif font-normal text-2xl sm:text-3xl text-[#111111] mb-4 leading-snug">
                 Key Production Outcomes
               </h4>
-              <ul className="space-y-3 text-fluid-body text-[#555555]">
+              <ul className="space-y-3 font-sans text-sm text-text-muted">
                 {project.impact.outcomes.map((o, idx) => (
                   <li key={idx} className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-1" />
@@ -574,17 +564,17 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
               </ul>
             </div>
 
-            <div className="p-6 sm:p-7 rounded-md bg-white hard-shadow">
-              <h4 className="text-fluid-h3 font-bold text-[#0A0A0A] mb-4">
+            <div className="p-6 sm:p-7 rounded-2xl bg-white border border-border-line hard-shadow">
+              <h4 className="font-serif font-normal text-2xl sm:text-3xl text-[#111111] mb-4 leading-snug">
                 Architectural Learnings
               </h4>
               <div className="space-y-4">
                 {project.impact.learnings.map((lrn, idx) => (
                   <div key={idx}>
-                    <h5 className="text-base font-bold text-[#0A0A0A] mb-1">
+                    <h5 className="font-serif font-normal text-base sm:text-lg text-[#111111] mb-1 leading-snug">
                       {lrn.title}
                     </h5>
-                    <p className="text-fluid-small text-[#555555] leading-relaxed">
+                    <p className="font-sans text-sm text-text-muted leading-relaxed font-normal">
                       {lrn.desc}
                     </p>
                   </div>
@@ -598,7 +588,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
       {/* ============================================================
           NEXT PROJECT CALLOUT CARD
           ============================================================ */}
-      <section className="section-padding border-t border-[#0A0A0A]/18 perspective-1200">
+      <section className="section-padding border-t border-border-line perspective-1200">
         <Link
           ref={nextCardRef}
           href={`/work/${project.nextProject.slug}`}
@@ -610,21 +600,21 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 ? "none"
                 : `rotateX(${nextTilt.x}deg) rotateY(${nextTilt.y}deg)`,
           }}
-          className="group block p-6 sm:p-10 lg:p-12 rounded-md bg-white hard-shadow transition-transform duration-100 ease-out will-change-transform min-h-[48px]"
+          className="group block p-6 sm:p-10 lg:p-12 rounded-2xl bg-white border border-border-line hard-shadow transition-transform duration-100 ease-out will-change-transform min-h-[48px]"
         >
-          <span className="neo-sticker bg-[#F2ECE4] text-[#666666] font-bold block mb-3 w-max">
+          <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-medium text-text-muted block mb-3 w-max">
             Next Project
           </span>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5">
             <div className="min-w-0">
-              <h3 className="text-fluid-h2 font-extrabold text-[#0A0A0A] group-hover:text-[#E5341B] transition-colors leading-tight mb-2 break-words">
+              <h3 className="font-serif font-normal text-fluid-h2 text-[#111111] group-hover:text-accent transition-colors leading-tight mb-2 break-words">
                 {project.nextProject.title}
               </h3>
-              <span className="text-fluid-mono text-[#666666]">
+              <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted">
                 {project.nextProject.category}
               </span>
             </div>
-            <div className="w-12 h-12 rounded-full bg-[#FAF3EE] flex items-center justify-center shrink-0 group-hover:bg-[#0A0A0A] group-hover:text-white transition-all duration-200">
+            <div className="w-12 h-12 rounded-full bg-[#FAF3EE] border border-border-line flex items-center justify-center shrink-0 group-hover:bg-[#111111] group-hover:text-white transition-all duration-200">
               <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 animate-pulse" />
             </div>
           </div>

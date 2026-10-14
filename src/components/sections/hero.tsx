@@ -6,6 +6,8 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { SnapshotCard } from "./snapshot-card";
 import { LiveSignalField } from "@/components/canvas/live-signal-field";
 
+import { EyebrowPill } from "@/components/ui/eyebrow-pill";
+
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
   const [scrollY, setScrollY] = useState(0);
@@ -57,14 +59,6 @@ export function Hero() {
   };
 
   const headlineParallaxY = shouldReduceMotion || isMobile ? 0 : scrollY * 0.06;
-  const infoParallaxY = shouldReduceMotion || isMobile ? 0 : -scrollY * 0.08;
-
-  const headlineLines = [
-    { text: "Applied ", hasAI: true, endText: "" },
-    { text: "engineering", hasAI: false, endText: "" },
-    { text: "for systems", hasAI: false, endText: "" },
-    { text: "that make sense", hasAI: false, endText: "" },
-  ];
 
   const lineVariants3D = {
     hidden: {
@@ -100,7 +94,7 @@ export function Hero() {
       <LiveSignalField className="z-0" />
 
       {/* Ambient Atmospheric Lighting Highlights */}
-      <div className="pointer-events-none absolute top-1/2 right-[5%] -translate-y-1/2 w-[480px] h-[480px] rounded-full bg-gradient-to-tr from-[#E5341B]/6 via-[#E5341B]/3 to-transparent blur-3xl opacity-75" />
+      <div className="pointer-events-none absolute top-1/2 right-[5%] -translate-y-1/2 w-[480px] h-[480px] rounded-full bg-gradient-to-tr from-[#E8472B]/6 via-[#E8472B]/3 to-transparent blur-3xl opacity-75" />
       <div className="pointer-events-none absolute top-1/4 left-[5%] w-[420px] h-[420px] rounded-full bg-gradient-to-br from-white/60 to-transparent blur-2xl opacity-60" />
 
       {/* Main Content Area */}
@@ -114,67 +108,85 @@ export function Hero() {
             }}
           >
             <div className="w-full flex flex-col items-start">
-              {/* 1. Refined Badges with animated entry */}
+              {/* 1. Eyebrow Pill */}
               <motion.div
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-                style={{ marginBottom: "0.75rem" }}
-                className="flex flex-wrap items-center gap-2.5 sm:gap-3"
+                style={{ marginBottom: "1rem" }}
               >
-                <span className="inline-flex items-center px-3 py-1 rounded-full bg-white border border-[#0A0A0A]/18 text-[#0A0A0A] font-mono text-xs font-semibold shadow-xs">
-                  PORTFOLIO &apos;26
-                </span>
-                <span className="text-[#888888] font-mono text-xs">/</span>
-                <span className="font-mono text-xs text-[#666666] font-semibold tracking-wide uppercase">
-                  Applied AI &amp; Full-Stack
-                </span>
+                <EyebrowPill accent="PORTFOLIO '26" text="APPLIED AI & FULL-STACK SYSTEMS" />
               </motion.div>
 
-              {/* 2. H1: Proportionally scaled Headline matching other pages */}
+              {/* 2. H1: Editorial Instrument Serif, 400 regular weight, tight line-height, slightly negative letter-spacing */}
               <h1
-                style={{ marginBottom: "0.75rem" }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.75rem] xl:text-[4.25rem] font-extrabold tracking-[-0.04em] text-[#0A0A0A] select-none preserve-3d leading-[1.04]"
+                style={{ marginBottom: "1.25rem" }}
+                className="font-serif font-normal text-fluid-hero text-[#111111] select-none preserve-3d leading-[1.02] tracking-[-0.02em]"
               >
-                {headlineLines.map((line, idx) => (
-                  <div
-                    key={idx}
-                    className="overflow-visible perspective-1200"
+                <div className="overflow-visible perspective-1200">
+                  <motion.div
+                    custom={0}
+                    variants={lineVariants3D}
+                    initial="hidden"
+                    animate="visible"
+                    className="inline-block origin-bottom will-change-transform"
                   >
-                    <motion.div
-                      custom={idx}
-                      variants={lineVariants3D}
-                      initial="hidden"
-                      animate="visible"
-                      className="inline-block origin-bottom will-change-transform"
-                    >
-                      <span className="break-words">{line.text}</span>
-                      {line.hasAI && (
-                        <span className="marker-highlight in-view font-extrabold mx-1">
-                          AI
-                        </span>
-                      )}
-                      {line.endText && <span className="break-words">{line.endText}</span>}
-                    </motion.div>
-                  </div>
-                ))}
+                    <span>Applied </span>
+                    <span className="font-serif italic text-accent font-normal">AI </span>
+                  </motion.div>
+                </div>
+                <div className="overflow-visible perspective-1200">
+                  <motion.div
+                    custom={1}
+                    variants={lineVariants3D}
+                    initial="hidden"
+                    animate="visible"
+                    className="inline-block origin-bottom will-change-transform"
+                  >
+                    <span className="font-serif italic text-accent font-normal accent-underline">
+                      engineering
+                    </span>
+                  </motion.div>
+                </div>
+                <div className="overflow-visible perspective-1200">
+                  <motion.div
+                    custom={2}
+                    variants={lineVariants3D}
+                    initial="hidden"
+                    animate="visible"
+                    className="inline-block origin-bottom will-change-transform"
+                  >
+                    <span>for systems</span>
+                  </motion.div>
+                </div>
+                <div className="overflow-visible perspective-1200">
+                  <motion.div
+                    custom={3}
+                    variants={lineVariants3D}
+                    initial="hidden"
+                    animate="visible"
+                    className="inline-block origin-bottom will-change-transform"
+                  >
+                    <span>that make sense</span>
+                  </motion.div>
+                </div>
               </h1>
 
-              {/* 3. Subtitle with editorial layout indicator and clean typography */}
+              {/* 3. Subtitle / Intro blockquote style with 2px solid accent vertical line */}
               <motion.div
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.38, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-                style={{ marginBottom: "1.25rem" }}
-                className="border-l-2 border-[#E5341B]/80 pl-3.5 sm:pl-4 max-w-xl"
+                style={{ marginBottom: "1.5rem" }}
+                className="lead-intro"
               >
-                <p className="text-sm sm:text-base md:text-lg text-[#555555] font-normal leading-relaxed">
+                <p>
                   I’m an engineer who makes complex things feel obvious — turning AI ideas into web apps people can actually use.
                 </p>
               </motion.div>
             </div>
 
-            {/* 4. Action Buttons (min 48px height, wrap on mobile) */}
+            {/* 4. Action Buttons (Inter 14px weight 500) */}
             <motion.div
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -189,7 +201,7 @@ export function Hero() {
                 style={{
                   transform: `translate3d(${btnOffset.x}px, ${btnOffset.y}px, 0)`,
                 }}
-                className="neo-black-btn min-h-[48px] px-7 sm:px-8 text-sm sm:text-base font-semibold gap-2.5 active:scale-[0.97] w-full sm:w-auto"
+                className="neo-black-btn min-h-[48px] px-7 sm:px-8 font-sans text-[14px] font-medium gap-2.5 active:scale-[0.97] w-full sm:w-auto"
               >
                 <span>Explore Work</span>
                 <ArrowRight className="w-4 h-4 shrink-0" />
@@ -197,11 +209,11 @@ export function Hero() {
 
               <a
                 href="/#contact"
-                className="group relative inline-flex items-center justify-center min-h-[48px] px-4 text-sm sm:text-base font-semibold text-[#0A0A0A] hover:text-[#E5341B] transition-colors duration-200"
+                className="group relative inline-flex items-center justify-center min-h-[48px] px-4 font-sans text-[14px] font-medium text-[#111111] hover:text-[#E8472B] transition-colors duration-200"
               >
                 <span>Get in touch</span>
                 <ArrowUpRight className="w-4 h-4 ml-1.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                <span className="absolute bottom-2 left-4 right-4 h-[2px] bg-[#E5341B] scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100" />
+                <span className="absolute bottom-2 left-4 right-4 h-[2px] bg-[#E8472B] scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100" />
               </a>
             </motion.div>
           </div>

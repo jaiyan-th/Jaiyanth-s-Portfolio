@@ -7,6 +7,8 @@ import { ArrowUpRight, GraduationCap } from "lucide-react";
 import { IDENTITY } from "@/data/content";
 import { Reveal } from "@/components/ui/reveal";
 
+import { EyebrowPill } from "@/components/ui/eyebrow-pill";
+
 export function About() {
   const shouldReduceMotion = useReducedMotion();
   const photoContainerRef = useRef<HTMLDivElement>(null);
@@ -20,15 +22,15 @@ export function About() {
     return () => window.removeEventListener("resize", check);
   }, []);
 
-  // 3D Tilt toward cursor for portrait photograph (max 8deg, disabled below 768px & reduced motion)
+  // 3D Tilt toward cursor for portrait photograph
   const handlePhotoMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (isMobile || shouldReduceMotion || !photoContainerRef.current) return;
     const rect = photoContainerRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
     setPhotoTilt({
-      x: -y * 8, // rotateX
-      y: x * 8,  // rotateY
+      x: -y * 8,
+      y: x * 8,
     });
   };
 
@@ -60,27 +62,35 @@ export function About() {
     <section
       id="about"
       aria-label="01 About Jaiyanth B"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#0A0A0A]/18 bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#E5E5E5] bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
     >
       <div className="site-container">
-        {/* Section Header with Reusable Reveal: On phones stack right label under title */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#0A0A0A]/18 gap-2">
-          <div className="flex items-baseline gap-3 sm:gap-4">
-            <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-[#E5341B]/10 border border-[#E5341B]/30 text-[#E5341B] font-mono text-xs font-bold tracking-wider">
-              01
-            </span>
-            <h2 className="text-fluid-h2 font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
-              About
+        {/* Section Header with Eyebrow Pill and Instrument Serif H2 */}
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#E5E5E5] gap-4">
+          <div className="flex flex-col gap-3">
+            <EyebrowPill accent="ABOUT" text="BACKGROUND & VALUES" />
+            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
+              About{" "}
+              <span className="font-serif italic text-accent font-normal accent-underline">
+                Jaiyanth B
+              </span>
             </h2>
           </div>
-          <span className="text-fluid-mono uppercase tracking-widest text-[#666666]">
-            Background, Story & Engineering Values
+          <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#555555]">
+            Background, Story &amp; Values
           </span>
         </Reveal>
 
+        {/* Section Intro Paragraph with 2px solid accent left vertical line */}
+        <div className="lead-intro mb-10 sm:mb-14">
+          <p>
+            Building systems where applied AI meets production reliability, context-grounded retrieval pipelines, and verifiable data provenance.
+          </p>
+        </div>
+
         {/* Main Content Grid: On <1024px, photo stacks FIRST */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-16 items-start">
-          {/* Photo Column: 2/5 on desktop, on smaller screens photo is FIRST at max 420px */}
+          {/* Photo Column: 2/5 on desktop */}
           <div className="lg:col-span-5 order-1 lg:order-2 flex items-center justify-center w-full perspective-1200">
             <div
               ref={photoContainerRef}
@@ -91,7 +101,7 @@ export function About() {
               {/* Hard Offset Shadow Plate */}
               <div
                 aria-hidden="true"
-                className="absolute inset-0 rounded-2xl bg-[#0A0A0A]/15 transition-transform duration-150 ease-out"
+                className="absolute inset-0 rounded-2xl bg-[#111111]/10 transition-transform duration-150 ease-out"
                 style={{
                   transform:
                     isMobile || shouldReduceMotion
@@ -102,7 +112,7 @@ export function About() {
 
               {/* Photo Card with 3D Tilt Toward Cursor */}
               <div
-                className="relative w-full h-full overflow-hidden rounded-2xl bg-[#F5F3EE] transition-transform duration-100 ease-out will-change-transform shadow-[6px_6px_0_rgba(17,17,17,0.12)] border border-[#0A0A0A]/10 group-hover:border-[#0A0A0A]"
+                className="relative w-full h-full overflow-hidden rounded-2xl bg-[#F5F3EE] transition-transform duration-100 ease-out will-change-transform shadow-[6px_6px_0_rgba(17,17,17,0.08)] border border-[#E5E5E5] group-hover:border-[#111111]"
                 style={{
                   transform:
                     isMobile || shouldReduceMotion
@@ -123,7 +133,7 @@ export function About() {
                 <div className="pointer-events-none absolute -inset-full bg-gradient-to-tr from-transparent via-white/20 to-transparent rotate-45 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out" />
               </div>
 
-              {/* Floating Glass Badges */}
+              {/* Floating Glass Badges (Mono 11px uppercase) */}
               <motion.div
                 initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.8, x: -16 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
@@ -131,7 +141,7 @@ export function About() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="absolute -top-3 -left-3 z-20 pointer-events-none"
               >
-                <span className="backdrop-blur-md bg-white/95 border border-[#0A0A0A]/20 text-[#0A0A0A] font-mono text-xs font-semibold px-3.5 py-1 rounded-full shadow-md inline-block">
+                <span className="backdrop-blur-md bg-white/95 border border-[#E5E5E5] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium px-3.5 py-1 rounded-full shadow-sm inline-block">
                   B.TECH CSBS &apos;26
                 </span>
               </motion.div>
@@ -143,34 +153,34 @@ export function About() {
                 transition={{ duration: 0.5, delay: 0.35 }}
                 className="absolute -bottom-3 -right-3 z-20 pointer-events-none"
               >
-                <span className="backdrop-blur-md bg-white/95 border border-[#0A0A0A]/20 text-[#0A0A0A] font-mono text-xs font-semibold px-3.5 py-1 rounded-full shadow-md gap-2 inline-flex items-center">
-                  <span className="w-2 h-2 rounded-full bg-[#E5341B] animate-pulse" />
+                <span className="backdrop-blur-md bg-white/95 border border-[#E5E5E5] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium px-3.5 py-1 rounded-full shadow-sm gap-2 inline-flex items-center">
+                  <span className="w-2 h-2 rounded-full bg-[#E8472B] animate-pulse" />
                   IEEE CO-AUTHOR
                 </span>
               </motion.div>
             </div>
           </div>
 
-          {/* Text Column: 3/5 on desktop, order-2 on smaller screens */}
+          {/* Text Column: 3/5 on desktop */}
           <div className="lg:col-span-7 order-2 lg:order-1 flex flex-col justify-between preserve-3d">
             <div>
               {/* Category Eyebrow */}
               <div className="mb-4">
-                <span className="px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#0A0A0A]/18 text-[#0A0A0A] font-mono text-xs font-semibold inline-block">
+                <span className="px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E5E5E5] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium inline-block">
                   ENGINEERING PHILOSOPHY
                 </span>
               </div>
 
-              {/* Large Headline with animated underline */}
-              <h3 className="text-fluid-h3 font-extrabold tracking-[-0.03em] text-[#0A0A0A] leading-tight mb-6">
+              {/* Card Headline: Serif with italic accent */}
+              <h3 className="font-serif font-normal text-fluid-h3 text-[#111111] leading-tight mb-6">
                 Building systems where{" "}
-                <span className="marker-highlight in-view font-extrabold">applied AI</span>{" "}
+                <span className="font-serif italic text-accent font-normal">applied AI</span>{" "}
                 meets production reliability and verifiable data provenance.
               </h3>
 
-              {/* Staggered Paragraphs rising with rotateX(20deg) */}
-              <div className="p-6 sm:p-7 rounded-2xl bg-white/90 backdrop-blur-sm border border-[#0A0A0A]/18 shadow-xs mb-8 space-y-4 sm:space-y-5 text-fluid-body text-[#555555] leading-relaxed font-normal perspective-1200 relative overflow-hidden">
-                <div className="absolute top-0 left-0 bottom-0 w-1 bg-gradient-to-b from-[#E5341B] via-[#E5341B]/40 to-transparent" />
+              {/* Staggered Paragraphs: Inter, muted gray */}
+              <div className="p-6 sm:p-7 rounded-2xl bg-white/90 backdrop-blur-sm border border-[#E5E5E5] shadow-xs mb-8 space-y-4 sm:space-y-5 font-sans text-[15px] text-[#555555] leading-relaxed font-normal perspective-1200 relative overflow-hidden">
+                <div className="absolute top-0 left-0 bottom-0 w-1 bg-gradient-to-b from-[#E8472B] via-[#E8472B]/40 to-transparent" />
                 <motion.p
                   custom={0}
                   variants={paragraphVariants}
@@ -200,7 +210,7 @@ export function About() {
                 </motion.p>
               </div>
 
-              {/* Education Credential: Slides in from left on Z axis */}
+              {/* Education Credential Card */}
               <motion.div
                 initial={
                   shouldReduceMotion || isMobile
@@ -211,40 +221,41 @@ export function About() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={shouldReduceMotion || isMobile ? {} : { y: -3, scale: 1.01 }}
-                className="group flex items-start gap-4 mb-8 p-5 sm:p-6 rounded-xl bg-white border border-[#0A0A0A]/18 shadow-sm hover:shadow-md hover:border-[#0A0A0A]/35 transition-all duration-200"
+                className="group flex items-start gap-4 mb-8 p-5 sm:p-6 rounded-xl bg-white border border-[#E5E5E5] shadow-sm hover:shadow-md hover:border-[#111111]/30 transition-all duration-200"
               >
-                <div className="w-10 h-10 rounded-lg bg-[#0A0A0A] flex items-center justify-center text-white shrink-0 mt-0.5 group-hover:scale-110 group-hover:bg-[#E5341B] transition-all duration-200 shadow-sm">
+                <div className="w-10 h-10 rounded-lg bg-[#111111] flex items-center justify-center text-white shrink-0 mt-0.5 group-hover:scale-110 group-hover:bg-[#E8472B] transition-all duration-200 shadow-sm">
                   <GraduationCap className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
-                    <span className="text-fluid-mono uppercase tracking-wider text-[#E5341B] font-bold">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#E8472B] font-medium">
                       Education
                     </span>
-                    <span className="text-fluid-mono text-[#666666] font-semibold">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#555555] font-medium">
                       2022 – 2026
                     </span>
                   </div>
-                  <h4 className="text-fluid-small font-bold text-[#0A0A0A] mb-1 group-hover:text-[#E5341B] transition-colors">
-                    B.Tech in Computer Science & Business Systems
+                  <h4 className="font-serif font-normal text-xl sm:text-[22px] text-[#111111] mb-1 group-hover:text-[#E8472B] transition-colors">
+                    B.Tech in Computer Science &amp;{" "}
+                    <span className="font-serif italic text-accent font-normal">Business Systems</span>
                   </h4>
-                  <p className="text-fluid-small text-[#666666] leading-relaxed">
+                  <p className="font-sans text-[14px] text-[#555555] leading-relaxed">
                     Specializing in Applied AI systems, full-stack product engineering, and secure data architectures.
                   </p>
                 </div>
               </motion.div>
             </div>
 
-            {/* Allowed Outlined Pill Buttons with --space-1 gap */}
+            {/* Outlined Pill Buttons (Inter 14px weight 500) */}
             <div
               style={{ gap: "var(--space-1)" }}
-              className="flex flex-wrap items-center pt-6 border-t border-[#0A0A0A]/18"
+              className="flex flex-wrap items-center pt-6 border-t border-[#E5E5E5]"
             >
               <a
                 href={IDENTITY.github}
                 target="_blank"
                 rel="noreferrer"
-                className="neo-pill-btn px-6 py-2.5 text-sm sm:text-base group"
+                className="neo-pill-btn px-6 py-2.5 font-sans text-[14px] font-medium group"
               >
                 <span>GitHub Profile</span>
                 <ArrowUpRight className="w-4 h-4 ml-1.5 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -254,7 +265,7 @@ export function About() {
                 href={IDENTITY.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="neo-pill-btn px-6 py-2.5 text-sm sm:text-base"
+                className="neo-pill-btn px-6 py-2.5 font-sans text-[14px] font-medium"
               >
                 <span>LinkedIn</span>
                 <ArrowUpRight className="w-4 h-4 ml-1.5 shrink-0" />

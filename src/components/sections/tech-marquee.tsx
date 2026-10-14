@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { useReducedMotion } from "motion/react";
 import { TECH_MARQUEE } from "@/data/content";
 import { Reveal } from "@/components/ui/reveal";
+import { EyebrowPill } from "@/components/ui/eyebrow-pill";
 
 export function TechMarquee() {
   const shouldReduceMotion = useReducedMotion();
@@ -127,29 +128,31 @@ export function TechMarquee() {
     <section
       id="tech"
       aria-label="06 Previously trusted by / Stack"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#0A0A0A]/18 overflow-hidden bg-transparent scroll-mt-16 perspective-1200"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-border-line overflow-hidden bg-transparent scroll-mt-16 perspective-1200"
     >
       <div className="site-container mb-6 sm:mb-10">
-        {/* Section Header: On phones stack right label under title */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-5 border-b border-[#0A0A0A]/18 gap-2">
-          <div className="flex items-baseline gap-3 sm:gap-4">
-            <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-[#E5341B]/10 border border-[#E5341B]/30 text-[#E5341B] font-mono text-xs font-bold tracking-wider">
-              06
-            </span>
-            <h2 className="text-fluid-h2 font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
-              Previously trusted by / Core Stack
+        {/* Section Header */}
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-6 border-b border-border-line gap-4">
+          <div className="space-y-3">
+            <EyebrowPill accent="CORE STACK" text="TRUSTED ARCHITECTURES & TOOLING" />
+            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
+              Previously Trusted By / <span className="font-serif italic text-accent font-normal accent-underline">Core Stack</span>
             </h2>
           </div>
-          <span className="text-fluid-mono uppercase tracking-widest text-[#666666]">
+          <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted">
             Applied AI & Full-Stack Tooling
           </span>
         </Reveal>
+
+        <p className="lead-intro font-sans text-base sm:text-lg text-text-muted leading-relaxed max-w-[60ch] mt-6">
+          High-throughput vector search, deterministic pipeline execution, and reactive user interfaces built with battle-tested frameworks.
+        </p>
       </div>
 
       {/* Highlighted Ribbon Marquee Container */}
       <div
         ref={containerRef}
-        className="relative w-full overflow-hidden group py-6 sm:py-8 select-none bg-white/70 backdrop-blur-sm border-y border-[#0A0A0A]/18 shadow-xs"
+        className="relative w-full overflow-hidden group py-6 sm:py-8 select-none bg-white/70 backdrop-blur-sm border-y border-border-line shadow-xs"
       >
         {/* Edge Gradient Masks */}
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 lg:w-48 z-10 bg-gradient-to-r from-[var(--canvas)] to-transparent" />
@@ -166,15 +169,15 @@ export function TechMarquee() {
               ref={(el) => {
                 itemsRef.current[idx] = el;
               }}
-              className="mx-2 sm:mx-3.5 lg:mx-4 flex items-center gap-2 sm:gap-2.5 px-4 py-2 rounded-full bg-[#FAF8F5] border border-[#0A0A0A]/18 hover:border-[#0A0A0A] hover:bg-white hover:shadow-sm cursor-default select-none will-change-transform origin-center transition-all duration-200 group/chip"
+              className="mx-2 sm:mx-3.5 lg:mx-4 flex items-center gap-2 sm:gap-2.5 px-4 py-2 rounded-full bg-[#FAF8F5] border border-border-line hover:border-[#111111] hover:bg-white hover:shadow-sm cursor-default select-none will-change-transform origin-center transition-all duration-200 group/chip"
             >
-              <span className="font-bold text-fluid-body tracking-tight text-[#0A0A0A] group-hover/chip:text-[#E5341B] transition-colors">
+              <span className="font-sans font-medium text-sm text-[#111111] group-hover/chip:text-accent transition-colors">
                 {item.name}
               </span>
-              <span className="text-fluid-mono uppercase tracking-wider text-[#888888] font-medium text-xs">
+              <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted">
                 /{item.category}
               </span>
-              <span className="text-[#E5341B]/40 ml-2 group-hover/chip:text-[#E5341B] group-hover/chip:rotate-90 font-mono text-xs sm:text-sm select-none transition-transform duration-300">✦</span>
+              <span className="text-accent/50 ml-2 group-hover/chip:text-accent group-hover/chip:rotate-90 font-mono text-xs select-none transition-transform duration-300">✦</span>
             </div>
           ))}
         </div>

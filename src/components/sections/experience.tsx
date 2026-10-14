@@ -6,6 +6,8 @@ import { Briefcase, Cpu, Terminal, Code2 } from "lucide-react";
 import { EXPERIENCE } from "@/data/portfolio";
 import { Reveal } from "@/components/ui/reveal";
 
+import { EyebrowPill } from "@/components/ui/eyebrow-pill";
+
 export function Experience() {
   const shouldReduceMotion = useReducedMotion();
   const [isMobile, setIsMobile] = useState(false);
@@ -62,18 +64,36 @@ export function Experience() {
     {
       icon: Cpu,
       title: "RAG & Vector Retrieval",
+      renderTitle: () => (
+        <>
+          RAG &amp; Vector{" "}
+          <span className="font-serif italic text-accent font-normal">Retrieval</span>
+        </>
+      ),
       description:
         "Engineered end-to-end vector retrieval pipelines for fast, grounded semantic querying with sub-second latency budgets.",
     },
     {
       icon: Terminal,
       title: "LLM Reasoning & Chains",
+      renderTitle: () => (
+        <>
+          LLM Reasoning &amp;{" "}
+          <span className="font-serif italic text-accent font-normal">Chains</span>
+        </>
+      ),
       description:
         "Structured multi-turn reasoning workflows with deterministic JSON schema validation, retry policies, and guardrails.",
     },
     {
       icon: Code2,
       title: "Production REST APIs",
+      renderTitle: () => (
+        <>
+          Production REST{" "}
+          <span className="font-serif italic text-accent font-normal">APIs</span>
+        </>
+      ),
       description:
         "Integrated backend endpoints with strict contract validation, defensive exception handling, and automated test suites.",
     },
@@ -93,49 +113,60 @@ export function Experience() {
     <section
       id="experience"
       aria-label="03 Work Experience & Internship"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#0A0A0A]/18 bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#E5E5E5] bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
     >
       <div className="site-container">
-        {/* Section Header: On phones stack right label under title */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#0A0A0A]/18 gap-2">
-          <div className="flex items-baseline gap-3 sm:gap-4">
-            <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-[#E5341B]/10 border border-[#E5341B]/30 text-[#E5341B] font-mono text-xs font-bold tracking-wider">
-              03
-            </span>
-            <h2 className="text-fluid-h2 font-extrabold tracking-[-0.03em] text-[#0A0A0A] section-draw-line">
-              Experience
+        {/* Section Header with Eyebrow Pill and Instrument Serif H2 */}
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#E5E5E5] gap-4">
+          <div className="flex flex-col gap-3">
+            <EyebrowPill accent="EXPERIENCE" text="WHERE I'VE BUILT" />
+            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
+              Work{" "}
+              <span className="font-serif italic text-accent font-normal accent-underline">
+                Experience
+              </span>
             </h2>
           </div>
-          <span className="text-fluid-mono uppercase tracking-widest text-[#666666]">
-            Applied AI & Industry Internship
+          <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#555555]">
+            Applied AI &amp; Industry Internship
           </span>
         </Reveal>
 
+        {/* Section Intro Paragraph with 2px solid accent left vertical line */}
+        <div className="lead-intro mb-10 sm:mb-14">
+          <p>
+            Shipped applied-AI prototypes that needed to work reliably in production environments, not just in demos. Focused on vector RAG pipelines, multi-turn reasoning workflows with strict JSON validation, and clean RESTful API integrations.
+          </p>
+        </div>
+
         {/* Experience Content wrapped in elevated Stage Card */}
-        <div className="w-full rounded-2xl bg-white border border-[#0A0A0A]/18 p-6 sm:p-10 shadow-sm relative overflow-hidden transition-all duration-300 hover:shadow-md hover:border-[#0A0A0A]/35 preserve-3d">
+        <div className="w-full rounded-2xl bg-white border border-[#E5E5E5] p-6 sm:p-10 shadow-sm relative overflow-hidden transition-all duration-300 hover:shadow-md hover:border-[#111111]/30 preserve-3d">
           {/* Subtle Top Red Accent Line */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E5341B] via-[#E5341B]/40 to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E8472B] via-[#E8472B]/40 to-transparent" />
 
           {/* Card Top: Company, Role, Period & Status */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-[#E5E5E5]">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <Briefcase className="w-4 h-4 text-[#E5341B] shrink-0" />
-                <span className="inline-flex items-center px-3 py-0.5 rounded-full bg-[#FAF8F5] border border-[#0A0A0A]/15 text-[#0A0A0A] font-mono text-xs font-semibold">
+                <Briefcase className="w-4 h-4 text-[#E8472B] shrink-0" />
+                <span className="inline-flex items-center px-3 py-0.5 rounded-full bg-[#FAF8F5] border border-[#E5E5E5] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium">
                   {EXPERIENCE.organisation}
                 </span>
-                <span className="text-[#666666] text-fluid-mono font-medium">· Coimbatore, India</span>
+                <span className="text-[#555555] font-mono text-[11px] uppercase tracking-[0.08em]">
+                  · Coimbatore, India
+                </span>
               </div>
-              <h3 className="text-fluid-h3 font-extrabold tracking-[-0.02em] text-[#0A0A0A]">
-                {EXPERIENCE.role}
+              <h3 className="font-serif font-normal text-2xl sm:text-3xl text-[#111111] leading-snug">
+                Artificial Intelligence Intern — Brainery Spot{" "}
+                <span className="font-serif italic text-accent font-normal">Technology</span>
               </h3>
             </div>
 
-            <div className="flex items-center gap-4 text-fluid-mono">
-              <span className="text-[#666666] font-medium">
+            <div className="flex items-center gap-4 font-mono text-[11px] uppercase tracking-[0.08em]">
+              <span className="text-[#555555]">
                 {EXPERIENCE.period}
               </span>
-              <span className="inline-flex items-center gap-1.5 font-bold text-[#0A0A0A]">
+              <span className="inline-flex items-center gap-1.5 font-medium text-[#111111]">
                 <span className="w-2 h-2 rounded-full bg-[#1FB866] animate-pulse" />
                 Completed
               </span>
@@ -143,11 +174,11 @@ export function Experience() {
           </div>
 
           {/* Narrative */}
-          <p className="text-fluid-body text-[#555555] leading-relaxed mb-8 sm:mb-10 max-w-4xl font-normal">
+          <p className="font-sans text-[15px] text-[#555555] leading-relaxed mb-8 sm:mb-10 max-w-4xl font-normal">
             Shipped applied-AI prototypes that needed to work reliably in production environments, not just in demos. Focused on vector RAG pipelines, multi-turn reasoning workflows with strict JSON validation, and clean RESTful API integrations.
           </p>
 
-          {/* 3 Skill Columns: 1 column on phones, 3 columns on tablet/desktop */}
+          {/* 3 Skill Columns */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-14 perspective-1200">
             {focusAreas.map((area, idx) => {
               const Icon = area.icon;
@@ -167,26 +198,28 @@ export function Experience() {
                     ease: [0.22, 1, 0.36, 1],
                   }}
                   whileHover={shouldReduceMotion || isMobile ? {} : { y: -5, scale: 1.015 }}
-                  className="group p-6 rounded-xl bg-white border border-[#0A0A0A]/16 hover:border-[#0A0A0A]/40 shadow-sm hover:shadow-lg flex flex-col justify-between transition-all duration-300 cursor-default"
+                  className="group p-6 rounded-xl bg-white border border-[#E5E5E5] hover:border-[#111111]/30 shadow-sm hover:shadow-lg flex flex-col justify-between transition-all duration-300 cursor-default"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3.5">
-                      <div className="w-9 h-9 rounded-lg bg-[#FAF8F5] group-hover:bg-[#E5341B] group-hover:text-white flex items-center justify-center text-[#E5341B] shrink-0 transition-colors duration-200 shadow-xs">
+                      <div className="w-9 h-9 rounded-lg bg-[#FAF8F5] group-hover:bg-[#E8472B] group-hover:text-white flex items-center justify-center text-[#E8472B] shrink-0 transition-colors duration-200 shadow-xs">
                         <Icon className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
                       </div>
-                      <span className="font-mono text-[10px] font-bold text-[#888888] group-hover:text-[#E5341B] tracking-widest uppercase transition-colors">
+                      <span className="font-mono text-[10px] font-medium text-[#888888] group-hover:text-[#E8472B] tracking-[0.08em] uppercase transition-colors">
                         0{idx + 1} // FOCUS
                       </span>
                     </div>
-                    <h4 className="font-bold text-base sm:text-lg text-[#0A0A0A] group-hover:text-[#E5341B] transition-colors mb-2">
-                      {area.title}
+                    <h4 className="font-serif font-normal text-xl sm:text-[22px] text-[#111111] group-hover:text-[#E8472B] transition-colors mb-2 leading-snug">
+                      {area.renderTitle()}
                     </h4>
-                    <p className="text-fluid-small text-[#555555] leading-relaxed">
+                    <p className="font-sans text-[14px] text-[#555555] leading-relaxed">
                       {area.description}
                     </p>
                   </div>
-                  <div className="mt-4 pt-3 border-t border-[#0A0A0A]/16 flex items-center justify-between">
-                    <span className="text-[11px] font-mono text-[#888888] font-medium">Production Verified</span>
+                  <div className="mt-4 pt-3 border-t border-[#E5E5E5] flex items-center justify-between">
+                    <span className="text-[11px] font-mono text-[#555555] uppercase tracking-[0.08em]">
+                      Production Verified
+                    </span>
                     <span className="w-1.5 h-1.5 rounded-full bg-[#1FB866] animate-pulse" />
                   </div>
                 </motion.div>
@@ -194,12 +227,12 @@ export function Experience() {
             })}
           </div>
 
-          {/* Stats Row & Stack: Stays 3 across down to 360px */}
+          {/* Stats Row & Stack: Numbers in large serif, captions in mono */}
           <div
             ref={statsRef}
-            className="pt-6 sm:pt-8 border-t border-[#0A0A0A]/18 flex flex-col lg:flex-row lg:items-center justify-between gap-6 perspective-1200"
+            className="pt-6 sm:pt-8 border-t border-[#E5E5E5] flex flex-col lg:flex-row lg:items-center justify-between gap-6 perspective-1200"
           >
-            {/* 3 Stats: Stays 3 across even on 360px phones with auto spacing */}
+            {/* 3 Stats: Large Serif numbers with Mono captions */}
             <div className="grid grid-cols-3 gap-3 sm:gap-8 max-w-lg">
               {/* Stat 1 */}
               <motion.div
@@ -213,10 +246,10 @@ export function Experience() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="group flex flex-col cursor-default"
               >
-                <div className="font-mono text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0A0A0A] group-hover:text-[#E5341B] transition-colors">
+                <div className="font-serif font-normal text-3xl sm:text-4xl text-[#111111] group-hover:text-[#E8472B] transition-colors">
                   {stat1}+
                 </div>
-                <div className="text-fluid-mono uppercase tracking-wider text-[#666666] font-semibold text-[11px] sm:text-xs">
+                <div className="font-mono uppercase tracking-[0.08em] text-[#555555] text-[11px]">
                   Prototypes Shipped
                 </div>
               </motion.div>
@@ -233,10 +266,10 @@ export function Experience() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="group flex flex-col cursor-default"
               >
-                <div className="font-mono text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0A0A0A] group-hover:text-[#E5341B] transition-colors">
+                <div className="font-serif font-normal text-3xl sm:text-4xl text-[#111111] group-hover:text-[#E8472B] transition-colors">
                   &lt; {stat2}ms
                 </div>
-                <div className="text-fluid-mono uppercase tracking-wider text-[#666666] font-semibold text-[11px] sm:text-xs">
+                <div className="font-mono uppercase tracking-[0.08em] text-[#555555] text-[11px]">
                   Retrieval Latency
                 </div>
               </motion.div>
@@ -253,24 +286,24 @@ export function Experience() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="group flex flex-col cursor-default"
               >
-                <div className="font-mono text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0A0A0A] group-hover:text-[#E5341B] transition-colors">
+                <div className="font-serif font-normal text-3xl sm:text-4xl text-[#111111] group-hover:text-[#E8472B] transition-colors">
                   {stat3}%
                 </div>
-                <div className="text-fluid-mono uppercase tracking-wider text-[#666666] font-semibold text-[11px] sm:text-xs">
+                <div className="font-mono uppercase tracking-[0.08em] text-[#555555] text-[11px]">
                   Contract Safety
                 </div>
               </motion.div>
             </div>
 
             {/* Stack Line */}
-            <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 text-fluid-mono text-[#0A0A0A]">
-              <span className="text-[#888888] font-bold text-[11px] sm:text-xs uppercase tracking-wider mr-1">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-[#111111]">
+              <span className="text-[#555555] font-medium mr-1">
                 STACK:
               </span>
               {tools.map((tool) => (
                 <span
                   key={tool}
-                  className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-white border border-[#0A0A0A]/18 hover:border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white transition-all duration-150 cursor-default"
+                  className="inline-flex items-center px-2.5 py-0.5 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] font-medium bg-white border border-[#E5E5E5] hover:border-[#111111] hover:bg-[#111111] hover:text-white transition-all duration-150 cursor-default"
                 >
                   {tool}
                 </span>

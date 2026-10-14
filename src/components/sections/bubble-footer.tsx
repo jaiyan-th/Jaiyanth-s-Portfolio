@@ -5,6 +5,7 @@ import Matter from "matter-js";
 import { ArrowUpRight, Mail } from "lucide-react";
 import { IDENTITY, NAV_LINKS } from "@/data/content";
 import { Reveal } from "@/components/ui/reveal";
+import { EyebrowPill } from "@/components/ui/eyebrow-pill";
 
 interface BubbleData {
   body: Matter.Body;
@@ -359,7 +360,7 @@ export function BubbleFooter() {
       <div
         ref={containerRef}
         data-bubble-footer="true"
-        className="relative w-full h-[55vh] min-h-[360px] sm:min-h-[460px] max-h-[660px] rounded-[24px] bg-[#EAE8E1]/50 border border-[#0A0A0A]/20 shadow-sm overflow-hidden select-none"
+        className="relative w-full h-[55vh] min-h-[360px] sm:min-h-[460px] max-h-[660px] rounded-[24px] bg-[#EAE8E1]/50 border border-border-line shadow-sm overflow-hidden select-none"
         style={{
           cursor: isMobile ? "auto" : "none",
         }}
@@ -371,16 +372,18 @@ export function BubbleFooter() {
         />
 
         {/* Ambient Center CTA Glow */}
-        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-[#E5341B]/8 to-transparent blur-3xl opacity-75" />
+        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-accent/8 to-transparent blur-3xl opacity-75" />
 
         {/* Center CTA Overlay */}
         <div className="relative z-10 w-full h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 pointer-events-none perspective-1200">
-          <Reveal className="max-w-2xl pointer-events-auto preserve-3d">
-            <h2 className="text-fluid-h2 font-extrabold tracking-[-0.035em] text-[#0A0A0A] leading-tight mb-6 sm:mb-8">
+          <Reveal className="max-w-2xl pointer-events-auto preserve-3d flex flex-col items-center">
+            <EyebrowPill accent="CONTACT" text="LET'S TALK" className="mb-4 sm:mb-6" />
+
+            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em] mb-6 sm:mb-8">
               Building something with{" "}
-              <span className="marker-highlight in-view font-extrabold mx-1">AI</span>?
+              <span className="font-serif italic text-accent font-normal mx-1">AI</span>?
               <br />
-              Let&apos;s talk.
+              Let&apos;s <span className="font-serif italic text-accent font-normal accent-underline">talk</span>.
             </h2>
 
             {/* Action Buttons: min 48px height, wrap on mobile */}
@@ -389,7 +392,7 @@ export function BubbleFooter() {
                 href={`mailto:${IDENTITY.email}`}
                 onMouseEnter={() => setIsBtnHovered(true)}
                 onMouseLeave={() => setIsBtnHovered(false)}
-                className="neo-black-btn min-h-[48px] px-7 sm:px-8 rounded-full text-sm sm:text-base font-semibold gap-2.5 active:translate-y-0.5 active:shadow-none w-full sm:w-auto"
+                className="neo-black-btn min-h-[48px] px-7 sm:px-8 rounded-full font-sans text-sm font-medium tracking-normal gap-2.5 active:translate-y-0.5 active:shadow-none w-full sm:w-auto"
               >
                 <Mail className="w-4 h-4 shrink-0" />
                 <span>Email me</span>
@@ -399,7 +402,7 @@ export function BubbleFooter() {
                 href={IDENTITY.bookingUrl}
                 onMouseEnter={() => setIsBtnHovered(true)}
                 onMouseLeave={() => setIsBtnHovered(false)}
-                className="neo-pill-btn min-h-[48px] px-7 sm:px-8 rounded-full text-sm sm:text-base font-semibold gap-2.5 w-full sm:w-auto"
+                className="neo-pill-btn min-h-[48px] px-7 sm:px-8 rounded-full font-sans text-sm font-medium tracking-normal gap-2.5 w-full sm:w-auto"
               >
                 <span>Hire me</span>
                 <ArrowUpRight className="w-4 h-4 shrink-0" />
@@ -432,15 +435,15 @@ export function BubbleFooter() {
         style={{
           paddingBottom: "max(1.5rem, env(safe-area-inset-bottom, 1.5rem))",
         }}
-        className="pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-fluid-mono text-[#666666] border-t-2 border-[#0A0A0A] mt-6 sm:mt-8 text-center md:text-left"
+        className="pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-border-line mt-6 sm:mt-8 text-center md:text-left"
       >
         {/* Navigation Pages */}
-        <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-5">
+        <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-6">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="hover:text-[#0A0A0A] transition-colors uppercase tracking-[0.04em] min-h-[44px] flex items-center"
+              className="font-sans text-sm font-medium text-[#111111] hover:text-accent transition-colors min-h-[44px] flex items-center"
             >
               {link.label}
             </a>
@@ -453,32 +456,32 @@ export function BubbleFooter() {
             href={IDENTITY.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="hover:text-[#0A0A0A] transition-colors min-h-[44px] flex items-center"
+            className="font-sans text-sm font-medium text-[#111111] hover:text-accent transition-colors min-h-[44px] flex items-center"
           >
             LinkedIn
           </a>
-          <span className="hidden sm:inline select-none">·</span>
+          <span className="hidden sm:inline select-none text-text-muted">·</span>
           <a
             href={IDENTITY.resumeUrl}
             target="_blank"
             rel="noreferrer"
-            className="hover:text-[#0A0A0A] transition-colors min-h-[44px] flex items-center"
+            className="font-sans text-sm font-medium text-[#111111] hover:text-accent transition-colors min-h-[44px] flex items-center"
           >
             Resume
           </a>
-          <span className="hidden sm:inline select-none">·</span>
+          <span className="hidden sm:inline select-none text-text-muted">·</span>
           <a
             href={IDENTITY.github}
             target="_blank"
             rel="noreferrer"
-            className="hover:text-[#0A0A0A] transition-colors min-h-[44px] flex items-center"
+            className="font-sans text-sm font-medium text-[#111111] hover:text-accent transition-colors min-h-[44px] flex items-center"
           >
             GitHub
           </a>
         </div>
 
         {/* Status */}
-        <div className="flex items-center justify-center gap-2 text-[#0A0A0A] min-h-[44px]">
+        <div className="flex items-center justify-center gap-2 font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted min-h-[44px]">
           <span className="w-2 h-2 rounded-full bg-[#1FB866] shrink-0" />
           <span>Replies within 2hrs</span>
         </div>
