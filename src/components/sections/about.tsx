@@ -62,11 +62,11 @@ export function About() {
     <section
       id="about"
       aria-label="01 About Jaiyanth B"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#E5E5E5] bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t-2 border-[#111111]/20 bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
     >
       <div className="site-container">
         {/* Section Header with Eyebrow Pill and Instrument Serif H2 */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#E5E5E5] gap-4">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b-[1.5px] border-[#111111]/20 gap-4">
           <div className="flex flex-col gap-3">
             <EyebrowPill accent="ABOUT" text="BACKGROUND & VALUES" />
             <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
@@ -112,7 +112,7 @@ export function About() {
 
               {/* Photo Card with 3D Tilt Toward Cursor */}
               <div
-                className="relative w-full h-full overflow-hidden rounded-2xl bg-[#F5F3EE] transition-transform duration-100 ease-out will-change-transform shadow-[6px_6px_0_rgba(17,17,17,0.08)] border border-[#E5E5E5] group-hover:border-[#111111]"
+                className="relative w-full h-full overflow-hidden rounded-2xl bg-[#F5F3EE] transition-transform duration-100 ease-out will-change-transform shadow-[6px_6px_0px_#111111] border-2 border-[#111111]"
                 style={{
                   transform:
                     isMobile || shouldReduceMotion
@@ -141,7 +141,7 @@ export function About() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="absolute -top-3 -left-3 z-20 pointer-events-none"
               >
-                <span className="backdrop-blur-md bg-white/95 border border-[#E5E5E5] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium px-3.5 py-1 rounded-full shadow-sm inline-block">
+                <span className="backdrop-blur-md bg-white border-[1.5px] border-[#111111] shadow-[2px_2px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium px-3.5 py-1 rounded-full inline-block">
                   B.TECH CSBS &apos;26
                 </span>
               </motion.div>
@@ -153,7 +153,7 @@ export function About() {
                 transition={{ duration: 0.5, delay: 0.35 }}
                 className="absolute -bottom-3 -right-3 z-20 pointer-events-none"
               >
-                <span className="backdrop-blur-md bg-white/95 border border-[#E5E5E5] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium px-3.5 py-1 rounded-full shadow-sm gap-2 inline-flex items-center">
+                <span className="backdrop-blur-md bg-white border-[1.5px] border-[#111111] shadow-[2px_2px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium px-3.5 py-1 rounded-full gap-2 inline-flex items-center">
                   <span className="w-2 h-2 rounded-full bg-[#E8472B] animate-pulse" />
                   IEEE CO-AUTHOR
                 </span>
@@ -166,7 +166,7 @@ export function About() {
             <div>
               {/* Category Eyebrow */}
               <div className="mb-4">
-                <span className="px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E5E5E5] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium inline-block">
+                <span className="px-3 py-1 rounded-full bg-[#FAF8F5] border-[1.5px] border-[#111111] shadow-[1.5px_1.5px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium inline-block">
                   ENGINEERING PHILOSOPHY
                 </span>
               </div>
@@ -179,7 +179,7 @@ export function About() {
               </h3>
 
               {/* Staggered Paragraphs: Inter, muted gray */}
-              <div className="p-6 sm:p-7 rounded-2xl bg-white/90 backdrop-blur-sm border border-[#E5E5E5] shadow-xs mb-8 space-y-4 sm:space-y-5 font-sans text-[15px] text-[#555555] leading-relaxed font-normal perspective-1200 relative overflow-hidden">
+              <div className="p-6 sm:p-7 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111] mb-8 space-y-4 sm:space-y-5 font-sans text-[15px] text-[#555555] leading-relaxed font-normal perspective-1200 relative overflow-hidden">
                 <div className="absolute top-0 left-0 bottom-0 w-1 bg-gradient-to-b from-[#E8472B] via-[#E8472B]/40 to-transparent" />
                 <motion.p
                   custom={0}
@@ -221,7 +221,7 @@ export function About() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={shouldReduceMotion || isMobile ? {} : { y: -3, scale: 1.01 }}
-                className="group flex items-start gap-4 mb-8 p-5 sm:p-6 rounded-xl bg-white border border-[#E5E5E5] shadow-sm hover:shadow-md hover:border-[#111111]/30 transition-all duration-200"
+                className="group flex items-start gap-4 mb-8 p-5 sm:p-6 rounded-xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] transition-all duration-200"
               >
                 <div className="w-10 h-10 rounded-lg bg-[#111111] flex items-center justify-center text-white shrink-0 mt-0.5 group-hover:scale-110 group-hover:bg-[#E8472B] transition-all duration-200 shadow-sm">
                   <GraduationCap className="w-5 h-5 text-white" />
@@ -249,7 +249,7 @@ export function About() {
             {/* Outlined Pill Buttons (Inter 14px weight 500) */}
             <div
               style={{ gap: "var(--space-1)" }}
-              className="flex flex-wrap items-center pt-6 border-t border-[#E5E5E5]"
+              className="flex flex-wrap items-center pt-6 border-t-[1.5px] border-[#111111]/20"
             >
               <a
                 href={IDENTITY.github}

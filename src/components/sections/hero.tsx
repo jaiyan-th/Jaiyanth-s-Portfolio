@@ -209,11 +209,10 @@ export function Hero() {
 
               <a
                 href="/#contact"
-                className="group relative inline-flex items-center justify-center min-h-[48px] px-4 font-sans text-[14px] font-medium text-[#111111] hover:text-[#E8472B] transition-colors duration-200"
+                className="neo-pill-btn min-h-[48px] px-6 sm:px-7 font-sans text-[14px] font-medium gap-1.5 w-full sm:w-auto group"
               >
                 <span>Get in touch</span>
-                <ArrowUpRight className="w-4 h-4 ml-1.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                <span className="absolute bottom-2 left-4 right-4 h-[2px] bg-[#E8472B] scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100" />
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             </motion.div>
           </div>

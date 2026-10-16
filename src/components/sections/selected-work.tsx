@@ -163,11 +163,11 @@ export function SelectedWork() {
     <section
       id="work"
       aria-label="02 Selected Work"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#E5E5E5] bg-transparent scroll-mt-16 perspective-1200"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t-2 border-[#111111]/20 bg-transparent scroll-mt-16 perspective-1200"
     >
       <div className="site-container">
         {/* Section Header with Eyebrow Pill and Instrument Serif H2 */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-5 border-b border-[#E5E5E5] mb-6 gap-4">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-5 border-b-[1.5px] border-[#111111]/20 mb-6 gap-4">
           <div className="flex flex-col gap-3">
             <EyebrowPill accent="SELECTED WORK" text="2024–26" />
             <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
@@ -258,7 +258,7 @@ export function ProjectsList({ projects }: ProjectsListProps) {
       )}
 
       {/* Rows with 3D Flip entrance, hover lift & dimming siblings */}
-      <div className="divide-y divide-[#0A0A0A]/16">
+      <div className="divide-y-2 divide-[#111111]/15">
         {projects.map((project, idx) => (
           <ProjectRow
             key={project.id}
@@ -319,7 +319,7 @@ export function ProjectPreview({
               transition: { duration: 0.25 },
             }}
             transition={{ duration: 0.3 }}
-            className="absolute inset-0 w-full h-full border border-[#0A0A0A]/20 rounded-xl overflow-hidden bg-white shadow-2xl shadow-black/20"
+            className="absolute inset-0 w-full h-full border-2 border-[#111111] rounded-xl overflow-hidden bg-white shadow-[6px_6px_0px_#111111]"
           >
             {activeProject.image ? (
               <Image
@@ -336,11 +336,11 @@ export function ProjectPreview({
               </div>
             )}
             {/* Overlay badge with project stack */}
-            <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between pointer-events-none">
-              <span className="backdrop-blur-md bg-white/95 text-[#111111] font-mono font-medium text-[11px] uppercase tracking-[0.08em] px-2.5 py-0.5 rounded-full shadow-sm border border-[#E5E5E5]">
+            <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between pointer-events-none">
+              <span className="backdrop-blur-md bg-white text-[#111111] font-mono font-medium text-[11px] uppercase tracking-[0.08em] px-2.5 py-0.5 rounded-full border-[1.5px] border-[#111111] shadow-[1.5px_1.5px_0px_#111111]">
                 {activeProject.category}
               </span>
-              <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-medium text-white bg-[#111111] px-2.5 py-0.5 rounded-full shadow-sm">
+              <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-medium text-white bg-[#111111] border-[1.5px] border-[#111111] px-2.5 py-0.5 rounded-full shadow-[1.5px_1.5px_0px_#111111]">
                 {activeProject.year}
               </span>
             </div>
@@ -435,9 +435,9 @@ export function ProjectRow({
               : "translate3d(0, 0, 0)",
           opacity: anyHovered && !isHovered ? 0.4 : 1,
         }}
-        className={`group block py-6 sm:py-7 lg:py-8 px-4 sm:px-5 -mx-4 sm:-mx-5 rounded-xl transition-all duration-200 focus-visible:outline-none min-h-[64px] border-l-4 ${
+        className={`group block py-6 sm:py-7 lg:py-8 px-4 sm:px-5 -mx-4 sm:-mx-5 rounded-xl transition-all duration-200 focus-visible:outline-none min-h-[64px] border-2 ${
           isHovered
-            ? "bg-white shadow-md border-[#E8472B]"
+            ? "bg-white border-[#111111] shadow-[4px_4px_0px_#111111]"
             : "bg-transparent border-transparent"
         }`}
       >
@@ -466,10 +466,10 @@ export function ProjectRow({
           <div className="flex-1 min-w-[16px]" />
 
           <div className="w-[200px] shrink-0 text-left">
-            <span className={`inline-flex items-center px-3 py-1 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] font-medium border transition-all duration-200 ${
+            <span className={`inline-flex items-center px-3 py-1 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] font-medium border-[1.5px] transition-all duration-200 ${
               isHovered
-                ? "bg-[#111111] text-white border-[#111111]"
-                : "bg-[#FAF8F5] text-[#555555] border-[#E5E5E5]"
+                ? "bg-[#111111] text-white border-[#111111] shadow-[2px_2px_0px_#111111]"
+                : "bg-[#FAF8F5] text-[#555555] border-[#111111]/30 shadow-[1.5px_1.5px_0px_#111111]/30"
             }`}>
               {project.category}
             </span>
@@ -479,7 +479,7 @@ export function ProjectRow({
             <span>{project.year}</span>
             <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 ${
               isHovered
-                ? "bg-[#111111] text-white shadow-sm scale-110"
+                ? "bg-[#111111] text-white border border-[#111111] shadow-[2px_2px_0px_#111111] scale-110"
                 : "bg-transparent text-[#555555]"
             }`}>
               <ArrowUpRight
@@ -510,7 +510,7 @@ export function ProjectRow({
           </p>
 
           <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.08em] text-[#555555]">
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAF8F5] border border-[#E5E5E5] text-[#555555]">
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAF8F5] border-[1.5px] border-[#111111]/30 shadow-[1px_1px_0px_#111111]/30 text-[#555555]">
               {project.category}
             </span>
             <span>{project.year}</span>
@@ -535,7 +535,7 @@ export function ProjectRow({
             {project.summary}
           </p>
 
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAF8F5] border border-[#E5E5E5] text-[#555555] font-mono text-[11px] uppercase tracking-[0.08em]">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAF8F5] border-[1.5px] border-[#111111]/30 shadow-[1px_1px_0px_#111111]/30 text-[#555555] font-mono text-[11px] uppercase tracking-[0.08em]">
             {project.category}
           </span>
         </div>

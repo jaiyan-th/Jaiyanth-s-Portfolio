@@ -22,7 +22,7 @@ export function EyebrowPill({
   return (
     <div
       className={cn(
-        "inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-[#E5E5E5] font-mono text-[11px] uppercase tracking-[0.08em] shadow-[0_1px_2px_rgba(0,0,0,0.02)] select-none w-max leading-none",
+        "inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border-[1.5px] border-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] shadow-[2px_2px_0px_#111111] select-none w-max leading-none",
         className
       )}
       {...props}

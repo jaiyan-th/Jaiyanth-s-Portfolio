@@ -22,7 +22,7 @@ export function Footer() {
       <BubbleFooter />
 
       {/* Clean Copyright & Region Line */}
-      <div className="site-container flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 border-t border-border-line font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted text-center sm:text-left">
+      <div className="site-container flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 border-t-2 border-[#111111]/20 font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted text-center sm:text-left">
         <span>© 2026 {IDENTITY.name}</span>
         <span>Based in India · Working Worldwide</span>
       </div>

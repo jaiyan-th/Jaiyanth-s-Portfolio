@@ -360,7 +360,7 @@ export function BubbleFooter() {
       <div
         ref={containerRef}
         data-bubble-footer="true"
-        className="relative w-full h-[55vh] min-h-[360px] sm:min-h-[460px] max-h-[660px] rounded-[24px] bg-[#EAE8E1]/50 border border-border-line shadow-sm overflow-hidden select-none"
+        className="relative w-full h-[55vh] min-h-[360px] sm:min-h-[460px] max-h-[660px] rounded-[24px] bg-[#EAE8E1]/50 border-2 border-[#111111] shadow-[5px_5px_0px_#111111] overflow-hidden select-none"
         style={{
           cursor: isMobile ? "auto" : "none",
         }}
@@ -435,7 +435,7 @@ export function BubbleFooter() {
         style={{
           paddingBottom: "max(1.5rem, env(safe-area-inset-bottom, 1.5rem))",
         }}
-        className="pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-border-line mt-6 sm:mt-8 text-center md:text-left"
+        className="pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between gap-4 border-t-2 border-[#111111]/20 mt-6 sm:mt-8 text-center md:text-left"
       >
         {/* Navigation Pages */}
         <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-6">

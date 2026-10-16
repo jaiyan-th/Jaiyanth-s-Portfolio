@@ -128,11 +128,11 @@ export function TechMarquee() {
     <section
       id="tech"
       aria-label="06 Previously trusted by / Stack"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-border-line overflow-hidden bg-transparent scroll-mt-16 perspective-1200"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t-2 border-[#111111]/20 overflow-hidden bg-transparent scroll-mt-16 perspective-1200"
     >
       <div className="site-container mb-6 sm:mb-10">
         {/* Section Header */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-6 border-b border-border-line gap-4">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-6 border-b-[1.5px] border-[#111111]/20 gap-4">
           <div className="space-y-3">
             <EyebrowPill accent="CORE STACK" text="TRUSTED ARCHITECTURES & TOOLING" />
             <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
@@ -152,7 +152,7 @@ export function TechMarquee() {
       {/* Highlighted Ribbon Marquee Container */}
       <div
         ref={containerRef}
-        className="relative w-full overflow-hidden group py-6 sm:py-8 select-none bg-white/70 backdrop-blur-sm border-y border-border-line shadow-xs"
+        className="relative w-full overflow-hidden group py-6 sm:py-8 select-none bg-white/80 backdrop-blur-sm border-y-2 border-[#111111] shadow-[0_2px_0px_#111111]"
       >
         {/* Edge Gradient Masks */}
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 lg:w-48 z-10 bg-gradient-to-r from-[var(--canvas)] to-transparent" />
@@ -169,7 +169,7 @@ export function TechMarquee() {
               ref={(el) => {
                 itemsRef.current[idx] = el;
               }}
-              className="mx-2 sm:mx-3.5 lg:mx-4 flex items-center gap-2 sm:gap-2.5 px-4 py-2 rounded-full bg-[#FAF8F5] border border-border-line hover:border-[#111111] hover:bg-white hover:shadow-sm cursor-default select-none will-change-transform origin-center transition-all duration-200 group/chip"
+              className="mx-2 sm:mx-3.5 lg:mx-4 flex items-center gap-2 sm:gap-2.5 px-4 py-2 rounded-full bg-[#FAF8F5] border-[1.5px] border-[#111111] shadow-[2px_2px_0px_#111111] hover:shadow-[3px_3px_0px_#111111] hover:bg-white cursor-default select-none will-change-transform origin-center transition-all duration-200 group/chip"
             >
               <span className="font-sans font-medium text-sm text-[#111111] group-hover/chip:text-accent transition-colors">
                 {item.name}

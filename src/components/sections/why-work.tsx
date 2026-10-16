@@ -75,11 +75,11 @@ export function WhyWork() {
     <section
       id="why-work"
       aria-label="05 Why work with me"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-border-line bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t-2 border-[#111111]/20 bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
     >
       <div className="site-container">
         {/* Section Header */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-border-line gap-4">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b-[1.5px] border-[#111111]/20 gap-4">
           <div className="space-y-3">
             <EyebrowPill accent="SKILLS" text="WHAT I USE" />
             <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
@@ -135,7 +135,7 @@ export function WhyWork() {
                   style={{
                     transform: `translate3d(0, ${colParallaxY}px, 0)`,
                   }}
-                  className="group relative p-6 sm:p-8 rounded-2xl bg-white border border-border-line hover:border-[#111111]/40 shadow-sm hover:shadow-xl flex flex-col justify-between transition-all duration-300 ease-out will-change-transform overflow-hidden"
+                  className="group relative p-6 sm:p-8 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] flex flex-col justify-between transition-all duration-300 ease-out will-change-transform overflow-hidden"
                 >
                   {/* Top Red Indicator stripe */}
                   <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-accent transition-colors duration-200" />
@@ -145,7 +145,7 @@ export function WhyWork() {
                       <span className="font-serif text-2xl font-normal text-accent group-hover:scale-110 transition-transform origin-left inline-block">
                         /{point.letter}
                       </span>
-                      <span className={`inline-flex items-center px-3 py-1 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] font-medium ${meta.tagline}`}>
+                      <span className={`inline-flex items-center px-3 py-1 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] font-medium border-[1.5px] border-[#111111] shadow-[1.5px_1.5px_0px_#111111] ${meta.tagline}`}>
                         {meta.tagline}
                       </span>
                     </div>
@@ -160,11 +160,11 @@ export function WhyWork() {
                   </div>
 
                   {/* Refined Tags */}
-                  <div className="flex flex-wrap gap-2 pt-3 border-t border-border-line">
+                  <div className="flex flex-wrap gap-2 pt-3 border-t-[1.5px] border-[#111111]/20">
                     {point.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="inline-flex items-center px-2.5 py-1 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] bg-[#F2ECE4]/70 text-text-muted border border-border-line hover:bg-[#111111] hover:text-white transition-colors duration-150 cursor-default"
+                        className="inline-flex items-center px-2.5 py-1 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] bg-[#F2ECE4]/70 text-[#111111] border-[1.5px] border-[#111111] shadow-[1.5px_1.5px_0px_#111111] hover:bg-[#111111] hover:text-white transition-colors duration-150 cursor-default"
                       >
                         {tag}
                       </span>

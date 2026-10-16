@@ -83,11 +83,11 @@ export function Research() {
     <section
       id="research"
       aria-label="04 Research, Publications & Achievements"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t border-[#E5E5E5] bg-transparent scroll-mt-16 perspective-1200"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t-2 border-[#111111]/20 bg-transparent scroll-mt-16 perspective-1200"
     >
       <div className="site-container">
         {/* Section Header with Eyebrow Pill and Instrument Serif H2 */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b border-[#E5E5E5] gap-4">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b-[1.5px] border-[#111111]/20 gap-4">
           <div className="flex flex-col gap-3">
             <EyebrowPill accent="PUBLICATIONS" text="IEEE ICETSIS '26" />
             <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
@@ -110,16 +110,16 @@ export function Research() {
         </div>
 
         {/* Highlighted Academic Feature Card */}
-        <div className="w-full rounded-2xl bg-white border border-[#E5E5E5] p-6 sm:p-10 shadow-sm relative overflow-hidden transition-all duration-300 hover:shadow-md hover:border-[#111111]/30 preserve-3d">
+        <div className="w-full rounded-2xl bg-white border-2 border-[#111111] p-6 sm:p-10 shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] relative overflow-hidden transition-all duration-300 preserve-3d">
           {/* Subtle Top Red Accent Line */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E8472B] via-[#E8472B]/40 to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-1 bg-[#E8472B]" />
 
           {/* Top Meta Bar */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-[#E5E5E5]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b-[1.5px] border-[#111111]/20">
             <div className="flex flex-wrap items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.08em]">
               <span className="inline-flex items-center gap-1.5 font-medium text-[#111111]">
                 <ShieldCheck className="w-4 h-4 text-[#E8472B] shrink-0" />
-                <span className="inline-flex items-center px-3 py-1 rounded-full bg-white border border-[#E5E5E5] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium shadow-xs gap-2">
+                <span className="inline-flex items-center px-3 py-1 rounded-full bg-white border-[1.5px] border-[#111111] shadow-[1.5px_1.5px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#1FB866] animate-ping" />
                   Published &amp; Peer-Reviewed
                 </span>
@@ -200,11 +200,11 @@ export function Research() {
                   style={{
                     transform: `rotateY(${activeRotateY}deg)`,
                   }}
-                  className="group p-6 rounded-xl bg-white border border-[#E5E5E5] hover:border-[#111111]/30 shadow-sm hover:shadow-lg flex flex-col justify-between transition-all duration-300 ease-out will-change-transform cursor-default"
+                  className="group p-6 rounded-xl bg-white border-[1.5px] border-[#111111] shadow-[3px_3px_0px_#111111] hover:shadow-[5px_5px_0px_#111111] flex flex-col justify-between transition-all duration-300 ease-out will-change-transform cursor-default"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <div className="w-9 h-9 rounded-lg bg-[#FAF8F5] group-hover:bg-[#E8472B] group-hover:text-white flex items-center justify-center text-[#E8472B] transition-colors duration-200 shadow-xs">
+                      <div className="w-9 h-9 rounded-lg bg-[#FAF8F5] border border-[#111111]/20 group-hover:border-[#E8472B] group-hover:bg-[#E8472B] group-hover:text-white flex items-center justify-center text-[#E8472B] transition-colors duration-200">
                         <Icon className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
                       </div>
                       <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#E8472B] font-medium group-hover:scale-110 transition-transform">
@@ -224,7 +224,7 @@ export function Research() {
           </div>
 
           {/* Bottom Row: Domain Keywords & Deep Dive */}
-          <div className="pt-6 sm:pt-8 border-t border-[#E5E5E5] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="pt-6 sm:pt-8 border-t-[1.5px] border-[#111111]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex flex-wrap items-center gap-2 font-mono text-[11px] uppercase tracking-[0.08em] text-[#111111]">
               <span className="text-[#555555] font-medium mr-1">
                 DOMAIN:
@@ -232,7 +232,7 @@ export function Research() {
               {keywords.map((kw) => (
                 <span
                   key={kw}
-                  className="inline-flex items-center px-2.5 py-0.5 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] font-medium bg-white border border-[#E5E5E5] hover:border-[#111111] hover:bg-[#111111] hover:text-white transition-all duration-150 cursor-default"
+                  className="inline-flex items-center px-2.5 py-0.5 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] font-medium bg-white border-[1.5px] border-[#111111] shadow-[1.5px_1.5px_0px_#111111] hover:bg-[#111111] hover:text-white transition-all duration-150 cursor-default"
                 >
                   {kw}
                 </span>
