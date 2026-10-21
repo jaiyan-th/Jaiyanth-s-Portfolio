@@ -98,11 +98,11 @@ export function Hero() {
       <div className="pointer-events-none absolute top-1/4 left-[5%] w-[420px] h-[420px] rounded-full bg-gradient-to-br from-white/60 to-transparent blur-2xl opacity-60" />
 
       {/* Main Content Area */}
-      <div className="site-container relative z-10 flex justify-center">
-        <div className="w-full max-w-[960px] flex flex-col lg:flex-row items-center lg:items-stretch justify-center gap-6 lg:gap-7">
+      <div className="site-container relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_auto_0.9fr] gap-6 lg:gap-8 xl:gap-10 items-stretch">
           {/* Left Column: Badges, Headline, Subtitle, CTA buttons */}
           <div
-            className="w-full lg:w-auto lg:flex-1 max-w-[490px] flex flex-col items-start justify-between transition-transform duration-75 ease-out will-change-transform"
+            className="w-full flex flex-col items-start justify-between transition-transform duration-75 ease-out will-change-transform"
             style={{
               transform: `translate3d(0, ${headlineParallaxY}px, 0)`,
             }}
@@ -218,7 +218,7 @@ export function Hero() {
           </div>
 
           {/* Editorial Center Vertical Divider Line */}
-          <div className="hidden lg:flex flex-col items-center justify-center self-stretch py-2 shrink-0">
+          <div className="hidden lg:flex flex-col items-center justify-center self-stretch py-2">
             <div className="w-[1.5px] h-full bg-[#111111]/15 relative">
               <div className="absolute top-1/2 -translate-y-1/2 -left-[2.5px] w-1.5 h-1.5 rounded-full bg-[#E8472B]" />
             </div>
@@ -226,7 +226,7 @@ export function Hero() {
 
           {/* Right Column: Profile Snapshot Card */}
           <div
-            className="w-full lg:w-auto shrink-0 flex flex-col justify-center items-center transition-transform duration-75 ease-out will-change-transform mt-6 lg:mt-0"
+            className="w-full flex flex-col justify-center items-center lg:items-start transition-transform duration-75 ease-out will-change-transform mt-6 lg:mt-0"
             style={{
               transform: `translate3d(0, ${headlineParallaxY}px, 0)`,
             }}
