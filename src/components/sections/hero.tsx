@@ -219,7 +219,7 @@ export function Hero() {
 
           {/* Right Column (50%): Profile Snapshot Card */}
           <div
-            className="w-full h-full flex flex-col justify-between transition-transform duration-75 ease-out will-change-transform mt-6 lg:mt-0"
+            className="w-full flex flex-col justify-center items-center lg:items-end transition-transform duration-75 ease-out will-change-transform mt-6 lg:mt-0"
             style={{
               transform: `translate3d(0, ${headlineParallaxY}px, 0)`,
             }}
