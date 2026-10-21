@@ -224,14 +224,76 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Profile Snapshot Card */}
+          {/* Right Column: Profile Snapshot Card & Creative Professional Telemetry Console */}
           <div
-            className="w-full flex flex-col justify-center items-stretch transition-transform duration-75 ease-out will-change-transform mt-6 lg:mt-0"
+            className="w-full flex flex-col justify-center items-stretch transition-transform duration-75 ease-out will-change-transform mt-6 lg:mt-0 gap-3"
             style={{
               transform: `translate3d(0, ${headlineParallaxY}px, 0)`,
             }}
           >
+            {/* Above Snapshot Card: Creative Professional Telemetry Strip */}
+            <motion.div
+              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+              className="w-full rounded-xl bg-white border-2 border-[#111111] p-3.5 sm:p-4 shadow-[4px_4px_0px_#111111] text-left flex flex-col gap-2"
+            >
+              <div className="flex items-center justify-between border-b border-[#111111]/15 pb-2 font-mono text-[11px] uppercase tracking-[0.08em]">
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1FB866] opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1FB866]" />
+                  </span>
+                  <span className="font-medium text-[#111111]">Telemetry · Live Dispatch</span>
+                </div>
+                <span className="text-accent font-medium">AVAILABLE // 2026</span>
+              </div>
+              <p className="font-sans text-[13.5px] text-[#4a4a4a] leading-relaxed">
+                Bridging high-dimensional <em className="accent font-serif-italic italic text-accent font-normal">AI reasoning</em> with deterministic, low-latency production engineering.
+              </p>
+            </motion.div>
+
+            {/* Core Snapshot Card */}
             <SnapshotCard />
+
+            {/* Below Snapshot Card: Creative Professional Architecture Invariants */}
+            <motion.div
+              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
+              className="w-full rounded-xl bg-white border-2 border-[#111111] p-3.5 sm:p-4 shadow-[4px_4px_0px_#111111] text-left flex flex-col gap-2.5"
+            >
+              <div className="flex items-center justify-between border-b border-[#111111]/15 pb-2 font-mono text-[11px] uppercase tracking-[0.08em]">
+                <span className="text-[#4a4a4a] font-medium">Engineering Invariants</span>
+                <span className="text-[#111111] font-semibold">100% Deterministic</span>
+              </div>
+              <div className="grid grid-cols-3 gap-2">
+                <div className="p-2 sm:p-2.5 rounded-lg bg-[#FAF8F5] border border-[#111111] shadow-[2px_2px_0px_#111111] text-left">
+                  <span className="font-mono text-[10px] text-accent uppercase tracking-[0.08em] block font-medium">
+                    01 · Safety
+                  </span>
+                  <span className="font-sans text-[12px] font-bold text-[#111111] block leading-tight mt-0.5">
+                    Zero <em className="accent font-serif-italic italic text-accent font-normal">Drift</em> Invariants
+                  </span>
+                </div>
+                <div className="p-2 sm:p-2.5 rounded-lg bg-[#FAF8F5] border border-[#111111] shadow-[2px_2px_0px_#111111] text-left">
+                  <span className="font-mono text-[10px] text-accent uppercase tracking-[0.08em] block font-medium">
+                    02 · Latency
+                  </span>
+                  <span className="font-sans text-[12px] font-bold text-[#111111] block leading-tight mt-0.5">
+                    Sub-150ms <em className="accent font-serif-italic italic text-accent font-normal">Streaming</em>
+                  </span>
+                </div>
+                <div className="p-2 sm:p-2.5 rounded-lg bg-[#FAF8F5] border border-[#111111] shadow-[2px_2px_0px_#111111] text-left">
+                  <span className="font-mono text-[10px] text-accent uppercase tracking-[0.08em] block font-medium">
+                    03 · Rigour
+                  </span>
+                  <span className="font-sans text-[12px] font-bold text-[#111111] block leading-tight mt-0.5">
+                    IEEE <em className="accent font-serif-italic italic text-accent font-normal">&apos;26</em> Peer Reviewed
+                  </span>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
