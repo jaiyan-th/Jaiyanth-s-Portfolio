@@ -70,10 +70,10 @@ export function Hero() {
     >
       {/* Main Content Area */}
       <div className="site-container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.24fr_0.76fr] xl:grid-cols-[1.28fr_0.72fr] gap-8 lg:gap-10 xl:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.28fr)_minmax(0,0.72fr)] gap-8 lg:gap-10 xl:gap-14 items-center">
           {/* Left Column: Eyebrow, Headline, Subtitle, CTA buttons & Social Links */}
           <div
-            className="w-full flex flex-col items-start transition-transform duration-75 ease-out will-change-transform"
+            className="w-full max-w-[580px] flex flex-col items-start transition-transform duration-75 ease-out will-change-transform"
             style={{
               transform: `translate3d(0, ${headlineParallaxY}px, 0)`,
             }}
@@ -93,7 +93,7 @@ export function Hero() {
 
               {/* 2. H1: Applied AI & Full-Stack Systems Engineer. (2 Lines Exact) */}
               <h1
-                className="font-sans font-bold text-[34px] sm:text-[42px] md:text-[48px] lg:text-[46px] xl:text-[54px] text-[#111111] select-none leading-[1.06] tracking-[-0.035em] mb-4 sm:mb-5"
+                className="font-sans font-bold text-[34px] sm:text-[42px] md:text-[48px] lg:text-[48px] xl:text-[54px] text-[#111111] select-none leading-[1.05] tracking-[-0.035em] mb-4 sm:mb-5"
               >
                 <span className="block whitespace-nowrap">Applied AI &amp; Full-Stack</span>
                 <span className="block mt-0.5">
@@ -104,23 +104,25 @@ export function Hero() {
                 </span>
               </h1>
 
-              {/* 3. Subtitle Description */}
+              {/* 3. Subtitle Description (Breaks exactly after high-) */}
               <motion.p
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.22, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                className="font-sans text-[15px] sm:text-[16px] text-[#555555] leading-relaxed max-w-[560px] mb-6 sm:mb-7 font-normal"
+                className="font-sans text-[15px] sm:text-[15.5px] text-[#555555] leading-relaxed max-w-[530px] mb-6 sm:mb-7 font-normal"
               >
-                Building deterministic RAG pipelines, autonomous agentic systems, and high-concurrency web applications that make complex intelligence intuitive.
+                Building deterministic RAG pipelines, autonomous agentic systems, and high-
+                <br className="hidden sm:inline" />
+                concurrency web applications that make complex intelligence intuitive.
               </motion.p>
             </div>
 
-            {/* 4. Action Buttons & Social Links */}
+            {/* 4. Action Buttons & Social Links (Single row, non-wrapping) */}
             <motion.div
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.32, duration: 0.55 }}
-              className="flex flex-wrap items-center gap-3 sm:gap-4 w-full"
+              className="flex items-center flex-nowrap gap-3 sm:gap-3.5 w-full overflow-x-auto sm:overflow-visible pb-1 sm:pb-0"
             >
               <a
                 ref={exploreBtnRef}
@@ -130,22 +132,22 @@ export function Hero() {
                 style={{
                   transform: `translate3d(${btnOffset.x}px, ${btnOffset.y}px, 0)`,
                 }}
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-[8px] bg-[#111111] text-white font-sans text-[13.5px] sm:text-[14px] font-medium hover:bg-[#222222] transition-colors active:scale-[0.98] w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 px-4.5 sm:px-5 py-2.5 rounded-[8px] bg-[#111111] text-white font-sans text-[13.5px] sm:text-[14px] font-medium hover:bg-[#222222] transition-colors active:scale-[0.98] shrink-0 whitespace-nowrap"
               >
                 <span>View Selected Work</span>
-                <ArrowDown className="w-3.5 h-3.5" />
+                <ArrowDown className="w-3.5 h-3.5 shrink-0" />
               </a>
 
               <a
                 href="/#contact"
-                className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-[8px] bg-white border border-[#E5E0D8] text-[#111111] font-sans text-[13.5px] sm:text-[14px] font-medium hover:border-[#111111] transition-colors active:scale-[0.98] w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-1.5 px-4.5 sm:px-5 py-2.5 rounded-[8px] bg-white border border-[#E5E0D8] text-[#111111] font-sans text-[13.5px] sm:text-[14px] font-medium hover:border-[#111111] transition-colors active:scale-[0.98] shrink-0 whitespace-nowrap"
               >
                 <span>Get in touch</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5 shrink-0" />
               </a>
 
               {/* Social Links on Right */}
-              <div className="flex items-center gap-4 sm:ml-2 font-mono text-xs sm:text-[13px] text-[#777777] pt-2 sm:pt-0">
+              <div className="flex items-center gap-3.5 sm:gap-4 ml-2 sm:ml-3 font-mono text-[12px] sm:text-[12.5px] text-[#777777] shrink-0 whitespace-nowrap">
                 <a
                   href={IDENTITY.github}
                   target="_blank"
@@ -170,7 +172,7 @@ export function Hero() {
 
           {/* Right Column: Profile Snapshot Card */}
           <div
-            className="w-full flex flex-col justify-center items-stretch transition-transform duration-75 ease-out will-change-transform mt-8 lg:mt-0 max-w-[440px] xl:max-w-[460px] mx-auto lg:ml-auto"
+            className="w-full flex flex-col justify-center items-stretch transition-transform duration-75 ease-out will-change-transform mt-8 lg:mt-0 max-w-[420px] xl:max-w-[450px] mx-auto lg:ml-auto"
             style={{
               transform: `translate3d(0, ${headlineParallaxY}px, 0)`,
             }}
