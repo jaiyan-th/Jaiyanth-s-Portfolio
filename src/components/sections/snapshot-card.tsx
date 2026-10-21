@@ -19,7 +19,7 @@ export function SnapshotCard() {
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -3, transition: { duration: 0.2 } }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      className="group relative w-full rounded-xl bg-white border-2 border-[#111111] p-5 sm:p-6 lg:p-7 shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] transition-all duration-200 text-left flex flex-col"
+      className="group relative w-full rounded-2xl bg-white border border-[#E2DDD5] p-6 lg:p-7 shadow-[0_4px_24px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-300 text-left flex flex-col"
     >
       {/* Eyebrow & Focus Area */}
       <div>
@@ -39,7 +39,7 @@ export function SnapshotCard() {
       </div>
 
       {/* Clean Divider Line */}
-      <div className="my-3.5 border-t-[1.5px] border-[#111111]/15" />
+      <div className="my-3.5 border-t border-[#111111]/10" />
 
       {/* Core Stack */}
       <div>
@@ -51,7 +51,7 @@ export function SnapshotCard() {
           {STACK_TAGS.map((tag) => (
             <span
               key={tag}
-              className="chip inline-flex items-center px-2.5 py-1 rounded-[4px] font-mono text-[11px] uppercase tracking-[0.08em] font-medium bg-[#FAF8F5] text-[#111111] border-[1.5px] border-[#111111] shadow-[3px_3px_0px_#111111] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none hover:bg-[#111111] hover:text-white transition-all cursor-default"
+              className="chip inline-flex items-center px-2.5 py-1 rounded-[6px] font-mono text-[11px] uppercase tracking-[0.08em] font-medium bg-[#FAF8F5] text-[#111111] border border-[#E2DDD5] hover:bg-[#111111] hover:text-white transition-all cursor-default"
             >
               {tag}
             </span>
@@ -60,11 +60,11 @@ export function SnapshotCard() {
       </div>
 
       {/* Clean Divider Line */}
-      <div className="my-3.5 border-t-[1.5px] border-[#111111]/15" />
+      <div className="my-3.5 border-t border-[#111111]/10" />
 
       {/* Quick Verified Highlights */}
       <div className="grid grid-cols-2 gap-2.5">
-        <div className="px-3.5 py-2.5 rounded-md bg-[#FAF8F5] border-[1.5px] border-[#111111] shadow-[3px_3px_0px_#111111]">
+        <div className="px-3.5 py-2.5 rounded-xl bg-[#FAF8F5] border border-[#E2DDD5]">
           <span className="font-mono text-[11px] text-[#4a4a4a] uppercase tracking-[0.08em] block mb-0.5 font-medium">
             Specialization
           </span>
@@ -73,7 +73,7 @@ export function SnapshotCard() {
             <em className="accent font-serif-italic italic text-accent font-normal">Web</em>
           </span>
         </div>
-        <div className="px-3.5 py-2.5 rounded-md bg-[#FAF8F5] border-[1.5px] border-[#111111] shadow-[3px_3px_0px_#111111]">
+        <div className="px-3.5 py-2.5 rounded-xl bg-[#FAF8F5] border border-[#E2DDD5]">
           <span className="font-mono text-[11px] text-[#4a4a4a] uppercase tracking-[0.08em] block mb-0.5 font-medium">
             Publication
           </span>

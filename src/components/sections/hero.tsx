@@ -2,11 +2,10 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import { SnapshotCard } from "./snapshot-card";
 import { LiveSignalField } from "@/components/canvas/live-signal-field";
-
-import { EyebrowPill } from "@/components/ui/eyebrow-pill";
+import { IDENTITY } from "@/data/content";
 
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
@@ -99,10 +98,10 @@ export function Hero() {
 
       {/* Main Content Area */}
       <div className="site-container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_auto_0.9fr] gap-6 lg:gap-8 xl:gap-10 items-stretch">
-          {/* Left Column: Badges, Headline, Subtitle, CTA buttons */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1.18fr_0.82fr] gap-8 lg:gap-12 xl:gap-16 items-center">
+          {/* Left Column: Eyebrow, Headline, Subtitle, CTA buttons & Social Links */}
           <div
-            className="w-full flex flex-col items-start justify-between transition-transform duration-75 ease-out will-change-transform"
+            className="w-full flex flex-col items-start transition-transform duration-75 ease-out will-change-transform"
             style={{
               transform: `translate3d(0, ${headlineParallaxY}px, 0)`,
             }}
@@ -110,88 +109,45 @@ export function Hero() {
             <div className="w-full flex flex-col items-start">
               {/* 1. Eyebrow Pill */}
               <motion.div
-                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -12 }}
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-                style={{ marginBottom: "0.625rem" }}
+                className="mb-4 sm:mb-5"
               >
-                <EyebrowPill accent="PORTFOLIO '26" text="APPLIED AI & FULL-STACK SYSTEMS" />
+                <div className="inline-flex items-center px-3.5 py-1 rounded-full bg-[#FDECE8] text-[#E8472B] font-mono text-[11px] uppercase tracking-[0.08em] font-medium select-none w-max leading-none">
+                  PORTFOLIO &amp; SYSTEMS ARCHIVE
+                </div>
               </motion.div>
 
-              {/* 2. H1: Inter bold 700 with Instrument Serif italic accent */}
+              {/* 2. H1: Applied AI & Full-Stack Systems Engineer. */}
               <h1
-                style={{ marginBottom: "0.75rem" }}
-                className="font-sans font-bold text-fluid-hero text-[#111111] select-none preserve-3d leading-[1.05] tracking-[-0.035em]"
+                className="font-sans font-bold text-fluid-hero text-[#111111] select-none leading-[1.05] tracking-[-0.035em] mb-4 sm:mb-5"
               >
-                <div className="overflow-visible perspective-1200">
-                  <motion.div
-                    custom={0}
-                    variants={lineVariants3D}
-                    initial="hidden"
-                    animate="visible"
-                    className="inline-block origin-bottom will-change-transform"
-                  >
-                    <span>Applied </span>
-                    <em className="accent font-serif-italic italic text-accent font-normal">AI </em>
-                  </motion.div>
-                </div>
-                <div className="overflow-visible perspective-1200">
-                  <motion.div
-                    custom={1}
-                    variants={lineVariants3D}
-                    initial="hidden"
-                    animate="visible"
-                    className="inline-block origin-bottom will-change-transform"
-                  >
-                    <em className="accent font-serif-italic italic text-accent font-normal accent-underline">
-                      engineering
-                    </em>
-                  </motion.div>
-                </div>
-                <div className="overflow-visible perspective-1200">
-                  <motion.div
-                    custom={2}
-                    variants={lineVariants3D}
-                    initial="hidden"
-                    animate="visible"
-                    className="inline-block origin-bottom will-change-transform"
-                  >
-                    <span>for systems</span>
-                  </motion.div>
-                </div>
-                <div className="overflow-visible perspective-1200">
-                  <motion.div
-                    custom={3}
-                    variants={lineVariants3D}
-                    initial="hidden"
-                    animate="visible"
-                    className="inline-block origin-bottom will-change-transform"
-                  >
-                    <span>that make sense</span>
-                  </motion.div>
-                </div>
+                Applied AI &amp; Full-Stack
+                <br />
+                Systems{" "}
+                <em className="accent font-serif-italic italic text-accent font-normal">
+                  Engineer.
+                </em>
               </h1>
 
-              {/* 3. Subtitle / Intro blockquote style with 2px solid accent vertical line in Inter */}
-              <motion.div
-                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: -16 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.38, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-                style={{ marginBottom: "1rem" }}
-                className="lead-intro font-sans"
+              {/* 3. Subtitle Description */}
+              <motion.p
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                className="font-sans text-base sm:text-[17px] text-[#4a4a4a] leading-relaxed max-w-[58ch] mb-6 sm:mb-8 font-normal"
               >
-                <p>
-                  I’m an engineer who makes complex things feel obvious — turning AI ideas into web apps people can actually use.
-                </p>
-              </motion.div>
+                Building deterministic RAG pipelines, autonomous agentic systems, and high-concurrency web applications that make complex intelligence intuitive.
+              </motion.p>
             </div>
 
-            {/* 4. Action Buttons (Inter 14px weight 500, gap 12px) */}
+            {/* 4. Action Buttons & Social Links */}
             <motion.div
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
+              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.48, duration: 0.6 }}
-              className="flex flex-wrap items-center gap-3 w-full sm:w-auto mt-2"
+              transition={{ delay: 0.35, duration: 0.55 }}
+              className="flex flex-wrap items-center gap-3 sm:gap-4 w-full pt-1"
             >
               <a
                 ref={exploreBtnRef}
@@ -201,67 +157,52 @@ export function Hero() {
                 style={{
                   transform: `translate3d(${btnOffset.x}px, ${btnOffset.y}px, 0)`,
                 }}
-                className="neo-black-btn min-h-[44px] px-[22px] py-[11px] font-sans text-[14px] font-medium gap-2 active:scale-[0.97] w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg sm:rounded-full bg-[#111111] text-white font-sans text-sm font-medium hover:bg-[#222222] transition-colors active:scale-[0.98] w-full sm:w-auto"
               >
-                <span>Explore Work</span>
-                <ArrowRight className="w-4 h-4 shrink-0" />
+                <span>View Selected Work</span>
+                <ArrowDown className="w-3.5 h-3.5" />
               </a>
 
               <a
                 href="/#contact"
-                className="neo-pill-btn min-h-[44px] px-[22px] py-[11px] font-sans text-[14px] font-medium gap-1.5 w-full sm:w-auto group"
+                className="inline-flex items-center justify-center gap-1.5 px-6 py-2.5 rounded-lg sm:rounded-full bg-white border border-[#E5E0D8] text-[#111111] font-sans text-sm font-medium hover:border-[#111111] transition-colors active:scale-[0.98] w-full sm:w-auto"
               >
                 <span>Get in touch</span>
-                <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </a>
+
+              {/* Social Links on Right */}
+              <div className="flex items-center gap-4 sm:ml-2 font-mono text-xs sm:text-[13px] text-[#777777] pt-2 sm:pt-0">
+                <a
+                  href={IDENTITY.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1 hover:text-[#111111] transition-colors"
+                >
+                  <span>GitHub</span>
+                  <span className="text-[11px]">↗</span>
+                </a>
+                <a
+                  href={IDENTITY.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1 hover:text-[#111111] transition-colors"
+                >
+                  <span>LinkedIn</span>
+                  <span className="text-[11px]">↗</span>
+                </a>
+              </div>
             </motion.div>
           </div>
 
-          {/* Editorial Center Vertical Divider Line */}
-          <div className="hidden lg:flex flex-col items-center justify-center self-stretch py-2">
-            <div className="w-[1.5px] h-full bg-[#111111]/15 relative">
-              <div className="absolute top-1/2 -translate-y-1/2 -left-[2.5px] w-1.5 h-1.5 rounded-full bg-[#E8472B]" />
-            </div>
-          </div>
-
-          {/* Right Column: Profile Snapshot Card & Creative Professional Telemetry Console */}
+          {/* Right Column: Profile Snapshot Card */}
           <div
-            className="w-full flex flex-col justify-center items-stretch transition-transform duration-75 ease-out will-change-transform mt-6 lg:mt-0 gap-3"
+            className="w-full flex flex-col justify-center items-stretch transition-transform duration-75 ease-out will-change-transform mt-8 lg:mt-0"
             style={{
               transform: `translate3d(0, ${headlineParallaxY}px, 0)`,
             }}
           >
-            {/* Above Snapshot Card: Clean, unboxed creative statement */}
-            <motion.div
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.12 }}
-              className="px-1 text-left"
-            >
-              <p className="font-sans text-[13.5px] sm:text-[14px] text-[#4a4a4a] leading-relaxed">
-                Bridging high-dimensional <em className="accent font-serif-italic italic text-accent font-normal">AI reasoning</em> with deterministic, low-latency production engineering.
-              </p>
-            </motion.div>
-
-            {/* Core Snapshot Card */}
             <SnapshotCard />
-
-            {/* Below Snapshot Card: Professional Quote (Unbordered) */}
-            <motion.div
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.2 }}
-              className="px-1 text-left"
-            >
-              <blockquote className="py-0.5">
-                <p className="font-sans text-[13px] sm:text-[13.5px] text-[#4a4a4a] leading-relaxed">
-                  &ldquo;The best AI systems don&apos;t feel like magic — they feel like <em className="accent font-serif-italic italic text-accent font-normal">well-engineered</em> software.&rdquo;
-                </p>
-                <span className="font-mono text-[10.5px] uppercase tracking-[0.08em] text-[#888888] block mt-1">
-                  — Architecture Invariant
-                </span>
-              </blockquote>
-            </motion.div>
           </div>
         </div>
       </div>
