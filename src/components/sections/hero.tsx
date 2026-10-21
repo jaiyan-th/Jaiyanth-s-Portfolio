@@ -65,14 +65,14 @@ export function Hero() {
         paddingTop: "max(5rem, calc(4.25rem + env(safe-area-inset-top, 0px)))",
         paddingBottom: "max(3.5rem, calc(2.5rem + env(safe-area-inset-bottom, 0px)))",
       }}
-      className="relative min-h-[90svh] flex flex-col justify-center bg-[var(--canvas)] overflow-hidden"
+      className="relative min-h-svh flex flex-col justify-center bg-[var(--canvas)] overflow-hidden"
     >
       {/* Main Content Area */}
       <div className="site-container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.28fr)_minmax(0,0.72fr)] gap-8 lg:gap-10 xl:gap-14 items-center">
-          {/* Left Column: Eyebrow, Headline, Subtitle, CTA buttons & Social Links */}
+        <div>
+          {/* Full-width content column */}
           <div
-            className="w-full max-w-[580px] flex flex-col items-start transition-transform duration-75 ease-out will-change-transform"
+            className="w-full max-w-[700px] flex flex-col items-start transition-transform duration-75 ease-out will-change-transform"
             style={{
               transform: `translate3d(0, ${headlineParallaxY}px, 0)`,
             }}
@@ -167,16 +167,6 @@ export function Hero() {
                 </a>
               </div>
             </motion.div>
-          </div>
-
-          {/* Right Column: Clean empty card frame matching reference screenshot */}
-          <div
-            className="hidden lg:flex w-full flex-col justify-center items-stretch transition-transform duration-75 ease-out will-change-transform mt-8 lg:mt-0"
-            style={{
-              transform: `translate3d(0, ${headlineParallaxY}px, 0)`,
-            }}
-          >
-            <div className="w-full h-[320px] xl:h-[360px] rounded-[24px] bg-white border border-[#E5E0D8] shadow-[0_4px_24px_rgba(0,0,0,0.04)]" />
           </div>
         </div>
       </div>
