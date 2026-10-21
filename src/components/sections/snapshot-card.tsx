@@ -19,7 +19,7 @@ export function SnapshotCard() {
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -3, transition: { duration: 0.2 } }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      className="group relative w-full max-w-[420px] lg:max-w-[430px] rounded-xl bg-white border-2 border-[#111111] p-5 sm:p-6 shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] transition-all duration-200 text-left flex flex-col"
+      className="group relative w-full max-w-[390px] sm:max-w-[400px] rounded-xl bg-white border-2 border-[#111111] p-4 sm:p-5 shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] transition-all duration-200 text-left flex flex-col"
     >
       {/* Eyebrow & Focus Area */}
       <div>
