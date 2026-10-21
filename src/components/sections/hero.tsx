@@ -172,16 +172,16 @@ export function Hero() {
                 </div>
               </h1>
 
-              {/* 3. Subtitle / Intro blockquote style with 2px solid accent vertical line in Instrument Serif */}
+              {/* 3. Subtitle / Intro blockquote style with 2px solid accent vertical line in Inter */}
               <motion.div
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.38, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
                 style={{ marginBottom: "1.5rem" }}
-                className="lead-intro font-serif"
+                className="lead-intro font-sans"
               >
                 <p>
-                  Autonomous fact-verification pipelines, dual-LLM agentic career platforms, concurrency-safe reservation engines, and cryptographic vaults.
+                  I’m an engineer who makes complex things feel obvious — turning AI ideas into web apps people can actually use.
                 </p>
               </motion.div>
             </div>

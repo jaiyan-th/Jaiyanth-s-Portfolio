@@ -182,8 +182,8 @@ export function SelectedWork() {
           </span>
         </Reveal>
 
-        {/* Section Intro Paragraph with 2px solid accent left vertical line in Instrument Serif */}
-        <div className="lead-intro font-serif mb-10 sm:mb-14">
+        {/* Section Intro Paragraph with 2px solid accent left vertical line */}
+        <div className="lead-intro mb-10 sm:mb-14">
           <p>
             Autonomous fact-verification pipelines, dual-LLM agentic career platforms, concurrency-safe reservation engines, and cryptographic vaults.
           </p>
