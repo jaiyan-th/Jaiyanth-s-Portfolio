@@ -246,15 +246,15 @@ export function Hero() {
             {/* Core Snapshot Card */}
             <SnapshotCard />
 
-            {/* Below Snapshot Card: Professional Quote */}
+            {/* Below Snapshot Card: Professional Quote (Unbordered) */}
             <motion.div
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.2 }}
               className="px-1 text-left"
             >
-              <blockquote className="border-l-2 border-accent pl-3 py-0.5">
-                <p className="font-sans text-[13px] sm:text-[13.5px] text-[#111111] leading-relaxed">
+              <blockquote className="py-0.5">
+                <p className="font-sans text-[13px] sm:text-[13.5px] text-[#4a4a4a] leading-relaxed">
                   &ldquo;The best AI systems don&apos;t feel like magic — they feel like <em className="accent font-serif-italic italic text-accent font-normal">well-engineered</em> software.&rdquo;
                 </p>
                 <span className="font-mono text-[10.5px] uppercase tracking-[0.08em] text-[#888888] block mt-1">
