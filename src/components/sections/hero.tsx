@@ -226,7 +226,7 @@ export function Hero() {
 
           {/* Right Column: Profile Snapshot Card */}
           <div
-            className="w-full flex flex-col justify-center items-center lg:items-start transition-transform duration-75 ease-out will-change-transform mt-6 lg:mt-0"
+            className="w-full flex flex-col justify-center items-stretch transition-transform duration-75 ease-out will-change-transform mt-6 lg:mt-0"
             style={{
               transform: `translate3d(0, ${headlineParallaxY}px, 0)`,
             }}
