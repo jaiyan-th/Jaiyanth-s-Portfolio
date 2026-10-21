@@ -3,7 +3,6 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowDown, ArrowRight } from "lucide-react";
-import { SnapshotCard } from "./snapshot-card";
 import { IDENTITY } from "@/data/content";
 
 export function Hero() {
@@ -170,14 +169,14 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: Profile Snapshot Card */}
+          {/* Right Column: Clean empty card frame matching reference screenshot */}
           <div
-            className="w-full flex flex-col justify-center items-stretch transition-transform duration-75 ease-out will-change-transform mt-8 lg:mt-0 max-w-[420px] xl:max-w-[450px] mx-auto lg:ml-auto"
+            className="hidden lg:flex w-full flex-col justify-center items-stretch transition-transform duration-75 ease-out will-change-transform mt-8 lg:mt-0"
             style={{
               transform: `translate3d(0, ${headlineParallaxY}px, 0)`,
             }}
           >
-            <SnapshotCard />
+            <div className="w-full h-[320px] xl:h-[360px] rounded-[24px] bg-white border border-[#E5E0D8] shadow-[0_4px_24px_rgba(0,0,0,0.04)]" />
           </div>
         </div>
       </div>
