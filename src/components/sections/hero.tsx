@@ -68,16 +68,16 @@ export function Hero() {
       className="relative min-h-svh flex flex-col justify-center bg-[var(--canvas)] overflow-hidden"
     >
       {/* Main Content Area */}
-      <div className="site-container relative z-10">
-        <div>
-          {/* Full-width content column */}
+      <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 relative z-10">
+        <div className="text-center flex flex-col items-center w-full">
+          {/* Full-width content column spanning edge-to-edge */}
           <div
-            className="w-full max-w-[700px] flex flex-col items-start transition-transform duration-75 ease-out will-change-transform"
+            className="w-full max-w-none flex flex-col items-center transition-transform duration-75 ease-out will-change-transform"
             style={{
               transform: `translate3d(0, ${headlineParallaxY}px, 0)`,
             }}
           >
-            <div className="w-full flex flex-col items-start">
+              <div className="w-full flex flex-col items-center">
               {/* 1. Eyebrow Pill */}
               <motion.div
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -10 }}
@@ -90,15 +90,14 @@ export function Hero() {
                 </div>
               </motion.div>
 
-              {/* 2. H1: Applied AI & Full-Stack Systems Engineer. (2 Lines Exact) */}
               <h1
-                className="font-sans font-bold text-[34px] sm:text-[42px] md:text-[48px] lg:text-[48px] xl:text-[54px] text-[#111111] select-none leading-[1.05] tracking-[-0.035em] mb-4 sm:mb-5"
+                className="font-sans font-bold text-[clamp(32px,5.2vw,82px)] text-[#111111] select-none leading-[1.08] tracking-[-0.035em] mb-5 sm:mb-6 w-full max-w-6xl mx-auto"
               >
-                <span className="block whitespace-nowrap">Applied AI &amp; Full-Stack</span>
-                <span className="block mt-0.5">
-                  Systems{" "}
+                <span className="block">Applied AI engineering for systems</span>
+                <span className="block mt-1 sm:mt-1.5">
+                  that make{" "}
                   <em className="accent font-serif-italic italic text-accent font-normal">
-                    Engineer.
+                    sense.
                   </em>
                 </span>
               </h1>
@@ -108,11 +107,9 @@ export function Hero() {
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.22, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                className="font-sans text-[15px] sm:text-[15.5px] text-[#555555] leading-relaxed max-w-[530px] mb-6 sm:mb-7 font-normal"
+                className="font-sans text-[16px] sm:text-[18px] md:text-[19px] text-[#555555] leading-relaxed max-w-3xl sm:max-w-4xl mx-auto mb-7 sm:mb-8 font-normal"
               >
-                Building deterministic RAG pipelines, autonomous agentic systems, and high-
-                <br className="hidden sm:inline" />
-                concurrency web applications that make complex intelligence intuitive.
+                I&apos;m an engineer who makes complex things feel obvious — turning AI ideas into web apps people can actually use.
               </motion.p>
             </div>
 
@@ -121,7 +118,7 @@ export function Hero() {
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.32, duration: 0.55 }}
-              className="flex items-center flex-nowrap gap-3 sm:gap-3.5 w-full overflow-x-auto sm:overflow-visible pb-1 sm:pb-0"
+              className="flex items-center justify-center flex-nowrap gap-3 sm:gap-3.5 w-full overflow-x-auto sm:overflow-visible pb-1 sm:pb-0"
             >
               <a
                 ref={exploreBtnRef}
