@@ -36,8 +36,11 @@ export function SnapshotCard() {
         </p>
       </div>
 
+      {/* Clean Divider Line */}
+      <div className="my-3.5 border-t-[1.5px] border-[#111111]/15" />
+
       {/* Core Stack */}
-      <div className="mt-5">
+      <div>
         <div className="flex items-center gap-1.5 mb-2 text-[10.5px] font-mono uppercase tracking-[0.08em] text-[#111111] font-semibold">
           <Terminal className="w-3.5 h-3.5 text-[#E8472B]" />
           <span>Stack</span>
@@ -54,8 +57,11 @@ export function SnapshotCard() {
         </div>
       </div>
 
+      {/* Clean Divider Line */}
+      <div className="my-3.5 border-t-[1.5px] border-[#111111]/15" />
+
       {/* Quick Verified Highlights */}
-      <div className="grid grid-cols-2 gap-2.5 mt-5">
+      <div className="grid grid-cols-2 gap-2.5">
         <div className="px-3.5 py-2.5 rounded-md bg-[#FAF8F5] border-[1.5px] border-[#111111] shadow-[2px_2px_0px_#111111]">
           <span className="font-mono text-[10px] text-[#555555] uppercase tracking-[0.08em] block mb-0.5 font-semibold">
             Specialization

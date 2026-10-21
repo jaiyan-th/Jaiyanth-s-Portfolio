@@ -99,8 +99,8 @@ export function Hero() {
 
       {/* Main Content Area */}
       <div className="site-container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-14 items-stretch">
-          {/* Left Column (50%): Badges, Headline, Subtitle, CTA buttons */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_auto_0.9fr] gap-6 lg:gap-8 xl:gap-10 items-stretch">
+          {/* Left Column: Badges, Headline, Subtitle, CTA buttons */}
           <div
             className="w-full flex flex-col items-start justify-between transition-transform duration-75 ease-out will-change-transform"
             style={{
@@ -217,9 +217,16 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column (50%): Profile Snapshot Card */}
+          {/* Editorial Center Vertical Divider Line */}
+          <div className="hidden lg:flex flex-col items-center justify-center self-stretch py-2">
+            <div className="w-[1.5px] h-full bg-[#111111]/15 relative">
+              <div className="absolute top-1/2 -translate-y-1/2 -left-[2.5px] w-1.5 h-1.5 rounded-full bg-[#E8472B]" />
+            </div>
+          </div>
+
+          {/* Right Column: Profile Snapshot Card */}
           <div
-            className="w-full flex flex-col justify-center items-center lg:items-end transition-transform duration-75 ease-out will-change-transform mt-6 lg:mt-0"
+            className="w-full flex flex-col justify-center items-center lg:items-start transition-transform duration-75 ease-out will-change-transform mt-6 lg:mt-0"
             style={{
               transform: `translate3d(0, ${headlineParallaxY}px, 0)`,
             }}
