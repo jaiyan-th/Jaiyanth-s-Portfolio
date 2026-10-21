@@ -24,7 +24,7 @@ export const IDENTITY = {
   linkedin: "https://www.linkedin.com/in/jaiyan-th/",
   linkedinPending: false,
   heroStatement: "Applied AI engineering for systems that make sense.",
-  heroSupporting: "I’m an engineer who makes complex things feel obvious.",
+  heroSupporting: "Autonomous fact-verification pipelines, dual-LLM agentic career platforms, concurrency-safe reservation engines, and cryptographic vaults.",
 } as const;
 
 export const NAV_ITEMS: NavItem[] = [

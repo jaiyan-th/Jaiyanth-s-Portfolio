@@ -243,7 +243,7 @@
     box-shadow: 2px 2px 0px #111111;
   }
 
-  /* Intro / Lead Paragraphs: Inter, 16-18px, line-height 1.6, muted gray, max width around 60ch, 2px solid accent vertical line on left with 16px padding */
+  /* Intro / Lead Paragraphs: 2px solid accent vertical line on left with 16px padding */
   .lead-intro {
     font-family: var(--font-sans);
     font-size: clamp(16px, 1.05rem, 18px);
@@ -252,6 +252,15 @@
     max-width: 60ch;
     border-left: 2px solid var(--accent);
     padding-left: 16px;
+  }
+
+  .lead-intro.font-serif,
+  .lead-intro .font-serif,
+  .lead-serif {
+    font-family: var(--font-serif);
+    font-size: clamp(20px, 1.35rem, 24px);
+    line-height: 1.45;
+    font-weight: 400;
   }
 
   .text-fluid-lead {
