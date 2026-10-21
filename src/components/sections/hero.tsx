@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import { SnapshotCard } from "./snapshot-card";
-import { LiveSignalField } from "@/components/canvas/live-signal-field";
 import { IDENTITY } from "@/data/content";
 
 export function Hero() {
@@ -42,7 +41,7 @@ export function Hero() {
     };
   }, [shouldReduceMotion]);
 
-  // Magnetic hover for "Explore Work" button
+  // Magnetic hover for "View Selected Work" button
   const handleBtnMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (isMobile || shouldReduceMotion || !exploreBtnRef.current) return;
     const rect = exploreBtnRef.current.getBoundingClientRect();
@@ -57,45 +56,18 @@ export function Hero() {
     setBtnOffset({ x: 0, y: 0 });
   };
 
-  const headlineParallaxY = shouldReduceMotion || isMobile ? 0 : scrollY * 0.06;
-
-  const lineVariants3D = {
-    hidden: {
-      opacity: 0,
-      rotateX: shouldReduceMotion || isMobile ? 0 : -35,
-      translateZ: shouldReduceMotion || isMobile ? 0 : -40,
-      y: 28,
-    },
-    visible: (idx: number) => ({
-      opacity: 1,
-      rotateX: 0,
-      translateZ: 0,
-      y: 0,
-      transition: {
-        delay: shouldReduceMotion ? 0 : 0.08 + idx * 0.1,
-        duration: 0.75,
-        ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-      },
-    }),
-  };
+  const headlineParallaxY = shouldReduceMotion || isMobile ? 0 : scrollY * 0.05;
 
   return (
     <section
       id="hero"
       aria-label="Hero Introduction"
       style={{
-        paddingTop: "max(3.75rem, calc(3.25rem + env(safe-area-inset-top, 0px)))",
-        paddingBottom: "max(2rem, calc(1.5rem + env(safe-area-inset-bottom, 0px)))",
+        paddingTop: "max(5rem, calc(4.5rem + env(safe-area-inset-top, 0px)))",
+        paddingBottom: "max(4rem, calc(3.5rem + env(safe-area-inset-bottom, 0px)))",
       }}
-      className="relative min-h-[100svh] flex flex-col justify-center bg-transparent overflow-hidden perspective-1200"
+      className="relative min-h-[92svh] flex flex-col justify-center bg-[var(--canvas)] overflow-hidden"
     >
-      {/* Interactive 3D Dot-Grid Signal Field */}
-      <LiveSignalField className="z-0" />
-
-      {/* Ambient Atmospheric Lighting Highlights */}
-      <div className="pointer-events-none absolute top-1/2 right-[5%] -translate-y-1/2 w-[480px] h-[480px] rounded-full bg-gradient-to-tr from-[#E8472B]/6 via-[#E8472B]/3 to-transparent blur-3xl opacity-75" />
-      <div className="pointer-events-none absolute top-1/4 left-[5%] w-[420px] h-[420px] rounded-full bg-gradient-to-br from-white/60 to-transparent blur-2xl opacity-60" />
-
       {/* Main Content Area */}
       <div className="site-container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-[1.18fr_0.82fr] gap-8 lg:gap-12 xl:gap-16 items-center">
@@ -114,7 +86,7 @@ export function Hero() {
                 transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
                 className="mb-4 sm:mb-5"
               >
-                <div className="inline-flex items-center px-3.5 py-1 rounded-full bg-[#FDECE8] text-[#E8472B] font-mono text-[11px] uppercase tracking-[0.08em] font-medium select-none w-max leading-none">
+                <div className="inline-flex items-center px-3.5 py-1 rounded-full bg-[#FDF0ED] text-[#E8472B] font-mono text-[10.5px] uppercase tracking-[0.08em] font-medium select-none w-max leading-none">
                   PORTFOLIO &amp; SYSTEMS ARCHIVE
                 </div>
               </motion.div>
@@ -135,8 +107,8 @@ export function Hero() {
               <motion.p
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.25, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                className="font-sans text-base sm:text-[17px] text-[#4a4a4a] leading-relaxed max-w-[58ch] mb-6 sm:mb-8 font-normal"
+                transition={{ delay: 0.22, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                className="font-sans text-[15px] sm:text-[16.5px] text-[#555555] leading-relaxed max-w-[580px] mb-6 sm:mb-7 font-normal"
               >
                 Building deterministic RAG pipelines, autonomous agentic systems, and high-concurrency web applications that make complex intelligence intuitive.
               </motion.p>
@@ -146,8 +118,8 @@ export function Hero() {
             <motion.div
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35, duration: 0.55 }}
-              className="flex flex-wrap items-center gap-3 sm:gap-4 w-full pt-1"
+              transition={{ delay: 0.32, duration: 0.55 }}
+              className="flex flex-wrap items-center gap-3 sm:gap-4 w-full"
             >
               <a
                 ref={exploreBtnRef}
@@ -157,7 +129,7 @@ export function Hero() {
                 style={{
                   transform: `translate3d(${btnOffset.x}px, ${btnOffset.y}px, 0)`,
                 }}
-                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg sm:rounded-full bg-[#111111] text-white font-sans text-sm font-medium hover:bg-[#222222] transition-colors active:scale-[0.98] w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-[8px] bg-[#111111] text-white font-sans text-[13.5px] sm:text-[14px] font-medium hover:bg-[#222222] transition-colors active:scale-[0.98] w-full sm:w-auto"
               >
                 <span>View Selected Work</span>
                 <ArrowDown className="w-3.5 h-3.5" />
@@ -165,7 +137,7 @@ export function Hero() {
 
               <a
                 href="/#contact"
-                className="inline-flex items-center justify-center gap-1.5 px-6 py-2.5 rounded-lg sm:rounded-full bg-white border border-[#E5E0D8] text-[#111111] font-sans text-sm font-medium hover:border-[#111111] transition-colors active:scale-[0.98] w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-[8px] bg-white border border-[#E5E0D8] text-[#111111] font-sans text-[13.5px] sm:text-[14px] font-medium hover:border-[#111111] transition-colors active:scale-[0.98] w-full sm:w-auto"
               >
                 <span>Get in touch</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -180,7 +152,7 @@ export function Hero() {
                   className="inline-flex items-center gap-1 hover:text-[#111111] transition-colors"
                 >
                   <span>GitHub</span>
-                  <span className="text-[11px]">↗</span>
+                  <span className="text-[11px] text-[#999999]">↗</span>
                 </a>
                 <a
                   href={IDENTITY.linkedin}
@@ -189,7 +161,7 @@ export function Hero() {
                   className="inline-flex items-center gap-1 hover:text-[#111111] transition-colors"
                 >
                   <span>LinkedIn</span>
-                  <span className="text-[11px]">↗</span>
+                  <span className="text-[11px] text-[#999999]">↗</span>
                 </a>
               </div>
             </motion.div>
