@@ -467,17 +467,14 @@
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    border: 1.5px solid #111111;
-    box-shadow: 3px 3px 0px #111111;
-    border-radius: 4px;
+    border: 1px solid #E2DDD5;
+    border-radius: 6px;
     background-color: #FAF8F5;
     color: var(--ink);
     padding: 5px 10px;
     transition: all 150ms ease;
   }
   .chip:hover {
-    transform: translate(1px, 1px);
-    box-shadow: 1px 1px 0px #111111;
     background-color: var(--ink);
     color: #FFFFFF;
   }

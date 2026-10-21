@@ -51,7 +51,7 @@ export function SnapshotCard() {
           {STACK_TAGS.map((tag) => (
             <span
               key={tag}
-              className="chip inline-flex items-center px-2.5 py-1 rounded-[6px] font-mono text-[11px] uppercase tracking-[0.08em] font-medium bg-[#FAF8F5] text-[#111111] border border-[#E2DDD5] hover:bg-[#111111] hover:text-white transition-all cursor-default"
+              className="inline-flex items-center px-2.5 py-1 rounded-[6px] font-mono text-[11px] uppercase tracking-[0.08em] font-medium bg-[#FAF8F5] text-[#111111] border border-[#E2DDD5] hover:bg-[#111111] hover:text-white transition-all cursor-default"
             >
               {tag}
             </span>
