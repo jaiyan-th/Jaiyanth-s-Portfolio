@@ -27,7 +27,7 @@ export function SnapshotCard() {
           <Sparkles className="w-3.5 h-3.5 text-[#E8472B]" />
           <span>Core Focus</span>
         </div>
-        <h3 className="card-title font-serif font-semibold text-[24px] sm:text-[26px] lg:text-[28px] text-[#111111] leading-snug mt-2">
+        <h3 className="card-title font-serif font-normal text-[24px] sm:text-[26px] lg:text-[28px] text-[#111111] leading-snug mt-2">
           Applied AI Systems &amp; High-Assurance{" "}
           <em className="font-serif-italic italic text-accent font-normal not-italic:font-serif">
             Architecture
@@ -68,7 +68,7 @@ export function SnapshotCard() {
           <span className="font-mono text-[11px] text-[#5a5a5a] uppercase tracking-[0.08em] block mb-0.5 font-medium">
             Specialization
           </span>
-          <span className="font-serif font-semibold text-[15px] sm:text-base text-[#111111] block truncate">
+          <span className="font-serif font-normal text-[15px] sm:text-base text-[#111111] block truncate">
             Production AI &amp;{" "}
             <em className="font-serif-italic italic text-accent font-normal">Web</em>
           </span>
@@ -77,7 +77,7 @@ export function SnapshotCard() {
           <span className="font-mono text-[11px] text-[#5a5a5a] uppercase tracking-[0.08em] block mb-0.5 font-medium">
             Publication
           </span>
-          <span className="font-serif font-semibold text-[15px] sm:text-base text-[#111111] block truncate">
+          <span className="font-serif font-normal text-[15px] sm:text-base text-[#111111] block truncate">
             IEEE ICETSIS{" "}
             <em className="font-serif-italic italic text-accent font-normal">&apos;26</em>
           </span>

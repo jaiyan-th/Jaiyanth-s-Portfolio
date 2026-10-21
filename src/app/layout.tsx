@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Instrument_Serif, Inter, JetBrains_Mono } from "next/font/google";
+import { Instrument_Serif, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/effects/theme-provider";
@@ -8,15 +8,8 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE } from "@/data/portfolio";
 
-const fraunces = Fraunces({
-  variable: "--font-serif-bold",
-  subsets: ["latin"],
-  weight: ["600", "700"],
-  display: "swap",
-});
-
 const instrumentSerif = Instrument_Serif({
-  variable: "--font-serif-italic",
+  variable: "--font-serif",
   subsets: ["latin"],
   weight: "400",
   style: ["normal", "italic"],
@@ -125,7 +118,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
           rel="stylesheet"
         />
         <script
@@ -134,7 +127,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${fraunces.variable} ${instrumentSerif.variable} ${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-[var(--canvas)] text-[var(--text-primary)] selection:bg-[#E8472B]/20 selection:text-inherit`}
+        className={`${instrumentSerif.variable} ${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-[var(--canvas)] text-[var(--text-primary)] selection:bg-[#E8472B]/20 selection:text-inherit`}
       >
         <ScrollProgress />
           <a

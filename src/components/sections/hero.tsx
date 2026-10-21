@@ -121,7 +121,7 @@ export function Hero() {
               {/* 2. H1: Fraunces bold 700 with Instrument Serif italic accent */}
               <h1
                 style={{ marginBottom: "1.25rem" }}
-                className="font-serif font-bold text-fluid-hero text-[#111111] select-none preserve-3d leading-[1.0] tracking-[-0.03em]"
+                className="font-serif font-normal text-fluid-hero text-[#111111] select-none preserve-3d leading-[1.0] tracking-[-0.03em]"
               >
                 <div className="overflow-visible perspective-1200">
                   <motion.div

@@ -65,7 +65,7 @@ export default function WorkIndexPage() {
           {/* Work Page Header */}
           <div className="mb-14 sm:mb-20 space-y-4">
             <EyebrowPill accent="SELECTED WORK" text="2024–26" />
-            <h1 className="font-serif font-bold text-fluid-hero text-[#111111] leading-[1.0] tracking-[-0.03em] max-w-4xl">
+            <h1 className="font-serif font-normal text-fluid-hero text-[#111111] leading-[1.0] tracking-[-0.03em] max-w-4xl">
               Selected work across <em className="font-serif-italic italic text-accent font-normal">applied AI</em>, RAG systems, and <em className="font-serif-italic italic text-accent font-normal accent-underline">full-stack</em> products
             </h1>
             <p className="lead-intro font-sans text-base sm:text-lg text-text-muted leading-relaxed max-w-[60ch]">

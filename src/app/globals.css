@@ -15,9 +15,9 @@
   --color-foreground: var(--text-primary);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
-  --font-serif: var(--font-serif-bold);
-  --font-serif-bold: var(--font-serif-bold);
-  --font-serif-italic: var(--font-serif-italic);
+  --font-serif: var(--font-serif);
+  --font-serif-bold: var(--font-serif);
+  --font-serif-italic: var(--font-serif);
 
   --color-canvas: var(--canvas);
   --color-surface: var(--surface);
@@ -41,10 +41,10 @@
 }
 
 :root {
-  /* Exact Editorial Font Variables */
-  --font-serif-bold: var(--font-serif-bold, "Fraunces", Georgia, serif);
-  --font-serif-italic: var(--font-serif-italic, "Instrument Serif", Georgia, serif);
-  --font-serif: var(--font-serif-bold);
+  /* Editorial Typography: Instrument Serif regular weight 400, never bold */
+  --font-serif: var(--font-serif, "Instrument Serif", Georgia, serif);
+  --font-serif-bold: var(--font-serif);
+  --font-serif-italic: var(--font-serif);
   --font-sans: var(--font-sans, "Inter", system-ui, sans-serif);
   --font-mono: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);
 
@@ -84,9 +84,9 @@
   --section-y: clamp(1.5rem, 1.2rem + 1vw, 2.5rem);
 
   /* Fluid Type Scale */
-  --text-hero: clamp(48px, 7vw, 96px);
-  --text-h1: clamp(48px, 7vw, 96px);
-  --text-h2: clamp(32px, 4.5vw, 56px);
+  --text-hero: clamp(48px, 6vw, 96px);
+  --text-h1: clamp(48px, 6vw, 96px);
+  --text-h2: clamp(34px, 4vw, 60px);
   --text-h3: clamp(24px, 2.5vw, 36px);
   --text-lead: clamp(16px, 1.05rem, 18px);
   --text-body: 15px;
@@ -134,13 +134,13 @@
     padding-right: env(safe-area-inset-right, 0px);
   }
 
-  /* Global Headings: Fraunces bold 700 with tight tracking */
+  /* Global Headings: Instrument Serif regular weight 400, never bold */
   h1, h2, h3 {
-    font-family: var(--font-serif-bold);
-    font-weight: 700;
+    font-family: var(--font-serif);
+    font-weight: 400;
     color: var(--ink);
-    letter-spacing: -0.03em;
-    line-height: 1;
+    letter-spacing: -0.02em;
+    line-height: 1.02;
   }
 
   /* Global Italic Accent words inside headings: Instrument Serif italic 400 with orange color */
@@ -216,43 +216,43 @@
      EDITORIAL TYPOGRAPHY UTILITY CLASSES
      ============================================================ */
 
-  /* Headings: Fraunces, bold weight (700), tight line-height, letter-spacing -0.03em */
+  /* Headings: Instrument Serif, regular weight (400), never bold, tight line-height, slightly negative letter-spacing */
   .heading-h1,
   .text-fluid-hero {
-    font-family: var(--font-serif-bold);
-    font-weight: 700;
+    font-family: var(--font-serif);
+    font-weight: 400;
     font-size: var(--text-h1);
-    line-height: 1;
-    letter-spacing: -0.03em;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
     color: var(--ink);
   }
 
   .heading-h2,
   .text-fluid-h2 {
-    font-family: var(--font-serif-bold);
-    font-weight: 700;
+    font-family: var(--font-serif);
+    font-weight: 400;
     font-size: var(--text-h2);
-    line-height: 1.02;
-    letter-spacing: -0.03em;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
     color: var(--ink);
   }
 
   .heading-h3,
   .text-fluid-h3 {
-    font-family: var(--font-serif-bold);
-    font-weight: 700;
+    font-family: var(--font-serif);
+    font-weight: 400;
     font-size: var(--text-h3);
-    line-height: 1.05;
-    letter-spacing: -0.03em;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
     color: var(--ink);
   }
 
   .card-title {
-    font-family: var(--font-serif-bold);
-    font-weight: 600;
+    font-family: var(--font-serif);
+    font-weight: 400;
     font-size: clamp(24px, 2vw, 28px);
     line-height: 1.15;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.015em;
     color: var(--ink);
   }
   .card-title em,

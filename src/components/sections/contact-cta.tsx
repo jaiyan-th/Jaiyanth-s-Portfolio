@@ -43,7 +43,7 @@ export function ContactCta() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pt-8 border-t border-border-line">
           <div>
             <EyebrowPill accent="CONTACT" text="GET IN TOUCH" className="mb-4" />
-            <h2 className="font-serif font-bold text-fluid-h2 text-[#111111] max-w-xl tracking-[-0.03em] leading-[1.02]">
+            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] max-w-xl tracking-[-0.03em] leading-[1.02]">
               Have an ambitious product that needs <em className="font-serif-italic italic text-accent font-normal">AI reasoning</em> and <em className="font-serif-italic italic text-accent font-normal accent-underline">full-stack</em> execution?
             </h2>
           </div>
