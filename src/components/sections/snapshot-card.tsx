@@ -27,13 +27,13 @@ export function SnapshotCard() {
           <Sparkles className="w-3.5 h-3.5 text-[#E8472B]" />
           <span>Core Focus</span>
         </div>
-        <h3 className="card-title font-serif font-normal text-[24px] sm:text-[26px] lg:text-[28px] text-[#111111] leading-snug mt-2">
+        <h3 className="card-title font-sans font-bold text-[20px] sm:text-[22px] lg:text-[24px] text-[#111111] leading-snug mt-2">
           Applied AI Systems &amp; High-Assurance{" "}
-          <em className="font-serif-italic italic text-accent font-normal not-italic:font-serif">
+          <em className="accent font-serif-italic italic text-accent font-normal">
             Architecture
           </em>
         </h3>
-        <p className="font-sans text-[13.5px] text-[#5a5a5a] mt-2 leading-relaxed">
+        <p className="font-sans text-[14px] text-[#4a4a4a] mt-2 leading-relaxed">
           Production RAG · Agentic Workflows · Deterministic Invariants
         </p>
       </div>
@@ -47,7 +47,7 @@ export function SnapshotCard() {
           <Terminal className="w-3.5 h-3.5 text-[#E8472B]" />
           <span>Stack</span>
         </div>
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap gap-2">
           {STACK_TAGS.map((tag) => (
             <span
               key={tag}
@@ -65,21 +65,21 @@ export function SnapshotCard() {
       {/* Quick Verified Highlights */}
       <div className="grid grid-cols-2 gap-2.5">
         <div className="px-3.5 py-2.5 rounded-md bg-[#FAF8F5] border-[1.5px] border-[#111111] shadow-[3px_3px_0px_#111111]">
-          <span className="font-mono text-[11px] text-[#5a5a5a] uppercase tracking-[0.08em] block mb-0.5 font-medium">
+          <span className="font-mono text-[11px] text-[#4a4a4a] uppercase tracking-[0.08em] block mb-0.5 font-medium">
             Specialization
           </span>
-          <span className="font-serif font-normal text-[15px] sm:text-base text-[#111111] block truncate">
+          <span className="font-sans font-bold text-[14px] sm:text-[15px] text-[#111111] block truncate">
             Production AI &amp;{" "}
-            <em className="font-serif-italic italic text-accent font-normal">Web</em>
+            <em className="accent font-serif-italic italic text-accent font-normal">Web</em>
           </span>
         </div>
         <div className="px-3.5 py-2.5 rounded-md bg-[#FAF8F5] border-[1.5px] border-[#111111] shadow-[3px_3px_0px_#111111]">
-          <span className="font-mono text-[11px] text-[#5a5a5a] uppercase tracking-[0.08em] block mb-0.5 font-medium">
+          <span className="font-mono text-[11px] text-[#4a4a4a] uppercase tracking-[0.08em] block mb-0.5 font-medium">
             Publication
           </span>
-          <span className="font-serif font-normal text-[15px] sm:text-base text-[#111111] block truncate">
+          <span className="font-sans font-bold text-[14px] sm:text-[15px] text-[#111111] block truncate">
             IEEE ICETSIS{" "}
-            <em className="font-serif-italic italic text-accent font-normal">&apos;26</em>
+            <em className="accent font-serif-italic italic text-accent font-normal">&apos;26</em>
           </span>
         </div>
       </div>

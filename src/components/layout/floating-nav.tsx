@@ -146,7 +146,7 @@ export function FloatingNav() {
                 className={`font-sans text-[15px] font-medium tracking-normal transition-colors relative py-2 min-h-[44px] flex items-center ${
                   isActive
                     ? "text-[#111111]"
-                    : "text-[#5a5a5a] hover:text-[#E8472B]"
+                    : "text-[#4a4a4a] hover:text-[#E8472B]"
                 }`}
               >
                 {item.label}
@@ -196,7 +196,7 @@ export function FloatingNav() {
                     className={`font-sans text-[14px] font-medium min-h-[48px] flex items-center justify-between py-2 transition-colors ${
                       isActive
                         ? "text-[#E8472B]"
-                        : "text-[#555555] hover:text-[#E8472B]"
+                        : "text-[#4a4a4a] hover:text-[#E8472B]"
                     }`}
                   >
                     <span>{item.label}</span>

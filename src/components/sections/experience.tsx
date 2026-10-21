@@ -67,7 +67,7 @@ export function Experience() {
       renderTitle: () => (
         <>
           RAG &amp; Vector{" "}
-          <span className="font-serif italic text-accent font-normal">Retrieval</span>
+          <em className="accent font-serif-italic italic text-accent font-normal">Retrieval</em>
         </>
       ),
       description:
@@ -79,7 +79,7 @@ export function Experience() {
       renderTitle: () => (
         <>
           LLM Reasoning &amp;{" "}
-          <span className="font-serif italic text-accent font-normal">Chains</span>
+          <em className="accent font-serif-italic italic text-accent font-normal">Chains</em>
         </>
       ),
       description:
@@ -91,7 +91,7 @@ export function Experience() {
       renderTitle: () => (
         <>
           Production REST{" "}
-          <span className="font-serif italic text-accent font-normal">APIs</span>
+          <em className="accent font-serif-italic italic text-accent font-normal">APIs</em>
         </>
       ),
       description:
@@ -117,12 +117,12 @@ export function Experience() {
     >
       <div className="site-container">
         {/* Section Header with Eyebrow Pill and Instrument Serif H2 */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b-[1.5px] border-[#111111]/20 gap-4">
-          <div className="flex flex-col gap-3">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-6 pb-4 border-b-[1.5px] border-[#111111]/20 gap-3">
+          <div className="flex flex-col gap-2.5">
             <EyebrowPill accent="EXPERIENCE" text="WHERE I'VE BUILT" />
-            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.02] tracking-[-0.03em]">
+            <h2 className="font-sans font-bold text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.035em]">
               Work{" "}
-              <em className="font-serif-italic italic text-accent font-normal accent-underline">
+              <em className="accent font-serif-italic italic text-accent font-normal accent-underline">
                 Experience
               </em>
             </h2>
@@ -133,32 +133,32 @@ export function Experience() {
         </Reveal>
 
         {/* Section Intro Paragraph with 2px solid accent left vertical line */}
-        <div className="lead-intro mb-10 sm:mb-14">
+        <div className="lead-intro mb-6">
           <p>
             Shipped applied-AI prototypes that needed to work reliably in production environments, not just in demos. Focused on vector RAG pipelines, multi-turn reasoning workflows with strict JSON validation, and clean RESTful API integrations.
           </p>
         </div>
 
         {/* Experience Content wrapped in elevated Stage Card */}
-        <div className="w-full rounded-2xl bg-white border-2 border-[#111111] p-6 sm:p-10 shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] relative overflow-hidden transition-all duration-300 preserve-3d">
+        <div className="w-full rounded-2xl bg-white border-2 border-[#111111] p-5 sm:p-6 shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] relative overflow-hidden transition-all duration-300 preserve-3d">
           {/* Subtle Top Red Accent Line */}
           <div className="absolute top-0 left-0 right-0 h-1 bg-[#E8472B]" />
 
           {/* Card Top: Company, Role, Period & Status */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b-[1.5px] border-[#111111]/20">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 mb-4 border-b-[1.5px] border-[#111111]/20">
             <div>
-              <div className="flex items-center gap-2 mb-2">
+              <div className="flex items-center gap-2 mb-1.5">
                 <Briefcase className="w-4 h-4 text-[#E8472B] shrink-0" />
-                <span className="inline-flex items-center px-3 py-0.5 rounded-full bg-[#FAF8F5] border-[1.5px] border-[#111111] shadow-[1.5px_1.5px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAF8F5] border-[1.5px] border-[#111111] shadow-[1.5px_1.5px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium">
                   {EXPERIENCE.organisation}
                 </span>
                 <span className="text-[#555555] font-mono text-[11px] uppercase tracking-[0.08em]">
                   · Coimbatore, India
                 </span>
               </div>
-              <h3 className="font-serif font-normal text-2xl sm:text-3xl text-[#111111] leading-snug">
+              <h3 className="card-title font-sans font-bold text-xl sm:text-2xl text-[#111111] leading-snug">
                 Artificial Intelligence Intern — Brainery Spot{" "}
-                <span className="font-serif italic text-accent font-normal">Technology</span>
+                <em className="accent font-serif-italic italic text-accent font-normal">Technology</em>
               </h3>
             </div>
 
@@ -174,12 +174,12 @@ export function Experience() {
           </div>
 
           {/* Narrative */}
-          <p className="font-sans text-[15px] text-[#555555] leading-relaxed mb-8 sm:mb-10 max-w-4xl font-normal">
+          <p className="font-sans text-[15px] text-[var(--body)] leading-relaxed mb-5 max-w-4xl font-normal">
             Shipped applied-AI prototypes that needed to work reliably in production environments, not just in demos. Focused on vector RAG pipelines, multi-turn reasoning workflows with strict JSON validation, and clean RESTful API integrations.
           </p>
 
           {/* 3 Skill Columns */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-14 perspective-1200">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 perspective-1200">
             {focusAreas.map((area, idx) => {
               const Icon = area.icon;
               return (
@@ -198,10 +198,10 @@ export function Experience() {
                     ease: [0.22, 1, 0.36, 1],
                   }}
                   whileHover={shouldReduceMotion || isMobile ? {} : { y: -5, scale: 1.015 }}
-                  className="group p-6 rounded-xl bg-white border-[1.5px] border-[#111111] shadow-[3px_3px_0px_#111111] hover:shadow-[5px_5px_0px_#111111] flex flex-col justify-between transition-all duration-300 cursor-default"
+                  className="group p-5 rounded-xl bg-white border-[1.5px] border-[#111111] shadow-[3px_3px_0px_#111111] hover:shadow-[5px_5px_0px_#111111] flex flex-col justify-between transition-all duration-300 cursor-default"
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-3.5">
+                    <div className="flex items-center justify-between mb-3">
                       <div className="w-9 h-9 rounded-lg bg-[#FAF8F5] border border-[#111111]/20 group-hover:border-[#E8472B] group-hover:bg-[#E8472B] group-hover:text-white flex items-center justify-center text-[#E8472B] shrink-0 transition-colors duration-200">
                         <Icon className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
                       </div>
@@ -209,14 +209,14 @@ export function Experience() {
                         0{idx + 1} // FOCUS
                       </span>
                     </div>
-                    <h4 className="font-serif font-normal text-xl sm:text-[22px] text-[#111111] group-hover:text-[#E8472B] transition-colors mb-2 leading-snug">
+                    <h4 className="card-title font-sans font-bold text-lg sm:text-xl text-[#111111] group-hover:text-[#E8472B] transition-colors mb-1.5 leading-snug">
                       {area.renderTitle()}
                     </h4>
-                    <p className="font-sans text-[14px] text-[#555555] leading-relaxed">
+                    <p className="font-sans text-[14px] text-[var(--body)] leading-relaxed">
                       {area.description}
                     </p>
                   </div>
-                  <div className="mt-4 pt-3 border-t-[1.5px] border-[#111111]/20 flex items-center justify-between">
+                  <div className="mt-3 pt-2.5 border-t-[1.5px] border-[#111111]/20 flex items-center justify-between">
                     <span className="text-[11px] font-mono text-[#555555] uppercase tracking-[0.08em]">
                       Production Verified
                     </span>
@@ -227,13 +227,13 @@ export function Experience() {
             })}
           </div>
 
-          {/* Stats Row & Stack: Numbers in large serif, captions in mono */}
+          {/* Stats Row & Stack */}
           <div
             ref={statsRef}
-            className="pt-6 sm:pt-8 border-t-[1.5px] border-[#111111]/20 flex flex-col lg:flex-row lg:items-center justify-between gap-6 perspective-1200"
+            className="pt-4 sm:pt-5 border-t-[1.5px] border-[#111111]/20 flex flex-col lg:flex-row lg:items-center justify-between gap-5 perspective-1200"
           >
-            {/* 3 Stats: Large Serif numbers with Mono captions */}
-            <div className="grid grid-cols-3 gap-3 sm:gap-8 max-w-lg">
+            {/* 3 Stats: Bold sans numbers with Mono captions */}
+            <div className="grid grid-cols-3 gap-3 sm:gap-6 max-w-lg">
               {/* Stat 1 */}
               <motion.div
                 initial={
@@ -246,7 +246,7 @@ export function Experience() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="group flex flex-col cursor-default"
               >
-                <div className="font-serif font-normal text-3xl sm:text-4xl text-[#111111] group-hover:text-[#E8472B] transition-colors">
+                <div className="font-sans font-bold text-3xl sm:text-4xl text-[#111111] group-hover:text-[#E8472B] transition-colors">
                   {stat1}+
                 </div>
                 <div className="font-mono uppercase tracking-[0.08em] text-[#555555] text-[11px]">
@@ -266,7 +266,7 @@ export function Experience() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="group flex flex-col cursor-default"
               >
-                <div className="font-serif font-normal text-3xl sm:text-4xl text-[#111111] group-hover:text-[#E8472B] transition-colors">
+                <div className="font-sans font-bold text-3xl sm:text-4xl text-[#111111] group-hover:text-[#E8472B] transition-colors">
                   &lt; {stat2}ms
                 </div>
                 <div className="font-mono uppercase tracking-[0.08em] text-[#555555] text-[11px]">
@@ -286,7 +286,7 @@ export function Experience() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="group flex flex-col cursor-default"
               >
-                <div className="font-serif font-normal text-3xl sm:text-4xl text-[#111111] group-hover:text-[#E8472B] transition-colors">
+                <div className="font-sans font-bold text-3xl sm:text-4xl text-[#111111] group-hover:text-[#E8472B] transition-colors">
                   {stat3}%
                 </div>
                 <div className="font-mono uppercase tracking-[0.08em] text-[#555555] text-[11px]">

@@ -42,15 +42,15 @@ export function ContactCta() {
       <div className="site-container">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pt-8 border-t border-border-line">
           <div>
-            <EyebrowPill accent="CONTACT" text="GET IN TOUCH" className="mb-4" />
-            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] max-w-xl tracking-[-0.03em] leading-[1.02]">
-              Have an ambitious product that needs <em className="font-serif-italic italic text-accent font-normal">AI reasoning</em> and <em className="font-serif-italic italic text-accent font-normal accent-underline">full-stack</em> execution?
+            <EyebrowPill accent="CONTACT" text="GET IN TOUCH" className="mb-2.5" />
+            <h2 className="font-sans font-bold text-fluid-h2 text-[#111111] max-w-xl tracking-[-0.035em] leading-[1.05]">
+              Have an ambitious product that needs <em className="accent font-serif-italic italic text-accent font-normal">AI reasoning</em> and <em className="accent font-serif-italic italic text-accent font-normal accent-underline">full-stack</em> execution?
             </h2>
           </div>
 
           {/* Email, Status, and Actions */}
-          <div className="flex flex-col items-start md:items-end gap-4 w-full md:w-auto">
-            <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-white border border-border-line text-text-muted font-mono text-[11px] uppercase tracking-[0.08em] gap-2 shadow-xs">
+          <div className="flex flex-col items-start md:items-end gap-3 w-full md:w-auto">
+            <div className="inline-flex items-center px-2.5 py-1 rounded-full bg-white border border-border-line text-text-muted font-mono text-[11px] uppercase tracking-[0.08em] gap-2 shadow-xs">
               <span className="w-2 h-2 rounded-full bg-[#1FB46A] animate-pulse" />
               <span>Open to roles · Replies within 2 hrs</span>
             </div>
@@ -58,7 +58,7 @@ export function ContactCta() {
             <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
               <a
                 href={`mailto:${IDENTITY.email}`}
-                className="neo-black-btn min-h-[48px] px-6 rounded-full font-sans text-sm font-medium tracking-normal gap-2 w-full sm:w-auto"
+                className="neo-black-btn min-h-[44px] px-[22px] py-[11px] rounded-full font-sans text-sm font-medium tracking-normal gap-2 w-full sm:w-auto"
               >
                 <Mail className="w-4 h-4" />
                 <span>Email me</span>
@@ -69,7 +69,7 @@ export function ContactCta() {
                 type="button"
                 onClick={handleCopyEmail}
                 aria-label="Copy email address"
-                className="neo-pill-btn min-h-[48px] px-5 rounded-full font-sans text-sm font-medium tracking-normal gap-2 w-full sm:w-auto"
+                className="neo-pill-btn min-h-[44px] px-[22px] py-[11px] rounded-full font-sans text-sm font-medium tracking-normal gap-2 w-full sm:w-auto"
               >
                 {copied ? (
                   <>

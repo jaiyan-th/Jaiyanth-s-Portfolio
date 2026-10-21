@@ -30,7 +30,7 @@ const renderCardTitle = (title: string, index: number) => {
     return (
       <>
         Production-First AI Systems, Not Just{" "}
-        <span className="font-serif italic text-accent font-normal">Demos</span>
+        <em className="accent font-serif-italic italic text-accent font-normal">Demos</em>
       </>
     );
   }
@@ -38,14 +38,14 @@ const renderCardTitle = (title: string, index: number) => {
     return (
       <>
         Systems First, Screens Second: End-to-End{" "}
-        <span className="font-serif italic text-accent font-normal">Ownership</span>
+        <em className="accent font-serif-italic italic text-accent font-normal">Ownership</em>
       </>
     );
   }
   return (
     <>
       Density Is Not the Enemy:{" "}
-      <span className="font-serif italic text-accent font-normal">Rigour</span> & Velocity
+      <em className="accent font-serif-italic italic text-accent font-normal">Rigour</em> &amp; Velocity
     </>
   );
 };
@@ -79,11 +79,11 @@ export function WhyWork() {
     >
       <div className="site-container">
         {/* Section Header */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b-[1.5px] border-[#111111]/20 gap-4">
-          <div className="space-y-3">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-6 pb-4 border-b-[1.5px] border-[#111111]/20 gap-3">
+          <div className="space-y-2.5">
             <EyebrowPill accent="SKILLS" text="WHAT I USE" />
-            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.02] tracking-[-0.03em]">
-              Why Work <em className="font-serif-italic italic text-accent font-normal accent-underline">With Me</em>?
+            <h2 className="font-sans font-bold text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.035em]">
+              Why Work <em className="accent font-serif-italic italic text-accent font-normal accent-underline">With Me</em>?
             </h2>
           </div>
           <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted">
@@ -97,9 +97,9 @@ export function WhyWork() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-5xl mb-10 sm:mb-14"
+          className="max-w-5xl mb-6"
         >
-          <h3 className="font-serif font-normal text-fluid-h2 tracking-[-0.02em] leading-tight mb-5 text-[#111111]">
+          <h3 className="font-sans font-bold text-fluid-h2 tracking-[-0.035em] leading-tight mb-4 text-[#111111]">
             <RevealHeading
               lines={[
                 { text: "Engineers who can hold both ends —" },
@@ -108,13 +108,13 @@ export function WhyWork() {
               ]}
             />
           </h3>
-          <p className="lead-intro font-sans text-base sm:text-lg text-text-muted leading-relaxed max-w-[60ch]">
+          <p className="lead-intro font-sans text-base sm:text-lg text-[var(--body)] leading-relaxed max-w-[62ch]">
             I work best where the stakes are real and the data is dense. My job is to remove the friction, so the next decision comes faster.
           </p>
         </motion.div>
 
-        {/* /A /B /C Columns: Become 1 column below 1024px, 3 columns on >=1024px */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 perspective-1200">
+        {/* /A /B /C Columns: gap 16px, padding 20-24px */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 perspective-1200">
           {WHY_WORK_WITH_ME.map((point, index) => {
             const meta = CARD_METAS[index % CARD_METAS.length];
             const colParallaxY =
@@ -135,32 +135,32 @@ export function WhyWork() {
                   style={{
                     transform: `translate3d(0, ${colParallaxY}px, 0)`,
                   }}
-                  className="group relative p-6 sm:p-8 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] flex flex-col justify-between transition-all duration-300 ease-out will-change-transform overflow-hidden"
+                  className="group relative p-5 sm:p-6 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] flex flex-col justify-between transition-all duration-300 ease-out will-change-transform overflow-hidden"
                 >
                   {/* Top Red Indicator stripe */}
                   <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-accent transition-colors duration-200" />
 
                   <div>
-                    <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center justify-between mb-3">
                       <span className="font-serif text-2xl font-normal text-accent group-hover:scale-110 transition-transform origin-left inline-block">
                         /{point.letter}
                       </span>
-                      <span className={`inline-flex items-center px-3 py-1 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] font-medium border-[1.5px] border-[#111111] shadow-[1.5px_1.5px_0px_#111111] ${meta.tagline}`}>
+                      <span className={`inline-flex items-center px-2.5 py-1 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] font-medium border-[1.5px] border-[#111111] shadow-[1.5px_1.5px_0px_#111111] ${meta.tagline}`}>
                         {meta.tagline}
                       </span>
                     </div>
 
-                    <h4 className="font-serif font-normal text-2xl sm:text-[28px] text-[#111111] group-hover:text-accent leading-snug mb-3 transition-colors duration-200">
+                    <h4 className="card-title font-sans font-bold text-xl sm:text-[22px] text-[#111111] group-hover:text-accent leading-snug mb-2 transition-colors duration-200">
                       {renderCardTitle(point.title, index)}
                     </h4>
 
-                    <p className="font-sans text-sm sm:text-base text-text-muted leading-relaxed font-normal mb-6">
+                    <p className="font-sans text-sm sm:text-base text-[var(--body)] leading-relaxed font-normal mb-3">
                       {point.description}
                     </p>
                   </div>
 
                   {/* Refined Tags */}
-                  <div className="flex flex-wrap gap-2 pt-3 border-t-[1.5px] border-[#111111]/20">
+                  <div className="flex flex-wrap gap-2 pt-2.5 border-t-[1.5px] border-[#111111]/20">
                     {point.tags.map((tag) => (
                       <span
                         key={tag}

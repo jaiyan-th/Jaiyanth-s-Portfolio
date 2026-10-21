@@ -69,7 +69,7 @@ function RevealLineItem({
       <div className="block leading-[1.05]">
         <span className="text-[#111111]">{line.text}</span>
         {line.accent && (
-          <span className="font-serif italic text-accent font-normal mx-1">{line.accent}</span>
+          <em className="accent font-serif-italic italic text-accent font-normal mx-1">{line.accent}</em>
         )}
         {line.afterAccent && (
           <span className="text-[#111111]">{line.afterAccent}</span>
@@ -90,7 +90,7 @@ function RevealLineItem({
     >
       <span>{line.text}</span>
       {line.accent && (
-        <span className="font-serif italic text-accent font-normal mx-1">{line.accent}</span>
+        <em className="accent font-serif-italic italic text-accent font-normal mx-1">{line.accent}</em>
       )}
       {line.afterAccent && <span>{line.afterAccent}</span>}
     </motion.div>

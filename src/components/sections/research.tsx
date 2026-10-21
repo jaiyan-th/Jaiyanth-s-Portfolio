@@ -45,7 +45,7 @@ export function Research() {
       renderTitle: () => (
         <>
           Multimodal Signal{" "}
-          <span className="font-serif italic text-accent font-normal">Capture</span>
+          <em className="accent font-serif-italic italic text-accent font-normal">Capture</em>
         </>
       ),
       desc: "Computer vision input layer extracts early wellness indicators, normalized for clinical reasoning.",
@@ -58,7 +58,7 @@ export function Research() {
       renderTitle: () => (
         <>
           Conversational{" "}
-          <span className="font-serif italic text-accent font-normal">Triage</span>
+          <em className="accent font-serif-italic italic text-accent font-normal">Triage</em>
         </>
       ),
       desc: "Deterministic dialogue trees eliminate ambiguity before surfacing care recommendations.",
@@ -71,7 +71,7 @@ export function Research() {
       renderTitle: () => (
         <>
           Traceable Clinician{" "}
-          <span className="font-serif italic text-accent font-normal">Summaries</span>
+          <em className="accent font-serif-italic italic text-accent font-normal">Summaries</em>
         </>
       ),
       desc: "Every output links to cited visual features and dialogue turns for verifiable provenance.",
@@ -87,12 +87,12 @@ export function Research() {
     >
       <div className="site-container">
         {/* Section Header with Eyebrow Pill and Instrument Serif H2 */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b-[1.5px] border-[#111111]/20 gap-4">
-          <div className="flex flex-col gap-3">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-6 pb-4 border-b-[1.5px] border-[#111111]/20 gap-3">
+          <div className="flex flex-col gap-2.5">
             <EyebrowPill accent="PUBLICATIONS" text="IEEE ICETSIS '26" />
-            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.02] tracking-[-0.03em]">
+            <h2 className="font-sans font-bold text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.035em]">
               Research &amp;{" "}
-              <em className="font-serif-italic italic text-accent font-normal accent-underline">
+              <em className="accent font-serif-italic italic text-accent font-normal accent-underline">
                 Publication
               </em>
             </h2>
@@ -103,23 +103,23 @@ export function Research() {
         </Reveal>
 
         {/* Section Intro Paragraph with 2px solid accent left vertical line */}
-        <div className="lead-intro mb-10 sm:mb-14">
+        <div className="lead-intro mb-6">
           <p>
             Co-authored peer-reviewed research accepted at IEEE ICETSIS 2026 Bahrain, focusing on multimodal diagnostic triage by uniting clinical computer vision with explainable conversational agentic flows.
           </p>
         </div>
 
         {/* Highlighted Academic Feature Card */}
-        <div className="w-full rounded-2xl bg-white border-2 border-[#111111] p-6 sm:p-10 shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] relative overflow-hidden transition-all duration-300 preserve-3d">
+        <div className="w-full rounded-2xl bg-white border-2 border-[#111111] p-5 sm:p-6 shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] relative overflow-hidden transition-all duration-300 preserve-3d">
           {/* Subtle Top Red Accent Line */}
           <div className="absolute top-0 left-0 right-0 h-1 bg-[#E8472B]" />
 
           {/* Top Meta Bar */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b-[1.5px] border-[#111111]/20">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 mb-4 border-b-[1.5px] border-[#111111]/20">
             <div className="flex flex-wrap items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.08em]">
               <span className="inline-flex items-center gap-1.5 font-medium text-[#111111]">
                 <ShieldCheck className="w-4 h-4 text-[#E8472B] shrink-0" />
-                <span className="inline-flex items-center px-3 py-1 rounded-full bg-white border-[1.5px] border-[#111111] shadow-[1.5px_1.5px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium gap-2">
+                <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-white border-[1.5px] border-[#111111] shadow-[1.5px_1.5px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#1FB866] animate-ping" />
                   Published &amp; Peer-Reviewed
                 </span>
@@ -129,14 +129,14 @@ export function Research() {
               </span>
             </div>
 
-            {/* Allowed Outlined Pill Button + Black Pill Button (Inter 14px 500) */}
+            {/* Allowed Outlined Pill Button + Black Pill Button (Inter, padding 11px 22px, gap 12px) */}
             <div className="flex flex-wrap items-center gap-3">
               {RESEARCH.certificateUrl && (
                 <a
                   href={RESEARCH.certificateUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="neo-pill-btn h-10 px-4 font-sans text-[14px] font-medium gap-1.5 group"
+                  className="neo-pill-btn px-[22px] py-[11px] font-sans text-[14px] font-medium gap-1.5 group"
                 >
                   <FileText className="w-3.5 h-3.5 text-[#E8472B] transition-transform duration-200 group-hover:scale-110" />
                   <span>Certificate</span>
@@ -145,7 +145,7 @@ export function Research() {
               )}
               <Link
                 href="/work/preventive-ai-paper"
-                className="neo-black-btn h-10 px-4 font-sans text-[14px] font-medium gap-1.5 group"
+                className="neo-black-btn px-[22px] py-[11px] font-sans text-[14px] font-medium gap-1.5 group"
               >
                 <span>Read Case Study</span>
                 <ArrowRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-1" />
@@ -154,15 +154,15 @@ export function Research() {
           </div>
 
           {/* Paper Title & Authorship */}
-          <div className="mb-6">
-            <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#E8472B] font-medium block mb-2">
+          <div className="mb-5">
+            <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#E8472B] font-medium block mb-1.5">
               Co-Authored Research Paper
             </span>
-            <h3 className="font-serif font-normal text-2xl sm:text-3xl lg:text-4xl text-[#111111] leading-tight mb-3">
+            <h3 className="card-title font-sans font-bold text-xl sm:text-2xl lg:text-3xl text-[#111111] leading-tight mb-2">
               Multimodal Diagnostic Triage: Bridging Clinical Vision and{" "}
-              <span className="font-serif italic text-accent font-normal">
+              <em className="accent font-serif-italic italic text-accent font-normal">
                 Conversational AI
-              </span>
+              </em>
             </h3>
             <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#555555]">
               Co-Author: Jaiyanth B · University of Bahrain &amp; IEEE Bahrain Section · Sakhir, Bahrain
@@ -170,7 +170,7 @@ export function Research() {
           </div>
 
           {/* Abstract Paragraph */}
-          <p className="font-sans text-[15px] text-[#555555] leading-relaxed mb-8 sm:mb-12 max-w-4xl font-normal">
+          <p className="font-sans text-[15px] text-[var(--body)] leading-relaxed mb-5 max-w-4xl font-normal">
             {RESEARCH.abstract}
           </p>
 
@@ -178,7 +178,7 @@ export function Research() {
           <div
             onMouseEnter={() => setIsGridHovered(true)}
             onMouseLeave={() => setIsGridHovered(false)}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-14 perspective-1200"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 perspective-1200"
           >
             {pillars.map((item, idx) => {
               const Icon = item.icon;
@@ -200,10 +200,10 @@ export function Research() {
                   style={{
                     transform: `rotateY(${activeRotateY}deg)`,
                   }}
-                  className="group p-6 rounded-xl bg-white border-[1.5px] border-[#111111] shadow-[3px_3px_0px_#111111] hover:shadow-[5px_5px_0px_#111111] flex flex-col justify-between transition-all duration-300 ease-out will-change-transform cursor-default"
+                  className="group p-5 rounded-xl bg-white border-[1.5px] border-[#111111] shadow-[3px_3px_0px_#111111] hover:shadow-[5px_5px_0px_#111111] flex flex-col justify-between transition-all duration-300 ease-out will-change-transform cursor-default"
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center justify-between mb-3">
                       <div className="w-9 h-9 rounded-lg bg-[#FAF8F5] border border-[#111111]/20 group-hover:border-[#E8472B] group-hover:bg-[#E8472B] group-hover:text-white flex items-center justify-center text-[#E8472B] transition-colors duration-200">
                         <Icon className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
                       </div>
@@ -211,10 +211,10 @@ export function Research() {
                         {item.step}
                       </span>
                     </div>
-                    <h4 className="font-serif font-normal text-xl sm:text-[22px] text-[#111111] group-hover:text-[#E8472B] transition-colors mb-2 leading-snug">
+                    <h4 className="card-title font-sans font-bold text-lg sm:text-xl text-[#111111] group-hover:text-[#E8472B] transition-colors mb-1.5 leading-snug">
                       {item.renderTitle()}
                     </h4>
-                    <p className="font-sans text-[14px] text-[#555555] leading-relaxed">
+                    <p className="font-sans text-[14px] text-[var(--body)] leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -224,7 +224,7 @@ export function Research() {
           </div>
 
           {/* Bottom Row: Domain Keywords & Deep Dive */}
-          <div className="pt-6 sm:pt-8 border-t-[1.5px] border-[#111111]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="pt-4 sm:pt-5 border-t-[1.5px] border-[#111111]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex flex-wrap items-center gap-2 font-mono text-[11px] uppercase tracking-[0.08em] text-[#111111]">
               <span className="text-[#555555] font-medium mr-1">
                 DOMAIN:

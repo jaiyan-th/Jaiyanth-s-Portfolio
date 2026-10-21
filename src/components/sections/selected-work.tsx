@@ -167,12 +167,12 @@ export function SelectedWork() {
     >
       <div className="site-container">
         {/* Section Header with Eyebrow Pill and Instrument Serif H2 */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-5 border-b-[1.5px] border-[#111111]/20 mb-6 gap-4">
-          <div className="flex flex-col gap-3">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-4 border-b-[1.5px] border-[#111111]/20 mb-6 gap-3">
+          <div className="flex flex-col gap-2.5">
             <EyebrowPill accent="SELECTED WORK" text="2024–26" />
-            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.02] tracking-[-0.03em]">
+            <h2 className="font-sans font-bold text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.035em]">
               Selected{" "}
-              <em className="font-serif-italic italic text-accent font-normal accent-underline">
+              <em className="accent font-serif-italic italic text-accent font-normal accent-underline">
                 Work
               </em>
             </h2>
@@ -183,7 +183,7 @@ export function SelectedWork() {
         </Reveal>
 
         {/* Section Intro Paragraph with 2px solid accent left vertical line */}
-        <div className="lead-intro mb-10 sm:mb-14">
+        <div className="lead-intro mb-6">
           <p>
             Autonomous fact-verification pipelines, dual-LLM agentic career platforms, concurrency-safe reservation engines, and cryptographic vaults.
           </p>
@@ -366,7 +366,7 @@ function renderProjectTitle(id: string, defaultTitle: string) {
     return (
       <>
         Fake News Detector — Grounded RAG{" "}
-        <span className="font-serif italic text-accent font-normal">Verification</span>
+        <em className="accent font-serif-italic italic text-accent font-normal">Verification</em>
       </>
     );
   }
@@ -374,7 +374,7 @@ function renderProjectTitle(id: string, defaultTitle: string) {
     return (
       <>
         Up-Skill — AI Career &amp; Interview{" "}
-        <span className="font-serif italic text-accent font-normal">Intelligence</span>
+        <em className="accent font-serif-italic italic text-accent font-normal">Intelligence</em>
       </>
     );
   }
@@ -382,7 +382,7 @@ function renderProjectTitle(id: string, defaultTitle: string) {
     return (
       <>
         Car-Rent — Full-Stack Rental{" "}
-        <span className="font-serif italic text-accent font-normal">Platform</span>
+        <em className="accent font-serif-italic italic text-accent font-normal">Platform</em>
       </>
     );
   }
@@ -390,7 +390,7 @@ function renderProjectTitle(id: string, defaultTitle: string) {
     return (
       <>
         Secure Digital Document Vault — Cryptographic{" "}
-        <span className="font-serif italic text-accent font-normal">Storage</span>
+        <em className="accent font-serif-italic italic text-accent font-normal">Storage</em>
       </>
     );
   }
@@ -452,13 +452,13 @@ export function ProjectRow({
 
           <div className="max-w-xl xl:max-w-2xl shrink-0">
             <h3
-              className={`font-serif font-normal text-[24px] sm:text-[26px] lg:text-[28px] leading-snug tracking-[-0.015em] transition-all duration-200 ${
+              className={`card-title font-sans font-bold text-[20px] sm:text-[22px] lg:text-[24px] leading-snug tracking-[-0.025em] transition-all duration-200 ${
                 isHovered ? "text-[#E8472B] translate-x-1.5" : "text-[#111111]"
               }`}
             >
               {renderProjectTitle(project.id, project.title)}
             </h3>
-            <p className="font-sans text-[14px] text-[#555555] mt-2 line-clamp-2 leading-relaxed">
+            <p className="font-sans text-[14px] text-[var(--body)] mt-1.5 line-clamp-2 leading-relaxed">
               {project.summary}
             </p>
           </div>
@@ -466,7 +466,7 @@ export function ProjectRow({
           <div className="flex-1 min-w-[16px]" />
 
           <div className="w-[200px] shrink-0 text-left">
-            <span className={`inline-flex items-center px-3 py-1 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] font-medium border-[1.5px] transition-all duration-200 ${
+            <span className={`inline-flex items-center px-2.5 py-1 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] font-medium border-[1.5px] transition-all duration-200 ${
               isHovered
                 ? "bg-[#111111] text-white border-[#111111] shadow-[2px_2px_0px_#111111]"
                 : "bg-[#FAF8F5] text-[#555555] border-[#111111]/30 shadow-[1.5px_1.5px_0px_#111111]/30"
@@ -498,19 +498,19 @@ export function ProjectRow({
               <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#E8472B] font-medium shrink-0">
                 {project.index}
               </span>
-              <h3 className="font-serif font-normal text-2xl text-[#111111] group-hover:text-[#E8472B] transition-colors leading-snug">
+              <h3 className="card-title font-sans font-bold text-[20px] sm:text-[22px] text-[#111111] group-hover:text-[#E8472B] transition-colors leading-snug">
                 {renderProjectTitle(project.id, project.title)}
               </h3>
             </div>
             <ArrowUpRight className="w-4 h-4 shrink-0 text-[#555555] group-hover:text-[#E8472B] group-hover:rotate-45 transition-transform" />
           </div>
 
-          <p className="font-sans text-[14px] text-[#555555] mb-3 line-clamp-2 leading-relaxed">
+          <p className="font-sans text-[14px] text-[var(--body)] mb-2.5 line-clamp-2 leading-relaxed">
             {project.summary}
           </p>
 
           <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.08em] text-[#555555]">
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAF8F5] border-[1.5px] border-[#111111]/30 shadow-[1px_1px_0px_#111111]/30 text-[#555555]">
+            <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-[#FAF8F5] border-[1.5px] border-[#111111]/30 shadow-[1px_1px_0px_#111111]/30 text-[#555555]">
               {project.category}
             </span>
             <span>{project.year}</span>
@@ -527,15 +527,15 @@ export function ProjectRow({
             </div>
           </div>
 
-          <h3 className="font-serif font-normal text-xl leading-snug text-[#111111] mb-2 group-hover:text-[#E8472B] transition-colors">
+          <h3 className="card-title font-sans font-bold text-[18px] sm:text-[20px] leading-snug text-[#111111] mb-2 group-hover:text-[#E8472B] transition-colors">
             {renderProjectTitle(project.id, project.title)}
           </h3>
 
-          <p className="font-sans text-[13px] text-[#555555] leading-relaxed mb-3 line-clamp-2">
+          <p className="font-sans text-[13px] text-[var(--body)] leading-relaxed mb-2.5 line-clamp-2">
             {project.summary}
           </p>
 
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAF8F5] border-[1.5px] border-[#111111]/30 shadow-[1px_1px_0px_#111111]/30 text-[#555555] font-mono text-[11px] uppercase tracking-[0.08em]">
+          <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-[#FAF8F5] border-[1.5px] border-[#111111]/30 shadow-[1px_1px_0px_#111111]/30 text-[#555555] font-mono text-[11px] uppercase tracking-[0.08em]">
             {project.category}
           </span>
         </div>

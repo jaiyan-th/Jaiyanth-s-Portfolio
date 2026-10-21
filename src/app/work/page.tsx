@@ -21,28 +21,28 @@ const renderProjectTitle = (title: string, slug: string) => {
     return (
       <>
         Full-Stack Real-Time Fake News{" "}
-        <span className="font-serif italic text-accent font-normal">Verification</span>
+        <em className="accent font-serif-italic italic text-accent font-normal">Verification</em>
       </>
     );
   }
   if (slug === "deep-research-agent") {
     return (
       <>
-        Autonomous Deep <span className="font-serif italic text-accent font-normal">Research</span> & Synthesis Agent
+        Autonomous Deep <em className="accent font-serif-italic italic text-accent font-normal">Research</em> &amp; Synthesis Agent
       </>
     );
   }
   if (slug === "automated-data-platform") {
     return (
       <>
-        Enterprise Automated Data <span className="font-serif italic text-accent font-normal">Platform</span>
+        Enterprise Automated Data <em className="accent font-serif-italic italic text-accent font-normal">Platform</em>
       </>
     );
   }
   if (slug === "cold-storage-optimization") {
     return (
       <>
-        Cold <span className="font-serif italic text-accent font-normal">Storage</span> & Archive Tier Optimization
+        Cold <em className="accent font-serif-italic italic text-accent font-normal">Storage</em> &amp; Archive Tier Optimization
       </>
     );
   }
@@ -60,27 +60,27 @@ export default function WorkIndexPage() {
       <CustomCursor />
       <FloatingNav />
 
-      <main className="pt-28 sm:pt-36 pb-20 overflow-x-clip">
+      <main className="pt-28 sm:pt-36 pb-16 overflow-x-clip">
         <div className="site-container">
           {/* Work Page Header */}
-          <div className="mb-14 sm:mb-20 space-y-4">
+          <div className="mb-8 sm:mb-10 space-y-2.5">
             <EyebrowPill accent="SELECTED WORK" text="2024–26" />
-            <h1 className="font-serif font-normal text-fluid-hero text-[#111111] leading-[1.0] tracking-[-0.03em] max-w-4xl">
-              Selected work across <em className="font-serif-italic italic text-accent font-normal">applied AI</em>, RAG systems, and <em className="font-serif-italic italic text-accent font-normal accent-underline">full-stack</em> products
+            <h1 className="font-sans font-bold text-fluid-hero text-[#111111] leading-[1.05] tracking-[-0.035em] max-w-4xl">
+              Selected work across <em className="accent font-serif-italic italic text-accent font-normal">applied AI</em>, RAG systems, and <em className="accent font-serif-italic italic text-accent font-normal accent-underline">full-stack</em> products
             </h1>
-            <p className="lead-intro font-sans text-base sm:text-lg text-text-muted leading-relaxed max-w-[60ch]">
+            <p className="lead-intro font-sans text-base sm:text-lg text-[var(--body)] leading-relaxed max-w-[62ch]">
               Engineered systems built for correctness, low latency, and verifiable data provenance.
             </p>
           </div>
 
-          {/* List of Case Studies */}
-          <div className="divide-y divide-border-line border-t border-b border-border-line mb-20 sm:mb-24">
+          {/* List of Case Studies: tightened 16-20px vertical padding */}
+          <div className="divide-y divide-border-line border-t border-b border-border-line mb-12 sm:mb-16">
             {projects.map((item) => (
               <div
                 key={item.slug}
-                className="group relative py-8 sm:py-10 lg:py-12 transition-all duration-300 hover:bg-white px-4 sm:px-6 -mx-4 sm:-mx-6 rounded-2xl hover:shadow-md min-h-[64px]"
+                className="group relative py-5 sm:py-6 transition-all duration-300 hover:bg-white px-4 sm:px-6 -mx-4 sm:-mx-6 rounded-xl hover:shadow-md min-h-[64px]"
               >
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-8 items-start md:items-center">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-start md:items-center">
                   {/* Column 1: Index Number */}
                   <div className="md:col-span-1">
                     <span className="font-mono text-xs text-accent font-medium tracking-[0.08em] uppercase">
@@ -90,22 +90,22 @@ export default function WorkIndexPage() {
 
                   {/* Column 2: Title, Summary, Stack */}
                   <div className="md:col-span-6 transition-transform duration-300 group-hover:translate-x-1.5">
-                    <div className="flex items-center gap-3 mb-2">
+                    <div className="flex items-center gap-3 mb-1.5">
                       <Link
                         href={`/work/${item.slug}`}
-                        className="font-serif font-normal text-2xl sm:text-[28px] text-[#111111] group-hover:text-accent transition-colors tracking-tight leading-snug"
+                        className="card-title font-sans font-bold text-xl sm:text-2xl text-[#111111] group-hover:text-accent transition-colors tracking-tight leading-snug"
                       >
                         {renderProjectTitle(item.title, item.slug)}
                       </Link>
                     </div>
-                    <p className="font-sans text-sm text-text-muted leading-relaxed mb-4 font-normal">
+                    <p className="font-sans text-sm text-[var(--body)] leading-relaxed mb-3 font-normal max-w-[62ch]">
                       {item.subtitle}
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {item.stack.slice(0, 5).map((tech) => (
                         <span
                           key={tech}
-                          className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#F2ECE4]/70 text-text-muted text-[11px] font-mono uppercase tracking-[0.08em] border border-border-line"
+                          className="chip inline-flex items-center px-2.5 py-1 rounded-[4px] bg-[#FAF8F5] text-[#111111] text-[11px] font-mono uppercase tracking-[0.08em] border border-[#111111]/20"
                         >
                           {tech}
                         </span>

@@ -130,13 +130,13 @@ export function TechMarquee() {
       aria-label="06 Previously trusted by / Stack"
       className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t-2 border-[#111111]/20 overflow-hidden bg-transparent scroll-mt-16 perspective-1200"
     >
-      <div className="site-container mb-6 sm:mb-10">
+      <div className="site-container mb-6">
         {/* Section Header */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-6 border-b-[1.5px] border-[#111111]/20 gap-4">
-          <div className="space-y-3">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-4 border-b-[1.5px] border-[#111111]/20 gap-3">
+          <div className="space-y-2.5">
             <EyebrowPill accent="CORE STACK" text="TRUSTED ARCHITECTURES & TOOLING" />
-            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.02] tracking-[-0.03em]">
-              Previously Trusted By / <em className="font-serif-italic italic text-accent font-normal accent-underline">Core Stack</em>
+            <h2 className="font-sans font-bold text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.035em]">
+              Previously Trusted By / <em className="accent font-serif-italic italic text-accent font-normal accent-underline">Core Stack</em>
             </h2>
           </div>
           <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted">
@@ -144,7 +144,7 @@ export function TechMarquee() {
           </span>
         </Reveal>
 
-        <p className="lead-intro font-sans text-base sm:text-lg text-text-muted leading-relaxed max-w-[60ch] mt-6">
+        <p className="lead-intro font-sans text-base sm:text-lg text-[var(--body)] leading-relaxed max-w-[62ch] mt-4">
           High-throughput vector search, deterministic pipeline execution, and reactive user interfaces built with battle-tested frameworks.
         </p>
       </div>

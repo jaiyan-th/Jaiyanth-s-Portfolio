@@ -66,12 +66,12 @@ export function About() {
     >
       <div className="site-container">
         {/* Section Header with Eyebrow Pill and Instrument Serif H2 */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b-[1.5px] border-[#111111]/20 gap-4">
-          <div className="flex flex-col gap-3">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-6 pb-4 border-b-[1.5px] border-[#111111]/20 gap-3">
+          <div className="flex flex-col gap-2.5">
             <EyebrowPill accent="ABOUT" text="BACKGROUND & VALUES" />
-            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.02] tracking-[-0.03em]">
+            <h2 className="font-sans font-bold text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.035em]">
               About{" "}
-              <em className="font-serif-italic italic text-accent font-normal accent-underline">
+              <em className="accent font-serif-italic italic text-accent font-normal accent-underline">
                 Jaiyanth B
               </em>
             </h2>
@@ -82,7 +82,7 @@ export function About() {
         </Reveal>
 
         {/* Section Intro Paragraph with 2px solid accent left vertical line */}
-        <div className="lead-intro mb-10 sm:mb-14">
+        <div className="lead-intro mb-6">
           <p>
             Building systems where applied AI meets production reliability, context-grounded retrieval pipelines, and verifiable data provenance.
           </p>
@@ -171,15 +171,15 @@ export function About() {
                 </span>
               </div>
 
-              {/* Card Headline: Serif with italic accent */}
-              <h3 className="font-serif font-normal text-fluid-h3 text-[#111111] leading-tight mb-6">
+              {/* Card Headline: Inter with italic accent */}
+              <h3 className="font-sans font-bold text-fluid-h3 text-[#111111] leading-snug mb-3">
                 Building systems where{" "}
-                <span className="font-serif italic text-accent font-normal">applied AI</span>{" "}
+                <em className="accent font-serif-italic italic text-accent font-normal">applied AI</em>{" "}
                 meets production reliability and verifiable data provenance.
               </h3>
 
-              {/* Staggered Paragraphs: Inter, muted gray */}
-              <div className="p-6 sm:p-7 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111] mb-8 space-y-4 sm:space-y-5 font-sans text-[15px] text-[#555555] leading-relaxed font-normal perspective-1200 relative overflow-hidden">
+              {/* Staggered Paragraphs: Inter, muted gray, tightened spacing */}
+              <div className="p-5 sm:p-6 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111] mb-4 space-y-3 font-sans text-[15px] text-[var(--body)] leading-relaxed font-normal perspective-1200 relative overflow-hidden">
                 <div className="absolute top-0 left-0 bottom-0 w-1 bg-gradient-to-b from-[#E8472B] via-[#E8472B]/40 to-transparent" />
                 <motion.p
                   custom={0}
@@ -221,7 +221,7 @@ export function About() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={shouldReduceMotion || isMobile ? {} : { y: -3, scale: 1.01 }}
-                className="group flex items-start gap-4 mb-8 p-5 sm:p-6 rounded-xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] transition-all duration-200"
+                className="group flex items-start gap-4 mb-4 p-5 sm:p-6 rounded-xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] transition-all duration-200"
               >
                 <div className="w-10 h-10 rounded-lg bg-[#111111] flex items-center justify-center text-white shrink-0 mt-0.5 group-hover:scale-110 group-hover:bg-[#E8472B] transition-all duration-200 shadow-sm">
                   <GraduationCap className="w-5 h-5 text-white" />
@@ -235,27 +235,26 @@ export function About() {
                       2022 – 2026
                     </span>
                   </div>
-                  <h4 className="font-serif font-normal text-xl sm:text-[22px] text-[#111111] mb-1 group-hover:text-[#E8472B] transition-colors">
+                  <h4 className="font-sans font-bold text-lg sm:text-xl text-[#111111] mb-1 group-hover:text-[#E8472B] transition-colors">
                     B.Tech in Computer Science &amp;{" "}
-                    <span className="font-serif italic text-accent font-normal">Business Systems</span>
+                    <em className="accent font-serif-italic italic text-accent font-normal">Business Systems</em>
                   </h4>
-                  <p className="font-sans text-[14px] text-[#555555] leading-relaxed">
+                  <p className="font-sans text-[14px] text-[var(--body)] leading-relaxed">
                     Specializing in Applied AI systems, full-stack product engineering, and secure data architectures.
                   </p>
                 </div>
               </motion.div>
             </div>
 
-            {/* Outlined Pill Buttons (Inter 14px weight 500) */}
+            {/* Outlined Pill Buttons (Inter 14px weight 500, gap 12px) */}
             <div
-              style={{ gap: "var(--space-1)" }}
-              className="flex flex-wrap items-center pt-6 border-t-[1.5px] border-[#111111]/20"
+              className="flex flex-wrap items-center gap-3 pt-4 border-t-[1.5px] border-[#111111]/20"
             >
               <a
                 href={IDENTITY.github}
                 target="_blank"
                 rel="noreferrer"
-                className="neo-pill-btn px-6 py-2.5 font-sans text-[14px] font-medium group"
+                className="neo-pill-btn px-[22px] py-[11px] font-sans text-[14px] font-medium group"
               >
                 <span>GitHub Profile</span>
                 <ArrowUpRight className="w-4 h-4 ml-1.5 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -265,7 +264,7 @@ export function About() {
                 href={IDENTITY.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="neo-pill-btn px-6 py-2.5 font-sans text-[14px] font-medium"
+                className="neo-pill-btn px-[22px] py-[11px] font-sans text-[14px] font-medium"
               >
                 <span>LinkedIn</span>
                 <ArrowUpRight className="w-4 h-4 ml-1.5 shrink-0" />

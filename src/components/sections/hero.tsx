@@ -113,15 +113,15 @@ export function Hero() {
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-                style={{ marginBottom: "1rem" }}
+                style={{ marginBottom: "0.625rem" }}
               >
                 <EyebrowPill accent="PORTFOLIO '26" text="APPLIED AI & FULL-STACK SYSTEMS" />
               </motion.div>
 
-              {/* 2. H1: Fraunces bold 700 with Instrument Serif italic accent */}
+              {/* 2. H1: Inter bold 700 with Instrument Serif italic accent */}
               <h1
-                style={{ marginBottom: "1.25rem" }}
-                className="font-serif font-normal text-fluid-hero text-[#111111] select-none preserve-3d leading-[1.0] tracking-[-0.03em]"
+                style={{ marginBottom: "0.75rem" }}
+                className="font-sans font-bold text-fluid-hero text-[#111111] select-none preserve-3d leading-[1.05] tracking-[-0.035em]"
               >
                 <div className="overflow-visible perspective-1200">
                   <motion.div
@@ -132,7 +132,7 @@ export function Hero() {
                     className="inline-block origin-bottom will-change-transform"
                   >
                     <span>Applied </span>
-                    <span className="font-serif-italic italic text-accent font-normal">AI </span>
+                    <em className="accent font-serif-italic italic text-accent font-normal">AI </em>
                   </motion.div>
                 </div>
                 <div className="overflow-visible perspective-1200">
@@ -143,9 +143,9 @@ export function Hero() {
                     animate="visible"
                     className="inline-block origin-bottom will-change-transform"
                   >
-                    <span className="font-serif-italic italic text-accent font-normal accent-underline">
+                    <em className="accent font-serif-italic italic text-accent font-normal accent-underline">
                       engineering
-                    </span>
+                    </em>
                   </motion.div>
                 </div>
                 <div className="overflow-visible perspective-1200">
@@ -177,7 +177,7 @@ export function Hero() {
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.38, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-                style={{ marginBottom: "1.5rem" }}
+                style={{ marginBottom: "1rem" }}
                 className="lead-intro font-sans"
               >
                 <p>
@@ -186,12 +186,12 @@ export function Hero() {
               </motion.div>
             </div>
 
-            {/* 4. Action Buttons (Inter 14px weight 500) */}
+            {/* 4. Action Buttons (Inter 14px weight 500, gap 12px) */}
             <motion.div
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.48, duration: 0.6 }}
-              className="flex flex-wrap items-center gap-3.5 sm:gap-5 w-full sm:w-auto mt-4"
+              className="flex flex-wrap items-center gap-3 w-full sm:w-auto mt-2"
             >
               <a
                 ref={exploreBtnRef}
@@ -201,7 +201,7 @@ export function Hero() {
                 style={{
                   transform: `translate3d(${btnOffset.x}px, ${btnOffset.y}px, 0)`,
                 }}
-                className="neo-black-btn min-h-[48px] px-7 sm:px-8 font-sans text-[14px] font-medium gap-2.5 active:scale-[0.97] w-full sm:w-auto"
+                className="neo-black-btn min-h-[44px] px-[22px] py-[11px] font-sans text-[14px] font-medium gap-2 active:scale-[0.97] w-full sm:w-auto"
               >
                 <span>Explore Work</span>
                 <ArrowRight className="w-4 h-4 shrink-0" />
@@ -209,7 +209,7 @@ export function Hero() {
 
               <a
                 href="/#contact"
-                className="neo-pill-btn min-h-[48px] px-6 sm:px-7 font-sans text-[14px] font-medium gap-1.5 w-full sm:w-auto group"
+                className="neo-pill-btn min-h-[44px] px-[22px] py-[11px] font-sans text-[14px] font-medium gap-1.5 w-full sm:w-auto group"
               >
                 <span>Get in touch</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

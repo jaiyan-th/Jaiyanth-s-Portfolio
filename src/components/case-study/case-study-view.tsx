@@ -58,21 +58,21 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
       {/* ============================================================
           HERO / TITLE SECTION
           ============================================================ */}
-      <header className="mb-12 sm:mb-20 preserve-3d">
-        <EyebrowPill accent={project.category} text={`${project.year} · ${project.domain}`} className="mb-6" />
+      <header className="mb-10 sm:mb-14 preserve-3d">
+        <EyebrowPill accent={project.category} text={`${project.year} · ${project.domain}`} className="mb-2.5 sm:mb-3" />
 
         {/* Display Title with overflow wrap */}
-        <h1 className="font-serif font-normal text-fluid-hero text-[#111111] mb-6 leading-[1.02] tracking-[-0.02em] break-words">
+        <h1 className="font-sans font-bold text-fluid-hero text-[#111111] mb-3 leading-[1.05] tracking-[-0.035em] break-words">
           {project.title}
         </h1>
 
         {/* Subtitle Statement */}
-        <p className="lead-intro font-sans text-base sm:text-lg text-text-muted leading-relaxed max-w-4xl mb-10 sm:mb-12">
+        <p className="lead-intro font-sans text-base sm:text-lg text-[var(--body)] leading-relaxed max-w-[62ch] mb-6 sm:mb-8">
           {project.subtitle}
         </p>
 
         {/* Meta Strip: 4 columns >=1024px, 2 columns on tablets, 1 column on phones */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-5 sm:p-7 rounded-2xl bg-white border border-border-line hard-shadow perspective-1200">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-5 sm:p-6 rounded-2xl bg-white border border-border-line hard-shadow perspective-1200">
           {[
             { label: "Role", value: project.role },
             { label: "Duration", value: project.duration },
@@ -130,7 +130,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
               }}
               className="preserve-3d pb-3 sm:pb-0 border-b sm:border-b-0 border-border-line last:border-b-0"
             >
-              <span className="font-mono uppercase tracking-[0.08em] text-text-muted block mb-1 font-medium text-[11px]">
+              <span className="font-mono uppercase tracking-[0.08em] text-[var(--body)] block mb-1 font-medium text-[11px]">
                 {item.label}
               </span>
               {item.content || (
@@ -147,27 +147,27 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           01 CONTEXT
           ============================================================ */}
       <section className="section-padding border-t border-border-line perspective-1200">
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 pb-5 border-b border-border-line gap-4">
-          <div className="space-y-3">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-6 pb-4 border-b border-border-line gap-3">
+          <div className="space-y-2.5">
             <EyebrowPill accent="01" text="CONTEXT & SCOPE" />
-            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
-              Context & <span className="font-serif italic text-accent font-normal accent-underline">Scope</span>
+            <h2 className="font-sans font-bold text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.035em]">
+              Context &amp; <em className="accent font-serif-italic italic text-accent font-normal accent-underline">Scope</em>
             </h2>
           </div>
         </Reveal>
 
-        <div className="space-y-10 sm:space-y-12">
+        <div className="space-y-8 sm:space-y-10">
           <div>
-            <h3 className="font-serif font-normal text-2xl sm:text-3xl text-[#111111] mb-3 leading-snug">
+            <h3 className="card-title font-sans font-bold text-2xl sm:text-3xl text-[#111111] mb-2 leading-snug">
               {project.context.title}
             </h3>
-            <p className="font-sans text-base text-text-muted font-normal leading-relaxed max-w-4xl">
+            <p className="font-sans text-base text-[var(--body)] font-normal leading-relaxed max-w-[62ch]">
               {project.context.description}
             </p>
           </div>
 
           {/* Context Cards: 3 cols >=1024px, 2 cols on tablets, 1 col on phones */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 perspective-1200">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 perspective-1200">
             {project.context.characteristics.map((c, i) => (
               <motion.div
                 key={i}
@@ -187,11 +187,11 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 className="p-5 sm:p-6 rounded-2xl bg-white border border-border-line hard-shadow flex flex-col justify-between"
               >
                 <div>
-                  <span className="w-2 h-2 rounded-full bg-accent block mb-3" />
-                  <h4 className="font-serif font-normal text-lg sm:text-xl text-[#111111] mb-2 leading-snug">
+                  <span className="w-2 h-2 rounded-full bg-accent block mb-2.5" />
+                  <h4 className="card-title font-sans font-bold text-lg sm:text-xl text-[#111111] mb-1.5 leading-snug">
                     {c.title}
                   </h4>
-                  <p className="font-sans text-sm text-text-muted leading-relaxed font-normal">
+                  <p className="font-sans text-sm text-[var(--body)] leading-relaxed font-normal">
                     {c.desc}
                   </p>
                 </div>
@@ -209,23 +209,23 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
             whileInView={{ opacity: 1, translateZ: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-            className="p-6 sm:p-8 rounded-2xl bg-[#FAF3EE] relative overflow-hidden border border-border-line hard-shadow"
+            className="p-5 sm:p-6 rounded-2xl bg-[#FAF3EE] relative overflow-hidden border border-border-line hard-shadow"
           >
             <div className="absolute top-0 left-0 w-1.5 h-full bg-accent" />
-            <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-accent block mb-2 font-medium">
+            <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-accent block mb-1.5 font-medium">
               Highlighted Problem
             </span>
-            <p className="lead-intro font-serif font-normal text-xl sm:text-2xl text-[#111111] leading-snug">
+            <p className="lead-intro font-sans font-medium text-lg sm:text-xl text-[#111111] leading-snug">
               &ldquo;{project.context.highlightedProblem}&rdquo;
             </p>
           </motion.div>
 
           {/* Scope Cards: 4 cols >=1024px, 2 on tablets, 1 on phones */}
           <div>
-            <h4 className="font-serif font-normal text-2xl sm:text-3xl text-[#111111] mb-5 leading-snug">
-              My Role & Engineering Scope
+            <h4 className="card-title font-sans font-bold text-2xl sm:text-3xl text-[#111111] mb-3 leading-snug">
+              My Role &amp; Engineering Scope
             </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 perspective-1200">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 perspective-1200">
               {project.context.roleScope.map((scope, idx) => (
                 <motion.div
                   key={scope.id}
@@ -245,13 +245,13 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                   className="p-5 sm:p-6 rounded-2xl bg-white border border-border-line hard-shadow flex flex-col justify-between"
                 >
                   <div>
-                    <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-medium text-accent bg-[#FFE8E5] px-2.5 py-0.5 rounded-full border border-accent/20 block mb-3 w-max">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-medium text-accent bg-[#FFE8E5] px-2.5 py-0.5 rounded-full border border-accent/20 block mb-2.5 w-max">
                       {scope.id}
                     </span>
-                    <h5 className="font-serif font-normal text-base sm:text-lg text-[#111111] mb-2 leading-snug">
+                    <h5 className="card-title font-sans font-bold text-base sm:text-lg text-[#111111] mb-1.5 leading-snug">
                       {scope.title}
                     </h5>
-                    <p className="font-sans text-sm text-text-muted leading-relaxed font-normal">
+                    <p className="font-sans text-sm text-[var(--body)] leading-relaxed font-normal">
                       {scope.desc}
                     </p>
                   </div>
@@ -266,40 +266,40 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           02 USERS & PROBLEM
           ============================================================ */}
       <section className="section-padding border-t border-border-line perspective-1200">
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 pb-5 border-b border-border-line gap-4">
-          <div className="space-y-3">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-6 pb-4 border-b border-border-line gap-3">
+          <div className="space-y-2.5">
             <EyebrowPill accent="02" text="USERS & CHALLENGES" />
-            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
-              Users & <span className="font-serif italic text-accent font-normal accent-underline">Problem</span>
+            <h2 className="font-sans font-bold text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.035em]">
+              Users &amp; <em className="accent font-serif-italic italic text-accent font-normal accent-underline">Problem</em>
             </h2>
           </div>
         </Reveal>
 
-        <div className="space-y-10 sm:space-y-12">
+        <div className="space-y-8 sm:space-y-10">
           <div>
-            <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted block mb-2 font-medium">
+            <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--body)] block mb-1.5 font-medium">
               The Core Engineering Question
             </span>
-            <h3 className="font-serif font-normal text-2xl sm:text-3xl lg:text-4xl text-[#111111] leading-tight max-w-4xl">
+            <h3 className="card-title font-sans font-bold text-2xl sm:text-3xl lg:text-4xl text-[#111111] leading-tight max-w-[62ch]">
               {project.problem.question}
             </h3>
           </div>
 
           {/* Approach Card */}
-          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-border-line hard-shadow">
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAF8F5] border border-border-line text-text-muted font-mono text-[11px] uppercase tracking-[0.08em] font-medium block mb-3 w-max">
+          <div className="p-5 sm:p-6 rounded-2xl bg-white border border-border-line hard-shadow">
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAF8F5] border border-border-line text-[var(--body)] font-mono text-[11px] uppercase tracking-[0.08em] font-medium block mb-2.5 w-max">
               Approach
             </span>
-            <h4 className="font-serif font-normal text-xl sm:text-2xl text-[#111111] mb-3 leading-snug">
+            <h4 className="card-title font-sans font-bold text-xl sm:text-2xl text-[#111111] mb-2 leading-snug">
               {project.problem.approachHeading}
             </h4>
-            <p className="font-sans text-base text-text-muted leading-relaxed font-normal">
+            <p className="font-sans text-base text-[var(--body)] leading-relaxed font-normal max-w-[62ch]">
               {project.problem.approachDetail}
             </p>
           </div>
 
           {/* Challenges Grid: 3 cols >=1024px, 2 on tablets, 1 on phones */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 perspective-1200">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 perspective-1200">
             {project.problem.challenges.map((ch, idx) => (
               <motion.div
                 key={ch.id}
@@ -310,13 +310,13 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
                 className="p-5 sm:p-6 rounded-2xl bg-white border border-border-line hard-shadow"
               >
-                <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-medium text-accent bg-[#FFE8E5] px-2.5 py-0.5 rounded-full border border-accent/20 block mb-3 w-max">
+                <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-medium text-accent bg-[#FFE8E5] px-2.5 py-0.5 rounded-full border border-accent/20 block mb-2.5 w-max">
                   {ch.id}
                 </span>
-                <h5 className="font-serif font-normal text-base sm:text-lg text-[#111111] mb-2 leading-snug">
+                <h5 className="card-title font-sans font-bold text-base sm:text-lg text-[#111111] mb-1.5 leading-snug">
                   {ch.title}
                 </h5>
-                <p className="font-sans text-sm text-text-muted leading-relaxed font-normal">
+                <p className="font-sans text-sm text-[var(--body)] leading-relaxed font-normal">
                   {ch.desc}
                 </p>
               </motion.div>
@@ -324,12 +324,12 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           </div>
 
           {/* Target Users & Key Challenges: Stack on phones, 2 cols on >=768px */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-            <div className="p-6 sm:p-7 rounded-2xl bg-white border border-border-line hard-shadow">
-              <h4 className="font-serif font-normal text-xl sm:text-2xl text-[#111111] mb-4 leading-snug">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="p-5 sm:p-6 rounded-2xl bg-white border border-border-line hard-shadow">
+              <h4 className="card-title font-sans font-bold text-xl sm:text-2xl text-[#111111] mb-3 leading-snug">
                 Target Users
               </h4>
-              <ul className="space-y-2.5 font-sans text-sm text-text-muted">
+              <ul className="space-y-2 font-sans text-sm text-[var(--body)]">
                 {project.problem.users.map((u, i) => (
                   <li key={i} className="flex items-start gap-2.5">
                     <span className="text-accent font-medium select-none">・</span>
@@ -339,11 +339,11 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
               </ul>
             </div>
 
-            <div className="p-6 sm:p-7 rounded-2xl bg-white border border-border-line hard-shadow">
-              <h4 className="font-serif font-normal text-xl sm:text-2xl text-[#111111] mb-4 leading-snug">
+            <div className="p-5 sm:p-6 rounded-2xl bg-white border border-border-line hard-shadow">
+              <h4 className="card-title font-sans font-bold text-xl sm:text-2xl text-[#111111] mb-3 leading-snug">
                 Key Challenges Solved
               </h4>
-              <ul className="space-y-2.5 font-sans text-sm text-text-muted">
+              <ul className="space-y-2 font-sans text-sm text-[var(--body)]">
                 {project.problem.keyChallenges.map((kc, i) => (
                   <li key={i} className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
@@ -360,27 +360,27 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           03 SYSTEM ARCHITECTURE & WORKFLOW
           ============================================================ */}
       <section className="section-padding border-t border-border-line perspective-1200">
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 pb-5 border-b border-border-line gap-4">
-          <div className="space-y-3">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-6 pb-4 border-b border-border-line gap-3">
+          <div className="space-y-2.5">
             <EyebrowPill accent="03" text="ARCHITECTURE & PIPELINE" />
-            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
-              System <span className="font-serif italic text-accent font-normal accent-underline">Architecture</span>
+            <h2 className="font-sans font-bold text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.035em]">
+              System <em className="accent font-serif-italic italic text-accent font-normal accent-underline">Architecture</em>
             </h2>
           </div>
         </Reveal>
 
-        <div className="space-y-10 sm:space-y-12">
+        <div className="space-y-8 sm:space-y-10">
           <div>
-            <h3 className="font-serif font-normal text-2xl sm:text-3xl text-[#111111] mb-2 leading-tight max-w-4xl">
+            <h3 className="card-title font-sans font-bold text-2xl sm:text-3xl text-[#111111] mb-2 leading-tight max-w-[62ch]">
               {project.architecture.heading}
             </h3>
-            <p className="font-sans text-base text-text-muted font-normal">
+            <p className="font-sans text-base text-[var(--body)] font-normal">
               {project.architecture.subheading}
             </p>
           </div>
 
           {/* 4 Pipeline Phases: 4 cols >=1024px, 2 on tablets, 1 on phones */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 perspective-1200">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 perspective-1200">
             {project.architecture.phases.map((ph, idx) => (
               <motion.div
                 key={ph.id}
@@ -391,13 +391,13 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
                 className="p-5 sm:p-6 rounded-2xl bg-white border border-border-line hard-shadow"
               >
-                <span className="font-mono uppercase tracking-[0.08em] text-text-muted font-medium block mb-2 text-[11px]">
+                <span className="font-mono uppercase tracking-[0.08em] text-[var(--body)] font-medium block mb-1.5 text-[11px]">
                   {ph.id}
                 </span>
-                <h5 className="font-serif font-normal text-base sm:text-lg text-[#111111] mb-2 leading-snug">
+                <h5 className="card-title font-sans font-bold text-base sm:text-lg text-[#111111] mb-1.5 leading-snug">
                   {ph.title}
                 </h5>
-                <p className="font-sans text-sm text-text-muted leading-relaxed font-normal">
+                <p className="font-sans text-sm text-[var(--body)] leading-relaxed font-normal">
                   {ph.desc}
                 </p>
               </motion.div>
@@ -405,8 +405,8 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           </div>
 
           {/* Sequential Steps: 2 columns >=768px (step label | description), stacked on phones */}
-          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-border-line hard-shadow divide-y divide-border-line perspective-1200">
-            <h4 className="font-serif font-normal text-2xl sm:text-3xl text-[#111111] pb-5 leading-snug">
+          <div className="p-5 sm:p-6 rounded-2xl bg-white border border-border-line hard-shadow divide-y divide-border-line perspective-1200">
+            <h4 className="card-title font-sans font-bold text-2xl sm:text-3xl text-[#111111] pb-4 leading-snug">
               Execution Pipeline Walkthrough
             </h4>
             {project.architecture.steps.map((st, idx) => (
@@ -424,18 +424,18 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                   delay: idx * 0.09,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="py-5 first:pt-5 last:pb-0 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-6 items-start origin-top preserve-3d"
+                className="py-4 first:pt-4 last:pb-0 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-6 items-start origin-top preserve-3d"
               >
                 <div className="md:col-span-4">
                   <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-medium text-accent bg-[#FFE8E5] px-2.5 py-0.5 rounded-full border border-accent/20 block w-max">
                     {st.step}
                   </span>
-                  <h5 className="font-serif font-normal text-base sm:text-lg text-[#111111] mt-2 leading-snug">
+                  <h5 className="card-title font-sans font-bold text-base sm:text-lg text-[#111111] mt-1.5 leading-snug">
                     {st.title}
                   </h5>
                 </div>
                 <div className="md:col-span-8">
-                  <p className="font-sans text-sm sm:text-base text-text-muted leading-relaxed font-normal">
+                  <p className="font-sans text-sm sm:text-base text-[var(--body)] leading-relaxed font-normal">
                     {st.desc}
                   </p>
                 </div>
@@ -449,27 +449,27 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           04 IMPLEMENTATION & SAFEGUARDS
           ============================================================ */}
       <section className="section-padding border-t border-border-line perspective-1200">
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 pb-5 border-b border-border-line gap-4">
-          <div className="space-y-3">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-6 pb-4 border-b border-border-line gap-3">
+          <div className="space-y-2.5">
             <EyebrowPill accent="04" text="PILLARS & SAFEGUARDS" />
-            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
-              Implementation & <span className="font-serif italic text-accent font-normal accent-underline">Safeguards</span>
+            <h2 className="font-sans font-bold text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.035em]">
+              Implementation &amp; <em className="accent font-serif-italic italic text-accent font-normal accent-underline">Safeguards</em>
             </h2>
           </div>
         </Reveal>
 
         <div className="space-y-8 sm:space-y-10">
           <div>
-            <h3 className="font-serif font-normal text-2xl sm:text-3xl text-[#111111] mb-2 leading-snug">
+            <h3 className="card-title font-sans font-bold text-2xl sm:text-3xl text-[#111111] mb-2 leading-snug">
               {project.implementation.heading}
             </h3>
-            <p className="font-sans text-base text-text-muted font-normal">
+            <p className="font-sans text-base text-[var(--body)] font-normal">
               {project.implementation.subheading}
             </p>
           </div>
 
           {/* Pillars: 3 cols >=1024px, 2 on tablets, 1 on phones */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 perspective-1200">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 perspective-1200">
             {project.implementation.pillars.map((pil, idx) => (
               <motion.div
                 key={idx}
@@ -478,17 +478,17 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: idx * 0.1 }}
                 whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
-                className="p-6 sm:p-7 rounded-2xl bg-white border border-border-line hard-shadow flex flex-col justify-between"
+                className="p-5 sm:p-6 rounded-2xl bg-white border border-border-line hard-shadow flex flex-col justify-between"
               >
                 <div>
-                  <h4 className="font-serif font-normal text-xl sm:text-2xl text-[#111111] mb-2.5 leading-snug">
+                  <h4 className="card-title font-sans font-bold text-xl sm:text-2xl text-[#111111] mb-2 leading-snug">
                     {pil.title}
                   </h4>
-                  <p className="font-sans text-sm text-text-muted leading-relaxed mb-5 font-normal">
+                  <p className="font-sans text-sm text-[var(--body)] leading-relaxed mb-4 font-normal">
                     {pil.desc}
                   </p>
                 </div>
-                <ul className="space-y-2 pt-4 border-t border-border-line">
+                <ul className="space-y-2 pt-3.5 border-t border-border-line">
                   {pil.points.map((pt, pIdx) => (
                     <li key={pIdx} className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#111111] flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
@@ -506,23 +506,23 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           05 IMPACT & LEARNINGS
           ============================================================ */}
       <section className="section-padding border-t border-border-line perspective-1200">
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 pb-5 border-b border-border-line gap-4">
-          <div className="space-y-3">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-6 pb-4 border-b border-border-line gap-3">
+          <div className="space-y-2.5">
             <EyebrowPill accent="05" text="RESULTS & METRICS" />
-            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
-              Impact & <span className="font-serif italic text-accent font-normal accent-underline">Learnings</span>
+            <h2 className="font-sans font-bold text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.035em]">
+              Impact &amp; <em className="accent font-serif-italic italic text-accent font-normal accent-underline">Learnings</em>
             </h2>
           </div>
         </Reveal>
 
-        <div className="space-y-10 sm:space-y-12">
+        <div className="space-y-8 sm:space-y-10">
           <div>
-            <h3 className="font-serif font-normal text-2xl sm:text-3xl text-[#111111] mb-6 leading-snug">
+            <h3 className="card-title font-sans font-bold text-2xl sm:text-3xl text-[#111111] mb-4 leading-snug">
               {project.impact.heading}
             </h3>
 
             {/* Metrics Cards: 3 cols >=768px, 1 col on phones */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 mb-10 perspective-1200">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 perspective-1200">
               {project.impact.metrics.map((m, idx) => (
                 <motion.div
                   key={idx}
@@ -535,12 +535,12 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
-                  className="p-6 sm:p-7 rounded-2xl bg-white border border-border-line hard-shadow text-center"
+                  className="p-5 sm:p-6 rounded-2xl bg-white border border-border-line hard-shadow text-center"
                 >
-                  <p className="font-serif font-normal text-4xl sm:text-5xl lg:text-6xl text-[#111111] mb-2 tracking-tight">
+                  <p className="font-sans font-bold text-4xl sm:text-5xl lg:text-6xl text-[#111111] mb-1.5 tracking-tight">
                     {m.value}
                   </p>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted font-medium">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--body)] font-medium">
                     {m.label}
                   </p>
                 </motion.div>
@@ -549,32 +549,32 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           </div>
 
           {/* Outcomes & Architectural Learnings: Stack below 1024px */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-            <div className="p-6 sm:p-7 rounded-2xl bg-white border border-border-line hard-shadow">
-              <h4 className="font-serif font-normal text-2xl sm:text-3xl text-[#111111] mb-4 leading-snug">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+            <div className="p-5 sm:p-6 rounded-2xl bg-white border border-border-line hard-shadow">
+              <h4 className="card-title font-sans font-bold text-2xl sm:text-3xl text-[#111111] mb-3 leading-snug">
                 Key Production Outcomes
               </h4>
-              <ul className="space-y-3 font-sans text-sm text-text-muted">
+              <ul className="space-y-2.5 font-sans text-sm text-[var(--body)]">
                 {project.impact.outcomes.map((o, idx) => (
                   <li key={idx} className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-1" />
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                     <span>{o}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="p-6 sm:p-7 rounded-2xl bg-white border border-border-line hard-shadow">
-              <h4 className="font-serif font-normal text-2xl sm:text-3xl text-[#111111] mb-4 leading-snug">
+            <div className="p-5 sm:p-6 rounded-2xl bg-white border border-border-line hard-shadow">
+              <h4 className="card-title font-sans font-bold text-2xl sm:text-3xl text-[#111111] mb-3 leading-snug">
                 Architectural Learnings
               </h4>
-              <div className="space-y-4">
+              <div className="space-y-3.5">
                 {project.impact.learnings.map((lrn, idx) => (
                   <div key={idx}>
-                    <h5 className="font-serif font-normal text-base sm:text-lg text-[#111111] mb-1 leading-snug">
+                    <h5 className="card-title font-sans font-bold text-base sm:text-lg text-[#111111] mb-1 leading-snug">
                       {lrn.title}
                     </h5>
-                    <p className="font-sans text-sm text-text-muted leading-relaxed font-normal">
+                    <p className="font-sans text-sm text-[var(--body)] leading-relaxed font-normal">
                       {lrn.desc}
                     </p>
                   </div>
@@ -600,17 +600,17 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 ? "none"
                 : `rotateX(${nextTilt.x}deg) rotateY(${nextTilt.y}deg)`,
           }}
-          className="group block p-6 sm:p-10 lg:p-12 rounded-2xl bg-white border border-border-line hard-shadow transition-transform duration-100 ease-out will-change-transform min-h-[48px]"
+          className="group block p-5 sm:p-8 lg:p-10 rounded-2xl bg-white border border-border-line hard-shadow transition-transform duration-100 ease-out will-change-transform min-h-[48px]"
         >
-          <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-medium text-text-muted block mb-3 w-max">
+          <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-medium text-[var(--body)] block mb-2 w-max">
             Next Project
           </span>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="min-w-0">
-              <h3 className="font-serif font-normal text-fluid-h2 text-[#111111] group-hover:text-accent transition-colors leading-tight mb-2 break-words">
+              <h3 className="card-title font-sans font-bold text-fluid-h2 text-[#111111] group-hover:text-accent transition-colors leading-tight mb-1.5 break-words">
                 {project.nextProject.title}
               </h3>
-              <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted">
+              <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--body)]">
                 {project.nextProject.category}
               </span>
             </div>
