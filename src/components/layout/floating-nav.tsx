@@ -143,10 +143,10 @@ export function FloatingNav() {
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={`font-sans text-[14px] font-medium tracking-normal transition-colors relative py-2 min-h-[44px] flex items-center ${
+                className={`font-sans text-[15px] font-medium tracking-normal transition-colors relative py-2 min-h-[44px] flex items-center ${
                   isActive
                     ? "text-[#111111]"
-                    : "text-[#555555] hover:text-[#E8472B]"
+                    : "text-[#5a5a5a] hover:text-[#E8472B]"
                 }`}
               >
                 {item.label}

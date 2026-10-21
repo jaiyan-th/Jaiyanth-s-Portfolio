@@ -118,10 +118,10 @@ export function Hero() {
                 <EyebrowPill accent="PORTFOLIO '26" text="APPLIED AI & FULL-STACK SYSTEMS" />
               </motion.div>
 
-              {/* 2. H1: Editorial Instrument Serif, 400 regular weight, tight line-height, slightly negative letter-spacing */}
+              {/* 2. H1: Fraunces bold 700 with Instrument Serif italic accent */}
               <h1
                 style={{ marginBottom: "1.25rem" }}
-                className="font-serif font-normal text-fluid-hero text-[#111111] select-none preserve-3d leading-[1.02] tracking-[-0.02em]"
+                className="font-serif font-bold text-fluid-hero text-[#111111] select-none preserve-3d leading-[1.0] tracking-[-0.03em]"
               >
                 <div className="overflow-visible perspective-1200">
                   <motion.div
@@ -132,7 +132,7 @@ export function Hero() {
                     className="inline-block origin-bottom will-change-transform"
                   >
                     <span>Applied </span>
-                    <span className="font-serif italic text-accent font-normal">AI </span>
+                    <span className="font-serif-italic italic text-accent font-normal">AI </span>
                   </motion.div>
                 </div>
                 <div className="overflow-visible perspective-1200">
@@ -143,7 +143,7 @@ export function Hero() {
                     animate="visible"
                     className="inline-block origin-bottom will-change-transform"
                   >
-                    <span className="font-serif italic text-accent font-normal accent-underline">
+                    <span className="font-serif-italic italic text-accent font-normal accent-underline">
                       engineering
                     </span>
                   </motion.div>

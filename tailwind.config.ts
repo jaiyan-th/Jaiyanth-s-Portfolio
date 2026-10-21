@@ -9,6 +9,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        serif: ["var(--font-serif-bold)", "Fraunces", "Georgia", "serif"],
+        "serif-bold": ["var(--font-serif-bold)", "Fraunces", "Georgia", "serif"],
+        "serif-italic": ["var(--font-serif-italic)", "Instrument Serif", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "JetBrains Mono", "ui-monospace", "monospace"],
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

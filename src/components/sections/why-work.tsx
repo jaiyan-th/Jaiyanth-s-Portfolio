@@ -82,8 +82,8 @@ export function WhyWork() {
         <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12 pb-5 border-b-[1.5px] border-[#111111]/20 gap-4">
           <div className="space-y-3">
             <EyebrowPill accent="SKILLS" text="WHAT I USE" />
-            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em]">
-              Why Work <span className="font-serif italic text-accent font-normal accent-underline">With Me</span>?
+            <h2 className="font-serif font-bold text-fluid-h2 text-[#111111] leading-[1.02] tracking-[-0.03em]">
+              Why Work <em className="font-serif-italic italic text-accent font-normal accent-underline">With Me</em>?
             </h2>
           </div>
           <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted">

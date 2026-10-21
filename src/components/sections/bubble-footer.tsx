@@ -379,11 +379,11 @@ export function BubbleFooter() {
           <Reveal className="max-w-2xl pointer-events-auto preserve-3d flex flex-col items-center">
             <EyebrowPill accent="CONTACT" text="LET'S TALK" className="mb-4 sm:mb-6" />
 
-            <h2 className="font-serif font-normal text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.02em] mb-6 sm:mb-8">
+            <h2 className="font-serif font-bold text-fluid-h2 text-[#111111] leading-[1.02] tracking-[-0.03em] mb-6 sm:mb-8">
               Building something with{" "}
-              <span className="font-serif italic text-accent font-normal mx-1">AI</span>?
+              <em className="font-serif-italic italic text-accent font-normal mx-1">AI</em>?
               <br />
-              Let&apos;s <span className="font-serif italic text-accent font-normal accent-underline">talk</span>.
+              Let&apos;s <em className="font-serif-italic italic text-accent font-normal accent-underline">talk</em>.
             </h2>
 
             {/* Action Buttons: min 48px height, wrap on mobile */}
