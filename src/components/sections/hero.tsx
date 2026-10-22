@@ -98,12 +98,12 @@ export function Hero() {
           animate={{
             opacity: 1,
             scale: 1,
-            y: shouldReduceMotion ? 0 : [0, -6, 0],
+            y: shouldReduceMotion ? 0 : [0, -4, 0],
           }}
           transition={{
             y: {
               repeat: Infinity,
-              duration: 6,
+              duration: 8,
               ease: "easeInOut",
             },
             opacity: { duration: 0.65 },
@@ -112,7 +112,7 @@ export function Hero() {
           style={{
             transform: shouldReduceMotion
               ? undefined
-              : `perspective(1200px) rotateX(${-mouseTilt.y * 3.5}deg) rotateY(${mouseTilt.x * 3.5}deg) translate3d(${mouseTilt.x * 8}px, ${headlineParallaxY + mouseTilt.y * 8}px, 0)`,
+              : `perspective(1200px) rotateX(${-mouseTilt.y * 1.8}deg) rotateY(${mouseTilt.x * 1.8}deg) translate3d(${mouseTilt.x * 4}px, ${headlineParallaxY + mouseTilt.y * 4}px, 0)`,
             transformStyle: "preserve-3d",
             transition: "transform 0.16s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
@@ -122,9 +122,9 @@ export function Hero() {
           <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#E8472B] z-10" />
 
           {/* 1. Luminous Ambient Outer Glow for Live Border */}
-          <div className="absolute -inset-[3px] rounded-[18px] sm:rounded-[26px] overflow-hidden pointer-events-none -z-20 blur-md opacity-85">
+          <div className="absolute -inset-[3px] rounded-[18px] sm:rounded-[26px] overflow-hidden pointer-events-none -z-20 blur-sm opacity-40">
             <div
-              className="absolute inset-[-150%] animate-[spin_5s_linear_infinite]"
+              className="absolute inset-[-150%] animate-[spin_12s_linear_infinite]"
               style={{
                 background:
                   "conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 200deg, rgba(232,71,43,0.4) 270deg, rgba(255,107,74,0.95) 330deg, rgba(232,71,43,1) 360deg)",
@@ -135,7 +135,7 @@ export function Hero() {
           {/* 2. Crisp Sharp Traveling Laser Beam (3px Live Border) */}
           <div className="absolute -inset-[2.5px] rounded-[17px] sm:rounded-[25px] overflow-hidden pointer-events-none -z-10">
             <div
-              className="absolute inset-[-150%] animate-[spin_5s_linear_infinite]"
+              className="absolute inset-[-150%] animate-[spin_12s_linear_infinite]"
               style={{
                 background:
                   "conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 180deg, rgba(232,71,43,0.25) 230deg, #FF6B4A 300deg, #E8472B 345deg, #111111 360deg)",
