@@ -117,63 +117,30 @@ export function Hero() {
           }}
           className="relative w-full rounded-[28px] sm:rounded-[36px] py-10 sm:py-14 md:py-16 px-5 sm:px-10 md:px-14 flex flex-col items-center text-center group"
         >
-          {/* 1. Animated Running Light Beam (Live Traveling Border Effect) */}
-          <div className="absolute -inset-[1.5px] rounded-[29.5px] sm:rounded-[37.5px] overflow-hidden pointer-events-none -z-10">
+          {/* 1. Luminous Ambient Outer Glow for Live Border */}
+          <div className="absolute -inset-[3px] rounded-[31px] sm:rounded-[39px] overflow-hidden pointer-events-none -z-20 blur-md opacity-85">
             <div
-              className="absolute inset-[-150%] animate-[spin_10s_linear_infinite] opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+              className="absolute inset-[-150%] animate-[spin_5s_linear_infinite]"
               style={{
                 background:
-                  "conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 280deg, rgba(232,71,43,0.9) 335deg, rgba(17,17,17,0.85) 360deg)",
+                  "conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 200deg, rgba(232,71,43,0.4) 270deg, rgba(255,107,74,0.95) 330deg, rgba(232,71,43,1) 360deg)",
               }}
             />
           </div>
 
-          {/* 2. Glass Frame Backdrop with Dual Border Line */}
-          <div className="absolute inset-0 rounded-[28px] sm:rounded-[36px] bg-[#FAF8F5]/80 backdrop-blur-md border border-[#E5E0D8] shadow-[0_12px_44px_rgba(0,0,0,0.035),0_1px_3px_rgba(0,0,0,0.02)] -z-10 transition-shadow duration-300 group-hover:shadow-[0_20px_56px_rgba(232,71,43,0.06),0_1px_4px_rgba(0,0,0,0.04)]" />
-
-          {/* 3. Live Corner Brackets (Precision Crosshairs) */}
-          {/* Top-Left */}
-          <div className="absolute -top-3 -left-3 w-6 h-6 rounded-full bg-[#FAF8F5] border border-[#E5E0D8] shadow-sm flex items-center justify-center font-mono text-[12px] font-bold text-[#E8472B] select-none pointer-events-none group-hover:scale-110 transition-transform">
-            +
-          </div>
-          {/* Top-Right */}
-          <div className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-[#FAF8F5] border border-[#E5E0D8] shadow-sm flex items-center justify-center font-mono text-[12px] font-bold text-[#E8472B] select-none pointer-events-none group-hover:scale-110 transition-transform">
-            +
-          </div>
-          {/* Bottom-Left */}
-          <div className="absolute -bottom-3 -left-3 w-6 h-6 rounded-full bg-[#FAF8F5] border border-[#E5E0D8] shadow-sm flex items-center justify-center font-mono text-[12px] font-bold text-[#E8472B] select-none pointer-events-none group-hover:scale-110 transition-transform">
-            +
-          </div>
-          {/* Bottom-Right */}
-          <div className="absolute -bottom-3 -right-3 w-6 h-6 rounded-full bg-[#FAF8F5] border border-[#E5E0D8] shadow-sm flex items-center justify-center font-mono text-[12px] font-bold text-[#E8472B] select-none pointer-events-none group-hover:scale-110 transition-transform">
-            +
+          {/* 2. Crisp Sharp Traveling Laser Beam (3px Live Border) */}
+          <div className="absolute -inset-[2.5px] rounded-[30.5px] sm:rounded-[38.5px] overflow-hidden pointer-events-none -z-10">
+            <div
+              className="absolute inset-[-150%] animate-[spin_5s_linear_infinite]"
+              style={{
+                background:
+                  "conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 180deg, rgba(232,71,43,0.2) 230deg, #FF6B4A 300deg, #E8472B 345deg, #111111 360deg)",
+              }}
+            />
           </div>
 
-          {/* 4. Live Floating Badges Docked to the Border Perimeter */}
-          {/* Top Border Badge */}
-          <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 sm:px-3.5 py-0.5 rounded-full bg-[#FAF8F5] border border-[#E5E0D8] shadow-sm flex items-center gap-2 font-mono text-[10px] sm:text-[10.5px] uppercase tracking-[0.08em] text-[#111111] select-none pointer-events-none">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#1FB866] animate-pulse" />
-            <span>SYS_ONLINE // LIVE AGENTIC ARCHIVE</span>
-          </div>
-
-          {/* Bottom Border Badge */}
-          <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-3 sm:px-3.5 py-0.5 rounded-full bg-[#FAF8F5] border border-[#E5E0D8] shadow-sm hidden sm:flex items-center gap-2 font-mono text-[10px] sm:text-[10.5px] uppercase tracking-[0.08em] text-[#666666] select-none pointer-events-none">
-            <span>DETERMINISTIC RAG</span>
-            <span className="text-[#E8472B] font-bold">•</span>
-            <span>AUTONOMOUS AGENTS</span>
-            <span className="text-[#E8472B] font-bold">•</span>
-            <span>HIGH-CONCURRENCY</span>
-          </div>
-
-          {/* Floating Subtle Side Ticks */}
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-1 font-mono text-[9px] text-[#999999] select-none pointer-events-none">
-            <span className="w-2.5 h-[1.5px] bg-[#E8472B]" />
-            <span className="rotate-90 origin-center tracking-widest mt-2">SEC.01</span>
-          </div>
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 hidden lg:flex flex-col items-center gap-1 font-mono text-[9px] text-[#999999] select-none pointer-events-none">
-            <span className="w-2.5 h-[1.5px] bg-[#E8472B]" />
-            <span className="-rotate-90 origin-center tracking-widest mt-2">ARCHIVE</span>
-          </div>
+          {/* 3. Glass Frame Backdrop */}
+          <div className="absolute inset-0 rounded-[28px] sm:rounded-[36px] bg-[#FAF8F5]/90 backdrop-blur-md border border-[#E5E0D8]/80 shadow-[0_0_35px_rgba(232,71,43,0.14),0_12px_44px_rgba(0,0,0,0.035)] -z-10" />
 
           {/* Hero Content Inside the Live Border */}
           <div className="w-full flex flex-col items-center">
