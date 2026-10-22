@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import { IDENTITY } from "@/data/content";
+import { EyebrowPill } from "@/components/ui/eyebrow-pill";
 
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
@@ -115,10 +116,13 @@ export function Hero() {
             transformStyle: "preserve-3d",
             transition: "transform 0.16s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
-          className="relative w-full rounded-[28px] sm:rounded-[36px] py-10 sm:py-14 md:py-16 px-5 sm:px-10 md:px-14 flex flex-col items-center text-center group"
+          className="relative w-full rounded-2xl sm:rounded-3xl bg-white border-2 border-[#111111] shadow-[8px_8px_0px_#111111] hover:shadow-[12px_12px_0px_#111111] py-10 sm:py-14 md:py-16 px-5 sm:px-10 md:px-14 flex flex-col items-center text-center overflow-hidden transition-all duration-300 group"
         >
+          {/* Top Red Indicator Accent Stripe (Signature Neo-Brutalist Element) */}
+          <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#E8472B] z-10" />
+
           {/* 1. Luminous Ambient Outer Glow for Live Border */}
-          <div className="absolute -inset-[3px] rounded-[31px] sm:rounded-[39px] overflow-hidden pointer-events-none -z-20 blur-md opacity-85">
+          <div className="absolute -inset-[3px] rounded-[18px] sm:rounded-[26px] overflow-hidden pointer-events-none -z-20 blur-md opacity-85">
             <div
               className="absolute inset-[-150%] animate-[spin_5s_linear_infinite]"
               style={{
@@ -129,31 +133,26 @@ export function Hero() {
           </div>
 
           {/* 2. Crisp Sharp Traveling Laser Beam (3px Live Border) */}
-          <div className="absolute -inset-[2.5px] rounded-[30.5px] sm:rounded-[38.5px] overflow-hidden pointer-events-none -z-10">
+          <div className="absolute -inset-[2.5px] rounded-[17px] sm:rounded-[25px] overflow-hidden pointer-events-none -z-10">
             <div
               className="absolute inset-[-150%] animate-[spin_5s_linear_infinite]"
               style={{
                 background:
-                  "conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 180deg, rgba(232,71,43,0.2) 230deg, #FF6B4A 300deg, #E8472B 345deg, #111111 360deg)",
+                  "conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 180deg, rgba(232,71,43,0.25) 230deg, #FF6B4A 300deg, #E8472B 345deg, #111111 360deg)",
               }}
             />
           </div>
 
-          {/* 3. Glass Frame Backdrop */}
-          <div className="absolute inset-0 rounded-[28px] sm:rounded-[36px] bg-[#FAF8F5]/90 backdrop-blur-md border border-[#E5E0D8]/80 shadow-[0_0_35px_rgba(232,71,43,0.14),0_12px_44px_rgba(0,0,0,0.035)] -z-10" />
-
-          {/* Hero Content Inside the Live Border */}
-          <div className="w-full flex flex-col items-center">
+          {/* Hero Content Inside the Neo-Brutalist Card */}
+          <div className="w-full flex flex-col items-center relative z-10">
             {/* 1. Eyebrow Pill */}
             <motion.div
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className="mb-4 sm:mb-5"
+              className="mb-5 sm:mb-6"
             >
-              <div className="inline-flex items-center px-3.5 py-1 rounded-full bg-[#FDF0ED] text-[#E8472B] font-mono text-[10.5px] uppercase tracking-[0.08em] font-medium select-none w-max leading-none border border-[#FADCD5]">
-                PORTFOLIO &amp; SYSTEMS ARCHIVE
-              </div>
+              <EyebrowPill accent="PORTFOLIO" text="SYSTEMS ARCHIVE" />
             </motion.div>
 
             {/* 2. Main Heading: Applied AI engineering for systems that make sense. */}
@@ -163,7 +162,7 @@ export function Hero() {
               <span className="block">Applied AI engineering for systems</span>
               <span className="block mt-1 sm:mt-1.5">
                 that make{" "}
-                <em className="accent font-serif-italic italic text-accent font-normal">
+                <em className="accent font-serif-italic italic text-accent font-normal accent-underline">
                   sense.
                 </em>
               </span>
@@ -174,19 +173,20 @@ export function Hero() {
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.22, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="font-sans text-[15.5px] sm:text-[17.5px] md:text-[18.5px] text-[#555555] leading-relaxed max-w-2xl sm:max-w-3xl mx-auto mb-7 sm:mb-8 font-normal"
+              className="font-sans text-[15.5px] sm:text-[17.5px] md:text-[18.5px] text-[var(--body)] leading-relaxed max-w-2xl sm:max-w-3xl mx-auto mb-7 sm:mb-8 font-normal"
             >
               I&apos;m an engineer who makes complex things feel obvious — turning AI ideas into web apps people can actually use.
             </motion.p>
           </div>
 
-          {/* 4. Action Buttons & Social Links */}
+          {/* 4. Neo-Brutalist Action Buttons & Social Links */}
           <motion.div
             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.32, duration: 0.55 }}
-            className="flex items-center justify-center flex-wrap sm:flex-nowrap gap-3 sm:gap-3.5 w-full pb-1 sm:pb-0"
+            className="flex items-center justify-center flex-wrap sm:flex-nowrap gap-3.5 sm:gap-4 w-full relative z-10 pb-1 sm:pb-0"
           >
+            {/* Primary Action */}
             <a
               ref={exploreBtnRef}
               href="/#work"
@@ -195,39 +195,40 @@ export function Hero() {
               style={{
                 transform: `translate3d(${btnOffset.x}px, ${btnOffset.y}px, 0)`,
               }}
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-[8px] bg-[#111111] text-white font-sans text-[13.5px] sm:text-[14px] font-medium hover:bg-[#222222] transition-colors active:scale-[0.98] shrink-0 whitespace-nowrap shadow-sm"
+              className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-[#111111] text-white border-2 border-[#111111] shadow-[4px_4px_0px_#E8472B] hover:shadow-[6px_6px_0px_#E8472B] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none font-sans text-[14px] font-medium transition-all shrink-0 whitespace-nowrap cursor-pointer"
             >
               <span>View Selected Work</span>
-              <ArrowDown className="w-3.5 h-3.5 shrink-0" />
+              <ArrowDown className="w-4 h-4 shrink-0" />
             </a>
 
+            {/* Secondary Action */}
             <a
               href="/#contact"
-              className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-[8px] bg-white border border-[#E5E0D8] text-[#111111] font-sans text-[13.5px] sm:text-[14px] font-medium hover:border-[#111111] transition-colors active:scale-[0.98] shrink-0 whitespace-nowrap shadow-sm"
+              className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-white text-[#111111] border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none font-sans text-[14px] font-medium transition-all shrink-0 whitespace-nowrap cursor-pointer"
             >
               <span>Get in touch</span>
-              <ArrowRight className="w-3.5 h-3.5 shrink-0" />
+              <ArrowRight className="w-4 h-4 shrink-0" />
             </a>
 
-            {/* Social Links */}
-            <div className="flex items-center gap-3.5 sm:gap-4 ml-0 sm:ml-2 font-mono text-[12px] sm:text-[12.5px] text-[#777777] shrink-0 whitespace-nowrap">
+            {/* Social Links Chips */}
+            <div className="flex items-center gap-2.5 sm:gap-3 ml-0 sm:ml-2 font-mono text-[12px] shrink-0 whitespace-nowrap">
               <a
                 href={IDENTITY.github}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1 hover:text-[#111111] transition-colors"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white border-[1.5px] border-[#111111] shadow-[2.5px_2.5px_0px_#111111] hover:shadow-[4px_4px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none text-[#111111] font-medium transition-all"
               >
                 <span>GitHub</span>
-                <span className="text-[11px] text-[#999999]">↗</span>
+                <span className="text-[11px] text-[#E8472B]">↗</span>
               </a>
               <a
                 href={IDENTITY.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1 hover:text-[#111111] transition-colors"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white border-[1.5px] border-[#111111] shadow-[2.5px_2.5px_0px_#111111] hover:shadow-[4px_4px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none text-[#111111] font-medium transition-all"
               >
                 <span>LinkedIn</span>
-                <span className="text-[11px] text-[#999999]">↗</span>
+                <span className="text-[11px] text-[#E8472B]">↗</span>
               </a>
             </div>
           </motion.div>
