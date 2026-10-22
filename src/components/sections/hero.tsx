@@ -138,7 +138,7 @@ export function Hero() {
               className="absolute inset-[-150%] animate-[spin_12s_linear_infinite]"
               style={{
                 background:
-                  "conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 180deg, rgba(232,71,43,0.25) 230deg, #FF6B4A 300deg, #E8472B 345deg, #111111 360deg)",
+                  "conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 200deg, rgba(232,71,43,0.06) 250deg, rgba(232,71,43,0.18) 310deg, rgba(232,71,43,0.22) 345deg, transparent 360deg)",
               }}
             />
           </div>
