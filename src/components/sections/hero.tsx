@@ -122,12 +122,12 @@ export function Hero() {
           <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#E8472B] z-10" />
 
           {/* 1. Luminous Ambient Outer Glow for Live Border */}
-          <div className="absolute -inset-[3px] rounded-[18px] sm:rounded-[26px] overflow-hidden pointer-events-none -z-20 blur-sm opacity-20">
+          <div className="absolute -inset-[3px] rounded-[18px] sm:rounded-[26px] overflow-hidden pointer-events-none -z-20 blur-sm opacity-[0.08]">
             <div
               className="absolute inset-[-150%] animate-[spin_12s_linear_infinite]"
               style={{
                 background:
-                  "conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 220deg, rgba(232,71,43,0.25) 280deg, rgba(255,107,74,0.6) 330deg, rgba(232,71,43,0.65) 360deg)",
+                  "conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 240deg, rgba(232,71,43,0.1) 290deg, rgba(255,107,74,0.25) 335deg, rgba(232,71,43,0.28) 360deg)",
               }}
             />
           </div>
