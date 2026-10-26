@@ -134,15 +134,8 @@ export function Experience() {
           </span>
         </Reveal>
 
-        {/* Section Intro Paragraph */}
-        <div className="lead-intro mb-7">
-          <p className="font-sans font-medium text-[16px] sm:text-[17.5px] text-[#222222] leading-relaxed">
-            Shipped applied-AI prototypes that needed to work reliably in production environments, not just in demos. Focused on vector RAG pipelines, multi-turn reasoning workflows with strict JSON validation, and clean RESTful API integrations.
-          </p>
-        </div>
-
         {/* Experience Content wrapped in elevated Stage Card */}
-        <div className="w-full rounded-2xl bg-white border-2 border-[#111111] p-6 sm:p-7 shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] relative overflow-hidden transition-all duration-300">
+        <div className="w-full rounded-3xl bg-white border-2 border-[#111111] p-6 sm:p-8 shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] relative overflow-hidden transition-all duration-300">
           {/* Top Violet Accent Line */}
           <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#6C47FF]" />
 
@@ -159,7 +152,7 @@ export function Experience() {
                 </span>
               </div>
               <h3 className="card-title font-sans font-bold text-xl sm:text-2xl text-[#111111] leading-snug">
-                Artificial Intelligence Intern — Brainery Spot Technology
+                Artificial Intelligence Intern
               </h3>
             </div>
 
@@ -174,9 +167,9 @@ export function Experience() {
             </div>
           </div>
 
-          {/* Narrative */}
-          <p className="font-sans text-[14.5px] sm:text-[15px] text-[#333333] leading-relaxed mb-5 max-w-4xl font-normal">
-            Shipped applied-AI prototypes that needed to work reliably in production environments, not just in demos. Focused on vector RAG pipelines, multi-turn reasoning workflows with strict JSON validation, and clean RESTful API integrations.
+          {/* Concise Role Mission */}
+          <p className="font-sans text-[14.5px] sm:text-[15.5px] text-[#333333] leading-relaxed mb-6 max-w-4xl font-normal">
+            Shipped applied-AI prototypes built for production reliability. Engineered vector RAG retrieval pipelines, multi-turn reasoning workflows with deterministic JSON schema validation, and verified RESTful API backends.
           </p>
 
           {/* 3 Skill Columns with Varying Neo-Brutalist Color Backgrounds */}

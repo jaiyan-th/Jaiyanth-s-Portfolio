@@ -104,17 +104,14 @@ export function WhyWork() {
 
         {/* Section Statement */}
         <motion.div
-          initial={{ opacity: 0, y: 28 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-5xl mb-8"
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-3xl mb-8"
         >
-          <h3 className="font-sans font-bold text-[clamp(20px,2.6vw,28px)] tracking-tight leading-snug mb-3 text-[#111111]">
-            Engineers who can hold both ends — applied AI &amp; production full-stack systems — are rare.
-          </h3>
-          <p className="lead-intro font-sans font-medium text-sm sm:text-base text-[#444444] leading-relaxed max-w-[62ch]">
-            I work best where the stakes are real and the data is dense. My job is to remove the friction, so the next decision comes faster.
+          <p className="font-sans font-bold text-base sm:text-lg text-[#111111] leading-snug">
+            Bridging applied AI research with production full-stack systems — delivering end-to-end velocity without sacrificing technical rigor.
           </p>
         </motion.div>
 

@@ -104,13 +104,6 @@ export function Research() {
           </span>
         </Reveal>
 
-        {/* Section Intro Paragraph */}
-        <div className="lead-intro mb-8">
-          <p className="font-sans font-medium text-[15px] sm:text-[16px] text-[#444444] leading-relaxed max-w-4xl">
-            Co-authored peer-reviewed research accepted at IEEE ICETSIS 2026 Bahrain, focusing on multimodal diagnostic triage by uniting clinical computer vision with explainable conversational agentic flows.
-          </p>
-        </div>
-
         {/* Highlighted Academic Feature Card */}
         <div className="w-full rounded-3xl bg-white border-2 border-[#111111] p-6 sm:p-8 shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] relative overflow-hidden transition-all duration-300">
           {/* Top Yellow Accent Line */}
