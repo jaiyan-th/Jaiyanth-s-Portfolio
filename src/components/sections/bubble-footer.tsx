@@ -384,7 +384,7 @@ export function BubbleFooter() {
               </span>
             </div>
 
-            <h2 className="font-display font-extrabold text-[clamp(32px,5vw,64px)] text-[#111111] leading-[1.0] tracking-tight mb-6">
+            <h2 className="font-sans font-bold text-[clamp(24px,3.5vw,40px)] text-[#111111] leading-tight tracking-tight mb-6">
               Building something with AI?
               <br />
               <span className="text-[#6C47FF]">Let&apos;s build it together.</span>

@@ -150,11 +150,11 @@ export function FloatingNav() {
             })}
           </nav>
 
-          {/* Center: Bold Brand Name (Syne font, all caps) */}
+          {/* Center: Brand Name (Clean modern sans, medium size) */}
           <a
             href="/#hero"
             onClick={(e) => handleNavClick(e, "#hero")}
-            className="font-display font-extrabold text-[17px] sm:text-[19px] tracking-tight uppercase text-[#111111] hover:text-[#6C47FF] transition-colors"
+            className="font-sans font-bold text-[16px] sm:text-[18px] tracking-tight uppercase text-[#111111] hover:text-[#6C47FF] transition-colors"
           >
             {IDENTITY.name}
           </a>

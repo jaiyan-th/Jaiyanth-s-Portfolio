@@ -118,71 +118,78 @@ export function Experience() {
       <div className="site-container max-w-7xl mx-auto">
         {/* Section Header */}
         <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 pb-4 border-b-2 border-[#111111] gap-3">
-          <div className="flex flex-col gap-2.5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border-2 border-[#111111] shadow-[2px_2px_0px_#111111] w-fit">
+          <div className="flex flex-col gap-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border-2 border-[#111111] shadow-[2px_2px_0px_#111111] w-fit">
               <span className="w-2 h-2 rounded-full bg-[#6C47FF]" />
               <span className="font-mono text-[11px] font-extrabold uppercase tracking-wider text-[#111111]">
                 WHERE I&apos;VE BUILT
               </span>
             </div>
-            <h2 className="font-display font-extrabold text-[clamp(34px,5.5vw,72px)] text-[#111111] leading-[1.0] tracking-tight">
+            <h2 className="font-sans font-bold text-[clamp(24px,3.2vw,36px)] text-[#111111] leading-tight tracking-tight">
               Work Experience.
             </h2>
           </div>
-          <span className="font-mono text-[12px] font-bold uppercase tracking-wider text-[#555555]">
+          <span className="font-mono text-[11.5px] font-bold uppercase tracking-wider text-[#555555]">
             Applied AI &amp; Industry Internship
           </span>
         </Reveal>
 
         {/* Section Intro Paragraph */}
-        <div className="lead-intro mb-8">
-          <p className="font-sans font-bold text-[18px] sm:text-[20px] text-[#111111] leading-relaxed">
+        <div className="lead-intro mb-7">
+          <p className="font-sans font-medium text-[16px] sm:text-[17.5px] text-[#222222] leading-relaxed">
             Shipped applied-AI prototypes that needed to work reliably in production environments, not just in demos. Focused on vector RAG pipelines, multi-turn reasoning workflows with strict JSON validation, and clean RESTful API integrations.
           </p>
         </div>
 
         {/* Experience Content wrapped in elevated Stage Card */}
-        <div className="w-full rounded-3xl bg-white border-2 border-[#111111] p-6 sm:p-8 shadow-[6px_6px_0px_#111111] hover:shadow-[8px_8px_0px_#111111] relative overflow-hidden transition-all duration-300">
+        <div className="w-full rounded-2xl bg-white border-2 border-[#111111] p-6 sm:p-7 shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] relative overflow-hidden transition-all duration-300">
           {/* Top Violet Accent Line */}
           <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#6C47FF]" />
 
           {/* Card Top: Company, Role, Period & Status */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 mb-5 border-b-2 border-[#111111]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-4 border-b-2 border-[#111111]">
             <div>
-              <div className="flex items-center gap-2 mb-2">
+              <div className="flex items-center gap-2 mb-1.5">
                 <Briefcase className="w-4 h-4 text-[#6C47FF] shrink-0" />
-                <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#ECE7FF] border-2 border-[#111111] text-[#111111] font-mono text-[11px] uppercase tracking-wider font-extrabold">
+                <span className="inline-flex items-center px-3 py-0.5 rounded-full bg-[#EDE9FE] border-2 border-[#111111] text-[#111111] font-mono text-[11px] uppercase tracking-wider font-extrabold">
                   {EXPERIENCE.organisation}
                 </span>
                 <span className="text-[#555555] font-mono text-[11px] uppercase tracking-wider font-semibold">
                   · Coimbatore, India
                 </span>
               </div>
-              <h3 className="card-title font-display font-extrabold text-2xl sm:text-3xl text-[#111111] leading-snug">
+              <h3 className="card-title font-sans font-bold text-xl sm:text-2xl text-[#111111] leading-snug">
                 Artificial Intelligence Intern — Brainery Spot Technology
               </h3>
             </div>
 
-            <div className="flex items-center gap-4 font-mono text-[11px] uppercase tracking-[0.08em]">
-              <span className="text-[#555555]">
+            <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider">
+              <span className="text-[#555555] font-semibold">
                 {EXPERIENCE.period}
               </span>
-              <span className="inline-flex items-center gap-1.5 font-medium text-[#111111]">
-                <span className="w-2 h-2 rounded-full bg-[#1FB866] animate-pulse" />
+              <span className="inline-flex items-center gap-1.5 font-bold text-[#111111] px-2.5 py-1 rounded-full bg-[#DCFCE7] border border-[#111111]">
+                <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
                 Completed
               </span>
             </div>
           </div>
 
           {/* Narrative */}
-          <p className="font-sans text-[15px] text-[var(--body)] leading-relaxed mb-5 max-w-4xl font-normal">
+          <p className="font-sans text-[14.5px] sm:text-[15px] text-[#333333] leading-relaxed mb-5 max-w-4xl font-normal">
             Shipped applied-AI prototypes that needed to work reliably in production environments, not just in demos. Focused on vector RAG pipelines, multi-turn reasoning workflows with strict JSON validation, and clean RESTful API integrations.
           </p>
 
-          {/* 3 Skill Columns */}
+          {/* 3 Skill Columns with Varying Neo-Brutalist Color Backgrounds */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 perspective-1200">
             {focusAreas.map((area, idx) => {
               const Icon = area.icon;
+              const cardThemes = [
+                { bg: "bg-[#FEF9C3]", accent: "#CA8A04", tag: "// 01 · VECTOR RAG" },
+                { bg: "bg-[#EDE9FE]", accent: "#7C3AED", tag: "// 02 · REASONING" },
+                { bg: "bg-[#DCFCE7]", accent: "#16A34A", tag: "// 03 · REST APIS" },
+              ];
+              const cardTheme = cardThemes[idx % cardThemes.length];
+
               return (
                 <motion.div
                   key={area.title}
@@ -198,26 +205,26 @@ export function Experience() {
                     delay: idx * 0.12,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  whileHover={shouldReduceMotion || isMobile ? {} : { y: -5, scale: 1.015 }}
-                  className="group p-5 rounded-xl bg-white border-[1.5px] border-[#111111] shadow-[3px_3px_0px_#111111] hover:shadow-[5px_5px_0px_#111111] flex flex-col justify-between transition-all duration-300 cursor-default min-h-[160px]"
+                  whileHover={shouldReduceMotion || isMobile ? {} : { y: -4, scale: 1.01 }}
+                  className={`group p-4 sm:p-5 rounded-2xl ${cardTheme.bg} border-2 border-[#111111] shadow-[3px_3px_0px_#111111] hover:shadow-[5px_5px_0px_#111111] flex flex-col justify-between transition-all duration-200 cursor-default min-h-[160px]`}
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3">
-                      <div className="w-9 h-9 rounded-lg bg-[#FAF8F5] border border-[#111111]/20 group-hover:border-[#E8472B] group-hover:bg-[#E8472B] group-hover:text-white flex items-center justify-center text-[#E8472B] shrink-0 transition-colors duration-200">
-                        <Icon className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
+                      <div className="w-9 h-9 rounded-xl bg-white border-2 border-[#111111] flex items-center justify-center text-[#111111] shrink-0 shadow-[1.5px_1.5px_0px_#111111]">
+                        <Icon className="w-4 h-4" />
                       </div>
-                      <span className="font-mono text-[10px] font-medium text-[#888888] group-hover:text-[#E8472B] tracking-[0.08em] uppercase transition-colors">
-                        0{idx + 1} // FOCUS
+                      <span className="font-mono text-[10px] font-bold text-[#111111] tracking-wider uppercase">
+                        {cardTheme.tag}
                       </span>
                     </div>
-                    <h4 className="card-title font-sans font-bold text-lg sm:text-xl text-[#111111] group-hover:text-[#E8472B] transition-colors mb-1.5 leading-snug">
-                      {area.renderTitle()}
+                    <h4 className="card-title font-sans font-bold text-[16.5px] sm:text-[17.5px] text-[#111111] mb-1.5 leading-snug">
+                      {area.title}
                     </h4>
-                    <p className="font-sans text-[14px] text-[var(--body)] leading-relaxed">
+                    <p className="font-sans text-[13.5px] text-[#444444] leading-relaxed">
                       {area.description}
                     </p>
                   </div>
-                  <div className="mt-3 pt-2.5 border-t-[1.5px] border-[#111111]/20 flex items-center justify-between">
+                  <div className="mt-3 pt-2.5 border-t-2 border-[#111111]/15 flex items-center justify-between">
                     <span className="text-[11px] font-mono text-[#555555] uppercase tracking-[0.08em]">
                       Production Verified
                     </span>

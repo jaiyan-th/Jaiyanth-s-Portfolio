@@ -65,27 +65,27 @@ export function About() {
       className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t-2 border-[#111111] bg-[#F5F0E6] scroll-mt-20 perspective-1200 transition-colors"
     >
       <div className="site-container">
-        {/* Section Header with Eyebrow Pill and Agency Syne H2 */}
+        {/* Section Header with Eyebrow Pill and Clean Medium H2 */}
         <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 pb-4 border-b-2 border-[#111111] gap-3">
-          <div className="flex flex-col gap-2.5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border-2 border-[#111111] shadow-[2px_2px_0px_#111111] w-fit">
+          <div className="flex flex-col gap-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border-2 border-[#111111] shadow-[2px_2px_0px_#111111] w-fit">
               <span className="w-2 h-2 rounded-full bg-[#6C47FF]" />
               <span className="font-mono text-[11px] font-extrabold uppercase tracking-wider text-[#111111]">
                 BACKGROUND &amp; VALUES
               </span>
             </div>
-            <h2 className="font-display font-extrabold text-[clamp(34px,5.5vw,72px)] text-[#111111] leading-[1.0] tracking-tight">
+            <h2 className="font-sans font-bold text-[clamp(24px,3.2vw,36px)] text-[#111111] leading-tight tracking-tight">
               About Jaiyanth B.
             </h2>
           </div>
-          <span className="font-mono text-[12px] font-bold uppercase tracking-wider text-[#555555]">
+          <span className="font-mono text-[11.5px] font-bold uppercase tracking-wider text-[#555555]">
             Engineering Philosophy &amp; Story
           </span>
         </Reveal>
 
         {/* Section Intro Paragraph */}
-        <div className="lead-intro mb-8">
-          <p className="font-sans font-bold text-[18px] sm:text-[20px] text-[#111111] leading-relaxed">
+        <div className="lead-intro mb-7">
+          <p className="font-sans font-medium text-[16px] sm:text-[17.5px] text-[#222222] leading-relaxed">
             Building systems where applied AI meets production reliability, context-grounded retrieval pipelines, and verifiable data provenance.
           </p>
         </div>
@@ -148,7 +148,7 @@ export function About() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
-                    <span className="backdrop-blur-md bg-white border-[1.5px] border-[#111111] shadow-[2px_2px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium px-3.5 py-1 rounded-full inline-block">
+                    <span className="bg-[#FEF08A] border-2 border-[#111111] shadow-[2px_2px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-wider font-extrabold px-3 py-1 rounded-full inline-block">
                       B.TECH CSBS &apos;26
                     </span>
                   </motion.div>
@@ -164,8 +164,8 @@ export function About() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.35 }}
                   >
-                    <span className="backdrop-blur-md bg-white border-[1.5px] border-[#111111] shadow-[2px_2px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium px-3.5 py-1 rounded-full gap-2 inline-flex items-center">
-                      <span className="w-2 h-2 rounded-full bg-[#E8472B] animate-pulse" />
+                    <span className="bg-[#DCFCE7] border-2 border-[#111111] shadow-[2px_2px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-wider font-extrabold px-3.5 py-1 rounded-full gap-2 inline-flex items-center">
+                      <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
                       IEEE CO-AUTHOR
                     </span>
                   </motion.div>
@@ -178,20 +178,20 @@ export function About() {
           <div className="lg:col-span-7 order-2 lg:order-1 flex flex-col justify-between preserve-3d">
             <div>
               {/* Category Eyebrow */}
-              <div className="mb-4">
-                <span className="px-3 py-1 rounded-full bg-[#FAF8F5] border-[1.5px] border-[#111111] shadow-[1.5px_1.5px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium inline-block">
+              <div className="mb-3">
+                <span className="px-3 py-1 rounded-full bg-white border-2 border-[#111111] shadow-[1.5px_1.5px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-wider font-bold inline-block">
                   ENGINEERING PHILOSOPHY
                 </span>
               </div>
 
-              {/* Card Headline */}
-              <h3 className="font-display font-extrabold text-[22px] sm:text-[26px] text-[#111111] leading-snug mb-4">
+              {/* Card Headline: Simple font, medium size */}
+              <h3 className="font-sans font-bold text-[18px] sm:text-[20px] text-[#111111] leading-snug mb-3">
                 Building systems where applied AI meets production reliability and verifiable data provenance.
               </h3>
 
-              {/* Staggered Paragraphs */}
-              <div className="p-6 sm:p-7 rounded-2xl bg-white border-2 border-[#111111] shadow-[5px_5px_0px_#111111] mb-5 space-y-3.5 font-sans text-[15.5px] text-[#2C2C2C] leading-relaxed font-normal perspective-1200 relative overflow-hidden">
-                <div className="absolute top-0 left-0 bottom-0 w-1.5 bg-[#6C47FF]" />
+              {/* Staggered Paragraphs in Neo-Brutalist Card */}
+              <div className="p-5 sm:p-6 rounded-2xl bg-[#FFFDF5] border-2 border-[#111111] shadow-[4px_4px_0px_#111111] mb-4 space-y-3 font-sans text-[14.5px] sm:text-[15px] text-[#2C2C2C] leading-relaxed font-normal perspective-1200 relative overflow-hidden">
+                <div className="absolute top-0 left-0 bottom-0 w-1.5 bg-[#FFD13B]" />
                 <motion.p
                   custom={0}
                   variants={paragraphVariants}
@@ -221,8 +221,7 @@ export function About() {
                 </motion.p>
               </div>
 
-              {/* Education Credential Card */}
-              {/* Education Credential Card */}
+              {/* Education Credential Card: Varying Lavender Theme */}
               <motion.div
                 initial={
                   shouldReduceMotion || isMobile
@@ -233,24 +232,24 @@ export function About() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={shouldReduceMotion || isMobile ? {} : { y: -3, scale: 1.01 }}
-                className="group flex items-start gap-4 mb-5 p-5 sm:p-6 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] transition-all duration-200"
+                className="group flex items-start gap-3.5 mb-5 p-4 sm:p-5 rounded-2xl bg-[#EDE9FE] border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[5px_5px_0px_#111111] transition-all duration-200"
               >
-                <div className="w-11 h-11 rounded-xl bg-[#111111] flex items-center justify-center text-white shrink-0 mt-0.5 group-hover:scale-110 group-hover:bg-[#6C47FF] transition-all duration-200 shadow-sm border border-[#111111]">
+                <div className="w-10 h-10 rounded-xl bg-[#111111] flex items-center justify-center text-white shrink-0 mt-0.5 group-hover:scale-110 group-hover:bg-[#8B5CF6] transition-all duration-200 shadow-sm border border-[#111111]">
                   <GraduationCap className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-start sm:items-center justify-between gap-2 mb-1">
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-[#6C47FF] font-extrabold">
+                    <span className="font-mono text-[10.5px] uppercase tracking-wider text-[#6C47FF] font-extrabold">
                       Education
                     </span>
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-[#555555] font-semibold">
+                    <span className="font-mono text-[10.5px] uppercase tracking-wider text-[#555555] font-semibold">
                       2022 – 2026
                     </span>
                   </div>
-                  <h4 className="font-display font-extrabold text-lg sm:text-xl text-[#111111] mb-1 group-hover:text-[#6C47FF] transition-colors">
+                  <h4 className="font-sans font-bold text-base sm:text-[17px] text-[#111111] mb-1 group-hover:text-[#6C47FF] transition-colors">
                     B.Tech in Computer Science &amp; Business Systems
                   </h4>
-                  <p className="font-sans text-[14px] text-[#444444] leading-relaxed">
+                  <p className="font-sans text-[13.5px] text-[#444444] leading-relaxed">
                     Specializing in Applied AI systems, full-stack product engineering, and secure data architectures.
                   </p>
                 </div>

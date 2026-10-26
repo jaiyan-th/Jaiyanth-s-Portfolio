@@ -48,15 +48,15 @@
 }
 
 :root {
-  --font-display: var(--font-display, "Syne", sans-serif);
-  --font-impact: var(--font-impact, "Anton", sans-serif);
+  --font-display: var(--font-sans, "Plus Jakarta Sans", system-ui, sans-serif);
+  --font-impact: var(--font-sans, "Plus Jakarta Sans", system-ui, sans-serif);
   --font-sans: var(--font-sans, "Plus Jakarta Sans", system-ui, sans-serif);
   --font-mono: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);
-  --font-accent: var(--font-display);
-  --font-serif: var(--font-display);
-  --font-serif-italic: var(--font-display);
+  --font-accent: var(--font-sans);
+  --font-serif: var(--font-sans);
+  --font-serif-italic: var(--font-sans);
 
-  /* Exact Dribbble Agency Palette */
+  /* Exact Dribbble Neo-Brutalist Palette */
   --ink: #111111;
   --body: #2C2C2C;
   --accent: #6C47FF;
@@ -72,7 +72,7 @@
   --muted: #555555;
   --border-line: #111111;
 
-  /* Accents */
+  /* Varying Neo-Brutalist Color System */
   --accent-hover: #5833EA;
   --accent-tint: #ECE7FF;
   --violet: #6C47FF;
@@ -81,31 +81,43 @@
   --coral: #FF4D4D;
   --cyan: #38BDF8;
 
+  /* Pastel Surface Tints for Varying Cards */
+  --nb-yellow-bg: #FEF9C3;
+  --nb-yellow-accent: #FFD13B;
+  --nb-purple-bg: #EDE9FE;
+  --nb-purple-accent: #8B5CF6;
+  --nb-green-bg: #DCFCE7;
+  --nb-green-accent: #4ADE80;
+  --nb-blue-bg: #E0F2FE;
+  --nb-blue-accent: #38BDF8;
+  --nb-coral-bg: #FFE4E6;
+  --nb-coral-accent: #FB7185;
+
   /* Neo-brutalist badge styling */
   --badge-neutral: #FAF8F5;
   --badge-neutral-hover: #ECE7DF;
   --badge-dark: #111111;
 
   /* ============================================================
-     TIGHTENED SPACING TOKENS
+     BALANCED MEDIUM SPACING & TYPE TOKENS
      ============================================================ */
-  --space-section: 72px;
-  --space-block: 24px;
-  --space-tight: 12px;
-  --space-card: 20px;
+  --space-section: 64px;
+  --space-block: 22px;
+  --space-tight: 10px;
+  --space-card: 18px;
   --section-y: var(--space-section);
 
-  /* Fluid Type Scale */
-  --text-hero: clamp(44px, 6.5vw, 88px);
-  --text-h1: clamp(44px, 6.5vw, 88px);
-  --text-h2: clamp(30px, 4vw, 52px);
-  --text-h3: clamp(20px, 2.5vw, 24px);
-  --text-card-title: clamp(20px, 2vw, 24px);
+  /* Balanced Medium Type Scale */
+  --text-hero: clamp(28px, 4vw, 46px);
+  --text-h1: clamp(28px, 3.8vw, 44px);
+  --text-h2: clamp(22px, 2.8vw, 32px);
+  --text-h3: clamp(17px, 2vw, 21px);
+  --text-card-title: clamp(18px, 2vw, 21px);
   --text-lead: 16px;
   --text-body: 15px;
-  --text-small: 14px;
+  --text-small: 13.5px;
   --text-mono: 11px;
-  --text-nav: 15px;
+  --text-nav: 14px;
 
   /* Fluid Site Container tokens */
   --container: min(100% - 2 * clamp(1.25rem, 4vw, 3.5rem), 1320px);

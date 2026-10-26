@@ -10,8 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        display: ["var(--font-display)", "Syne", "sans-serif"],
-        impact: ["var(--font-impact)", "Anton", "sans-serif"],
+        display: ["var(--font-sans)", "Plus Jakarta Sans", "Inter", "sans-serif"],
+        impact: ["var(--font-sans)", "Plus Jakarta Sans", "Inter", "sans-serif"],
         sans: ["var(--font-sans)", "Plus Jakarta Sans", "Inter", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "JetBrains Mono", "ui-monospace", "monospace"],
       },

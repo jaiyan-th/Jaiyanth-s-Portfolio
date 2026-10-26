@@ -54,17 +54,24 @@ export function TechMarquee() {
         ref={trackRef}
         className="flex items-center whitespace-nowrap will-change-transform"
       >
-        {items.map((item, idx) => (
-          <div key={idx} className="flex items-center gap-6 sm:gap-8 mx-3 sm:mx-4">
-            <span className="font-display font-extrabold text-[18px] sm:text-[22px] md:text-[26px] text-white tracking-tight uppercase">
-              {item}
-            </span>
-            {/* Cute Yellow Smiley Bullet */}
-            <span className="inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#FFD13B] border-2 border-[#111111] shadow-[1.5px_1.5px_0px_#111111] shrink-0">
-              <span className="text-[14px] leading-none text-[#111111]">☻</span>
-            </span>
-          </div>
-        ))}
+        {items.map((item, idx) => {
+          const bulletColors = ["#FFD13B", "#4ADE80", "#38BDF8", "#FF4D4D", "#EDE9FE"];
+          const bulletColor = bulletColors[idx % bulletColors.length];
+          return (
+            <div key={idx} className="flex items-center gap-5 sm:gap-7 mx-3 sm:mx-4">
+              <span className="font-sans font-bold text-[14.5px] sm:text-[16px] md:text-[17px] text-white tracking-wide uppercase">
+                {item}
+              </span>
+              {/* Cute Colored Smiley Bullet */}
+              <span
+                style={{ backgroundColor: bulletColor }}
+                className="inline-flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-[#111111] shadow-[1.5px_1.5px_0px_#111111] shrink-0"
+              >
+                <span className="text-[12px] leading-none text-[#111111]">☻</span>
+              </span>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
