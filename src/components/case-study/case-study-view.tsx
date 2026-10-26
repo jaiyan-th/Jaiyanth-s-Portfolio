@@ -71,33 +71,35 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           {project.subtitle}
         </p>
 
-        {/* Meta Strip: 4 columns >=1024px, 2 columns on tablets, 1 column on phones */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-5 sm:p-6 rounded-2xl bg-white border-2 border-[#111111] shadow-[5px_5px_0px_#111111] perspective-1200">
+        {/* Meta Strip: 4 individual Neo-Brutalist colorful tiles */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 perspective-1200">
           {[
-            { label: "Role", value: project.role },
-            { label: "Duration", value: project.duration },
+            { label: "Role", value: project.role, bg: "bg-[#FEF9C3]" },
+            { label: "Duration", value: project.duration, bg: "bg-[#EDE9FE]" },
             {
               label: "Status",
+              bg: "bg-[#DCFCE7]",
               content: (
-                <span className="font-sans text-sm sm:text-base font-medium text-[#111111] flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#1FB866] animate-pulse" />
+                <span className="font-sans text-sm sm:text-base font-bold text-[#111111] flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#1FB866] border border-[#111111] animate-pulse" />
                   {project.status}
                 </span>
               ),
             },
             {
               label: "Project Links",
+              bg: "bg-[#E0F2FE]",
               content: (
-                <div className="flex flex-wrap items-center gap-3 pt-0.5">
+                <div className="flex flex-wrap items-center gap-2 pt-0.5">
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="font-mono text-[11px] uppercase tracking-[0.08em] font-medium text-[#111111] hover:text-accent transition-colors inline-flex items-center gap-1 group min-h-[44px]"
+                      className="font-mono text-[11px] uppercase tracking-wider font-bold text-[#111111] bg-white px-2.5 py-1 rounded-full border-2 border-[#111111] shadow-[2px_2px_0px_#111111] hover:shadow-[3px_3px_0px_#111111] hover:-translate-y-0.5 transition-all inline-flex items-center gap-1 group"
                     >
                       <span>Live Demo</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 text-accent" />
+                      <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
                     </a>
                   )}
                   {project.repoUrl && (
@@ -105,10 +107,10 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                       href={project.repoUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="font-mono text-[11px] uppercase tracking-[0.08em] font-medium text-[#111111] hover:text-accent transition-colors inline-flex items-center gap-1 group min-h-[44px]"
+                      className="font-mono text-[11px] uppercase tracking-wider font-bold text-[#111111] bg-white px-2.5 py-1 rounded-full border-2 border-[#111111] shadow-[2px_2px_0px_#111111] hover:shadow-[3px_3px_0px_#111111] hover:-translate-y-0.5 transition-all inline-flex items-center gap-1 group"
                     >
                       <span>GitHub</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 text-accent" />
+                      <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
                     </a>
                   )}
                 </div>
@@ -120,21 +122,22 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
               initial={
                 shouldReduceMotion || isMobile
                   ? { opacity: 1 }
-                  : { opacity: 0, rotateX: -60, y: -20 }
+                  : { opacity: 0, rotateX: -40, y: -16 }
               }
               animate={{ opacity: 1, rotateX: 0, y: 0 }}
               transition={{
-                duration: 0.6,
-                delay: 0.15 + idx * 0.08,
+                duration: 0.55,
+                delay: 0.12 + idx * 0.08,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="preserve-3d pb-3 sm:pb-0 border-b sm:border-b-0 border-border-line last:border-b-0"
+              whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
+              className={`p-4 sm:p-5 rounded-2xl border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] transition-all flex flex-col justify-between ${item.bg}`}
             >
-              <span className="font-mono uppercase tracking-[0.08em] text-[var(--body)] block mb-1 font-medium text-[11px]">
+              <span className="font-mono uppercase tracking-[0.08em] text-[#111111] bg-white/80 px-2.5 py-0.5 rounded-full border border-[#111111] shadow-[1px_1px_0px_#111111] block mb-2 w-max font-bold text-[10px] sm:text-[11px]">
                 {item.label}
               </span>
               {item.content || (
-                <span className="font-sans text-sm sm:text-base font-medium text-[#111111]">
+                <span className="font-sans text-sm sm:text-base font-bold text-[#111111]">
                   {item.value}
                 </span>
               )}
@@ -183,15 +186,17 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                   delay: i * 0.1,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
-                className="p-5 sm:p-6 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111] flex flex-col justify-between"
+                whileHover={shouldReduceMotion || isMobile ? {} : { y: -4, scale: 1.01 }}
+                className={`p-5 sm:p-6 rounded-2xl border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] transition-all flex flex-col justify-between ${
+                  ["bg-[#FEF9C3]", "bg-[#EDE9FE]", "bg-[#DCFCE7]"][i % 3]
+                }`}
               >
                 <div>
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#6C47FF] border border-[#111111] block mb-2.5" />
+                  <span className="w-3 h-3 rounded-full bg-[#111111] block mb-3" />
                   <h4 className="card-title font-sans font-bold text-lg sm:text-xl text-[#111111] mb-1.5 leading-snug">
                     {c.title}
                   </h4>
-                  <p className="font-sans text-sm text-[var(--body)] leading-relaxed font-normal">
+                  <p className="font-sans text-sm text-[#222222] leading-relaxed font-normal">
                     {c.desc}
                   </p>
                 </div>
@@ -209,10 +214,11 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
             whileInView={{ opacity: 1, translateZ: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-            className="p-5 sm:p-6 rounded-2xl bg-[#FEF9C3] relative overflow-hidden border-2 border-[#111111] shadow-[4px_4px_0px_#111111]"
+            whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
+            className="p-5 sm:p-6 rounded-2xl bg-[#FEF9C3] relative overflow-hidden border-2 border-[#111111] shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] transition-all"
           >
-            <div className="absolute top-0 left-0 w-2 h-full bg-[#FFD13B]" />
-            <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#111111] font-bold block mb-1.5">
+            <div className="absolute top-0 left-0 w-2.5 h-full bg-[#FFD13B] border-r-2 border-[#111111]" />
+            <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#111111] bg-white px-2.5 py-0.5 rounded-full border border-[#111111] shadow-[1px_1px_0px_#111111] font-bold block mb-2 w-max">
               Highlighted Problem
             </span>
             <p className="lead-intro font-sans font-bold text-lg sm:text-xl text-[#111111] leading-snug border-none pl-0">
@@ -241,8 +247,8 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                     delay: idx * 0.08,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
-                  className={`p-5 sm:p-6 rounded-2xl border-2 border-[#111111] shadow-[3px_3px_0px_#111111] flex flex-col justify-between ${
+                  whileHover={shouldReduceMotion || isMobile ? {} : { y: -4, scale: 1.01 }}
+                  className={`p-5 sm:p-6 rounded-2xl border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] transition-all flex flex-col justify-between ${
                     ["bg-[#FEF9C3]", "bg-[#EDE9FE]", "bg-[#DCFCE7]", "bg-[#E0F2FE]"][idx % 4]
                   }`}
                 >
@@ -288,14 +294,14 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           </div>
 
           {/* Approach Card */}
-          <div className="p-5 sm:p-6 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111]">
+          <div className="p-5 sm:p-6 rounded-2xl bg-[#EDE9FE] border-2 border-[#111111] shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] transition-all">
             <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FEF08A] border border-[#111111] shadow-[1.5px_1.5px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-bold block mb-2.5 w-max">
               Approach
             </span>
             <h4 className="card-title font-sans font-bold text-xl sm:text-2xl text-[#111111] mb-2 leading-snug">
               {project.problem.approachHeading}
             </h4>
-            <p className="font-sans text-base text-[var(--body)] leading-relaxed font-normal max-w-[62ch]">
+            <p className="font-sans text-base text-[#222222] leading-relaxed font-normal max-w-[62ch]">
               {project.problem.approachDetail}
             </p>
           </div>
@@ -309,16 +315,18 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
-                whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
-                className="p-5 sm:p-6 rounded-2xl bg-white border-2 border-[#111111] shadow-[3px_3px_0px_#111111]"
+                whileHover={shouldReduceMotion || isMobile ? {} : { y: -4, scale: 1.01 }}
+                className={`p-5 sm:p-6 rounded-2xl border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] transition-all ${
+                  ["bg-[#FEF9C3]", "bg-[#EDE9FE]", "bg-[#DCFCE7]"][idx % 3]
+                }`}
               >
-                <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-bold text-[#111111] bg-[#EDE9FE] px-2.5 py-0.5 rounded-full border border-[#111111] shadow-[1px_1px_0px_#111111] block mb-2.5 w-max">
+                <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-bold text-[#111111] bg-white px-2.5 py-0.5 rounded-full border border-[#111111] shadow-[1px_1px_0px_#111111] block mb-2.5 w-max">
                   {ch.id}
                 </span>
                 <h5 className="card-title font-sans font-bold text-base sm:text-lg text-[#111111] mb-1.5 leading-snug">
                   {ch.title}
                 </h5>
-                <p className="font-sans text-sm text-[var(--body)] leading-relaxed font-normal">
+                <p className="font-sans text-sm text-[#222222] leading-relaxed font-normal">
                   {ch.desc}
                 </p>
               </motion.div>
@@ -327,29 +335,35 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
 
           {/* Target Users & Key Challenges: Stack on phones, 2 cols on >=768px */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-            <div className="p-5 sm:p-6 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111]">
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#FEF9C3] border-2 border-[#111111] shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] transition-all">
+              <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-bold text-[#111111] bg-white px-2.5 py-0.5 rounded-full border border-[#111111] shadow-[1px_1px_0px_#111111] block mb-2.5 w-max">
+                Audience
+              </span>
               <h4 className="card-title font-sans font-bold text-xl sm:text-2xl text-[#111111] mb-3 leading-snug">
                 Target Users
               </h4>
-              <ul className="space-y-2 font-sans text-sm text-[var(--body)]">
+              <ul className="space-y-2.5 font-sans text-sm text-[#222222]">
                 {project.problem.users.map((u, i) => (
                   <li key={i} className="flex items-start gap-2.5">
-                    <span className="text-[#6C47FF] font-bold select-none">・</span>
-                    <span>{u}</span>
+                    <span className="w-2 h-2 rounded-full bg-[#111111] shrink-0 mt-1.5" />
+                    <span className="font-medium">{u}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="p-5 sm:p-6 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111]">
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#DCFCE7] border-2 border-[#111111] shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] transition-all">
+              <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-bold text-[#111111] bg-white px-2.5 py-0.5 rounded-full border border-[#111111] shadow-[1px_1px_0px_#111111] block mb-2.5 w-max">
+                Solutions
+              </span>
               <h4 className="card-title font-sans font-bold text-xl sm:text-2xl text-[#111111] mb-3 leading-snug">
                 Key Challenges Solved
               </h4>
-              <ul className="space-y-2 font-sans text-sm text-[var(--body)]">
+              <ul className="space-y-2.5 font-sans text-sm text-[#222222]">
                 {project.problem.keyChallenges.map((kc, i) => (
                   <li key={i} className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>{kc}</span>
+                    <CheckCircle2 className="w-4 h-4 text-[#111111] shrink-0 mt-0.5" />
+                    <span className="font-medium">{kc}</span>
                   </li>
                 ))}
               </ul>
@@ -390,24 +404,28 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
-                whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
-                className="p-5 sm:p-6 rounded-2xl bg-white border-2 border-[#111111] shadow-[3px_3px_0px_#111111]"
+                whileHover={shouldReduceMotion || isMobile ? {} : { y: -4, scale: 1.01 }}
+                className={`p-5 sm:p-6 rounded-2xl border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] transition-all flex flex-col justify-between ${
+                  ["bg-[#FEF9C3]", "bg-[#EDE9FE]", "bg-[#DCFCE7]", "bg-[#E0F2FE]"][idx % 4]
+                }`}
               >
-                <span className="font-mono uppercase tracking-[0.08em] text-[#111111] font-bold bg-[#E0F2FE] px-2.5 py-0.5 rounded-full border border-[#111111] shadow-[1px_1px_0px_#111111] block mb-2 w-max text-[11px]">
-                  {ph.id}
-                </span>
-                <h5 className="card-title font-sans font-bold text-base sm:text-lg text-[#111111] mb-1.5 leading-snug">
-                  {ph.title}
-                </h5>
-                <p className="font-sans text-sm text-[var(--body)] leading-relaxed font-normal">
-                  {ph.desc}
-                </p>
+                <div>
+                  <span className="font-mono uppercase tracking-[0.08em] text-[#111111] font-bold bg-white px-2.5 py-0.5 rounded-full border border-[#111111] shadow-[1px_1px_0px_#111111] block mb-2 w-max text-[11px]">
+                    {ph.id}
+                  </span>
+                  <h5 className="card-title font-sans font-bold text-base sm:text-lg text-[#111111] mb-1.5 leading-snug">
+                    {ph.title}
+                  </h5>
+                  <p className="font-sans text-sm text-[#222222] leading-relaxed font-normal">
+                    {ph.desc}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
 
           {/* Sequential Steps: 2 columns >=768px (step label | description), stacked on phones */}
-          <div className="p-5 sm:p-6 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111] divide-y-2 divide-[#111111]/15 perspective-1200">
+          <div className="p-5 sm:p-7 rounded-2xl bg-white border-2 border-[#111111] shadow-[6px_6px_0px_#111111] divide-y-2 divide-[#111111]/15 perspective-1200">
             <h4 className="card-title font-sans font-bold text-2xl sm:text-3xl text-[#111111] pb-4 leading-snug">
               Execution Pipeline Walkthrough
             </h4>
@@ -426,10 +444,10 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                   delay: idx * 0.09,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="py-4 first:pt-4 last:pb-0 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-6 items-start origin-top preserve-3d"
+                className="py-4 first:pt-4 last:pb-0 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-6 items-start origin-top preserve-3d group hover:bg-[#FEF9C3]/25 px-2 -mx-2 rounded-xl transition-colors"
               >
                 <div className="md:col-span-4">
-                  <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-bold text-[#111111] bg-[#FEF08A] px-2.5 py-0.5 rounded-full border border-[#111111] shadow-[1px_1px_0px_#111111] block w-max">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-bold text-[#111111] bg-[#FEF08A] px-2.5 py-0.5 rounded-full border border-[#111111] shadow-[1.5px_1.5px_0px_#111111] block w-max">
                     {st.step}
                   </span>
                   <h5 className="card-title font-sans font-bold text-base sm:text-lg text-[#111111] mt-1.5 leading-snug">
@@ -437,7 +455,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                   </h5>
                 </div>
                 <div className="md:col-span-8">
-                  <p className="font-sans text-sm sm:text-base text-[var(--body)] leading-relaxed font-normal">
+                  <p className="font-sans text-sm sm:text-base text-[#222222] leading-relaxed font-normal">
                     {st.desc}
                   </p>
                 </div>
@@ -479,21 +497,23 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: idx * 0.1 }}
-                whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
-                className="p-5 sm:p-6 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111] flex flex-col justify-between"
+                whileHover={shouldReduceMotion || isMobile ? {} : { y: -4, scale: 1.01 }}
+                className={`p-5 sm:p-6 rounded-2xl border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] transition-all flex flex-col justify-between ${
+                  ["bg-[#FEF9C3]", "bg-[#EDE9FE]", "bg-[#DCFCE7]"][idx % 3]
+                }`}
               >
                 <div>
                   <h4 className="card-title font-sans font-bold text-xl sm:text-2xl text-[#111111] mb-2 leading-snug">
                     {pil.title}
                   </h4>
-                  <p className="font-sans text-sm text-[var(--body)] leading-relaxed mb-4 font-normal">
+                  <p className="font-sans text-sm text-[#222222] leading-relaxed mb-4 font-normal">
                     {pil.desc}
                   </p>
                 </div>
-                <ul className="space-y-2 pt-3.5 border-t border-border-line">
+                <ul className="space-y-2 pt-3.5 border-t-2 border-[#111111]/20">
                   {pil.points.map((pt, pIdx) => (
-                    <li key={pIdx} className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#111111] font-medium flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#6C47FF] shrink-0" />
+                    <li key={pIdx} className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#111111] font-bold flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#111111] shrink-0" />
                       <span>{pt}</span>
                     </li>
                   ))}
@@ -536,12 +556,12 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                   whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  whileHover={shouldReduceMotion || isMobile ? {} : { y: -3 }}
-                  className={`p-5 sm:p-6 rounded-2xl border-2 border-[#111111] shadow-[4px_4px_0px_#111111] text-center ${
-                    ["bg-[#FEF9C3]", "bg-[#EDE9FE]", "bg-[#DCFCE7]"][idx % 3]
+                  whileHover={shouldReduceMotion || isMobile ? {} : { y: -4, scale: 1.02 }}
+                  className={`p-5 sm:p-6 rounded-2xl border-2 border-[#111111] shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] transition-all text-center ${
+                    ["bg-[#FFD13B]", "bg-[#EDE9FE]", "bg-[#4ADE80]"][idx % 3]
                   }`}
                 >
-                  <p className="font-sans font-bold text-4xl sm:text-5xl lg:text-6xl text-[#111111] mb-1.5 tracking-tight">
+                  <p className="font-sans font-black text-4xl sm:text-5xl lg:text-6xl text-[#111111] mb-1.5 tracking-tight">
                     {m.value}
                   </p>
                   <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#111111] font-bold">
@@ -554,31 +574,37 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
 
           {/* Outcomes & Architectural Learnings: Stack below 1024px */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-            <div className="p-5 sm:p-6 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111]">
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#DCFCE7] border-2 border-[#111111] shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] transition-all">
+              <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-bold text-[#111111] bg-white px-2.5 py-0.5 rounded-full border border-[#111111] shadow-[1px_1px_0px_#111111] block mb-2 w-max">
+                Production Impact
+              </span>
               <h4 className="card-title font-sans font-bold text-2xl sm:text-3xl text-[#111111] mb-3 leading-snug">
                 Key Production Outcomes
               </h4>
-              <ul className="space-y-2.5 font-sans text-sm text-[var(--body)]">
+              <ul className="space-y-2.5 font-sans text-sm text-[#222222]">
                 {project.impact.outcomes.map((o, idx) => (
                   <li key={idx} className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>{o}</span>
+                    <CheckCircle2 className="w-4 h-4 text-[#111111] shrink-0 mt-0.5" />
+                    <span className="font-medium">{o}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="p-5 sm:p-6 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111]">
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#EDE9FE] border-2 border-[#111111] shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] transition-all">
+              <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-bold text-[#111111] bg-white px-2.5 py-0.5 rounded-full border border-[#111111] shadow-[1px_1px_0px_#111111] block mb-2 w-max">
+                Engineering Takeaways
+              </span>
               <h4 className="card-title font-sans font-bold text-2xl sm:text-3xl text-[#111111] mb-3 leading-snug">
                 Architectural Learnings
               </h4>
               <div className="space-y-3.5">
                 {project.impact.learnings.map((lrn, idx) => (
-                  <div key={idx}>
+                  <div key={idx} className="p-3 bg-white/70 rounded-xl border border-[#111111]/30">
                     <h5 className="card-title font-sans font-bold text-base sm:text-lg text-[#111111] mb-1 leading-snug">
                       {lrn.title}
                     </h5>
-                    <p className="font-sans text-sm text-[var(--body)] leading-relaxed font-normal">
+                    <p className="font-sans text-sm text-[#222222] leading-relaxed font-normal">
                       {lrn.desc}
                     </p>
                   </div>
@@ -604,9 +630,9 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 ? "none"
                 : `rotateX(${nextTilt.x}deg) rotateY(${nextTilt.y}deg)`,
           }}
-          className="group block p-5 sm:p-8 lg:p-10 rounded-2xl bg-white border-2 border-[#111111] shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] hover:bg-[#FEF9C3] transition-all duration-200 ease-out will-change-transform min-h-[48px]"
+          className="group block p-6 sm:p-8 lg:p-10 rounded-2xl bg-[#FEF9C3] hover:bg-[#FDE047] border-2 border-[#111111] shadow-[6px_6px_0px_#111111] hover:shadow-[9px_9px_0px_#111111] hover:-translate-y-1.5 transition-all duration-200 ease-out will-change-transform min-h-[48px]"
         >
-          <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-bold text-[#111111] bg-white px-2.5 py-0.5 rounded-full border border-[#111111] shadow-[1px_1px_0px_#111111] block mb-2 w-max">
+          <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-bold text-[#111111] bg-white px-2.5 py-0.5 rounded-full border-2 border-[#111111] shadow-[1.5px_1.5px_0px_#111111] block mb-2 w-max">
             Next Project
           </span>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -614,11 +640,11 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
               <h3 className="card-title font-sans font-bold text-fluid-h2 text-[#111111] group-hover:text-[#6C47FF] transition-colors leading-tight mb-1.5 break-words">
                 {project.nextProject.title}
               </h3>
-              <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#555555]">
+              <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#333333] font-bold">
                 {project.nextProject.category}
               </span>
             </div>
-            <div className="w-12 h-12 rounded-full bg-[#FFD13B] border-2 border-[#111111] shadow-[2px_2px_0px_#111111] flex items-center justify-center shrink-0 group-hover:bg-[#111111] group-hover:text-white transition-all duration-200">
+            <div className="w-12 h-12 rounded-full bg-[#FFD13B] border-2 border-[#111111] shadow-[3px_3px_0px_#111111] flex items-center justify-center shrink-0 group-hover:bg-[#111111] group-hover:text-white transition-all duration-200">
               <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
             </div>
           </div>

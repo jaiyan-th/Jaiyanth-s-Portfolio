@@ -25,25 +25,25 @@ export default function Home() {
 
       {/* Main Content Sections */}
       <main id="main" className="relative w-full max-w-full overflow-x-clip z-10">
-        {/* 01 Hero Section: Bold Syne typography, sketch CTA, and smiley cluster */}
+        {/* 01 Hero Section: Bold typography, sketch CTA, and smiley cluster */}
         <Hero />
 
         {/* 02 Electric Violet Marquee Ribbon with Smiley bullets */}
         <TechMarquee />
 
-        {/* 03 Electric Lime Green Impact Banner with Cartoon Googly Eyes */}
+        {/* 03 About Jaiyanth B */}
+        <About />
+
+        {/* 04 Electric Lime Green Impact Banner */}
         <ImpactBanner />
 
-        {/* 04 Selected Work (Agency Case Study Mockup Frames) */}
+        {/* 05 Selected Work */}
         <SelectedWork />
-
-        {/* 05 About Jaiyanth B */}
-        <About />
 
         {/* 06 Work Experience (Brainery Spot AI Internship) */}
         <Experience />
 
-        {/* 07 Research & Academic Publications (IEEE ICETSIS '26) */}
+        {/* 07 Research & Academic Publications */}
         <Research />
 
         {/* 08 Why Work With Me */}
