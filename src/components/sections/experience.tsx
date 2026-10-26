@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion, useInView, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { Briefcase, Cpu, Terminal, Code2, ArrowRight } from "lucide-react";
 import { EXPERIENCE } from "@/data/portfolio";
 import { Reveal } from "@/components/ui/reveal";
@@ -12,13 +12,6 @@ import { EyebrowPill } from "@/components/ui/eyebrow-pill";
 export function Experience() {
   const shouldReduceMotion = useReducedMotion();
   const [isMobile, setIsMobile] = useState(false);
-  const statsRef = useRef<HTMLDivElement>(null);
-  const isStatsInView = useInView(statsRef, { once: true, amount: 0.3 });
-
-  // Count-up stats
-  const [stat1, setStat1] = useState(0);
-  const [stat2, setStat2] = useState(0);
-  const [stat3, setStat3] = useState(0);
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
@@ -26,40 +19,6 @@ export function Experience() {
     window.addEventListener("resize", check);
     return () => window.removeEventListener("resize", check);
   }, []);
-
-  useEffect(() => {
-    if (!isStatsInView || shouldReduceMotion) {
-      if (shouldReduceMotion) {
-        setStat1(3);
-        setStat2(800);
-        setStat3(100);
-      }
-      return;
-    }
-
-    let start = performance.now();
-    const duration = 1200;
-
-    const tick = (now: number) => {
-      const elapsed = Math.min(duration, now - start);
-      const progress = elapsed / duration;
-      const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-
-      setStat1(Math.floor(ease * 3));
-      setStat2(Math.floor(ease * 800));
-      setStat3(Math.floor(ease * 100));
-
-      if (progress < 1) {
-        requestAnimationFrame(tick);
-      } else {
-        setStat1(3);
-        setStat2(800);
-        setStat3(100);
-      }
-    };
-
-    requestAnimationFrame(tick);
-  }, [isStatsInView, shouldReduceMotion]);
 
   const focusAreas = [
     {
@@ -261,88 +220,19 @@ export function Experience() {
             })}
           </div>
 
-          {/* Stats Row & Stack */}
-          <div
-            ref={statsRef}
-            className="pt-4 sm:pt-5 border-t-[1.5px] border-[#111111]/20 flex flex-col lg:flex-row lg:items-center justify-between gap-5 perspective-1200"
-          >
-            {/* 3 Stats: Bold sans numbers with Mono captions */}
-            <div className="grid grid-cols-3 gap-3 sm:gap-6 min-w-0">
-              {/* Stat 1 */}
-              <motion.div
-                initial={
-                  shouldReduceMotion || isMobile
-                    ? { opacity: 0, y: 10 }
-                    : { opacity: 0, rotateX: -45, y: 20 }
-                }
-                whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="group flex flex-col cursor-default"
+          {/* Tech Stack */}
+          <div className="pt-4 sm:pt-5 border-t-2 border-[#111111]/15 flex flex-wrap items-center gap-x-2 gap-y-2 font-mono text-[11px] uppercase tracking-[0.08em] text-[#111111]">
+            <span className="text-[#555555] font-bold mr-1">
+              TECH STACK:
+            </span>
+            {tools.map((tool) => (
+              <span
+                key={tool}
+                className="inline-flex items-center px-3 py-1 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] font-bold bg-white border-2 border-[#111111] shadow-[2px_2px_0px_#111111] hover:bg-[#111111] hover:text-white transition-all duration-150 cursor-default"
               >
-                <div className="font-sans font-bold text-3xl sm:text-4xl text-[#111111] group-hover:text-[#E8472B] transition-colors leading-none">
-                  {stat1}+
-                </div>
-                <div className="font-mono uppercase tracking-[0.08em] text-[#555555] text-[10px] sm:text-[11px] mt-1">
-                  Prototypes Shipped
-                </div>
-              </motion.div>
-
-              {/* Stat 2 */}
-              <motion.div
-                initial={
-                  shouldReduceMotion || isMobile
-                    ? { opacity: 0, y: 10 }
-                    : { opacity: 0, rotateX: -45, y: 20 }
-                }
-                whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="group flex flex-col cursor-default"
-              >
-                <div className="font-sans font-bold text-3xl sm:text-4xl text-[#111111] group-hover:text-[#E8472B] transition-colors leading-none">
-                  &lt; {stat2}ms
-                </div>
-                <div className="font-mono uppercase tracking-[0.08em] text-[#555555] text-[10px] sm:text-[11px] mt-1">
-                  Retrieval Latency
-                </div>
-              </motion.div>
-
-              {/* Stat 3 */}
-              <motion.div
-                initial={
-                  shouldReduceMotion || isMobile
-                    ? { opacity: 0, y: 10 }
-                    : { opacity: 0, rotateX: -45, y: 20 }
-                }
-                whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="group flex flex-col cursor-default"
-              >
-                <div className="font-sans font-bold text-3xl sm:text-4xl text-[#111111] group-hover:text-[#E8472B] transition-colors leading-none">
-                  {stat3}%
-                </div>
-                <div className="font-mono uppercase tracking-[0.08em] text-[#555555] text-[10px] sm:text-[11px] mt-1">
-                  Contract Safety
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Stack Line */}
-            <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-[#111111]">
-              <span className="text-[#555555] font-medium mr-1">
-                STACK:
+                {tool}
               </span>
-              {tools.map((tool) => (
-                <span
-                  key={tool}
-                  className="inline-flex items-center px-2.5 py-0.5 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] font-medium bg-white border-[1.5px] border-[#111111] shadow-[1.5px_1.5px_0px_#111111] hover:bg-[#111111] hover:text-white transition-all duration-150 cursor-default"
-                >
-                  {tool}
-                </span>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
       </div>
