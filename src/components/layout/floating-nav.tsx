@@ -107,22 +107,22 @@ export function FloatingNav() {
   return (
     <header
       style={{
-        paddingTop: "max(0.75rem, env(safe-area-inset-top, 0.75rem))",
+        paddingTop: "max(0.5rem, env(safe-area-inset-top, 0.5rem))",
       }}
       className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-8 transition-all duration-200 pointer-events-none"
     >
       <div className="site-container max-w-7xl mx-auto pointer-events-auto">
         <div
-          className={`flex items-center justify-between px-5 sm:px-8 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl border-2 border-[#111111] transition-all duration-300 ${
+          className={`flex items-center justify-between px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl border-2 border-[#111111] transition-all duration-300 ${
             scrolled
-              ? "bg-white/95 backdrop-blur-md shadow-[4px_4px_0px_#111111]"
-              : "bg-white shadow-[3px_3px_0px_#111111]"
+              ? "bg-white/95 backdrop-blur-md shadow-[3px_3px_0px_#111111]"
+              : "bg-white shadow-[2.5px_2.5px_0px_#111111]"
           }`}
         >
-          {/* Left: Clean Navigation Links */}
+          {/* Left: Compact Navigation Links */}
           <nav
             aria-label="Main Navigation"
-            className="hidden md:flex items-center gap-6 lg:gap-8"
+            className="hidden md:flex items-center gap-5 lg:gap-6"
           >
             {NAV_LINKS.map((item) => {
               const isActive = active === item.href;
@@ -131,7 +131,7 @@ export function FloatingNav() {
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`font-sans text-[14px] font-bold tracking-tight transition-all relative py-1 ${
+                  className={`font-sans text-[12.5px] sm:text-[13px] font-bold tracking-tight transition-all relative py-0.5 ${
                     isActive
                       ? "text-[#111111]"
                       : "text-[#555555] hover:text-[#111111]"
@@ -141,7 +141,7 @@ export function FloatingNav() {
                   {isActive && (
                     <motion.span
                       layoutId="nav-underline"
-                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#111111]"
+                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#6C47FF] rounded-full"
                       transition={{ type: "spring", stiffness: 350, damping: 30 }}
                     />
                   )}
@@ -150,21 +150,21 @@ export function FloatingNav() {
             })}
           </nav>
 
-          {/* Center: Brand Name (Clean modern sans, medium size) */}
+          {/* Center: Brand Name (Clean modern sans, compact size) */}
           <a
             href="/#hero"
             onClick={(e) => handleNavClick(e, "#hero")}
-            className="font-sans font-bold text-[16px] sm:text-[18px] tracking-tight uppercase text-[#111111] hover:text-[#6C47FF] transition-colors"
+            className="font-sans font-bold text-[14px] sm:text-[15px] tracking-tight uppercase text-[#111111] hover:text-[#6C47FF] transition-colors"
           >
             {IDENTITY.name}
           </a>
 
           {/* Right: Neo-brutalist "Let's Talk" Boxed CTA */}
-          <div className="hidden sm:flex items-center gap-3">
+          <div className="hidden sm:flex items-center gap-2.5">
             <a
               href="/#contact"
               onClick={(e) => handleNavClick(e, "#contact")}
-              className="px-4 sm:px-5 py-1.5 sm:py-2 rounded-lg bg-white hover:bg-[#FFD13B] text-[#111111] font-sans text-[13px] sm:text-[14px] font-bold border-2 border-[#111111] shadow-[2px_2px_0px_#111111] hover:shadow-[3px_3px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all cursor-pointer select-none"
+              className="px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-lg bg-[#FFD13B] hover:bg-[#FACC15] text-[#111111] font-sans text-[12px] sm:text-[12.5px] font-extrabold border-2 border-[#111111] shadow-[2px_2px_0px_#111111] hover:shadow-[2.5px_2.5px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all cursor-pointer select-none"
             >
               Let&apos;s Talk
             </a>
@@ -176,9 +176,9 @@ export function FloatingNav() {
               type="button"
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close menu" : "Open menu"}
-              className="w-10 h-10 flex items-center justify-center text-[#111111] hover:bg-[#F5F0E6] rounded-lg border border-[#111111] transition-colors focus-visible:outline-none"
+              className="w-8 h-8 flex items-center justify-center text-[#111111] hover:bg-[#F5F0E6] rounded-lg border-2 border-[#111111] transition-colors focus-visible:outline-none"
             >
-              {isOpen ? <X className="w-5 h-5 stroke-[2.5]" /> : <Menu className="w-5 h-5 stroke-[2.5]" />}
+              {isOpen ? <X className="w-4 h-4 stroke-[2.5]" /> : <Menu className="w-4 h-4 stroke-[2.5]" />}
             </button>
           </div>
         </div>

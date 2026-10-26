@@ -102,16 +102,16 @@ export const CASE_STUDIES: Record<string, CaseStudyItem> = {
   "fake-news-detector": {
     slug: "fake-news-detector",
     number: "01",
-    tag: "FEATURED CASE · RAG FACT-CHECKING",
-    category: "Applied AI · RAG Architecture",
+    tag: "AI INTERNSHIP PROJECT · BRAINERY SPOT TECHNOLOGY",
+    category: "AI Internship Project · RAG Architecture",
     year: "2025–26",
     domain: "NLP / Fact Verification",
     title: "Fake News Detector — Grounded RAG Fact Verification",
     subtitle:
-      "Turning unstructured news claims into traceable, grounded evidence verdicts with zero model hallucination.",
-    role: "AI & Full-Stack Engineer",
-    duration: "3 Months",
-    status: "Shipped & Live",
+      "Engineered during AI Internship at Brainery Spot Technology: Turning unstructured news claims into traceable, grounded evidence verdicts with zero model hallucination.",
+    role: "AI Engineering Intern · Brainery Spot Technology",
+    duration: "Jun–Jul 2025 (Internship)",
+    status: "Production Deployed & Verified",
     liveUrl: "https://fake-news-detecter-kopi.onrender.com/",
     repoUrl: "https://github.com/jaiyan-th/Fake-News-Detecter",
     stack: [
@@ -127,9 +127,9 @@ export const CASE_STUDIES: Record<string, CaseStudyItem> = {
 
     // 01 Context
     context: {
-      title: "What is Fake News Detector?",
+      title: "AI Internship Project at Brainery Spot Technology",
       description:
-        "Fake News Detector is an autonomous fact-verification pipeline that ingests breaking news articles and claims, searches semantically indexed evidence in a high-dimensional vector store, and asks a constrained LLM to produce a calibrated trust verdict strictly grounded in retrieved sources.",
+        "Engineered during my AI Internship at Brainery Spot Technology, Fake News Detector is an autonomous fact-verification pipeline that ingests breaking news articles and claims, searches semantically indexed evidence in a high-dimensional vector store (Qdrant), and directs a constrained LLM to produce calibrated trust verdicts strictly grounded in retrieved sources.",
       characteristics: [
         {
           title: "High-Stakes Information Integrity",
@@ -149,8 +149,8 @@ export const CASE_STUDIES: Record<string, CaseStudyItem> = {
       roleScope: [
         {
           id: "A 01.",
-          title: "RAG Pipeline Architecture",
-          desc: "Architected end-to-end ingest-to-verdict pipeline, embedding chunking strategy, and abstention thresholds.",
+          title: "Internship Mandate & RAG Architecture",
+          desc: "Architected end-to-end ingest-to-verdict pipeline under Brainery Spot mentorship, implementing embedding chunking strategies and strict hallucination-prevention thresholds.",
         },
         {
           id: "A 02.",
@@ -1203,3 +1203,5 @@ export const CASE_STUDIES: Record<string, CaseStudyItem> = {
 
 // Alias for matching selected-work ID "secure-vault"
 CASE_STUDIES["secure-vault"] = CASE_STUDIES["secure-document-vault"];
+CASE_STUDIES["brainery-spot-internship"] = CASE_STUDIES["fake-news-detector"];
+CASE_STUDIES["internship"] = CASE_STUDIES["fake-news-detector"];

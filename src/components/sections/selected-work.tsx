@@ -35,10 +35,10 @@ export const PROJECTS_DATA: SelectedProjectCard[] = [
     id: "fake-news-detector",
     index: "P. 01",
     title: "Fake News Detector — Grounded RAG Fact Verification",
-    category: "Applied AI · RAG Architecture",
+    category: "AI Internship · Brainery Spot",
     year: "2025–26",
     summary:
-      "An autonomous fact-checking pipeline that retrieves semantically indexed news evidence from vector stores to score claims with strict source attribution and provenance.",
+      "Engineered during AI Internship at Brainery Spot Technology: an autonomous fact-checking pipeline retrieving semantically indexed evidence from Qdrant vector stores to score claims with strict source attribution and zero hallucination.",
     highlights: [
       "Grounded RAG pipeline cross-referencing incoming claims against vectorized news evidence with zero model hallucination.",
       "High-throughput semantic retrieval layer using embeddings and vector search for sub-second claim resolution.",
@@ -397,6 +397,21 @@ function renderProjectTitle(id: string, defaultTitle: string) {
   return defaultTitle;
 }
 
+function getProjectBadgeStyle(id: string) {
+  switch (id) {
+    case "fake-news-detector":
+      return "bg-[#FEF08A] text-[#111111] border-2 border-[#111111] shadow-[2px_2px_0px_#111111]";
+    case "up-skill":
+      return "bg-[#EDE9FE] text-[#111111] border-2 border-[#111111] shadow-[2px_2px_0px_#111111]";
+    case "car-rent":
+      return "bg-[#DCFCE7] text-[#111111] border-2 border-[#111111] shadow-[2px_2px_0px_#111111]";
+    case "document-vault":
+      return "bg-[#E0F2FE] text-[#111111] border-2 border-[#111111] shadow-[2px_2px_0px_#111111]";
+    default:
+      return "bg-[#FEF9C3] text-[#111111] border-2 border-[#111111] shadow-[2px_2px_0px_#111111]";
+  }
+}
+
 export function ProjectRow({
   project,
   index,
@@ -407,6 +422,7 @@ export function ProjectRow({
   onPointerEnter,
 }: ProjectRowProps) {
   const href = project.isExternal ? project.liveUrl || "#" : `/work/${project.id}`;
+  const badgeStyle = getProjectBadgeStyle(project.id);
 
   return (
     <motion.div
@@ -435,17 +451,17 @@ export function ProjectRow({
               : "translate3d(0, 0, 0)",
           opacity: anyHovered && !isHovered ? 0.4 : 1,
         }}
-        className={`group block py-6 sm:py-7 lg:py-8 px-4 sm:px-5 -mx-4 sm:-mx-5 rounded-xl transition-all duration-200 focus-visible:outline-none min-h-[64px] border-2 ${
+        className={`group block py-6 sm:py-7 lg:py-8 px-4 sm:px-5 -mx-4 sm:-mx-5 rounded-2xl transition-all duration-200 focus-visible:outline-none min-h-[64px] border-2 ${
           isHovered
-            ? "bg-white border-[#111111] shadow-[4px_4px_0px_#111111]"
+            ? "bg-white border-[#111111] shadow-[5px_5px_0px_#111111]"
             : "bg-transparent border-transparent"
         }`}
       >
         {/* Desktop Layout (>=1024px): number | title + description | category | year/arrow */}
         <div className="hidden lg:flex items-start justify-between w-full gap-4">
-          <div className="w-[72px] shrink-0 font-mono text-[11px] uppercase tracking-[0.08em] font-medium flex items-center gap-1.5 transition-colors duration-200 text-[#E8472B]">
-            <span className={`w-1.5 h-1.5 rounded-full bg-[#E8472B] transition-all duration-200 ${isHovered ? "scale-125 opacity-100" : "scale-0 opacity-0"}`} />
-            <span className={isHovered ? "translate-x-1 transition-transform" : "transition-transform"}>
+          <div className="w-[72px] shrink-0 font-mono text-[11px] uppercase tracking-[0.08em] font-bold flex items-center gap-1.5 transition-colors duration-200 text-[#111111]">
+            <span className={`w-2 h-2 rounded-full bg-[#E8472B] transition-all duration-200 ${isHovered ? "scale-125 opacity-100" : "scale-75 opacity-70"}`} />
+            <span className={isHovered ? "translate-x-1 transition-transform text-[#E8472B]" : "transition-transform"}>
               {project.index}
             </span>
           </div>
@@ -465,26 +481,24 @@ export function ProjectRow({
 
           <div className="flex-1 min-w-[16px]" />
 
-          <div className="w-[180px] xl:w-[200px] shrink-0 text-left">
-            <span className={`inline-flex items-center px-2.5 py-1 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] font-medium border-[1.5px] transition-all duration-200 ${
-              isHovered
-                ? "bg-[#111111] text-white border-[#111111] shadow-[2px_2px_0px_#111111]"
-                : "bg-[#FAF8F5] text-[#555555] border-[#111111]/30 shadow-[1.5px_1.5px_0px_#111111]/30"
+          <div className="w-[190px] xl:w-[220px] shrink-0 text-left">
+            <span className={`inline-flex items-center px-3 py-1 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] font-bold transition-all duration-200 ${badgeStyle} ${
+              isHovered ? "scale-105" : ""
             }`}>
               {project.category}
             </span>
           </div>
 
-          <div className="w-[84px] shrink-0 flex items-center justify-end gap-2 font-mono text-[11px] uppercase tracking-[0.08em] text-[#555555]">
+          <div className="w-[84px] shrink-0 flex items-center justify-end gap-2 font-mono text-[11px] uppercase tracking-[0.08em] text-[#111111] font-bold">
             <span>{project.year}</span>
-            <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 ${
+            <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 border-2 border-[#111111] ${
               isHovered
-                ? "bg-[#111111] text-white border border-[#111111] shadow-[2px_2px_0px_#111111] scale-110"
-                : "bg-transparent text-[#555555]"
+                ? "bg-[#FFD13B] text-[#111111] shadow-[2px_2px_0px_#111111] scale-110"
+                : "bg-white text-[#111111] shadow-[1.5px_1.5px_0px_#111111]"
             }`}>
               <ArrowUpRight
-                className={`w-4 h-4 transition-transform duration-200 ${
-                  isHovered ? "rotate-45 text-white" : "text-[#555555]"
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                  isHovered ? "rotate-45" : ""
                 }`}
               />
             </div>
@@ -495,22 +509,22 @@ export function ProjectRow({
         <div className="hidden sm:block lg:hidden">
           <div className="flex items-start justify-between gap-4 mb-2">
             <div className="flex items-start gap-3 min-w-0">
-              <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#E8472B] font-medium shrink-0 pt-1">
+              <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#E8472B] font-bold shrink-0 pt-1">
                 {project.index}
               </span>
               <h3 className="card-title font-sans font-bold text-[20px] sm:text-[22px] text-[#111111] group-hover:text-[#E8472B] transition-colors leading-snug">
                 {renderProjectTitle(project.id, project.title)}
               </h3>
             </div>
-            <ArrowUpRight className="w-4 h-4 shrink-0 text-[#555555] group-hover:text-[#E8472B] group-hover:rotate-45 transition-transform mt-1.5" />
+            <ArrowUpRight className="w-4 h-4 shrink-0 text-[#111111] group-hover:text-[#E8472B] group-hover:rotate-45 transition-transform mt-1.5" />
           </div>
 
           <p className="font-sans text-[14px] text-[var(--body)] mb-2.5 line-clamp-2 leading-relaxed">
             {project.summary}
           </p>
 
-          <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.08em] text-[#555555]">
-            <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-[#FAF8F5] border-[1.5px] border-[#111111]/30 shadow-[1px_1px_0px_#111111]/30 text-[#555555]">
+          <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.08em] text-[#111111] font-bold">
+            <span className={`inline-flex items-center px-3 py-1 rounded-full ${badgeStyle}`}>
               {project.category}
             </span>
             <span>{project.year}</span>
@@ -519,9 +533,9 @@ export function ProjectRow({
 
         {/* Mobile Phones Layout (< 640px) */}
         <div className="block sm:hidden">
-          <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.08em] text-[#555555] mb-1.5">
-            <span className="text-[#E8472B] font-medium">{project.index}</span>
-            <div className="flex items-center gap-1.5">
+          <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.08em] text-[#111111] mb-1.5">
+            <span className="text-[#E8472B] font-bold">{project.index}</span>
+            <div className="flex items-center gap-1.5 font-bold">
               <span>{project.year}</span>
               <ArrowUpRight className="w-4 h-4 text-[#E8472B]" />
             </div>
@@ -535,7 +549,7 @@ export function ProjectRow({
             {project.summary}
           </p>
 
-          <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-[#FAF8F5] border-[1.5px] border-[#111111]/30 shadow-[1px_1px_0px_#111111]/30 text-[#555555] font-mono text-[11px] uppercase tracking-[0.08em]">
+          <span className={`inline-flex items-center px-2.5 py-1 rounded-full ${badgeStyle} font-mono text-[11px] uppercase tracking-[0.08em]`}>
             {project.category}
           </span>
         </div>

@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { motion, useInView, useReducedMotion } from "motion/react";
-import { Briefcase, Cpu, Terminal, Code2 } from "lucide-react";
+import { Briefcase, Cpu, Terminal, Code2, ArrowRight } from "lucide-react";
 import { EXPERIENCE } from "@/data/portfolio";
 import { Reveal } from "@/components/ui/reveal";
 
@@ -171,6 +172,38 @@ export function Experience() {
           <p className="font-sans text-[14.5px] sm:text-[15.5px] text-[#333333] leading-relaxed mb-6 max-w-4xl font-normal">
             Shipped applied-AI prototypes built for production reliability. Engineered vector RAG retrieval pipelines, multi-turn reasoning workflows with deterministic JSON schema validation, and verified RESTful API backends.
           </p>
+
+          {/* Flagship Internship Project Feature: Fake News Detector */}
+          <div className="mb-6 p-5 sm:p-6 rounded-2xl bg-[#FFFDF5] border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] transition-all relative overflow-hidden">
+            <div className="absolute top-0 left-0 bottom-0 w-2 bg-[#FFD13B]" />
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div>
+                <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <span className="px-2.5 py-0.5 rounded-full bg-[#FEF08A] border-2 border-[#111111] shadow-[1.5px_1.5px_0px_#111111] font-mono text-[10.5px] font-extrabold text-[#111111] uppercase tracking-wider">
+                    INTERNSHIP FLAGSHIP PROJECT
+                  </span>
+                  <span className="text-[#888888]">·</span>
+                  <span className="font-mono text-[11px] font-bold text-[#6C47FF]">
+                    RAG FACT-CHECKING
+                  </span>
+                </div>
+                <h4 className="font-sans font-bold text-lg sm:text-xl text-[#111111] leading-snug mb-1.5">
+                  Fake News Detector — Grounded RAG Fact Verification
+                </h4>
+                <p className="font-sans text-[13.5px] sm:text-[14px] text-[#444444] leading-relaxed max-w-2xl font-normal">
+                  Engineered during the internship at Brainery Spot Technology: an autonomous RAG fact-verification pipeline with Qdrant vector indexing, sub-second claim resolution (&lt;850ms), and 94.2% verified precision with zero hallucination.
+                </p>
+              </div>
+
+              <Link
+                href="/work/fake-news-detector"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#FFD13B] hover:bg-[#FACC15] text-[#111111] font-sans text-[13px] font-extrabold border-2 border-[#111111] shadow-[2.5px_2.5px_0px_#111111] hover:shadow-[3.5px_3.5px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 transition-all select-none shrink-0"
+              >
+                <span>Read Internship Case Study</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
 
           {/* 3 Skill Columns with Varying Neo-Brutalist Color Backgrounds */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 perspective-1200">
