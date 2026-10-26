@@ -41,24 +41,36 @@ export function Hero() {
               </span>
             </motion.div>
 
-            {/* Clean Simple Medium-Bold Heading that bridges the center gap */}
+            {/* Clean Simple Medium-Bold Heading with Editorial Italic styling */}
             <motion.h1
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="font-sans font-bold text-[clamp(32px,4vw,52px)] text-[#111111] leading-[1.1] tracking-[-0.03em] mb-4 sm:mb-5 select-none max-w-2xl"
+              className="font-sans font-bold text-[clamp(36px,4.5vw,56px)] text-[#111111] leading-[1.08] tracking-[-0.03em] mb-4 sm:mb-5 select-none max-w-2xl"
             >
-              Engineering that doesn’t break when it matters, by someone who’s broken everything first.
+              Engineering that{" "}
+              <em className="font-serif-italic italic font-normal text-[#6C47FF]">
+                doesn’t break
+              </em>{" "}
+              when it{" "}
+              <em className="font-serif-italic italic font-normal text-accent">
+                matters
+              </em>
+              .
             </motion.h1>
 
-            {/* Clean Punchy Subtitle */}
+            {/* Creative, Witty & Thinkable Subtitle */}
             <motion.p
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.18 }}
-              className="font-sans text-[16px] sm:text-[18px] text-[#333333] leading-relaxed max-w-2xl mb-6 font-medium"
+              className="font-sans text-[16px] sm:text-[18px] text-[#333333] leading-relaxed max-w-2xl mb-6 font-normal"
             >
-              I’m Jaiyanth. Every failure I’ve debugged is why my AI products hold up today.
+              I’m Jaiyanth. I build AI that{" "}
+              <span className="font-serif-italic italic font-medium text-[#111111]">
+                thinks before it speaks
+              </span>
+              , respects edge cases, and refuses to hallucinate on a Friday.
             </motion.p>
 
             {/* Varying Colored Neo-Brutalist Skill Tags */}
