@@ -37,7 +37,7 @@ export function Hero() {
             >
               <span className="w-2.5 h-2.5 rounded-full bg-[#4ADE80] animate-pulse" />
               <span className="font-mono text-[11px] uppercase tracking-wider font-bold text-[#111111]">
-                AI &amp; Full-Stack Engineer · Chennai, IN
+                Open to Opportunities
               </span>
             </motion.div>
 
@@ -46,9 +46,9 @@ export function Hero() {
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="font-sans font-bold text-[clamp(36px,4.5vw,58px)] text-[#111111] leading-[1.08] tracking-[-0.03em] mb-4 sm:mb-5 select-none"
+              className="font-sans font-bold text-[clamp(32px,4vw,52px)] text-[#111111] leading-[1.1] tracking-[-0.03em] mb-4 sm:mb-5 select-none max-w-2xl"
             >
-              Engineering applied AI in the production age.
+              Engineering that doesn’t break when it matters, by someone who’s broken everything first.
             </motion.h1>
 
             {/* Clean Punchy Subtitle */}
@@ -56,9 +56,9 @@ export function Hero() {
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.18 }}
-              className="font-sans text-[16px] sm:text-[18px] text-[#333333] leading-relaxed max-w-2xl mb-6 font-normal"
+              className="font-sans text-[16px] sm:text-[18px] text-[#333333] leading-relaxed max-w-2xl mb-6 font-medium"
             >
-              Driving product impact through production RAG architectures, deterministic agent workflows, and verified full-stack applications built to scale.
+              I’m Jaiyanth. Every failure I’ve debugged is why my AI products hold up today.
             </motion.p>
 
             {/* Varying Colored Neo-Brutalist Skill Tags */}
