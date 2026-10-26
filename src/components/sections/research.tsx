@@ -83,88 +83,87 @@ export function Research() {
     <section
       id="research"
       aria-label="04 Research, Publications & Achievements"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t-2 border-[#111111]/20 bg-transparent scroll-mt-16 perspective-1200"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t-2 border-[#111111] bg-[#F5F0E6] scroll-mt-20"
     >
-      <div className="site-container">
-        {/* Section Header with Eyebrow Pill and Instrument Serif H2 */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-6 pb-4 border-b-[1.5px] border-[#111111]/20 gap-3">
+      <div className="site-container max-w-7xl mx-auto">
+        {/* Section Header */}
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 pb-4 border-b-2 border-[#111111] gap-3">
           <div className="flex flex-col gap-2.5">
-            <EyebrowPill accent="PUBLICATIONS" text="IEEE ICETSIS '26" />
-            <h2 className="font-sans font-bold text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.035em]">
-              Research &amp;{" "}
-              <em className="accent font-serif-italic italic text-accent font-normal accent-underline">
-                Publication
-              </em>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border-2 border-[#111111] shadow-[2px_2px_0px_#111111] w-fit">
+              <span className="w-2 h-2 rounded-full bg-[#3EE07A]" />
+              <span className="font-mono text-[11px] font-extrabold uppercase tracking-wider text-[#111111]">
+                IEEE ICETSIS &apos;26
+              </span>
+            </div>
+            <h2 className="font-display font-extrabold text-[clamp(34px,5.5vw,72px)] text-[#111111] leading-[1.0] tracking-tight">
+              Research &amp; Publication.
             </h2>
           </div>
-          <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#555555]">
+          <span className="font-mono text-[12px] font-bold uppercase tracking-wider text-[#555555]">
             IEEE ICETSIS 2026 · Peer-Reviewed Conference
           </span>
         </Reveal>
 
-        {/* Section Intro Paragraph with 2px solid accent left vertical line */}
-        <div className="lead-intro mb-6">
-          <p>
+        {/* Section Intro Paragraph */}
+        <div className="lead-intro mb-8">
+          <p className="font-sans font-bold text-[18px] sm:text-[20px] text-[#111111] leading-relaxed">
             Co-authored peer-reviewed research accepted at IEEE ICETSIS 2026 Bahrain, focusing on multimodal diagnostic triage by uniting clinical computer vision with explainable conversational agentic flows.
           </p>
         </div>
 
         {/* Highlighted Academic Feature Card */}
-        <div className="w-full rounded-2xl bg-white border-2 border-[#111111] p-5 sm:p-6 shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] relative overflow-hidden transition-all duration-300 preserve-3d">
-          {/* Subtle Top Red Accent Line */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-[#E8472B]" />
+        <div className="w-full rounded-3xl bg-white border-2 border-[#111111] p-6 sm:p-8 shadow-[6px_6px_0px_#111111] hover:shadow-[8px_8px_0px_#111111] relative overflow-hidden transition-all duration-300">
+          {/* Top Yellow Accent Line */}
+          <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#FFD13B]" />
 
           {/* Top Meta Bar */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pb-4 mb-4 border-b-[1.5px] border-[#111111]/20">
-            <div className="flex flex-wrap items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.08em]">
-              <span className="inline-flex items-center gap-1.5 font-medium text-[#111111]">
-                <ShieldCheck className="w-4 h-4 text-[#E8472B] shrink-0" />
-                <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-white border-[1.5px] border-[#111111] shadow-[1.5px_1.5px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#1FB866] animate-ping" />
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pb-5 mb-5 border-b-2 border-[#111111]">
+            <div className="flex flex-wrap items-center gap-2.5 font-mono text-[11px] uppercase tracking-wider">
+              <span className="inline-flex items-center gap-1.5 font-bold text-[#111111]">
+                <ShieldCheck className="w-4 h-4 text-[#3EE07A] shrink-0" />
+                <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#FAF8F5] border-2 border-[#111111] text-[#111111] font-mono text-[11px] uppercase tracking-wider font-extrabold gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#3EE07A] animate-pulse" />
                   Published &amp; Peer-Reviewed
                 </span>
               </span>
-              <span className="text-[#555555] font-medium">
+              <span className="text-[#555555] font-semibold">
                 · ICETSIS 2026 · IEEE Bahrain Section
               </span>
             </div>
 
-            {/* Allowed Outlined Pill Button + Black Pill Button (Inter, padding 11px 22px, gap 12px) */}
+            {/* Neo-Brutalist Outlined Buttons */}
             <div className="flex flex-wrap items-center gap-2.5">
               {RESEARCH.certificateUrl && (
                 <a
                   href={RESEARCH.certificateUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="neo-pill-btn px-[22px] py-[11px] font-sans text-[14px] font-medium gap-1.5 group"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white hover:bg-[#FFD13B] text-[#111111] font-sans text-[13px] font-bold border-2 border-[#111111] shadow-[2px_2px_0px_#111111] hover:shadow-[3px_3px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all select-none"
                 >
                   <FileText className="w-3.5 h-3.5 text-[#E8472B] transition-transform duration-200 group-hover:scale-110" />
                   <span>Certificate</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#111111] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#111111]" />
                 </a>
               )}
               <Link
                 href="/work/preventive-ai-paper"
-                className="neo-black-btn px-[22px] py-[11px] font-sans text-[14px] font-medium gap-1.5 group"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#111111] hover:bg-[#6C47FF] text-white font-sans text-[13px] font-bold border-2 border-[#111111] shadow-[2px_2px_0px_#111111] hover:shadow-[3px_3px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all select-none"
               >
                 <span>Read Case Study</span>
-                <ArrowRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-1" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </div>
 
           {/* Paper Title & Authorship */}
-          <div className="mb-5">
-            <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#E8472B] font-medium block mb-1.5">
+          <div className="mb-6">
+            <span className="font-mono text-[11px] uppercase tracking-wider text-[#6C47FF] font-extrabold block mb-2">
               Co-Authored Research Paper
             </span>
-            <h3 className="card-title font-sans font-bold text-xl sm:text-2xl lg:text-3xl text-[#111111] leading-tight mb-2">
-              Multimodal Diagnostic Triage: Bridging Clinical Vision and{" "}
-              <em className="accent font-serif-italic italic text-accent font-normal">
-                Conversational AI
-              </em>
+            <h3 className="card-title font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#111111] leading-tight mb-2">
+              Multimodal Diagnostic Triage: Bridging Clinical Vision and Conversational AI
             </h3>
-            <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#555555]">
+            <p className="font-mono text-[11px] uppercase tracking-wider text-[#555555] font-semibold">
               Co-Author: Jaiyanth B · University of Bahrain &amp; IEEE Bahrain Section · Sakhir, Bahrain
             </p>
           </div>

@@ -377,34 +377,38 @@ export function BubbleFooter() {
         {/* Center CTA Overlay */}
         <div className="relative z-10 w-full h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 pointer-events-none perspective-1200">
           <Reveal className="max-w-2xl pointer-events-auto preserve-3d flex flex-col items-center">
-            <EyebrowPill accent="CONTACT" text="LET'S TALK" className="mb-2.5 sm:mb-3" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border-2 border-[#111111] shadow-[2px_2px_0px_#111111] mb-4">
+              <span className="w-2 h-2 rounded-full bg-[#6C47FF]" />
+              <span className="font-mono text-[11px] font-extrabold uppercase tracking-wider text-[#111111]">
+                LET&apos;S TALK
+              </span>
+            </div>
 
-            <h2 className="font-sans font-bold text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.035em] mb-4 sm:mb-5">
-              Building something with{" "}
-              <em className="accent font-serif-italic italic text-accent font-normal mx-1">AI</em>?
+            <h2 className="font-display font-extrabold text-[clamp(32px,5vw,64px)] text-[#111111] leading-[1.0] tracking-tight mb-6">
+              Building something with AI?
               <br />
-              Let&apos;s <em className="accent font-serif-italic italic text-accent font-normal accent-underline">talk</em>.
+              <span className="text-[#6C47FF]">Let&apos;s build it together.</span>
             </h2>
 
-            {/* Action Buttons: 11px 22px padding, 12px gap, wrap on mobile */}
-            <div className="flex flex-wrap items-center justify-center gap-3 w-full">
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center justify-center gap-3.5 w-full">
               <a
                 href={`mailto:${IDENTITY.email}`}
                 onMouseEnter={() => setIsBtnHovered(true)}
                 onMouseLeave={() => setIsBtnHovered(false)}
-                className="neo-black-btn min-h-[44px] px-[22px] py-[11px] rounded-full font-sans text-sm font-medium tracking-normal gap-2 active:translate-y-0.5 active:shadow-none w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#111111] hover:bg-[#6C47FF] text-white font-sans text-sm font-bold border-2 border-[#111111] shadow-[3px_3px_0px_#111111] hover:shadow-[4px_4px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all select-none w-full sm:w-auto"
               >
                 <Mail className="w-4 h-4 shrink-0" />
-                <span>Email me</span>
+                <span>Email Jaiyanth</span>
               </a>
 
               <a
                 href={IDENTITY.bookingUrl}
                 onMouseEnter={() => setIsBtnHovered(true)}
                 onMouseLeave={() => setIsBtnHovered(false)}
-                className="neo-pill-btn min-h-[44px] px-[22px] py-[11px] rounded-full font-sans text-sm font-medium tracking-normal gap-2 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-[#FFD13B] text-[#111111] font-sans text-sm font-bold border-2 border-[#111111] shadow-[3px_3px_0px_#111111] hover:shadow-[4px_4px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all select-none w-full sm:w-auto"
               >
-                <span>Hire me</span>
+                <span>Book a Discovery Call</span>
                 <ArrowUpRight className="w-4 h-4 shrink-0" />
               </a>
             </div>

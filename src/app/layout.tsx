@@ -1,25 +1,30 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, Inter, JetBrains_Mono } from "next/font/google";
+import { Syne, Plus_Jakarta_Sans, Anton, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
-import { ThemeProvider } from "@/components/effects/theme-provider";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE } from "@/data/portfolio";
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-accent",
+const syne = Syne({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
+  weight: ["700", "800"],
   display: "swap",
 });
 
-const inter = Inter({
+const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const anton = Anton({
+  variable: "--font-impact",
+  subsets: ["latin"],
+  weight: "400",
   display: "swap",
 });
 
@@ -127,7 +132,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${instrumentSerif.variable} ${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-[var(--canvas)] text-[var(--text-primary)] selection:bg-[#E8472B]/20 selection:text-inherit`}
+        className={`${syne.variable} ${plusJakartaSans.variable} ${anton.variable} ${jetbrainsMono.variable} font-sans antialiased bg-[#F5F0E6] text-[#111111] selection:bg-[#6C47FF] selection:text-white`}
       >
         <ScrollProgress />
           <a

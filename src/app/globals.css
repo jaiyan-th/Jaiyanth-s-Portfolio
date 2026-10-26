@@ -15,9 +15,11 @@
   --color-foreground: var(--text-primary);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
-  --font-accent: var(--font-accent);
-  --font-serif: var(--font-accent);
-  --font-serif-italic: var(--font-accent);
+  --font-display: var(--font-display);
+  --font-impact: var(--font-impact);
+  --font-accent: var(--font-display);
+  --font-serif: var(--font-display);
+  --font-serif-italic: var(--font-display);
 
   --color-canvas: var(--canvas);
   --color-surface: var(--surface);
@@ -29,6 +31,11 @@
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-accent-tint: var(--accent-tint);
+  --color-violet: #6C47FF;
+  --color-lime: #4DE07C;
+  --color-yellow: #FFD13B;
+  --color-coral: #FF4D4D;
+  --color-cyan: #38BDF8;
   --color-ink: var(--ink);
   --color-body: var(--body);
   --color-muted: var(--muted);
@@ -41,35 +48,42 @@
 }
 
 :root {
-  --font-sans: var(--font-sans, "Inter", system-ui, sans-serif);
-  --font-accent: var(--font-accent, "Instrument Serif", Georgia, serif);
+  --font-display: var(--font-display, "Syne", sans-serif);
+  --font-impact: var(--font-impact, "Anton", sans-serif);
+  --font-sans: var(--font-sans, "Plus Jakarta Sans", system-ui, sans-serif);
   --font-mono: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);
-  --font-serif: var(--font-accent);
-  --font-serif-italic: var(--font-accent);
+  --font-accent: var(--font-display);
+  --font-serif: var(--font-display);
+  --font-serif-italic: var(--font-display);
 
-  /* Exact Editorial Colors */
+  /* Exact Dribbble Agency Palette */
   --ink: #111111;
-  --body: #4a4a4a;
-  --accent: #E8472B;
+  --body: #2C2C2C;
+  --accent: #6C47FF;
 
   /* Backgrounds & Borders */
-  --canvas: #F5F3EE;
+  --canvas: #F5F0E6;
   --surface: #FFFFFF;
   --surface-card: #FFFFFF;
-  --surface-muted: #E8E5DD;
+  --surface-muted: #EBE5D8;
   --text-primary: #111111;
-  --text-secondary: #4a4a4a;
-  --text-muted: #4a4a4a;
-  --muted: #4a4a4a;
-  --border-line: #E5E5E5;
+  --text-secondary: #333333;
+  --text-muted: #555555;
+  --muted: #555555;
+  --border-line: #111111;
 
-  /* Coral Red-Orange Accent */
-  --accent-hover: #D03B21;
-  --accent-tint: #FEECE8;
+  /* Accents */
+  --accent-hover: #5833EA;
+  --accent-tint: #ECE7FF;
+  --violet: #6C47FF;
+  --lime: #4DE07C;
+  --yellow: #FFD13B;
+  --coral: #FF4D4D;
+  --cyan: #38BDF8;
 
-  /* Modern neutral badges */
-  --badge-neutral: #EFECE6;
-  --badge-neutral-hover: #E5E1D8;
+  /* Neo-brutalist badge styling */
+  --badge-neutral: #FAF8F5;
+  --badge-neutral-hover: #ECE7DF;
   --badge-dark: #111111;
 
   /* ============================================================

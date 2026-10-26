@@ -62,28 +62,30 @@ export function About() {
     <section
       id="about"
       aria-label="01 About Jaiyanth B"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t-2 border-[#111111]/20 bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t-2 border-[#111111] bg-[#F5F0E6] scroll-mt-20 perspective-1200 transition-colors"
     >
       <div className="site-container">
-        {/* Section Header with Eyebrow Pill and Instrument Serif H2 */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-6 pb-4 border-b-[1.5px] border-[#111111]/20 gap-3">
+        {/* Section Header with Eyebrow Pill and Agency Syne H2 */}
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 pb-4 border-b-2 border-[#111111] gap-3">
           <div className="flex flex-col gap-2.5">
-            <EyebrowPill accent="ABOUT" text="BACKGROUND & VALUES" />
-            <h2 className="font-sans font-bold text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.035em]">
-              About{" "}
-              <em className="accent font-serif-italic italic text-accent font-normal accent-underline">
-                Jaiyanth B
-              </em>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border-2 border-[#111111] shadow-[2px_2px_0px_#111111] w-fit">
+              <span className="w-2 h-2 rounded-full bg-[#6C47FF]" />
+              <span className="font-mono text-[11px] font-extrabold uppercase tracking-wider text-[#111111]">
+                BACKGROUND &amp; VALUES
+              </span>
+            </div>
+            <h2 className="font-display font-extrabold text-[clamp(34px,5.5vw,72px)] text-[#111111] leading-[1.0] tracking-tight">
+              About Jaiyanth B.
             </h2>
           </div>
-          <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#555555]">
-            Background, Story &amp; Values
+          <span className="font-mono text-[12px] font-bold uppercase tracking-wider text-[#555555]">
+            Engineering Philosophy &amp; Story
           </span>
         </Reveal>
 
-        {/* Section Intro Paragraph with 2px solid accent left vertical line */}
-        <div className="lead-intro mb-6">
-          <p>
+        {/* Section Intro Paragraph */}
+        <div className="lead-intro mb-8">
+          <p className="font-sans font-bold text-[18px] sm:text-[20px] text-[#111111] leading-relaxed">
             Building systems where applied AI meets production reliability, context-grounded retrieval pipelines, and verifiable data provenance.
           </p>
         </div>
@@ -182,16 +184,14 @@ export function About() {
                 </span>
               </div>
 
-              {/* Card Headline: Inter with italic accent */}
-              <h3 className="font-sans font-bold text-fluid-h3 text-[#111111] leading-snug mb-3">
-                Building systems where{" "}
-                <em className="accent font-serif-italic italic text-accent font-normal">applied AI</em>{" "}
-                meets production reliability and verifiable data provenance.
+              {/* Card Headline */}
+              <h3 className="font-display font-extrabold text-[22px] sm:text-[26px] text-[#111111] leading-snug mb-4">
+                Building systems where applied AI meets production reliability and verifiable data provenance.
               </h3>
 
-              {/* Staggered Paragraphs: Inter, muted gray, tightened spacing */}
-              <div className="p-5 sm:p-6 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111] mb-4 space-y-3 font-sans text-[15px] text-[var(--body)] leading-relaxed font-normal perspective-1200 relative overflow-hidden">
-                <div className="absolute top-0 left-0 bottom-0 w-1 bg-gradient-to-b from-[#E8472B] via-[#E8472B]/40 to-transparent" />
+              {/* Staggered Paragraphs */}
+              <div className="p-6 sm:p-7 rounded-2xl bg-white border-2 border-[#111111] shadow-[5px_5px_0px_#111111] mb-5 space-y-3.5 font-sans text-[15.5px] text-[#2C2C2C] leading-relaxed font-normal perspective-1200 relative overflow-hidden">
+                <div className="absolute top-0 left-0 bottom-0 w-1.5 bg-[#6C47FF]" />
                 <motion.p
                   custom={0}
                   variants={paragraphVariants}
@@ -222,6 +222,7 @@ export function About() {
               </div>
 
               {/* Education Credential Card */}
+              {/* Education Credential Card */}
               <motion.div
                 initial={
                   shouldReduceMotion || isMobile
@@ -232,53 +233,50 @@ export function About() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={shouldReduceMotion || isMobile ? {} : { y: -3, scale: 1.01 }}
-                className="group flex items-start gap-4 mb-4 p-5 sm:p-6 rounded-xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] transition-all duration-200"
+                className="group flex items-start gap-4 mb-5 p-5 sm:p-6 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] transition-all duration-200"
               >
-                <div className="w-10 h-10 rounded-lg bg-[#111111] flex items-center justify-center text-white shrink-0 mt-0.5 group-hover:scale-110 group-hover:bg-[#E8472B] transition-all duration-200 shadow-sm">
+                <div className="w-11 h-11 rounded-xl bg-[#111111] flex items-center justify-center text-white shrink-0 mt-0.5 group-hover:scale-110 group-hover:bg-[#6C47FF] transition-all duration-200 shadow-sm border border-[#111111]">
                   <GraduationCap className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-start sm:items-center justify-between gap-2 mb-1">
-                    <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#E8472B] font-medium">
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-[#6C47FF] font-extrabold">
                       Education
                     </span>
-                    <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#555555] font-medium">
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-[#555555] font-semibold">
                       2022 – 2026
                     </span>
                   </div>
-                  <h4 className="font-sans font-bold text-lg sm:text-xl text-[#111111] mb-1 group-hover:text-[#E8472B] transition-colors">
-                    B.Tech in Computer Science &amp;{" "}
-                    <em className="accent font-serif-italic italic text-accent font-normal">Business Systems</em>
+                  <h4 className="font-display font-extrabold text-lg sm:text-xl text-[#111111] mb-1 group-hover:text-[#6C47FF] transition-colors">
+                    B.Tech in Computer Science &amp; Business Systems
                   </h4>
-                  <p className="font-sans text-[14px] text-[var(--body)] leading-relaxed">
+                  <p className="font-sans text-[14px] text-[#444444] leading-relaxed">
                     Specializing in Applied AI systems, full-stack product engineering, and secure data architectures.
                   </p>
                 </div>
               </motion.div>
             </div>
 
-            {/* Outlined Pill Buttons (Inter 14px weight 500, gap 12px) */}
-            <div
-              className="flex flex-wrap items-center gap-3 pt-4 border-t-[1.5px] border-[#111111]/20"
-            >
+            {/* Outlined Neo-Brutalist Buttons */}
+            <div className="flex flex-wrap items-center gap-3 pt-5 border-t-2 border-[#111111]">
               <a
                 href={IDENTITY.github}
                 target="_blank"
                 rel="noreferrer"
-                className="neo-pill-btn px-[22px] py-[11px] font-sans text-[14px] font-medium group"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-[#FFD13B] text-[#111111] font-sans text-[14px] font-bold border-2 border-[#111111] shadow-[2.5px_2.5px_0px_#111111] hover:shadow-[3.5px_3.5px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all select-none"
               >
                 <span>GitHub Profile</span>
-                <ArrowUpRight className="w-4 h-4 ml-1.5 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight className="w-4 h-4 ml-0.5 shrink-0" />
               </a>
 
               <a
                 href={IDENTITY.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="neo-pill-btn px-[22px] py-[11px] font-sans text-[14px] font-medium"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-[#FFD13B] text-[#111111] font-sans text-[14px] font-bold border-2 border-[#111111] shadow-[2.5px_2.5px_0px_#111111] hover:shadow-[3.5px_3.5px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all select-none"
               >
                 <span>LinkedIn</span>
-                <ArrowUpRight className="w-4 h-4 ml-1.5 shrink-0" />
+                <ArrowUpRight className="w-4 h-4 ml-0.5 shrink-0" />
               </a>
             </div>
           </div>

@@ -113,52 +113,53 @@ export function Experience() {
     <section
       id="experience"
       aria-label="03 Work Experience & Internship"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t-2 border-[#111111]/20 bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t-2 border-[#111111] bg-[#F5F0E6] scroll-mt-20 transition-colors"
     >
-      <div className="site-container">
-        {/* Section Header with Eyebrow Pill and Instrument Serif H2 */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-6 pb-4 border-b-[1.5px] border-[#111111]/20 gap-3">
+      <div className="site-container max-w-7xl mx-auto">
+        {/* Section Header */}
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 pb-4 border-b-2 border-[#111111] gap-3">
           <div className="flex flex-col gap-2.5">
-            <EyebrowPill accent="EXPERIENCE" text="WHERE I'VE BUILT" />
-            <h2 className="font-sans font-bold text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.035em]">
-              Work{" "}
-              <em className="accent font-serif-italic italic text-accent font-normal accent-underline">
-                Experience
-              </em>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border-2 border-[#111111] shadow-[2px_2px_0px_#111111] w-fit">
+              <span className="w-2 h-2 rounded-full bg-[#6C47FF]" />
+              <span className="font-mono text-[11px] font-extrabold uppercase tracking-wider text-[#111111]">
+                WHERE I&apos;VE BUILT
+              </span>
+            </div>
+            <h2 className="font-display font-extrabold text-[clamp(34px,5.5vw,72px)] text-[#111111] leading-[1.0] tracking-tight">
+              Work Experience.
             </h2>
           </div>
-          <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#555555]">
+          <span className="font-mono text-[12px] font-bold uppercase tracking-wider text-[#555555]">
             Applied AI &amp; Industry Internship
           </span>
         </Reveal>
 
-        {/* Section Intro Paragraph with 2px solid accent left vertical line */}
-        <div className="lead-intro mb-6">
-          <p>
+        {/* Section Intro Paragraph */}
+        <div className="lead-intro mb-8">
+          <p className="font-sans font-bold text-[18px] sm:text-[20px] text-[#111111] leading-relaxed">
             Shipped applied-AI prototypes that needed to work reliably in production environments, not just in demos. Focused on vector RAG pipelines, multi-turn reasoning workflows with strict JSON validation, and clean RESTful API integrations.
           </p>
         </div>
 
         {/* Experience Content wrapped in elevated Stage Card */}
-        <div className="w-full rounded-2xl bg-white border-2 border-[#111111] p-5 sm:p-6 shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] relative overflow-hidden transition-all duration-300 preserve-3d">
-          {/* Subtle Top Red Accent Line */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-[#E8472B]" />
+        <div className="w-full rounded-3xl bg-white border-2 border-[#111111] p-6 sm:p-8 shadow-[6px_6px_0px_#111111] hover:shadow-[8px_8px_0px_#111111] relative overflow-hidden transition-all duration-300">
+          {/* Top Violet Accent Line */}
+          <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#6C47FF]" />
 
           {/* Card Top: Company, Role, Period & Status */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 mb-4 border-b-[1.5px] border-[#111111]/20">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 mb-5 border-b-2 border-[#111111]">
             <div>
-              <div className="flex items-center gap-2 mb-1.5">
-                <Briefcase className="w-4 h-4 text-[#E8472B] shrink-0" />
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAF8F5] border-[1.5px] border-[#111111] shadow-[1.5px_1.5px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium">
+              <div className="flex items-center gap-2 mb-2">
+                <Briefcase className="w-4 h-4 text-[#6C47FF] shrink-0" />
+                <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#ECE7FF] border-2 border-[#111111] text-[#111111] font-mono text-[11px] uppercase tracking-wider font-extrabold">
                   {EXPERIENCE.organisation}
                 </span>
-                <span className="text-[#555555] font-mono text-[11px] uppercase tracking-[0.08em]">
+                <span className="text-[#555555] font-mono text-[11px] uppercase tracking-wider font-semibold">
                   · Coimbatore, India
                 </span>
               </div>
-              <h3 className="card-title font-sans font-bold text-xl sm:text-2xl text-[#111111] leading-snug">
-                Artificial Intelligence Intern — Brainery Spot{" "}
-                <em className="accent font-serif-italic italic text-accent font-normal">Technology</em>
+              <h3 className="card-title font-display font-extrabold text-2xl sm:text-3xl text-[#111111] leading-snug">
+                Artificial Intelligence Intern — Brainery Spot Technology
               </h3>
             </div>
 

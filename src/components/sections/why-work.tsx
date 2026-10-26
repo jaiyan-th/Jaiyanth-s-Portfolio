@@ -75,19 +75,24 @@ export function WhyWork() {
     <section
       id="why-work"
       aria-label="05 Why work with me"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t-2 border-[#111111]/20 bg-[#ECE9E1]/35 scroll-mt-16 perspective-1200 transition-colors"
+      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t-2 border-[#111111] bg-[#F5F0E6] scroll-mt-20 transition-colors"
     >
-      <div className="site-container">
+      <div className="site-container max-w-7xl mx-auto">
         {/* Section Header */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-6 pb-4 border-b-[1.5px] border-[#111111]/20 gap-3">
+        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 pb-4 border-b-2 border-[#111111] gap-3">
           <div className="space-y-2.5">
-            <EyebrowPill accent="SKILLS" text="WHAT I USE" />
-            <h2 className="font-sans font-bold text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.035em]">
-              Why Work <em className="accent font-serif-italic italic text-accent font-normal accent-underline">With Me</em>?
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border-2 border-[#111111] shadow-[2px_2px_0px_#111111] w-fit">
+              <span className="w-2 h-2 rounded-full bg-[#6C47FF]" />
+              <span className="font-mono text-[11px] font-extrabold uppercase tracking-wider text-[#111111]">
+                CORE ADVANTAGES
+              </span>
+            </div>
+            <h2 className="font-display font-extrabold text-[clamp(34px,5.5vw,72px)] text-[#111111] leading-[1.0] tracking-tight">
+              Why Work With Me?
             </h2>
           </div>
-          <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted">
-            Strategy & Craft
+          <span className="font-mono text-[12px] font-bold uppercase tracking-wider text-[#555555]">
+            Strategy, Execution &amp; Reliability
           </span>
         </Reveal>
 
@@ -97,24 +102,18 @@ export function WhyWork() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-5xl mb-6"
+          className="max-w-5xl mb-8"
         >
-          <h3 className="font-sans font-bold text-fluid-h2 tracking-[-0.035em] leading-tight mb-4 text-[#111111]">
-            <RevealHeading
-              lines={[
-                { text: "Engineers who can hold both ends —" },
-                { text: "", accent: "applied AI", afterAccent: " & full-stack systems," },
-                { text: "are rare." },
-              ]}
-            />
+          <h3 className="font-display font-extrabold text-[clamp(26px,4vw,44px)] tracking-tight leading-snug mb-4 text-[#111111]">
+            Engineers who can hold both ends — applied AI &amp; production full-stack systems — are rare.
           </h3>
-          <p className="lead-intro font-sans text-base sm:text-lg text-[var(--body)] leading-relaxed max-w-[62ch]">
+          <p className="lead-intro font-sans font-bold text-base sm:text-lg text-[#333333] leading-relaxed max-w-[62ch]">
             I work best where the stakes are real and the data is dense. My job is to remove the friction, so the next decision comes faster.
           </p>
         </motion.div>
 
-        {/* /A /B /C Columns: gap 16px, padding 20-24px */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 perspective-1200 items-stretch">
+        {/* /A /B /C Columns */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
           {WHY_WORK_WITH_ME.map((point, index) => {
             const meta = CARD_METAS[index % CARD_METAS.length];
             const colParallaxY =
@@ -135,10 +134,10 @@ export function WhyWork() {
                   style={{
                     transform: `translate3d(0, ${colParallaxY}px, 0)`,
                   }}
-                  className="group relative p-5 sm:p-6 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] flex flex-col justify-between transition-all duration-300 ease-out will-change-transform overflow-hidden h-full"
+                  className="group relative p-6 sm:p-7 rounded-3xl bg-white border-2 border-[#111111] shadow-[5px_5px_0px_#111111] hover:shadow-[8px_8px_0px_#111111] flex flex-col justify-between transition-all duration-300 ease-out will-change-transform overflow-hidden h-full"
                 >
-                  {/* Top Red Indicator stripe */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-accent transition-colors duration-200" />
+                  {/* Top Indicator stripe */}
+                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#6C47FF]" />
 
                   <div>
                     <div className="flex items-center justify-between mb-3">

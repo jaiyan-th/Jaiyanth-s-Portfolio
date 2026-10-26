@@ -10,10 +10,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ["var(--font-serif-bold)", "Fraunces", "Georgia", "serif"],
-        "serif-bold": ["var(--font-serif-bold)", "Fraunces", "Georgia", "serif"],
-        "serif-italic": ["var(--font-serif-italic)", "Instrument Serif", "Georgia", "serif"],
-        sans: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Syne", "sans-serif"],
+        impact: ["var(--font-impact)", "Anton", "sans-serif"],
+        sans: ["var(--font-sans)", "Plus Jakarta Sans", "Inter", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "JetBrains Mono", "ui-monospace", "monospace"],
       },
       colors: {

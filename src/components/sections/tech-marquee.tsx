@@ -2,185 +2,69 @@
 
 import { useEffect, useRef } from "react";
 import { useReducedMotion } from "motion/react";
-import { TECH_MARQUEE } from "@/data/content";
-import { Reveal } from "@/components/ui/reveal";
-import { EyebrowPill } from "@/components/ui/eyebrow-pill";
+
+const MARQUEE_ITEMS = [
+  "APPLIED AI",
+  "RAG ARCHITECTURE",
+  "FULL-STACK WEB",
+  "NEXT.JS & TYPESCRIPT",
+  "PYTHON & FASTAPI",
+  "DETERMINISTIC AGENTS",
+  "SUPABASE & SQL",
+  "LANGCHAIN & VECTOR DB",
+  "IEEE RESEARCH",
+  "PRODUCTION SYSTEMS",
+];
 
 export function TechMarquee() {
   const shouldReduceMotion = useReducedMotion();
-  const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-  const itemsRef = useRef<Array<HTMLDivElement | null>>([]);
-
-  const marqueeItems = [...TECH_MARQUEE, ...TECH_MARQUEE, ...TECH_MARQUEE, ...TECH_MARQUEE];
-
-  const hoveredRef = useRef(false);
 
   useEffect(() => {
     if (shouldReduceMotion) return;
-
-    const container = containerRef.current;
     const track = trackRef.current;
-    if (!container || !track) return;
+    if (!track) return;
 
-    let animId: number | null = null;
-    let isIntersecting = true;
+    let animId: number;
     let currentX = 0;
-    const baseSpeed = 1.0;
-    let currentSpeedBoost = 1.0;
-    let targetSpeedBoost = 1.0;
+    const speed = 1.2;
 
-    let lastScrollY = window.scrollY;
-    let lastScrollTime = performance.now();
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        isIntersecting = entry.isIntersecting;
-        if (isIntersecting && !animId) {
-          animId = requestAnimationFrame(render);
-        }
-      },
-      { threshold: 0.05 }
-    );
-    observer.observe(container);
-
-    const handleMouseEnter = () => { hoveredRef.current = true; };
-    const handleMouseLeave = () => { hoveredRef.current = false; };
-    container.addEventListener("mouseenter", handleMouseEnter);
-    container.addEventListener("mouseleave", handleMouseLeave);
-
-    const handleScroll = () => {
-      const now = performance.now();
-      const currentScrollY = window.scrollY;
-      const deltaY = Math.abs(currentScrollY - lastScrollY);
-      const deltaTime = Math.max(1, now - lastScrollTime);
-      const velocity = deltaY / deltaTime;
-
-      lastScrollY = currentScrollY;
-      lastScrollTime = now;
-
-      const boost = 1 + Math.min(3.2, velocity * 2.2);
-      targetSpeedBoost = Math.max(targetSpeedBoost, boost);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    const render = () => {
-      if (!isIntersecting) {
-        animId = null;
-        return;
-      }
-
-      currentSpeedBoost += (targetSpeedBoost - currentSpeedBoost) * 0.1;
-      targetSpeedBoost += (1.0 - targetSpeedBoost) * 0.05;
-
-      const hoverFactor = hoveredRef.current ? 0.3 : 1.0;
-      const step = baseSpeed * currentSpeedBoost * hoverFactor;
-      currentX -= step;
-
+    const animate = () => {
+      currentX -= speed;
       const halfWidth = track.scrollWidth / 2;
-      if (halfWidth > 0 && Math.abs(currentX) >= halfWidth) {
-        currentX += halfWidth;
+      if (Math.abs(currentX) >= halfWidth) {
+        currentX = 0;
       }
-
       track.style.transform = `translate3d(${currentX}px, 0, 0)`;
-
-      const containerRect = container.getBoundingClientRect();
-      const centerX = containerRect.left + containerRect.width / 2;
-      const halfContainerWidth = Math.max(1, containerRect.width / 2);
-
-      for (let i = 0; i < itemsRef.current.length; i++) {
-        const itemEl = itemsRef.current[i];
-        if (!itemEl) continue;
-
-        const itemRect = itemEl.getBoundingClientRect();
-        const itemCenterX = itemRect.left + itemRect.width / 2;
-
-        if (itemRect.right < containerRect.left - 100 || itemRect.left > containerRect.right + 100) {
-          continue;
-        }
-
-        const distFromCenter = Math.abs(itemCenterX - centerX) / halfContainerWidth;
-        const normDist = Math.min(1, Math.max(0, distFromCenter));
-
-        const scale = 1.08 - 0.28 * Math.pow(normDist, 1.4);
-        const opacity = 1 - 0.35 * Math.pow(normDist, 2);
-
-        itemEl.style.transform = `scale(${scale.toFixed(3)})`;
-        itemEl.style.opacity = opacity.toFixed(3);
-      }
-
-      animId = requestAnimationFrame(render);
+      animId = requestAnimationFrame(animate);
     };
 
-    animId = requestAnimationFrame(render);
-
-    return () => {
-      if (animId) cancelAnimationFrame(animId);
-      observer.disconnect();
-      window.removeEventListener("scroll", handleScroll);
-      container.removeEventListener("mouseenter", handleMouseEnter);
-      container.removeEventListener("mouseleave", handleMouseLeave);
-    };
+    animId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animId);
   }, [shouldReduceMotion]);
+
+  const items = [...MARQUEE_ITEMS, ...MARQUEE_ITEMS, ...MARQUEE_ITEMS];
 
   return (
     <section
-      id="tech"
-      aria-label="06 Previously trusted by / Stack"
-      className="relative flex flex-col justify-center section-padding border-t-2 border-[#111111]/20 overflow-hidden bg-transparent scroll-mt-16 perspective-1200"
+      aria-label="Technology Marquee Banner"
+      className="relative w-full bg-[#6C47FF] border-y-2 border-[#111111] py-4 sm:py-5 overflow-hidden select-none z-20"
     >
-      <div className="site-container mb-6">
-        {/* Section Header */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-4 border-b-[1.5px] border-[#111111]/20 gap-3">
-          <div className="space-y-2.5">
-            <EyebrowPill accent="CORE STACK" text="TRUSTED ARCHITECTURES & TOOLING" />
-            <h2 className="font-sans font-bold text-fluid-h2 text-[#111111] leading-[1.05] tracking-[-0.035em]">
-              Previously Trusted By / <em className="accent font-serif-italic italic text-accent font-normal accent-underline">Core Stack</em>
-            </h2>
-          </div>
-          <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted">
-            Applied AI & Full-Stack Tooling
-          </span>
-        </Reveal>
-
-        <p className="lead-intro font-sans text-base sm:text-lg text-[var(--body)] leading-relaxed max-w-[62ch] mt-4">
-          High-throughput vector search, deterministic pipeline execution, and reactive user interfaces built with battle-tested frameworks.
-        </p>
-      </div>
-
-      {/* Highlighted Ribbon Marquee Container */}
       <div
-        ref={containerRef}
-        className="relative w-full overflow-hidden group py-6 sm:py-8 select-none bg-white/80 backdrop-blur-sm border-y-2 border-[#111111] shadow-[0_2px_0px_#111111]"
+        ref={trackRef}
+        className="flex items-center whitespace-nowrap will-change-transform"
       >
-        {/* Edge Gradient Masks */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 lg:w-48 z-10 bg-gradient-to-r from-[var(--canvas)] to-transparent" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 lg:w-48 z-10 bg-gradient-to-l from-[var(--canvas)] to-transparent" />
-
-        {/* Marquee Continuous Track */}
-        <div
-          ref={trackRef}
-          className="flex w-max will-change-transform items-center"
-        >
-          {marqueeItems.map((item, idx) => (
-            <div
-              key={`${item.name}-${idx}`}
-              ref={(el) => {
-                itemsRef.current[idx] = el;
-              }}
-              className="mx-2 sm:mx-3.5 lg:mx-4 flex items-center gap-2 sm:gap-2.5 px-4 py-2 rounded-full bg-[#FAF8F5] border-[1.5px] border-[#111111] shadow-[2px_2px_0px_#111111] hover:shadow-[3px_3px_0px_#111111] hover:bg-white cursor-default select-none will-change-transform origin-center transition-all duration-200 group/chip"
-            >
-              <span className="font-sans font-medium text-sm text-[#111111] group-hover/chip:text-accent transition-colors">
-                {item.name}
-              </span>
-              <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted">
-                /{item.category}
-              </span>
-              <span className="text-accent/50 ml-2 group-hover/chip:text-accent group-hover/chip:rotate-90 font-mono text-xs select-none transition-transform duration-300">✦</span>
-            </div>
-          ))}
-        </div>
+        {items.map((item, idx) => (
+          <div key={idx} className="flex items-center gap-6 sm:gap-8 mx-3 sm:mx-4">
+            <span className="font-display font-extrabold text-[18px] sm:text-[22px] md:text-[26px] text-white tracking-tight uppercase">
+              {item}
+            </span>
+            {/* Cute Yellow Smiley Bullet */}
+            <span className="inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#FFD13B] border-2 border-[#111111] shadow-[1.5px_1.5px_0px_#111111] shrink-0">
+              <span className="text-[14px] leading-none text-[#111111]">☻</span>
+            </span>
+          </div>
+        ))}
       </div>
     </section>
   );

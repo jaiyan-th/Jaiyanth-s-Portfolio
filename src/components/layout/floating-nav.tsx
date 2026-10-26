@@ -107,71 +107,80 @@ export function FloatingNav() {
   return (
     <header
       style={{
-        paddingTop: "max(0.4rem, env(safe-area-inset-top, 0.4rem))",
+        paddingTop: "max(0.75rem, env(safe-area-inset-top, 0.75rem))",
       }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
-        scrolled
-          ? "bg-[#F5F3EE]/95 backdrop-blur-md border-b-[1.5px] border-[#111111] pb-2 shadow-[0_2px_0px_rgba(17,17,17,0.1)]"
-          : "bg-transparent border-b border-transparent pb-2 sm:pb-2.5"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-8 transition-all duration-200 pointer-events-none"
     >
-      <div className="site-container flex items-center justify-between">
-        {/* Left: Clean Brand Name with Red Dot */}
-        <a
-          href="/#hero"
-          onClick={(e) => handleNavClick(e, "#hero")}
-          className="group flex items-center gap-2.5 min-h-[40px] py-1 font-sans text-[15px] font-medium tracking-tight text-[#111111] transition-colors focus-visible:outline-none"
+      <div className="site-container max-w-7xl mx-auto pointer-events-auto">
+        <div
+          className={`flex items-center justify-between px-5 sm:px-8 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl border-2 border-[#111111] transition-all duration-300 ${
+            scrolled
+              ? "bg-white/95 backdrop-blur-md shadow-[4px_4px_0px_#111111]"
+              : "bg-white shadow-[3px_3px_0px_#111111]"
+          }`}
         >
-          <span className="w-2.5 h-2.5 rounded-full bg-[#E8472B] inline-block transition-transform duration-200 group-hover:scale-125 shrink-0" />
-          <span className="group-hover:text-[#E8472B] transition-colors">
-            {IDENTITY.name}
-          </span>
-        </a>
-
-        {/* Right: Clean Navigation Links (Inter, 14px, weight 500) */}
-        <motion.nav
-          initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          aria-label="Main Navigation"
-          className="hidden md:flex items-center gap-6 lg:gap-8 py-1"
-        >
-          {NAV_LINKS.map((item) => {
-            const isActive = active === item.href;
-            return (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                className={`font-sans text-[15px] font-medium tracking-normal transition-colors relative py-2 min-h-[44px] flex items-center ${
-                  isActive
-                    ? "text-[#111111]"
-                    : "text-[#4a4a4a] hover:text-[#E8472B]"
-                }`}
-              >
-                {item.label}
-                {isActive && (
-                  <motion.span
-                    layoutId="nav-underline"
-                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#E8472B]"
-                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                  />
-                )}
-              </a>
-            );
-          })}
-        </motion.nav>
-
-        {/* Mobile Hamburger on Right (min 48x48 tap target) */}
-        <div className="flex md:hidden items-center">
-          <button
-            type="button"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label={isOpen ? "Close menu" : "Open menu"}
-            className="w-12 h-12 flex items-center justify-center text-[#111111] hover:text-[#E8472B] transition-colors focus-visible:outline-none"
+          {/* Left: Clean Navigation Links */}
+          <nav
+            aria-label="Main Navigation"
+            className="hidden md:flex items-center gap-6 lg:gap-8"
           >
-            {isOpen ? <X className="w-6 h-6 stroke-[2.5]" /> : <Menu className="w-6 h-6 stroke-[2.5]" />}
-          </button>
+            {NAV_LINKS.map((item) => {
+              const isActive = active === item.href;
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className={`font-sans text-[14px] font-bold tracking-tight transition-all relative py-1 ${
+                    isActive
+                      ? "text-[#111111]"
+                      : "text-[#555555] hover:text-[#111111]"
+                  }`}
+                >
+                  {item.label}
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#111111]"
+                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                    />
+                  )}
+                </a>
+              );
+            })}
+          </nav>
+
+          {/* Center: Bold Brand Name (Syne font, all caps) */}
+          <a
+            href="/#hero"
+            onClick={(e) => handleNavClick(e, "#hero")}
+            className="font-display font-extrabold text-[17px] sm:text-[19px] tracking-tight uppercase text-[#111111] hover:text-[#6C47FF] transition-colors"
+          >
+            {IDENTITY.name}
+          </a>
+
+          {/* Right: Neo-brutalist "Let's Talk" Boxed CTA */}
+          <div className="hidden sm:flex items-center gap-3">
+            <a
+              href="/#contact"
+              onClick={(e) => handleNavClick(e, "#contact")}
+              className="px-4 sm:px-5 py-1.5 sm:py-2 rounded-lg bg-white hover:bg-[#FFD13B] text-[#111111] font-sans text-[13px] sm:text-[14px] font-bold border-2 border-[#111111] shadow-[2px_2px_0px_#111111] hover:shadow-[3px_3px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all cursor-pointer select-none"
+            >
+              Let&apos;s Talk
+            </a>
+          </div>
+
+          {/* Mobile Hamburger on Right */}
+          <div className="flex md:hidden items-center">
+            <button
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              className="w-10 h-10 flex items-center justify-center text-[#111111] hover:bg-[#F5F0E6] rounded-lg border border-[#111111] transition-colors focus-visible:outline-none"
+            >
+              {isOpen ? <X className="w-5 h-5 stroke-[2.5]" /> : <Menu className="w-5 h-5 stroke-[2.5]" />}
+            </button>
+          </div>
         </div>
       </div>
 
