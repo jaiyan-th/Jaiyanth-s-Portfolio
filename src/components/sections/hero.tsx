@@ -149,26 +149,26 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.25 }}
               className="relative p-6 sm:p-8 rounded-3xl bg-white/70 backdrop-blur-sm border-2 border-[#111111] shadow-[6px_6px_0px_#111111]"
             >
-              {/* Fun Category Badge on Card */}
+              {/* Quote Top: Above Emoji */}
               <div className="flex items-center justify-between mb-4 pb-3 border-b-2 border-[#111111]">
-                <span className="font-mono text-[11px] font-extrabold uppercase tracking-wider text-[#111111]">
-                  AI CREATIVE ENGINE
+                <span className="font-mono text-[11px] sm:text-[12px] font-extrabold uppercase tracking-wider text-[#111111]">
+                  &ldquo;The best way to predict the future&rdquo;
                 </span>
-                <span className="font-mono text-[11px] font-bold text-[#6C47FF] bg-[#ECE7FF] px-2 py-0.5 rounded-md border border-[#111111]">
-                  ✦ 2026 EDITION
+                <span className="font-mono text-[10px] sm:text-[10.5px] font-bold text-[#6C47FF] bg-[#ECE7FF] px-2 py-0.5 rounded-md border border-[#111111]">
+                  ✦ ALAN KAY
                 </span>
               </div>
 
               {/* The Smiley Cluster */}
               <SmileyCluster />
 
-              {/* Bottom Quote / Tagline */}
+              {/* Quote Bottom: Below Emoji */}
               <div className="mt-4 pt-3 border-t-2 border-[#111111] flex items-center justify-between">
-                <span className="font-sans font-extrabold text-[12px] sm:text-[13px] text-[#111111]">
-                  Human-centered · High-assurance
+                <span className="font-sans font-extrabold text-[12.5px] sm:text-[13.5px] text-[#111111]">
+                  &ldquo;...is to invent it.&rdquo;
                 </span>
-                <span className="font-mono text-[11px] text-[#555555]">
-                  94.2% Verified
+                <span className="font-mono text-[11px] text-[#555555] font-bold">
+                  — Alan Kay
                 </span>
               </div>
             </motion.div>
