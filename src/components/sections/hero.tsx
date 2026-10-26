@@ -22,7 +22,7 @@ export function Hero() {
     <section
       id="hero"
       aria-label="Hero Introduction"
-      className="relative min-h-[92vh] flex flex-col justify-center bg-[#F5F0E6] pt-28 sm:pt-32 md:pt-36 pb-16 sm:pb-20 overflow-hidden"
+      className="relative min-h-screen min-h-[100dvh] flex flex-col justify-center bg-[#F5F0E6] pt-24 sm:pt-28 md:pt-32 pb-10 sm:pb-14 overflow-hidden"
     >
       <div className="site-container max-w-7xl mx-auto w-full px-5 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
