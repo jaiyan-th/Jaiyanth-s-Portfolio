@@ -112,7 +112,7 @@ export function About() {
 
               {/* Photo Card with 3D Tilt Toward Cursor */}
               <div
-                className="relative w-full h-full overflow-hidden rounded-2xl bg-[#F5F3EE] transition-transform duration-100 ease-out will-change-transform shadow-[6px_6px_0px_#111111] border-2 border-[#111111]"
+                className="relative w-full h-full transition-transform duration-100 ease-out will-change-transform preserve-3d"
                 style={{
                   transform:
                     isMobile || shouldReduceMotion
@@ -120,44 +120,55 @@ export function About() {
                       : `rotateX(${photoTilt.x}deg) rotateY(${photoTilt.y}deg) translateZ(20px)`,
                 }}
               >
-                <Image
-                  src="/images/jaiyanth-about.jpg"
-                  alt="Jaiyanth B — Applied AI & Full-Stack Engineer"
-                  fill
-                  priority
-                  className="object-cover object-center filter grayscale contrast-105 transition-all duration-700 group-hover:scale-[1.04] group-hover:filter-none"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 420px"
-                />
+                {/* Image Surface with Rounded Corners & Overflow Hidden */}
+                <div className="relative w-full h-full overflow-hidden rounded-2xl bg-[#F5F3EE] shadow-[6px_6px_0px_#111111] border-2 border-[#111111]">
+                  <Image
+                    src="/images/jaiyanth-about.jpg"
+                    alt="Jaiyanth B — Applied AI & Full-Stack Engineer"
+                    fill
+                    priority
+                    className="object-cover object-center filter grayscale contrast-105 transition-all duration-700 group-hover:scale-[1.04] group-hover:filter-none"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 420px"
+                  />
 
-                {/* Holographic light sheen on hover */}
-                <div className="pointer-events-none absolute -inset-full bg-gradient-to-tr from-transparent via-white/20 to-transparent rotate-45 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out" />
+                  {/* Holographic light sheen on hover */}
+                  <div className="pointer-events-none absolute -inset-full bg-gradient-to-tr from-transparent via-white/20 to-transparent rotate-45 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out" />
+                </div>
+
+                {/* Floating Glass Badges (Mono 11px uppercase) */}
+                <div
+                  className="absolute -top-3 -left-3 z-30 pointer-events-none"
+                  style={{ transform: "translateZ(30px)" }}
+                >
+                  <motion.div
+                    initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.8, x: -16 }}
+                    whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
+                    <span className="backdrop-blur-md bg-white border-[1.5px] border-[#111111] shadow-[2px_2px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium px-3.5 py-1 rounded-full inline-block">
+                      B.TECH CSBS &apos;26
+                    </span>
+                  </motion.div>
+                </div>
+
+                <div
+                  className="absolute -bottom-3 -right-3 z-30 pointer-events-none"
+                  style={{ transform: "translateZ(30px)" }}
+                >
+                  <motion.div
+                    initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.8, x: 16 }}
+                    whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.35 }}
+                  >
+                    <span className="backdrop-blur-md bg-white border-[1.5px] border-[#111111] shadow-[2px_2px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium px-3.5 py-1 rounded-full gap-2 inline-flex items-center">
+                      <span className="w-2 h-2 rounded-full bg-[#E8472B] animate-pulse" />
+                      IEEE CO-AUTHOR
+                    </span>
+                  </motion.div>
+                </div>
               </div>
-
-              {/* Floating Glass Badges (Mono 11px uppercase) */}
-              <motion.div
-                initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.8, x: -16 }}
-                whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="absolute -top-3 -left-3 z-20 pointer-events-none"
-              >
-                <span className="backdrop-blur-md bg-white border-[1.5px] border-[#111111] shadow-[2px_2px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium px-3.5 py-1 rounded-full inline-block">
-                  B.TECH CSBS &apos;26
-                </span>
-              </motion.div>
-
-              <motion.div
-                initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.8, x: 16 }}
-                whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.35 }}
-                className="absolute -bottom-3 -right-3 z-20 pointer-events-none"
-              >
-                <span className="backdrop-blur-md bg-white border-[1.5px] border-[#111111] shadow-[2px_2px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-[0.08em] font-medium px-3.5 py-1 rounded-full gap-2 inline-flex items-center">
-                  <span className="w-2 h-2 rounded-full bg-[#E8472B] animate-pulse" />
-                  IEEE CO-AUTHOR
-                </span>
-              </motion.div>
             </div>
           </div>
 
