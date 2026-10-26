@@ -3,8 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowUpRight, GraduationCap } from "lucide-react";
-import { IDENTITY } from "@/data/content";
+import { GraduationCap } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 
 import { EyebrowPill } from "@/components/ui/eyebrow-pill";
@@ -90,7 +89,7 @@ export function About() {
             </div>
 
             {/* Simple Meta Line (Education & Location) */}
-            <div className="flex flex-wrap items-center gap-3 mb-8 pt-2">
+            <div className="flex flex-wrap items-center gap-3 pt-2">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white border-2 border-[#111111] shadow-[2px_2px_0px_#111111] font-mono text-[11px] font-bold text-[#111111] uppercase tracking-wider">
                 <GraduationCap className="w-4 h-4 text-[#8B5CF6]" />
                 <span>B.Tech CSBS &apos;27 · 2023–2027 · VSB Eng College</span>
@@ -99,29 +98,6 @@ export function About() {
                 <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse" />
                 <span>Karur, Tamil Nadu, India</span>
               </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-4 border-t-2 border-[#111111] w-full">
-              <a
-                href={IDENTITY.github}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-[#FFD13B] text-[#111111] font-sans text-[13px] sm:text-[14px] font-bold border-2 border-[#111111] shadow-[2.5px_2.5px_0px_#111111] hover:shadow-[4px_4px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all select-none"
-              >
-                <span>GitHub Profile</span>
-                <ArrowUpRight className="w-4 h-4 ml-0.5 shrink-0" />
-              </a>
-
-              <a
-                href={IDENTITY.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-[#EDE9FE] text-[#111111] font-sans text-[13px] sm:text-[14px] font-bold border-2 border-[#111111] shadow-[2.5px_2.5px_0px_#111111] hover:shadow-[4px_4px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all select-none"
-              >
-                <span>LinkedIn</span>
-                <ArrowUpRight className="w-4 h-4 ml-0.5 shrink-0" />
-              </a>
             </div>
           </div>
 
@@ -165,40 +141,6 @@ export function About() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 420px"
                   />
                   <div className="pointer-events-none absolute -inset-full bg-gradient-to-tr from-transparent via-white/20 to-transparent rotate-45 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out" />
-                </div>
-
-                {/* Floating Neo-Brutalist Sticker Badges */}
-                <div
-                  className="absolute -top-3 -left-3 z-30 pointer-events-none"
-                  style={{ transform: "translateZ(30px)" }}
-                >
-                  <motion.div
-                    initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.8, x: -16 }}
-                    whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                  >
-                    <span className="bg-[#FEF08A] border-2 border-[#111111] shadow-[2.5px_2.5px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-wider font-extrabold px-3 py-1 rounded-full inline-block">
-                      B.TECH CSBS &apos;27
-                    </span>
-                  </motion.div>
-                </div>
-
-                <div
-                  className="absolute -bottom-3 -right-3 z-30 pointer-events-none"
-                  style={{ transform: "translateZ(30px)" }}
-                >
-                  <motion.div
-                    initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.8, x: 16 }}
-                    whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.35 }}
-                  >
-                    <span className="bg-[#DCFCE7] border-2 border-[#111111] shadow-[2.5px_2.5px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-wider font-extrabold px-3.5 py-1 rounded-full gap-2 inline-flex items-center">
-                      <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
-                      VSB ENG COLLEGE
-                    </span>
-                  </motion.div>
                 </div>
               </div>
             </div>
