@@ -62,15 +62,76 @@ export function About() {
           </span>
         </Reveal>
 
-        {/* Bento Grid Layout: Photo + Modern Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-          {/* Left Column: 3D Tilting Portrait Card */}
-          <div className="lg:col-span-5 flex flex-col justify-between items-center w-full perspective-1200">
+        {/* Clean 2-Column Layout: Text on Left (Simple & Unboxed), Photo on Right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          {/* Left Column: Simple Editorial Content (No Box Clutter) */}
+          <div className="lg:col-span-7 flex flex-col items-start z-10">
+            {/* Mission Eyebrow */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border-2 border-[#111111] shadow-[2px_2px_0px_#111111] mb-5 select-none">
+              <span className="w-2 h-2 rounded-full bg-[#6C47FF]" />
+              <span className="font-mono text-[11px] font-extrabold uppercase tracking-wider text-[#111111]">
+                ENGINEERING PHILOSOPHY
+              </span>
+            </div>
+
+            {/* Clear Medium Headline */}
+            <h3 className="font-sans font-bold text-[clamp(22px,2.8vw,32px)] text-[#111111] leading-snug tracking-tight mb-5">
+              Engineering applied AI systems with deterministic grounding and production reliability.
+            </h3>
+
+            {/* Simple Unboxed Paragraphs */}
+            <div className="space-y-4 font-sans text-[15px] sm:text-[16px] text-[#333333] leading-relaxed max-w-2xl mb-6">
+              <p>
+                I specialize in building production AI systems where models aren&apos;t treated as black boxes, but strictly grounded by high-throughput vector retrieval, context-aware reasoning flows, and verified database invariants.
+              </p>
+              <p>
+                My work spans from sub-second RAG fact-verification engines with vector databases to multi-model agentic career platforms and cryptographic vaults with authenticated encryption. I also co-authored peer-reviewed research accepted at IEEE ICETSIS 2026 Bahrain.
+              </p>
+            </div>
+
+            {/* Simple Meta Line (Education & Location) */}
+            <div className="flex flex-wrap items-center gap-3 mb-8 pt-2">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white border-2 border-[#111111] shadow-[2px_2px_0px_#111111] font-mono text-[11px] font-bold text-[#111111] uppercase tracking-wider">
+                <GraduationCap className="w-4 h-4 text-[#8B5CF6]" />
+                <span>B.Tech CSBS &apos;26 · 2022–2026</span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white border-2 border-[#111111] shadow-[2px_2px_0px_#111111] font-mono text-[11px] font-bold text-[#111111] uppercase tracking-wider">
+                <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse" />
+                <span>Chennai, India</span>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3 pt-4 border-t-2 border-[#111111] w-full">
+              <a
+                href={IDENTITY.github}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-[#FFD13B] text-[#111111] font-sans text-[13px] sm:text-[14px] font-bold border-2 border-[#111111] shadow-[2.5px_2.5px_0px_#111111] hover:shadow-[4px_4px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all select-none"
+              >
+                <span>GitHub Profile</span>
+                <ArrowUpRight className="w-4 h-4 ml-0.5 shrink-0" />
+              </a>
+
+              <a
+                href={IDENTITY.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-[#EDE9FE] text-[#111111] font-sans text-[13px] sm:text-[14px] font-bold border-2 border-[#111111] shadow-[2.5px_2.5px_0px_#111111] hover:shadow-[4px_4px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all select-none"
+              >
+                <span>LinkedIn</span>
+                <ArrowUpRight className="w-4 h-4 ml-0.5 shrink-0" />
+              </a>
+            </div>
+          </div>
+
+          {/* Right Column: 3D Tilting Portrait Photo Card */}
+          <div className="lg:col-span-5 flex flex-col justify-center items-center lg:items-end w-full perspective-1200 pt-4 lg:pt-0">
             <div
               ref={photoContainerRef}
               onMouseMove={handlePhotoMouseMove}
               onMouseLeave={handlePhotoMouseLeave}
-              className="group relative w-full max-w-[360px] sm:max-w-[400px] lg:max-w-full aspect-square preserve-3d cursor-pointer"
+              className="group relative w-full max-w-[360px] sm:max-w-[400px] aspect-square preserve-3d cursor-pointer"
             >
               {/* Hard Offset Shadow Plate */}
               <div
@@ -140,151 +201,6 @@ export function About() {
                   </motion.div>
                 </div>
               </div>
-            </div>
-
-            {/* Quick Location / Availability Subline */}
-            <div className="mt-6 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border-2 border-[#111111] shadow-[2px_2px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-wider font-bold">
-              <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse" />
-              <span>Chennai, India · Applied AI &amp; Systems</span>
-            </div>
-          </div>
-
-          {/* Right Column: Modern Asymmetric Bento Tiles */}
-          <div className="lg:col-span-7 flex flex-col justify-between gap-5">
-            {/* Tile 1: Engineering Philosophy (Concise & High Impact) */}
-            <motion.div
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6 }}
-              whileHover={shouldReduceMotion || isMobile ? {} : { y: -4, transition: { duration: 0.2 } }}
-              className="p-6 sm:p-7 rounded-3xl bg-[#FFFDF5] border-2 border-[#111111] shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] relative overflow-hidden transition-all duration-200"
-            >
-              <div className="absolute top-0 left-0 bottom-0 w-2 bg-[#FFD13B]" />
-              <div className="flex items-center justify-between mb-3">
-                <span className="px-3 py-0.5 rounded-full bg-white border-2 border-[#111111] shadow-[1.5px_1.5px_0px_#111111] text-[#111111] font-mono text-[10.5px] uppercase tracking-wider font-extrabold">
-                  MISSION
-                </span>
-                <span className="font-mono text-[11px] uppercase tracking-wider text-[#666666] font-semibold">
-                  01 // SYSTEMS FIRST
-                </span>
-              </div>
-              <h3 className="font-sans font-bold text-lg sm:text-xl text-[#111111] mb-2 leading-snug">
-                Building reliable AI systems with deterministic guarantees.
-              </h3>
-              <p className="font-sans text-[14px] sm:text-[15px] text-[#333333] leading-relaxed font-normal mb-3">
-                I engineer applied AI pipelines where models are not treated as black boxes, but grounded with semantic vector retrieval, strict schema invariants, and verifiable provenance.
-              </p>
-              <p className="font-sans text-[14px] sm:text-[15px] text-[#444444] leading-relaxed font-normal">
-                From sub-second RAG fact-verification engines to conversational triage and high-assurance cryptographic stores, I prioritize deterministic reliability over hype.
-              </p>
-            </motion.div>
-
-            {/* Split 2-Column Bento Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {/* Tile 2: Education */}
-              <motion.div
-                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                whileHover={shouldReduceMotion || isMobile ? {} : { y: -4, transition: { duration: 0.2 } }}
-                className="p-5 sm:p-6 rounded-3xl bg-[#EDE9FE] border-2 border-[#111111] shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] flex flex-col justify-between transition-all duration-200"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="w-9 h-9 rounded-xl bg-white border-2 border-[#111111] shadow-[1.5px_1.5px_0px_#111111] flex items-center justify-center text-[#111111]">
-                      <GraduationCap className="w-5 h-5 text-[#8B5CF6]" />
-                    </div>
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-[#111111] font-bold px-2.5 py-0.5 rounded-full bg-white border border-[#111111]">
-                      2022–26
-                    </span>
-                  </div>
-                  <span className="font-mono text-[10.5px] uppercase tracking-wider text-[#6C47FF] font-extrabold block mb-1">
-                    DEGREE
-                  </span>
-                  <h4 className="font-sans font-bold text-base text-[#111111] leading-snug mb-1">
-                    B.Tech in Computer Science &amp; Business Systems
-                  </h4>
-                  <p className="font-sans text-[13px] text-[#444444] leading-relaxed">
-                    Specializing in Applied AI architectures, distributed systems, and enterprise data security.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Tile 3: Key Proof Points */}
-              <motion.div
-                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: 0.18 }}
-                whileHover={shouldReduceMotion || isMobile ? {} : { y: -4, transition: { duration: 0.2 } }}
-                className="p-5 sm:p-6 rounded-3xl bg-[#DCFCE7] border-2 border-[#111111] shadow-[5px_5px_0px_#111111] hover:shadow-[7px_7px_0px_#111111] flex flex-col justify-between transition-all duration-200"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="px-2.5 py-0.5 rounded-full bg-white border-2 border-[#111111] shadow-[1.5px_1.5px_0px_#111111] text-[#111111] font-mono text-[10.5px] uppercase tracking-wider font-extrabold">
-                      HIGHLIGHTS
-                    </span>
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#16A34A] animate-ping" />
-                  </div>
-                  <div className="space-y-2.5 mt-2">
-                    <div className="flex items-baseline justify-between border-b border-[#111111]/15 pb-1.5">
-                      <span className="font-mono text-[11px] uppercase tracking-wider text-[#444444] font-medium">
-                        Research Paper
-                      </span>
-                      <span className="font-sans font-bold text-[13px] text-[#111111]">
-                        IEEE ICETSIS &apos;26
-                      </span>
-                    </div>
-                    <div className="flex items-baseline justify-between border-b border-[#111111]/15 pb-1.5">
-                      <span className="font-mono text-[11px] uppercase tracking-wider text-[#444444] font-medium">
-                        RAG Precision
-                      </span>
-                      <span className="font-sans font-bold text-[13px] text-[#111111]">
-                        94.2% Grounded
-                      </span>
-                    </div>
-                    <div className="flex items-baseline justify-between">
-                      <span className="font-mono text-[11px] uppercase tracking-wider text-[#444444] font-medium">
-                        Industry Internship
-                      </span>
-                      <span className="font-sans font-bold text-[13px] text-[#111111]">
-                        AI Prototypes
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Bottom Actions Row */}
-            <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-              <div className="flex flex-wrap items-center gap-3">
-                <a
-                  href={IDENTITY.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-[#FFD13B] text-[#111111] font-sans text-[13px] font-bold border-2 border-[#111111] shadow-[2.5px_2.5px_0px_#111111] hover:shadow-[4px_4px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all select-none"
-                >
-                  <span>GitHub Profile</span>
-                  <ArrowUpRight className="w-4 h-4 ml-0.5 shrink-0" />
-                </a>
-
-                <a
-                  href={IDENTITY.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-[#EDE9FE] text-[#111111] font-sans text-[13px] font-bold border-2 border-[#111111] shadow-[2.5px_2.5px_0px_#111111] hover:shadow-[4px_4px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all select-none"
-                >
-                  <span>LinkedIn</span>
-                  <ArrowUpRight className="w-4 h-4 ml-0.5 shrink-0" />
-                </a>
-              </div>
-
-              <span className="font-mono text-[11px] uppercase tracking-wider text-[#666666] font-semibold">
-                Building with precision &amp; care.
-              </span>
             </div>
           </div>
         </div>
