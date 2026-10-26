@@ -10,7 +10,6 @@ import { Research } from "@/components/sections/research";
 import { WhyWork } from "@/components/sections/why-work";
 import { Footer } from "@/components/layout/footer";
 import { CustomCursor } from "@/components/ui/custom-cursor";
-import { VerticalTab } from "@/components/ui/vertical-tab";
 
 export default function Home() {
   return (
@@ -20,9 +19,6 @@ export default function Home() {
 
       {/* Subtle Star / Sparkle Interactive Cursor */}
       <CustomCursor />
-
-      {/* Rotated Available Tab */}
-      <VerticalTab />
 
       {/* Fixed Agency Framed Navbar */}
       <FloatingNav />

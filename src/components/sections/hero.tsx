@@ -41,12 +41,12 @@ export function Hero() {
               </span>
             </motion.div>
 
-            {/* Clean Simple Medium Heading */}
+            {/* Clean Simple Medium-Bold Heading that bridges the center gap */}
             <motion.h1
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="font-sans font-bold text-[clamp(28px,3.8vw,46px)] text-[#111111] leading-[1.12] tracking-[-0.025em] mb-4 sm:mb-5 select-none"
+              className="font-sans font-bold text-[clamp(36px,4.5vw,58px)] text-[#111111] leading-[1.08] tracking-[-0.03em] mb-4 sm:mb-5 select-none"
             >
               Engineering applied AI in the production age.
             </motion.h1>
@@ -56,7 +56,7 @@ export function Hero() {
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.18 }}
-              className="font-sans text-[15px] sm:text-[16.5px] text-[#333333] leading-relaxed max-w-xl mb-5 font-normal"
+              className="font-sans text-[16px] sm:text-[18px] text-[#333333] leading-relaxed max-w-2xl mb-6 font-normal"
             >
               Driving product impact through production RAG architectures, deterministic agent workflows, and verified full-stack applications built to scale.
             </motion.p>
@@ -142,7 +142,7 @@ export function Hero() {
           </div>
 
           {/* Right Column: Playful Smiley Sticker Cluster (5 cols on desktop) */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center lg:items-end z-10 pt-4 lg:pt-0">
+          <div className="lg:col-span-5 flex flex-col items-center justify-center lg:items-center z-10 pt-4 lg:pt-0">
             <motion.div
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
