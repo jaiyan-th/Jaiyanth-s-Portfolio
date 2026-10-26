@@ -110,7 +110,7 @@ const personJsonLd = {
   ],
   alumniOf: {
     "@type": "EducationalOrganization",
-    name: "Computer Science and Business Systems",
+    name: "V.S.B. Engineering College",
   },
 };
 

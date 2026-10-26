@@ -82,10 +82,10 @@ export function About() {
             {/* Simple Unboxed Paragraphs */}
             <div className="space-y-4 font-sans text-[15px] sm:text-[16px] text-[#333333] leading-relaxed max-w-2xl mb-6">
               <p>
-                I specialize in building production AI systems where models aren&apos;t treated as black boxes, but strictly grounded by high-throughput vector retrieval, context-aware reasoning flows, and verified database invariants.
+                I am a Computer Science &amp; Business Systems (CSBS) student, Batch 2023–2027, at V.S.B. Engineering College. My academic curriculum unites core computing principles, data structures, and algorithms with modern enterprise architectures and business technology.
               </p>
               <p>
-                My work spans from sub-second RAG fact-verification engines with vector databases to multi-model agentic career platforms and cryptographic vaults with authenticated encryption. I also co-authored peer-reviewed research accepted at IEEE ICETSIS 2026 Bahrain.
+                Alongside my coursework at VSB Engineering College, I build practical software systems — specializing in applied AI engineering, grounded Retrieval-Augmented Generation (RAG) pipelines, and responsive full-stack applications built for reliability and real-world utility.
               </p>
             </div>
 
@@ -93,11 +93,11 @@ export function About() {
             <div className="flex flex-wrap items-center gap-3 mb-8 pt-2">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white border-2 border-[#111111] shadow-[2px_2px_0px_#111111] font-mono text-[11px] font-bold text-[#111111] uppercase tracking-wider">
                 <GraduationCap className="w-4 h-4 text-[#8B5CF6]" />
-                <span>B.Tech CSBS &apos;26 · 2022–2026</span>
+                <span>B.Tech CSBS &apos;27 · 2023–2027 · VSB Eng College</span>
               </div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white border-2 border-[#111111] shadow-[2px_2px_0px_#111111] font-mono text-[11px] font-bold text-[#111111] uppercase tracking-wider">
                 <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse" />
-                <span>Chennai, India</span>
+                <span>Karur, Tamil Nadu, India</span>
               </div>
             </div>
 
@@ -179,7 +179,7 @@ export function About() {
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
                     <span className="bg-[#FEF08A] border-2 border-[#111111] shadow-[2.5px_2.5px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-wider font-extrabold px-3 py-1 rounded-full inline-block">
-                      B.TECH CSBS &apos;26
+                      B.TECH CSBS &apos;27
                     </span>
                   </motion.div>
                 </div>
@@ -196,7 +196,7 @@ export function About() {
                   >
                     <span className="bg-[#DCFCE7] border-2 border-[#111111] shadow-[2.5px_2.5px_0px_#111111] text-[#111111] font-mono text-[11px] uppercase tracking-wider font-extrabold px-3.5 py-1 rounded-full gap-2 inline-flex items-center">
                       <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
-                      IEEE CO-AUTHOR
+                      VSB ENG COLLEGE
                     </span>
                   </motion.div>
                 </div>

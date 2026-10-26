@@ -16,7 +16,7 @@ import type {
 export const IDENTITY = {
   name: "Jaiyanth B",
   role: "AI + Full-Stack Engineer",
-  education: "Final-year Computer Science & Business Systems",
+  education: "Computer Science & Business Systems (Batch 2023–2027) · VSB Engineering College",
   location: "Karur, Tamil Nadu, India",
   email: "jaiyanthofficial@gmail.com",
   github: "https://github.com/jaiyan-th",
@@ -40,15 +40,15 @@ export const ABOUT = {
   statement:
     "I translate ambiguous problems into engineered, useful software — moving carefully from signal, to system, to story.",
   biography: [
-    "I'm a final-year Computer Science & Business Systems student in India, focused on Applied AI and Full-Stack Engineering. My work sits between research and production: I build RAG pipelines, conversational systems, structured APIs, and end-to-end web products that hold up under real use.",
-    "I care about the full path — clean data, dependable APIs, accessible interfaces, and code that another engineer can read. I've contributed to an IEEE research paper on preventive healthcare AI, completed an AI internship building production prototypes, and shipped four selected projects that anchor everything I've learned.",
+    "I'm a Computer Science & Business Systems (CSBS) student (Batch 2023–2027) at V.S.B. Engineering College, focused on Applied AI and Full-Stack Engineering. My curriculum integrates computational science with enterprise business workflows, while my personal engineering focuses on building grounded RAG pipelines, modern web applications, and resilient cloud backends.",
+    "I care about the full path — clean data, dependable APIs, accessible interfaces, and code that another engineer can read. I've completed an AI internship building production prototypes and shipped four selected projects that anchor everything I've learned.",
     "I'm currently open to applied-AI and full-stack engineering roles where rigour, taste, and care for the user matter as much as the model.",
   ],
   metrics: [
     { value: "4", label: "Selected projects", detail: "Fake News Detector · Up-Skill · Car-Rent · Secure Document Vault" },
     { value: "6", label: "Evidence-based skill groups", detail: "Languages · Frontend · Backend · Databases · AI & ML · Tools" },
     { value: "1", label: "AI internship", detail: "Brainery Spot Technology · Jun–Jul 2025" },
-    { value: "1", label: "IEEE research achievement", detail: "ICETSIS 2026 · IEEE Bahrain Section" },
+    { value: "2027", label: "Graduation batch", detail: "B.Tech CSBS · VSB Engineering College" },
   ] as Metric[],
   expertise: [
     "RAG",

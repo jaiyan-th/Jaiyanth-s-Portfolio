@@ -71,8 +71,8 @@ export const IDENTITY = {
   resumeUrl: "https://drive.google.com/file/d/1ro5v9Cb1Un-pj2ZEiKdZVDEPDeOpfEU_/view?usp=sharing",
   bookingUrl: "mailto:jaiyanthofficial@gmail.com?subject=Book%20a%20Call%20with%20Jaiyanth",
   bio: [
-    "Final-year Computer Science & Business Systems engineer specializing in Applied AI systems, full-stack product engineering, and secure cloud architectures.",
-    "Driven by building software that bridges rigorous probabilistic AI reasoning with deterministic, high-performance web backends.",
+    "Computer Science & Business Systems (CSBS) student (Batch 2023–2027) at V.S.B. Engineering College, specializing in Applied AI systems, full-stack product engineering, and secure software architectures.",
+    "Driven by building software that bridges practical machine learning and grounded AI reasoning with deterministic, high-performance web backends.",
   ],
 } as const;
 
