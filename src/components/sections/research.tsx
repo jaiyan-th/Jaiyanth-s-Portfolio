@@ -115,7 +115,7 @@ export function Research() {
           <div className="absolute top-0 left-0 right-0 h-1 bg-[#E8472B]" />
 
           {/* Top Meta Bar */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 mb-4 border-b-[1.5px] border-[#111111]/20">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pb-4 mb-4 border-b-[1.5px] border-[#111111]/20">
             <div className="flex flex-wrap items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.08em]">
               <span className="inline-flex items-center gap-1.5 font-medium text-[#111111]">
                 <ShieldCheck className="w-4 h-4 text-[#E8472B] shrink-0" />
@@ -130,7 +130,7 @@ export function Research() {
             </div>
 
             {/* Allowed Outlined Pill Button + Black Pill Button (Inter, padding 11px 22px, gap 12px) */}
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap items-center gap-2.5">
               {RESEARCH.certificateUrl && (
                 <a
                   href={RESEARCH.certificateUrl}
@@ -200,7 +200,7 @@ export function Research() {
                   style={{
                     transform: `rotateY(${activeRotateY}deg)`,
                   }}
-                  className="group p-5 rounded-xl bg-white border-[1.5px] border-[#111111] shadow-[3px_3px_0px_#111111] hover:shadow-[5px_5px_0px_#111111] flex flex-col justify-between transition-all duration-300 ease-out will-change-transform cursor-default"
+                  className="group p-5 rounded-xl bg-white border-[1.5px] border-[#111111] shadow-[3px_3px_0px_#111111] hover:shadow-[5px_5px_0px_#111111] flex flex-col justify-between transition-all duration-300 ease-out will-change-transform cursor-default min-h-[180px]"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3">
@@ -224,7 +224,7 @@ export function Research() {
           </div>
 
           {/* Bottom Row: Domain Keywords & Deep Dive */}
-          <div className="pt-4 sm:pt-5 border-t-[1.5px] border-[#111111]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="pt-4 sm:pt-5 border-t-[1.5px] border-[#111111]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
             <div className="flex flex-wrap items-center gap-2 font-mono text-[11px] uppercase tracking-[0.08em] text-[#111111]">
               <span className="text-[#555555] font-medium mr-1">
                 DOMAIN:

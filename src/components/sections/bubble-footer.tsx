@@ -430,13 +430,8 @@ export function BubbleFooter() {
         )}
       </div>
 
-      {/* Clean Footer Row: 3 cols >=768px, stacked & centered on phones; 44px tap targets */}
-      <div
-        style={{
-          paddingBottom: "max(1.5rem, env(safe-area-inset-bottom, 1.5rem))",
-        }}
-        className="pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between gap-4 border-t-2 border-[#111111]/20 mt-6 sm:mt-8 text-center md:text-left"
-      >
+      {/* Clean Footer Navigation & Links Row */}
+      <div className="pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between gap-4 border-t-2 border-[#111111]/20 mt-6 sm:mt-8 text-center md:text-left">
         {/* Navigation Pages */}
         <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-6">
           {NAV_LINKS.map((link) => (
@@ -485,6 +480,17 @@ export function BubbleFooter() {
           <span className="w-2 h-2 rounded-full bg-[#1FB866] shrink-0" />
           <span>Replies within 2hrs</span>
         </div>
+      </div>
+
+      {/* Clean Copyright & Region Subline */}
+      <div
+        style={{
+          paddingBottom: "max(1.5rem, env(safe-area-inset-bottom, 1.5rem))",
+        }}
+        className="pt-4 mt-2 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-[#111111]/10 font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted text-center sm:text-left"
+      >
+        <span>© 2026 {IDENTITY.name}</span>
+        <span>Based in India · Working Worldwide</span>
       </div>
     </div>
   );

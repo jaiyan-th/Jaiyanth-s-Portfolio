@@ -89,8 +89,8 @@ export function Hero() {
       {/* Ambient background grid lines that harmonize with the floating frame */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.35] [background-image:linear-gradient(to_right,#E5E0D8_1px,transparent_1px),linear-gradient(to_bottom,#E5E0D8_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
 
-      {/* Main Content Area */}
-      <div className="w-full px-3 sm:px-6 md:px-10 lg:px-14 relative z-10 max-w-7xl mx-auto">
+      {/* Main Content Area: Harmonized with global site-container */}
+      <div className="site-container relative z-10">
         {/* LIVE FLOATING BORDER FRAME */}
         <motion.div
           ref={containerRef}
@@ -116,7 +116,7 @@ export function Hero() {
             transformStyle: "preserve-3d",
             transition: "transform 0.16s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
-          className="relative w-full rounded-2xl sm:rounded-3xl bg-white border-2 border-[#111111] shadow-[8px_8px_0px_#111111] hover:shadow-[12px_12px_0px_#111111] py-10 sm:py-14 md:py-16 px-5 sm:px-10 md:px-14 flex flex-col items-center text-center overflow-hidden transition-all duration-300 group"
+          className="relative w-full rounded-2xl sm:rounded-3xl bg-white border-2 border-[#111111] shadow-[8px_8px_0px_#111111] hover:shadow-[12px_12px_0px_#111111] py-10 sm:py-14 md:py-18 px-5 sm:px-10 md:px-14 flex flex-col items-center text-center overflow-hidden transition-all duration-300 group"
         >
           {/* Top Red Indicator Accent Stripe (Signature Neo-Brutalist Element) */}
           <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#E8472B] z-10" />
@@ -157,7 +157,7 @@ export function Hero() {
 
             {/* 2. Main Heading: Applied AI engineering for systems that make sense. */}
             <h1
-              className="font-sans font-bold text-[clamp(32px,5.2vw,80px)] text-[#111111] select-none leading-[1.08] tracking-[-0.035em] mb-5 sm:mb-6 w-full max-w-5xl mx-auto"
+              className="font-sans font-bold text-[clamp(28px,5.2vw,80px)] text-[#111111] select-none leading-[1.08] tracking-[-0.035em] mb-5 sm:mb-6 w-full max-w-5xl mx-auto break-words hyphens-auto"
             >
               <span className="block">Applied AI engineering for systems</span>
               <span className="block mt-1 sm:mt-1.5">
@@ -184,7 +184,7 @@ export function Hero() {
             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.32, duration: 0.55 }}
-            className="flex items-center justify-center flex-wrap sm:flex-nowrap gap-3.5 sm:gap-4 w-full relative z-10 pb-1 sm:pb-0"
+            className="flex items-center justify-center flex-wrap gap-3 sm:gap-3.5 w-full relative z-10"
           >
             {/* Primary Action */}
             <a
@@ -211,12 +211,12 @@ export function Hero() {
             </a>
 
             {/* Social Links Chips */}
-            <div className="flex items-center gap-2.5 sm:gap-3 ml-0 sm:ml-2 font-mono text-[12px] shrink-0 whitespace-nowrap">
+            <div className="flex items-center gap-2 sm:gap-2.5 font-mono text-[12px] shrink-0">
               <a
                 href={IDENTITY.github}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white border-[1.5px] border-[#111111] shadow-[2.5px_2.5px_0px_#111111] hover:shadow-[4px_4px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none text-[#111111] font-medium transition-all"
+                className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-xl bg-white border-[1.5px] border-[#111111] shadow-[2.5px_2.5px_0px_#111111] hover:shadow-[4px_4px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none text-[#111111] font-medium transition-all whitespace-nowrap"
               >
                 <span>GitHub</span>
                 <span className="text-[11px] text-[#E8472B]">↗</span>
@@ -225,7 +225,7 @@ export function Hero() {
                 href={IDENTITY.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white border-[1.5px] border-[#111111] shadow-[2.5px_2.5px_0px_#111111] hover:shadow-[4px_4px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none text-[#111111] font-medium transition-all"
+                className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-xl bg-white border-[1.5px] border-[#111111] shadow-[2.5px_2.5px_0px_#111111] hover:shadow-[4px_4px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none text-[#111111] font-medium transition-all whitespace-nowrap"
               >
                 <span>LinkedIn</span>
                 <span className="text-[11px] text-[#E8472B]">↗</span>

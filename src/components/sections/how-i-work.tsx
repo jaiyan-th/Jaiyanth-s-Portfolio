@@ -52,7 +52,7 @@ export function HowIWork() {
                 delay: index * 0.08,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="p-5 rounded-2xl bg-white border border-border-line hover:border-[#111111]/40 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-5 rounded-2xl bg-white border border-border-line hover:border-[#111111]/40 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full"
             >
               <div>
                 <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FFE8E5] text-accent font-mono text-[11px] uppercase tracking-[0.08em] font-medium mb-3 w-max border border-accent/20">

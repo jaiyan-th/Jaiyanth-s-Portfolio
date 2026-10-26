@@ -442,7 +442,7 @@ export function ProjectRow({
         }`}
       >
         {/* Desktop Layout (>=1024px): number | title + description | category | year/arrow */}
-        <div className="hidden lg:flex items-baseline justify-between w-full">
+        <div className="hidden lg:flex items-start justify-between w-full gap-4">
           <div className="w-[72px] shrink-0 font-mono text-[11px] uppercase tracking-[0.08em] font-medium flex items-center gap-1.5 transition-colors duration-200 text-[#E8472B]">
             <span className={`w-1.5 h-1.5 rounded-full bg-[#E8472B] transition-all duration-200 ${isHovered ? "scale-125 opacity-100" : "scale-0 opacity-0"}`} />
             <span className={isHovered ? "translate-x-1 transition-transform" : "transition-transform"}>
@@ -450,7 +450,7 @@ export function ProjectRow({
             </span>
           </div>
 
-          <div className="max-w-xl xl:max-w-2xl shrink-0">
+          <div className="max-w-xl xl:max-w-2xl flex-1 min-w-0">
             <h3
               className={`card-title font-sans font-bold text-[20px] sm:text-[22px] lg:text-[24px] leading-snug tracking-[-0.025em] transition-all duration-200 ${
                 isHovered ? "text-[#E8472B] translate-x-1.5" : "text-[#111111]"
@@ -458,14 +458,14 @@ export function ProjectRow({
             >
               {renderProjectTitle(project.id, project.title)}
             </h3>
-            <p className="font-sans text-[14px] text-[var(--body)] mt-1.5 line-clamp-2 leading-relaxed">
+            <p className="font-sans text-[14px] text-[var(--body)] mt-1.5 line-clamp-2 leading-relaxed max-w-prose">
               {project.summary}
             </p>
           </div>
 
           <div className="flex-1 min-w-[16px]" />
 
-          <div className="w-[200px] shrink-0 text-left">
+          <div className="w-[180px] xl:w-[200px] shrink-0 text-left">
             <span className={`inline-flex items-center px-2.5 py-1 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] font-medium border-[1.5px] transition-all duration-200 ${
               isHovered
                 ? "bg-[#111111] text-white border-[#111111] shadow-[2px_2px_0px_#111111]"
@@ -493,16 +493,16 @@ export function ProjectRow({
 
         {/* Tablet Layout (640px to 1023px) */}
         <div className="hidden sm:block lg:hidden">
-          <div className="flex items-baseline justify-between gap-4 mb-2">
-            <div className="flex items-baseline gap-3">
-              <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#E8472B] font-medium shrink-0">
+          <div className="flex items-start justify-between gap-4 mb-2">
+            <div className="flex items-start gap-3 min-w-0">
+              <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#E8472B] font-medium shrink-0 pt-1">
                 {project.index}
               </span>
               <h3 className="card-title font-sans font-bold text-[20px] sm:text-[22px] text-[#111111] group-hover:text-[#E8472B] transition-colors leading-snug">
                 {renderProjectTitle(project.id, project.title)}
               </h3>
             </div>
-            <ArrowUpRight className="w-4 h-4 shrink-0 text-[#555555] group-hover:text-[#E8472B] group-hover:rotate-45 transition-transform" />
+            <ArrowUpRight className="w-4 h-4 shrink-0 text-[#555555] group-hover:text-[#E8472B] group-hover:rotate-45 transition-transform mt-1.5" />
           </div>
 
           <p className="font-sans text-[14px] text-[var(--body)] mb-2.5 line-clamp-2 leading-relaxed">

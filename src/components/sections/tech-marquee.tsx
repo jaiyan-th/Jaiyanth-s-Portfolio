@@ -128,7 +128,7 @@ export function TechMarquee() {
     <section
       id="tech"
       aria-label="06 Previously trusted by / Stack"
-      className="relative min-h-[100svh] flex flex-col justify-center section-padding border-t-2 border-[#111111]/20 overflow-hidden bg-transparent scroll-mt-16 perspective-1200"
+      className="relative flex flex-col justify-center section-padding border-t-2 border-[#111111]/20 overflow-hidden bg-transparent scroll-mt-16 perspective-1200"
     >
       <div className="site-container mb-6">
         {/* Section Header */}

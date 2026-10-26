@@ -114,7 +114,7 @@ export function WhyWork() {
         </motion.div>
 
         {/* /A /B /C Columns: gap 16px, padding 20-24px */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 perspective-1200">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 perspective-1200 items-stretch">
           {WHY_WORK_WITH_ME.map((point, index) => {
             const meta = CARD_METAS[index % CARD_METAS.length];
             const colParallaxY =
@@ -135,7 +135,7 @@ export function WhyWork() {
                   style={{
                     transform: `translate3d(0, ${colParallaxY}px, 0)`,
                   }}
-                  className="group relative p-5 sm:p-6 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] flex flex-col justify-between transition-all duration-300 ease-out will-change-transform overflow-hidden"
+                  className="group relative p-5 sm:p-6 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] flex flex-col justify-between transition-all duration-300 ease-out will-change-transform overflow-hidden h-full"
                 >
                   {/* Top Red Indicator stripe */}
                   <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-accent transition-colors duration-200" />
@@ -145,7 +145,7 @@ export function WhyWork() {
                       <span className="font-serif text-2xl font-normal text-accent group-hover:scale-110 transition-transform origin-left inline-block">
                         /{point.letter}
                       </span>
-                      <span className={`inline-flex items-center px-2.5 py-1 rounded-full font-mono text-[11px] uppercase tracking-[0.08em] font-medium border-[1.5px] border-[#111111] shadow-[1.5px_1.5px_0px_#111111] ${meta.tagline}`}>
+                      <span className={`inline-flex items-center px-2.5 py-1 rounded-full font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] font-medium border-[1.5px] border-[#111111] shadow-[1.5px_1.5px_0px_#111111] ${meta.stampBg}`}>
                         {meta.tagline}
                       </span>
                     </div>

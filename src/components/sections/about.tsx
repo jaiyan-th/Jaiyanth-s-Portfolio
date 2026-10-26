@@ -91,12 +91,12 @@ export function About() {
         {/* Main Content Grid: On <1024px, photo stacks FIRST */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-16 items-start">
           {/* Photo Column: 2/5 on desktop */}
-          <div className="lg:col-span-5 order-1 lg:order-2 flex items-center justify-center w-full perspective-1200">
+          <div className="lg:col-span-5 order-1 lg:order-2 flex items-start justify-center w-full perspective-1200">
             <div
               ref={photoContainerRef}
               onMouseMove={handlePhotoMouseMove}
               onMouseLeave={handlePhotoMouseLeave}
-              className="group relative w-full max-w-[380px] sm:max-w-[420px] aspect-square preserve-3d cursor-pointer"
+              className="group relative w-full max-w-[340px] sm:max-w-[400px] lg:max-w-full aspect-square preserve-3d cursor-pointer"
             >
               {/* Hard Offset Shadow Plate */}
               <div
@@ -227,7 +227,7 @@ export function About() {
                   <GraduationCap className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
+                  <div className="flex flex-wrap items-start sm:items-center justify-between gap-2 mb-1">
                     <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#E8472B] font-medium">
                       Education
                     </span>

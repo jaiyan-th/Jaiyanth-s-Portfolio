@@ -198,7 +198,7 @@ export function Experience() {
                     ease: [0.22, 1, 0.36, 1],
                   }}
                   whileHover={shouldReduceMotion || isMobile ? {} : { y: -5, scale: 1.015 }}
-                  className="group p-5 rounded-xl bg-white border-[1.5px] border-[#111111] shadow-[3px_3px_0px_#111111] hover:shadow-[5px_5px_0px_#111111] flex flex-col justify-between transition-all duration-300 cursor-default"
+                  className="group p-5 rounded-xl bg-white border-[1.5px] border-[#111111] shadow-[3px_3px_0px_#111111] hover:shadow-[5px_5px_0px_#111111] flex flex-col justify-between transition-all duration-300 cursor-default min-h-[160px]"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3">
@@ -233,7 +233,7 @@ export function Experience() {
             className="pt-4 sm:pt-5 border-t-[1.5px] border-[#111111]/20 flex flex-col lg:flex-row lg:items-center justify-between gap-5 perspective-1200"
           >
             {/* 3 Stats: Bold sans numbers with Mono captions */}
-            <div className="grid grid-cols-3 gap-3 sm:gap-6 max-w-lg">
+            <div className="grid grid-cols-3 gap-3 sm:gap-6 min-w-0">
               {/* Stat 1 */}
               <motion.div
                 initial={
@@ -246,10 +246,10 @@ export function Experience() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="group flex flex-col cursor-default"
               >
-                <div className="font-sans font-bold text-3xl sm:text-4xl text-[#111111] group-hover:text-[#E8472B] transition-colors">
+                <div className="font-sans font-bold text-3xl sm:text-4xl text-[#111111] group-hover:text-[#E8472B] transition-colors leading-none">
                   {stat1}+
                 </div>
-                <div className="font-mono uppercase tracking-[0.08em] text-[#555555] text-[11px]">
+                <div className="font-mono uppercase tracking-[0.08em] text-[#555555] text-[10px] sm:text-[11px] mt-1">
                   Prototypes Shipped
                 </div>
               </motion.div>
@@ -266,10 +266,10 @@ export function Experience() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="group flex flex-col cursor-default"
               >
-                <div className="font-sans font-bold text-3xl sm:text-4xl text-[#111111] group-hover:text-[#E8472B] transition-colors">
+                <div className="font-sans font-bold text-3xl sm:text-4xl text-[#111111] group-hover:text-[#E8472B] transition-colors leading-none">
                   &lt; {stat2}ms
                 </div>
-                <div className="font-mono uppercase tracking-[0.08em] text-[#555555] text-[11px]">
+                <div className="font-mono uppercase tracking-[0.08em] text-[#555555] text-[10px] sm:text-[11px] mt-1">
                   Retrieval Latency
                 </div>
               </motion.div>
@@ -286,10 +286,10 @@ export function Experience() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="group flex flex-col cursor-default"
               >
-                <div className="font-sans font-bold text-3xl sm:text-4xl text-[#111111] group-hover:text-[#E8472B] transition-colors">
+                <div className="font-sans font-bold text-3xl sm:text-4xl text-[#111111] group-hover:text-[#E8472B] transition-colors leading-none">
                   {stat3}%
                 </div>
-                <div className="font-mono uppercase tracking-[0.08em] text-[#555555] text-[11px]">
+                <div className="font-mono uppercase tracking-[0.08em] text-[#555555] text-[10px] sm:text-[11px] mt-1">
                   Contract Safety
                 </div>
               </motion.div>
