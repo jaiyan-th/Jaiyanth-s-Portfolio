@@ -683,6 +683,6 @@ export const CASE_STUDIES: Record<string, CaseStudyItem> = {
   },
 };
 
-// Keep internship aliases pointing to fake-news-detector for Experience section links
-CASE_STUDIES["brainery-spot-internship"] = CASE_STUDIES["fake-news-detector"];
-CASE_STUDIES["internship"] = CASE_STUDIES["fake-news-detector"];
+// Keep internship aliases pointing to smarthire-ai for Experience section links
+CASE_STUDIES["infosys-springboard-internship"] = CASE_STUDIES["smarthire-ai"];
+CASE_STUDIES["internship"] = CASE_STUDIES["smarthire-ai"];

@@ -75,10 +75,10 @@ export function SnapshotCard() {
         </div>
         <div className="px-3.5 py-2.5 rounded-xl bg-[#FAF8F5] border border-[#E5E0D8]">
           <span className="font-mono text-[11px] text-[#4a4a4a] uppercase tracking-[0.08em] block mb-0.5 font-medium">
-            Publication
+            Internship
           </span>
           <span className="font-sans font-bold text-[14px] sm:text-[15px] text-[#111111] block truncate">
-            IEEE ICETSIS{" "}
+            Infosys Springboard{" "}
             <em className="accent font-serif-italic italic text-accent font-normal">&apos;26</em>
           </span>
         </div>

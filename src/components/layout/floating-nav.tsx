@@ -5,7 +5,6 @@ import { usePathname, useRouter } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { IDENTITY, NAV_LINKS } from "@/data/content";
-import { CASE_STUDIES } from "@/data/case-studies";
 
 export function FloatingNav() {
   const pathname = usePathname();
@@ -40,17 +39,7 @@ export function FloatingNav() {
         return;
       }
       if (pathname.startsWith("/work")) {
-        const slug = pathname.replace("/work/", "").split("/")[0];
-        const project = CASE_STUDIES[slug];
-        if (
-          project?.category.toLowerCase().includes("research") ||
-          project?.tag.toLowerCase().includes("research") ||
-          project?.domain.toLowerCase().includes("research")
-        ) {
-          setActive("#research");
-        } else {
-          setActive("#work");
-        }
+        setActive("#work");
         return;
       }
       return;
@@ -63,7 +52,7 @@ export function FloatingNav() {
         return;
       }
 
-      const sectionIds = ["research", "experience", "work", "about", "hero"];
+      const sectionIds = ["experience", "work", "about", "hero"];
       const targetPoint = 200;
 
       for (const id of sectionIds) {

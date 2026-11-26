@@ -32,8 +32,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Skills", href: "/#skills", index: "02" },
   { label: "Work", href: "/#work", index: "03" },
   { label: "Experience", href: "/#experience", index: "04" },
-  { label: "Achievements", href: "/#research", index: "05" },
-  { label: "Contact", href: "/#contact", index: "06" },
+  { label: "Contact", href: "/#contact", index: "05" },
 ];
 
 export const ABOUT = {
@@ -47,7 +46,7 @@ export const ABOUT = {
   metrics: [
     { value: "3", label: "Selected projects", detail: "SQL Query Agent · AI News Verification · SmartHire AI" },
     { value: "6", label: "Evidence-based skill groups", detail: "Languages · Frontend · Backend · Databases · AI & ML · Tools" },
-    { value: "1", label: "AI internship", detail: "Brainery Spot Technology · Jun–Jul 2025" },
+    { value: "1", label: "AI internship", detail: "Infosys Springboard · Jun–Aug 2026" },
     { value: "2027", label: "Graduation batch", detail: "B.Tech CSBS · VSB Engineering College" },
   ] as Metric[],
   expertise: [
@@ -258,20 +257,20 @@ export const PROJECTS: Project[] = [
 ];
 
 export const EXPERIENCE: ExperienceItem = {
-  role: "AI Intern",
-  organisation: "Brainery Spot Technology",
-  period: "Jun–Jul 2025",
+  role: "AI-Driven Interview Intelligence Intern",
+  organisation: "Infosys Springboard",
+  period: "Jun–Aug 2026",
   reflection:
-    "Spent the internship building applied-AI prototypes that needed to work, not just demo. Shipped RAG and LLM workflows, learned to integrate third-party REST APIs cleanly, and practiced the unglamorous engineering habits — debugging, testing, prompt iteration, and team feedback — that make AI systems dependable in production.",
+    "Completed Infosys Springboard Internship 7.0 (B1) building SmartHire AI — an AI-driven interview intelligence platform for communication and candidate skill evaluation, featuring multi-discipline mock interviews, ATS resume analysis, real-time telemetry, and a deterministic 4-pillar scoring engine.",
   work: [
-    "Python AI workflows",
-    "Prompt engineering",
-    "Debugging",
-    "Testing",
-    "REST API integration",
-    "RAG and LLM prototypes",
-    "Git collaboration",
-    "Team feedback",
+    "SmartHire AI",
+    "Django 5.2 LTS & DRF",
+    "Groq & OpenAI LLMs",
+    "ATS resume parsing",
+    "Real-time audio & gaze telemetry",
+    "4-pillar scoring engine",
+    "PostgreSQL & Docker",
+    "GitHub Actions CI/CD",
   ],
 };
 

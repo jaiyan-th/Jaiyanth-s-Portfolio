@@ -6,7 +6,6 @@ import { ImpactBanner } from "@/components/sections/impact-banner";
 import { SelectedWork } from "@/components/sections/selected-work";
 import { About } from "@/components/sections/about";
 import { Experience } from "@/components/sections/experience";
-import { Research } from "@/components/sections/research";
 import { WhyWork } from "@/components/sections/why-work";
 import { Footer } from "@/components/layout/footer";
 import { CustomCursor } from "@/components/ui/custom-cursor";
@@ -40,13 +39,10 @@ export default function Home() {
         {/* 05 Selected Work */}
         <SelectedWork />
 
-        {/* 06 Work Experience (Brainery Spot AI Internship) */}
+        {/* 06 Work Experience (Infosys Springboard Internship 7.0) */}
         <Experience />
 
-        {/* 07 Research & Academic Publications */}
-        <Research />
-
-        {/* 08 Why Work With Me */}
+        {/* 07 Why Work With Me */}
         <WhyWork />
       </main>
 

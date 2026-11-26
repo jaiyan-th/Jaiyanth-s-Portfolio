@@ -81,7 +81,6 @@ export const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Work", href: "#work" },
   { label: "Experience", href: "#experience" },
-  { label: "Research", href: "#research" },
 ] as const;
 
 export const HERO_CONTENT = {
@@ -243,23 +242,17 @@ export const TECH_MARQUEE: TechItem[] = [
   { name: "Git & GitHub", category: "Version Control" },
 ];
 
-// Experience Summary (Internship & IEEE)
+// Experience Summary (Infosys Springboard Internship 7.0)
 export const BACKGROUND_HIGHLIGHTS = {
   internship: {
-    company: "Brainery Spot Technology",
-    role: "AI Intern",
-    period: "Jun – Jul 2025",
+    company: "Infosys Springboard",
+    role: "AI-Driven Interview Intelligence Intern (Internship 7.0 · B1)",
+    period: "Jun 29 – Aug 31, 2026",
     bullets: [
-      "[PLACEHOLDER] Built production-oriented applied AI prototypes with RAG and LLM reasoning.",
-      "[PLACEHOLDER] Integrated REST API contracts with robust error recovery and test coverage.",
-      "[PLACEHOLDER] Practiced prompt engineering iterations and team code reviews.",
+      "Built SmartHire AI, an AI-driven interview intelligence platform for communication and candidate skill evaluation.",
+      "Implemented multi-discipline mock interviews, ATS resume parsing, and real-time webcam/audio telemetry.",
+      "Architected a deterministic 4-pillar scoring engine, recruiter benchmarking portal, and certified PDF dossiers.",
     ],
-  },
-  research: {
-    venue: "ICETSIS 2026 · IEEE Bahrain Section",
-    title: "An AI Intelligence Wellness Framework Integrating Image Recognition and Conversational AI",
-    date: "May 2026",
-    role: "Co-Author",
   },
 } as const;
 

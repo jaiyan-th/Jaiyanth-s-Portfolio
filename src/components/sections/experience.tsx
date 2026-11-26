@@ -3,11 +3,9 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
-import { Briefcase, Cpu, Terminal, Code2, ArrowRight } from "lucide-react";
+import { Briefcase, Cpu, Terminal, Code2, ArrowRight, ExternalLink } from "lucide-react";
 import { EXPERIENCE } from "@/data/portfolio";
 import { Reveal } from "@/components/ui/reveal";
-
-import { EyebrowPill } from "@/components/ui/eyebrow-pill";
 
 export function Experience() {
   const shouldReduceMotion = useReducedMotion();
@@ -23,50 +21,50 @@ export function Experience() {
   const focusAreas = [
     {
       icon: Cpu,
-      title: "RAG & Vector Retrieval",
+      title: "AI Interview Intelligence",
       renderTitle: () => (
         <>
-          RAG &amp; Vector{" "}
-          <em className="accent font-serif-italic italic text-accent font-normal">Retrieval</em>
+          AI Interview{" "}
+          <em className="accent font-serif-italic italic text-accent font-normal">Intelligence</em>
         </>
       ),
       description:
-        "Engineered end-to-end vector retrieval pipelines for fast, grounded semantic querying with sub-second latency budgets.",
+        "Built multi-discipline mock interviews (Technical, HR, Behavioral STAR, Quantitative) powered by Groq and OpenAI.",
     },
     {
       icon: Terminal,
-      title: "LLM Reasoning & Chains",
+      title: "ATS & Telemetry Pipeline",
       renderTitle: () => (
         <>
-          LLM Reasoning &amp;{" "}
-          <em className="accent font-serif-italic italic text-accent font-normal">Chains</em>
+          ATS &amp; Telemetry{" "}
+          <em className="accent font-serif-italic italic text-accent font-normal">Pipeline</em>
         </>
       ),
       description:
-        "Structured multi-turn reasoning workflows with deterministic JSON schema validation, retry policies, and guardrails.",
+        "Implemented PDF/DOCX resume skill extraction alongside real-time webcam gaze stability and speaking cadence (WPM) tracking.",
     },
     {
       icon: Code2,
-      title: "Production REST APIs",
+      title: "4-Pillar Scoring & DRF",
       renderTitle: () => (
         <>
-          Production REST{" "}
-          <em className="accent font-serif-italic italic text-accent font-normal">APIs</em>
+          4-Pillar Scoring &amp;{" "}
+          <em className="accent font-serif-italic italic text-accent font-normal">DRF</em>
         </>
       ),
       description:
-        "Integrated backend endpoints with strict contract validation, defensive exception handling, and automated test suites.",
+        "Architected Django 5.2 LTS + DRF APIs with a deterministic 4-pillar scoring engine, RBAC portals, and certified PDF dossiers.",
     },
   ];
 
   const tools = [
     "Python",
-    "LangChain",
-    "RAG",
-    "FastAPI",
-    "Vector Databases",
-    "Prompt Engineering",
-    "Git",
+    "Django 5.2",
+    "DRF",
+    "Groq",
+    "OpenAI",
+    "PostgreSQL",
+    "Docker",
   ];
 
   return (
@@ -102,63 +100,69 @@ export function Experience() {
           {/* Card Top: Company, Role, Period & Status */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-4 border-b-2 border-[#111111]">
             <div>
-              <div className="flex items-center gap-2 mb-1.5">
+              <div className="flex flex-wrap items-center gap-2 mb-1.5">
                 <Briefcase className="w-4 h-4 text-[#6C47FF] shrink-0" />
                 <span className="inline-flex items-center px-3 py-0.5 rounded-full bg-[#EDE9FE] border-2 border-[#111111] text-[#111111] font-mono text-[11px] uppercase tracking-wider font-extrabold">
                   {EXPERIENCE.organisation}
                 </span>
                 <span className="text-[#555555] font-mono text-[11px] uppercase tracking-wider font-semibold">
-                  · Coimbatore, India
+                  · Internship 7.0 (B1)
                 </span>
               </div>
               <h3 className="card-title font-sans font-bold text-xl sm:text-2xl text-[#111111] leading-snug">
-                Artificial Intelligence Intern
+                {EXPERIENCE.role}
               </h3>
             </div>
 
-            <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider">
+            <div className="flex flex-wrap items-center gap-3 font-mono text-[11px] uppercase tracking-wider">
               <span className="text-[#555555] font-semibold">
                 {EXPERIENCE.period}
               </span>
-              <span className="inline-flex items-center gap-1.5 font-bold text-[#111111] px-2.5 py-1 rounded-full bg-[#DCFCE7] border border-[#111111]">
+              <a
+                href="https://verify.onwingspan.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-bold text-[#111111] px-2.5 py-1 rounded-full bg-[#DCFCE7] border border-[#111111] hover:bg-[#BBF7D0] transition-colors"
+              >
                 <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
-                Completed
-              </span>
+                <span>Verified Certificate</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
             </div>
           </div>
 
           {/* Concise Role Mission */}
           <p className="font-sans text-[14.5px] sm:text-[15.5px] text-[#333333] leading-relaxed mb-6 max-w-4xl font-normal">
-            Shipped applied-AI prototypes built for production reliability. Engineered vector RAG retrieval pipelines, multi-turn reasoning workflows with deterministic JSON schema validation, and verified RESTful API backends.
+            {EXPERIENCE.reflection}
           </p>
 
-          {/* Flagship Internship Project Feature: Fake News Detector */}
+          {/* Flagship Internship Project Feature: SmartHire AI */}
           <div className="mb-6 p-5 sm:p-6 rounded-2xl bg-[#FFFDF5] border-2 border-[#111111] shadow-[4px_4px_0px_#111111] hover:shadow-[6px_6px_0px_#111111] transition-all relative overflow-hidden">
             <div className="absolute top-0 left-0 bottom-0 w-2 bg-[#FFD13B]" />
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
                 <div className="flex flex-wrap items-center gap-2 mb-2">
                   <span className="px-2.5 py-0.5 rounded-full bg-[#FEF08A] border-2 border-[#111111] shadow-[1.5px_1.5px_0px_#111111] font-mono text-[10.5px] font-extrabold text-[#111111] uppercase tracking-wider">
-                    INTERNSHIP FLAGSHIP PROJECT
+                    INTERNSHIP PROJECT
                   </span>
                   <span className="text-[#888888]">·</span>
                   <span className="font-mono text-[11px] font-bold text-[#6C47FF]">
-                    RAG FACT-CHECKING
+                    INTERVIEW INTELLIGENCE PLATFORM
                   </span>
                 </div>
                 <h4 className="font-sans font-bold text-lg sm:text-xl text-[#111111] leading-snug mb-1.5">
-                  Fake News Detector — Grounded RAG Fact Verification
+                  SmartHire AI — AI-Driven Interview &amp; Candidate Assessment Platform
                 </h4>
                 <p className="font-sans text-[13.5px] sm:text-[14px] text-[#444444] leading-relaxed max-w-2xl font-normal">
-                  Engineered during the internship at Brainery Spot Technology: an autonomous RAG fact-verification pipeline with Qdrant vector indexing, sub-second claim resolution (&lt;850ms), and 94.2% verified precision with zero hallucination.
+                  Built during the Infosys Springboard Internship 7.0 (Jun 29 – Aug 31, 2026): a full-stack AI mock interview and candidate skill evaluation platform with ATS resume analysis, real-time webcam/audio telemetry, and a deterministic 4-pillar scoring engine.
                 </p>
               </div>
 
               <Link
-                href="/work/fake-news-detector"
+                href="/work/smarthire-ai"
                 className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#FFD13B] hover:bg-[#FACC15] text-[#111111] font-sans text-[13px] font-extrabold border-2 border-[#111111] shadow-[2.5px_2.5px_0px_#111111] hover:shadow-[3.5px_3.5px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 transition-all select-none shrink-0"
               >
-                <span>Read Internship Case Study</span>
+                <span>Read SmartHire AI Case Study</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
