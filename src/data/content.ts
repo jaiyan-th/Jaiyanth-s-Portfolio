@@ -246,7 +246,7 @@ export const TECH_MARQUEE: TechItem[] = [
 export const BACKGROUND_HIGHLIGHTS = {
   internship: {
     company: "Infosys Springboard",
-    role: "AI-Driven Interview Intelligence Intern (Internship 7.0 · B1)",
+    role: "AI Intern (Internship 7.0 · B1)",
     period: "Jun 29 – Aug 31, 2026",
     bullets: [
       "Built SmartHire AI, an AI-driven interview intelligence platform for communication and candidate skill evaluation.",

@@ -257,7 +257,7 @@ export const PROJECTS: Project[] = [
 ];
 
 export const EXPERIENCE: ExperienceItem = {
-  role: "AI-Driven Interview Intelligence Intern",
+  role: "AI Intern",
   organisation: "Infosys Springboard",
   period: "Jun–Aug 2026",
   reflection:
