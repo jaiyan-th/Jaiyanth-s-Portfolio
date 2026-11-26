@@ -1,6 +1,5 @@
 // ============================================================
 // COMPREHENSIVE CASE STUDY DATA
-// Structured 1:1 following https://www.sandeep.design/work/offx-redesign/
 // Factual engineering details for Jaiyanth B
 // ============================================================
 
@@ -99,1109 +98,591 @@ export interface CaseStudyItem {
 }
 
 export const CASE_STUDIES: Record<string, CaseStudyItem> = {
-  "fake-news-detector": {
-    slug: "fake-news-detector",
+  "sql-query-agent": {
+    slug: "sql-query-agent",
     number: "01",
-    tag: "AI INTERNSHIP PROJECT · BRAINERY SPOT TECHNOLOGY",
-    category: "AI Internship Project · RAG Architecture",
-    year: "2025–26",
-    domain: "NLP / Fact Verification",
-    title: "Fake News Detector — Grounded RAG Fact Verification",
+    tag: "APPLIED AI · TEXT-TO-SQL AGENT",
+    category: "Applied AI · Text-to-SQL",
+    year: "2026",
+    domain: "Natural Language Interfaces / Analytics",
+    title: "SQL Query Agent — Natural Language to SQL",
     subtitle:
-      "Engineered during AI Internship at Brainery Spot Technology: Turning unstructured news claims into traceable, grounded evidence verdicts with zero model hallucination.",
-    role: "AI Engineering Intern · Brainery Spot Technology",
-    duration: "Jun–Jul 2025 (Internship)",
-    status: "Production Deployed & Verified",
-    liveUrl: "https://fake-news-detecter-kopi.onrender.com/",
-    repoUrl: "https://github.com/jaiyan-th/Fake-News-Detecter",
-    stack: [
-      "Python",
-      "Flask",
-      "LangChain",
-      "Qdrant Vector DB",
-      "RAG",
-      "Supabase",
-      "News API",
-      "Embeddings",
-    ],
-
-    // 01 Context
-    context: {
-      title: "AI Internship Project at Brainery Spot Technology",
-      description:
-        "Engineered during my AI Internship at Brainery Spot Technology, Fake News Detector is an autonomous fact-verification pipeline that ingests breaking news articles and claims, searches semantically indexed evidence in a high-dimensional vector store (Qdrant), and directs a constrained LLM to produce calibrated trust verdicts strictly grounded in retrieved sources.",
-      characteristics: [
-        {
-          title: "High-Stakes Information Integrity",
-          desc: "Misinformation spreads exponentially faster than manual editorial review; inaccurate model output directly damages user trust.",
-        },
-        {
-          title: "Grounded Provenance vs Model Memory",
-          desc: "Traditional LLMs rely on internal pre-training weights, leading to subtle hallucinations. Every verdict here requires cited source URLs.",
-        },
-        {
-          title: "Sub-Second Latency Budget",
-          desc: "End users require instant feedback on claims, demanding high-throughput embedding chunking and vector index retrieval under 850ms.",
-        },
-      ],
-      highlightedProblem:
-        "Generic LLM outputs are probabilistic and lack provenance; in high-stakes fact verification, ungrounded confidence destroys trust.",
-      roleScope: [
-        {
-          id: "A 01.",
-          title: "Internship Mandate & RAG Architecture",
-          desc: "Architected end-to-end ingest-to-verdict pipeline under Brainery Spot mentorship, implementing embedding chunking strategies and strict hallucination-prevention thresholds.",
-        },
-        {
-          id: "A 02.",
-          title: "Semantic Vector Store",
-          desc: "Engineered Qdrant high-dimensional collection indexing and cosine similarity search for evidence discovery.",
-        },
-        {
-          id: "A 03.",
-          title: "Flask REST & Supabase",
-          desc: "Built type-safe REST API endpoints, Supabase PostgreSQL persistence, and tamper-evident verdict logging.",
-        },
-        {
-          id: "A 04.",
-          title: "Grounding Interface",
-          desc: "Designed clean, scannable inspection interface surfacing source URLs, similarity confidence, and extracted evidence snippets.",
-        },
-      ],
-    },
-
-    // 02 Users & Problem
-    problem: {
-      question:
-        "How do you make an autonomous fact-checking pipeline verifiable, low-latency, and hallucination-free?",
-      approachHeading:
-        "Treating the LLM strictly as a reasoning engine over external evidence, not a knowledge store.",
-      approachDetail:
-        "Rather than relying on model recall, the architecture treats LLMs as deterministic reasoners. Incoming claims are parsed, vectorized, matched against pre-indexed reliable news sources, and fed into strict verification prompts that refuse to answer if retrieved confidence is below the threshold.",
-      challenges: [
-        {
-          id: "02 A.",
-          title: "Naive LLMs hallucinate sources",
-          desc: "Unconstrained models frequently fabricate citations. Strictest prompt boundaries and source ID mapping were enforced to ensure 100% provenance.",
-        },
-        {
-          id: "02 B.",
-          title: "Semantic noise in similarity search",
-          desc: "Cosine similarity alone often surfaced tangential news. Added metadata filtering and claim entity extraction prior to querying the vector database.",
-        },
-        {
-          id: "02 C.",
-          title: "High latency on multi-article claims",
-          desc: "Parsing multiple full-length articles created memory bloat. Implemented streaming chunking and top-k reranking to keep execution under 850ms.",
-        },
-      ],
-      users: [
-        "Digital journalists verifying breaking news tips",
-        "Fact-checking organizations parsing high-volume claims",
-        "Researchers evaluating misinformation provenance",
-        "Everyday consumers checking suspicious headlines",
-      ],
-      keyChallenges: [
-        "Eliminate hallucinated claims with strict evidence constraints.",
-        "Surface pricing and credibility context before decision points.",
-        "Keep the submission pipeline sub-second under burst traffic.",
-        "Build an interface that conveys confidence without false certainty.",
-      ],
-    },
-
-    // 03 System Architecture & Workflow
-    architecture: {
-      heading:
-        "Turning unstructured text claims into verified trust verdicts in five deterministic steps.",
-      subheading:
-        "From raw user input to grounded verdict persistence with cited provenance.",
-      phases: [
-        {
-          id: "Phase 1",
-          title: "Ingestion & Extraction",
-          desc: "Claim parsing, stop-word normalization, entity detection.",
-        },
-        {
-          id: "Phase 2",
-          title: "Vector Embedding",
-          desc: "High-dimensional vector embedding generation.",
-        },
-        {
-          id: "Phase 3",
-          title: "Semantic Retrieval",
-          desc: "Top-k semantic retrieval against Qdrant collection.",
-        },
-        {
-          id: "Phase 4",
-          title: "Grounded Reasoning",
-          desc: "Constrained LLM verification with mandatory citations.",
-        },
-      ],
-      steps: [
-        {
-          step: "Step 01",
-          title: "Claim Intake & Preprocessing",
-          desc: "User submits a statement or article URL. The Flask engine extracts the core factual assertions and strips sensationalist adjectives.",
-        },
-        {
-          step: "Step 02",
-          title: "Embedding Generation",
-          desc: "Text chunks are mapped into 768-dimensional dense vector embeddings optimized for semantic nuance.",
-        },
-        {
-          step: "Step 03",
-          title: "Qdrant Vector Matching",
-          desc: "Cosine similarity search queries curated journalistic evidence stores, retrieving top-3 matching articles with similarity score > 0.85.",
-        },
-        {
-          step: "Step 04",
-          title: "Constrained Grounding Prompt",
-          desc: "The retrieved text snippets and original claim are injected into a strict evaluation prompt: 'Evaluate ONLY using the provided snippets. If evidence is insufficient, explicitly state INCONCLUSIVE.'",
-        },
-        {
-          step: "Step 05",
-          title: "Verdict & Provenance Audit",
-          desc: "The system outputs a structured JSON verdict (True / False / Inconclusive), confidence percentage, and cited URLs, persisted in Supabase.",
-        },
-      ],
-    },
-
-    // 04 Implementation Details
-    implementation: {
-      heading: "Production Engineering & Grounding Safeguards",
-      subheading:
-        "Concrete technical invariants that guarantee system stability and precision.",
-      pillars: [
-        {
-          title: "Abstention on Low Confidence",
-          desc: "The system refuses to issue a verdict when retrieval similarity drops below 0.82, preventing speculative guesses.",
-          points: [
-            "Cosine threshold gate",
-            "Explicit 'Insufficient Evidence' status",
-            "Prompt-level refusal instruction",
-          ],
-        },
-        {
-          title: "Memory-Efficient Chunking Stream",
-          desc: "Large articles are processed via chunked streaming to avoid memory spikes in the container runtime.",
-          points: [
-            "500-token sliding window",
-            "50-token overlap boundary",
-            "Zero memory leaks during peak traffic",
-          ],
-        },
-        {
-          title: "Immutable Verdict Persistence",
-          desc: "Every verdict is saved with immutable cryptographic timestamp and evidence snapshot in Supabase.",
-          points: [
-            "PostgreSQL JSONB schema",
-            "Audit trail for every claim",
-            "Real-time history retrieval",
-          ],
-        },
-      ],
-    },
-
-    // 05 Impact & Learnings
-    impact: {
-      heading: "What changed after deploying the grounded RAG architecture",
-      metrics: [
-        { value: "94.2%", label: "Verification Precision" },
-        { value: "< 850ms", label: "End-to-End Latency" },
-        { value: "0%", label: "Hallucinated Sources" },
-      ],
-      outcomes: [
-        "Eliminated source hallucinations entirely by enforcing strict retrieval boundaries.",
-        "Sub-second verification speeds enabled real-time browser extension workflows.",
-        "Delivered transparent, explainable trust verdicts with full URL provenance.",
-      ],
-      learnings: [
-        {
-          title: "Grounded retrieval beats model scale",
-          desc: "Better chunking and stricter retrieval thresholds improved verdict quality far more than switching to a 70B parameter model.",
-        },
-        {
-          title: "Schema contracts prevent drift",
-          desc: "Bounding every model output to strict JSON schemas eliminated response parsing failures completely.",
-        },
-        {
-          title: "Refusal is a feature, not a bug",
-          desc: "A system that confidently says 'I don't have enough verified evidence' earns 10x more trust than one that guesses.",
-        },
-      ],
-    },
-
-    nextProject: {
-      slug: "up-skill",
-      title: "Up-Skill — AI Career & Interview Intelligence",
-      category: "Applied AI · Career Intelligence",
-    },
-  },
-
-  "up-skill": {
-    slug: "up-skill",
-    number: "02",
-    tag: "SELECTED WORK · CAREER AI",
-    category: "Applied AI · Career Intelligence",
-    year: "2025–26",
-    domain: "Multi-Model Orchestration / LLM Agents",
-    title: "Up-Skill — AI Career & Interview Intelligence",
-    subtitle:
-      "A multi-stage agentic workflow running ATS resume scoring, conversational mock interviews, and personalized skill gap mapping.",
-    role: "AI & Full-Stack Engineer",
-    duration: "2 Months",
-    status: "Shipped & Live",
-    liveUrl: "https://upskill-ai-personalized-skill-and-career-w0px.onrender.com/",
-    repoUrl:
-      "https://github.com/jaiyan-th/UpSkill-AI-Personalized-Skill-and-Career-Assistant",
-    stack: [
-      "Flask",
-      "Python",
-      "LangChain",
-      "Groq",
-      "Mistral",
-      "Supabase",
-      "Stitch UI",
-    ],
-
-    context: {
-      title: "What is Up-Skill?",
-      description:
-        "Up-Skill is an end-to-end career intelligence assistant designed to bridge the gap between job candidates and competitive roles. It parses resumes, extracts structural competencies, scores them against ATS criteria, and conducts dynamic conversational interviews.",
-      characteristics: [
-        {
-          title: "Fragmented Career Tooling",
-          desc: "Candidates currently jump between resume linters, interview flashcards, and course recommendations with zero coherent data loop.",
-        },
-        {
-          title: "Multi-Stage Intelligence",
-          desc: "Outputs from the ATS parsing stage directly seed the mock interview topics and targeted learning roadmap.",
-        },
-        {
-          title: "Low-Latency Conversation",
-          desc: "Mock interviews require conversational rhythm (< 500ms token generation) powered by Groq LPU acceleration.",
-        },
-      ],
-      highlightedProblem:
-        "Candidates rarely understand why resumes get rejected; without personalized feedback loops, skill gaps remain invisible.",
-      roleScope: [
-        {
-          id: "A 01.",
-          title: "Agent Pipeline Design",
-          desc: "Constructed multi-stage state machine passing candidate profiles between parsing, evaluation, and interview agents.",
-        },
-        {
-          id: "A 02.",
-          title: "Multi-Model Orchestration",
-          desc: "Combined Groq ultra-low-latency models for dialogue with Mistral for nuanced skill-gap analysis.",
-        },
-        {
-          id: "A 03.",
-          title: "State Persistence",
-          desc: "Implemented Supabase relational schema storing interview transcripts, scoring rubrics, and action plans.",
-        },
-        {
-          id: "A 04.",
-          title: "Responsive Interface",
-          desc: "Designed cohesive candidate dashboard visualizing competency radar charts and dynamic prep questions.",
-        },
-      ],
-    },
-
-    problem: {
-      question:
-        "How do you build a multi-model career coach that maintains conversational state and delivers actionable skill roadmaps?",
-      approachHeading:
-        "Schema-bound state machines connecting modular evaluation stages.",
-      approachDetail:
-        "Rather than relying on one massive, slow prompt, Up-Skill breaks career preparation into focused stages. Each stage produces validated JSON that feeds the next, allowing rapid model substitution without architectural refactoring.",
-      challenges: [
-        {
-          id: "02 A.",
-          title: "Parsing unstructured resume formats",
-          desc: "PDFs and Word documents had wild variations in layout. Built robust text normalization pipelines before LLM extraction.",
-        },
-        {
-          id: "02 B.",
-          title: "Maintaining conversational interview state",
-          desc: "Conversations drifted when context got long. Implemented sliding dialogue window with summary buffers.",
-        },
-        {
-          id: "02 C.",
-          title: "Calibrating constructive scoring",
-          desc: "Avoided generic encouragement by anchoring rubric grading to official industry skill benchmarks.",
-        },
-      ],
-      users: [
-        "Engineering students preparing for campus placements",
-        "Early-career developers pivoting into AI roles",
-        "Job seekers seeking objective ATS resume scoring",
-      ],
-      keyChallenges: [
-        "Keep conversational mock interview latency under 500ms.",
-        "Ensure consistent ATS feedback across diverse resume formats.",
-        "Generate concrete, weekly learning roadmaps instead of vague tips.",
-      ],
-    },
-
-    architecture: {
-      heading:
-        "From PDF resume upload to personalized learning plan in four orchestrated stages.",
-      subheading:
-        "How multi-model orchestration delivers actionable candidate intelligence.",
-      phases: [
-        {
-          id: "Stage 1",
-          title: "Resume Ingestion & ATS Parsing",
-          desc: "Extract text, identify keywords, calculate ATS compatibility score.",
-        },
-        {
-          id: "Stage 2",
-          title: "Skill Gap Extraction",
-          desc: "Cross-reference candidate competencies against target job descriptions.",
-        },
-        {
-          id: "Stage 3",
-          title: "Conversational Interview",
-          desc: "Groq-powered dynamic dialogue with real-time feedback.",
-        },
-        {
-          id: "Stage 4",
-          title: "Curated Roadmap",
-          desc: "Synthesize personalized weekly development plan.",
-        },
-      ],
-      steps: [
-        {
-          step: "Step 01",
-          title: "Upload & Normalization",
-          desc: "Candidate uploads resume. Text is extracted, cleaned, and parsed into a structured candidate JSON schema.",
-        },
-        {
-          step: "Step 02",
-          title: "ATS Scoring Rubric",
-          desc: "Mistral evaluates phrasing, quantifiable achievements, and role relevance against target industry requirements.",
-        },
-        {
-          step: "Step 03",
-          title: "Interactive Interview Session",
-          desc: "Candidate enters an interactive interview room where Groq conducts topical questioning based on detected weak points.",
-        },
-        {
-          step: "Step 04",
-          title: "Performance Synthesis",
-          desc: "The system grades answers, notes communication clarity, and synthesizes a step-by-step roadmap.",
-        },
-      ],
-    },
-
-    implementation: {
-      heading: "Modular Agent Architecture & Execution",
-      subheading:
-        "Clean boundaries between parsing, interview, and curriculum generation.",
-      pillars: [
-        {
-          title: "Multi-Model Cost/Latency Tuning",
-          desc: "Fast reasoning on Groq LPU for voice/text dialogue, deep evaluation on Mistral for rubric grading.",
-          points: ["Sub-500ms token generation", "Optimized token consumption"],
-        },
-        {
-          title: "Schema-Bound Stage Contracts",
-          desc: "Every stage outputs strict Pydantic models preventing downstream pipeline failure.",
-          points: ["100% parse success rate", "Typed stage handoffs"],
-        },
-        {
-          title: "Session Recovery & Persistence",
-          desc: "Supabase keeps candidate sessions alive so interviews can be resumed seamlessly.",
-          points: ["Resumable interview state", "Longitudinal progress tracking"],
-        },
-      ],
-    },
-
-    impact: {
-      heading: "Measurable Candidate Outcomes",
-      metrics: [
-        { value: "< 450ms", label: "Interview Latency" },
-        { value: "88%", label: "Placement Preparedness" },
-        { value: "4 Stages", label: "Agent Pipeline" },
-      ],
-      outcomes: [
-        "Enabled candidates to test resumes against ATS parsers before applying.",
-        "Delivered realistic, low-latency mock interviews that build genuine confidence.",
-        "Provided structured learning paths replacing scattered tutorial browsing.",
-      ],
-      learnings: [
-        {
-          title: "Multi-model workflows need strict schemas",
-          desc: "Strong contracts between model stages make testing and model swapping painless.",
-        },
-        {
-          title: "Speed is a UX requirement in conversational AI",
-          desc: "Sub-500ms latency on Groq transformed the mock interview from a robotic questionnaire into a natural conversation.",
-        },
-      ],
-    },
-
-    nextProject: {
-      slug: "car-rent",
-      title: "Car-Rent — Full-Stack Rental Platform",
-      category: "Full-Stack · Web Platform",
-    },
-  },
-
-  "car-rent": {
-    slug: "car-rent",
-    number: "03",
-    tag: "SELECTED WORK · PLATFORM",
-    category: "Full-Stack · Web Platform",
-    year: "2024–25",
-    domain: "Relational Modeling / Concurrency-Safe APIs",
-    title: "Car-Rent — Full-Stack Rental Platform",
-    subtitle:
-      "A full-stack automotive platform with concurrency-safe reservation timelines, JWT/OAuth auth, and Prisma relational modeling.",
-    role: "Full-Stack Engineer",
-    duration: "2 Months",
-    status: "Shipped & Live",
-    liveUrl: "https://car-rent-main-fcdo.onrender.com/",
-    repoUrl: "https://github.com/jaiyan-th/Car-Rent-Main",
-    stack: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "NestJS",
-      "Prisma ORM",
-      "PostgreSQL",
-      "JWT",
-      "OAuth",
-    ],
-
-    context: {
-      title: "What is Car-Rent?",
-      description:
-        "Car-Rent is an automotive discovery and reservation platform. It handles vehicle cataloging, search filters, availability calendars, and payment processing with strong transactional integrity.",
-      characteristics: [
-        {
-          title: "High-Concurrency Booking Timelines",
-          desc: "Simultaneous reservation requests for identical vehicle schedules require database-level write guarantees to prevent double bookings.",
-        },
-        {
-          title: "Type-Safe End-to-End Contracts",
-          desc: "From Next.js React frontend to NestJS controllers and Prisma relational schema, types are strictly shared.",
-        },
-        {
-          title: "Secure Authentication & Sessions",
-          desc: "Enforced dual-layer security with JWT access tokens, refresh tokens, and OAuth 2.0 social authentication.",
-        },
-      ],
-      highlightedProblem:
-        "Rental platforms fail when double-booking race conditions slip past application code into the database layer.",
-      roleScope: [
-        {
-          id: "A 01.",
-          title: "Relational Data Modeling",
-          desc: "Designed Prisma PostgreSQL schema with exclusion constraints preventing overlapping reservation intervals.",
-        },
-        {
-          id: "A 02.",
-          title: "NestJS Modular REST API",
-          desc: "Built modular microservice controllers with DTO class-validator request validation.",
-        },
-        {
-          id: "A 03.",
-          title: "Next.js Frontend",
-          desc: "Engineered responsive catalog UI with interactive date range pickers and instantaneous filter updates.",
-        },
-        {
-          id: "A 04.",
-          title: "Authentication & Security",
-          desc: "Implemented secure JWT authorization guards and password hashing with bcrypt.",
-        },
-      ],
-    },
-
-    problem: {
-      question:
-        "How do you design a high-reliability rental platform where overlapping reservations are mathematically impossible?",
-      approachHeading:
-        "Pushing booking invariants down into the database schema instead of relying solely on application checks.",
-      approachDetail:
-        "Application-layer reservation checks suffer from race conditions under concurrent writes. By enforcing database-level exclusion constraints on overlapping time ranges, the platform guarantees that double-bookings cannot occur regardless of concurrent request spikes.",
-      challenges: [
-        {
-          id: "02 A.",
-          title: "Concurrent booking race conditions",
-          desc: "Two users submitting identical checkout requests simultaneously could bypass naive IF checks. Resolved via PostgreSQL exclusion constraints.",
-        },
-        {
-          id: "02 B.",
-          title: "Complex search filtering over large fleets",
-          desc: "Filtering by vehicle type, location, transmission, and date range required optimized compound indexes.",
-        },
-        {
-          id: "02 C.",
-          title: "Authentication token synchronization",
-          desc: "Prevented token invalidation desyncs across client and server with automatic refresh token rotation.",
-        },
-      ],
-      users: [
-        "Travelers booking private rental vehicles",
-        "Fleet managers cataloging car inventory and availability",
-        "Admins monitoring transaction volume and customer reviews",
-      ],
-      keyChallenges: [
-        "Eliminate double-booking race conditions under high concurrent checkout.",
-        "Provide snappy client-side catalog filtering without page reloads.",
-        "Ensure secure session handling across desktop and mobile devices.",
-      ],
-    },
-
-    architecture: {
-      heading:
-        "Clean separation of discovery, scheduling, payments, and authentication domains.",
-      subheading:
-        "How NestJS and Prisma provide resilient architectural foundations.",
-      phases: [
-        {
-          id: "Layer 1",
-          title: "Next.js Interface",
-          desc: "Client-side state, calendar picker, responsive catalog.",
-        },
-        {
-          id: "Layer 2",
-          title: "NestJS API Gateway",
-          desc: "Route guards, DTO validation, rate limiting.",
-        },
-        {
-          id: "Layer 3",
-          title: "Prisma ORM",
-          desc: "Type-safe database queries and migration management.",
-        },
-        {
-          id: "Layer 4",
-          title: "PostgreSQL Engine",
-          desc: "ACID transactions and range exclusion constraints.",
-        },
-      ],
-      steps: [
-        {
-          step: "Step 01",
-          title: "Vehicle Search & Filter",
-          desc: "User selects dates and vehicle categories. Fast parameterized queries retrieve real-time available inventory.",
-        },
-        {
-          step: "Step 02",
-          title: "Booking Request Validation",
-          desc: "The NestJS controller validates start and end timestamps using class-validator DTO rules.",
-        },
-        {
-          step: "Step 03",
-          title: "Transactional Slot Lock",
-          desc: "A PostgreSQL transaction verifies schedule availability and acquires a temporary reservation lock.",
-        },
-        {
-          step: "Step 04",
-          title: "Payment Confirmation & Confirmation",
-          desc: "Upon successful payment token validation, the booking record is committed and customer confirmation dispatched.",
-        },
-      ],
-    },
-
-    implementation: {
-      heading: "Transactional Invariants & Data Integrity",
-      subheading:
-        "Engineering techniques for rock-solid e-commerce availability.",
-      pillars: [
-        {
-          title: "Database Exclusion Constraints",
-          desc: "Utilized PostgreSQL btree_gist and range exclusion constraints so overlapping time slots fail at the schema level.",
-          points: ["Zero race conditions", "100% schedule consistency"],
-        },
-        {
-          title: "Strict Request/Response DTOs",
-          desc: "Shared TypeScript interfaces eliminate serialization mismatches between frontend and backend.",
-          points: ["Type safety", "Automatic payload sanitization"],
-        },
-        {
-          title: "Stateless JWT Auth with Refresh Rotation",
-          desc: "Short-lived access tokens with secure HTTP-only refresh tokens protect user accounts against token theft.",
-          points: ["Secure session lifecycle", "CSRF protected"],
-        },
-      ],
-    },
-
-    impact: {
-      heading: "Reliability & Performance Metrics",
-      metrics: [
-        { value: "0", label: "Double Bookings" },
-        { value: "< 120ms", label: "API Query Latency" },
-        { value: "100%", label: "TypeScript Type Coverage" },
-      ],
-      outcomes: [
-        "Delivered a production-ready rental portal with zero booking concurrency bugs.",
-        "Streamlined user booking flow from vehicle discovery to reservation confirmation in under 60 seconds.",
-        "Established reusable NestJS + Prisma backend patterns for future e-commerce workflows.",
-      ],
-      learnings: [
-        {
-          title: "Push invariants into the database schema",
-          desc: "Application logic that prevents double-bookings is fragile; a unique database constraint is infallible.",
-        },
-        {
-          title: "End-to-end typing accelerates velocity",
-          desc: "Sharing interfaces between Next.js and NestJS eliminated runtime payload bugs completely.",
-        },
-      ],
-    },
-
-    nextProject: {
-      slug: "secure-document-vault",
-      title: "Secure Document Vault — Zero-Trust Storage",
-      category: "Full-Stack · Cybersecurity",
-    },
-  },
-
-  "secure-document-vault": {
-    slug: "secure-document-vault",
-    number: "04",
-    tag: "SELECTED WORK · CYBERSECURITY",
-    category: "Full-Stack · Cybersecurity",
-    year: "2025–26",
-    domain: "Zero-Trust Encryption / Cryptographic Streaming",
-    title: "Secure Document Vault — Zero-Trust Cryptographic Storage",
-    subtitle:
-      "A zero-trust encrypted document vault with AES-256-GCM authenticated encryption, role-based access control, chunked streaming, and immutable audit logging.",
-    role: "Full-Stack Engineer",
-    duration: "2 Months",
-    status: "Shipped & Live",
-    liveUrl: "https://jaiy-vault.onrender.com",
-    repoUrl: "https://github.com/jaiyan-th/Secure-Digital-Document-Vault",
+      "Ask a question in English, inspect the answer and its source SQL, and explore the results as an interactive table or chart—with AST-level read-only safety guardrails.",
+    role: "Full-Stack & AI Engineer",
+    duration: "2026",
+    status: "Open Source · GitHub",
+    repoUrl: "https://github.com/jaiyan-th/SQL-Query-Agent",
     stack: [
       "Python",
       "FastAPI",
+      "Groq",
       "SQLAlchemy",
-      "PostgreSQL",
-      "AES-256-GCM",
-      "Argon2",
-      "PyJWT",
-      "JavaScript",
+      "sqlglot",
+      "React",
+      "Recharts",
+      "Tailwind CSS",
     ],
-
     context: {
-      title: "What is Secure Document Vault?",
+      title: "What is SQL Query Agent?",
       description:
-        "Secure Digital Document Vault is a high-assurance file storage platform built on zero-knowledge encryption principles. Files are encrypted client-side or during chunked ingestion using AES-256-GCM with unique cryptographic nonces before persisting to disk.",
+        "SQL Query Agent is a full-stack conversational analytics application. Users ask business questions in plain English, and an AI agent inspects database schemas, writes validated SQL, executes read-only queries, and presents answers alongside source SQL, data tables, and Recharts visualizations.",
       characteristics: [
         {
-          title: "Zero-Knowledge Encryption Pipeline",
-          desc: "The server possesses no knowledge of file contents in plaintext; decryption requires keys derived from user passwords via Argon2.",
+          title: "Multi-Round Tool Calling",
+          desc: "Powered by Groq (llama-3.3-70b-versatile) with up to 8 completion rounds per turn to inspect tables, sample rows, and refine queries.",
         },
         {
-          title: "Authenticated Encryption (AES-256-GCM)",
-          desc: "Every encrypted chunk includes a 128-bit authentication tag protecting against bit-flipping and ciphertext tampering.",
+          title: "AST-Level SQL Safety",
+          desc: "Every generated SQL query is parsed with sqlglot to restrict operations to safe analytics statements and reject writes.",
         },
         {
-          title: "Tamper-Evident Audit Trails",
-          desc: "Every file upload, download, share, and revocation event is committed to append-only immutable logs.",
+          title: "Multi-Database Support",
+          desc: "Works across SQLite (read-only URI mode), PostgreSQL, and MySQL with strict server statement limits and 100-row caps.",
         },
       ],
       highlightedProblem:
-        "Traditional cloud storage solutions decrypt files on servers without per-file key isolation, exposing sensitive data to host breaches.",
+        "How can non-technical users query live relational databases in plain English without exposing the database to destructive SQL or unverified LLM hallucinations?",
       roleScope: [
         {
-          id: "A 01.",
-          title: "Cryptographic Architecture",
-          desc: "Designed AES-256-GCM streaming encryption engine with isolated initialization vectors (IVs) per chunk.",
+          id: "01",
+          title: "Agent Loop",
+          desc: "Engineered the Groq tool-calling loop in Python with session-scoped conversation history and schema reflection.",
         },
         {
-          id: "A 02.",
-          title: "Key Derivation & Auth",
-          desc: "Implemented Argon2id password hashing and session token verification with device fingerprinting.",
+          id: "02",
+          title: "Safety Layer",
+          desc: "Built AST validation using sqlglot and read-only connection wrappers with 5-second execution timeouts.",
         },
         {
-          id: "A 03.",
-          title: "Streaming Ingestion",
-          desc: "Engineered memory-safe chunked streaming upload and download pipeline in FastAPI.",
-        },
-        {
-          id: "A 04.",
-          title: "Role-Based Access Control",
-          desc: "Built granular RBAC isolating document access by organization, team, and individual clearance level.",
+          id: "03",
+          title: "Analytics UI",
+          desc: "Created the React + Vite + Tailwind + Recharts frontend with inspectable SQL and chart switching.",
         },
       ],
     },
-
     problem: {
       question:
-        "How do you stream multi-gigabyte encrypted files without exhausting server RAM or compromising cryptographic authentication tags?",
-      approachHeading:
-        "Authenticated chunk streaming with nonce isolation and immutable access provenance.",
+        "How do you turn natural language questions into trustworthy, read-only SQL analytics?",
+      approachHeading: "Schema-grounded tool calling with deterministic AST guardrails",
       approachDetail:
-        "Encrypting entire large files in memory leads to catastrophic out-of-memory errors. The vault breaks uploads into independent 64KB blocks, encrypts each with AES-256-GCM and a deterministic block index nonce, and verifies authentication tags on the fly during download streams.",
+        "Instead of generating blind SQL in one shot, the agent uses structured tools to list allowlisted tables, inspect sample rows, and validate every statement through sqlglot before execution.",
       challenges: [
         {
-          id: "02 A.",
-          title: "Memory exhaustion on large file uploads",
-          desc: "Loading full files into RAM caused container crashes. Architected chunked streaming pipes directly into storage.",
+          id: "01",
+          title: "Write & Injection Prevention",
+          desc: "Regex keyword filters are brittle; full AST parsing via sqlglot ensures only read-only analytical SELECT queries execute.",
         },
         {
-          id: "02 B.",
-          title: "Ciphertext tampering vulnerabilities",
-          desc: "Unauthenticated encryption allows ciphertext alteration. AES-256-GCM authentication tags guarantee integrity.",
+          id: "02",
+          title: "Conversational Follow-Ups",
+          desc: "Follow-up questions like 'Only show customers from Tamil Nadu' require retaining structured context across turns.",
         },
         {
-          id: "02 C.",
-          title: "Insider threat and server-side compromise",
-          desc: "Zero-knowledge design ensures even database administrators cannot inspect encrypted file contents.",
+          id: "03",
+          title: "Timeout & Payload Control",
+          desc: "Unbounded result sets can overwhelm both the LLM context window and browser UI, requiring 100-row caps and 5s deadlines.",
         },
       ],
       users: [
-        "Legal firms handling privileged client discovery",
-        "Financial institutions storing compliance audits",
-        "Individuals safeguarding identity documents and secrets",
+        "Business analysts exploring retail and revenue data without writing SQL",
+        "Developers needing an auditable, safe Text-to-SQL reference architecture",
+        "Teams running self-hosted analytics over SQLite, PostgreSQL, or MySQL",
       ],
       keyChallenges: [
-        "Stream encrypted payloads without exceeding strict container RAM limits.",
-        "Guarantee file tamper-detection with AES-256-GCM tags.",
-        "Maintain immutable access logs for compliance verification.",
+        "Parsing and validating arbitrary LLM-generated SQL before execution",
+        "Supporting multi-dialect SQL across SQLite, PostgreSQL, and MySQL",
+        "Rendering query results dynamically as both tables and Recharts charts",
       ],
     },
-
     architecture: {
-      heading:
-        "End-to-end cryptographic lifecycle from file ingestion to verified download.",
+      heading: "System Architecture & Workflow",
       subheading:
-        "How zero-trust architecture protects sensitive records from unauthorized eyes.",
+        "FastAPI backend orchestrating Groq tool-calling, sqlglot AST validation, and read-only SQLAlchemy execution.",
       phases: [
         {
-          id: "Stage 1",
-          title: "MIME Validation",
-          desc: "Inspect magic bytes, block malicious executables.",
+          id: "01",
+          title: "Schema & Context",
+          desc: "app/agent.py sends the user question, conversation history, SQL dialect, and three tool definitions to Groq.",
         },
         {
-          id: "Stage 2",
-          title: "Key Derivation",
-          desc: "Derive encryption key via Argon2id from user secret.",
+          id: "02",
+          title: "AST Validation",
+          desc: "app/safety.py parses the statement tree with sqlglot, allowing analytics operations and blocking writes.",
         },
         {
-          id: "Stage 3",
-          title: "Chunked AES-256-GCM",
-          desc: "Stream and encrypt payload with unique 96-bit nonces.",
-        },
-        {
-          id: "Stage 4",
-          title: "Immutable Logging",
-          desc: "Record cryptographic hash and operation audit event.",
+          id: "03",
+          title: "Read-Only Execution",
+          desc: "app/db.py executes validated SQL on read-only connections with a 5-second timeout and 100-row cap.",
         },
       ],
       steps: [
         {
-          step: "Step 01",
-          title: "File Selection & Header Inspection",
-          desc: "Client initiates upload. FastAPI checks file header magic bytes to prevent MIME-type spoofing.",
+          step: "01",
+          title: "Question Intake",
+          desc: "User submits a natural language question in the React UI, proxied to FastAPI.",
         },
         {
-          step: "Step 02",
-          title: "Key Generation & Derivation",
-          desc: "An ephemeral file key is generated and encrypted using a master key derived from the user's password using Argon2id.",
+          step: "02",
+          title: "Tool Dispatch",
+          desc: "Groq requests table listings, schema reflection with 3 sample rows, or SQL execution.",
         },
         {
-          step: "Step 03",
-          title: "Chunked Encryption Stream",
-          desc: "The file is processed in 64KB chunks. Each block receives a unique initialization vector and 128-bit authentication tag.",
+          step: "03",
+          title: "Safety Gate",
+          desc: "sqlglot inspects the parsed SQL AST and rejects any non-read-only or disallowed operations.",
         },
         {
-          step: "Step 04",
-          title: "Encrypted Storage & Provenance Audit",
-          desc: "Encrypted blocks are written to disk; metadata and immutable access timestamps are saved in PostgreSQL.",
+          step: "04",
+          title: "Visualization",
+          desc: "FastAPI returns the final answer, executed SQL statements, and rows for table/Recharts rendering.",
         },
       ],
     },
-
     implementation: {
-      heading: "Cryptographic Safeguards & System Hardening",
+      heading: "Core Engineering Pillars",
       subheading:
-        "Production invariants ensuring zero data exposure under breach conditions.",
+        "Built for safety, inspectability, and clean local or Dockerized deployment.",
       pillars: [
         {
-          title: "AES-256-GCM Authenticated Encryption",
-          desc: "Galois/Counter Mode guarantees both confidentiality and data authenticity with tamper-evident tags.",
-          points: ["256-bit key length", "128-bit authentication tag"],
+          title: "Groq Tool-Calling Agent",
+          desc: "Multi-round reasoning loop matching tool calls to deterministic Python functions.",
+          points: [
+            "Supports up to 8 completion rounds per user turn",
+            "Maintains 8 exchanges of session history in memory",
+            "Returns both the natural-language answer and exact executed SQL",
+          ],
         },
         {
-          title: "Argon2id Memory-Hard Key Derivation",
-          desc: "Protects master keys against GPU and ASIC brute-force attacks with tuned memory parameters.",
-          points: ["Winner of Password Hashing Competition", "Hardware brute-force resistant"],
-        },
-        {
-          title: "Append-Only Audit Provenance",
-          desc: "Database logs cannot be updated or deleted; any read attempt produces an indelible timestamped entry.",
-          points: ["Tamper-evident logs", "Strict compliance logging"],
+          title: "Read-Only Database Guardrails",
+          desc: "Defense-in-depth across SQL parsing and database connection configuration.",
+          points: [
+            "sqlglot AST inspection restricting statements to analytics queries",
+            "SQLite opened with mode=ro and query_only pragma",
+            "Read-only transactions and execution deadlines for PostgreSQL and MySQL",
+          ],
         },
       ],
     },
-
     impact: {
-      heading: "Security Verification & Production Impact",
+      heading: "Key Outcomes & Learnings",
       metrics: [
-        { value: "AES-256", label: "Encryption Standard" },
-        { value: "0 Plaintext", label: "Server Exposure" },
-        { value: "< 25MB", label: "Streaming RAM Footprint" },
+        { value: "Groq", label: "llama-3.3-70b-versatile" },
+        { value: "sqlglot", label: "AST Safety Parser" },
+        { value: "100 Rows", label: "Bounded Result Cap" },
       ],
       outcomes: [
-        "Engineered a zero-trust storage platform with enterprise-grade cryptographic guarantees.",
-        "Successfully streamed multi-gigabyte encrypted files within a 25MB container memory envelope.",
-        "Delivered tamper-evident audit trails satisfying strict privacy regulations.",
+        "Full-stack Text-to-SQL workspace with inspectable SQL and Recharts visualizations",
+        "Zero write-statement exposure via sqlglot AST validation and read-only DB modes",
+        "Single-command Docker Compose deployment serving compiled React + FastAPI",
       ],
       learnings: [
         {
-          title: "Security is an architectural foundation",
-          desc: "Designing encryption into streaming primitives from day one is vastly easier than retrofitting encryption onto plaintext storage.",
+          title: "AST Parsing Beats Regex",
+          desc: "Validating the parsed SQL syntax tree with sqlglot eliminates entire classes of bypasses that simple string checks miss.",
         },
         {
-          title: "Authenticated encryption is non-negotiable",
-          desc: "Confidentiality without authenticity is incomplete. GCM tags prevent entire classes of ciphertext manipulation attacks.",
+          title: "Transparency Builds Trust",
+          desc: "Always showing the generated SQL alongside the answer lets users verify the logic immediately.",
         },
       ],
     },
-
     nextProject: {
-      slug: "preventive-ai-paper",
-      title: "Preventive Healthcare Multimodal AI Framework",
-      category: "AI Research · IEEE Paper",
+      slug: "fake-news-detector",
+      title: "AI News Verification System",
+      category: "Applied AI · Vector RAG",
     },
   },
 
-  "preventive-ai-paper": {
-    slug: "preventive-ai-paper",
-    number: "05",
-    tag: "PEER-REVIEWED RESEARCH · IEEE ICETSIS 2026",
-    category: "AI Research · Multimodal Healthcare",
-    year: "2026",
-    domain: "Computer Vision & Conversational AI",
-    title: "Preventive Healthcare Multimodal AI Framework",
+  "fake-news-detector": {
+    slug: "fake-news-detector",
+    number: "02",
+    tag: "APPLIED AI · VECTOR RAG VERIFICATION",
+    category: "Applied AI · Vector RAG",
+    year: "2025–26",
+    domain: "NLP / Fact Verification",
+    title: "AI News Verification System — Vector RAG Fact-Checking",
     subtitle:
-      "Integrating visual symptom detection with conversational triage for explainable, clinician-auditable healthcare routing.",
-    role: "Co-Author & AI Systems Researcher",
-    duration: "Academic Research",
-    status: "Accepted & Peer-Reviewed",
-    liveUrl: "https://drive.google.com/file/d/1ro5v9Cb1Un-pj2ZEiKdZVDEPDeOpfEU_/view?usp=sharing",
-    repoUrl: "https://drive.google.com/file/d/1ro5v9Cb1Un-pj2ZEiKdZVDEPDeOpfEU_/view?usp=sharing",
+      "An LLM + Vector RAG evidence verification system that verifies news URLs and viral claims against real-time reporting from global and regional news sources.",
+    role: "AI & Full-Stack Engineer",
+    duration: "2025–26",
+    status: "Open Source · GitHub",
+    repoUrl: "https://github.com/jaiyan-th/AI-Powered-Fake-News-Detecter",
     stack: [
-      "Computer Vision",
-      "Conversational AI",
-      "Multimodal Fusion",
-      "Clinical Safety Guardrails",
-      "Explainable AI",
-      "IEEE ICETSIS 2026",
+      "Python",
+      "FastAPI",
+      "FastEmbed",
+      "Groq",
+      "NewsAPI",
+      "SerpAPI",
+      "Vector RAG",
     ],
-
-    // 01 Context
     context: {
-      title: "What is the Preventive Healthcare Framework?",
+      title: "What is the AI News Verification System?",
       description:
-        "A peer-reviewed research framework accepted at IEEE ICETSIS 2026 (Bahrain) that addresses the vulnerability of single-modal clinical triage. By uniting visual feature extraction with an active conversational AI layer, the system surfaces early wellness signals, eliminates diagnostic ambiguity through calibrated follow-up dialogue, and routes users toward appropriate clinical care with explainable, clinician-auditable summaries.",
+        "VerifyNews automates multi-source fact-checking without relying on static supervised classifiers. It ingests a news URL or pasted claim, extracts verifiable sub-claims via Groq LLM, retrieves real-time reporting from NewsAPI and Google News, deduplicates syndicated wire stories, and indexes evidence with FastEmbed (BAAI/bge-small-en-v1.5) for semantic retrieval and stance-based verdict synthesis.",
       characteristics: [
         {
-          title: "Multimodal Signal Capture",
-          desc: "A computer-vision input pipeline extracts visual wellness indicators from patient data, normalized for downstream clinical reasoning.",
+          title: "Live Multi-Source Retrieval",
+          desc: "Queries NewsAPI and Google News (SerpAPI or RSS) using multi-angle search queries generated from the claim.",
         },
         {
-          title: "Structured Conversational Triage",
-          desc: "Targeted follow-up inquiry dialogues remove ambiguity before care recommendations are surfaced, preventing premature classification.",
+          title: "384-Dim FastEmbed Vector RAG",
+          desc: "Embeds deduplicated evidence into an in-memory semantic vector index using BAAI/bge-small-en-v1.5 for top-k retrieval.",
         },
         {
-          title: "Explainable Clinician Summaries",
-          desc: "Outputs trace directly back to observable visual markers and patient dialogue tokens, delivering transparent clinical rationale rather than opaque black-box scores.",
+          title: "Stance & Verdict Synthesis",
+          desc: "Evaluates each source as SUPPORT, CONTRADICT, or NEUTRAL before synthesizing REAL, FALSE, MISLEADING, or UNVERIFIED.",
         },
       ],
       highlightedProblem:
-        "Single-modal healthcare AI either misses critical patient context or yields high false-positive rates; uniting visual detection with conversational validation creates dependable clinical triage.",
+        "Static fake-news classifiers fail on breaking news and cannot explain why a claim is true or false. Users need live, multi-source evidence with transparent stance attribution.",
       roleScope: [
         {
           id: "01",
-          title: "Literature Review",
-          desc: "Synthesized clinical safety invariants and state-of-the-art multimodal triage architectures.",
+          title: "Claim & Query Pipeline",
+          desc: "Built URL article extraction (newspaper3k + bs4) and Groq-powered claim and query generation.",
         },
         {
           id: "02",
-          title: "Framework Architecture",
-          desc: "Designed the dual-stage pipeline uniting computer vision feature tensors with conversational dialogue trees.",
+          title: "Semantic RAG Index",
+          desc: "Implemented wire deduplication and in-memory FastEmbed cosine similarity search.",
         },
         {
           id: "03",
-          title: "Explainability Layer",
-          desc: "Engineered structured clinical summary schemas with strict source attribution and confidence calibration.",
-        },
-        {
-          id: "04",
-          title: "Paper Co-Authoring",
-          desc: "Co-authored methodology sections, drafted architectural schematics, and prepared presentation materials.",
+          title: "Verdict Engine & UI",
+          desc: "Designed the FastAPI /api/v1/verify endpoint and interactive single-page verification UI.",
         },
       ],
     },
-
-    // 02 Users & Problem
     problem: {
       question:
-        "How can we build an AI-assisted triage pipeline that combines computer vision and conversational AI without compromising clinical safety or explainability?",
-      approachHeading: "Dual-Stage Multimodal Verification",
+        "How do you verify breaking news claims in real time without relying on stale training data?",
+      approachHeading: "Retrieve live reporting first, then reason over deduplicated evidence",
       approachDetail:
-        "We decoupled initial signal detection from triage routing. First, deep computer-vision networks process uploaded wellness images to detect visual indicators. Second, an intelligent conversational agent initiates structured follow-up dialogues to assess symptom history, duration, and severity before synthesizing a clinician-auditable summary.",
+        "Instead of asking an LLM what it remembers, the pipeline extracts core claims, fetches fresh reporting across multiple outlets, deduplicates syndicated copies, and scores stance over top-k semantic chunks.",
       challenges: [
         {
           id: "01",
-          title: "Eliminating Ambiguity",
-          desc: "Visual markers alone lack temporal and symptomatic context; dynamic conversational inquiry resolves critical gaps.",
+          title: "Syndicated Wire Duplicates",
+          desc: "Multiple outlets often republish the same wire story, which can skew naive source counts unless deduplicated.",
         },
         {
           id: "02",
-          title: "Rejecting Black-Box Output",
-          desc: "Healthcare professionals reject opaque confidence percentages; every recommendation requires cited visual and dialogue evidence.",
+          title: "Nuance & Partial Truths",
+          desc: "Many viral claims mix real facts with outdated dates or exaggerated numbers, requiring a dedicated MISLEADING verdict.",
         },
         {
           id: "03",
-          title: "Clinical Safety Boundaries",
-          desc: "Preventing AI from generating definitive diagnostic claims, strictly confining output to preventive guidance and routing.",
+          title: "Insufficient Evidence Handling",
+          desc: "When retrieved reporting is sparse or neutral, the system must surface UNVERIFIED rather than guessing.",
         },
       ],
       users: [
-        "Primary care clinics requiring pre-intake triage summaries",
-        "Patients seeking early preventive wellness assessment",
-        "Clinical informatics and healthcare AI researchers",
+        "Readers checking viral social media claims and forwarded news links",
+        "Journalists and researchers cross-referencing breaking coverage across outlets",
+        "Developers exploring FastEmbed + Groq Vector RAG architectures",
       ],
       keyChallenges: [
-        "Preventing hallucinated or unsupported diagnostic claims",
-        "Calibrating risk stratification across subjective patient responses",
-        "Formatting summaries into standard clinician-reviewable formats",
+        "Extracting clean article text from diverse news URLs",
+        "Deduplicating syndicated stories across publishers",
+        "Calibrating 4-way verdicts (REAL, FALSE, MISLEADING, UNVERIFIED)",
       ],
     },
-
-    // 03 System Architecture & Workflow
     architecture: {
-      heading: "Multimodal Intake & Conversational Verification Pipeline",
+      heading: "System Architecture & Workflow",
       subheading:
-        "An end-to-end architecture bridging computer vision feature extraction with safety-constrained conversational reasoning.",
+        "End-to-end FastAPI pipeline from URL/text intake to semantic retrieval and stance synthesis.",
       phases: [
         {
-          id: "PHASE 01",
-          title: "Visual Intake",
-          desc: "Image normalization, resolution verification, and tensor pre-processing.",
+          id: "01",
+          title: "Extraction & Queries",
+          desc: "Extracts article text (newspaper3k + bs4) and generates 3–5 targeted search queries via Groq.",
         },
         {
-          id: "PHASE 02",
-          title: "Feature Extraction",
-          desc: "Deep visual networks identify salient wellness indicators and output confidence ranges.",
+          id: "02",
+          title: "Retrieval & FastEmbed",
+          desc: "Fetches NewsAPI & Google News results, deduplicates wire stories, and indexes 384-dim FastEmbed vectors.",
         },
         {
-          id: "PHASE 03",
-          title: "Conversational Triage",
-          desc: "Dialogue agent queries patients with safety-constrained follow-up questions.",
-        },
-        {
-          id: "PHASE 04",
-          title: "Clinician Synthesis",
-          desc: "Generates grounded case documentation with traceable signal attribution.",
+          id: "03",
+          title: "Stance & Verdict",
+          desc: "Evaluates per-source stance (SUPPORT / CONTRADICT / NEUTRAL) and synthesizes the final verdict.",
         },
       ],
       steps: [
         {
-          step: "STEP 01",
-          title: "Image Acquisition & Tensor Normalization",
-          desc: "The client uploads image data; automated pre-processing normalizes lighting, aspect ratio, and resolution.",
+          step: "01",
+          title: "Input Ingestion",
+          desc: "Accepts a news article URL or pasted text claim at /api/v1/verify.",
         },
         {
-          step: "STEP 02",
-          title: "Computer Vision Feature Extraction",
-          desc: "Pre-trained vision backbones isolate candidate visual indicators and calculate feature bounding coordinates.",
+          step: "02",
+          title: "Claim Decomposition",
+          desc: "Groq LLM extracts primary claims, sub-claims, and named entities.",
         },
         {
-          step: "STEP 03",
-          title: "Dynamic Follow-Up Dialogue Generation",
-          desc: "The conversational layer evaluates detected indicators and formulates targeted questions assessing onset, sensation, and timeline.",
+          step: "03",
+          title: "Vector Indexing",
+          desc: "Deduplicated articles are embedded with FastEmbed (BAAI/bge-small-en-v1.5) for top-k cosine retrieval.",
         },
         {
-          step: "STEP 04",
-          title: "Multimodal Signal Fusion & Calibration",
-          desc: "Fuses image feature tensors with verified dialogue tokens into a structured semantic case profile.",
-        },
-        {
-          step: "STEP 05",
-          title: "Explainable Clinical Summary Generation",
-          desc: "Produces structured clinician referral notes with explicit citations linking each observation to input data.",
+          step: "04",
+          title: "Transparent Verdict",
+          desc: "Synthesizes REAL, FALSE, MISLEADING, or UNVERIFIED with cited evidence snippets.",
         },
       ],
     },
-
-    // 04 Implementation Details
     implementation: {
-      heading: "Engineering Methodology & Safety Protocols",
+      heading: "Core Engineering Pillars",
       subheading:
-        "Architecting safeguards for reliable medical informatics.",
+        "Designed for speed, source diversity, and explainable verification.",
       pillars: [
         {
-          title: "Multimodal Fusion Mechanism",
-          desc: "Harmonizes heterogeneous inputs (high-dimensional image embeddings and multi-turn dialogue tokens) into unified case representations.",
+          title: "Multi-Source News Retrieval",
+          desc: "Combines NewsAPI and Google News (SerpAPI / RSS) with source normalization.",
           points: [
-            "Decoupled vision and NLP inference pipelines",
-            "Normalized cross-attention weighting",
-            "Stateful session memory for multi-turn dialogue",
+            "Generates 3–5 targeted search queries per claim",
+            "Normalizes and deduplicates cross-publisher syndicated wire stories",
+            "Extracts clean article bodies from URLs with newspaper3k and BeautifulSoup",
           ],
         },
         {
-          title: "Clinical Safety & Guardrails",
-          desc: "Hard boundary constraints enforce that the framework acts strictly as a preventive triage assistant, never a prescribing physician.",
+          title: "FastEmbed Semantic RAG",
+          desc: "Lightweight, fast 384-dimensional dense vector retrieval in Python.",
           points: [
-            "Prohibition on definitive diagnostic claims",
-            "Immediate escalation triggers for critical symptoms",
-            "Deterministic fallback options for ambiguous queries",
-          ],
-        },
-        {
-          title: "Clinician-Auditable Traceability",
-          desc: "Ensures every generated phrase in the case summary points directly back to an objective visual marker or user response.",
-          points: [
-            "Token-level rationale citations",
-            "Confidence interval reporting",
-            "Standardized SOAP-compatible intake format",
+            "Uses BAAI/bge-small-en-v1.5 via FastEmbed with in-memory cosine similarity",
+            "Retrieves top-k relevant passages for stance analysis",
+            "Produces transparent evidence snippets and confidence breakdowns",
           ],
         },
       ],
     },
-
-    // 05 Impact & Learnings
     impact: {
-      heading: "Academic Peer Review & Conference Presentation",
+      heading: "Key Outcomes & Learnings",
       metrics: [
-        { value: "ICETSIS 2026", label: "IEEE Conference Acceptance" },
-        { value: "Bahrain", label: "Presentation Venue" },
-        { value: "May 2026", label: "Publication Date" },
+        { value: "384-dim", label: "FastEmbed Vectors" },
+        { value: "4 Verdicts", label: "REAL / FALSE / MISLEADING / UNVERIFIED" },
+        { value: "FastAPI", label: "Async Verification API" },
       ],
       outcomes: [
-        "Accepted for peer-reviewed technical presentation at IEEE ICETSIS 2026 (Bahrain Section).",
-        "Established that multimodal conversational verification substantially reduces false-positive rates compared to vision-only triage.",
-        "Demonstrated an explainability-first architecture that provides clinician-auditable summaries.",
+        "Real-time claim verification grounded in live NewsAPI and Google News reporting",
+        "Transparent stance breakdown per source instead of opaque black-box scores",
+        "Clean single-page UI backed by FastAPI and Groq inference",
       ],
       learnings: [
         {
-          title: "Multimodal verification outperforms single-modal classification",
-          desc: "Pairing visual feature detection with dynamic dialogue validation provides the context necessary to reduce false-positive triage classifications.",
+          title: "Deduplication Matters",
+          desc: "Filtering syndicated wire copies prevents a single press release from masquerading as independent consensus.",
         },
         {
-          title: "Explainability is essential for medical acceptance",
-          desc: "Clinicians will not trust opaque neural network scores. Providing transparent citations to visual and dialogue tokens is critical.",
+          title: "Explicit Uncertainty",
+          desc: "Supporting MISLEADING and UNVERIFIED verdicts makes the system honest when evidence is partial or missing.",
         },
       ],
     },
-
     nextProject: {
-      slug: "fake-news-detector",
-      title: "Fake News Detector — Grounded RAG Fact Verification",
-      category: "Applied AI · RAG Architecture",
+      slug: "smarthire-ai",
+      title: "SmartHire AI",
+      category: "Applied AI · Full-Stack",
+    },
+  },
+
+  "smarthire-ai": {
+    slug: "smarthire-ai",
+    number: "03",
+    tag: "APPLIED AI · INTERVIEW & ASSESSMENT PLATFORM",
+    category: "Applied AI · Full-Stack",
+    year: "2025–26",
+    domain: "Talent Intelligence / EdTech",
+    title: "SmartHire AI — Mock Interview & Candidate Assessment Platform",
+    subtitle:
+      "A production-grade AI interview preparation and candidate assessment platform with multi-discipline mock interviews, ATS resume analysis, real-time telemetry, and a 4-pillar scoring engine.",
+    role: "Full-Stack & AI Engineer",
+    duration: "2025–26",
+    status: "Open Source · GitHub",
+    repoUrl: "https://github.com/jaiyan-th/SmartHire-AI",
+    stack: [
+      "Python",
+      "Django 5.2",
+      "Django REST Framework",
+      "Groq",
+      "OpenAI",
+      "PostgreSQL",
+      "JavaScript",
+      "Docker",
+    ],
+    context: {
+      title: "What is SmartHire AI?",
+      description:
+        "SmartHire AI is a full-stack interview preparation and candidate assessment platform built for students, job seekers, university career cells, and recruitment teams. It unifies Technical, HR, Behavioral (STAR), and Quantitative mock interviews with ATS resume parsing, webcam/microphone telemetry, a recruiter benchmarking portal, and certified PDF dossier exports.",
+      characteristics: [
+        {
+          title: "Multi-Discipline Interviews",
+          desc: "Supports Technical, HR, Behavioral (STAR method), and Quantitative Aptitude interviews in one live room.",
+        },
+        {
+          title: "Real-Time Telemetry",
+          desc: "Captures browser webcam gaze stability and speaking cadence (WPM) via Web Speech/Audio APIs.",
+        },
+        {
+          title: "Deterministic 4-Pillar Scoring",
+          desc: "Combines Communication (30%), Knowledge (25%), Technical/Problem-Solving (30%), and Presence (15%) into a transparent score.",
+        },
+      ],
+      highlightedProblem:
+        "Job seekers and recruitment teams lack a unified platform that connects resume-to-JD alignment, live interview telemetry, and auditable multi-pillar candidate scoring.",
+      roleScope: [
+        {
+          id: "01",
+          title: "Django 5.2 + DRF Backend",
+          desc: "Architected REST APIs with SimpleJWT auth, PostgreSQL/SQLite dual support, and RBAC for Candidates, Recruiters, and Admins.",
+        },
+        {
+          id: "02",
+          title: "AI & Telemetry Pipeline",
+          desc: "Integrated Groq Llama-3.1-8B-Instant, OpenAI GPT-4o-mini, PyPDF2 ATS parsing, and browser speech/gaze telemetry.",
+        },
+        {
+          id: "03",
+          title: "Portals & PDF Dossiers",
+          desc: "Built candidate analytics, recruiter benchmarking, admin diagnostics console, and verifiable PDF dossier downloads.",
+        },
+      ],
+    },
+    problem: {
+      question:
+        "How do you deliver realistic mock interviews and consistent candidate assessments at scale?",
+      approachHeading: "Combine multi-model AI evaluation with deterministic weighted scoring",
+      approachDetail:
+        "Use fast LLMs for conversational interviews and ATS skill extraction, pair them with browser audio/video telemetry, and compute final scores deterministically across four weighted pillars.",
+      challenges: [
+        {
+          id: "01",
+          title: "Scoring Consistency",
+          desc: "Raw LLM grades can drift across sessions; a deterministic 4-pillar formula keeps evaluations consistent and auditable.",
+        },
+        {
+          id: "02",
+          title: "Multi-Role Workflows",
+          desc: "Candidates, Recruiters, and Administrators each need tailored dashboards and strict RBAC boundaries.",
+        },
+        {
+          id: "03",
+          title: "Zero-Friction Frontend",
+          desc: "Delivered a responsive Lavender Blush UI with modular ES6 JavaScript and zero npm build friction.",
+        },
+      ],
+      users: [
+        "Students and job seekers practicing Technical, HR, and STAR behavioral interviews",
+        "University career cells and recruiters benchmarking candidate rosters",
+        "Administrators monitoring connection pools and AI model settings",
+      ],
+      keyChallenges: [
+        "Integrating PyPDF2 resume parsing with job description gap analysis",
+        "Capturing real-time speaking cadence (WPM) and gaze stability in the browser",
+        "Generating tamper-resistant PDF dossiers with verification codes",
+      ],
+    },
+    architecture: {
+      heading: "System Architecture & Workflow",
+      subheading:
+        "Django 5.2 LTS + DRF backend serving modular ES6 frontend views and dual-database persistence.",
+      phases: [
+        {
+          id: "01",
+          title: "ATS & Intake",
+          desc: "Parses candidate PDF/DOCX resumes with PyPDF2 and computes job description skill alignment.",
+        },
+        {
+          id: "02",
+          title: "Live Interview Room",
+          desc: "Runs multi-discipline AI interviews with PIP camera telemetry and Web Speech/Audio cadence tracking.",
+        },
+        {
+          id: "03",
+          title: "Scoring & Dossiers",
+          desc: "Computes the 4-pillar score and exports certified PDF dossiers for recruiter benchmarking.",
+        },
+      ],
+      steps: [
+        {
+          step: "01",
+          title: "Role Auth & Demo Chips",
+          desc: "SimpleJWT authentication with Candidate, Recruiter, and Admin RBAC.",
+        },
+        {
+          step: "02",
+          title: "Resume ATS Analysis",
+          desc: "Extracts skills from uploaded resumes and surfaces a skill-gap roadmap.",
+        },
+        {
+          step: "03",
+          title: "Mock Interview & Telemetry",
+          desc: "Conducts adaptive Q&A via Groq / OpenAI while measuring WPM and gaze stability.",
+        },
+        {
+          step: "04",
+          title: "Insights & Recruiter Portal",
+          desc: "Visualizes performance radar charts, candidate rosters, and downloadable PDF dossiers.",
+        },
+      ],
+    },
+    implementation: {
+      heading: "Core Engineering Pillars",
+      subheading:
+        "Engineered with Django 5.2 LTS, SimpleJWT, and Dockerized CI/CD.",
+      pillars: [
+        {
+          title: "4-Pillar Scoring & ATS Engine",
+          desc: "Structured evaluation combining resume alignment, domain answers, and delivery telemetry.",
+          points: [
+            "Weighted formula: Communication (30%), Knowledge (25%), Technical (30%), Presence (15%)",
+            "PyPDF2 resume parsing and skill-gap checklist generation",
+            "Certified PDF dossier exports with verification codes",
+          ],
+        },
+        {
+          title: "Recruiter & Admin Governance",
+          desc: "Dedicated portals for talent benchmarking and system health monitoring.",
+          points: [
+            "Recruiter candidate roster filtering, benchmarking, and template builder",
+            "Admin diagnostics console with connection pool monitoring and AI model controls",
+            "PostgreSQL production support with SQLite fallback and GitHub Actions CI/CD",
+          ],
+        },
+      ],
+    },
+    impact: {
+      heading: "Key Outcomes & Learnings",
+      metrics: [
+        { value: "4-Pillar", label: "Deterministic Scoring" },
+        { value: "Django 5.2", label: "LTS + DRF Backend" },
+        { value: "3 Roles", label: "Candidate · Recruiter · Admin" },
+      ],
+      outcomes: [
+        "Unified interview prep, ATS analysis, and recruiter assessment in one platform",
+        "Deterministic scoring formula making AI-assisted evaluations auditable",
+        "Dockerized deployment with GitHub Actions CI pipeline",
+      ],
+      learnings: [
+        {
+          title: "Deterministic Weights Over Raw Scores",
+          desc: "Separating rubric extraction from a fixed mathematical weighting formula makes candidate comparisons fair and repeatable.",
+        },
+        {
+          title: "Role-Based Architecture",
+          desc: "Designing clean RBAC boundaries early kept Candidate, Recruiter, and Admin workflows modular and maintainable.",
+        },
+      ],
+    },
+    nextProject: {
+      slug: "sql-query-agent",
+      title: "SQL Query Agent",
+      category: "Applied AI · Text-to-SQL",
     },
   },
 };
 
-// Alias for matching selected-work ID "secure-vault"
-CASE_STUDIES["secure-vault"] = CASE_STUDIES["secure-document-vault"];
+// Keep internship aliases pointing to fake-news-detector for Experience section links
 CASE_STUDIES["brainery-spot-internship"] = CASE_STUDIES["fake-news-detector"];
 CASE_STUDIES["internship"] = CASE_STUDIES["fake-news-detector"];

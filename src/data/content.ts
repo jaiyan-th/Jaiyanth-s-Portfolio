@@ -103,79 +103,63 @@ export const HERO_CONTENT = {
 // 01 Featured Case Study
 export const FEATURED_CASE: FeaturedCaseData = {
   index: "01",
-  tag: "FEATURED CASE · RAG FACT-CHECKING",
-  title: "Fake News Detector — Grounded RAG Fact Verification",
+  tag: "FEATURED CASE · TEXT-TO-SQL AGENT",
+  title: "SQL Query Agent — Natural Language to SQL",
   summary:
-    "An autonomous fact-checking pipeline that retrieves semantically indexed news evidence from vector stores to score claims with strict source attribution and provenance.",
+    "Ask questions in plain English, inspect the answer alongside its generated SQL, and explore results as interactive tables or Recharts visualizations.",
   highlights: [
-    "[PLACEHOLDER] Grounded RAG pipeline cross-referencing incoming claims against vectorized news evidence with zero model hallucination.",
-    "[PLACEHOLDER] High-throughput semantic retrieval layer using embeddings and vector search for sub-second claim resolution.",
-    "[PLACEHOLDER] Full-stack architecture backed by Flask and Supabase with traceable provenance, cited URLs, and confidence calibration.",
+    "Multi-round Groq LLM tool-calling loop inspecting live schemas and executing read-only queries.",
+    "AST-level SQL safety validation via sqlglot restricting operations to analytics queries.",
+    "Full-stack FastAPI and React + Recharts interface supporting SQLite, PostgreSQL, and MySQL.",
   ],
   metrics: [
-    { label: "Latency", value: "< 850ms" },
-    { label: "Verification Precision", value: "94.2%" },
-    { label: "Vector Search", value: "Qdrant" },
+    { label: "LLM Engine", value: "Groq Llama 3.3" },
+    { label: "SQL Guardrails", value: "sqlglot AST" },
+    { label: "DB Support", value: "Read-Only" },
   ],
-  stack: ["Python", "Flask", "LangChain", "Vector DB", "RAG", "Supabase", "LLM Integration", "News API"],
-  liveUrl: "https://fake-news-detecter-kopi.onrender.com/",
-  repoUrl: "https://github.com/jaiyan-th/Fake-News-Detecter",
-  visualType: "rag-nodes",
+  stack: ["Python", "FastAPI", "Groq", "SQLAlchemy", "sqlglot", "React", "Recharts", "Tailwind CSS"],
+  liveUrl: "https://github.com/jaiyan-th/SQL-Query-Agent",
+  repoUrl: "https://github.com/jaiyan-th/SQL-Query-Agent",
+  visualType: "terminal",
 };
 
-// 02 Selected Work (Indexed list P. 02, P. 03, P. 04...)
+// 02 Selected Work (Indexed list P. 01, P. 02, P. 03)
 export const SELECTED_WORK: SelectedWorkItem[] = [
   {
-    id: "up-skill",
-    index: "P. 02",
-    title: "Up-Skill — AI Career & Interview Intelligence",
+    id: "sql-query-agent",
+    index: "P. 01",
+    title: "SQL Query Agent — Natural Language to SQL",
     summary:
-      "[PLACEHOLDER] Multi-stage career agent running ATS resume scoring, conversational mock interviews, and personalized skill-gap mapping.",
-    category: "Applied AI · Career Intelligence",
-    year: "2025",
-    stack: ["Python", "Flask", "LangChain", "Groq", "Mistral", "Supabase"],
-    liveUrl: "https://upskill-ai-personalized-skill-and-career-w0px.onrender.com/",
-    repoUrl: "https://github.com/jaiyan-th/UpSkill-AI-Personalized-Skill-and-Career-Assistant",
-    accentNote: "Multi-Model Orchestration",
-  },
-  {
-    id: "car-rent",
-    index: "P. 03",
-    title: "Car-Rent — Full-Stack Rental Platform",
-    summary:
-      "[PLACEHOLDER] Full-stack automotive platform with concurrency-safe reservation timelines, JWT/OAuth auth, and Prisma relational modeling.",
-    category: "Full-Stack · Web Platform",
-    year: "2025",
-    stack: ["Next.js", "React", "TypeScript", "NestJS", "Prisma ORM", "PostgreSQL"],
-    liveUrl: "https://car-rent-main-fcdo.onrender.com/",
-    repoUrl: "https://github.com/jaiyan-th/Car-Rent-Main",
-    accentNote: "Concurrency Invariant Schema",
-  },
-  {
-    id: "secure-vault",
-    index: "P. 04",
-    title: "Secure Document Vault — Zero-Trust Cryptographic Storage",
-    summary:
-      "[PLACEHOLDER] High-assurance document store featuring AES-256-GCM authenticated encryption, Argon2 KDF, chunked streaming, and immutable audit logs.",
-    category: "Full-Stack · Cybersecurity",
-    year: "2025",
-    stack: ["FastAPI", "Python", "SQLAlchemy", "PostgreSQL", "AES-256-GCM", "Argon2"],
-    liveUrl: "https://jaiy-vault.onrender.com",
-    repoUrl: "https://github.com/jaiyan-th/Secure-Digital-Document-Vault",
-    accentNote: "Authenticated Encryption Stream",
-  },
-  {
-    id: "preventive-ai-paper",
-    index: "P. 05",
-    title: "Preventive Healthcare Multimodal AI Framework",
-    summary:
-      "[PLACEHOLDER] IEEE Bahrain (ICETSIS 2026) co-authored research paper integrating image recognition with conversational triage for explainable clinic routing.",
-    category: "AI Research · IEEE Paper",
+      "Natural-language to SQL analytics agent powered by Groq tool-calling, sqlglot AST safety validation, and interactive Recharts visualizations.",
+    category: "Applied AI · Text-to-SQL",
     year: "2026",
-    stack: ["Image Recognition", "Conversational AI", "Clinical Triage", "Research Methodology"],
-    liveUrl: "https://drive.google.com/file/d/1ro5v9Cb1Un-pj2ZEiKdZVDEPDeOpfEU_/view?usp=sharing",
-    repoUrl: "https://drive.google.com/file/d/1ro5v9Cb1Un-pj2ZEiKdZVDEPDeOpfEU_/view?usp=sharing",
-    accentNote: "ICETSIS 2026 IEEE Bahrain",
+    stack: ["Python", "FastAPI", "Groq", "SQLAlchemy", "sqlglot", "React", "Recharts"],
+    repoUrl: "https://github.com/jaiyan-th/SQL-Query-Agent",
+    accentNote: "sqlglot AST Guardrails",
+  },
+  {
+    id: "fake-news-detector",
+    index: "P. 02",
+    title: "AI News Verification System — Vector RAG Fact-Checking",
+    summary:
+      "LLM + Vector RAG evidence verification system using Groq, NewsAPI, Google News, and FastEmbed semantic search.",
+    category: "Applied AI · RAG Verification",
+    year: "2025–26",
+    stack: ["Python", "FastAPI", "FastEmbed", "Groq", "NewsAPI", "SerpAPI"],
+    repoUrl: "https://github.com/jaiyan-th/AI-Powered-Fake-News-Detecter",
+    accentNote: "FastEmbed Vector RAG",
+  },
+  {
+    id: "smarthire-ai",
+    index: "P. 03",
+    title: "SmartHire AI — Mock Interview & Assessment Platform",
+    summary:
+      "Production-grade AI mock interview and candidate assessment platform with ATS resume parsing, real-time telemetry, and 4-pillar scoring.",
+    category: "Applied AI · Full-Stack",
+    year: "2025–26",
+    stack: ["Python", "Django 5.2", "DRF", "Groq", "OpenAI", "PostgreSQL", "Docker"],
+    repoUrl: "https://github.com/jaiyan-th/SmartHire-AI",
+    accentNote: "4-Pillar Scoring Engine",
   },
 ];
 

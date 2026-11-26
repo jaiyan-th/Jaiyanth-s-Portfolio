@@ -10,7 +10,7 @@ import {
   useSpring,
   useReducedMotion,
 } from "motion/react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { EyebrowPill } from "@/components/ui/eyebrow-pill";
 
@@ -24,7 +24,7 @@ export interface SelectedProjectCard {
   highlights: string[];
   metrics: Array<{ label: string; value: string }>;
   stack: string[];
-  image: string;
+  image?: string;
   liveUrl?: string;
   repoUrl?: string;
   isExternal?: boolean;
@@ -32,129 +32,94 @@ export interface SelectedProjectCard {
 
 export const PROJECTS_DATA: SelectedProjectCard[] = [
   {
-    id: "fake-news-detector",
+    id: "sql-query-agent",
     index: "P. 01",
-    title: "Fake News Detector — Grounded RAG Fact Verification",
-    category: "AI Internship · Brainery Spot",
-    year: "2025–26",
+    title: "SQL Query Agent — Natural Language to SQL",
+    category: "Applied AI · Text-to-SQL",
+    year: "2026",
     summary:
-      "Engineered during AI Internship at Brainery Spot Technology: an autonomous fact-checking pipeline retrieving semantically indexed evidence from Qdrant vector stores to score claims with strict source attribution and zero hallucination.",
+      "Ask questions in plain English, inspect the answer alongside its generated SQL, and explore results as interactive tables or charts—backed by Groq tool-calling and sqlglot AST safety validation.",
     highlights: [
-      "Grounded RAG pipeline cross-referencing incoming claims against vectorized news evidence with zero model hallucination.",
-      "High-throughput semantic retrieval layer using embeddings and vector search for sub-second claim resolution.",
-      "Full-stack architecture backed by Flask and Supabase with traceable provenance, cited URLs, and confidence calibration.",
+      "Multi-round Groq LLM tool-calling loop inspecting live schemas and executing read-only queries.",
+      "AST-level SQL safety validation via sqlglot restricting operations to analytics queries with row caps and execution timeouts.",
+      "Full-stack FastAPI and React + Recharts interface supporting SQLite, PostgreSQL, and MySQL.",
     ],
     metrics: [
-      { label: "Resolution Latency", value: "< 850ms" },
-      { label: "Verification Precision", value: "94.2%" },
-      { label: "Vector Search", value: "Qdrant" },
+      { label: "LLM Engine", value: "Groq Llama 3.3" },
+      { label: "SQL Guardrails", value: "sqlglot AST" },
+      { label: "DB Support", value: "Read-Only" },
     ],
     stack: [
       "Python",
-      "Flask",
-      "LangChain",
-      "Qdrant Vector DB",
-      "RAG",
-      "Supabase",
-      "News API",
-      "Embeddings",
-    ],
-    image: "/images/projects/fake-news-detector.jpg",
-    liveUrl: "https://fake-news-detecter-kopi.onrender.com/",
-    repoUrl: "https://github.com/jaiyan-th/Fake-News-Detecter",
-  },
-  {
-    id: "up-skill",
-    index: "P. 02",
-    title: "Up-Skill — AI Career & Interview Intelligence",
-    category: "Applied AI · Career Intelligence",
-    year: "2025",
-    summary:
-      "A multi-stage agentic career platform that runs ATS resume parsing, real-time conversational interview simulations, and calibrated skill-gap roadmaps.",
-    highlights: [
-      "Dual-LLM orchestration pairing Groq (Llama-3 70B) for sub-second conversational interview dialogue with Mistral for deep reasoning.",
-      "ATS resume parsing pipeline matching candidate skill graphs against job requirements with calibrated match scoring.",
-      "Real-time conversational mock interview simulator operating under 600ms latency with persistent session context.",
-    ],
-    metrics: [
-      { label: "Response Latency", value: "< 600ms" },
-      { label: "ATS Match Accuracy", value: "91.8%" },
-      { label: "Model Pipeline", value: "Dual-LLM" },
-    ],
-    stack: [
-      "Python",
-      "Flask",
-      "LangChain",
+      "FastAPI",
       "Groq",
-      "Mistral",
-      "Supabase",
-      "Embeddings",
-    ],
-    image: "/images/projects/up-skill.jpg",
-    liveUrl: "https://upskill-ai-personalized-skill-and-career-w0px.onrender.com/",
-    repoUrl:
-      "https://github.com/jaiyan-th/UpSkill-AI-Personalized-Skill-and-Career-Assistant",
-  },
-  {
-    id: "car-rent",
-    index: "P. 03",
-    title: "Car-Rent — Full-Stack Rental Platform",
-    category: "Full-Stack · Web Platform",
-    year: "2025",
-    summary:
-      "Full-stack automotive reservation platform engineered with concurrency-safe booking timelines, JWT/OAuth authentication, and Prisma relational modeling.",
-    highlights: [
-      "Concurrency-safe reservation engine preventing vehicle double-booking via atomic database transactions and row-level locks.",
-      "End-to-end type safety using TypeScript, NestJS controllers, Prisma ORM, and normalized PostgreSQL schemas.",
-      "Dynamic date-range validation and vehicle availability engine resolving complex overlapping bookings in < 40ms.",
-    ],
-    metrics: [
-      { label: "Double-Booking Overlap", value: "0%" },
-      { label: "API Query Latency", value: "< 40ms" },
-      { label: "Relational Store", value: "PostgreSQL" },
-    ],
-    stack: [
-      "Next.js",
+      "SQLAlchemy",
+      "sqlglot",
       "React",
-      "TypeScript",
-      "NestJS",
-      "Prisma ORM",
-      "PostgreSQL",
+      "Recharts",
       "Tailwind CSS",
     ],
-    image: "/images/projects/car-rent.jpg",
-    liveUrl: "https://car-rent-iota-six.vercel.app/",
-    repoUrl: "https://github.com/jaiyan-th/Car-Rent",
+    repoUrl: "https://github.com/jaiyan-th/SQL-Query-Agent",
   },
   {
-    id: "document-vault",
-    index: "P. 04",
-    title: "Secure Digital Document Vault — Cryptographic Storage",
-    category: "Full-Stack · Cybersecurity",
-    year: "2025",
+    id: "fake-news-detector",
+    index: "P. 02",
+    title: "AI News Verification System — Vector RAG Fact-Checking",
+    category: "Applied AI · RAG Verification",
+    year: "2025–26",
     summary:
-      "High-assurance document store featuring AES-256-GCM authenticated encryption, Argon2id key derivation, chunked streaming, and immutable audit trails.",
+      "An LLM + Vector RAG evidence verification system that extracts claims, retrieves real-time reporting from NewsAPI and Google News, and synthesizes transparent verdicts with FastEmbed semantic search.",
     highlights: [
-      "End-to-end AES-256-GCM authenticated encryption ensuring zero plaintext stored at rest or exposed during transfer.",
-      "Argon2id memory-hard key derivation protecting master keys against GPU and ASIC hardware brute-force attacks.",
-      "Streaming cryptographic pipeline handling multi-gigabyte file transfers within a strict 25MB RAM envelope.",
+      "Automated claim and entity extraction paired with targeted multi-angle search query generation via Groq LLM.",
+      "Cross-publisher wire deduplication and in-memory semantic indexing using FastEmbed (BAAI/bge-small-en-v1.5).",
+      "Stance evaluation (SUPPORT, CONTRADICT, NEUTRAL) synthesizing REAL, FALSE, MISLEADING, or UNVERIFIED verdicts.",
     ],
     metrics: [
-      { label: "Cipher Standard", value: "AES-256-GCM" },
-      { label: "Server Exposure", value: "0 Plaintext" },
-      { label: "RAM Envelope", value: "< 25MB" },
+      { label: "Embeddings", value: "FastEmbed" },
+      { label: "Vector Dim", value: "384-dim" },
+      { label: "Backend", value: "FastAPI" },
     ],
     stack: [
-      "FastAPI",
       "Python",
-      "SQLAlchemy",
-      "PostgreSQL",
-      "AES-256-GCM",
-      "Argon2",
+      "FastAPI",
+      "FastEmbed",
+      "Groq",
+      "NewsAPI",
+      "SerpAPI",
+      "Vector RAG",
     ],
-    image: "/images/projects/document-vault.jpg",
-    liveUrl: "https://jaiy-vault.onrender.com",
-    repoUrl: "https://github.com/jaiyan-th/Secure-Digital-Document-Vault",
+    image: "/images/projects/fake-news-detector.jpg",
+    repoUrl: "https://github.com/jaiyan-th/AI-Powered-Fake-News-Detecter",
+  },
+  {
+    id: "smarthire-ai",
+    index: "P. 03",
+    title: "SmartHire AI — Mock Interview & Assessment Platform",
+    category: "Applied AI · Full-Stack",
+    year: "2025–26",
+    summary:
+      "A production-grade AI mock interview and candidate assessment platform featuring multi-discipline interviews, ATS resume analysis, real-time webcam/audio telemetry, and a deterministic 4-pillar scoring engine.",
+    highlights: [
+      "Multi-discipline mock interviews (Technical, HR, Behavioral STAR, Quantitative) with real-time gaze and WPM cadence telemetry.",
+      "ATS resume analyzer ingesting PDF/DOCX resumes to extract skills and compute job description alignment.",
+      "Recruiter portal, admin diagnostics terminal, and certified tamper-resistant PDF dossier generation.",
+    ],
+    metrics: [
+      { label: "Scoring Engine", value: "4-Pillar" },
+      { label: "Backend", value: "Django 5.2" },
+      { label: "LLM Stack", value: "Groq + GPT-4o" },
+    ],
+    stack: [
+      "Python",
+      "Django 5.2",
+      "DRF",
+      "Groq",
+      "OpenAI",
+      "PostgreSQL",
+      "JavaScript",
+      "Docker",
+    ],
+    repoUrl: "https://github.com/jaiyan-th/SmartHire-AI",
   },
 ];
 
@@ -185,12 +150,34 @@ export function SelectedWork() {
         {/* Section Intro Paragraph with 2px solid accent left vertical line */}
         <div className="lead-intro mb-6">
           <p>
-            Autonomous fact-verification pipelines, dual-LLM agentic career platforms, concurrency-safe reservation engines, and cryptographic vaults.
+            Natural-language SQL agents, vector RAG fact-verification pipelines, and AI-powered candidate assessment platforms.
           </p>
         </div>
 
         {/* Editorial 3D Projects List */}
         <ProjectsList projects={PROJECTS_DATA} />
+
+        {/* Other Projects -> Explore GitHub CTA */}
+        <Reveal className="mt-8 pt-6 border-t-2 border-[#111111]/15 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="space-y-1">
+            <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#E8472B] font-bold">
+              More Projects &amp; Experiments
+            </span>
+            <p className="font-sans text-[14px] sm:text-[15px] text-[var(--body)]">
+              Want to see my other repositories, full-stack builds, and AI prototypes?
+            </p>
+          </div>
+          <a
+            href="https://github.com/jaiyan-th"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-full bg-[#111111] text-white font-mono text-[12px] uppercase tracking-[0.08em] font-bold border-2 border-[#111111] shadow-[4px_4px_0px_#FFD13B] hover:bg-[#FFD13B] hover:text-[#111111] hover:shadow-[4px_4px_0px_#111111] transition-all duration-200 shrink-0"
+          >
+            <Github className="w-4 h-4" />
+            <span>Explore GitHub for my work</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </a>
+        </Reveal>
       </div>
     </section>
   );
@@ -331,8 +318,31 @@ export function ProjectPreview({
                 priority
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center bg-[#F6F4EE] text-[#0A0A0A] font-mono text-xs font-bold">
-                {activeProject.index}
+              <div className="w-full h-full flex flex-col justify-between p-5 bg-[#FAF8F5] text-[#111111]">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs font-bold text-[#E8472B]">
+                    {activeProject.index}
+                  </span>
+                  <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#555555]">
+                    GitHub Repository
+                  </span>
+                </div>
+                <div className="space-y-2">
+                  <p className="font-sans font-bold text-lg leading-snug text-[#111111]">
+                    {activeProject.title}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {activeProject.stack.slice(0, 4).map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-0.5 rounded bg-white border border-[#111111]/20 font-mono text-[10px] uppercase tracking-[0.06em]"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="h-6" />
               </div>
             )}
             {/* Overlay badge with project stack */}
@@ -362,35 +372,27 @@ interface ProjectRowProps {
 }
 
 function renderProjectTitle(id: string, defaultTitle: string) {
+  if (id === "sql-query-agent") {
+    return (
+      <>
+        SQL Query Agent — Natural Language to{" "}
+        <em className="accent font-serif-italic italic text-accent font-normal">SQL</em>
+      </>
+    );
+  }
   if (id === "fake-news-detector") {
     return (
       <>
-        Fake News Detector — Grounded RAG{" "}
-        <em className="accent font-serif-italic italic text-accent font-normal">Verification</em>
+        AI News Verification System — Vector RAG{" "}
+        <em className="accent font-serif-italic italic text-accent font-normal">Fact-Checking</em>
       </>
     );
   }
-  if (id === "up-skill") {
+  if (id === "smarthire-ai") {
     return (
       <>
-        Up-Skill — AI Career &amp; Interview{" "}
-        <em className="accent font-serif-italic italic text-accent font-normal">Intelligence</em>
-      </>
-    );
-  }
-  if (id === "car-rent") {
-    return (
-      <>
-        Car-Rent — Full-Stack Rental{" "}
-        <em className="accent font-serif-italic italic text-accent font-normal">Platform</em>
-      </>
-    );
-  }
-  if (id === "document-vault") {
-    return (
-      <>
-        Secure Digital Document Vault — Cryptographic{" "}
-        <em className="accent font-serif-italic italic text-accent font-normal">Storage</em>
+        SmartHire AI — Mock Interview &amp;{" "}
+        <em className="accent font-serif-italic italic text-accent font-normal">Assessment</em>
       </>
     );
   }
@@ -399,14 +401,12 @@ function renderProjectTitle(id: string, defaultTitle: string) {
 
 function getProjectBadgeStyle(id: string) {
   switch (id) {
+    case "sql-query-agent":
+      return "bg-[#E0F2FE] text-[#111111] border-2 border-[#111111] shadow-[2px_2px_0px_#111111]";
     case "fake-news-detector":
       return "bg-[#FEF08A] text-[#111111] border-2 border-[#111111] shadow-[2px_2px_0px_#111111]";
-    case "up-skill":
+    case "smarthire-ai":
       return "bg-[#EDE9FE] text-[#111111] border-2 border-[#111111] shadow-[2px_2px_0px_#111111]";
-    case "car-rent":
-      return "bg-[#DCFCE7] text-[#111111] border-2 border-[#111111] shadow-[2px_2px_0px_#111111]";
-    case "document-vault":
-      return "bg-[#E0F2FE] text-[#111111] border-2 border-[#111111] shadow-[2px_2px_0px_#111111]";
     default:
       return "bg-[#FEF9C3] text-[#111111] border-2 border-[#111111] shadow-[2px_2px_0px_#111111]";
   }

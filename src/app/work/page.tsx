@@ -17,32 +17,27 @@ export const metadata: Metadata = {
 };
 
 const renderProjectTitle = (title: string, slug: string) => {
+  if (slug === "sql-query-agent") {
+    return (
+      <>
+        SQL Query Agent — Natural Language to{" "}
+        <em className="accent font-serif-italic italic text-accent font-normal">SQL</em>
+      </>
+    );
+  }
   if (slug === "fake-news-detector") {
     return (
       <>
-        Full-Stack Real-Time Fake News{" "}
-        <em className="accent font-serif-italic italic text-accent font-normal">Verification</em>
+        AI News Verification System — Vector RAG{" "}
+        <em className="accent font-serif-italic italic text-accent font-normal">Fact-Checking</em>
       </>
     );
   }
-  if (slug === "deep-research-agent") {
+  if (slug === "smarthire-ai") {
     return (
       <>
-        Autonomous Deep <em className="accent font-serif-italic italic text-accent font-normal">Research</em> &amp; Synthesis Agent
-      </>
-    );
-  }
-  if (slug === "automated-data-platform") {
-    return (
-      <>
-        Enterprise Automated Data <em className="accent font-serif-italic italic text-accent font-normal">Platform</em>
-      </>
-    );
-  }
-  if (slug === "cold-storage-optimization") {
-    return (
-      <>
-        Cold <em className="accent font-serif-italic italic text-accent font-normal">Storage</em> &amp; Archive Tier Optimization
+        SmartHire AI — Mock Interview &amp;{" "}
+        <em className="accent font-serif-italic italic text-accent font-normal">Assessment</em>
       </>
     );
   }
@@ -148,6 +143,27 @@ export default function WorkIndexPage() {
                 </div>
               </div>
             ))}
+          </div>
+          {/* Explore GitHub for other projects */}
+          <div className="mb-12 sm:mb-16 p-6 rounded-2xl bg-white border-2 border-[#111111] shadow-[4px_4px_0px_#111111] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="space-y-1">
+              <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#E8472B] font-bold">
+                Other Projects
+              </span>
+              <p className="font-sans text-sm sm:text-base text-[var(--body)]">
+                Explore my GitHub for additional full-stack apps, AI experiments, and open-source work.
+              </p>
+            </div>
+            <a
+              href="https://github.com/jaiyan-th"
+              target="_blank"
+              rel="noreferrer"
+              className="neo-pill-btn px-5 py-2.5 font-mono text-xs uppercase tracking-[0.08em] font-bold min-h-[44px] inline-flex items-center gap-2 shrink-0"
+            >
+              <Github className="w-4 h-4" />
+              <span>Explore GitHub for my work</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
           </div>
         </div>
 

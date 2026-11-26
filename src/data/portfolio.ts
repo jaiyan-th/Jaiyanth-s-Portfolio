@@ -45,7 +45,7 @@ export const ABOUT = {
     "I'm currently open to applied-AI and full-stack engineering roles where rigour, taste, and care for the user matter as much as the model.",
   ],
   metrics: [
-    { value: "4", label: "Selected projects", detail: "Fake News Detector · Up-Skill · Car-Rent · Secure Document Vault" },
+    { value: "3", label: "Selected projects", detail: "SQL Query Agent · AI News Verification · SmartHire AI" },
     { value: "6", label: "Evidence-based skill groups", detail: "Languages · Frontend · Backend · Databases · AI & ML · Tools" },
     { value: "1", label: "AI internship", detail: "Brainery Spot Technology · Jun–Jul 2025" },
     { value: "2027", label: "Graduation batch", detail: "B.Tech CSBS · VSB Engineering College" },
@@ -150,154 +150,109 @@ export const SKILL_GROUPS: SkillGroup[] = [
 
 export const PROJECTS: Project[] = [
   {
-    slug: "fake-news-detector",
+    slug: "sql-query-agent",
     number: "01",
-    category: "Applied AI · RAG",
-    title: "Fake News Detector",
+    category: "Applied AI · Text-to-SQL",
+    title: "SQL Query Agent",
     summary:
-      "A RAG-powered fact-checking pipeline that cross-references incoming articles against a curated evidence base and surfaces a retrieval-grounded trust verdict.",
-    stack: ["Python", "Flask", "Supabase", "Vector Database", "RAG", "LLM", "News API", "Embeddings", "Semantic Search"],
-    engineeringFocus: "Retrieval-augmented generation pipeline · semantic-search evidence layer",
-    repository: "https://github.com/jaiyan-th/Fake-News-Detecter",
-    liveUrl: "https://fake-news-detecter-kopi.onrender.com/",
-    visual: "evidence-network",
-    image: "/images/projects/fake-news-detector.jpg",
+      "A natural-language to SQL analytics agent powered by Groq tool-calling, sqlglot AST safety validation, read-only database execution, and interactive Recharts visualizations.",
+    stack: ["Python", "FastAPI", "Groq", "SQLAlchemy", "sqlglot", "React", "Recharts", "Tailwind CSS"],
+    engineeringFocus: "Tool-calling LLM agent · sqlglot AST guardrails · read-only DB execution",
+    repository: "https://github.com/jaiyan-th/SQL-Query-Agent",
+    visual: "route-geometry",
     layout: "featured",
     caseStudy: {
       overview:
-        "Fake News Detector ingests an article, retrieves semantically similar verified evidence from a vector store, and asks an LLM to produce a calibrated trust verdict grounded strictly in the retrieved sources. The pipeline is wrapped behind a Flask service and uses Supabase for persistence and News API for evidence collection.",
+        "SQL Query Agent lets users ask analytical questions in plain English, inspect the generated SQL query, and explore results as tables or Recharts visualizations. It uses Groq (llama-3.3-70b-versatile) with multi-round tool-calling against SQLite, PostgreSQL, or MySQL.",
       problem:
-        "Misinformation moves faster than manual fact-checking. Generic LLM answers are unreliable because they hallucinate and lack provenance. The challenge was to build a system that grounds every verdict in retrieved, traceable evidence instead of model memory.",
+        "Non-technical stakeholders need answers from relational databases without writing SQL, while naive LLM-to-SQL pipelines risk destructive queries, schema hallucinations, or unguarded execution.",
       approach:
-        "Treat the LLM as a reasoning layer, not a knowledge source. Convert trusted evidence into embeddings, store them in a vector database, retrieve the top-k semantically similar items for each incoming article, and feed them into a strict prompt that asks for a verdict traceable to those sources only.",
+        "Expose structured schema inspection and query execution tools to the LLM, parse every generated statement with sqlglot to enforce read-only analytics operations, and execute against read-only database connections with strict row caps and timeouts.",
       architecture:
-        "Flask API → News API ingestion → text chunking → embedding model → vector database → semantic retrieval → strict-grounded LLM prompt → trust verdict with cited sources. Supabase stores article metadata and verdict history.",
+        "React + Vite + Recharts UI → FastAPI backend → Groq LLM tool-calling loop → sqlglot AST safety validator → SQLAlchemy read-only connection (SQLite / PostgreSQL / MySQL).",
       features: [
-        "Article intake and normalization",
-        "Evidence collection via News API",
-        "Embedding generation and vector storage",
-        "Semantic retrieval of top-k evidence",
-        "Strict RAG prompt with source citation",
-        "Trust score with traceable evidence links",
-        "Verdict history persisted in Supabase",
+        "Multi-round Groq tool-calling agent with schema reflection",
+        "sqlglot AST parser blocking write statements and unsafe functions",
+        "Read-only database connections with 5-second query timeouts",
+        "Interactive table and Recharts chart visualizations",
+        "Multi-database support (SQLite, PostgreSQL, MySQL)",
+        "Dockerized full-stack deployment",
       ],
       challenges:
-        "Retrieval relevance was the hardest part — naive similarity often surfaced tangential sources. Tightening chunk size, adding metadata filters, and constraining the prompt to refuse when evidence was insufficient materially improved verdict quality.",
+        "Preventing unsafe or malformed SQL from reaching the database required parsing the full SQL AST with sqlglot rather than relying on fragile regex keyword checks.",
       learnings:
-        "Grounded retrieval beats a larger model. The most reliable upgrades came from better chunking, stricter prompts, and refusing to answer when evidence was weak — not from scaling the LLM.",
+        "Enforcing safety invariants at the AST and connection-mode layers makes LLM tool-calling reliable and safe for real analytical workloads.",
     },
   },
   {
-    slug: "up-skill",
+    slug: "fake-news-detector",
     number: "02",
-    category: "Applied AI · Career Assistant",
-    title: "Up-Skill",
+    category: "Applied AI · Vector RAG",
+    title: "AI News Verification System",
     summary:
-      "An AI career assistant that scores resumes ATS-style, runs mock interviews, maps skill gaps, and proposes personalized learning paths.",
-    stack: ["Flask", "Supabase", "Stitch", "NLP", "Groq", "Mistral"],
-    engineeringFocus: "Multi-stage LLM workflow · profile intelligence · skill-gap analysis",
-    repository: "https://github.com/jaiyan-th/UpSkill-AI-Personalized-Skill-and-Career-Assistant",
-    liveUrl: "https://upskill-ai-personalized-skill-and-career-w0px.onrender.com/",
-    visual: "career-layers",
-    image: "/images/projects/up-skill.jpg",
+      "An LLM + Vector RAG evidence verification system that extracts claims, retrieves real-time reporting via NewsAPI and Google News, and synthesizes transparent verdicts with FastEmbed semantic search.",
+    stack: ["Python", "FastAPI", "FastEmbed", "Groq", "NewsAPI", "SerpAPI", "Vector RAG"],
+    engineeringFocus: "Vector RAG evidence pipeline · semantic search · stance & verdict synthesis",
+    repository: "https://github.com/jaiyan-th/AI-Powered-Fake-News-Detecter",
+    visual: "evidence-network",
+    image: "/images/projects/fake-news-detector.jpg",
     layout: "reversed",
     caseStudy: {
       overview:
-        "Up-Skill is a career assistant that turns a candidate's resume and target role into a structured development plan. It scores the resume ATS-style, runs a conversational mock interview, identifies skill gaps against the role, and proposes a personalized learning path.",
+        "AI News Verification System ingests a news URL or pasted text claim, extracts verifiable claims and entities via Groq LLM, retrieves live coverage from NewsAPI and Google News, deduplicates syndicated wire stories, and indexes evidence with FastEmbed (BAAI/bge-small-en-v1.5) for semantic retrieval and stance-based verdict synthesis.",
       problem:
-        "Career tooling is fragmented: resume scoring, interview prep, and learning plans live in separate products. Candidates rarely get a single coherent view of where they stand and what to do next.",
+        "Users encountering viral claims cannot easily cross-check multiple news outlets, and traditional supervised classifiers fail on breaking events or lack transparent source citations.",
       approach:
-        "Build a multi-stage LLM workflow where each stage produces structured output the next stage consumes. Use Groq for low-latency reasoning and Mistral for nuanced evaluation. Stitch and Supabase persist profile state and learning progress.",
+        "Replace static classification with a live retrieval-augmented pipeline: extract claims, generate multi-angle search queries, retrieve and deduplicate live articles, index 384-dim FastEmbed vectors, evaluate per-source stance (SUPPORT / CONTRADICT / NEUTRAL), and synthesize a transparent verdict.",
       architecture:
-        "Flask service · resume parser · ATS scoring stage · mock interview (conversational) stage · skill-gap analysis stage · learning-path synthesis stage. Profile state and progress persisted in Supabase. Stitch used for design system.",
+        "FastAPI (/api/v1/verify) → Article extractor (newspaper3k + bs4) → Groq claim & query extraction → NewsAPI & Google News retrieval → wire deduplication → FastEmbed 384-dim semantic index → Groq stance & verdict synthesis.",
       features: [
-        "ATS-style resume scoring with structured feedback",
-        "Conversational mock interview with topic tracking",
-        "Skill-gap analysis against a target role",
-        "Personalized learning path generation",
-        "Profile state persisted across sessions",
-        "Multi-model orchestration (Groq + Mistral)",
+        "URL article extraction and raw text claim verification",
+        "Automated claim decomposition and multi-angle query generation",
+        "Live multi-source retrieval via NewsAPI and Google News (SerpAPI / RSS)",
+        "Cross-publisher syndicated wire deduplication",
+        "FastEmbed (BAAI/bge-small-en-v1.5) semantic evidence retrieval",
+        "Transparent REAL / FALSE / MISLEADING / UNVERIFIED verdicts with stance breakdown",
       ],
       challenges:
-        "Stage-to-stage consistency was hard — an ATS score from one model had to be interpretable by the skill-gap stage in another. A shared structured schema between stages resolved most drift.",
+        "Syndicated wire stories across multiple outlets inflated support counts artificially; adding source normalization and wire deduplication ensured diverse, independent evidence weighting.",
       learnings:
-        "Multi-model pipelines need a strong contract between stages. Once outputs were schema-bound, swapping models became a tuning decision instead of a rewrite.",
+        "Combining dense semantic retrieval with explicit stance evaluation produces far more explainable and trustworthy fact-checking than opaque probability scores.",
     },
   },
   {
-    slug: "car-rent",
+    slug: "smarthire-ai",
     number: "03",
-    category: "Full-Stack · Platform",
-    title: "Car-Rent",
+    category: "Applied AI · Full-Stack",
+    title: "SmartHire AI",
     summary:
-      "A full-stack rental platform covering vehicle discovery, booking, reviews, payments, and secure authentication, with REST APIs and relational data modeling.",
-    stack: ["Next.js", "React", "TypeScript", "NestJS", "Prisma ORM", "JWT", "OAuth", "REST API", "Relational Database"],
-    engineeringFocus: "Full-stack platform · secure auth · relational modeling",
-    repository: "https://github.com/jaiyan-th/Car-Rent-Main",
-    liveUrl: "https://car-rent-main-fcdo.onrender.com/",
-    visual: "route-geometry",
-    image: "/images/projects/car-rent.jpg",
+      "A production-grade AI mock interview and candidate assessment platform featuring multi-discipline interviews, ATS resume analysis, real-time webcam/audio telemetry, and a deterministic 4-pillar scoring engine.",
+    stack: ["Python", "Django 5.2", "Django REST Framework", "Groq", "OpenAI", "PostgreSQL", "JavaScript", "Docker"],
+    engineeringFocus: "Multi-discipline AI interviews · ATS parsing · deterministic 4-pillar scoring",
+    repository: "https://github.com/jaiyan-th/SmartHire-AI",
+    visual: "career-layers",
     layout: "cinematic",
     caseStudy: {
       overview:
-        "Car-Rent is a full-stack rental platform. Users discover vehicles, place bookings, leave reviews, and pay securely. The system uses Next.js on the front, NestJS on the back, Prisma ORM for relational modeling, and JWT + OAuth for authentication.",
+        "SmartHire AI is an AI-powered mock interview and candidate assessment platform built for job seekers, university career cells, and recruitment teams. It combines Technical, HR, Behavioral (STAR), and Quantitative mock interviews with ATS resume parsing, live webcam/audio telemetry, recruiter benchmarking, and certified PDF dossiers.",
       problem:
-        "Rental platforms combine a lot of moving parts — search, scheduling, payments, reviews, and auth — and small leaks in any one of them break the whole experience. The challenge was to model this cleanly and keep the API contract dependable.",
+        "Interview preparation and candidate evaluation tools rarely unify resume alignment, live communication telemetry, and structured multi-pillar scoring into a single auditable workflow.",
       approach:
-        "Split the system into a typed Next.js front-end, a NestJS REST API, and a Prisma-managed relational schema. Use JWT for session auth, OAuth for federated login, and strict request/response DTOs everywhere so the front and back never drift.",
+        "Architect a Django 5.2 LTS + DRF backend paired with a modular vanilla JS frontend, integrating Groq Llama-3.1-8B-Instant and OpenAI GPT-4o-mini with a deterministic 4-pillar scoring formula, PyPDF2 resume parsing, and Web Speech/Audio APIs.",
       architecture:
-        "Next.js + React (front) · NestJS REST API · Prisma ORM · relational database · JWT auth · OAuth provider. Clean separation of discovery, booking, review, and payment domains.",
+        "Modular HTML5/CSS3/ES6 Frontend → Django 5.2 LTS & DRF API (SimpleJWT) → PostgreSQL / SQLite → Groq & OpenAI LLM services → PDF dossier generator & Admin diagnostics console.",
       features: [
-        "Vehicle discovery with filters",
-        "Booking timeline with availability checks",
-        "Secure JWT and OAuth authentication",
-        "Review and rating system",
-        "Payment integration",
-        "REST API with strict DTOs",
-        "Relational data modeling via Prisma ORM",
+        "Multi-discipline mock interviews (Technical, HR, Behavioral STAR, Quantitative)",
+        "ATS resume analyzer with PDF/DOCX parsing and JD skill alignment",
+        "Real-time webcam gaze stability and speaking cadence (WPM) telemetry",
+        "Deterministic 4-pillar weighted scoring engine",
+        "Recruiter portal for candidate filtering, benchmarking, and template building",
+        "Certified tamper-resistant PDF dossier downloads & admin diagnostics",
       ],
       challenges:
-        "Booking availability under concurrent writes was the hardest correctness problem. Adding a database-level constraint on overlapping bookings removed a class of race conditions that application logic alone couldn't fully prevent.",
+        "Keeping real-time interview feedback responsive while combining LLM evaluation with browser audio/video telemetry required separating low-latency client telemetry from structured backend scoring.",
       learnings:
-        "Push invariants into the schema wherever possible. Code that prevents double-bookings is fragile; a unique constraint is not.",
-    },
-  },
-  {
-    slug: "secure-document-vault",
-    number: "04",
-    category: "Full-Stack · Cybersecurity",
-    title: "Secure Document Vault",
-    summary:
-      "A zero-trust encrypted document vault with AES-256-GCM authenticated encryption, role-based access control, chunked streaming, device trust, and immutable audit logging.",
-    stack: ["Python", "FastAPI", "SQLAlchemy", "PostgreSQL", "AES-256-GCM", "Argon2", "PyJWT", "JavaScript"],
-    engineeringFocus: "Zero-knowledge encryption pipeline · AES-256-GCM · immutable audit logging",
-    repository: "https://github.com/jaiyan-th/Secure-Digital-Document-Vault",
-    liveUrl: "https://jaiy-vault.onrender.com",
-    visual: "crypto-vault",
-    image: "/images/projects/document-vault.jpg",
-    layout: "featured",
-    caseStudy: {
-      overview:
-        "Secure Digital Document Vault is a zero-trust encrypted storage platform built for high-assurance data privacy. Files are encrypted client-side or during chunked ingestion using AES-256-GCM with unique cryptographic nonces before persisting to disk. The system enforces strict role-based access control (RBAC), password-derived keys with Argon2 hashing, device verification, and append-only audit logging.",
-      problem:
-        "Traditional cloud storage solutions often store files in plaintext or decrypt them on the server without strict per-file key isolation, leaving sensitive documents vulnerable to internal data leaks and server breaches. The goal was to engineer a zero-trust vault with end-to-end cryptographic guarantees and complete access provenance.",
-      approach:
-        "Implement AES-256-GCM authenticated encryption for all uploaded artifacts with isolated initialization vectors (IVs). Combine Argon2 password hashing and PyJWT authentication to verify user authorization and device trust, while persisting structured access logs to guarantee complete auditability.",
-      architecture:
-        "FastAPI backend · chunked file ingestion & MIME validator · AES-256-GCM encryption engine · Argon2 key derivation · PostgreSQL & SQLAlchemy ORM · PyJWT session & device management · append-only audit logging layer.",
-      features: [
-        "Zero-knowledge AES-256-GCM file encryption & decryption",
-        "Mandatory user password protection & Argon2 hashing",
-        "Chunked upload processing with MIME-type validation",
-        "Role-Based Access Control (RBAC) with strict ownership isolation",
-        "Tamper-evident, immutable audit trail for all file operations",
-        "Device trust monitoring and session management",
-        "Containerized one-click cloud deployment pipeline",
-      ],
-      challenges:
-        "Streaming large encrypted payloads without blowing up memory limits required architecting a chunked encryption stream where blocks are validated and encrypted on the fly while maintaining cryptographic integrity and authentication tags.",
-      learnings:
-        "Security is an architectural discipline, not an afterthought. Enforcing cryptographic invariants and strict RBAC boundaries at the API layer eliminates accidental exposure vectors completely.",
+        "A deterministic weighted scoring model layered over structured LLM rubric outputs gives both candidates and recruiters consistent, auditable results.",
     },
   },
 ];
