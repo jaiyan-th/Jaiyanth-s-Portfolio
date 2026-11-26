@@ -110,7 +110,7 @@ export function Experience() {
                 </span>
               </div>
               <h3 className="card-title font-sans font-bold text-xl sm:text-2xl text-[#111111] leading-snug">
-                {EXPERIENCE.role}
+                {EXPERIENCE.role} at {EXPERIENCE.organisation}
               </h3>
             </div>
 
